@@ -1,0 +1,167 @@
+/**
+ * CSS code for all Astra Extensions admin screens
+ *
+ * @package Astra
+ * @since 1.0.0
+ */
+
+.ast-clear:before, .ast-clear:after {
+	content: " ";
+	display: table;
+}
+.ast-clear:after {
+	clear: both;
+}
+
+.astext-postbox-table {
+	border-spacing: 0;
+	max-width: 1000px;
+	width: 100%;
+}
+
+.astext-postbox-table .column-1 {
+	width: 25%;
+}
+
+.astext-postbox-table .column-2 {
+	width: 75%;
+}
+
+.astext-postbox-table td,
+.astext-postbox-table th {
+	padding: 2px;
+	word-wrap: break-word;
+}
+
+.astext-postbox-table th {
+	text-align: left;
+	font-weight: 400;
+}
+
+/* Plugin title */
+
+#ast-menu-page .ast-title {
+	float: left;
+	padding: 0.2em 0;
+}
+
+#ast-menu-page .ast-separator {
+	margin: 0.2em;
+	float: left;
+}
+
+.notice-info.not-dismissible {
+	margin-top: 20px;
+}
+
+/* Extension Form */
+
+.astext-whitelable-options .form-field  input,
+.astext-whitelable-options .form-field textarea{
+	width: 100%;
+}
+
+.ast-addon-wrap .ast-bulk-activator.ast-addon{
+	border-left: 5px solid #DDD;
+	background: #EFEFEF;
+}
+.ast-addon-wrap .ast-addon {
+	padding: 10px;
+	margin: 0 !important;
+	border-left: 5px solid transparent;
+	-moz-box-shadow   : 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+	box-shadow        : 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+.ast-addon-wrap .ast-cb {
+	margin-right: 10px;
+}
+
+
+.ast-addon-wrap .ast-bulk-actions {
+	padding: 3px 5px;
+	margin-right: 10px;
+}
+.ast-addon-wrap .ast-addon-name {
+	float: left;
+	padding: 3px 5px;
+	margin: 1px;
+}
+
+.ast-addon-wrap .ast-addon-action .ast-activator-submit {
+	text-transform: capitalize;
+	background: none;
+	border: none;
+	cursor: pointer;
+	float: right;
+	clear: right;
+	color: #0d72b2;
+}
+
+.ast-addon-wrap .ast-addon.activated input[type="submit"]:hover,
+.ast-addon-action .ast-activator-submit:hover {
+	color: #0f92e5;
+}
+.ast-addon-wrap .ast-addon.activated {
+	background-color: #f7fcfe;
+	border-left: 5px solid #2ea2cc;
+	font-weight: 700;
+	color: #444;
+}
+
+.ast-addon-wrap .ast-addon.activated input[type="submit"] {
+	color: #0d72b2;
+	font-weight: 700;
+}
+
+.astext-whitelable-options p.submit {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+@media (min-width: 800px){
+	#astext-theme-branding-options {
+		float: left;
+		width: 49.5%;
+	}
+	#astext-theme-branding-options .postbox {
+		margin-right: 8px;
+	}
+	#astext-plugin-branding-options,
+	#astext-options-user-options {
+		float: right;
+		width: 50.5%;
+	}
+	#astext-plugin-branding-options .postbox,
+	#astext-options-user-options .postbox {
+		margin-left: 8px;
+	}
+	.col-50{
+		float: left;
+		width: 50%;
+	}
+}
+
+/**
+ * License
+ */
+#postbox-licence .license-form-field:nth-child(5) {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+#postbox-licence .license-form-field {
+    display: block;
+}
+#postbox-licence h4 {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.bsf-current-license-error-astra-theme {
+    display: block;
+    padding: 1em;
+    border-left: 4px solid #dc3232;
+    -webkit-box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+    box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+}

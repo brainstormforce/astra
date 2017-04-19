@@ -703,6 +703,8 @@ if ( ! function_exists( 'ast_archive_page_info' ) ) {
 		<?php }// End if().
 		}// End if().
 	}
+
+	add_action( 'ast_archive_header', 'ast_archive_page_info' );
 }// End if().
 
 

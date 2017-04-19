@@ -74,6 +74,11 @@ require_once AST_THEME_DIR . 'inc/class-ast-after-setup-theme.php';
 if ( is_admin() ) {
 
 	/**
+	 * Admin Menu Settings
+	 */
+	require_once AST_THEME_DIR . 'inc/pro/admin-page/class-ast-admin-settings.php';
+
+	/**
 	 * Metabox additions.
 	 */
 	require_once AST_THEME_DIR . 'inc/metabox/class-ast-meta-boxes.php';

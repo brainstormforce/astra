@@ -47,7 +47,7 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 			add_action( 'ast_get_fonts',      array( $this, 'add_fonts' ), 1 );
 
 			add_action( 'init', array( $this, 'style_list' ) );
-			self::scripts_list();
+			add_action( 'init', array( $this, 'scripts_list' ) );
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'ast_get_css_files',  array( $this, 'add_styles' ), 1 );
@@ -248,8 +248,11 @@ if ( ! class_exists( 'AST_Enqueue_Scripts' ) ) {
 		public function add_styles() {
 
 			if ( class_exists( 'Ast_Minify' ) ) {
-				foreach ( self::$styles as $key => $style ) {
-					Ast_Minify::add_css( $style['src'] );
+
+				if ( count( self::$styles ) > 0 ) {
+					foreach ( self::$styles as $key => $style ) {
+						Ast_Minify::add_css( $style['src'] );
+					}
 				}
 			}
 

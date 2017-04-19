@@ -400,6 +400,13 @@ function ast_footer_content_bottom() {
 }
 
 /**
+ * Archive header
+ */
+function ast_archive_header() {
+	do_action( 'ast_archive_header' );
+}
+
+/**
  * Pagination
  */
 function ast_pagination() {

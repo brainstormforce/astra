@@ -13,19 +13,13 @@ get_header(); ?>
 <?php if ( ast_page_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 	<div id="primary" <?php ast_primary_class(); ?>>
-		
-		<?php if ( have_posts() ) : ?>
-		
-			<?php /* Archive Page info */
-				ast_archive_page_info();
-			?>
 
-		<?php endif; ?>
-		
+		<?php ast_archive_header(); ?>
+
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -50,7 +44,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 
 			</div>
-			
+
 			<?php ast_content_while_after(); ?>
 
 		<?php else : ?>
@@ -68,7 +62,7 @@ get_header(); ?>
 <?php if ( ast_page_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 <?php get_footer(); ?>

@@ -152,50 +152,50 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<p>
+			<p class="post-attributes-label-wrapper" >
 				<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
-				<br/>
-				<select name="site-sidebar-layout" id="site-sidebar-layout">
-					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
-					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
-					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
-					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
-				</select>
 			</p>
+			<select name="site-sidebar-layout" id="site-sidebar-layout">
+				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
+				<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
+				<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
+				<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
+			</select>
 			
 			<?php
 			/**
 			 * Option: Sidebar
 			 */
 			?>
-			<p>
+			<p class="post-attributes-label-wrapper" >
 				<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
-				<br/>
-				<select name="site-content-layout" id="site-content-layout">
-					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
-					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Plain', 'astra' ); ?></option>
-					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Page Builder', 'astra' ); ?></option>
-				</select>
 			</p>
-			<hr />
-
+			<select name="site-content-layout" id="site-content-layout">
+				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
+				<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Plain', 'astra' ); ?></option>
+				<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
+				<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
+				<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Page Builder', 'astra' ); ?></option>
+			</select>
+			
 			<?php
 			/**
 			 * Option: Small Footer
 			 */
 			?>
-			<p>
+			<p class="post-attributes-label-wrapper">
 				<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
 			</p>
 			<span>
 				<?php do_action( 'ast_meta_box_markup_disable_sections_before', $meta ); ?>
 
 				<span class="site-post-title-option-wrap">
-					<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-					<label for="site-post-title"><?php esc_html_e( 'Disable Page / Post Title', 'astra' ); ?></label> <br />
+					<label for="site-post-title">
+						<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Page / Post Title', 'astra' ); ?>
+					</label>
 				</span>
+				<br />
 
 				<?php
 
@@ -203,15 +203,21 @@ if ( ! class_exists( 'AST_Meta_Boxes' ) ) {
 
 				if ( 'disabled' != $footer_sml_layout ) { ?>
 				<span class="footer-sml-layout-option-wrap">
-					<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $small_footer, 'disabled' ); ?> />
-					<label for="footer-sml-layout"><?php esc_html_e( 'Disable Small Footer', 'astra' ); ?></label> <br />
+					<label for="footer-sml-layout">
+						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $small_footer, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Small Footer', 'astra' ); ?>
+					</label>
 				</span>
+				<br />
 				<?php } ?>
 
 				<span class="ast-main-header-display-option-wrap">
-					<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-					<label for="ast-main-header-display"><?php esc_html_e( 'Disable Primary Header', 'astra' ); ?></label> <br />
+					<label for="ast-main-header-display">
+						<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
+					</label>
 				</span>
+				<br />
 
 				<?php do_action( 'ast_meta_box_markup_disable_sections_after', $meta ); ?>
 			</span>
