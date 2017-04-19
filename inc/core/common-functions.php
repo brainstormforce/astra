@@ -611,26 +611,6 @@ if ( ! function_exists( 'ast_get_the_title' ) ) {
 }// End if().
 
 /**
- * Wrapper function fot the_archive_title()
- */
-if ( ! function_exists( 'ast_the_archive_title' ) ) {
-
-	/**
-	 * Wrapper function fot the_archive_title()
-	 *
-	 * Displays archive title only if the page title bar is disabled.
-	 *
-	 * @see get_the_archive_title()
-	 *
-	 * @param string $before Optional. Content to prepend to the title. Default empty.
-	 * @param string $after  Optional. Content to append to the title. Default empty.
-	 */
-	function ast_the_archive_title( $before = '', $after = '' ) {
-		the_archive_title( $before, $after );
-	}
-}
-
-/**
  * Archive Page Title
  */
 if ( ! function_exists( 'ast_archive_page_info' ) ) {

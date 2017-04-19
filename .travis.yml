@@ -7,10 +7,6 @@ notifications:
     on_success: never
     on_failure: change
 
-branches:
-  only:
-    - master
-
 cache:
   - composer
   - $HOME/.composer/cache
