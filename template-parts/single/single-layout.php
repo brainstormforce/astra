@@ -26,11 +26,11 @@
 		<?php endif; ?>
 
 		<?php ast_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
-		
+
 		<?php ast_single_header_bottom(); ?>
 
 	</header><!-- .entry-header -->
-	
+
 	<?php ast_single_header_after(); ?>
 
 	<div class="entry-content clear" itemprop="text">
@@ -40,8 +40,7 @@
 		<?php the_content(); ?>
 
 		<?php
-			astra_edit_post_link(
-
+			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
 					esc_html__( 'Edit %s', 'astra' ),

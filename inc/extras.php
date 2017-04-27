@@ -594,30 +594,6 @@ if ( ! function_exists( 'ast_body_font_family' ) ) {
 }
 
 /**
- * Function to get Edit Post Link
- */
-if ( ! function_exists( 'astra_edit_post_link' ) ) {
-
-	/**
-	 * Function to get Edit Post Link
-	 *
-	 * @since 1.0.0
-	 * @param string $text 		Anchor Text.
-	 * @param string $before 	Anchor Text.
-	 * @param string $after 	Anchor Text.
-	 * @param int    $id           Anchor Text.
-	 * @param string $class 	Anchor Text.
-	 * @return void
-	 */
-	function astra_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
-
-		if ( apply_filters( 'ast_edit_post_link', false ) ) {
-			edit_post_link( $text, $before, $after, $id, $class );
-		}
-	}
-}
-
-/**
  * Function to get Header Classes
  */
 if ( ! function_exists( 'ast_header_classes' ) ) {
