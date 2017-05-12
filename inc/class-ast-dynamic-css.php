@@ -133,10 +133,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 
-				// HTML.
-				'html' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 6.25, '%' ),
-				),
 				'a, .page-title' => array(
 					'color' => $link_color,
 				),
@@ -146,49 +142,7 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				'body, button, input, select, textarea' => array(
 					'font-family'    => $body_font_family,
 					'font-weight'    => $body_font_weight,
-					'font-size'      => ast_get_css_value( $body_font_size, 'rem' ),
-					'line-height'    => ast_get_css_value( $body_line_height, 'dimension' ),
 					'text-transform' => $body_text_transform,
-				),
-				'.site-title a' => array(
-					'font-size' => ast_get_css_value( $site_title_font_size, 'rem' ),
-				),
-				'.site-header .site-description' => array(
-					'font-size' => ast_get_css_value( $site_tagline_font_size, 'rem' ),
-				),
-				'.entry-title' => array(
-					'font-size' => ast_get_css_value( $archive_post_title_font_size, 'rem' ),
-				),
-				'.comment-reply-title' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 1.66666, 'rem' ),
-				),
-				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => ast_get_css_value( $body_font_size, 'rem' ),
-				),
-				'h1, .entry-content h1, .entry-content h1 a' => array(
-					'font-size' => ast_get_css_value( $heading_h1_font_size, 'rem' ),
-				),
-				'h2, .entry-content h2, .entry-content h2 a' => array(
-					'font-size' => ast_get_css_value( $heading_h2_font_size, 'rem' ),
-				),
-				'h3, .entry-content h3, .entry-content h3 a' => array(
-					'font-size' => ast_get_css_value( $heading_h3_font_size, 'rem' ),
-				),
-				'h4, .entry-content h4, .entry-content h4 a' => array(
-					'font-size' => ast_get_css_value( $heading_h4_font_size, 'rem' ),
-				),
-				'h5, .entry-content h5, .entry-content h5 a' => array(
-					'font-size' => ast_get_css_value( $heading_h5_font_size, 'rem' ),
-				),
-				'h6, .entry-content h6, .entry-content h6 a' => array(
-					'font-size' => ast_get_css_value( $heading_h6_font_size, 'rem' ),
-				),
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size'   => ast_get_css_value( $single_post_title_font_size, 'rem' ),
-					'line-height' => '1.2',
-				),
-				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size' => ast_get_css_value( $body_font_size, 'rem' ),
 				),
 
 				// Global CSS.
@@ -241,10 +195,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 				),
 
 				// Single Post Meta.
-				'.ast-comment-meta' => array(
-					'line-height' => '1.666666667',
-					'font-size' => ast_get_css_value( $body_font_size * 0.8571428571, 'rem' ),
-				),
 				'.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
 					'color' => $link_color,
 				),
@@ -276,7 +226,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *' => array(
-					'line-height' => '1.45',
 					'color'       => $link_color,
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
@@ -288,14 +237,8 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 					'color' => ast_adjust_brightness( $text_color, 75, 'darken' ),
 				),
 
-				// 404 Page.
-				'.ast-404-layout-1 .ast-404-text' => array(
-					'font-size' => ast_get_css_value( '200', 'rem' ),
-				),
-
 				// Widget Title.
 				'.widget-title' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 1.428571429, 'rem' ),
 					'color'     => $text_color,
 				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
@@ -320,9 +263,76 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 						'color' => $link_hover_color,
 				),
 			);
-
 			/* Parse CSS from array() */
 			$parse_css = ast_parse_css( $css_output );
+
+			/* Responsive Typography */
+			$responsive_typo = array(
+				// HTML.
+				'html' => array(
+					'font-size' => ast_get_css_value( $body_font_size * 6.25, '%' ),
+				),
+				'body, button, input, select, textarea' => array(
+					'font-size'      => ast_get_css_value( $body_font_size, 'rem' ),
+					'line-height'    => ast_get_css_value( $body_line_height, 'dimension' ),
+				),
+				'.site-title a' => array(
+					'font-size' => ast_get_css_value( $site_title_font_size, 'rem' ),
+				),
+				'.site-header .site-description' => array(
+					'font-size' => ast_get_css_value( $site_tagline_font_size, 'rem' ),
+				),
+				'.entry-title' => array(
+					'font-size' => ast_get_css_value( $archive_post_title_font_size, 'rem' ),
+				),
+				'.comment-reply-title' => array(
+					'font-size' => ast_get_css_value( $body_font_size * 1.66666, 'rem' ),
+				),
+				'.ast-comment-list #cancel-comment-reply-link' => array(
+					'font-size' => ast_get_css_value( $body_font_size, 'rem' ),
+				),
+				'h1, .entry-content h1, .entry-content h1 a' => array(
+					'font-size' => ast_get_css_value( $heading_h1_font_size, 'rem' ),
+				),
+				'h2, .entry-content h2, .entry-content h2 a' => array(
+					'font-size' => ast_get_css_value( $heading_h2_font_size, 'rem' ),
+				),
+				'h3, .entry-content h3, .entry-content h3 a' => array(
+					'font-size' => ast_get_css_value( $heading_h3_font_size, 'rem' ),
+				),
+				'h4, .entry-content h4, .entry-content h4 a' => array(
+					'font-size' => ast_get_css_value( $heading_h4_font_size, 'rem' ),
+				),
+				'h5, .entry-content h5, .entry-content h5 a' => array(
+					'font-size' => ast_get_css_value( $heading_h5_font_size, 'rem' ),
+				),
+				'h6, .entry-content h6, .entry-content h6 a' => array(
+					'font-size' => ast_get_css_value( $heading_h6_font_size, 'rem' ),
+				),
+				'.ast-single-post .entry-title, .page-title' => array(
+					'font-size'   => ast_get_css_value( $single_post_title_font_size, 'rem' ),
+				),
+				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
+					'font-size' => ast_get_css_value( $body_font_size, 'rem' ),
+				),
+
+				// Single Post Meta.
+				'.ast-comment-meta' => array(
+					'font-size' => ast_get_css_value( $body_font_size * 0.8571428571, 'rem' ),
+				),
+
+				// 404 Page.
+				'.ast-404-layout-1 .ast-404-text' => array(
+					'font-size' => ast_get_css_value( '200', 'rem' ),
+				),
+
+				// Widget Title.
+				'.widget-title' => array(
+					'font-size' => ast_get_css_value( $body_font_size * 1.428571429, 'rem' ),
+				),
+			);
+			/* Parse CSS from array()*/
+			$parse_css .= ast_parse_css( $responsive_typo, '768' );
 
 			/* Width for Footer */
 			if ( 'content' != $ast_footer_width ) {
