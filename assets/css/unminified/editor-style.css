@@ -1924,25 +1924,112 @@ button,
 input[type="button"],
 input[type="submit"],
 textarea {
+  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.85714285714286;
 }
 
 .site-title a {
+  font-size: 35px;
+  font-size: 2.33333rem;
   line-height: 1.4;
 }
 
 .site-header .site-description {
+  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.25;
 }
 
-.ast-single-post .entry-title,
-.ast-single-post .entry-title a {
-  line-height: 1.2;
+.entry-title {
+  font-size: 30px;
+  font-size: 2rem;
+}
+
+.ast-comment-list #cancel-comment-reply-link,
+h6,
+.entry-content h6,
+.entry-content h6 a,
+#secondary,
+#secondary button,
+#secondary input,
+#secondary select,
+#secondary textarea {
+  font-size: 15px;
+  font-size: 1rem;
+}
+
+.comment-reply-title {
+  font-size: 24px;
+  font-size: 1.6rem;
+}
+
+h1,
+.entry-content h1,
+.entry-content h1 a {
+  font-size: 48px;
+  font-size: 3.2rem;
+}
+
+h2,
+.entry-content h2,
+.entry-content h2 a {
+  font-size: 42px;
+  font-size: 2.8rem;
+}
+
+h3,
+.entry-content h3,
+.entry-content h3 a {
+  font-size: 30px;
+  font-size: 2rem;
+}
+
+h4,
+.entry-content h4,
+.entry-content h4 a {
+  font-size: 20px;
+  font-size: 1.33333rem;
+}
+
+h5,
+.entry-content h5,
+.entry-content h5 a {
+  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .entry-title,
 .entry-title a {
   font-weight: normal;
+}
+
+.ast-single-post .entry-title,
+.ast-single-post .entry-title a {
+  font-size: 30px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.ast-comment-meta {
+  line-height: 1.66666;
+  font-size: 12px;
+  font-size: 0.8rem;
+}
+
+.entry-meta,
+.entry-meta * {
+  line-height: 1.45;
+}
+
+.ast-404-layout-1 .ast-404-text {
+  font-size: 200px;
+  font-size: 13.33333rem;
+}
+
+.widget-title {
+  font-size: 21px;
+  font-size: 1.4rem;
 }
 
 .single .entry-content .gallery {

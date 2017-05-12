@@ -28,7 +28,7 @@ function ast_font_size_rem( size, with_rem ) {
 /**
  * CSS
  */
-function ast_css_font_size( control, selector ) {
+function ast_css_font_size( control, selector, min_media, max_media ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( size ) {
@@ -46,12 +46,43 @@ function ast_css_font_size( control, selector ) {
 					fontSize = ast_font_size_rem( size, true );
 				}
 
-				// Concat and append new <style>.
-				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
-					+ selector + '	{ ' + fontSize + ' }'
-					+ '</style>'
-				);
+				//Min & Max width.
+				// 'undefined' != typeof
+				 min_media = (typeof min_media !== 'undefined') ?  min_media : '';
+				 max_media = (typeof max_media !== 'undefined') ?  max_media : '';
+				if ( '' !== min_media || '' !== max_media ) {
+					var media_css       = '@media ';
+					var min_media_css   = '';
+					var max_media_css   = '';
+					var media_separator = '';
+
+					if ( '' !== min_media ) {
+						min_media_css += '(min-width:' + min_media + 'px)';
+					}
+					if ( '' !== max_media ) {
+						max_media_css += '(max-width:' + max_media + 'px)';
+					}
+					if ( '' !== min_media && '' !== max_media ) {
+						media_separator += ' and ';
+					}
+
+					 media_css += min_media_css + media_separator + max_media_css;
+					// Concat and append new <style>.
+					jQuery( 'head' ).append(
+						'<style id="' + control + '">'
+						+ media_css + ' { '
+						+ selector + '	{ ' + fontSize + ' }'
+						+ ' }'
+						+ '</style>'
+					);
+				}
+				else{
+					jQuery( 'head' ).append(
+						'<style id="' + control + '">'
+						+ selector + '	{ ' + fontSize + ' }'
+						+ '</style>'
+					);
+				}
 
 			} else {
 
@@ -73,7 +104,7 @@ function get_hexdec( hex ) {
 /**
  * Apply CSS for the element
  */
-function ast_css( control, css_property, selector, unit ) {
+function ast_css( control, css_property, selector, unit , min_media , max_media  ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( new_value ) {
@@ -105,13 +136,44 @@ function ast_css( control, css_property, selector, unit ) {
 
 				// Remove old.
 				jQuery( 'style#' + control ).remove();
+				
+				//Min & Max width.
+				min_media = (typeof min_media !== 'undefined') ?  min_media : '';
+				max_media = (typeof max_media !== 'undefined') ?  max_media : '';
+				if ( '' !== min_media || '' !== max_media ) {
+					var media_css       = '@media ';
+					var min_media_css   = '';
+					var max_media_css   = '';
+					var media_separator = '';
 
-				// Concat and append new <style>.
-				jQuery( 'head' ).append(
-					'<style id="' + control + '">'
-					+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
-					+ '</style>'
-				);
+					if ( '' !== min_media ) {
+						min_media_css += '(min-width:' + min_media + 'px)';
+					}
+					if ( '' !== max_media ) {
+						max_media_css += '(max-width:' + max_media + 'px)';
+					}
+					if ( '' !== min_media && '' !== max_media ) {
+						media_separator += ' and ';
+					}
+
+					 media_css += min_media_css + media_separator + max_media_css;
+					// Concat and append new <style>.
+					jQuery( 'head' ).append(
+						'<style id="' + control + '">'
+						+ media_css + ' { '
+						+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
+						+ ' }'
+						+ '</style>'
+					);
+				}
+				else{
+					// Concat and append new <style>.
+					jQuery( 'head' ).append(
+						'<style id="' + control + '">'
+						+ selector + '	{ ' + css_property + ': ' + new_value + ' }'
+						+ '</style>'
+					);
+				}
 
 			} else {
 
@@ -345,19 +407,19 @@ function ast_add_dynamic_css( control, style ) {
 		} );
 	} );
 
-	ast_css_font_size( 'ast-settings[font-size-site-tagline]', '.site-header .site-description' );
-	ast_css_font_size( 'ast-settings[font-size-site-title]', '.site-title a' );
-	ast_css_font_size( 'ast-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
-	ast_css_font_size( 'ast-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
-	ast_css_font_size( 'ast-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
-	ast_css_font_size( 'ast-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );
-	ast_css_font_size( 'ast-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a' );
-	ast_css_font_size( 'ast-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a' );
-	ast_css_font_size( 'ast-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
-	ast_css_font_size( 'ast-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
+	ast_css_font_size( 'ast-settings[font-size-site-tagline]', '.site-header .site-description', 768 );
+	ast_css_font_size( 'ast-settings[font-size-site-title]', '.site-title a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title', 768 );
+	ast_css_font_size( 'ast-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a', 768 );
+	ast_css_font_size( 'ast-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a', 768 );
 
 
-	ast_css( 'ast-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea', 'dimension' );
+	ast_css( 'ast-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea', 'dimension', 768 );
 	ast_css( 'ast-settings[body-text-transform]', 'text-transform', 'body, button, input, select, textarea' );
 
 } )( jQuery );
