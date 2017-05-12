@@ -1914,6 +1914,10 @@ input[type="submit"]:focus {
   font-family: "Open Sans", sans-serif;
 }
 
+html {
+  font-size: 93.75%;
+}
+
 select,
 input {
   line-height: 1;

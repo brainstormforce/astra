@@ -133,10 +133,6 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 
-				// HTML.
-				'html' => array(
-					'font-size' => ast_get_css_value( $body_font_size * 6.25, '%' ),
-				),
 				'a, .page-title' => array(
 					'color' => $link_color,
 				),
@@ -272,7 +268,10 @@ if ( ! class_exists( 'AST_Dynamic_CSS' ) ) {
 
 			/* Responsive Typography */
 			$responsive_typo = array(
-
+				// HTML.
+				'html' => array(
+					'font-size' => ast_get_css_value( $body_font_size * 6.25, '%' ),
+				),
 				'body, button, input, select, textarea' => array(
 					'font-size'      => ast_get_css_value( $body_font_size, 'rem' ),
 					'line-height'    => ast_get_css_value( $body_line_height, 'dimension' ),
