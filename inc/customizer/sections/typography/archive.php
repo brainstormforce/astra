@@ -31,10 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'default'           => $defaults['font-size-page-title'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Dimension( $wp_customize, AST_THEME_SETTINGS . '[font-size-page-title]', array(
-		'type'     => 'ast-dimension',
+	$wp_customize->add_control( new Ast_Control_Responsive( $wp_customize, AST_THEME_SETTINGS . '[font-size-page-title]', array(
+		'type'     => 'ast-responsive',
 		'section'  => 'section-archive-typo',
 		'priority' => 10,
 		'label'    => __( 'Font Size', 'astra' ),

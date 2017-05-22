@@ -1,0 +1,46 @@
+.ast-responsive-btns,
+.customize-control-title,
+.ast-responsive-btns > li {
+	display:inline-block;
+}
+
+.ast-responsive-btns {
+	float:right;
+	vertical-align: middle;
+
+	> li {
+		margin-bottom: 0;
+		vertical-align: middle;
+	}
+
+	button[type="button"] {
+		padding: 0;
+		height: 13px;
+		cursor: pointer;
+		vertical-align: middle;
+		background: none;
+		border: none;
+		opacity: .5;
+		outline: none;
+
+		&.active {
+			opacity: 1;
+		}
+
+		> i {
+			width: 13px;
+			height: 13px;
+			font-size: 13px;
+		}
+	}
+}
+
+.customize-control-ast-responsive .input-wrapper {
+	input {
+		display: none;
+
+		&.active {
+			display: initial;
+		}
+	}
+}

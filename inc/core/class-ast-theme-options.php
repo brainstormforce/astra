@@ -150,19 +150,67 @@ if ( ! class_exists( 'Ast_Theme_Options' ) ) {
 				// Typography.
 				'body-font-family'					=> 'inherit',
 				'body-font-weight'					=> 'inherit',
-				'font-size-body'					=> 15,
-				'body-line-height'					=> '',
+				'font-size-body'					=> array(
+														'desktop' => 15,
+														'tablet' => '',
+														'mobile' => '',
+													),
+				'body-line-height'					=> array(
+														'desktop' => '',
+														'tablet' => '',
+														'mobile' => '',
+													),
 				'body-text-transform'				=> '',
-				'font-size-site-title'				=> 35,
-				'font-size-site-tagline'			=> 15,
-				'font-size-entry-title'				=> 30,
-				'font-size-page-title'				=> 30,
-				'font-size-h1'						=> 48,
-				'font-size-h2'						=> 42,
-				'font-size-h3'						=> 30,
-				'font-size-h4'						=> 20,
-				'font-size-h5'						=> 18,
-				'font-size-h6'						=> 15,
+				'font-size-site-title'				=> array(
+															'desktop' => 35,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-site-tagline'			=> array(
+															'desktop' => 15,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-entry-title'				=> array(
+															'desktop' => 30,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-page-title'				=> array(
+															'desktop' => 30,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h1'						=> array(
+															'desktop' => 48,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h2'						=> array(
+															'desktop' => 42,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h3'						=> array(
+															'desktop' => 30,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h4'						=> array(
+															'desktop' => 20,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h5'						=> array(
+															'desktop' => 18,
+															'tablet' => '',
+															'mobile' => '',
+														),
+				'font-size-h6'						=> array(
+															'desktop' => 15,
+															'tablet' => '',
+															'mobile' => '',
+														),
 
 				// Sidebar.
 				'site-sidebar-layout'				=> 'right-sidebar',

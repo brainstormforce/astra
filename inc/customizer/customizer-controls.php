@@ -16,6 +16,7 @@ require $control_dir . '/radio-image/class-ast-control-radio-image.php';
 require $control_dir . '/toggle/class-ast-control-toggle.php';
 require $control_dir . '/slider/class-ast-control-slider.php';
 require $control_dir . '/dimension/class-ast-control-dimension.php';
+require $control_dir . '/responsive/class-ast-control-responsive.php';
 require $control_dir . '/typography/class-ast-control-typography.php';
 require $control_dir . '/spacing/class-ast-control-spacing.php';
 require $control_dir . '/divider/class-ast-control-divider.php';

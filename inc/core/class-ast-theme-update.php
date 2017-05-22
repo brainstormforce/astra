@@ -64,6 +64,11 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 				return;
 			}
 
+			// Update to older version than 1.0.3 version.
+			if ( version_compare( $saved_version, '1.0.3', '<' ) ) {
+				self::v_1_0_3();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -94,6 +99,85 @@ if ( ! class_exists( 'Ast_Theme_Update' ) ) {
 			update_option( AST_THEME_SETTINGS, $theme_options );
 
 			do_action( 'astra_update_after' );
+		}
+
+		/**
+		 * Update options of older version than 1.0.3.
+		 *
+		 * @since 1.0.3
+		 * @return void
+		 */
+		static public function v_1_0_3() {
+
+			$options = array(
+				'font-size-body',
+				'body-line-height',
+				'font-size-site-title',
+				'font-size-site-tagline',
+				'font-size-entry-title',
+				'font-size-page-title',
+				'font-size-h1',
+				'font-size-h2',
+				'font-size-h3',
+				'font-size-h4',
+				'font-size-h5',
+				'font-size-h6',
+
+				// Addon Options.
+				'footer-adv-wgt-title-font-size',
+				'footer-adv-wgt-title-line-height',
+				'footer-adv-wgt-content-font-size',
+				'footer-adv-wgt-content-line-height',
+				'above-header-font-size',
+				'font-size-below-header-primary-menu',
+				'font-size-below-header-dropdown-menu',
+				'font-size-below-header-content',
+				'font-size-related-post',
+				'line-height-related-post',
+				'title-bar-title-font-size',
+				'title-bar-title-line-height',
+				'title-bar-breadcrumb-font-size',
+				'title-bar-breadcrumb-line-height',
+				'line-height-page-title',
+				'font-size-post-meta',
+				'line-height-post-meta',
+				'font-size-post-pagination',
+				'line-height-h1',
+				'line-height-h2',
+				'line-height-h3',
+				'line-height-h4',
+				'line-height-h5',
+				'line-height-h6',
+				'font-size-footer-content',
+				'line-height-footer-content',
+				'line-height-site-title',
+				'line-height-site-tagline',
+				'font-size-primary-menu',
+				'line-height-primary-menu',
+				'font-size-primary-dropdown-menu',
+				'line-height-primary-dropdown-menu',
+				'font-size-widget-title',
+				'line-height-widget-title',
+				'font-size-widget-content',
+				'line-height-widget-content',
+				'line-height-entry-title',
+			);
+
+			$ast_options = get_option( AST_THEME_SETTINGS );
+
+			foreach ( $options as $key ) {
+
+				if ( array_key_exists( $key, $ast_options ) && ! is_array( $ast_options[ $key ] ) ) {
+
+					$ast_options[ $key ] = array(
+						'desktop' 	=> $ast_options[ $key ],
+						'tablet' 	=> '',
+						'mobile' 	=> '',
+					);
+				}
+			}
+
+			update_option( AST_THEME_SETTINGS, $ast_options );
 		}
 	}
 }// End if().

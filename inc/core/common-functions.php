@@ -123,6 +123,65 @@ if ( ! function_exists( 'ast_css' ) ) {
 }
 
 /**
+ * Get Font Size value
+ */
+if ( ! function_exists( 'ast_get_font_css_value' ) ) {
+
+	/**
+	 * Get Font CSS value
+	 *
+	 * Syntax:
+	 *
+	 * 	ast_get_font_css_value( VALUE, DEVICE, UNIT );
+	 *
+	 * E.g.
+	 *
+	 * 	ast_get_css_value( VALUE, 'desktop', '%' );
+	 *  ast_get_css_value( VALUE, 'tablet' );
+	 *  ast_get_css_value( VALUE, 'mobile' );
+	 *
+	 * @param  string $value        CSS value.
+	 * @param  string $device 		CSS device.
+	 * @param  string $unit         CSS unit.
+	 * @return mixed               	CSS value depends on $unit & $device
+	 */
+	function ast_get_font_css_value( $value, $device = 'desktop', $unit = 'rem' ) {
+
+		// If value is empty of 0 then return blank.
+		if ( '' == $value || 0 == $value ) {
+			return '';
+		}
+
+		$css_val = '';
+
+		switch ( $unit ) {
+			case 'px':
+			case '%' :
+						$css_val = esc_attr( $value ) . $unit;
+				break;
+
+			case 'rem':
+
+				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
+					$value          = intval( $value );
+					$body_font_size = ast_get_option( 'font-size-body' );
+					$body_font_size['desktop'] = ( '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+					$body_font_size['tablet'] = ( '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $body_font_size['desktop'];
+					$body_font_size['mobile'] = ( '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $body_font_size['tablet'];
+
+					if ( $body_font_size[ $device ] ) {
+						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size[ $device ] ) ) . $unit;
+					}
+				} else {
+					$css_val = esc_attr( $value );
+				}
+		}
+
+		return $css_val;
+	}
+}// End if().
+
+/**
  * Get CSS value
  */
 if ( ! function_exists( 'ast_get_css_value' ) ) {
@@ -189,8 +248,10 @@ if ( ! function_exists( 'ast_get_css_value' ) ) {
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
 					$body_font_size = ast_get_option( 'font-size-body' );
-					if ( $body_font_size ) {
-						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size ) ) . $unit;
+					$body_font_size['desktop'] = ( '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
+
+					if ( $body_font_size['desktop'] ) {
+						$css_val = esc_attr( $value ) . 'px;font-size:' . ( esc_attr( $value ) / esc_attr( $body_font_size['desktop'] ) ) . $unit;
 					}
 				} else {
 					$css_val = esc_attr( $value );

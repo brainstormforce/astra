@@ -99,6 +99,7 @@ if ( ! class_exists( 'AST_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Ast_Control_Toggle' );
 			$wp_customize->register_control_type( 'Ast_Control_Slider' );
 			$wp_customize->register_control_type( 'Ast_Control_Dimension' );
+			$wp_customize->register_control_type( 'Ast_Control_Responsive' );
 			$wp_customize->register_control_type( 'Ast_Control_Spacing' );
 			$wp_customize->register_control_type( 'Ast_Control_Divider' );
 

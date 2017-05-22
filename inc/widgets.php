@@ -22,10 +22,11 @@ if ( ! function_exists( 'ast_widget_tag_cloud_args' ) ) :
 	 */
 	function ast_widget_tag_cloud_args( $args = array() ) {
 
-		$sidebar_link_font_size = ast_get_option( 'font-size-body', '', 15 );
+		$sidebar_link_font_size = ast_get_option( 'font-size-body' );
+		$sidebar_link_font_size['desktop'] = ( '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
 
-		$args['smallest'] = intval( $sidebar_link_font_size ) - 2;
-		$args['largest']  = intval( $sidebar_link_font_size ) + 3;
+		$args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;
+		$args['largest']  = intval( $sidebar_link_font_size['desktop'] ) + 3;
 		$args['unit']     = 'px';
 
 		return apply_filters( 'ast_widget_tag_cloud_args', $args );

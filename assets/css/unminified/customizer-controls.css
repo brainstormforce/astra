@@ -106,23 +106,23 @@
 /**
  * Typography Control Style
  */
-.customize-pane-child > li[id*="-font-weight"],
-.customize-pane-child > li[id*="-text-transform"],
-.customize-pane-child > li[id*="-font-size"],
-.customize-pane-child > li[id*="-line-height"] {
+.customize-pane-child > li[id="customize-control-ast-settings-body-font-weight"],
+.customize-pane-child > li[id="customize-control-ast-settings-body-text-transform"],
+.customize-pane-child > li[id="customize-control-ast-settings-font-size-body"],
+.customize-pane-child > li[id="customize-control-ast-settings-body-line-height"] {
     width: 50%;
     display: inline-block;
     box-sizing: border-box;
     clear: none;
 }
 
-.customize-pane-child > li[id*="-font-weight"],
-.customize-pane-child > li[id*="-font-size"] {
+.customize-pane-child > li[id="customize-control-ast-settings-body-font-weight"],
+.customize-pane-child > li[id="customize-control-ast-settings-font-size-body"] {
     padding-right: 5px;
 }
 
-.customize-pane-child > li[id*="-text-transform"],
-.customize-pane-child > li[id*="-line-height"] {
+.customize-pane-child > li[id="customize-control-ast-settings-body-text-transform"],
+.customize-pane-child > li[id="customize-control-ast-settings-body-line-height"] {
     padding-left: 5px;
 }
 

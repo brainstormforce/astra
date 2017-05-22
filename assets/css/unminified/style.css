@@ -2510,6 +2510,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   border-radius: 2px;
   vertical-align: middle;
+  line-height: 1.85714285714286;
 }
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle {
@@ -3062,9 +3063,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   padding-bottom: 1.5em;
 }
 
@@ -4561,12 +4562,12 @@ input[type="color"]::-webkit-color-swatch {
   height: 2.33333em;
   line-height: -webkit-calc(2.33333em - 3px);
   line-height: calc(2.33333em - 3px);
-  font-size: 16px;
-  font-size: 1.06666rem;
 }
 
 .post-navigation a {
   background: transparent;
+  font-size: 16px;
+  font-size: 1.06666rem;
 }
 
 .ast-pagination {
