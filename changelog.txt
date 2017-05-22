@@ -1,20 +1,23 @@
+v1.0.3.1
+# Removed functions that override WordPress global's.
+
 v1.0.3
-Enhancement: Removed option _astra_auto_version and used option AST_THEME_SETTINGS for auto storing latest theme version.
-Fixed: Content Layout meta working on beaver builder page/post.
+# Enhancement: Removed option _astra_auto_version and used option AST_THEME_SETTINGS for auto storing latest theme version.
+# Fixed: Content Layout meta working on beaver builder page/post.
 
 v1.0.2
-New: Added Beaver Themer support.
-New: Added option to disable primary header navigation.
-New: Added widget area support for header & footer.
-New: Added editor style minification file support.
-New: Added header layouts.
-Improvement: Updated responsive header styling.
-Improvement: Removed unwanted minified & unminified files.
-Improvement: Removed unwanted constants.
-Improvement: Removed unused variables when a classes are initialised.
-Improvement: Moved hook ast_body_bottom at the top of the wp_footer hook.
-Improvement: Renamed the uabb theme compatibility functions to not include redundant prefix.
-Improvement: Used get_bloginfo() instead of get_option('blogname').
+# New: Added Beaver Themer support.
+# New: Added option to disable primary header navigation.
+# New: Added widget area support for header & footer.
+# New: Added editor style minification file support.
+# New: Added header layouts.
+# Improvement: Updated responsive header styling.
+# Improvement: Removed unwanted minified & unminified files.
+# Improvement: Removed unwanted constants.
+# Improvement: Removed unused variables when a classes are initialised.
+# Improvement: Moved hook ast_body_bottom at the top of the wp_footer hook.
+# Improvement: Renamed the uabb theme compatibility functions to not include redundant prefix.
+# Improvement: Used get_bloginfo() instead of get_option('blogname').
 
 v1.0.1.1
 # Added: Welcome screen for in theme page
@@ -43,4 +46,4 @@ v1.0.1
 # Removed: All unused and unnecessary functions.
 
 v1.0.0
-- Initial release
+# Initial release

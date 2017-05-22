@@ -125,7 +125,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
-			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu_rename', 9999 );
 
 			if ( is_multisite() ) {
 
@@ -139,7 +138,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 				}
 
 				add_action( 'network_admin_menu', __CLASS__ . '::add_admin_menu', 99 );
-				add_action( 'network_admin_menu', __CLASS__ . '::add_admin_menu_rename', 9999 );
 			}
 
 			add_action( 'ast_menu_general_action', __CLASS__ . '::general_page' );
@@ -410,17 +408,6 @@ if ( ! class_exists( 'AST_Admin_Settings' ) ) {
 			return apply_filters( 'ast_page_general_settings', array() );
 		}
 
-		/**
-		 * Rename menu
-		 *
-		 * @since 1.0
-		 */
-		static public function add_admin_menu_rename() {
-			global $menu, $submenu;
-			if ( isset( $submenu[ self::$plugin_slug ][0][0] ) ) {
-				$submenu[ self::$plugin_slug ][0][0] = 'Welcome';
-			}
-		}
 	}
 
 	new AST_Admin_Settings;

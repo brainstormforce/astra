@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'AST_THEME_VERSION', '1.0.2' );
+define( 'AST_THEME_VERSION', '1.0.3.1' );
 define( 'AST_THEME_SETTINGS', 'ast-settings' );
 define( 'AST_THEME_DIR', get_template_directory() . '/' );
 define( 'AST_THEME_URI', get_template_directory_uri() . '/' );

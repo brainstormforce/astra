@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.1\n"
+"Project-Id-Version: Astra 1.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-04-19 10:55:21+00:00\n"
+"POT-Creation-Date: 2017-05-20 06:53:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +33,7 @@ msgid "Primary Menu"
 msgstr ""
 
 #: inc/admin-functions.php:26 inc/customizer/sections/layout/footer.php:74
-#: inc/customizer/sections/layout/footer.php:118
+#: inc/customizer/sections/layout/footer.php:119
 msgid "Footer Menu"
 msgstr ""
 
@@ -59,33 +59,76 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/class-ast-walker-page.php:121
-#. translators: %d: ID of a post
-msgid "#%d (no title)"
+#: inc/compatibility/class-ast-beaver-themer.php:136
+msgid "Before Page"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:100
+#: inc/compatibility/class-ast-beaver-themer.php:137
+msgid "After Page"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:143
 msgid "Before Header"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:101
+#: inc/compatibility/class-ast-beaver-themer.php:144
 msgid "After Header"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:107
+#: inc/compatibility/class-ast-beaver-themer.php:150
 msgid "Before Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:108
+#: inc/compatibility/class-ast-beaver-themer.php:151
 msgid "After Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:114
+#: inc/compatibility/class-ast-beaver-themer.php:157
 msgid "Before Footer"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:115
+#: inc/compatibility/class-ast-beaver-themer.php:158
 msgid "After Footer"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:164
+msgid "Before Sidebar"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:165
+msgid "After Sidebar"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:171
+msgid "Loop Start"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:172
+msgid "Before Post"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:173
+msgid "Before Post Content"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:174
+msgid "After Post Content"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:175
+msgid "After Post"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:176
+msgid "Before Comments"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:177
+msgid "After Comments"
+msgstr ""
+
+#: inc/compatibility/class-ast-beaver-themer.php:178
+msgid "Loop End"
 msgstr ""
 
 #. Theme Name of the plugin/theme
@@ -105,8 +148,8 @@ msgstr ""
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-ast-theme-options.php:132
-msgid "HTML is allowed here"
+#: inc/core/class-ast-theme-options.php:134
+msgid "Contact Us"
 msgstr ""
 
 #: inc/core/class-theme-strings.php:30
@@ -233,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:589 inc/core/common-functions.php:668
+#: inc/core/common-functions.php:588 inc/core/common-functions.php:667
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -278,6 +321,7 @@ msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:33
 #: inc/customizer/register-panels-and-sections.php:97
+#: inc/customizer/sections/layout/header.php:28 inc/widgets.php:87
 msgid "Header"
 msgstr ""
 
@@ -520,76 +564,98 @@ msgid "Section 1"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:73
-#: inc/customizer/sections/layout/footer.php:117
-#: inc/customizer/sections/layout/header.php:30
+#: inc/customizer/sections/layout/footer.php:118
+#: inc/customizer/sections/layout/header.php:75
 #: inc/customizer/sections/typography/body.php:65
 msgid "None"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:75
-#: inc/customizer/sections/layout/footer.php:119
+#: inc/customizer/sections/layout/footer.php:120
 msgid "Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:92
+#: inc/customizer/sections/layout/footer.php:76
+#: inc/customizer/sections/layout/footer.php:121
+#: inc/customizer/sections/layout/header.php:78
+msgid "Widget"
+msgstr ""
+
+#: inc/customizer/sections/layout/footer.php:93
 msgid "Section 1 Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:115
+#: inc/customizer/sections/layout/footer.php:116
 msgid "Section 2"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:136
+#: inc/customizer/sections/layout/footer.php:138
 msgid "Section 2 Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:170
+#: inc/customizer/sections/layout/footer.php:172
 msgid "Footer Top Border"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:190
+#: inc/customizer/sections/layout/footer.php:192
 msgid "Footer Top Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:205
+#: inc/customizer/sections/layout/footer.php:207
 msgid "Footer Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:207
-#: inc/customizer/sections/layout/header.php:110
+#: inc/customizer/sections/layout/footer.php:209
+#: inc/customizer/sections/layout/header.php:156
 msgid "Full Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:208
-#: inc/customizer/sections/layout/header.php:111
+#: inc/customizer/sections/layout/footer.php:210
+#: inc/customizer/sections/layout/header.php:157
 msgid "Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:28
-msgid "Custom Menu Item"
-msgstr ""
-
-#: inc/customizer/sections/layout/header.php:31
-msgid "Search"
-msgstr ""
-
 #: inc/customizer/sections/layout/header.php:32
-msgid "Text / HTML"
+msgid "Logo Left"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:49
-msgid "Custom Menu Text / HTML"
+#: inc/customizer/sections/layout/header.php:36
+msgid "Logo Center"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:40
+msgid "Logo Right"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:57
+msgid "Disable Menu"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:73
+msgid "Custom Menu Item"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:76
+msgid "Search"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:77
+msgid "Text / HTML"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:95
+msgid "Custom Menu Text / HTML"
+msgstr ""
+
+#: inc/customizer/sections/layout/header.php:119
 msgid "Bottom Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:93
+#: inc/customizer/sections/layout/header.php:139
 msgid "Bottom Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:108
+#: inc/customizer/sections/layout/header.php:154
 msgid "Header Width"
 msgstr ""
 
@@ -723,23 +789,20 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:247
+#: inc/extras.php:251
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:286
-#. translators: 1: nav manu location 2: menu location name
-msgid ""
-"<span class=\"nav-fallback-text\"><a href=\"%1$s\" style=\"padding: "
-"0;\">Assign a menu</a> to location %2$s </span>"
-msgstr ""
-
-#: inc/extras.php:384
+#: inc/extras.php:364
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:518
+#: inc/extras.php:508
 msgid "Site Navigation"
+msgstr ""
+
+#: inc/extras.php:912
+msgid "Add Widget"
 msgstr ""
 
 #: inc/metabox/class-ast-meta-boxes.php:104
@@ -756,7 +819,7 @@ msgid "Disable Sections"
 msgstr ""
 
 #: inc/metabox/class-ast-meta-boxes.php:195
-msgid "Disable Page / Post Title"
+msgid "Disable Title"
 msgstr ""
 
 #: inc/metabox/class-ast-meta-boxes.php:208
@@ -767,7 +830,7 @@ msgstr ""
 msgid "Disable Primary Header"
 msgstr ""
 
-#: inc/template-parts.php:149
+#: inc/template-parts.php:159
 msgid "Menu"
 msgstr ""
 
@@ -781,6 +844,14 @@ msgstr ""
 msgid "Main Sidebar"
 msgstr ""
 
+#: inc/widgets.php:97
+msgid "Footer Widget 1"
+msgstr ""
+
+#: inc/widgets.php:107
+msgid "Footer Widget 2"
+msgstr ""
+
 #: template-parts/content-none.php:21
 #. translators: 1: link to new post
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
@@ -792,7 +863,7 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://astra.brainstormforce.com/"
+msgid "http://wpastra.com/"
 msgstr ""
 
 #. Description of the plugin/theme

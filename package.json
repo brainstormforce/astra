@@ -1,11 +1,8 @@
 {
   "name": "astra",
-  "version": "1.0.2",
+  "version": "1.0.3.1",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git@git.brainstormforce.com:astra/astra-theme.git"
