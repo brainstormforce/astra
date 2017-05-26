@@ -1,10 +1,10 @@
 .customize-control-ast-sortable ul.ui-sortable {
 	cursor: default;
-	
+
 	.dashicons-visibility {
-		cursor: pointer;  
+		cursor: pointer;
 	}
-	
+
 	li {
 		padding: 5px 10px;
 		border: 1px solid #333;
@@ -12,19 +12,18 @@
 		cursor: move;
 
 		.dashicons.dashicons-menu {
-			float: right; 
+			float: right;
 		}
 		.dashicons.visibility {
-			margin-right: 10px; 
+			margin-right: 10px;
 		}
 		&.invisible {
 			color: #aaa;
-			border: 1px dashed #aaa; 
+			border: 1px dashed #aaa;
 
 			.dashicons.visibility {
-				color: #aaa; 
+				color: #aaa;
 			}
 		}
 	}
 }
-/*# sourceMappingURL=sortable.css.map */

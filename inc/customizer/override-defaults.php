@@ -3,9 +3,9 @@
  * Override default customizer panels, sections, settings or controls.
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -33,7 +33,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
 		'selector'            => '.main-header-bar .site-title a,  .ast-small-footer-wrap .ast-footer-site-title',
 		'container_inclusive' => false,
-		'render_callback'     => array( 'AST_Customizer_Partials', '_render_partial_site_title' ),
+		'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_title' ),
 	) );
 }
 
@@ -41,6 +41,6 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 		'selector'            => '.main-header-bar .site-description',
 		'container_inclusive' => false,
-		'render_callback'     => array( 'AST_Customizer_Partials', '_render_partial_site_tagline' ),
+		'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_tagline' ),
 	) );
 }

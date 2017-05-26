@@ -3,9 +3,9 @@
  * Blog Options for Astra Theme.
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Blog Post Content
 	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-post-content]', array(
+	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
 		'default'           => $defaults['blog-post-content'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
-	$wp_customize->add_control( AST_THEME_SETTINGS . '[blog-post-content]', array(
+	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
 		'section'     => 'section-blog',
 		'label'       => __( 'Blog Post Content', 'astra' ),
 		'type'        => 'select',
@@ -35,12 +35,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Display Post Meta
 	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-meta]', array(
+	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-meta]', array(
 		'default'           => $defaults['blog-meta'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Sortable( $wp_customize, AST_THEME_SETTINGS . '[blog-meta]', array(
+	$wp_customize->add_control( new Astra_Control_Sortable( $wp_customize, ASTRA_THEME_SETTINGS . '[blog-meta]', array(
 		'type'        => 'ast-sortable',
 		'section'     => 'section-blog',
 		'priority'    => 5,
@@ -54,11 +54,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		),
 	) ) );
 
-
 	/**
 	 * Option: Divider
 	 */
-	$wp_customize->add_control( new Ast_Control_Divider( $wp_customize, AST_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
+	$wp_customize->add_control( new Astra_Control_Divider( $wp_customize, ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
 		'type'     => 'ast-divider',
 		'section'  => 'section-blog',
 		'priority' => 10,
@@ -68,12 +67,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Blog Content Width
 	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-width]', array(
+	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-width]', array(
 		'default'           => $defaults['blog-width'],
 		'type'              => 'option',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	) );
-	$wp_customize->add_control( AST_THEME_SETTINGS . '[blog-width]', array(
+	$wp_customize->add_control( ASTRA_THEME_SETTINGS . '[blog-width]', array(
 		'type'        => 'select',
 		'section'     => 'section-blog',
 		'priority'    => 15,
@@ -87,13 +86,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Enter Width
 	 */
-	$wp_customize->add_setting( AST_THEME_SETTINGS . '[blog-max-width]', array(
+	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
 		'default'           => $defaults['blog-max-width'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'AST_Customizer_Sanitizes', 'sanitize_number' ),
+		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 	) );
-	$wp_customize->add_control( new Ast_Control_Slider( $wp_customize, AST_THEME_SETTINGS . '[blog-max-width]', array(
+	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
 		'type'        => 'ast-slider',
 		'section'     => 'section-blog',
 		'priority'    => 20,

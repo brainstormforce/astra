@@ -23,7 +23,7 @@
 				value = jQuery( this ).attr( 'value' );
 				jQuery( this ).mousemove( function() {
 					value = jQuery( this ).attr( 'value' );
-					jQuery( this ).closest( 'label' ).find( '.ast_range_value .value' ).val( value );
+					jQuery( this ).closest( 'label' ).find( '.astra_range_value .value' ).val( value );
 				});
 			});
 
@@ -40,7 +40,7 @@
 				inputDefault = thisInput.data( 'reset_value' );
 				thisInput.val( inputDefault );
 				thisInput.change();
-				jQuery( this ).closest( 'label' ).find( '.ast_range_value .value' ).val( inputDefault );
+				jQuery( this ).closest( 'label' ).find( '.astra_range_value .value' ).val( inputDefault );
 			});
 
 			if ( 'postMessage' === control.setting.transport ) {

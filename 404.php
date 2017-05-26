@@ -10,42 +10,42 @@
 
 get_header(); ?>
 
-<?php if ( ast_page_layout() == 'left-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
-	<div id="primary" <?php ast_primary_class(); ?>>
+	<div id="primary" <?php astra_primary_class(); ?>>
 
-		<?php ast_primary_content_top(); ?>
+		<?php astra_primary_content_top(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-			<?php ast_entry_before(); ?>
+			<?php astra_entry_before(); ?>
 
 			<section class="error-404 not-found">
 
-				<?php ast_entry_top(); ?>
+				<?php astra_entry_top(); ?>
 
-				<?php ast_entry_content_404_page(); ?>
-				
-				<?php ast_entry_bottom(); ?>
+				<?php astra_entry_content_404_page(); ?>
+
+				<?php astra_entry_bottom(); ?>
 
 			</section><!-- .error-404 -->
 
-			<?php ast_entry_after(); ?>
+			<?php astra_entry_after(); ?>
 
 		</main><!-- #main -->
 
-		<?php ast_primary_content_bottom(); ?>
+		<?php astra_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( ast_page_layout() == 'right-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 <?php get_footer(); ?>

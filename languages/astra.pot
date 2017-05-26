@@ -1,28 +1,28 @@
-# <!=Copyright (C) 2017 Brainstorm Force
-# This file is distributed under the GNU General Public License v2 or later.=!>
+# Copyright (C) 2017 Brainstorm Force
+# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.4\n"
+"Project-Id-Version: Astra 1.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-05-23 09:53:01+00:00\n"
+"POT-Creation-Date: 2017-05-26 11:49:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: comments.php:43 comments.php:62
 msgid "Comments Navigation"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:190
+#: inc/blog/blog-config.php:194
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:265 inc/blog/blog-config.php:298
+#: inc/blog/blog-config.php:269 inc/blog/blog-config.php:302
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -59,75 +59,75 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:136
+#: inc/compatibility/class-astra-beaver-themer.php:144
 msgid "Before Page"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:137
+#: inc/compatibility/class-astra-beaver-themer.php:145
 msgid "After Page"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:143
+#: inc/compatibility/class-astra-beaver-themer.php:151
 msgid "Before Header"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:144
+#: inc/compatibility/class-astra-beaver-themer.php:152
 msgid "After Header"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:150
+#: inc/compatibility/class-astra-beaver-themer.php:158
 msgid "Before Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:151
+#: inc/compatibility/class-astra-beaver-themer.php:159
 msgid "After Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:157
+#: inc/compatibility/class-astra-beaver-themer.php:165
 msgid "Before Footer"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:158
+#: inc/compatibility/class-astra-beaver-themer.php:166
 msgid "After Footer"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:164
+#: inc/compatibility/class-astra-beaver-themer.php:172
 msgid "Before Sidebar"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:165
+#: inc/compatibility/class-astra-beaver-themer.php:173
 msgid "After Sidebar"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:171
+#: inc/compatibility/class-astra-beaver-themer.php:179
 msgid "Loop Start"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:172
+#: inc/compatibility/class-astra-beaver-themer.php:180
 msgid "Before Post"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:173
+#: inc/compatibility/class-astra-beaver-themer.php:181
 msgid "Before Post Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:174
+#: inc/compatibility/class-astra-beaver-themer.php:182
 msgid "After Post Content"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:175
+#: inc/compatibility/class-astra-beaver-themer.php:183
 msgid "After Post"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:176
+#: inc/compatibility/class-astra-beaver-themer.php:184
 msgid "Before Comments"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:177
+#: inc/compatibility/class-astra-beaver-themer.php:185
 msgid "After Comments"
 msgstr ""
 
-#: inc/compatibility/class-ast-beaver-themer.php:178
+#: inc/compatibility/class-astra-beaver-themer.php:186
 msgid "Loop End"
 msgstr ""
 
@@ -135,20 +135,20 @@ msgstr ""
 msgid "Astra"
 msgstr ""
 
-#: inc/core/class-ast-admin-settings.php:155
+#: inc/core/class-astra-admin-settings.php:118
 msgid "General Settings"
 msgstr ""
 
-#: inc/core/class-ast-admin-settings.php:273
+#: inc/core/class-astra-admin-settings.php:226
 msgid "Settings saved successfully."
 msgstr ""
 
-#: inc/core/class-ast-theme-options.php:104
-#: inc/core/class-ast-theme-options.php:106
+#: inc/core/class-astra-theme-options.php:105
+#: inc/core/class-astra-theme-options.php:107
 msgid "Copyright &copy; [current_year] [site_title] | Powered by [theme_author]"
 msgstr ""
 
-#: inc/core/class-ast-theme-options.php:118
+#: inc/core/class-astra-theme-options.php:119
 msgid "Contact Us"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:588 inc/core/common-functions.php:667
+#: inc/core/common-functions.php:639 inc/core/common-functions.php:718
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -299,12 +299,13 @@ msgstr ""
 msgid "Customize"
 msgstr ""
 
-#: inc/customizer/class-ast-customizer-sanitizes.php:91
-msgid "Enter valid email address!"
+#: inc/customizer/class-astra-customizer-partials.php:107
+#: inc/customizer/class-astra-customizer-partials.php:126 inc/extras.php:316
+msgid "Y"
 msgstr ""
 
-#: inc/customizer/custom-controls/dimension/class-ast-control-dimension.php:108
-msgid "Invalid Value"
+#: inc/customizer/class-astra-customizer-sanitizes.php:120
+msgid "Enter valid email address!"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:17
@@ -321,7 +322,7 @@ msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:33
 #: inc/customizer/register-panels-and-sections.php:97
-#: inc/customizer/sections/layout/header.php:28 inc/widgets.php:87
+#: inc/customizer/sections/layout/header.php:28 inc/widgets.php:88
 msgid "Header"
 msgstr ""
 
@@ -340,7 +341,7 @@ msgid "Single Post"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:57
-#: inc/metabox/class-ast-meta-boxes.php:156
+#: inc/metabox/class-astra-meta-boxes.php:156
 msgid "Sidebar"
 msgstr ""
 
@@ -451,7 +452,7 @@ msgid "Single Post Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:62
-#: inc/customizer/sections/layout/blog.php:82
+#: inc/customizer/sections/layout/blog.php:81
 #: inc/customizer/sections/layout/container.php:57
 #: inc/customizer/sections/layout/container.php:78
 #: inc/customizer/sections/layout/container.php:99
@@ -462,12 +463,12 @@ msgid "Default"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:63
-#: inc/customizer/sections/layout/blog.php:83
+#: inc/customizer/sections/layout/blog.php:82
 msgid "Custom"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:80
-#: inc/customizer/sections/layout/blog.php:100
+#: inc/customizer/sections/layout/blog.php:99
 msgid "Enter Width"
 msgstr ""
 
@@ -487,12 +488,12 @@ msgstr ""
 msgid "Blog Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:80
+#: inc/customizer/sections/layout/blog.php:79
 msgid "Blog Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:26
-#: inc/metabox/class-ast-meta-boxes.php:171
+#: inc/metabox/class-astra-meta-boxes.php:171
 msgid "Content Layout"
 msgstr ""
 
@@ -500,7 +501,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:58
 #: inc/customizer/sections/layout/container.php:79
 #: inc/customizer/sections/layout/container.php:100
-#: inc/metabox/class-ast-meta-boxes.php:175
+#: inc/metabox/class-astra-meta-boxes.php:175
 msgid "Plain"
 msgstr ""
 
@@ -508,7 +509,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:59
 #: inc/customizer/sections/layout/container.php:80
 #: inc/customizer/sections/layout/container.php:101
-#: inc/metabox/class-ast-meta-boxes.php:176
+#: inc/metabox/class-astra-meta-boxes.php:176
 msgid "Boxed"
 msgstr ""
 
@@ -516,7 +517,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:60
 #: inc/customizer/sections/layout/container.php:81
 #: inc/customizer/sections/layout/container.php:102
-#: inc/metabox/class-ast-meta-boxes.php:177
+#: inc/metabox/class-astra-meta-boxes.php:177
 msgid "Content Boxed"
 msgstr ""
 
@@ -524,7 +525,7 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:61
 #: inc/customizer/sections/layout/container.php:82
 #: inc/customizer/sections/layout/container.php:103
-#: inc/metabox/class-ast-meta-boxes.php:178
+#: inc/metabox/class-astra-meta-boxes.php:178
 msgid "Page Builder"
 msgstr ""
 
@@ -659,19 +660,19 @@ msgstr ""
 msgid "Header Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:183
+#: inc/customizer/sections/layout/header.php:184
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:199
+#: inc/customizer/sections/layout/header.php:200
 msgid "Mobile Header Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:201
+#: inc/customizer/sections/layout/header.php:202
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:202
+#: inc/customizer/sections/layout/header.php:203
 msgid "Stack"
 msgstr ""
 
@@ -683,7 +684,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:62
 #: inc/customizer/sections/layout/sidebar.php:83
 #: inc/customizer/sections/layout/sidebar.php:104
-#: inc/metabox/class-ast-meta-boxes.php:162
+#: inc/metabox/class-astra-meta-boxes.php:162
 msgid "No Sidebar"
 msgstr ""
 
@@ -691,7 +692,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:63
 #: inc/customizer/sections/layout/sidebar.php:84
 #: inc/customizer/sections/layout/sidebar.php:105
-#: inc/metabox/class-ast-meta-boxes.php:160
+#: inc/metabox/class-astra-meta-boxes.php:160
 msgid "Left Sidebar"
 msgstr ""
 
@@ -699,7 +700,7 @@ msgstr ""
 #: inc/customizer/sections/layout/sidebar.php:64
 #: inc/customizer/sections/layout/sidebar.php:85
 #: inc/customizer/sections/layout/sidebar.php:106
-#: inc/metabox/class-ast-meta-boxes.php:161
+#: inc/metabox/class-astra-meta-boxes.php:161
 msgid "Right Sidebar"
 msgstr ""
 
@@ -726,13 +727,13 @@ msgstr ""
 #: inc/customizer/sections/typography/archive.php:40
 #: inc/customizer/sections/typography/body.php:84
 #: inc/customizer/sections/typography/content.php:39
-#: inc/customizer/sections/typography/content.php:69
-#: inc/customizer/sections/typography/content.php:99
-#: inc/customizer/sections/typography/content.php:129
-#: inc/customizer/sections/typography/content.php:159
-#: inc/customizer/sections/typography/content.php:189
+#: inc/customizer/sections/typography/content.php:73
+#: inc/customizer/sections/typography/content.php:107
+#: inc/customizer/sections/typography/content.php:141
+#: inc/customizer/sections/typography/content.php:175
+#: inc/customizer/sections/typography/content.php:209
 #: inc/customizer/sections/typography/header.php:40
-#: inc/customizer/sections/typography/header.php:70
+#: inc/customizer/sections/typography/header.php:74
 #: inc/customizer/sections/typography/single.php:40
 msgid "Font Size"
 msgstr ""
@@ -765,7 +766,7 @@ msgstr ""
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/sections/typography/body.php:103
+#: inc/customizer/sections/typography/body.php:106
 msgid "Line Height"
 msgstr ""
 
@@ -773,23 +774,23 @@ msgstr ""
 msgid "Heading <H1>"
 msgstr ""
 
-#: inc/customizer/sections/typography/content.php:52
+#: inc/customizer/sections/typography/content.php:56
 msgid "Heading <H2>"
 msgstr ""
 
-#: inc/customizer/sections/typography/content.php:82
+#: inc/customizer/sections/typography/content.php:90
 msgid "Heading <H3>"
 msgstr ""
 
-#: inc/customizer/sections/typography/content.php:109
+#: inc/customizer/sections/typography/content.php:121
 msgid "Heading <H4>"
 msgstr ""
 
-#: inc/customizer/sections/typography/content.php:142
+#: inc/customizer/sections/typography/content.php:158
 msgid "Heading <H5>"
 msgstr ""
 
-#: inc/customizer/sections/typography/content.php:169
+#: inc/customizer/sections/typography/content.php:189
 msgid "Heading <H6>"
 msgstr ""
 
@@ -797,7 +798,7 @@ msgstr ""
 msgid "Site Title"
 msgstr ""
 
-#: inc/customizer/sections/typography/header.php:53
+#: inc/customizer/sections/typography/header.php:57
 msgid "Site Tagline"
 msgstr ""
 
@@ -805,44 +806,44 @@ msgstr ""
 msgid "Single Post / Page Title"
 msgstr ""
 
-#: inc/extras.php:251
+#: inc/extras.php:252
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/extras.php:364
+#: inc/extras.php:365
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/extras.php:508
+#: inc/extras.php:509
 msgid "Site Navigation"
 msgstr ""
 
-#: inc/extras.php:916
+#: inc/extras.php:915
 msgid "Add Widget"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:104
+#: inc/metabox/class-astra-meta-boxes.php:104
 msgid "Astra Settings"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:159
-#: inc/metabox/class-ast-meta-boxes.php:174
+#: inc/metabox/class-astra-meta-boxes.php:159
+#: inc/metabox/class-astra-meta-boxes.php:174
 msgid "Global Setting"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:187
+#: inc/metabox/class-astra-meta-boxes.php:187
 msgid "Disable Sections"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:195
+#: inc/metabox/class-astra-meta-boxes.php:195
 msgid "Disable Title"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:208
+#: inc/metabox/class-astra-meta-boxes.php:208
 msgid "Disable Small Footer"
 msgstr ""
 
-#: inc/metabox/class-ast-meta-boxes.php:217
+#: inc/metabox/class-astra-meta-boxes.php:217
 msgid "Disable Primary Header"
 msgstr ""
 
@@ -852,15 +853,15 @@ msgstr ""
 msgid "Edit %s"
 msgstr ""
 
-#: inc/widgets.php:77
+#: inc/widgets.php:78
 msgid "Main Sidebar"
 msgstr ""
 
-#: inc/widgets.php:97
+#: inc/widgets.php:98
 msgid "Footer Widget 1"
 msgstr ""
 
-#: inc/widgets.php:107
+#: inc/widgets.php:108
 msgid "Footer Widget 2"
 msgstr ""
 
@@ -874,10 +875,6 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#. Theme URI of the plugin/theme
-msgid "http://wpastra.com/"
-msgstr ""
-
 #. Description of the plugin/theme
 msgid "A very lightweight and beautiful theme made to work with Page Builders."
 msgstr ""
@@ -887,7 +884,7 @@ msgid "Brainstorm Force"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.brainstormforce.com/"
+msgid "http://wpastra.com/"
 msgstr ""
 
 #: comments.php:36
@@ -910,19 +907,19 @@ msgctxt "post author"
 msgid "%s "
 msgstr ""
 
-#: inc/blog/blog-config.php:189
+#: inc/blog/blog-config.php:193
 #. translators: 1: post link
 msgctxt "post link"
 msgid "%s "
 msgstr ""
 
-#: inc/blog/blog-config.php:269
+#: inc/blog/blog-config.php:273
 #. translators: 1: post tags
 msgctxt "post tags"
 msgid "%1$s "
 msgstr ""
 
-#: inc/blog/blog-config.php:303
+#: inc/blog/blog-config.php:307
 #. translators: 1: post tags
 msgctxt "post categories"
 msgid "%1$s "

@@ -10,15 +10,15 @@
 
 get_header(); ?>
 
-<?php if ( ast_page_layout() == 'left-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
-	<div id="primary" <?php ast_primary_class(); ?>>
+	<div id="primary" <?php astra_primary_class(); ?>>
 
-		<?php ast_primary_content_top(); ?>
+		<?php astra_primary_content_top(); ?>
 
 		<main id="main" class="site-main" role="main">
 
@@ -37,14 +37,14 @@ get_header(); ?>
 
 		</main><!-- #main -->
 
-		<?php ast_primary_content_bottom(); ?>
+		<?php astra_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( ast_page_layout() == 'right-sidebar' ) : ?>
+<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
-		
+
 <?php endif ?>
 
 <?php get_footer(); ?>

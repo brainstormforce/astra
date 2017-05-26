@@ -24,7 +24,7 @@
 		user-select: none;
 		transition: .2s;
 
-		&:after, 
+		&:after,
 		&:before {
 			content: "";
 			display: block;
@@ -58,12 +58,10 @@
 	}
 	input:checked + .switch:after {
 		background: #ffffff;
-		transform: translate3d(100%, -50%, 0); 
+		transform: translate3d(100%, -50%, 0);
 	}
 	input:checked + .switch:active:before {
 		background: rgba(52, 152, 222, 0.075);
 		transform: translate3d(100%, -50%, 0);
 	}
 }
-
-/*# sourceMappingURL=toggle.css.map */

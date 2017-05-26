@@ -150,11 +150,11 @@ var toggleClass = function ( el, className ) {
 	AstraNavigationMenu( 'ul.main-header-menu li' );
 
 	AstraToggleMenu = function( selector ) {
-		var ast_menu_toggle = document.querySelectorAll( selector );
+		var astra_menu_toggle = document.querySelectorAll( selector );
 		/* Submenu button click */
-		for (var i = 0; i < ast_menu_toggle.length; i++) {
+		for (var i = 0; i < astra_menu_toggle.length; i++) {
 
-			ast_menu_toggle[i].addEventListener( 'click', function ( event ) {
+			astra_menu_toggle[i].addEventListener( 'click', function ( event ) {
 				event.preventDefault();
 
 				var parent_li = this.parentNode;
@@ -222,7 +222,7 @@ var toggleClass = function ( el, className ) {
 
 		if( null != document.getElementById( 'masthead' ) ) {
 
-			var break_point = ast.break_point,
+			var break_point = astra.break_point,
 				headerWrap = document.getElementById( 'masthead' ).childNodes;
 
 			for ( var i = 0; i < headerWrap.length; i++ ) {

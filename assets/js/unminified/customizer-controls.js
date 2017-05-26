@@ -41,7 +41,7 @@
 		_initToggles: function()
 		{
 			// Trigger the Adv Tab Click trigger.
-			ASTControlTrigger.triggerHook( 'ast-toggle-control', api );
+			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
 
 			// Loop through each setting.
 			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
@@ -81,8 +81,8 @@
 
 							$.each(toggle.controls, function( k, controlId) {
 
-								controlId = controlId.replace( 'ast-settings[','' ).replace( ']','' );
-								var parent = $( '#customize-control-ast-settings-' + controlId ).closest( '.control-section' );
+								controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
+								var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
 								if ( typeof parent != 'undefined' ) {
 
 									var parentId = parent.attr( 'id' );
@@ -109,8 +109,8 @@
 
 					$.each(toggle.controls, function( k, controlId) {
 
-						controlId = controlId.replace( 'ast-settings[','' ).replace( ']','' );
-						var parent = $( '#customize-control-ast-settings-' + controlId ).closest( '.control-section' );
+						controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
+						var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
 
 						if ( typeof parent != 'undefined' ) {
 

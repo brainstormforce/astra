@@ -83,7 +83,7 @@
   display: none;
 }
 
-.customize-control-ast-slider .ast_range_value {
+.customize-control-ast-slider .astra_range_value {
   font-size: 14px;
   padding: 0 0 0 5px;
   font-weight: 400;
@@ -113,13 +113,13 @@
   color: red;
 }
 
-.ast_range_value input.ast-range-value-input {
+.astra_range_value input.ast-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
   padding: 3px;
 }
 
-.ast_range_value .ast-range-unit {
+.astra_range_value .ast-range-unit {
   margin-left: 5px;
 }

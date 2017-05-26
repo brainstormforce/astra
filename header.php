@@ -11,34 +11,34 @@
  */
 
 ?><!DOCTYPE html>
-<?php ast_html_before(); ?>
+<?php astra_html_before(); ?>
 <html <?php language_attributes(); ?>>
 <head>
-<?php ast_head_top(); ?>
+<?php astra_head_top(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php ast_head_bottom(); ?>
+<?php astra_head_bottom(); ?>
 <?php wp_head(); ?>
 </head>
 
-<body <?php ast_schema_body(); ?> <?php body_class(); ?>>
+<body <?php astra_schema_body(); ?> <?php body_class(); ?>>
 
-<?php ast_body_top(); ?>
+<?php astra_body_top(); ?>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php ast_default_strings( 'string-header-skip-link' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?></a>
 	
-	<?php ast_header_before(); ?>
+	<?php astra_header_before(); ?>
 
-	<?php ast_header(); ?>
+	<?php astra_header(); ?>
 	
-	<?php ast_header_after(); ?>
+	<?php astra_header_after(); ?>
 
-	<?php ast_content_before(); ?>
+	<?php astra_content_before(); ?>
 
 	<div id="content" class="site-content">
 
 		<div class="ast-container">
 
-		<?php ast_content_top(); ?>
+		<?php astra_content_top(); ?>

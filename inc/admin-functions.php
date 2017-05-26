@@ -9,14 +9,14 @@
 /**
  * Register menus
  */
-if ( ! function_exists( 'ast_register_menu_locations' ) ) {
+if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 
 	/**
 	 * Register menus
 	 *
 	 * @since 1.0.0
 	 */
-	function ast_register_menu_locations() {
+	function astra_register_menu_locations() {
 
 		/**
 		 * Menus
@@ -28,4 +28,4 @@ if ( ! function_exists( 'ast_register_menu_locations' ) ) {
 	}
 }
 
-add_action( 'init', 'ast_register_menu_locations' );
+add_action( 'init', 'astra_register_menu_locations' );

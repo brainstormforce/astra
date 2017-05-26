@@ -67,7 +67,6 @@ module.exports = function (grunt) {
                         /* Editor Style */
                         {
                             'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                            'inc/customizer/custom-controls/dimension/dimension.css': 'inc/customizer/custom-controls/dimension/dimension.scss',
                             'inc/customizer/custom-controls/responsive/responsive.css': 'inc/customizer/custom-controls/responsive/responsive.scss',
                             'inc/customizer/custom-controls/divider/divider.css': 'inc/customizer/custom-controls/divider/divider.scss',
                             'inc/customizer/custom-controls/radio-image/radio-image.css': 'inc/customizer/custom-controls/radio-image/radio-image.scss',

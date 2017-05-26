@@ -10,16 +10,16 @@
 
 ?>
 
-<?php ast_entry_before(); ?>
+<?php astra_entry_before(); ?>
 
 <article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php ast_entry_top(); ?>
+	<?php astra_entry_top(); ?>
 	
-	<?php ast_entry_content_blog(); ?>
+	<?php astra_entry_content_blog(); ?>
 
-	<?php ast_entry_bottom(); ?>
+	<?php astra_entry_bottom(); ?>
 
 </article><!-- #post-## -->
 
-<?php ast_entry_after(); ?>
+<?php astra_entry_after(); ?>

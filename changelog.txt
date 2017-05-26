@@ -1,3 +1,14 @@
+v1.0.5
+# Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
+# Fixed: PHP Notice - Array to string conversion
+# Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
+# Fixed: Remove comment-form from add_theme_support( 'html5' )
+# Fixed: `excerpt_more` filter affecting on admin side.
+# Fixed: Missing escaping variable updated.
+
+v1.0.4.1
+# Fixed: Warning on first time activates the theme.
+
 v1.0.4
 # New: Responsive Typography Param implemented.
 # New: Added option for Menu Label on Small Devices.
@@ -10,7 +21,7 @@ v1.0.3.1
 # Removed functions that override WordPress global's.
 
 v1.0.3
-# Enhancement: Removed option _astra_auto_version and used option AST_THEME_SETTINGS for auto storing latest theme version.
+# Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
 # Fixed: Content Layout meta working on beaver builder page/post.
 
 v1.0.2
@@ -23,7 +34,7 @@ v1.0.2
 # Improvement: Removed unwanted minified & unminified files.
 # Improvement: Removed unwanted constants.
 # Improvement: Removed unused variables when a classes are initialised.
-# Improvement: Moved hook ast_body_bottom at the top of the wp_footer hook.
+# Improvement: Moved hook astra_body_bottom at the top of the wp_footer hook.
 # Improvement: Renamed the uabb theme compatibility functions to not include redundant prefix.
 # Improvement: Used get_bloginfo() instead of get_option('blogname').
 
@@ -31,7 +42,7 @@ v1.0.1.1
 # Added: Welcome screen for in theme page
 # Added: Theme page support in base theme.
 # Removed: Unwanted add_theme_supports.
-# Removed: Unused function 'ast_the_archive_title()'
+# Removed: Unused function 'astra_the_archive_title()'
 # Removed: 'Walker_Nav_Menu' & 'Walker_Page' classes
 # Fixed: Theme page settings save message jerk issue.
 

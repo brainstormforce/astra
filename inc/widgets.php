@@ -3,16 +3,16 @@
  * Widget and sidebars related functions
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
 /**
  * WordPress filter - Widget Tags
  */
-if ( ! function_exists( 'ast_widget_tag_cloud_args' ) ) :
+if ( ! function_exists( 'astra_widget_tag_cloud_args' ) ) :
 
 	/**
 	 * WordPress filter - Widget Tags
@@ -20,25 +20,25 @@ if ( ! function_exists( 'ast_widget_tag_cloud_args' ) ) :
 	 * @param  array $args Tag arguments.
 	 * @return array       Modified tag arguments.
 	 */
-	function ast_widget_tag_cloud_args( $args = array() ) {
+	function astra_widget_tag_cloud_args( $args = array() ) {
 
-		$sidebar_link_font_size = ast_get_option( 'font-size-body' );
+		$sidebar_link_font_size = astra_get_option( 'font-size-body' );
 		$sidebar_link_font_size['desktop'] = ( '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
 
 		$args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;
 		$args['largest']  = intval( $sidebar_link_font_size['desktop'] ) + 3;
 		$args['unit']     = 'px';
 
-		return apply_filters( 'ast_widget_tag_cloud_args', $args );
+		return apply_filters( 'astra_widget_tag_cloud_args', $args );
 	}
-	add_filter( 'widget_tag_cloud_args', 'ast_widget_tag_cloud_args', 90 );
+	add_filter( 'widget_tag_cloud_args', 'astra_widget_tag_cloud_args', 90 );
 
 endif;
 
 /**
  * Wordpress filter - Widget Categories
  */
-if ( ! function_exists( 'ast_filter_widget_tag_cloud' ) ) :
+if ( ! function_exists( 'astra_filter_widget_tag_cloud' ) ) :
 
 	/**
 	 * Wordpress filter - Widget Categories
@@ -46,7 +46,7 @@ if ( ! function_exists( 'ast_filter_widget_tag_cloud' ) ) :
 	 * @param  array $tags_data Tags data.
 	 * @return array            Modified tags data.
 	 */
-	function ast_filter_widget_tag_cloud( $tags_data ) {
+	function astra_filter_widget_tag_cloud( $tags_data ) {
 
 		if ( is_tag() ) {
 			foreach ( $tags_data as $key => $tag ) {
@@ -56,25 +56,25 @@ if ( ! function_exists( 'ast_filter_widget_tag_cloud' ) ) :
 			}
 		}
 
-		return apply_filters( 'ast_filter_widget_tag_cloud', $tags_data );
+		return apply_filters( 'astra_filter_widget_tag_cloud', $tags_data );
 	}
-	add_filter( 'wp_generate_tag_cloud_data', 'ast_filter_widget_tag_cloud' );
+	add_filter( 'wp_generate_tag_cloud_data', 'astra_filter_widget_tag_cloud' );
 
 endif;
 
 /**
  * Register widget area.
  */
-if ( ! function_exists( 'ast_widgets_init' ) ) :
+if ( ! function_exists( 'astra_widgets_init' ) ) :
 
 	/**
 	 * Register widget area.
 	 *
 	 * @see https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
 	 */
-	function ast_widgets_init() {
+	function astra_widgets_init() {
 
-		register_sidebar( apply_filters( 'ast_widgets_init', array(
+		register_sidebar( apply_filters( 'astra_widgets_init', array(
 			'name'          => esc_html__( 'Main Sidebar', 'astra' ),
 			'id'            => 'sidebar-1',
 			'description'   => '',
@@ -84,7 +84,7 @@ if ( ! function_exists( 'ast_widgets_init' ) ) :
 			'after_title'   => '</h2>',
 		) ) );
 
-		register_sidebar( apply_filters( 'ast_header_widgets_init', array(
+		register_sidebar( apply_filters( 'astra_header_widgets_init', array(
 			'name'          => esc_html__( 'Header', 'astra' ),
 			'id'            => 'header-widget',
 			'description'   => '',
@@ -94,7 +94,7 @@ if ( ! function_exists( 'ast_widgets_init' ) ) :
 			'after_title'   => '</h2>',
 		) ) );
 
-		register_sidebar( apply_filters( 'ast_footer_1_widgets_init', array(
+		register_sidebar( apply_filters( 'astra_footer_1_widgets_init', array(
 			'name'          => esc_html__( 'Footer Widget 1', 'astra' ),
 			'id'            => 'footer-widget-1',
 			'description'   => '',
@@ -104,7 +104,7 @@ if ( ! function_exists( 'ast_widgets_init' ) ) :
 			'after_title'   => '</h2>',
 		) ) );
 
-		register_sidebar( apply_filters( 'ast_footer_2_widgets_init', array(
+		register_sidebar( apply_filters( 'astra_footer_2_widgets_init', array(
 			'name'          => esc_html__( 'Footer Widget 2', 'astra' ),
 			'id'            => 'footer-widget-2',
 			'description'   => '',
@@ -114,6 +114,6 @@ if ( ! function_exists( 'ast_widgets_init' ) ) :
 			'after_title'   => '</h2>',
 		) ) );
 	}
-	add_action( 'widgets_init', 'ast_widgets_init' );
+	add_action( 'widgets_init', 'astra_widgets_init' );
 
 endif;

@@ -3,21 +3,21 @@
  * Template for 404
  *
  * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2015, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Astra
+ * @copyright   Copyright (c) 2017, Astra
+ * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
 
 ?>
 <div class="ast-404-layout-1">
 	
-	<?php ast_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
+	<?php astra_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 	
 	<div class="page-content">
 		
 		<div class="page-sub-title">
-			<?php ast_default_strings( 'string-404-sub-title' ); ?>
+			<?php echo esc_html( astra_default_strings( 'string-404-sub-title', false ) ); ?>
 		</div>
 		
 		<div class="ast-404-search">
