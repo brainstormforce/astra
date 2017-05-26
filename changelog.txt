@@ -1,9 +1,10 @@
 v1.0.5
-Fixed: PHP Notice - Array to string conversion
-Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
-Fixed: Remove comment-form from add_theme_support( 'html5' )
-Fixed: `excerpt_more` filter affecting on admin side.
-Fixed: Missing escaping variable updated.
+# Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
+# Fixed: PHP Notice - Array to string conversion
+# Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
+# Fixed: Remove comment-form from add_theme_support( 'html5' )
+# Fixed: `excerpt_more` filter affecting on admin side.
+# Fixed: Missing escaping variable updated.
 
 v1.0.4.1
 # Fixed: Warning on first time activates the theme.

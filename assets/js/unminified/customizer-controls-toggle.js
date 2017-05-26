@@ -62,12 +62,12 @@
 	 */
 	ASTCustomizerToggles = {
 
-		'ast-settings[display-site-title]' :
+		'astra-settings[display-site-title]' :
 		[
 			{
 				controls: [
-					'ast-settings[divider-section-header-typo-title]',
-					'ast-settings[font-size-site-title]',
+					'astra-settings[divider-section-header-typo-title]',
+					'astra-settings[font-size-site-title]',
 				],
 				callback: function( value ) {
 
@@ -79,12 +79,12 @@
 			},
 		],
 
-		'ast-settings[display-site-tagline]' :
+		'astra-settings[display-site-tagline]' :
 		[
 			{
 				controls: [
-					'ast-settings[divider-section-header-typo-tagline]',
-					'ast-settings[font-size-site-tagline]',
+					'astra-settings[divider-section-header-typo-tagline]',
+					'astra-settings[font-size-site-tagline]',
 				],
 				callback: function( value ) {
 
@@ -108,11 +108,11 @@
 		// Layout 2 > Right Section > Text / HTML
 		// Layout 2 > Right Section > Search Type
 		// Layout 2 > Right Section > Search Type > Search Box Type.
-		'ast-settings[header-main-rt-section]' :
+		'astra-settings[header-main-rt-section]' :
 		[
 			{
 				controls: [
-					'ast-settings[header-main-rt-section-html]'
+					'astra-settings[header-main-rt-section-html]'
 				],
 				callback: function( val ) {
 
@@ -124,11 +124,11 @@
 			},
 			{
 				controls: [
-					'ast-settings[header-main-menu-label]',
-					'ast-settings[header-main-menu-label-divider]',
+					'astra-settings[header-main-menu-label]',
+					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( custom_menu ) {
-					var menu = api( 'ast-settings[disable-primary-nav]' ).get();
+					var menu = api( 'astra-settings[disable-primary-nav]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
@@ -140,11 +140,11 @@
 		/**
 		 * Blog
 		 */
-		'ast-settings[blog-width]' :
+		'astra-settings[blog-width]' :
 		[
 			{
 				controls: [
-					'ast-settings[blog-max-width]'
+					'astra-settings[blog-max-width]'
 				],
 				callback: function( blog_width ) {
 
@@ -155,15 +155,15 @@
 				}
 		}
 		],
-		'ast-settings[blog-meta]' :
+		'astra-settings[blog-meta]' :
 		[
 			{
 				controls: [
-					'ast-settings[blog-meta-comments]',
-					'ast-settings[blog-meta-category]',
-					'ast-settings[blog-meta-author]',
-					'ast-settings[blog-meta-date]',
-					'ast-settings[blog-meta-tag]',
+					'astra-settings[blog-meta-comments]',
+					'astra-settings[blog-meta-category]',
+					'astra-settings[blog-meta-author]',
+					'astra-settings[blog-meta-date]',
+					'astra-settings[blog-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {
 
@@ -178,11 +178,11 @@
 		/**
 		 * Blog Single
 		 */
-		'ast-settings[blog-single-width]' :
+		'astra-settings[blog-single-width]' :
 		[
 			{
 				controls: [
-					'ast-settings[blog-single-max-width]'
+					'astra-settings[blog-single-max-width]'
 				],
 				callback: function( blog_width ) {
 
@@ -193,15 +193,15 @@
 				}
 		}
 		],
-		'ast-settings[blog-single-meta]' :
+		'astra-settings[blog-single-meta]' :
 		[
 			{
 				controls: [
-					'ast-settings[blog-single-meta-comments]',
-					'ast-settings[blog-single-meta-cat]',
-					'ast-settings[blog-single-meta-author]',
-					'ast-settings[blog-single-meta-date]',
-					'ast-settings[blog-single-meta-tag]',
+					'astra-settings[blog-single-meta-comments]',
+					'astra-settings[blog-single-meta-cat]',
+					'astra-settings[blog-single-meta-author]',
+					'astra-settings[blog-single-meta-date]',
+					'astra-settings[blog-single-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {
 
@@ -216,22 +216,22 @@
 		/**
 		 * Small Footer
 		 */
-		'ast-settings[footer-sml-layout]' :
+		'astra-settings[footer-sml-layout]' :
 		[
 			{
 				controls: [
-					'ast-settings[footer-sml-section-1]',
-					'ast-settings[footer-sml-section-2]',
-					'ast-settings[section-ast-small-footer-background-styling]',
-					'ast-settings[ast-small-footer-color]',
-					'ast-settings[ast-small-footer-link-color]',
-					'ast-settings[ast-small-footer-link-hover-color]',
-					'ast-settings[ast-small-footer-bg-img]',
-					'ast-settings[section-ast-small-footer-typography]',
-					'ast-settings[ast-small-footer-text-font]',
-					'ast-settings[footer-sml-divider]',
-					'ast-settings[section-ast-small-footer-layout-info]',
-					'ast-settings[footer-layout-width]',
+					'astra-settings[footer-sml-section-1]',
+					'astra-settings[footer-sml-section-2]',
+					'astra-settings[section-ast-small-footer-background-styling]',
+					'astra-settings[ast-small-footer-color]',
+					'astra-settings[ast-small-footer-link-color]',
+					'astra-settings[ast-small-footer-link-hover-color]',
+					'astra-settings[ast-small-footer-bg-img]',
+					'astra-settings[section-ast-small-footer-typography]',
+					'astra-settings[ast-small-footer-text-font]',
+					'astra-settings[footer-sml-divider]',
+					'astra-settings[section-ast-small-footer-layout-info]',
+					'astra-settings[footer-layout-width]',
 				],
 				callback: function( small_footer_layout ) {
 
@@ -243,11 +243,11 @@
 			},
 			{
 				controls: [
-					'ast-settings[footer-sml-section-1-credit]',
+					'astra-settings[footer-sml-section-1-credit]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var footer_section_1 = api( 'ast-settings[footer-sml-section-1]' ).get();
+					var footer_section_1 = api( 'astra-settings[footer-sml-section-1]' ).get();
 
 					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_1 ) {
 						return true;
@@ -257,11 +257,11 @@
 			},
 			{
 				controls: [
-					'ast-settings[footer-sml-section-2-credit]',
+					'astra-settings[footer-sml-section-2-credit]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var footer_section_2 = api( 'ast-settings[footer-sml-section-2]' ).get();
+					var footer_section_2 = api( 'astra-settings[footer-sml-section-2]' ).get();
 
 					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_2 ) {
 						return true;
@@ -271,11 +271,11 @@
 			},
 			{
 				controls: [
-					'ast-settings[footer-sml-divider-color]',
+					'astra-settings[footer-sml-divider-color]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var border_width = api( 'ast-settings[footer-sml-divider]' ).get();
+					var border_width = api( 'astra-settings[footer-sml-divider]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != small_footer_layout ) {
 						return true;
@@ -284,15 +284,15 @@
 				}
 			},
 		],
-		'ast-settings[footer-sml-section-1]' :
+		'astra-settings[footer-sml-section-1]' :
 		[
 			{
 				controls: [
-					'ast-settings[footer-sml-section-1-credit]',
+					'astra-settings[footer-sml-section-1-credit]',
 				],
 				callback: function( enabled_section_1 ) {
 
-					var footer_layout = api( 'ast-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
 
 					if ( 'custom' == enabled_section_1 && 'disabled' != footer_layout ) {
 						return true;
@@ -301,15 +301,15 @@
 				}
 			}
 		],
-		'ast-settings[footer-sml-section-2]' :
+		'astra-settings[footer-sml-section-2]' :
 		[
 			{
 				controls: [
-					'ast-settings[footer-sml-section-2-credit]',
+					'astra-settings[footer-sml-section-2-credit]',
 				],
 				callback: function( enabled_section_2 ) {
 
-					var footer_layout = api( 'ast-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
 
 					if ( 'custom' == enabled_section_2 && 'disabled' != footer_layout ) {
 						return true;
@@ -319,15 +319,15 @@
 			}
 		],
 
-		'ast-settings[footer-sml-divider]' :
+		'astra-settings[footer-sml-divider]' :
 		[
 			{
 				controls: [
-					'ast-settings[footer-sml-divider-color]',
+					'astra-settings[footer-sml-divider-color]',
 				],
 				callback: function( border_width ) {
 
-					var footer_layout = api( 'ast-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != footer_layout ) {
 						return true;
@@ -337,11 +337,11 @@
 			},
 		],
 
-		'ast-settings[header-main-sep]' :
+		'astra-settings[header-main-sep]' :
 		[
 			{
 				controls: [
-					'ast-settings[header-main-sep-color]',
+					'astra-settings[header-main-sep-color]',
 				],
 				callback: function( border_width ) {
 
@@ -353,15 +353,15 @@
 			},
 		],
 
-		'ast-settings[disable-primary-nav]' :
+		'astra-settings[disable-primary-nav]' :
 		[
 			{
 				controls: [
-					'ast-settings[header-main-menu-label]',
-					'ast-settings[header-main-menu-label-divider]',
+					'astra-settings[header-main-menu-label]',
+					'astra-settings[header-main-menu-label-divider]',
 				],
 				callback: function( menu ) {
-					var custom_menu = api( 'ast-settings[header-main-rt-section]' ).get();
+					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
@@ -389,29 +389,29 @@
 
 		ASTControlTrigger.addHook( 'ast-toggle-control', function( argument, api ) {
 
-			ASTCustomizerToggles[ 'ast-settings['+sidebar_layout+']' ] =
+			ASTCustomizerToggles[ 'astra-settings['+sidebar_layout+']' ] =
 			[
 				{
 					controls: [
-						'ast-settings[site-sidebar-width]',
-						'ast-settings[divider-section-sidebar-width]',
+						'astra-settings[site-sidebar-width]',
+						'astra-settings[divider-section-sidebar-width]',
 
 						// @SPACING addon setting
-						'ast-settings[sidebar-content-plain-spacing]',
-						'ast-settings[sidebar-content-boxed-spacing]',
+						'astra-settings[sidebar-content-plain-spacing]',
+						'astra-settings[sidebar-content-boxed-spacing]',
 
 						// @BLOGPRO addon setting
-						'ast-settings[responsive-sidebar]',
-						'ast-settings[responsive-sidebar-divider]',
+						'astra-settings[responsive-sidebar]',
+						'astra-settings[responsive-sidebar-divider]',
 					],
 					callback: function( sidebar ) {
 
 						var any_layout = '';
-						var sidebar    = api( 'ast-settings[site-sidebar-layout]' ).get();
+						var sidebar    = api( 'astra-settings[site-sidebar-layout]' ).get();
 
 						jQuery.each( merged_sidebars, function( index, s_layout ) {
 
-							var type   = api( 'ast-settings['+s_layout+']' ).get() || '';
+							var type   = api( 'astra-settings['+s_layout+']' ).get() || '';
 
 							// Is no-sidebar?
 							if( 'no-sidebar' != type && 'default' != type ) {

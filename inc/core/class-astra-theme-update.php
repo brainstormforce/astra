@@ -69,6 +69,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_4();
 			}
 
+			// Update to older version than 1.0.5 version.
+			if ( version_compare( $saved_version, '1.0.5', '<' ) ) {
+				self::v_1_0_5();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -102,9 +107,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * Update options of older version than 1.0.3.
+		 * Update options of older version than 1.0.4.
 		 *
-		 * @since 1.0.3
+		 * @since 1.0.4
 		 * @return void
 		 */
 		static public function v_1_0_4() {
@@ -163,7 +168,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$astra_options = get_option( 'ast-settings', array() );
 
 			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
@@ -182,8 +187,30 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( 'ast-settings', $astra_options );
 		}
+
+		/**
+		 * Update options of older version than 1.0.5.
+		 *
+		 * @since 1.0.5
+		 * @return void
+		 */
+		static public function v_1_0_5() {
+
+			$astra_old_options = get_option( 'ast-settings', array() );
+			$astra_new_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			// Merge old customizer options in new option.
+			$astra_options = wp_parse_args( $astra_new_options, $astra_old_options );
+
+			// Update option.
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+
+			// Delete old option.
+			delete_option( 'ast-settings', array() );
+		}
+
 	}
 }// End if().
 
