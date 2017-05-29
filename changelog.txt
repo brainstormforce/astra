@@ -1,3 +1,6 @@
+v1.0.6
+# Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
+
 v1.0.5
 # Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
 # Fixed: PHP Notice - Array to string conversion

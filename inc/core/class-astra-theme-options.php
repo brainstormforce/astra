@@ -47,20 +47,17 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			}
 			return self::$instance;
 		}
+
 		/**
 		 * Constructor
 		 */
 		public function __construct() {
+
 			// Refresh options variables after customizer save.
-			self::refresh();
-			add_action( 'init', array( $this, 'update_options' ) );
+			add_action( 'after_setup_theme', array( $this, 'refresh' ) );
+
 		}
-		/**
-		 * Update Options
-		 */
-		function update_options() {
-			self::refresh();
-		}
+
 		/**
 		 * Set default theme option values
 		 *
