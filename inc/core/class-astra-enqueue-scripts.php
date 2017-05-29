@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			// If not have 'Ast_Minify' class
 			// then process to enqueue assets.
-			if( ! class_exists( 'Ast_Minify' ) ) {
+			if( ! class_exists( 'Astra_Minify' ) ) {
 				add_action( 'wp_enqueue_scripts', 	array( $this, 'enqueue_scripts' ) );
 			}
 
