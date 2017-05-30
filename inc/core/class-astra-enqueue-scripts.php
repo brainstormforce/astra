@@ -152,7 +152,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'lt IE 9' );
 
 			// Add localize variables for the script.
-			wp_localize_script( 'astra-navigation', 'ast', self::theme_localize() );
+			wp_localize_script( 'astra-navigation', 'astra', self::theme_localize() );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'break_point' => astra_header_break_point(), 	// Header Break Point.
 			);
 
-			wp_localize_script( 'astra-navigation', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			return apply_filters( 'astra_theme_js_localize', $astra_localize );
 
 		}
 
