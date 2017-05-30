@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( empty( $saved_version ) ) {
 
 				// Get old version.
-				$theme_version = get_option( '_astra_auto_version', '0' );
+				$theme_version = get_option( '_astra_auto_version', ASTRA_THEME_VERSION );
 
 				// Remove option.
 				delete_option( '_astra_auto_version' );
@@ -104,6 +104,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( ASTRA_THEME_SETTINGS, $theme_options );
 
 			do_action( 'astra_update_after' );
+
 		}
 
 		/**
