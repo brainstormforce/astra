@@ -43,11 +43,11 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', 			array( $this, 'header_footer_support' ) );
-			add_action( 'wp', 							array( $this, 'theme_header_footer_render' ) );
-			add_filter( 'fl_theme_builder_part_hooks', 	array( $this, 'register_part_hooks' ) );
-			add_filter( 'post_class', 					array( $this, 'render_post_class' ), 99 );
-			add_filter( 'astra_get_content_layout', 		array( $this, 'builder_template_content_layout' ), 20 );
+			add_action( 'after_setup_theme',            array( $this, 'header_footer_support' ) );
+			add_action( 'wp',                           array( $this, 'theme_header_footer_render' ) );
+			add_filter( 'fl_theme_builder_part_hooks',  array( $this, 'register_part_hooks' ) );
+			add_filter( 'post_class',                   array( $this, 'render_post_class' ), 99 );
+			add_filter( 'astra_get_content_layout',         array( $this, 'builder_template_content_layout' ), 20 );
 		}
 
 		/**

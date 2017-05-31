@@ -41,9 +41,9 @@ if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
 		/**
 		 * Updates an option from the admin settings page.
 		 *
-		 * @param string $key 		The option key.
-		 * @param mixed  $value 	The value to update.
-		 * @param bool   $network 	Whether to allow the network admin setting to be overridden on subsites.
+		 * @param string $key       The option key.
+		 * @param mixed  $value     The value to update.
+		 * @param bool   $network   Whether to allow the network admin setting to be overridden on subsites.
 		 * @return mixed
 		 */
 		static public function update_admin_settings_option( $key, $value, $network = false ) {

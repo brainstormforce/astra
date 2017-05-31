@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function init_admin_settings() {
 
-			self::$menu_page_title	= apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
+			self::$menu_page_title  = apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -115,9 +115,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$actions = array(
 					'general'          => array(
-											'label'	=> __( 'Welcome', 'astra' ),
-											'show'	=> ! is_network_admin(),
-										),
+						'label'	=> __( 'Welcome', 'astra' ),
+						'show'	=> ! is_network_admin(),
+					),
 				);
 				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
 			}

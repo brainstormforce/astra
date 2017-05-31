@@ -384,16 +384,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_css_value( $site_tagline_font_size['tablet'], $site_tagline_font_size['tablet-unit'] ),
 				),
 				'.entry-title' => array(
-					'font-size' => astra_get_css_value( $archive_post_title_font_size['tablet'], $archive_post_title_font_size['tablet-unit'] ),
+					'font-size' => astra_get_css_value( $archive_post_title_font_size['tablet'], $archive_post_title_font_size['tablet-unit'], 30 ),
 				),
 				'h1, .entry-content h1, .entry-content h1 a' => array(
-					'font-size' => astra_get_css_value( $heading_h1_font_size['tablet'], $heading_h1_font_size['tablet-unit'] ),
+					'font-size' => astra_get_css_value( $heading_h1_font_size['tablet'], $heading_h1_font_size['tablet-unit'], 30 ),
 				),
 				'h2, .entry-content h2, .entry-content h2 a' => array(
-					'font-size' => astra_get_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['tablet-unit'] ),
+					'font-size' => astra_get_css_value( $heading_h2_font_size['tablet'], $heading_h2_font_size['tablet-unit'], 25 ),
 				),
 				'h3, .entry-content h3, .entry-content h3 a' => array(
-					'font-size' => astra_get_css_value( $heading_h3_font_size['tablet'], $heading_h3_font_size['tablet-unit'] ),
+					'font-size' => astra_get_css_value( $heading_h3_font_size['tablet'], $heading_h3_font_size['tablet-unit'], 20 ),
 				),
 				'h4, .entry-content h4, .entry-content h4 a' => array(
 					'font-size' => astra_get_css_value( $heading_h4_font_size['tablet'], $heading_h4_font_size['tablet-unit'] ),
@@ -405,7 +405,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_css_value( $heading_h6_font_size['tablet'], $heading_h6_font_size['tablet-unit'] ),
 				),
 				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size'   => astra_get_css_value( $single_post_title_font_size['tablet'], $single_post_title_font_size['tablet-unit'] ),
+					'font-size'   => astra_get_css_value( $single_post_title_font_size['tablet'], $single_post_title_font_size['tablet-unit'], 30 ),
 				),
 			);
 

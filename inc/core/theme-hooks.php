@@ -17,11 +17,11 @@
  *
  * Example:
  * <code>
- * 		// Declare support for all hook types
- * 		add_theme_support( 'astra_hooks', array( 'all' ) );
+ *      // Declare support for all hook types
+ *      add_theme_support( 'astra_hooks', array( 'all' ) );
  *
- * 		// Declare support for certain hook types only
- * 		add_theme_support( 'astra_hooks', array( 'header', 'content', 'footer' ) );
+ *      // Declare support for certain hook types only
+ *      add_theme_support( 'astra_hooks', array( 'header', 'content', 'footer' ) );
  * </code>
  */
 add_theme_support( 'astra_hooks', array(
@@ -68,8 +68,8 @@ add_theme_support( 'astra_hooks', array(
  *
  * Example:
  * <code>
- * 		if ( current_theme_supports( 'astra_hooks', 'header' ) )
- * 	  		add_action( 'astra_head_top', 'prefix_header_top' );
+ *      if ( current_theme_supports( 'astra_hooks', 'header' ) )
+ *          add_action( 'astra_head_top', 'prefix_header_top' );
  * </code>
  *
  * @param bool  $bool true.

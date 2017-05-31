@@ -1,4 +1,5 @@
 v1.0.6
+# Enhancement: Updated theme default screenshot.png.
 # Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
 
 v1.0.5.1

@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Cornerstone' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'body_class', 		array( $this, 'add_body_class' ) );
+			add_filter( 'body_class',       array( $this, 'add_body_class' ) );
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 		}
 

@@ -168,7 +168,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public static function theme_localize() {
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(), 	// Header Break Point.
+				'break_point' => astra_header_break_point(),    // Header Break Point.
 			);
 
 			return apply_filters( 'astra_theme_js_localize', $astra_localize );

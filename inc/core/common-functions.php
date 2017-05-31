@@ -132,22 +132,22 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 	 *
 	 * Syntax:
 	 *
-	 * 	astra_get_font_css_value( VALUE, DEVICE, UNIT );
+	 *  astra_get_font_css_value( VALUE, DEVICE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 * 	astra_get_css_value( VALUE, 'desktop', '%' );
+	 *  astra_get_css_value( VALUE, 'desktop', '%' );
 	 *  astra_get_css_value( VALUE, 'tablet' );
 	 *  astra_get_css_value( VALUE, 'mobile' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
-	 * @param  string $device 		CSS device.
-	 * @return mixed               	CSS value depends on $unit & $device
+	 * @param  string $device       CSS device.
+	 * @return mixed                CSS value depends on $unit & $device
 	 */
 	function astra_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
 
-		// If value is empty of 0 then return blank.
+		// If value is empty or 0 then return blank.
 		if ( '' == $value || 0 == $value ) {
 			return '';
 		}
@@ -191,22 +191,22 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 	 *
 	 * Syntax:
 	 *
-	 * 	astra_get_css_value( VALUE, UNIT );
+	 *  astra_get_css_value( VALUE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 * 	astra_get_css_value( VALUE, 'url' );
+	 *  astra_get_css_value( VALUE, 'url' );
 	 *  astra_get_css_value( VALUE, 'px' );
 	 *  astra_get_css_value( VALUE, 'em' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
-	 * @param  string $default_font CSS default font.
+	 * @param  string $default      CSS default font.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function astra_get_css_value( $value = '', $unit = 'px', $default_font = '' ) {
+	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
-		if ( '' == $value ) {
+		if ( '' == $value &&  '' == $default ) {
 			return $value;
 		}
 
@@ -218,14 +218,15 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 				if ( 'inherit' != $value ) {
 					$css_val = esc_attr( $value );
-				} elseif ( '' != $default_font ) {
-					$css_val = esc_attr( $default_font );
+				} elseif ( '' != $default ) {
+					$css_val = esc_attr( $default );
 				}
 
 				break;
 
 			case 'px':
 			case '%' :
+						$value = ( '' != $value ) ? $value : $default;
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
@@ -250,6 +251,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			default:
+				$value = ( '' != $value ) ? $value : $default;
 				if ( '' != $value ) {
 					$css_val = esc_attr( $value ) . $unit;
 				}
@@ -753,9 +755,9 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		$hex = str_replace( '#','',$hex );
 
 		$shortcode_atts = array(
-				'r' => hexdec( substr( $hex,0,2 ) ),
-				'g' => hexdec( substr( $hex,2,2 ) ),
-				'b' => hexdec( substr( $hex,4,2 ) ),
+			'r' => hexdec( substr( $hex,0,2 ) ),
+			'g' => hexdec( substr( $hex,2,2 ) ),
+			'b' => hexdec( substr( $hex,4,2 ) ),
 		);
 
 		// Should we darken the color?

@@ -27,7 +27,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 		$defaults = apply_filters( 'astra_default_strings', array(
 
 			// Header.
-			'string-header-skip-link' 				 => __( 'Skip to content', 'astra' ),
+			'string-header-skip-link'                => __( 'Skip to content', 'astra' ),
 
 			// 404 Page Strings.
 			'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. May be try searching?', 'astra' ),
