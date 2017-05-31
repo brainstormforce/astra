@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.0.5' );
+define( 'ASTRA_THEME_VERSION', '1.0.5.1' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
 define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );

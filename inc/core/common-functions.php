@@ -230,7 +230,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				break;
 
 			case 'url' :
-						$css_val = $unit . '(' . esc_attr( $value ) . ')';
+						$css_val = $unit . '(' . esc_url( $value ) . ')';
 				break;
 
 			case 'rem':
@@ -443,9 +443,7 @@ if ( ! function_exists( 'astra_primary_class' ) ) {
 	function astra_primary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		if ( function_exists( 'astra_get_primary_class' ) ) {
-			echo 'class="' . esc_attr( join( ' ', astra_get_primary_class( $class ) ) ) . '"';
-		}
+		echo 'class="' . esc_attr( join( ' ', astra_get_primary_class( $class ) ) ) . '"';
 	}
 }
 
@@ -482,10 +480,10 @@ if ( ! function_exists( 'astra_get_primary_class' ) ) {
 			$class = array();
 		}
 
-		$classes = array_map( 'esc_attr', $classes );
-
 		// Filter primary div class names.
 		$classes = apply_filters( 'astra_primary_class', $classes, $class );
+
+		$classes = array_map( 'sanitize_html_class', $classes );
 
 		return array_unique( $classes );
 	}
@@ -505,9 +503,7 @@ if ( ! function_exists( 'astra_secondary_class' ) ) {
 	function astra_secondary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		if ( function_exists( 'get_astra_secondary_class' ) ) {
-			echo 'class="' . esc_attr( join( ' ', get_astra_secondary_class( $class ) ) ) . '"';
-		}
+		echo 'class="' . esc_attr( join( ' ', get_astra_secondary_class( $class ) ) ) . '"';
 	}
 }
 
@@ -544,10 +540,10 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) {
 			$class = array();
 		}
 
-		$classes = array_map( 'esc_attr', $classes );
-
 		// Filter secondary div class names.
 		$classes = apply_filters( 'astra_secondary_class', $classes, $class );
+
+		$classes = array_map( 'sanitize_html_class', $classes );
 
 		return array_unique( $classes );
 	}
@@ -717,7 +713,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo esc_html( $title ); ?> </h1>
+					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
 				</section>
 
 			<?php

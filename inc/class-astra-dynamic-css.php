@@ -139,17 +139,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_font_css_value( (int) $body_font_size['desktop'] * 6.25, '%' ),
 				),
 				'a, .page-title' => array(
-					'color' => $link_color,
+					'color' => esc_attr( $link_color ),
 				),
 				'a:hover, a:focus' => array(
-					'color' => $link_hover_color,
+					'color' => esc_attr( $link_hover_color ),
 				),
 				'body, button, input, select, textarea' => array(
 					'font-family'    => $body_font_family,
-					'font-weight'    => $body_font_weight,
+					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_get_font_css_value( $body_font_size['desktop'], $body_font_size['desktop-unit'] ),
 					'line-height'    => astra_get_css_value( $body_line_height['desktop'], $body_line_height['desktop-unit'] ),
-					'text-transform' => $body_text_transform,
+					'text-transform' => esc_attr( $body_text_transform ),
 				),
 				'.site-title' => array(
 					'font-size' => astra_get_font_css_value( $site_title_font_size['desktop'], $site_title_font_size['desktop-unit'] ),
@@ -193,23 +193,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Global CSS.
 				'::selection' => array(
-					'background-color' => $link_color,
-					'color'            => $highlight_text_color,
+					'background-color' => esc_attr( $link_color ),
+					'color'            => esc_attr( $highlight_text_color ),
 				),
 				'body, h1, .entry-title a, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' => array(
-					'color' => $text_color,
+					'color' => esc_attr( $text_color ),
 				),
 
 				// Typography.
 				'.tagcloud a:hover, .tagcloud a:focus, .tagcloud a.current-item' => array(
 					'color'            => astra_get_foreground_color( $link_color ),
-					'border-color'     => $link_color,
-					'background-color' => $link_color,
+					'border-color'     => esc_attr( $link_color ),
+					'background-color' => esc_attr( $link_color ),
 				),
 
 				// Header - Main Header CSS.
 				'.main-header-menu a' => array(
-					'color' => $text_color,
+					'color' => esc_attr( $text_color ),
 				),
 
 				// Main - Menu Items.
@@ -221,23 +221,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 .main-header-menu .current-menu-item > .ast-menu-toggle,
 				 .main-header-menu .current-menu-ancestor > .ast-menu-toggle,
 				 .main-header-menu .current_page_item > .ast-menu-toggle' => array(
-					'color' => $link_color,
+					'color' => esc_attr( $link_color ),
 				),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
-					'border-color' => $link_color,
+					'border-color' => esc_attr( $link_color ),
 				),
 				'input[type="radio"]:checked, input[type=reset], input[type="checkbox"]:checked, input[type="checkbox"]:hover:checked, input[type="checkbox"]:focus:checked, input[type=range]::-webkit-slider-thumb' => array(
-					'border-color'     => $link_color,
-					'background-color' => $link_color,
+					'border-color'     => esc_attr( $link_color ),
+					'background-color' => esc_attr( $link_color ),
 					'box-shadow'       => 'none',
 				),
 
 				// Small Footer.
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
-					'background'   => $link_color,
-					'border-color' => $link_color,
+					'background'   => esc_attr( $link_color ),
+					'border-color' => esc_attr( $link_color ),
 				),
 
 				// Single Post Meta.
@@ -246,41 +246,41 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_font_css_value( (int) $body_font_size['desktop'] * 0.8571428571 ),
 				),
 				'.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
-					'color' => $link_color,
+					'color' => esc_attr( $link_color ),
 				),
 
 				// Button Typography.
 				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
-					'color'            => $btn_text_color,
-					'border-color'     => $btn_bg_color,
-					'background-color' => $btn_bg_color,
+					'color'            => esc_attr( $btn_text_color ),
+					'border-color'     => esc_attr( $btn_bg_color ),
+					'background-color' => esc_attr( $btn_bg_color ),
 				),
 				'.menu-toggle, button, .ast-button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
 					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
-					'color'            => $btn_text_color,
-					'border-color'     => $btn_bg_color,
-					'background-color' => $btn_bg_color,
+					'color'            => esc_attr( $btn_text_color ),
+					'border-color'     => esc_attr( $btn_bg_color ),
+					'background-color' => esc_attr( $btn_bg_color ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
-					'color'            => $btn_text_hover_color,
-					'border-color'     => $btn_bg_hover_color,
-					'background-color' => $btn_bg_hover_color,
+					'color'            => esc_attr( $btn_text_hover_color ),
+					'border-color'     => esc_attr( $btn_bg_hover_color ),
+					'background-color' => esc_attr( $btn_bg_hover_color ),
 				),
 				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
 					'color'            => astra_get_foreground_color( $link_color ),
-					'background-color' => $link_color,
+					'background-color' => esc_attr( $link_color ),
 				),
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *' => array(
 					'line-height' => '1.45',
-					'color'       => $link_color,
+					'color'       => esc_attr( $link_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
-					'color'       => $link_hover_color,
+					'color'       => esc_attr( $link_hover_color ),
 				),
 
 				// Blockquote Text Color.
@@ -296,17 +296,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Widget Title.
 				'.widget-title' => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size['desktop'] * 1.428571429 ),
-					'color'     => $text_color,
+					'color'     => esc_attr( $text_color ),
 				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
-					'color' => $link_color,
+					'color' => esc_attr( $link_color ),
 				),
 				'.secondary .calendar_wrap #today, .ast-progress-val span' => array(
-					'background' => $link_color,
+					'background' => esc_attr( $link_color ),
 				),
 				'.secondary a:hover + .post-count, .secondary a:focus + .post-count' => array(
-					'background'   => $link_color,
-					'border-color' => $link_color,
+					'background'   => esc_attr( $link_color ),
+					'border-color' => esc_attr( $link_color ),
 				),
 				'.calendar_wrap #today > a' => array(
 					'color' => astra_get_foreground_color( $link_color ),
@@ -314,10 +314,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Pagination.
 				'.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
-						'color' => $link_color,
+						'color' => esc_attr( $link_color ),
 				),
 				'.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
-						'color' => $link_hover_color,
+						'color' => esc_attr( $link_hover_color ),
 				),
 			);
 
@@ -352,7 +352,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$separate_container_css = array(
 				'body, .ast-separate-container' => array(
-					'background-color' => $box_bg_color,
+					'background-color' => esc_attr( $box_bg_color ),
 				),
 			);
 			$parse_css .= astra_parse_css( $separate_container_css );
@@ -500,7 +500,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'custom' === $blog_width ) :
 				$blog_css  = '@media (min-width:768px) {';
 					$blog_css .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
-						$blog_css .= 'max-width:' . $blog_max_width . 'px;';
+						$blog_css .= 'max-width:' . esc_attr( $blog_max_width ) . 'px;';
 					$blog_css .= '}';
 				$blog_css .= '}';
 				$parse_css .= $blog_css;
@@ -510,7 +510,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'custom' === $single_post_max ) :
 					$single_blog_css = '@media (min-width:768px) {';
 					$single_blog_css .= '.single .site-content > .ast-container{';
-					$single_blog_css .= 'max-width:' . $single_post_max_width . 'px;';
+					$single_blog_css .= 'max-width:' . esc_attr( $single_post_max_width ) . 'px;';
 					$single_blog_css .= '}';
 					$single_blog_css .= '}';
 					$parse_css       .= $single_blog_css;
@@ -520,8 +520,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'disabled' != $small_footer_layout ) :
 				$sml_footer_css = '.ast-small-footer {';
 					$sml_footer_css .= 'border-top-style:solid;';
-					$sml_footer_css .= 'border-top-width:' . $small_footer_divider . 'px;';
-					$sml_footer_css .= 'border-top-color:' . $small_footer_divider_color;
+					$sml_footer_css .= 'border-top-width:' . esc_attr( $small_footer_divider ) . 'px;';
+					$sml_footer_css .= 'border-top-color:' . esc_attr( $small_footer_divider_color );
 				$sml_footer_css .= '}';
 				if ( 'footer-sml-layout-2' != $small_footer_layout ) {
 					$sml_footer_css .= '.ast-small-footer-wrap{';
@@ -576,22 +576,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$meta_style .= '.ast-header-break-point .site-header {';
 			$meta_style .= 'border-bottom-width:' . astra_get_css_value( $header_separator, 'px' ) . ';';
-			$meta_style .= 'border-bottom-color:' . $header_separator_color . ';';
+			$meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
 			$meta_style .= '}';
 			$meta_style .= '@media (min-width: 768px) {';
 			$meta_style .= '.main-header-bar {';
 			$meta_style .= 'border-bottom-width:' . astra_get_css_value( $header_separator, 'px' ) . ';';
-			$meta_style .= 'border-bottom-color:' . $header_separator_color . ';';
+			$meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
 			$meta_style .= '}';
 			$meta_style .= '}';
 
 			if ( 'no-sidebar' !== astra_page_layout() ) :
 				$meta_style .= '@media (min-width: 768px) {';
 				$meta_style .= '#primary {';
-				$meta_style .= 'width:' . $primary_width . '%;';
+				$meta_style .= 'width:' . esc_attr( $primary_width ) . '%;';
 				$meta_style .= '}';
 				$meta_style .= '#secondary {';
-				$meta_style .= 'width:' . $secondary_width . '%;';
+				$meta_style .= 'width:' . esc_attr( $secondary_width ) . '%;';
 				$meta_style .= '}';
 				$meta_style .= '}';
 			endif;

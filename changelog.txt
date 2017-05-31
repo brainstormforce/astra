@@ -1,6 +1,12 @@
 v1.0.6
 # Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
 
+v1.0.5.1
+# Fixed: Use &hellip; instead of ...
+# Fixed: Use sanitize_html_class to sanitize HTML class
+# Fixed: Remove comment-list from add_theme_support( 'html5' )
+# Fixed: Escaping implemented for Dynamic CSS
+
 v1.0.5
 # Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
 # Fixed: PHP Notice - Array to string conversion
