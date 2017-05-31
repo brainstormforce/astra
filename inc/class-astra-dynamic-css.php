@@ -34,36 +34,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$dynamic_css = '';
 
 			/**
-			 *
-			 * Contents
 			 * - Variable Declaration
-			 * - Global CSS
-			 * - Typography
-			 * - Page Layout
-			 * 	- Sidebar Positions CSS
-			 *  	- Full Width Layout CSS
-			 *   - Fluid Width Layout CSS
-			 *   - Box Layout CSS
-			 *   - Padded Layout CSS
-			 * - Blog
-			 * 	- Single Blog
-			 * - Typography of Headings
-			 * - Header
-			 * - Footer
-			 * 	- Main Footer CSS
-			 *  	- Small Footer CSS
-			 * - 404 Page
-			 * - Secondary
-			 * - Global CSS
 			 */
+			$site_content_width           = astra_get_option( 'site-content-width' , '' , 1200 );
 
-			/**
-			 * - Variable Declaration
-			 */
-			$site_content_width = astra_get_option( 'site-content-width' , '' , 1200 );
+			// Header Break Point.
+			$header_break_point           = astra_header_break_point();
+			$astra_header_width           = astra_get_option( 'header-main-layout-width' );
 
 			// Site Background Color.
-			$box_bg_color      = astra_get_option( 'site-layout-outside-bg-color' );
+			$box_bg_color                 = astra_get_option( 'site-layout-outside-bg-color' );
 
 			// Color Options.
 			$text_color                   = astra_get_option( 'text-color' );
@@ -530,6 +510,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				$parse_css .= $sml_footer_css;
 			endif;
+
+			/* Header Break Point */
+			$parse_css .= '.main-header-bar-wrap {';
+			$parse_css .= 'content: "' . esc_attr( $header_break_point ) . 'px";';
+			$parse_css .= '}';
+			$parse_css .= '@media all and ( min-width: ' . esc_html( $header_break_point ) . 'px ) {';
+			$parse_css .= '.main-header-bar-wrap {';
+			$parse_css .= 'content: " ";';
+			$parse_css .= '}';
+			$parse_css .= '}';
+
+			// Width for header.
+			if ( 'content' != $astra_header_width ) {
+				$genral_global_responsive = array(
+					'#masthead .ast-container' => array(
+						'max-width' => '100%',
+						'padding-left' => '35px',
+						'padding-right' => '35px',
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= astra_parse_css( $genral_global_responsive, $header_break_point );
+			}
 
 			/* 404 Page */
 			$parse_css .= astra_parse_css(

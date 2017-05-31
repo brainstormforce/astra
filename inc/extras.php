@@ -669,60 +669,6 @@ if ( ! function_exists( 'astra_footer_classes' ) ) {
 }
 
 /**
- * Function to Add Header Breakpoint Style
- */
-if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
-
-	/**
-	 * Function to Add Header Breakpoint Style
-	 *
-	 * @since 1.0.0
-	 */
-	function astra_header_breakpoint_style() {
-
-		// Header Break Point.
-		$header_break_point = astra_header_break_point();
-
-		ob_start();
-		?>
-		.main-header-bar-wrap {
-			content: "<?php echo esc_html( $header_break_point ); ?>";
-		}
-
-		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-			.main-header-bar-wrap {
-				content: "";
-			}
-		}
-		<?php
-
-		$astra_header_width   = astra_get_option( 'header-main-layout-width' );
-
-		/* Width for Header */
-		if ( 'content' != $astra_header_width ) {
-			$genral_global_responsive = array(
-				'#masthead .ast-container' => array(
-					'max-width' => '100%',
-					'padding-left' => '35px',
-					'padding-right' => '35px',
-				),
-			);
-
-			/* Parse CSS from array()*/
-			echo astra_parse_css( $genral_global_responsive, $header_break_point );
-		}
-
-		$dynamic_css = ob_get_clean();
-
-		// trim white space for faster page loading.
-		$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
-
-		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
-	}
-}// End if().
-add_action( 'wp_enqueue_scripts', 'astra_header_breakpoint_style' );
-
-/**
  * Function to filter comment form's default fields
  */
 if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
