@@ -80,6 +80,21 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Spacing
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 */
+		static public function sanitize_spacing( $val ) {
+
+			foreach ( $val as $key => $value ) {
+				$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+			}
+
+			return $val;
+		}
+
+		/**
 		 * Sanitize Responsive Typography
 		 *
 		 * @param  number $val Customizer setting input number.

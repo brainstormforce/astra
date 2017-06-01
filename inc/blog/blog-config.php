@@ -90,8 +90,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 		$format = apply_filters( 'astra_post_date_format','' );
 		$time_string = esc_html( get_the_date( $format ) );
 		$posted_on = sprintf(
-			/* translators: 1: post date */
-			esc_html_x( '%s ', 'post date', 'astra' ),
+			esc_html( '%s' ),
 			$time_string
 		);
 		$output .= '<span class="posted-on" itemprop="datePublished"> ' . $posted_on . '</span>';
@@ -130,8 +129,7 @@ if ( ! function_exists( 'astra_post_date_box' ) ) {
 		);
 
 		$posted_on = sprintf(
-			/* translators: 1: post date */
-			esc_html_x( '%s ', 'post date', 'astra' ),
+			esc_html( '%s' ),
 			$time_string
 		);
 
@@ -157,8 +155,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 		$output = '';
 
 		$byline = sprintf(
-			/* translators: 1: post author */
-			esc_html_x( '%s ', 'post author', 'astra' ),
+			esc_html( '%s' ),
 			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
@@ -189,8 +186,7 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 		}
 
 		$post_link = sprintf(
-			/* translators: 1: post link */
-			esc_html_x( '%s ', 'post link', 'astra' ),
+			esc_html( '%s' ),
 			'<a href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . __( 'Read More &raquo;', 'astra' ) . '</a>'
 		);
 
@@ -230,7 +226,7 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				 * @see astra_default_strings()
 				 */
 				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) ); ?>
-				
+
 				<!-- Comment Schema Meta -->
 				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
 					<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
@@ -269,8 +265,7 @@ if ( ! function_exists( 'astra_post_tags' ) ) {
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'astra' ) );
 		if ( $tags_list ) {
 			$tags = sprintf( // WPCS: XSS OK.
-				/* translators: 1: post tags */
-				esc_html_x( '%1$s ', 'post tags', 'astra' ), $tags_list
+				esc_html( '%1$s' ), $tags_list
 			);
 
 			$output .= '<span class="tags-links">' . $tags . '</span>';
@@ -303,8 +298,7 @@ if ( ! function_exists( 'astra_post_categories' ) ) {
 
 		if ( $categories_list ) {
 			$categories = sprintf(
-				/* translators: 1: post tags */
-				esc_html_x( '%1$s ', 'post categories', 'astra' ), $categories_list
+				esc_html( '%1$s' ), $categories_list
 			);
 
 			$output .= '<span class="cat-links">' . $categories . '</span>';

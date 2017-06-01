@@ -103,7 +103,7 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class="customizer-text">
+		<label class="customizer-text" for="" >
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 				<ul class="ast-responsive-btns">

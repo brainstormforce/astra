@@ -2199,6 +2199,11 @@ body {
   margin: 0;
 }
 
+.ast-page-builder-template .no-results {
+  text-align: center;
+  margin: 4em auto;
+}
+
 @media (min-width: 992px) {
   .ast-separate-container.ast-right-sidebar #primary,
   .ast-separate-container.ast-left-sidebar #primary,

@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.0.5.1' );
+define( 'ASTRA_THEME_VERSION', '1.0.5.2' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
 define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
@@ -108,7 +108,3 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gravity-forms.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-bne-flyout.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-lifter-lms.php';
-
-if ( file_exists( ASTRA_THEME_DIR . 'admin/class-graupi-astra-theme.php' ) ) {
-	require_once ASTRA_THEME_DIR . 'admin/class-graupi-astra-theme.php';
-}

@@ -80,7 +80,7 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='ast-spacing'>
+		<label class='ast-spacing' for="" >
 			<span class="customize-control-title">
 				{{{ data.label }}}
 			</span>
@@ -91,7 +91,7 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 			<ul class="ast-spacing-wrapper"><# 
 				_.each( data.choices, function( choiceLabel, choiceID ) { 
 				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-					<input type='text' class='ast-spacing-input ast-spacing-{{ choiceID }}' data-id ='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+					<input type='number' class='ast-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
 					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});

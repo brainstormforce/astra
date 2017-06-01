@@ -108,13 +108,16 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
+		global $numpages;
 
-		echo "<div class='ast-pagination'>";
-		the_posts_pagination( array(
-			'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
-			'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
-		) );
-		echo '</div>';
+		if ( isset( $numpages ) ) {
+			echo "<div class='ast-pagination'>";
+			the_posts_pagination( array(
+				'prev_text' => astra_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text' => astra_default_strings( 'string-blog-navigation-next', false ),
+			) );
+			echo '</div>';
+		}
 	}
 }// End if().
 

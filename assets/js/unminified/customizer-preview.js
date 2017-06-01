@@ -475,6 +475,7 @@ function astra_add_dynamic_css( control, style ) {
 	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
+	astra_responsive_font_size( 'astra-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
 	astra_responsive_font_size( 'astra-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );

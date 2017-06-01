@@ -1,4 +1,8 @@
-v1.0.6
+v1.0.5.3
+# New: Typography option for Archive Summary Box.
+# Enhancement: Updated default heading font-size support for small devices.
+
+v1.0.5.2
 # Enhancement: Updated theme default screenshot.png.
 # Enhancement: Used filter 'after_setup_theme' to set default theme options instead of action 'init'.
 

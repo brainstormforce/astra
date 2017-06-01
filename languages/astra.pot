@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.0.5.1\n"
+"Project-Id-Version: Astra 1.0.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-05-30 07:23:32+00:00\n"
+"POT-Creation-Date: 2017-06-01 05:41:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: inc/blog/blog-config.php:194
+#: inc/blog/blog-config.php:190
 msgid "Read More &raquo;"
 msgstr ""
 
-#: inc/blog/blog-config.php:269 inc/blog/blog-config.php:302
+#: inc/blog/blog-config.php:265 inc/blog/blog-config.php:297
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
@@ -276,7 +276,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:635 inc/core/common-functions.php:714
+#: inc/core/common-functions.php:637 inc/core/common-functions.php:716
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
@@ -875,6 +875,10 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
+#. Theme URI of the plugin/theme
+msgid "http://wpastra.com/"
+msgstr ""
+
 #. Description of the plugin/theme
 msgid "A very lightweight and beautiful theme made to work with Page Builders."
 msgstr ""
@@ -884,7 +888,7 @@ msgid "Brainstorm Force"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://wpastra.com/"
+msgid "http://wpastra.com/about/"
 msgstr ""
 
 #: comments.php:36
@@ -894,33 +898,3 @@ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
-
-#: inc/blog/blog-config.php:94 inc/blog/blog-config.php:134
-#. translators: 1: post date
-msgctxt "post date"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:161
-#. translators: 1: post author
-msgctxt "post author"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:193
-#. translators: 1: post link
-msgctxt "post link"
-msgid "%s "
-msgstr ""
-
-#: inc/blog/blog-config.php:273
-#. translators: 1: post tags
-msgctxt "post tags"
-msgid "%1$s "
-msgstr ""
-
-#: inc/blog/blog-config.php:307
-#. translators: 1: post tags
-msgctxt "post categories"
-msgid "%1$s "
-msgstr ""
