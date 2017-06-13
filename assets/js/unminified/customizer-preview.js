@@ -8,6 +8,40 @@
  */
 
 /**
+ * Convert HEX to RGBA
+ *
+ * @param  {string} hex   HEX color code.
+ * @param  {number} alpha Alpha number for RGBA.
+ * @return {string}       Return RGBA or RGB.
+ */
+function astra_hex2rgba( hex, alpha ) {
+
+	hex = hex.replace( '#', '' );
+	var r = g = b = '';
+
+	if ( hex.length == 3 ) {
+		r = get_hexdec( hex.substring( 0, 1 ) + hex.substring( 0, 1 ) );
+		g = get_hexdec( hex.substring( 1, 1 ) + hex.substring( 1, 1 ) );
+		b = get_hexdec( hex.substring( 2, 1 ) + hex.substring( 2, 1 ) );
+	} else {
+		r = get_hexdec( hex.substring( 0, 2 ) );
+		g = get_hexdec( hex.substring( 2, 4 ) );
+		b = get_hexdec( hex.substring( 4, 6 ) );
+	}
+
+	var rgb = r + ',' + g + ',' + b;
+
+	if ( '' == alpha ) {
+		return 'rgb(' + rgb + ')';
+	} else {
+		alpha = parseFloat( alpha );
+
+		return 'rgba(' + rgb + ',' + alpha + ')';
+	}
+
+}
+
+/**
  * Generate font size in PX & REM
  */
 function astra_font_size_rem( size, with_rem, device ) {
@@ -462,6 +496,13 @@ function astra_add_dynamic_css( control, style ) {
 			}
 
 			if ( color ) {
+
+				var alpha = 0;
+				if ( wp.customize._value.hasOwnProperty( "astra-settings[transparent-header-opc]" ) ) {
+		        	alpha = wp.customize._value['astra-settings[transparent-header-opc]']._value;
+		        }
+
+				color = astra_hex2rgba( color, alpha );
 
 				var dynamicStyle = ' body:not(.ast-header-break-point) .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
