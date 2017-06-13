@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-color]', array(
 		'section'     => 'section-buttons',
-		'label'       => __( 'Button Color', 'astra' ),
+		'label'       => __( 'Button Text Color', 'astra' ),
 	) ) );
 
 	/**
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, ASTRA_THEME_SETTINGS . '[button-h-color]', array(
 		'section'     => 'section-buttons',
-		'label'       => __( 'Button Hover Color', 'astra' ),
+		'label'       => __( 'Button Text Hover Color', 'astra' ),
 	) ) );
 
 	/**

@@ -1,7 +1,13 @@
-v1.0.7 (Unreleased)
+v1.0.8 (Unreleased)
 # New: Added Transparent header addon opacity support for border.
 # New: Added Customizer function astra_hex2rgba() for opacity.
 # Enhancement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
+
+v1.0.7
+# Improvement: Moved 'Buttons' section from panel 'miscellaneous' to parent.
+# Improvement: Site logo, title, tagline spacing improved.
+# Improvement: Menu toggle line height issue fixed for small devices.
+# Removed: Unwanted dyanamic css filter.
 
 v1.0.6
 # Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
