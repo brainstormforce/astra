@@ -182,7 +182,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function render_tab_menu( $action = '' ) {
 			?>
-			<div id="ast-menu-page" class="wrap">
+			<div id="ast-menu-page">
 				<?php self::render( $action ); ?>
 			</div>
 			<?php
@@ -197,8 +197,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function render( $action ) {
 
 			?>
+
+			<h1 class="screen-reader-text"><?php echo esc_html( self::$menu_page_title ); ?></h1>
 			<div class="nav-tab-wrapper">
-				<h1 class='ast-title'> <?php echo esc_html( self::$menu_page_title ); ?> </h1>
+				<div class='ast-title'><?php echo esc_html( self::$menu_page_title ); ?></div>
 				<?php
 				$view_actions = self::get_view_actions();
 
@@ -279,7 +281,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$current_slug = str_replace( '-', '_', $current_slug );
 
 			?>
-			<div class="ast-menu-page-wrapper">
+			<div class="ast-menu-page-wrapper wrap">
 				<?php self::init_nav_menu( $active_tab ); ?>
 				<?php do_action( 'astra_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
 			</div>
