@@ -198,8 +198,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			?>
 
+			<h1 class="screen-reader-text"><?php echo esc_html( self::$menu_page_title ); ?></h1>
 			<div class="nav-tab-wrapper">
-				<div class='ast-title'> <?php echo esc_html( self::$menu_page_title ); ?> </div>
+				<div class='ast-title'><?php echo esc_html( self::$menu_page_title ); ?></div>
 				<?php
 				$view_actions = self::get_view_actions();
 
