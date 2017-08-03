@@ -33,7 +33,7 @@ switch ( $sections ) {
 	case '1':
 	default:
 			$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
-	break;
+		break;
 }
 
 ?>

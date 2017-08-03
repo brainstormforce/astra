@@ -1,3 +1,26 @@
+v1.0.13
+# New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
+# Improvement: Added new filter `astra_post_link_enabled` to Enable or Disable read more links on archive pages.
+# Improvement: Renamed the layout option `Plain` with `Full Width / Contained`
+# Improvement: Renamed the layout option `Page Builder` with `Full Width / Streched`
+# Fixed: Extra space at above with `Full Width / Streched` Layout on page.
+# Fixed: Updated the TinyMCE editor's width to be 100%
+
+v1.0.12
+# New: 'Footer Widgets' added in customizer.
+# Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
+# Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
+# Improvement: Smooth font Rendering style updated.
+# Fixed: Admin notice issue with Astra name.
+# Fixed: Fetal error while bb lite version is activated.
+
+v1.0.11
+# Removed: accessibility-ready tag until the final review is done.
+
+v1.0.10
+# New: 'Get more with Astra Pro' added in customizer.
+# Fixed: Warning for sanitize_html callback.
+
 v1.0.9
 # New: Added accessibility ready support.
 

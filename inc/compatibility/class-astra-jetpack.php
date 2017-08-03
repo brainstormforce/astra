@@ -53,11 +53,13 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		 * See: https://jetpack.me/support/infinite-scroll/
 		 */
 		function jetpack_setup() {
-			add_theme_support( 'infinite-scroll', array(
-				'container' => 'main',
-				'render'    => array( $this, 'infinite_scroll_render' ),
-				'footer'    => 'page',
-			) );
+			add_theme_support(
+				'infinite-scroll', array(
+					'container' => 'main',
+					'render'    => array( $this, 'infinite_scroll_render' ),
+					'footer'    => 'page',
+				)
+			);
 		} // end function jetpack_setup
 
 		/**

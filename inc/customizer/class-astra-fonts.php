@@ -113,8 +113,8 @@ final class Astra_Fonts {
 	 * Combine multiple google font in one URL
 	 *
 	 * @link https://shellcreeper.com/?p=1476
-	 * @param array $fonts 		Google Fonts array.
-	 * @param array $subsets 	Font's Subsets array.
+	 * @param array $fonts      Google Fonts array.
+	 * @param array $subsets    Font's Subsets array.
 	 *
 	 * @return string
 	 */
@@ -124,6 +124,8 @@ final class Astra_Fonts {
 		$base_url  = '//fonts.googleapis.com/css';
 		$font_args = array();
 		$family    = array();
+
+		$fonts = apply_filters( 'astra_google_fonts', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {

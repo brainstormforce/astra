@@ -1,6 +1,7 @@
 sudo: false
 
 language: php
+dist: precise
 
 notifications:
   email:

@@ -139,3 +139,16 @@
 	$( function() { ASTCustomizer.init(); } );
 
 })( jQuery );
+
+
+( function( api ) {
+    // Extends our custom astra-pro section.
+    api.sectionConstructor['astra-pro'] = api.Section.extend( {
+        // No events for this type of section.
+        attachEvents: function () {},
+        // Always make the section active.
+        isContextuallyActive: function () {
+            return true;
+        }
+    } );
+} )( wp.customize );

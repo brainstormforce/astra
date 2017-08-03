@@ -141,10 +141,6 @@ body{
 		padding-left: ($grid-gutter-width / 2);
 		padding-right: ($grid-gutter-width / 2);
 
-		&.ast-no-title {
-			margin-top: 0;
-		}
-
 		@media (max-width: $mx-col-md) { 
 			margin-top: 1.5em;
 		}
@@ -174,6 +170,9 @@ body{
 				padding-left: ($grid-gutter-width / 2);
 			}
 		}
+	}
+	&.single.post-navigation {
+		padding-bottom: 2em;
 	}
 }
 

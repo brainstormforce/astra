@@ -113,8 +113,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 
 		switch ( $comment->comment_type ) {
 
-			case 'pingback' :
-			case 'trackback' :
+			case 'pingback':
+			case 'trackback':
 				// Display trackbacks differently than normal comments.
 			?>
 				<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
@@ -123,7 +123,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 				<?php
 				break;
 
-			default :
+			default:
 				// Proceed with normal comments.
 				global $post;
 				?>
@@ -137,13 +137,15 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 
 									<?php
 
-									printf( '<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+									printf(
+										'<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
 										get_comment_author_link(),
 										// If current post author is also comment author, make it known visually.
 										( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
 									);
 
-									printf( '<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+									printf(
+										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										get_comment_time( 'c' ),
 										/* translators: 1: date, 2: time */
@@ -158,14 +160,19 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								<?php comment_text(); ?>
 								<div class="ast-comment-edit-reply-wrap">
 									<?php edit_comment_link( astra_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
-									<?php comment_reply_link( array_merge( $args, array(
-											'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
-											'add_below' => 'comment',
-											'depth'     => $depth,
-											'max_depth' => $args['max_depth'],
-											'before'    => '<span class="ast-reply-link">',
-											'after'     => '</span>',
-									) ) );
+									<?php
+									comment_reply_link(
+										array_merge(
+											$args, array(
+												'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
+												'add_below' => 'comment',
+												'depth'     => $depth,
+												'max_depth' => $args['max_depth'],
+												'before'    => '<span class="ast-reply-link">',
+												'after'     => '</span>',
+											)
+										)
+									);
 									?>
 								</div>
 								<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -176,7 +183,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 					</article><!-- #comment-## -->
 				<!-- </li> -->
 				<?php
-			break;
+				break;
 		} // End switch().
 	}
 }// End if().
@@ -197,13 +204,28 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 
 		if ( is_single() ) {
 
+			$post_obj = get_post_type_object( get_post_type() );
+
+			$next_text = sprintf(
+				astra_default_strings( 'string-single-navigation-next', false ),
+				$post_obj->labels->singular_name
+			);
+
+			$prev_text = sprintf(
+				astra_default_strings( 'string-single-navigation-previous', false ),
+				$post_obj->labels->singular_name
+			);
 			/**
 			 * Filter the post pagination markup
 			 */
-			the_post_navigation( apply_filters( 'astra_single_post_navigation', array(
-				'next_text' => astra_default_strings( 'string-single-navigation-next', false ),
-				'prev_text' => astra_default_strings( 'string-single-navigation-previous', false ),
-			) ) );
+			the_post_navigation(
+				apply_filters(
+					'astra_single_post_navigation', array(
+						'next_text' => $next_text,
+						'prev_text' => $prev_text,
+					)
+				)
+			);
 
 		}
 	}

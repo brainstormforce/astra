@@ -1,0 +1,11 @@
+.footer-adv-layout-4 {
+	
+	@media all and (max-width : $mx-col-md) {
+		.footer-adv-widget-2,
+		.footer-adv-widget-3{
+			.widget:last-child {
+			  	margin: 0 0 2.8em;
+			}
+		}
+	}
+}

@@ -1,1 +1,1100 @@
-!function(){window.flexibility={},Array.prototype.forEach||(Array.prototype.forEach=function(a){if(void 0===this||null===this)throw new TypeError(this+"is not an object");if(!(a instanceof Function))throw new TypeError(a+" is not a function");for(var b=Object(this),c=arguments[1],d=b instanceof String?b.split(""):b,e=Math.max(Math.min(d.length,9007199254740991),0)||0,f=-1;++f<e;)f in d&&a.call(c,d[f],f,b)}),function(a,b){"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b():a.computeLayout=b()}(flexibility,function(){var a=function(){function a(b){if((!b.layout||b.isDirty)&&(b.layout={width:void 0,height:void 0,top:0,left:0,right:0,bottom:0}),b.style||(b.style={}),b.children||(b.children=[]),b.style.measure&&b.children&&b.children.length)throw new Error("Using custom measure function is supported only for leaf nodes.");return b.children.forEach(a),b}function b(a){return void 0===a}function c(a){return a===P||a===Q}function d(a){return a===R||a===S}function e(a,b){if(void 0!==a.style.marginStart&&c(b))return a.style.marginStart;var d=null;switch(b){case"row":d=a.style.marginLeft;break;case"row-reverse":d=a.style.marginRight;break;case"column":d=a.style.marginTop;break;case"column-reverse":d=a.style.marginBottom}return void 0!==d?d:void 0!==a.style.margin?a.style.margin:0}function f(a,b){if(void 0!==a.style.marginEnd&&c(b))return a.style.marginEnd;var d=null;switch(b){case"row":d=a.style.marginRight;break;case"row-reverse":d=a.style.marginLeft;break;case"column":d=a.style.marginBottom;break;case"column-reverse":d=a.style.marginTop}return null!=d?d:void 0!==a.style.margin?a.style.margin:0}function g(a,b){if(void 0!==a.style.paddingStart&&a.style.paddingStart>=0&&c(b))return a.style.paddingStart;var d=null;switch(b){case"row":d=a.style.paddingLeft;break;case"row-reverse":d=a.style.paddingRight;break;case"column":d=a.style.paddingTop;break;case"column-reverse":d=a.style.paddingBottom}return null!=d&&d>=0?d:void 0!==a.style.padding&&a.style.padding>=0?a.style.padding:0}function h(a,b){if(void 0!==a.style.paddingEnd&&a.style.paddingEnd>=0&&c(b))return a.style.paddingEnd;var d=null;switch(b){case"row":d=a.style.paddingRight;break;case"row-reverse":d=a.style.paddingLeft;break;case"column":d=a.style.paddingBottom;break;case"column-reverse":d=a.style.paddingTop}return null!=d&&d>=0?d:void 0!==a.style.padding&&a.style.padding>=0?a.style.padding:0}function i(a,b){if(void 0!==a.style.borderStartWidth&&a.style.borderStartWidth>=0&&c(b))return a.style.borderStartWidth;var d=null;switch(b){case"row":d=a.style.borderLeftWidth;break;case"row-reverse":d=a.style.borderRightWidth;break;case"column":d=a.style.borderTopWidth;break;case"column-reverse":d=a.style.borderBottomWidth}return null!=d&&d>=0?d:void 0!==a.style.borderWidth&&a.style.borderWidth>=0?a.style.borderWidth:0}function j(a,b){if(void 0!==a.style.borderEndWidth&&a.style.borderEndWidth>=0&&c(b))return a.style.borderEndWidth;var d=null;switch(b){case"row":d=a.style.borderRightWidth;break;case"row-reverse":d=a.style.borderLeftWidth;break;case"column":d=a.style.borderBottomWidth;break;case"column-reverse":d=a.style.borderTopWidth}return null!=d&&d>=0?d:void 0!==a.style.borderWidth&&a.style.borderWidth>=0?a.style.borderWidth:0}function k(a,b){return g(a,b)+i(a,b)}function l(a,b){return h(a,b)+j(a,b)}function m(a,b){return i(a,b)+j(a,b)}function n(a,b){return e(a,b)+f(a,b)}function o(a,b){return k(a,b)+l(a,b)}function p(a){return a.style.justifyContent?a.style.justifyContent:"flex-start"}function q(a){return a.style.alignContent?a.style.alignContent:"flex-start"}function r(a,b){return b.style.alignSelf?b.style.alignSelf:a.style.alignItems?a.style.alignItems:"stretch"}function s(a,b){if(b===O){if(a===P)return Q;if(a===Q)return P}return a}function t(a,b){var c;return c=a.style.direction?a.style.direction:M,c===M&&(c=void 0===b?N:b),c}function u(a){return a.style.flexDirection?a.style.flexDirection:R}function v(a,b){return d(a)?s(P,b):R}function w(a){return a.style.position?a.style.position:"relative"}function x(a){return w(a)===aa&&a.style.flex>0}function y(a){return"wrap"===a.style.flexWrap}function z(a,b){return a.layout[fa[b]]+n(a,b)}function A(a,b){return void 0!==a.style[fa[b]]&&a.style[fa[b]]>=0}function B(a,b){return void 0!==a.style[b]}function C(a){return void 0!==a.style.measure}function D(a,b){return void 0!==a.style[b]?a.style[b]:0}function E(a,b,c){var d={row:a.style.minWidth,"row-reverse":a.style.minWidth,column:a.style.minHeight,"column-reverse":a.style.minHeight}[b],e={row:a.style.maxWidth,"row-reverse":a.style.maxWidth,column:a.style.maxHeight,"column-reverse":a.style.maxHeight}[b],f=c;return void 0!==e&&e>=0&&f>e&&(f=e),void 0!==d&&d>=0&&d>f&&(f=d),f}function F(a,b){return a>b?a:b}function G(a,b){void 0===a.layout[fa[b]]&&A(a,b)&&(a.layout[fa[b]]=F(E(a,b,a.style[fa[b]]),o(a,b)))}function H(a,b,c){b.layout[da[c]]=a.layout[fa[c]]-b.layout[fa[c]]-b.layout[ea[c]]}function I(a,b){return void 0!==a.style[ca[b]]?D(a,ca[b]):-D(a,da[b])}function J(a,d,g,h){var j=t(a,h),J=s(u(a),j),M=v(J,j),N=s(P,j);G(a,J),G(a,M),a.layout.direction=j,a.layout[ca[J]]+=e(a,J)+I(a,J),a.layout[da[J]]+=f(a,J)+I(a,J),a.layout[ca[M]]+=e(a,M)+I(a,M),a.layout[da[M]]+=f(a,M)+I(a,M);var O=a.children.length,ga=o(a,N),ha=o(a,R);if(C(a)){var ia=!b(a.layout[fa[N]]),ja=L;ja=A(a,N)?a.style.width:ia?a.layout[fa[N]]:d-n(a,N),ja-=ga;var ka=L;ka=A(a,R)?a.style.height:b(a.layout[fa[R]])?g-n(a,N):a.layout[fa[R]],ka-=o(a,R);var la=!A(a,N)&&!ia,ma=!A(a,R)&&b(a.layout[fa[R]]);if(la||ma){var na=a.style.measure(ja,ka);la&&(a.layout.width=na.width+ga),ma&&(a.layout.height=na.height+ha)}if(0===O)return}var oa,pa,qa,ra,sa=y(a),ta=p(a),ua=k(a,J),va=k(a,M),wa=o(a,J),xa=o(a,M),ya=!b(a.layout[fa[J]]),za=!b(a.layout[fa[M]]),Aa=c(J),Ba=null,Ca=null,Da=L;ya&&(Da=a.layout[fa[J]]-wa);for(var Ea=0,Fa=0,Ga=0,Ha=0,Ia=0,Ja=0;O>Fa;){var Ka,La,Ma=0,Na=0,Oa=0,Pa=0,Qa=ya&&ta===T||!ya&&ta!==U,Ra=Qa?O:Ea,Sa=!0,Ta=O,Ua=null,Va=null,Wa=ua,Xa=0;for(oa=Ea;O>oa;++oa){qa=a.children[oa],qa.lineIndex=Ja,qa.nextAbsoluteChild=null,qa.nextFlexChild=null;var Ya=r(a,qa);if(Ya===_&&w(qa)===aa&&za&&!A(qa,M))qa.layout[fa[M]]=F(E(qa,M,a.layout[fa[M]]-xa-n(qa,M)),o(qa,M));else if(w(qa)===ba)for(null===Ba&&(Ba=qa),null!==Ca&&(Ca.nextAbsoluteChild=qa),Ca=qa,pa=0;2>pa;pa++)ra=0!==pa?P:R,!b(a.layout[fa[ra]])&&!A(qa,ra)&&B(qa,ca[ra])&&B(qa,da[ra])&&(qa.layout[fa[ra]]=F(E(qa,ra,a.layout[fa[ra]]-o(a,ra)-n(qa,ra)-D(qa,ca[ra])-D(qa,da[ra])),o(qa,ra)));var Za=0;if(ya&&x(qa)?(Na++,Oa+=qa.style.flex,null===Ua&&(Ua=qa),null!==Va&&(Va.nextFlexChild=qa),Va=qa,Za=o(qa,J)+n(qa,J)):(Ka=L,La=L,Aa?La=A(a,R)?a.layout[fa[R]]-ha:g-n(a,R)-ha:Ka=A(a,N)?a.layout[fa[N]]-ga:d-n(a,N)-ga,0===Ga&&K(qa,Ka,La,j),w(qa)===aa&&(Pa++,Za=z(qa,J))),sa&&ya&&Ma+Za>Da&&oa!==Ea){Pa--,Ga=1;break}Qa&&(w(qa)!==aa||x(qa))&&(Qa=!1,Ra=oa),Sa&&(w(qa)!==aa||Ya!==_&&Ya!==Y||b(qa.layout[fa[M]]))&&(Sa=!1,Ta=oa),Qa&&(qa.layout[ea[J]]+=Wa,ya&&H(a,qa,J),Wa+=z(qa,J),Xa=F(Xa,E(qa,M,z(qa,M)))),Sa&&(qa.layout[ea[M]]+=Ha+va,za&&H(a,qa,M)),Ga=0,Ma+=Za,Fa=oa+1}var $a=0,_a=0,ab=0;if(ab=ya?Da-Ma:F(Ma,0)-Ma,0!==Na){var bb,cb,db=ab/Oa;for(Va=Ua;null!==Va;)bb=db*Va.style.flex+o(Va,J),cb=E(Va,J,bb),bb!==cb&&(ab-=cb,Oa-=Va.style.flex),Va=Va.nextFlexChild;for(db=ab/Oa,0>db&&(db=0),Va=Ua;null!==Va;)Va.layout[fa[J]]=E(Va,J,db*Va.style.flex+o(Va,J)),Ka=L,A(a,N)?Ka=a.layout[fa[N]]-ga:Aa||(Ka=d-n(a,N)-ga),La=L,A(a,R)?La=a.layout[fa[R]]-ha:Aa&&(La=g-n(a,R)-ha),K(Va,Ka,La,j),qa=Va,Va=Va.nextFlexChild,qa.nextFlexChild=null}else ta!==T&&(ta===U?$a=ab/2:ta===V?$a=ab:ta===W?(ab=F(ab,0),_a=Na+Pa-1!==0?ab/(Na+Pa-1):0):ta===X&&(_a=ab/(Na+Pa),$a=_a/2));for(Wa+=$a,oa=Ra;Fa>oa;++oa)qa=a.children[oa],w(qa)===ba&&B(qa,ca[J])?qa.layout[ea[J]]=D(qa,ca[J])+i(a,J)+e(qa,J):(qa.layout[ea[J]]+=Wa,ya&&H(a,qa,J),w(qa)===aa&&(Wa+=_a+z(qa,J),Xa=F(Xa,E(qa,M,z(qa,M)))));var eb=a.layout[fa[M]];for(za||(eb=F(E(a,M,Xa+xa),xa)),oa=Ta;Fa>oa;++oa)if(qa=a.children[oa],w(qa)===ba&&B(qa,ca[M]))qa.layout[ea[M]]=D(qa,ca[M])+i(a,M)+e(qa,M);else{var fb=va;if(w(qa)===aa){var Ya=r(a,qa);if(Ya===_)b(qa.layout[fa[M]])&&(qa.layout[fa[M]]=F(E(qa,M,eb-xa-n(qa,M)),o(qa,M)));else if(Ya!==Y){var gb=eb-xa-z(qa,M);fb+=Ya===Z?gb/2:gb}}qa.layout[ea[M]]+=Ha+fb,za&&H(a,qa,M)}Ha+=Xa,Ia=F(Ia,Wa),Ja+=1,Ea=Fa}if(Ja>1&&za){var hb=a.layout[fa[M]]-xa,ib=hb-Ha,jb=0,kb=va,lb=q(a);lb===$?kb+=ib:lb===Z?kb+=ib/2:lb===_&&hb>Ha&&(jb=ib/Ja);var mb=0;for(oa=0;Ja>oa;++oa){var nb=mb,ob=0;for(pa=nb;O>pa;++pa)if(qa=a.children[pa],w(qa)===aa){if(qa.lineIndex!==oa)break;b(qa.layout[fa[M]])||(ob=F(ob,qa.layout[fa[M]]+n(qa,M)))}for(mb=pa,ob+=jb,pa=nb;mb>pa;++pa)if(qa=a.children[pa],w(qa)===aa){var pb=r(a,qa);if(pb===Y)qa.layout[ea[M]]=kb+e(qa,M);else if(pb===$)qa.layout[ea[M]]=kb+ob-f(qa,M)-qa.layout[fa[M]];else if(pb===Z){var qb=qa.layout[fa[M]];qa.layout[ea[M]]=kb+(ob-qb)/2}else pb===_&&(qa.layout[ea[M]]=kb+e(qa,M))}kb+=ob}}var rb=!1,sb=!1;if(ya||(a.layout[fa[J]]=F(E(a,J,Ia+l(a,J)),wa),(J===Q||J===S)&&(rb=!0)),za||(a.layout[fa[M]]=F(E(a,M,Ha+xa),xa),(M===Q||M===S)&&(sb=!0)),rb||sb)for(oa=0;O>oa;++oa)qa=a.children[oa],rb&&H(a,qa,J),sb&&H(a,qa,M);for(Ca=Ba;null!==Ca;){for(pa=0;2>pa;pa++)ra=0!==pa?P:R,!b(a.layout[fa[ra]])&&!A(Ca,ra)&&B(Ca,ca[ra])&&B(Ca,da[ra])&&(Ca.layout[fa[ra]]=F(E(Ca,ra,a.layout[fa[ra]]-m(a,ra)-n(Ca,ra)-D(Ca,ca[ra])-D(Ca,da[ra])),o(Ca,ra))),B(Ca,da[ra])&&!B(Ca,ca[ra])&&(Ca.layout[ca[ra]]=a.layout[fa[ra]]-Ca.layout[fa[ra]]-D(Ca,da[ra]));qa=Ca,Ca=Ca.nextAbsoluteChild,qa.nextAbsoluteChild=null}}function K(a,b,c,d){a.shouldUpdate=!0;var e=a.style.direction||N,f=!a.isDirty&&a.lastLayout&&a.lastLayout.requestedHeight===a.layout.height&&a.lastLayout.requestedWidth===a.layout.width&&a.lastLayout.parentMaxWidth===b&&a.lastLayout.parentMaxHeight===c&&a.lastLayout.direction===e;f?(a.layout.width=a.lastLayout.width,a.layout.height=a.lastLayout.height,a.layout.top=a.lastLayout.top,a.layout.left=a.lastLayout.left):(a.lastLayout||(a.lastLayout={}),a.lastLayout.requestedWidth=a.layout.width,a.lastLayout.requestedHeight=a.layout.height,a.lastLayout.parentMaxWidth=b,a.lastLayout.parentMaxHeight=c,a.lastLayout.direction=e,a.children.forEach(function(a){a.layout.width=void 0,a.layout.height=void 0,a.layout.top=0,a.layout.left=0}),J(a,b,c,d),a.lastLayout.width=a.layout.width,a.lastLayout.height=a.layout.height,a.lastLayout.top=a.layout.top,a.lastLayout.left=a.layout.left)}var L,M="inherit",N="ltr",O="rtl",P="row",Q="row-reverse",R="column",S="column-reverse",T="flex-start",U="center",V="flex-end",W="space-between",X="space-around",Y="flex-start",Z="center",$="flex-end",_="stretch",aa="relative",ba="absolute",ca={row:"left","row-reverse":"right",column:"top","column-reverse":"bottom"},da={row:"right","row-reverse":"left",column:"bottom","column-reverse":"top"},ea={row:"left","row-reverse":"right",column:"top","column-reverse":"bottom"},fa={row:"width","row-reverse":"width",column:"height","column-reverse":"height"};return{layoutNodeImpl:J,computeLayout:K,fillNodes:a}}();return"object"==typeof exports&&(module.exports=a),function(b){a.fillNodes(b),a.computeLayout(b)}}),!window.addEventListener&&window.attachEvent&&function(){Window.prototype.addEventListener=HTMLDocument.prototype.addEventListener=Element.prototype.addEventListener=function(a,b){this.attachEvent("on"+a,b)},Window.prototype.removeEventListener=HTMLDocument.prototype.removeEventListener=Element.prototype.removeEventListener=function(a,b){this.detachEvent("on"+a,b)}}(),flexibility.detect=function(){var a=document.createElement("p");try{return a.style.display="flex","flex"===a.style.display}catch(b){return!1}},!flexibility.detect()&&document.attachEvent&&document.documentElement.currentStyle&&document.attachEvent("onreadystatechange",function(){flexibility.onresize({target:document.documentElement})}),flexibility.init=function(a){var b=a.onlayoutcomplete;return b||(b=a.onlayoutcomplete={node:a,style:{},children:[]}),b.style.display=a.currentStyle["-js-display"]||a.currentStyle.display,b};var a,b=1e3,c=15,d=document.documentElement,e=0,f=0;flexibility.onresize=function(g){if(d.clientWidth!==e||d.clientHeight!==f){e=d.clientWidth,f=d.clientHeight,clearTimeout(a),window.removeEventListener("resize",flexibility.onresize);var h=g.target&&1===g.target.nodeType?g.target:document.documentElement;flexibility.walk(h),a=setTimeout(function(){window.addEventListener("resize",flexibility.onresize)},b/c)}};var g={alignContent:{initial:"stretch",valid:/^(flex-start|flex-end|center|space-between|space-around|stretch)/},alignItems:{initial:"stretch",valid:/^(flex-start|flex-end|center|baseline|stretch)$/},boxSizing:{initial:"content-box",valid:/^(border-box|content-box)$/},flexDirection:{initial:"row",valid:/^(row|row-reverse|column|column-reverse)$/},flexWrap:{initial:"nowrap",valid:/^(nowrap|wrap|wrap-reverse)$/},justifyContent:{initial:"flex-start",valid:/^(flex-start|flex-end|center|space-between|space-around)$/}};flexibility.updateFlexContainerCache=function(a){var b=a.style,c=a.node.currentStyle,d=a.node.style,e={};(c["flex-flow"]||d["flex-flow"]||"").replace(/^(row|row-reverse|column|column-reverse)\s+(nowrap|wrap|wrap-reverse)$/i,function(a,b,c){e.flexDirection=b,e.flexWrap=c});for(var f in g){var h=f.replace(/[A-Z]/g,"-$&").toLowerCase(),i=g[f],j=c[h]||d[h];b[f]=i.valid.test(j)?j:e[f]||i.initial}};var h={alignSelf:{initial:"auto",valid:/^(auto|flex-start|flex-end|center|baseline|stretch)$/},boxSizing:{initial:"content-box",valid:/^(border-box|content-box)$/},flexBasis:{initial:"auto",valid:/^((?:[-+]?0|[-+]?[0-9]*\.?[0-9]+(?:%|ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmax|vmin|vw))|auto|fill|max-content|min-content|fit-content|content)$/},flexGrow:{initial:0,valid:/^\+?(0|[1-9][0-9]*)$/},flexShrink:{initial:0,valid:/^\+?(0|[1-9][0-9]*)$/},order:{initial:0,valid:/^([-+]?[0-9]+)$/}};flexibility.updateFlexItemCache=function(a){var b=a.style,c=a.node.currentStyle,d=a.node.style,e={};(c.flex||d.flex||"").replace(/^\+?(0|[1-9][0-9]*)/,function(a){e.flexGrow=a});for(var f in h){var g=f.replace(/[A-Z]/g,"-$&").toLowerCase(),i=h[f],j=c[g]||d[g];b[f]=i.valid.test(j)?j:e[f]||i.initial,"number"==typeof i.initial&&(b[f]=parseFloat(b[f]))}};var i="border:0 solid;clip:rect(0 0 0 0);display:inline-block;font:0/0 serif;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;overflow:hidden;padding:0;position:absolute;width:1em;",j={medium:4,none:0,thick:6,thin:2},k={borderBottomWidth:0,borderLeftWidth:0,borderRightWidth:0,borderTopWidth:0,height:0,paddingBottom:0,paddingLeft:0,paddingRight:0,paddingTop:0,marginBottom:0,marginLeft:0,marginRight:0,marginTop:0,maxHeight:0,maxWidth:0,minHeight:0,minWidth:0,width:0},l=/^([-+]?0|[-+]?[0-9]*\.?[0-9]+)/,m=100;flexibility.updateLengthCache=function(a){var b,c,d,e=a.node,f=a.style,g=e.parentNode,h=document.createElement("_"),n=h.runtimeStyle,o=e.currentStyle;n.cssText=i+"font-size:"+o.fontSize,g.insertBefore(h,e.nextSibling),f.fontSize=h.offsetWidth,n.fontSize=f.fontSize+"px";for(var p in k){var q=o[p];l.test(q)||"auto"===q&&!/(width|height)/i.test(p)?/%$/.test(q)?(/^(bottom|height|top)$/.test(p)?(c||(c=g.offsetHeight),d=c):(b||(b=g.offsetWidth),d=b),f[p]=parseFloat(q)*d/m):(n.width=q,f[p]=h.offsetWidth):/^border/.test(p)&&q in j?f[p]=j[q]:delete f[p]}g.removeChild(h),"none"===o.borderTopStyle&&(f.borderTopWidth=0),"none"===o.borderRightStyle&&(f.borderRightWidth=0),"none"===o.borderBottomStyle&&(f.borderBottomWidth=0),"none"===o.borderLeftStyle&&(f.borderLeftWidth=0),f.width||f.minWidth||(/flex/.test(f.display)?f.width=e.offsetWidth:f.minWidth=e.offsetWidth),f.height||f.minHeight||/flex/.test(f.display)||(f.minHeight=e.offsetHeight)},flexibility.walk=function(a){var b=flexibility.init(a),c=b.style,d=c.display;if("none"===d)return{};var e=d.match(/^(inline)?flex$/);if(e&&(flexibility.updateFlexContainerCache(b),a.runtimeStyle.cssText="display:"+(e[1]?"inline-block":"block"),b.children=[]),Array.prototype.forEach.call(a.childNodes,function(a,d){if(1===a.nodeType){var f=flexibility.walk(a),g=f.style;f.index=d,e&&(flexibility.updateFlexItemCache(f),"auto"===g.alignSelf&&(g.alignSelf=c.alignItems),g.flex=g.flexGrow,a.runtimeStyle.cssText="display:inline-block",b.children.push(f))}}),e){b.children.forEach(function(a){flexibility.updateLengthCache(a)}),b.children.sort(function(a,b){return a.style.order-b.style.order||a.index-b.index}),/-reverse$/.test(c.flexDirection)&&(b.children.reverse(),c.flexDirection=c.flexDirection.replace(/-reverse$/,""),"flex-start"===c.justifyContent?c.justifyContent="flex-end":"flex-end"===c.justifyContent&&(c.justifyContent="flex-start")),flexibility.updateLengthCache(b),delete b.lastLayout,delete b.layout;var f=c.borderTopWidth,g=c.borderBottomWidth;c.borderTopWidth=0,c.borderBottomWidth=0,c.borderLeftWidth=0,"column"===c.flexDirection&&(c.width-=c.borderRightWidth),flexibility.computeLayout(b),a.runtimeStyle.cssText="box-sizing:border-box;display:block;position:relative;width:"+(b.layout.width+c.borderRightWidth)+"px;height:"+(b.layout.height+f+g)+"px";var h=[],i=1,j="column"===c.flexDirection?"width":"height";b.children.forEach(function(a){h[a.lineIndex]=Math.max(h[a.lineIndex]||0,a.layout[j]),i=Math.max(i,a.lineIndex+1)}),b.children.forEach(function(a){var b=a.layout;"stretch"===a.style.alignSelf&&(b[j]=h[a.lineIndex]),a.node.runtimeStyle.cssText="box-sizing:border-box;display:block;position:absolute;margin:0;width:"+b.width+"px;height:"+b.height+"px;top:"+b.top+"px;left:"+b.left+"px"})}return b}}();var getParents=function(a,b){Element.prototype.matches||(Element.prototype.matches=Element.prototype.matchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector||Element.prototype.oMatchesSelector||Element.prototype.webkitMatchesSelector||function(a){for(var b=(this.document||this.ownerDocument).querySelectorAll(a),c=b.length;--c>=0&&b.item(c)!==this;);return c>-1});for(var c=[];a&&a!==document;a=a.parentNode)b?a.matches(b)&&c.push(a):c.push(a);return c},toggleClass=function(a,b){a.classList.contains(b)?a.classList.remove(b):a.classList.add(b)};!function(){function a(){for(var a=this;-1===a.className.indexOf("nav-menu");)"li"===a.tagName.toLowerCase()&&(-1!==a.className.indexOf("focus")?a.className=a.className.replace(" focus",""):a.className+=" focus"),a=a.parentElement}var b=document.querySelector(".main-header-bar-navigation"),c=document.querySelector(".main-header-menu-toggle");null!=c&&c.addEventListener("click",function(a){a.preventDefault();for(var d=document.querySelectorAll(".menu-item-has-children, .page_item_has_children"),e=0;e<d.length;e++){d[e].classList.remove("ast-submenu-expanded");for(var f=d[e].querySelectorAll(".sub-menu, .children"),g=0;g<f.length;g++)f[g].style.display="none"}var h=this.getAttribute("rel")||"";switch(h){case"main-menu":toggleClass(b,"toggle-on"),toggleClass(c,"toggled"),b.classList.contains("toggle-on")?b.style.display="block":b.style.display=""}},!1),AstraNavigationMenu=function(a){for(var b=document.querySelectorAll(a),c=0;c<b.length;c++)if(null!=b[c].querySelector(".sub-menu, .children")){var d=document.createElement("BUTTON");d.setAttribute("role","button"),d.setAttribute("class","ast-menu-toggle"),d.setAttribute("aria-expanded","false"),b[c].insertBefore(d,b[c].childNodes[1]);var e=b[c].getBoundingClientRect().left,f=window.innerWidth,g=parseInt(f)-parseInt(e),h=!1;if(g<500&&(h=!0),h){b[c].classList.add("ast-left-align-sub-menu");for(var i=b[c].querySelectorAll(".menu-item-has-children, .page_item_has_children"),j=0;j<i.length;j++)i[j].classList.add("ast-left-align-sub-menu")}g<240&&b[c].classList.add("ast-sub-menu-goes-outside")}},AstraNavigationMenu("ul.main-header-menu li"),AstraToggleMenu=function(a){for(var b=document.querySelectorAll(a),c=0;c<b.length;c++)b[c].addEventListener("click",function(a){a.preventDefault();for(var b=this.parentNode,c=b.querySelectorAll(".menu-item-has-children, .page_item_has_children"),d=0;d<c.length;d++){c[d].classList.remove("ast-submenu-expanded");var e=c[d].querySelector(".sub-menu, .children");e.style.display="none"}for(var f=b.parentNode.querySelectorAll(".menu-item-has-children, .page_item_has_children"),d=0;d<f.length;d++)if(f[d]!=b){f[d].classList.remove("ast-submenu-expanded");for(var g=f[d].querySelectorAll(".sub-menu, .children"),h=0;h<g.length;h++)g[h].style.display="none"}(b.classList.contains("menu-item-has-children")||b.classList.contains("page_item_has_children"))&&(toggleClass(b,"ast-submenu-expanded"),b.classList.contains("ast-submenu-expanded")?b.querySelector(".sub-menu, .children").style.display="block":b.querySelector(".sub-menu, .children").style.display="none")},!1)},AstraToggleMenu("ul.main-header-menu .ast-menu-toggle"),document.body.addEventListener("astra-header-responsive-enabled",function(){null!=b&&(b.classList.remove("toggle-on"),b.style.display="");for(var a=document.getElementsByClassName("sub-menu"),c=0;c<a.length;c++)a[c].style.display="";for(var d=document.getElementsByClassName("children"),c=0;c<d.length;c++)d[c].style.display="";for(var e=document.getElementsByClassName("ast-search-menu-icon"),c=0;c<e.length;c++)e[c].classList.remove("ast-dropdown-active"),e[c].style.display=""},!1);var d=function(){if(null!=document.getElementById("masthead"))for(var a=astra.break_point,b=document.getElementById("masthead").childNodes,d=0;d<b.length;d++)if("DIV"==b[d].tagName&&b[d].classList.contains("main-header-bar-wrap")){var e=window.getComputedStyle(b[d]).content;if(e=e.replace(/[^0-9]/g,""),e=parseInt(e),e!=a){null!=c&&c.classList.remove("toggled"),document.body.classList.remove("ast-header-break-point");var f=new CustomEvent("astra-header-responsive-enabled");document.body.dispatchEvent(f)}else{document.body.classList.add("ast-header-break-point");var g=new CustomEvent("astra-header-responsive-disabled");document.body.dispatchEvent(g)}}};window.addEventListener("resize",function(){d()}),d();for(var e=document.getElementsByClassName("astra-search-icon"),f=0;f<e.length;f++)e[f].onclick=function(){if(this.classList.contains("slide-search")){var a=this.parentNode.parentNode.querySelector(".ast-search-menu-icon");a.classList.contains("ast-dropdown-active")?a.classList.remove("ast-dropdown-active"):(a.classList.add("ast-dropdown-active"),a.querySelector(".search-field").setAttribute("autocomplete","off"),setTimeout(function(){a.querySelector(".search-field").focus()},200))}};document.body.onclick=function(a){if(!this.classList.contains("ast-header-break-point")&&!a.target.classList.contains("ast-search-menu-icon")&&0===getParents(a.target,".ast-search-menu-icon").length&&0===getParents(a.target,".ast-search-icon").length)for(var b=document.getElementsByClassName("ast-search-menu-icon"),c=0;c<b.length;c++)b[c].classList.remove("ast-dropdown-active")};var g,h,i,j,k,f,l;if(g=document.getElementById("site-navigation"),g&&(h=g.getElementsByTagName("button")[0],"undefined"!=typeof h)){if(i=g.getElementsByTagName("ul")[0],"undefined"==typeof i)return void(h.style.display="none");for(i.setAttribute("aria-expanded","false"),-1===i.className.indexOf("nav-menu")&&(i.className+=" nav-menu"),h.onclick=function(){-1!==g.className.indexOf("toggled")?(g.className=g.className.replace(" toggled",""),h.setAttribute("aria-expanded","false"),i.setAttribute("aria-expanded","false")):(g.className+=" toggled",h.setAttribute("aria-expanded","true"),i.setAttribute("aria-expanded","true"))},j=i.getElementsByTagName("a"),k=i.getElementsByTagName("ul"),f=0,l=k.length;f<l;f++)k[f].parentNode.setAttribute("aria-haspopup","true");for(f=0,l=j.length;f<l;f++)j[f].addEventListener("focus",a,!0),j[f].addEventListener("blur",a,!0);!function(a){var b,c,d=a.querySelectorAll(".menu-item-has-children > a, .page_item_has_children > a");if("ontouchstart"in window)for(b=function(a){var b,c=this.parentNode;if(c.classList.contains("focus"))c.classList.remove("focus");else{for(a.preventDefault(),b=0;b<c.parentNode.children.length;++b)c!==c.parentNode.children[b]&&c.parentNode.children[b].classList.remove("focus");c.classList.add("focus")}},c=0;c<d.length;++c)d[c].addEventListener("touchstart",b,!1)}(g)}}(),function(){var a=navigator.userAgent.toLowerCase().indexOf("webkit")>-1,b=navigator.userAgent.toLowerCase().indexOf("opera")>-1,c=navigator.userAgent.toLowerCase().indexOf("msie")>-1;(a||b||c)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var a,b=location.hash.substring(1);/^[A-z0-9_-]+$/.test(b)&&(a=document.getElementById(b),a&&(/^(?:a|select|input|button|textarea)$/i.test(a.tagName)||(a.tabIndex=-1),a.focus()))},!1)}();
+/**
+ * Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
+ * Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
+ */
+
+! function() {
+    window.flexibility = {}, Array.prototype.forEach || (Array.prototype.forEach = function(t) {
+            if (void 0 === this || null === this) throw new TypeError(this + "is not an object");
+            if (!(t instanceof Function)) throw new TypeError(t + " is not a function");
+            for (var e = Object(this), i = arguments[1], n = e instanceof String ? e.split("") : e, r = Math.max(Math.min(n.length, 9007199254740991), 0) || 0, o = -1; ++o < r;) o in n && t.call(i, n[o], o, e)
+        }),
+        function(t, e) {
+            "function" == typeof define && define.amd ? define([], e) : "object" == typeof exports ? module.exports = e() : t.computeLayout = e()
+        }(flexibility, function() {
+            var t = function() {
+                function t(e) {
+                    if ((!e.layout || e.isDirty) && (e.layout = {
+                            width: void 0,
+                            height: void 0,
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0
+                        }), e.style || (e.style = {}), e.children || (e.children = []), e.style.measure && e.children && e.children.length) throw new Error("Using custom measure function is supported only for leaf nodes.");
+                    return e.children.forEach(t), e
+                }
+
+                function e(t) {
+                    return void 0 === t
+                }
+
+                function i(t) {
+                    return t === q || t === G
+                }
+
+                function n(t) {
+                    return t === U || t === Z
+                }
+
+                function r(t, e) {
+                    if (void 0 !== t.style.marginStart && i(e)) return t.style.marginStart;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.marginLeft;
+                            break;
+                        case "row-reverse":
+                            n = t.style.marginRight;
+                            break;
+                        case "column":
+                            n = t.style.marginTop;
+                            break;
+                        case "column-reverse":
+                            n = t.style.marginBottom
+                    }
+                    return void 0 !== n ? n : void 0 !== t.style.margin ? t.style.margin : 0
+                }
+
+                function o(t, e) {
+                    if (void 0 !== t.style.marginEnd && i(e)) return t.style.marginEnd;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.marginRight;
+                            break;
+                        case "row-reverse":
+                            n = t.style.marginLeft;
+                            break;
+                        case "column":
+                            n = t.style.marginBottom;
+                            break;
+                        case "column-reverse":
+                            n = t.style.marginTop
+                    }
+                    return null != n ? n : void 0 !== t.style.margin ? t.style.margin : 0
+                }
+
+                function l(t, e) {
+                    if (void 0 !== t.style.paddingStart && t.style.paddingStart >= 0 && i(e)) return t.style.paddingStart;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.paddingLeft;
+                            break;
+                        case "row-reverse":
+                            n = t.style.paddingRight;
+                            break;
+                        case "column":
+                            n = t.style.paddingTop;
+                            break;
+                        case "column-reverse":
+                            n = t.style.paddingBottom
+                    }
+                    return null != n && n >= 0 ? n : void 0 !== t.style.padding && t.style.padding >= 0 ? t.style.padding : 0
+                }
+
+                function a(t, e) {
+                    if (void 0 !== t.style.paddingEnd && t.style.paddingEnd >= 0 && i(e)) return t.style.paddingEnd;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.paddingRight;
+                            break;
+                        case "row-reverse":
+                            n = t.style.paddingLeft;
+                            break;
+                        case "column":
+                            n = t.style.paddingBottom;
+                            break;
+                        case "column-reverse":
+                            n = t.style.paddingTop
+                    }
+                    return null != n && n >= 0 ? n : void 0 !== t.style.padding && t.style.padding >= 0 ? t.style.padding : 0
+                }
+
+                function d(t, e) {
+                    if (void 0 !== t.style.borderStartWidth && t.style.borderStartWidth >= 0 && i(e)) return t.style.borderStartWidth;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.borderLeftWidth;
+                            break;
+                        case "row-reverse":
+                            n = t.style.borderRightWidth;
+                            break;
+                        case "column":
+                            n = t.style.borderTopWidth;
+                            break;
+                        case "column-reverse":
+                            n = t.style.borderBottomWidth
+                    }
+                    return null != n && n >= 0 ? n : void 0 !== t.style.borderWidth && t.style.borderWidth >= 0 ? t.style.borderWidth : 0
+                }
+
+                function s(t, e) {
+                    if (void 0 !== t.style.borderEndWidth && t.style.borderEndWidth >= 0 && i(e)) return t.style.borderEndWidth;
+                    var n = null;
+                    switch (e) {
+                        case "row":
+                            n = t.style.borderRightWidth;
+                            break;
+                        case "row-reverse":
+                            n = t.style.borderLeftWidth;
+                            break;
+                        case "column":
+                            n = t.style.borderBottomWidth;
+                            break;
+                        case "column-reverse":
+                            n = t.style.borderTopWidth
+                    }
+                    return null != n && n >= 0 ? n : void 0 !== t.style.borderWidth && t.style.borderWidth >= 0 ? t.style.borderWidth : 0
+                }
+
+                function u(t, e) {
+                    return l(t, e) + d(t, e)
+                }
+
+                function y(t, e) {
+                    return a(t, e) + s(t, e)
+                }
+
+                function c(t, e) {
+                    return d(t, e) + s(t, e)
+                }
+
+                function f(t, e) {
+                    return r(t, e) + o(t, e)
+                }
+
+                function h(t, e) {
+                    return u(t, e) + y(t, e)
+                }
+
+                function m(t) {
+                    return t.style.justifyContent ? t.style.justifyContent : "flex-start"
+                }
+
+                function v(t) {
+                    return t.style.alignContent ? t.style.alignContent : "flex-start"
+                }
+
+                function p(t, e) {
+                    return e.style.alignSelf ? e.style.alignSelf : t.style.alignItems ? t.style.alignItems : "stretch"
+                }
+
+                function x(t, e) {
+                    if (e === N) {
+                        if (t === q) return G;
+                        if (t === G) return q
+                    }
+                    return t
+                }
+
+                function g(t, e) {
+                    var i;
+                    return i = t.style.direction ? t.style.direction : M, i === M && (i = void 0 === e ? A : e), i
+                }
+
+                function b(t) {
+                    return t.style.flexDirection ? t.style.flexDirection : U
+                }
+
+                function w(t, e) {
+                    return n(t) ? x(q, e) : U
+                }
+
+                function W(t) {
+                    return t.style.position ? t.style.position : "relative"
+                }
+
+                function L(t) {
+                    return W(t) === tt && t.style.flex > 0
+                }
+
+                function E(t) {
+                    return "wrap" === t.style.flexWrap
+                }
+
+                function S(t, e) {
+                    return t.layout[ot[e]] + f(t, e)
+                }
+
+                function k(t, e) {
+                    return void 0 !== t.style[ot[e]] && t.style[ot[e]] >= 0
+                }
+
+                function C(t, e) {
+                    return void 0 !== t.style[e]
+                }
+
+                function T(t) {
+                    return void 0 !== t.style.measure
+                }
+
+                function $(t, e) {
+                    return void 0 !== t.style[e] ? t.style[e] : 0
+                }
+
+                function H(t, e, i) {
+                    var n = {
+                            row: t.style.minWidth,
+                            "row-reverse": t.style.minWidth,
+                            column: t.style.minHeight,
+                            "column-reverse": t.style.minHeight
+                        }[e],
+                        r = {
+                            row: t.style.maxWidth,
+                            "row-reverse": t.style.maxWidth,
+                            column: t.style.maxHeight,
+                            "column-reverse": t.style.maxHeight
+                        }[e],
+                        o = i;
+                    return void 0 !== r && r >= 0 && o > r && (o = r), void 0 !== n && n >= 0 && n > o && (o = n), o
+                }
+
+                function z(t, e) {
+                    return t > e ? t : e
+                }
+
+                function B(t, e) {
+                    void 0 === t.layout[ot[e]] && k(t, e) && (t.layout[ot[e]] = z(H(t, e, t.style[ot[e]]), h(t, e)))
+                }
+
+                function D(t, e, i) {
+                    e.layout[nt[i]] = t.layout[ot[i]] - e.layout[ot[i]] - e.layout[rt[i]]
+                }
+
+                function I(t, e) {
+                    return void 0 !== t.style[it[e]] ? $(t, it[e]) : -$(t, nt[e])
+                }
+
+                function R(t, n, l, a) {
+                    var s = g(t, a),
+                        R = x(b(t), s),
+                        M = w(R, s),
+                        A = x(q, s);
+                    B(t, R), B(t, M), t.layout.direction = s, t.layout[it[R]] += r(t, R) + I(t, R), t.layout[nt[R]] += o(t, R) + I(t, R), t.layout[it[M]] += r(t, M) + I(t, M), t.layout[nt[M]] += o(t, M) + I(t, M);
+                    var N = t.children.length,
+                        lt = h(t, A),
+                        at = h(t, U);
+                    if (T(t)) {
+                        var dt = !e(t.layout[ot[A]]),
+                            st = F;
+                        st = k(t, A) ? t.style.width : dt ? t.layout[ot[A]] : n - f(t, A), st -= lt;
+                        var ut = F;
+                        ut = k(t, U) ? t.style.height : e(t.layout[ot[U]]) ? l - f(t, A) : t.layout[ot[U]], ut -= h(t, U);
+                        var yt = !k(t, A) && !dt,
+                            ct = !k(t, U) && e(t.layout[ot[U]]);
+                        if (yt || ct) {
+                            var ft = t.style.measure(st, ut);
+                            yt && (t.layout.width = ft.width + lt), ct && (t.layout.height = ft.height + at)
+                        }
+                        if (0 === N) return
+                    }
+                    var ht, mt, vt, pt, xt = E(t),
+                        gt = m(t),
+                        bt = u(t, R),
+                        wt = u(t, M),
+                        Wt = h(t, R),
+                        Lt = h(t, M),
+                        Et = !e(t.layout[ot[R]]),
+                        St = !e(t.layout[ot[M]]),
+                        kt = i(R),
+                        Ct = null,
+                        Tt = null,
+                        $t = F;
+                    Et && ($t = t.layout[ot[R]] - Wt);
+                    for (var Ht = 0, zt = 0, Bt = 0, Dt = 0, It = 0, Rt = 0; N > zt;) {
+                        var jt, Ft, Mt = 0,
+                            At = 0,
+                            Nt = 0,
+                            qt = 0,
+                            Gt = Et && gt === O || !Et && gt !== _,
+                            Ut = Gt ? N : Ht,
+                            Zt = !0,
+                            Ot = N,
+                            _t = null,
+                            Jt = null,
+                            Kt = bt,
+                            Pt = 0;
+                        for (ht = Ht; N > ht; ++ht) {
+                            vt = t.children[ht], vt.lineIndex = Rt, vt.nextAbsoluteChild = null, vt.nextFlexChild = null;
+                            var Qt = p(t, vt);
+                            if (Qt === Y && W(vt) === tt && St && !k(vt, M)) vt.layout[ot[M]] = z(H(vt, M, t.layout[ot[M]] - Lt - f(vt, M)), h(vt, M));
+                            else if (W(vt) === et)
+                                for (null === Ct && (Ct = vt), null !== Tt && (Tt.nextAbsoluteChild = vt), Tt = vt, mt = 0; 2 > mt; mt++) pt = 0 !== mt ? q : U, !e(t.layout[ot[pt]]) && !k(vt, pt) && C(vt, it[pt]) && C(vt, nt[pt]) && (vt.layout[ot[pt]] = z(H(vt, pt, t.layout[ot[pt]] - h(t, pt) - f(vt, pt) - $(vt, it[pt]) - $(vt, nt[pt])), h(vt, pt)));
+                            var Vt = 0;
+                            if (Et && L(vt) ? (At++, Nt += vt.style.flex, null === _t && (_t = vt), null !== Jt && (Jt.nextFlexChild = vt), Jt = vt, Vt = h(vt, R) + f(vt, R)) : (jt = F, Ft = F, kt ? Ft = k(t, U) ? t.layout[ot[U]] - at : l - f(t, U) - at : jt = k(t, A) ? t.layout[ot[A]] - lt : n - f(t, A) - lt, 0 === Bt && j(vt, jt, Ft, s), W(vt) === tt && (qt++, Vt = S(vt, R))), xt && Et && Mt + Vt > $t && ht !== Ht) {
+                                qt--, Bt = 1;
+                                break
+                            }
+                            Gt && (W(vt) !== tt || L(vt)) && (Gt = !1, Ut = ht), Zt && (W(vt) !== tt || Qt !== Y && Qt !== Q || e(vt.layout[ot[M]])) && (Zt = !1, Ot = ht), Gt && (vt.layout[rt[R]] += Kt, Et && D(t, vt, R), Kt += S(vt, R), Pt = z(Pt, H(vt, M, S(vt, M)))), Zt && (vt.layout[rt[M]] += Dt + wt, St && D(t, vt, M)), Bt = 0, Mt += Vt, zt = ht + 1
+                        }
+                        var Xt = 0,
+                            Yt = 0,
+                            te = 0;
+                        if (te = Et ? $t - Mt : z(Mt, 0) - Mt, 0 !== At) {
+                            var ee, ie, ne = te / Nt;
+                            for (Jt = _t; null !== Jt;) ee = ne * Jt.style.flex + h(Jt, R), ie = H(Jt, R, ee), ee !== ie && (te -= ie, Nt -= Jt.style.flex), Jt = Jt.nextFlexChild;
+                            for (ne = te / Nt, 0 > ne && (ne = 0), Jt = _t; null !== Jt;) Jt.layout[ot[R]] = H(Jt, R, ne * Jt.style.flex + h(Jt, R)), jt = F, k(t, A) ? jt = t.layout[ot[A]] - lt : kt || (jt = n - f(t, A) - lt), Ft = F, k(t, U) ? Ft = t.layout[ot[U]] - at : kt && (Ft = l - f(t, U) - at), j(Jt, jt, Ft, s), vt = Jt, Jt = Jt.nextFlexChild, vt.nextFlexChild = null
+                        } else gt !== O && (gt === _ ? Xt = te / 2 : gt === J ? Xt = te : gt === K ? (te = z(te, 0), Yt = At + qt - 1 !== 0 ? te / (At + qt - 1) : 0) : gt === P && (Yt = te / (At + qt), Xt = Yt / 2));
+                        for (Kt += Xt, ht = Ut; zt > ht; ++ht) vt = t.children[ht], W(vt) === et && C(vt, it[R]) ? vt.layout[rt[R]] = $(vt, it[R]) + d(t, R) + r(vt, R) : (vt.layout[rt[R]] += Kt, Et && D(t, vt, R), W(vt) === tt && (Kt += Yt + S(vt, R), Pt = z(Pt, H(vt, M, S(vt, M)))));
+                        var re = t.layout[ot[M]];
+                        for (St || (re = z(H(t, M, Pt + Lt), Lt)), ht = Ot; zt > ht; ++ht)
+                            if (vt = t.children[ht], W(vt) === et && C(vt, it[M])) vt.layout[rt[M]] = $(vt, it[M]) + d(t, M) + r(vt, M);
+                            else {
+                                var oe = wt;
+                                if (W(vt) === tt) {
+                                    var Qt = p(t, vt);
+                                    if (Qt === Y) e(vt.layout[ot[M]]) && (vt.layout[ot[M]] = z(H(vt, M, re - Lt - f(vt, M)), h(vt, M)));
+                                    else if (Qt !== Q) {
+                                        var le = re - Lt - S(vt, M);
+                                        oe += Qt === V ? le / 2 : le
+                                    }
+                                }
+                                vt.layout[rt[M]] += Dt + oe, St && D(t, vt, M)
+                            }
+                        Dt += Pt, It = z(It, Kt), Rt += 1, Ht = zt
+                    }
+                    if (Rt > 1 && St) {
+                        var ae = t.layout[ot[M]] - Lt,
+                            de = ae - Dt,
+                            se = 0,
+                            ue = wt,
+                            ye = v(t);
+                        ye === X ? ue += de : ye === V ? ue += de / 2 : ye === Y && ae > Dt && (se = de / Rt);
+                        var ce = 0;
+                        for (ht = 0; Rt > ht; ++ht) {
+                            var fe = ce,
+                                he = 0;
+                            for (mt = fe; N > mt; ++mt)
+                                if (vt = t.children[mt], W(vt) === tt) {
+                                    if (vt.lineIndex !== ht) break;
+                                    e(vt.layout[ot[M]]) || (he = z(he, vt.layout[ot[M]] + f(vt, M)))
+                                }
+                            for (ce = mt, he += se, mt = fe; ce > mt; ++mt)
+                                if (vt = t.children[mt], W(vt) === tt) {
+                                    var me = p(t, vt);
+                                    if (me === Q) vt.layout[rt[M]] = ue + r(vt, M);
+                                    else if (me === X) vt.layout[rt[M]] = ue + he - o(vt, M) - vt.layout[ot[M]];
+                                    else if (me === V) {
+                                        var ve = vt.layout[ot[M]];
+                                        vt.layout[rt[M]] = ue + (he - ve) / 2
+                                    } else me === Y && (vt.layout[rt[M]] = ue + r(vt, M))
+                                }
+                            ue += he
+                        }
+                    }
+                    var pe = !1,
+                        xe = !1;
+                    if (Et || (t.layout[ot[R]] = z(H(t, R, It + y(t, R)), Wt), (R === G || R === Z) && (pe = !0)), St || (t.layout[ot[M]] = z(H(t, M, Dt + Lt), Lt), (M === G || M === Z) && (xe = !0)), pe || xe)
+                        for (ht = 0; N > ht; ++ht) vt = t.children[ht], pe && D(t, vt, R), xe && D(t, vt, M);
+                    for (Tt = Ct; null !== Tt;) {
+                        for (mt = 0; 2 > mt; mt++) pt = 0 !== mt ? q : U, !e(t.layout[ot[pt]]) && !k(Tt, pt) && C(Tt, it[pt]) && C(Tt, nt[pt]) && (Tt.layout[ot[pt]] = z(H(Tt, pt, t.layout[ot[pt]] - c(t, pt) - f(Tt, pt) - $(Tt, it[pt]) - $(Tt, nt[pt])), h(Tt, pt))), C(Tt, nt[pt]) && !C(Tt, it[pt]) && (Tt.layout[it[pt]] = t.layout[ot[pt]] - Tt.layout[ot[pt]] - $(Tt, nt[pt]));
+                        vt = Tt, Tt = Tt.nextAbsoluteChild, vt.nextAbsoluteChild = null
+                    }
+                }
+
+                function j(t, e, i, n) {
+                    t.shouldUpdate = !0;
+                    var r = t.style.direction || A,
+                        o = !t.isDirty && t.lastLayout && t.lastLayout.requestedHeight === t.layout.height && t.lastLayout.requestedWidth === t.layout.width && t.lastLayout.parentMaxWidth === e && t.lastLayout.parentMaxHeight === i && t.lastLayout.direction === r;
+                    o ? (t.layout.width = t.lastLayout.width, t.layout.height = t.lastLayout.height, t.layout.top = t.lastLayout.top, t.layout.left = t.lastLayout.left) : (t.lastLayout || (t.lastLayout = {}), t.lastLayout.requestedWidth = t.layout.width, t.lastLayout.requestedHeight = t.layout.height, t.lastLayout.parentMaxWidth = e, t.lastLayout.parentMaxHeight = i, t.lastLayout.direction = r, t.children.forEach(function(t) {
+                        t.layout.width = void 0, t.layout.height = void 0, t.layout.top = 0, t.layout.left = 0
+                    }), R(t, e, i, n), t.lastLayout.width = t.layout.width, t.lastLayout.height = t.layout.height, t.lastLayout.top = t.layout.top, t.lastLayout.left = t.layout.left)
+                }
+                var F, M = "inherit",
+                    A = "ltr",
+                    N = "rtl",
+                    q = "row",
+                    G = "row-reverse",
+                    U = "column",
+                    Z = "column-reverse",
+                    O = "flex-start",
+                    _ = "center",
+                    J = "flex-end",
+                    K = "space-between",
+                    P = "space-around",
+                    Q = "flex-start",
+                    V = "center",
+                    X = "flex-end",
+                    Y = "stretch",
+                    tt = "relative",
+                    et = "absolute",
+                    it = {
+                        row: "left",
+                        "row-reverse": "right",
+                        column: "top",
+                        "column-reverse": "bottom"
+                    },
+                    nt = {
+                        row: "right",
+                        "row-reverse": "left",
+                        column: "bottom",
+                        "column-reverse": "top"
+                    },
+                    rt = {
+                        row: "left",
+                        "row-reverse": "right",
+                        column: "top",
+                        "column-reverse": "bottom"
+                    },
+                    ot = {
+                        row: "width",
+                        "row-reverse": "width",
+                        column: "height",
+                        "column-reverse": "height"
+                    };
+                return {
+                    layoutNodeImpl: R,
+                    computeLayout: j,
+                    fillNodes: t
+                }
+            }();
+            return "object" == typeof exports && (module.exports = t),
+                function(e) {
+                    t.fillNodes(e), t.computeLayout(e)
+                }
+        }), !window.addEventListener && window.attachEvent && function() {
+            Window.prototype.addEventListener = HTMLDocument.prototype.addEventListener = Element.prototype.addEventListener = function(t, e) {
+                this.attachEvent("on" + t, e)
+            }, Window.prototype.removeEventListener = HTMLDocument.prototype.removeEventListener = Element.prototype.removeEventListener = function(t, e) {
+                this.detachEvent("on" + t, e)
+            }
+        }(), flexibility.detect = function() {
+            var t = document.createElement("p");
+            try {
+                return t.style.display = "flex", "flex" === t.style.display
+            } catch (e) {
+                return !1
+            }
+        }, !flexibility.detect() && document.attachEvent && document.documentElement.currentStyle && document.attachEvent("onreadystatechange", function() {
+            flexibility.onresize({
+                target: document.documentElement
+            })
+        }), flexibility.init = function(t) {
+            var e = t.onlayoutcomplete;
+            return e || (e = t.onlayoutcomplete = {
+                node: t,
+                style: {},
+                children: []
+            }), e.style.display = t.currentStyle["-js-display"] || t.currentStyle.display, e
+        };
+    var t, e = 1e3,
+        i = 15,
+        n = document.documentElement,
+        r = 0,
+        o = 0;
+    flexibility.onresize = function(l) {
+        if (n.clientWidth !== r || n.clientHeight !== o) {
+            r = n.clientWidth, o = n.clientHeight, clearTimeout(t), window.removeEventListener("resize", flexibility.onresize);
+            var a = l.target && 1 === l.target.nodeType ? l.target : document.documentElement;
+            flexibility.walk(a), t = setTimeout(function() {
+                window.addEventListener("resize", flexibility.onresize)
+            }, e / i)
+        }
+    };
+    var l = {
+        alignContent: {
+            initial: "stretch",
+            valid: /^(flex-start|flex-end|center|space-between|space-around|stretch)/
+        },
+        alignItems: {
+            initial: "stretch",
+            valid: /^(flex-start|flex-end|center|baseline|stretch)$/
+        },
+        boxSizing: {
+            initial: "content-box",
+            valid: /^(border-box|content-box)$/
+        },
+        flexDirection: {
+            initial: "row",
+            valid: /^(row|row-reverse|column|column-reverse)$/
+        },
+        flexWrap: {
+            initial: "nowrap",
+            valid: /^(nowrap|wrap|wrap-reverse)$/
+        },
+        justifyContent: {
+            initial: "flex-start",
+            valid: /^(flex-start|flex-end|center|space-between|space-around)$/
+        }
+    };
+    flexibility.updateFlexContainerCache = function(t) {
+        var e = t.style,
+            i = t.node.currentStyle,
+            n = t.node.style,
+            r = {};
+        (i["flex-flow"] || n["flex-flow"] || "").replace(/^(row|row-reverse|column|column-reverse)\s+(nowrap|wrap|wrap-reverse)$/i, function(t, e, i) {
+            r.flexDirection = e, r.flexWrap = i
+        });
+        for (var o in l) {
+            var a = o.replace(/[A-Z]/g, "-$&").toLowerCase(),
+                d = l[o],
+                s = i[a] || n[a];
+            e[o] = d.valid.test(s) ? s : r[o] || d.initial
+        }
+    };
+    var a = {
+        alignSelf: {
+            initial: "auto",
+            valid: /^(auto|flex-start|flex-end|center|baseline|stretch)$/
+        },
+        boxSizing: {
+            initial: "content-box",
+            valid: /^(border-box|content-box)$/
+        },
+        flexBasis: {
+            initial: "auto",
+            valid: /^((?:[-+]?0|[-+]?[0-9]*\.?[0-9]+(?:%|ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmax|vmin|vw))|auto|fill|max-content|min-content|fit-content|content)$/
+        },
+        flexGrow: {
+            initial: 0,
+            valid: /^\+?(0|[1-9][0-9]*)$/
+        },
+        flexShrink: {
+            initial: 0,
+            valid: /^\+?(0|[1-9][0-9]*)$/
+        },
+        order: {
+            initial: 0,
+            valid: /^([-+]?[0-9]+)$/
+        }
+    };
+    flexibility.updateFlexItemCache = function(t) {
+        var e = t.style,
+            i = t.node.currentStyle,
+            n = t.node.style,
+            r = {};
+        (i.flex || n.flex || "").replace(/^\+?(0|[1-9][0-9]*)/, function(t) {
+            r.flexGrow = t
+        });
+        for (var o in a) {
+            var l = o.replace(/[A-Z]/g, "-$&").toLowerCase(),
+                d = a[o],
+                s = i[l] || n[l];
+            e[o] = d.valid.test(s) ? s : r[o] || d.initial, "number" == typeof d.initial && (e[o] = parseFloat(e[o]))
+        }
+    };
+    var d = "border:0 solid;clip:rect(0 0 0 0);display:inline-block;font:0/0 serif;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;overflow:hidden;padding:0;position:absolute;width:1em;",
+        s = {
+            medium: 4,
+            none: 0,
+            thick: 6,
+            thin: 2
+        },
+        u = {
+            borderBottomWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
+            borderTopWidth: 0,
+            height: 0,
+            paddingBottom: 0,
+            paddingLeft: 0,
+            paddingRight: 0,
+            paddingTop: 0,
+            marginBottom: 0,
+            marginLeft: 0,
+            marginRight: 0,
+            marginTop: 0,
+            maxHeight: 0,
+            maxWidth: 0,
+            minHeight: 0,
+            minWidth: 0,
+            width: 0
+        },
+        y = /^([-+]?0|[-+]?[0-9]*\.?[0-9]+)/,
+        c = 100;
+    flexibility.updateLengthCache = function(t) {
+        var e, i, n, r = t.node,
+            o = t.style,
+            l = r.parentNode,
+            a = document.createElement("_"),
+            f = a.runtimeStyle,
+            h = r.currentStyle;
+        f.cssText = d + "font-size:" + h.fontSize, l.insertBefore(a, r.nextSibling), o.fontSize = a.offsetWidth, f.fontSize = o.fontSize + "px";
+        for (var m in u) {
+            var v = h[m];
+            y.test(v) || "auto" === v && !/(width|height)/i.test(m) ? /%$/.test(v) ? (/^(bottom|height|top)$/.test(m) ? (i || (i = l.offsetHeight), n = i) : (e || (e = l.offsetWidth), n = e), o[m] = parseFloat(v) * n / c) : (f.width = v, o[m] = a.offsetWidth) : /^border/.test(m) && v in s ? o[m] = s[v] : delete o[m]
+        }
+        l.removeChild(a), "none" === h.borderTopStyle && (o.borderTopWidth = 0), "none" === h.borderRightStyle && (o.borderRightWidth = 0), "none" === h.borderBottomStyle && (o.borderBottomWidth = 0), "none" === h.borderLeftStyle && (o.borderLeftWidth = 0), o.width || o.minWidth || (/flex/.test(o.display) ? o.width = r.offsetWidth : o.minWidth = r.offsetWidth), o.height || o.minHeight || /flex/.test(o.display) || (o.minHeight = r.offsetHeight)
+    }, flexibility.walk = function(t) {
+        var e = flexibility.init(t),
+            i = e.style,
+            n = i.display;
+        if ("none" === n) return {};
+        var r = n.match(/^(inline)?flex$/);
+        if (r && (flexibility.updateFlexContainerCache(e), t.runtimeStyle.cssText = "display:" + (r[1] ? "inline-block" : "block"), e.children = []), Array.prototype.forEach.call(t.childNodes, function(t, n) {
+                if (1 === t.nodeType) {
+                    var o = flexibility.walk(t),
+                        l = o.style;
+                    o.index = n, r && (flexibility.updateFlexItemCache(o), "auto" === l.alignSelf && (l.alignSelf = i.alignItems), l.flex = l.flexGrow, t.runtimeStyle.cssText = "display:inline-block", e.children.push(o))
+                }
+            }), r) {
+            e.children.forEach(function(t) {
+                flexibility.updateLengthCache(t)
+            }), e.children.sort(function(t, e) {
+                return t.style.order - e.style.order || t.index - e.index
+            }), /-reverse$/.test(i.flexDirection) && (e.children.reverse(), i.flexDirection = i.flexDirection.replace(/-reverse$/, ""), "flex-start" === i.justifyContent ? i.justifyContent = "flex-end" : "flex-end" === i.justifyContent && (i.justifyContent = "flex-start")), flexibility.updateLengthCache(e), delete e.lastLayout, delete e.layout;
+            var o = i.borderTopWidth,
+                l = i.borderBottomWidth;
+            i.borderTopWidth = 0, i.borderBottomWidth = 0, i.borderLeftWidth = 0, "column" === i.flexDirection && (i.width -= i.borderRightWidth), flexibility.computeLayout(e), t.runtimeStyle.cssText = "box-sizing:border-box;display:block;position:relative;width:" + (e.layout.width + i.borderRightWidth) + "px;height:" + (e.layout.height + o + l) + "px";
+            var a = [],
+                d = 1,
+                s = "column" === i.flexDirection ? "width" : "height";
+            e.children.forEach(function(t) {
+                a[t.lineIndex] = Math.max(a[t.lineIndex] || 0, t.layout[s]), d = Math.max(d, t.lineIndex + 1)
+            }), e.children.forEach(function(t) {
+                var e = t.layout;
+                "stretch" === t.style.alignSelf && (e[s] = a[t.lineIndex]), t.node.runtimeStyle.cssText = "box-sizing:border-box;display:block;position:absolute;margin:0;width:" + e.width + "px;height:" + e.height + "px;top:" + e.top + "px;left:" + e.left + "px"
+            })
+        }
+        return e
+    }
+}();
+
+/**
+ * File navigation.js
+ *
+ * Handles toggling the navigation menu for small screens and enables tab
+ * support for dropdown menus.
+ *
+ * @package Astra
+ */
+
+/**
+ * Get all of an element's parent elements up the DOM tree
+ *
+ * @param  {Node}   elem     The element.
+ * @param  {String} selector Selector to match against [optional].
+ * @return {Array}           The parent elements.
+ */
+var getParents = function ( elem, selector ) {
+
+	// Element.matches() polyfill.
+	if ( ! Element.prototype.matches) {
+		Element.prototype.matches =
+			Element.prototype.matchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector ||
+			Element.prototype.oMatchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			function(s) {
+				var matches = (this.document || this.ownerDocument).querySelectorAll( s ),
+					i = matches.length;
+				while (--i >= 0 && matches.item( i ) !== this) {}
+				return i > -1;
+			};
+	}
+
+	// Setup parents array.
+	var parents = [];
+
+	// Get matching parent elements.
+	for ( ; elem && elem !== document; elem = elem.parentNode ) {
+
+		// Add matching parents to array.
+		if ( selector ) {
+			if ( elem.matches( selector ) ) {
+				parents.push( elem );
+			}
+		} else {
+			parents.push( elem );
+		}
+	}
+	return parents;
+};
+
+/* . */
+/**
+ * Toggle Class funtion
+ *
+ * @param  {Node}   elem     The element.
+ * @param  {String} selector Selector to match against [optional].
+ * @return {Array}           The parent elements.
+ */
+var toggleClass = function ( el, className ) {
+	if ( el.classList.contains( className ) ) {
+		el.classList.remove( className );
+	} else {
+		el.classList.add( className );
+	}
+};
+
+( function() {
+
+	var __main_header = document.querySelector( '.main-header-bar-navigation' );
+
+	var menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+
+
+	/* Main Menu toggle click */
+	if ( null != menu_toggle ) {
+
+		menu_toggle.addEventListener( 'click', function( event ) {
+	    	event.preventDefault();
+
+	    	var menuHasChildren = document.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+			for ( var i = 0; i < menuHasChildren.length; i++ ) {
+				menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
+				var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
+				for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
+					menuHasChildrenSubMenu[j].style.display = 'none';		
+				};
+			}
+
+			var rel = this.getAttribute( 'rel' ) || '';
+
+			switch ( rel ) {
+				case 'main-menu':
+						toggleClass( __main_header, 'toggle-on' );
+						toggleClass( menu_toggle, 'toggled' );
+						if ( __main_header.classList.contains( 'toggle-on' ) ) {		
+							__main_header.style.display = 'block';		
+						} else {		
+							__main_header.style.display = '';		
+						}
+					break;
+			}
+	    }, false);
+	}
+
+	AstraNavigationMenu = function( selector ) {
+
+		var parentList = document.querySelectorAll( selector );
+
+		for (var i = 0; i < parentList.length; i++) {
+
+			if ( null != parentList[i].querySelector( '.sub-menu, .children' ) ) {
+
+				// Insert Toggle Button.
+				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
+					toggleButton.setAttribute("role", "button");
+					toggleButton.setAttribute("class", "ast-menu-toggle");
+					toggleButton.setAttribute("aria-expanded", "false");
+				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
+
+				var menuLeft         = parentList[i].getBoundingClientRect().left,
+					windowWidth      = window.innerWidth,
+					menuFromLeft     = (parseInt( windowWidth ) - parseInt( menuLeft ) ),
+					menuGoingOutside = false;
+
+				if( menuFromLeft < 500 ) {
+					menuGoingOutside = true;
+				}
+
+				// Submenu items goes outside?
+				if( menuGoingOutside ) {
+					parentList[i].classList.add( 'ast-left-align-sub-menu' );
+
+					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+					for (var k = 0; k < all_submenu_parents.length; k++) {
+						all_submenu_parents[k].classList.add( 'ast-left-align-sub-menu' );
+					}
+				}
+
+				// Submenu Container goes to outside?
+				if( menuFromLeft < 240 ) {
+					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
+				}
+
+			};
+		};
+	};
+
+	AstraNavigationMenu( 'ul.main-header-menu li' );
+
+	AstraToggleMenu = function( selector ) {
+		var astra_menu_toggle = document.querySelectorAll( selector );
+		/* Submenu button click */
+		for (var i = 0; i < astra_menu_toggle.length; i++) {
+
+			astra_menu_toggle[i].addEventListener( 'click', function ( event ) {
+				event.preventDefault();
+
+				var parent_li = this.parentNode;
+
+				var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+				for (var j = 0; j < parent_li_child.length; j++) {
+
+					parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
+					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );		
+					parent_li_child_sub_menu.style.display = 'none';
+				};
+
+				var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
+				for (var j = 0; j < parent_li_sibling.length; j++) {
+
+					if ( parent_li_sibling[j] != parent_li ) {
+
+						parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
+						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
+						for (var k = 0; k < all_sub_menu.length; k++) {		
+							all_sub_menu[k].style.display = 'none';		
+						};
+					}
+				};
+
+				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
+					toggleClass( parent_li, 'ast-submenu-expanded' );
+					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
+						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
+					} else {
+						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
+					}
+				}
+			}, false);
+		};
+	};
+ 
+	AstraToggleMenu('ul.main-header-menu .ast-menu-toggle');
+
+	document.body.addEventListener("astra-header-responsive-enabled", function() {
+
+		if( null != __main_header ) {
+			__main_header.classList.remove( 'toggle-on' );
+			__main_header.style.display = '';
+		}
+
+		var sub_menu = document.getElementsByClassName( 'sub-menu' );
+		for ( var i = 0; i < sub_menu.length; i++ ) {
+			sub_menu[i].style.display = '';
+		}
+		var child_menu = document.getElementsByClassName( 'children' );
+		for ( var i = 0; i < child_menu.length; i++ ) {
+			child_menu[i].style.display = '';
+		}
+
+		var searchIcons = document.getElementsByClassName( 'ast-search-menu-icon' );
+		for ( var i = 0; i < searchIcons.length; i++ ) {
+			searchIcons[i].classList.remove( 'ast-dropdown-active' );
+			searchIcons[i].style.display = '';
+		}
+	}, false);
+
+	/* Add break point Class and related trigger */
+	var updateHeaderBreakPoint = function () {
+
+		if( null != document.getElementById( 'masthead' ) ) {
+
+			var break_point = astra.break_point,
+				headerWrap = document.getElementById( 'masthead' ).childNodes;
+
+			for ( var i = 0; i < headerWrap.length; i++ ) {
+
+				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
+
+					var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
+
+					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
+					header_content_bp = parseInt( header_content_bp );
+
+					// `ast-header-break-point` class will use for Responsive Style of Header.
+					if ( header_content_bp != break_point ) {
+						//remove menu toggled class.
+						if ( null != menu_toggle ) {
+							menu_toggle.classList.remove( 'toggled' );
+						}
+						document.body.classList.remove( "ast-header-break-point" );
+						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
+						document.body.dispatchEvent( responsive_enabled );
+
+					} else {
+
+						document.body.classList.add( "ast-header-break-point" );
+						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
+						document.body.dispatchEvent( responsive_disabled );
+					}
+				}
+			}
+		}
+	}
+
+	window.addEventListener("resize", function() {
+		updateHeaderBreakPoint();
+	});
+
+	updateHeaderBreakPoint();
+
+	/* Search Script */
+	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
+	for (var i = 0; i < SearchIcons.length; i++) {
+
+		SearchIcons[i].onclick = function() {
+			if ( this.classList.contains( 'slide-search' ) ) {
+				var sibling = this.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
+				if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
+					sibling.classList.add( 'ast-dropdown-active' );
+					sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
+					setTimeout(function() {
+						sibling.querySelector( '.search-field' ).focus();
+					},200);
+				} else {
+					sibling.classList.remove( 'ast-dropdown-active' );
+				}
+			}
+		}
+	};
+
+	/* Hide Dropdown on body click*/
+	document.body.onclick = function( event ) {
+		if ( ! this.classList.contains( 'ast-header-break-point' ) ) {
+			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+
+				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
+
+				for (var i = 0; i < dropdownSearchWrap.length; i++) {
+					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
+				};
+			}
+		}
+	}
+
+	/**
+	 * Navigation Keyboard Navigation.
+	 */
+	var container, button, menu, links, subMenus, i, len;
+
+	container = document.getElementById( 'site-navigation' );
+	if ( ! container ) {
+		return;
+	}
+
+	button = container.getElementsByTagName( 'button' )[0];
+	if ( 'undefined' === typeof button ) {
+		return;
+	}
+
+	menu = container.getElementsByTagName( 'ul' )[0];
+
+	// Hide menu toggle button if menu is empty and return early.
+	if ( 'undefined' === typeof menu ) {
+		button.style.display = 'none';
+		return;
+	}
+
+	menu.setAttribute( 'aria-expanded', 'false' );
+	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+		menu.className += ' nav-menu';
+	}
+
+	button.onclick = function() {
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			container.className = container.className.replace( ' toggled', '' );
+			button.setAttribute( 'aria-expanded', 'false' );
+			menu.setAttribute( 'aria-expanded', 'false' );
+		} else {
+			container.className += ' toggled';
+			button.setAttribute( 'aria-expanded', 'true' );
+			menu.setAttribute( 'aria-expanded', 'true' );
+		}
+	};
+
+	// Get all the link elements within the menu.
+	links    = menu.getElementsByTagName( 'a' );
+	subMenus = menu.getElementsByTagName( 'ul' );
+
+
+	// Set menu items with submenus to aria-haspopup="true".
+	for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+	}
+
+	// Each time a menu link is focused or blurred, toggle focus.
+	for ( i = 0, len = links.length; i < len; i++ ) {
+		links[i].addEventListener( 'focus', toggleFocus, true );
+		links[i].addEventListener( 'blur', toggleFocus, true );
+	}
+
+	/**
+	 * Sets or removes .focus class on an element.
+	 */
+	function toggleFocus() {
+		var self = this;
+
+		// Move up through the ancestors of the current link until we hit .nav-menu.
+		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
+				} else {
+					self.className += ' focus';
+				}
+			}
+
+			self = self.parentElement;
+		}
+	}
+
+	/**
+	 * Toggles `focus` class to allow submenu access on tablets.
+	 */
+	( function( container ) {
+		var touchStartFn, i,
+			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+
+		if ( 'ontouchstart' in window ) {
+			touchStartFn = function( e ) {
+				var menuItem = this.parentNode, i;
+
+				if ( ! menuItem.classList.contains( 'focus' ) ) {
+					e.preventDefault();
+					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+						if ( menuItem === menuItem.parentNode.children[i] ) {
+							continue;
+						}
+						menuItem.parentNode.children[i].classList.remove( 'focus' );
+					}
+					menuItem.classList.add( 'focus' );
+				} else {
+					menuItem.classList.remove( 'focus' );
+				}
+			};
+
+			for ( i = 0; i < parentLink.length; ++i ) {
+				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+			}
+		}
+	}( container ) );
+
+} )();
+
+/**
+ * File skip-link-focus-fix.js
+ *
+ * Helps with accessibility for keyboard only users.
+ *
+ * Learn more: https://github.com/Automattic/_s/pull/136
+ *
+ * @package Astra
+ */
+
+( function() {
+	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
+	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' ) > -1,
+	    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' ) > -1;
+
+	if ( ( is_webkit || is_opera || is_ie ) && document.getElementById && window.addEventListener ) {
+		window.addEventListener( 'hashchange', function() {
+			var id = location.hash.substring( 1 ),
+				element;
+
+			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
+				return;
+			}
+
+			element = document.getElementById( id );
+
+			if ( element ) {
+				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
+					element.tabIndex = -1;
+				}
+
+				element.focus();
+			}
+		}, false );
+	}
+})();

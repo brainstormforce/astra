@@ -1655,7 +1655,6 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 			'Molengo' => array(
 				'400',
 			),
-			'Molle' => array(),
 			'Monda' => array(
 				'400',
 				'700',

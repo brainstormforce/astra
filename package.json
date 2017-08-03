@@ -1,11 +1,11 @@
 {
   "name": "astra",
-  "version": "1.0.9",
+  "version": "1.0.13",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git@git.brainstormforce.com:astra/astra-theme.git"
+    "url": "https://github.com/brainstormforce/astra.git"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +14,14 @@
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compress": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-postcss": "^0.8.0",
     "grunt-rtlcss": "^2.0.1",
-    "grunt-sass": "^1.1.0",
+    "grunt-sass": "^1.2.1",
     "grunt-wp-i18n": "^0.5.4",
     "postcss-flexibility": "^1.0.3"
   }

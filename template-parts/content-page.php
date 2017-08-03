@@ -23,7 +23,8 @@
 	}
 	?>
 	<header class="entry-header <?php echo esc_attr( $title_enabled ); ?>">
-		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) : ?>
+		<?php $featured_image = apply_filters( 'astra_featured_image_enabled', true ); ?>
+		<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() && $featured_image ) : ?>
 			<div class="post-thumb">
 				<?php the_post_thumbnail(); ?>
 			</div>
@@ -41,12 +42,14 @@
 		<?php astra_entry_content_after(); ?>
 
 		<?php
-			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
-				'after'       => '</div>',
-				'link_before' => '<span class="page-link">',
-				'link_after'  => '</span>',
-			) );
+			wp_link_pages(
+				array(
+					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
+					'after'       => '</div>',
+					'link_before' => '<span class="page-link">',
+					'link_after'  => '</span>',
+				)
+			);
 		?>
 
 	</div><!-- .entry-content .clear -->

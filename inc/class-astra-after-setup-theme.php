@@ -100,31 +100,37 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Switch default core markup for search form, comment form, and comments.
 			// to output valid HTML5.
-			add_theme_support( 'html5', array(
-				'search-form',
-				'gallery',
-				'caption',
-			) );
+			add_theme_support(
+				'html5', array(
+					'search-form',
+					'gallery',
+					'caption',
+				)
+			);
 
 			// Post formats.
-			add_theme_support( 'post-formats', array(
-				'gallery',
-				'image',
-				'link',
-				'quote',
-				'video',
-				'audio',
-				'status',
-				'aside',
-			) );
+			add_theme_support(
+				'post-formats', array(
+					'gallery',
+					'image',
+					'link',
+					'quote',
+					'video',
+					'audio',
+					'status',
+					'aside',
+				)
+			);
 
 			// Add theme support for Custom Logo.
-			add_theme_support( 'custom-logo', array(
-				'width'       => 180,
-				'height'      => 60,
-				'flex-width'  => true,
-				'flex-height' => true,
-			) );
+			add_theme_support(
+				'custom-logo', array(
+					'width'       => 180,
+					'height'      => 60,
+					'flex-width'  => true,
+					'flex-height' => true,
+				)
+			);
 
 			// Customize Selective Refresh Widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );

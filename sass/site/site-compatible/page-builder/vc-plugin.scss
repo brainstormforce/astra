@@ -21,9 +21,7 @@
 
 		.entry-header {
 			margin-top: 4em;
-			&.ast-no-title {
-				margin-top: 0;
-			}
+
 			@media (max-width: $mx-col-md) { 
 				margin-top: 1.5em;
 			}

@@ -43,24 +43,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Theme Updates.
 			add_action( 'init', __CLASS__ . '::init' );
-
+			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
 		}
 
 		/**
 		 * Implement theme update logic.
 		 *
 		 * @since 1.0.0
-		 * @return void
 		 */
 		static public function init() {
 
 			do_action( 'astra_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version' );
+			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			// If equals then return.
-			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( ! $saved_version || version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 
@@ -77,6 +76,16 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update to older version than 1.0.8 version.
 			if ( version_compare( $saved_version, '1.0.8', '<' ) && version_compare( $saved_version, '1.0.4', '>' ) ) {
 				self::v_1_0_8();
+			}
+
+			// Update to older version than 1.0.12 version.
+			if ( version_compare( $saved_version, '1.0.12', '<' ) ) {
+				self::v_1_0_12();
+			}
+
+			// Update to older version than 1.0.13 version.
+			if ( version_compare( $saved_version, '1.0.13', '<' ) ) {
+				self::v_1_0_13();
 			}
 
 			// Not have stored?
@@ -113,10 +122,19 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
+		 * Footer Widgets compatibilty for astra pro.
+		 */
+		static public function astra_pro_compatibility() {
+
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
+				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
+			}
+		}
+
+		/**
 		 * Update options of older version than 1.0.4.
 		 *
 		 * @since 1.0.4
-		 * @return void
 		 */
 		static public function v_1_0_4() {
 
@@ -200,7 +218,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.5.
 		 *
 		 * @since 1.0.5
-		 * @return void
 		 */
 		static public function v_1_0_5() {
 
@@ -221,7 +238,6 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * Update options of older version than 1.0.8.
 		 *
 		 * @since 1.0.8
-		 * @return void
 		 */
 		static public function v_1_0_8() {
 
@@ -252,7 +268,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( 'astra-settings', array() );
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			if ( 0 < count( $astra_options ) ) {
 				foreach ( $options as $key ) {
@@ -268,9 +284,64 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'astra-settings', $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
 		}
 
+		/**
+		 * Update options of older version than 1.0.12.
+		 *
+		 * @since 1.0.12
+		 */
+		static public function v_1_0_12() {
+
+			$options = array(
+				'site-content-layout'         => 'plain-container',
+				'single-page-content-layout'  => 'plain-container',
+				'single-post-content-layout'  => 'content-boxed-container',
+				'archive-post-content-layout' => 'content-boxed-container',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.0.13.
+		 *
+		 * @since 1.0.13
+		 * @return void
+		 */
+		static public function v_1_0_13() {
+
+			$options = array(
+				'footer-sml-divider'          => '4',
+				'footer-sml-divider-color'    => '#fff',
+				'footer-adv'                  => 'layout-4',
+				'single-page-sidebar-layout'  => 'no-sidebar',
+				'single-post-sidebar-layout'  => 'right-sidebar',
+				'archive-post-sidebar-layout' => 'right-sidebar',
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+
+			update_option( '_astra_pb_compatibility_offset', 1 );
+			update_option( '_astra_pb_compatibility_time', date( 'Y-m-d H:i:s' ) );
+		}
 	}
 }// End if().
 

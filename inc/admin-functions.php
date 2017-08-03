@@ -21,10 +21,12 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 		/**
 		 * Menus
 		 */
-		register_nav_menus( array(
-			'primary'     => __( 'Primary Menu', 'astra' ),
-			'footer_menu' => __( 'Footer Menu', 'astra' ),
-		) );
+		register_nav_menus(
+			array(
+				'primary'     => __( 'Primary Menu', 'astra' ),
+				'footer_menu' => __( 'Footer Menu', 'astra' ),
+			)
+		);
 	}
 }
 

@@ -15,21 +15,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Option: Container Width
 	 */
-	$wp_customize->add_setting( ASTRA_THEME_SETTINGS . '[site-content-width]', array(
-		'default'           => astra_get_option( 'site-content-width' ),
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'validate_site_width' ),
-	) );
-	$wp_customize->add_control( new Astra_Control_Slider( $wp_customize, ASTRA_THEME_SETTINGS . '[site-content-width]', array(
-		'type'        => 'ast-slider',
-		'section'     => 'section-site-layout',
-		'priority'    => 10,
-		'label'       => __( 'Container Width', 'astra' ),
-		'suffix'      => '',
-		'input_attrs' => array(
-			'min'    => 768,
-			'step'   => 1,
-			'max'    => 1920,
-		),
-	) ) );
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[site-content-width]', array(
+			'default'           => 1200,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'validate_site_width' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Slider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[site-content-width]', array(
+				'type'        => 'ast-slider',
+				'section'     => 'section-site-layout',
+				'priority'    => 10,
+				'label'       => __( 'Container Width', 'astra' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'    => 768,
+					'step'   => 1,
+					'max'    => 1920,
+				),
+			)
+		)
+	);

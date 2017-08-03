@@ -22,7 +22,10 @@ get_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
@@ -33,7 +36,7 @@ get_header(); ?>
 				endif;
 			?>
 
-		<?php endwhile; // End of the loop. ?>
+		<?php endwhile; ?>
 
 		</main><!-- #main -->
 

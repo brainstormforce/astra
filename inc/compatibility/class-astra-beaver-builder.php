@@ -43,29 +43,43 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_get_content_layout',     array( $this, 'builder_template_content_layout' ), 20 );
+			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
 		}
 
 		/**
-		 * Builder Template Content layout set as Page Builder
+		 * Builder Template Content layout set as Full Width / Stretched
 		 *
-		 * @param  string $layout Content Layout.
-		 * @return string
-		 * @since  1.0.2
+		 * @since  1.0.13
+		 * @return void
 		 */
-		function builder_template_content_layout( $layout ) {
+		function beaver_builder_default_setting() {
+
+			global $post;
+			$id = astra_get_post_id();
 
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
-			if ( $do_render && FLBuilderModel::is_builder_enabled() && ! is_archive() ) {
 
-				global $post;
+			if ( is_singular() && empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
-				if ( empty( $post->post_content ) && 'default' == get_post_meta( $post->ID, 'site-content-layout', true ) ) {
-					update_post_meta( $post->ID, 'site-content-layout', 'page-builder' );
+				$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+
+				if ( empty( $page_builder_flag ) ) {
+
+					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, 'site-post-title', 'disabled' );
+					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
+
+					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					if ( empty( $content_layout ) || 'default' == $content_layout ) {
+						update_post_meta( $id, 'site-content-layout', 'page-builder' );
+					}
+
+					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
+					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
+						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+					}
 				}
 			}
-
-			return $layout;
 		}
 
 	}

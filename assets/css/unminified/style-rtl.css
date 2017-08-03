@@ -1803,6 +1803,8 @@ html {
 
 body {
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body:not(.logged-in) {
@@ -2224,10 +2226,6 @@ body {
   padding-left: 20px;
 }
 
-.ast-page-builder-template .entry-header.ast-no-title {
-  margin-top: 0;
-}
-
 @media (max-width: 768px) {
   .ast-page-builder-template .entry-header {
     margin-top: 1.5em;
@@ -2258,6 +2256,10 @@ body {
   .ast-page-builder-template.ast-right-sidebar #secondary {
     padding-right: 20px;
   }
+}
+
+.ast-page-builder-template.single.post-navigation {
+  padding-bottom: 2em;
 }
 
 @media (min-width: 993px) {
@@ -2729,6 +2731,7 @@ body {
 
 .header-main-layout-1 .main-navigation {
   padding-right: 15px;
+  vertical-align: top;
 }
 
 .ast-header-break-point .header-main-layout-1 .site-branding {
@@ -3881,6 +3884,39 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: inline-block;
 }
 
+/**
+ * Footer Widget Layouts
+ */
+.footer-adv-overlay {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.footer-adv p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-adv .widget_calendar table {
+  margin-bottom: 0;
+}
+
+@media all and (max-width: 768px) {
+  .footer-adv-widget-1 .widget:last-child {
+    margin: 0 0 2.8em;
+  }
+}
+
+.footer-adv .ast-no-widget-row .widget-title {
+  text-transform: capitalize;
+}
+
+@media all and (max-width: 768px) {
+  .footer-adv-layout-4 .footer-adv-widget-2 .widget:last-child,
+  .footer-adv-layout-4 .footer-adv-widget-3 .widget:last-child {
+    margin: 0 0 2.8em;
+  }
+}
+
 /*----------  Forms  ----------*/
 /**
  * 	Form Fields
@@ -4091,9 +4127,8 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1em;
 }
 
-.page .entry-header.ast-no-title {
-  margin-top: 0;
-  margin-bottom: 0;
+.ast-single-post .entry-header.ast-no-title {
+  display: none;
 }
 
 .entry-header {
@@ -5076,10 +5111,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .js_active .ast-plain-container .entry-header {
   margin-top: 4em;
-}
-
-.js_active .ast-plain-container .entry-header.ast-no-title {
-  margin-top: 0;
 }
 
 @media (max-width: 768px) {

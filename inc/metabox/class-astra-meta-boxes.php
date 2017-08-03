@@ -66,25 +66,27 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 *
 			 * @see http://php.net/manual/en/filter.filters.sanitize.php
 			 */
-			self::$meta_option = apply_filters( 'astra_meta_box_options', array(
-				'ast-main-header-display' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'footer-sml-layout' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-post-title' => array(
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-sidebar-layout' => array(
-					'default'  => 'default',
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-				'site-content-layout' => array(
-					'default'  => 'default',
-					'sanitize' => 'FILTER_DEFAULT',
-				),
-			) );
+			self::$meta_option = apply_filters(
+				'astra_meta_box_options', array(
+					'ast-main-header-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-sml-layout' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-post-title' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-layout' => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-content-layout' => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+				)
+			);
 		}
 
 		/**
@@ -156,7 +158,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
 			</p>
 			<select name="site-sidebar-layout" id="site-sidebar-layout">
-				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
+				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 				<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
 				<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
 				<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
@@ -171,11 +173,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 			</p>
 			<select name="site-content-layout" id="site-content-layout">
-				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Global Setting', 'astra' ); ?></option>
-				<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Plain', 'astra' ); ?></option>
+				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 				<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
 				<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-				<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Page Builder', 'astra' ); ?></option>
+				<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
+				<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
 			</select>
 
 			<?php
@@ -201,7 +203,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
 
-				if ( 'disabled' != $footer_sml_layout ) { ?>
+				if ( 'disabled' != $footer_sml_layout ) {
+				?>
 				<span class="footer-sml-layout-option-wrap">
 					<label for="footer-sml-layout">
 						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $small_footer, 'disabled' ); ?> />

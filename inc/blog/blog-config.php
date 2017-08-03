@@ -142,7 +142,8 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 	 */
 	function astra_post_link( $output_filter = '' ) {
 
-		if ( is_admin() ) {
+		$enabled = apply_filters( 'astra_post_link_enabled', '__return_true' );
+		if ( is_admin() || ! $enabled ) {
 			return $output_filter;
 		}
 
@@ -186,7 +187,8 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				 *
 				 * @see astra_default_strings()
 				 */
-				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) ); ?>
+				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
+				?>
 
 				<!-- Comment Schema Meta -->
 				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">

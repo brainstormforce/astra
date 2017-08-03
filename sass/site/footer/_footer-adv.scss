@@ -1,0 +1,32 @@
+/**
+ * Footer Widget Layouts
+ */
+
+.footer-adv-overlay {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.footer-adv {
+	p:last-child {
+	  	margin-bottom: 0;
+	}
+	.widget_calendar{
+		table{
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media all and (max-width : $mx-col-md) {
+	.footer-adv-widget-1 {
+		.widget:last-child {
+		  	margin: 0 0 2.8em;
+		}
+	}
+}
+
+
+.footer-adv .ast-no-widget-row .widget-title {
+	text-transform: capitalize;
+}

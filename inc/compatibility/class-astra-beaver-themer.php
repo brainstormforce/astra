@@ -6,7 +6,7 @@
  */
 
 // If plugin - 'Beaver Themer' not exist then return.
-if ( ! class_exists( 'FLThemeBuilderLoader' ) ) {
+if ( ! class_exists( 'FLThemeBuilderLoader' ) || ! class_exists( 'FLThemeBuilderLayoutData' ) ) {
 	return;
 }
 
@@ -47,11 +47,11 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			add_action( 'wp',                           array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks',  array( $this, 'register_part_hooks' ) );
 			add_filter( 'post_class',                   array( $this, 'render_post_class' ), 99 );
-			add_filter( 'astra_get_content_layout',         array( $this, 'builder_template_content_layout' ), 20 );
+			add_filter( 'astra_get_content_layout',     array( $this, 'builder_template_content_layout' ), 20 );
 		}
 
 		/**
-		 * Builder Template Content layout set as Page Builder
+		 * Builder Template Content layout set as Full Width / Stretched
 		 *
 		 * @param  string $layout Content Layout.
 		 * @return string
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
-				remove_filter( 'excerpt_more', 'astra_post_link', 1 );
+				add_filter( 'astra_post_link_enabled', '__return_false' );
 			}
 			return $classes;
 		}

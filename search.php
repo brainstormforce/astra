@@ -26,9 +26,12 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
+			<?php ;/* Start the Loop */ ?>
 			<div class="ast-row">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+?>
 
 				<?php astra_entry_before(); ?>
 
