@@ -112,6 +112,8 @@
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
     width: 50%;
     display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     clear: none;
 }
@@ -128,6 +130,11 @@
 
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -135,6 +142,10 @@
 .customize-pane-child > li[id$="-sidebar-layout"] > label .customize-control-title,
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 

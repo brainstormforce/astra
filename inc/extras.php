@@ -206,9 +206,41 @@ if ( ! function_exists( 'astra_get_dynamic_header_content' ) ) {
 			case 'widget':
 					$output[] = astra_get_custom_widget( $option );
 				break;
+
+			case 'cart':
+					$output[] = astra_get_cart();
+				break;
 		}
 
 		return $output;
+	}
+}
+
+/**
+ * Cart Icon in Navigation Menu
+ */
+if ( ! function_exists( 'astra_get_cart' ) ) {
+	function astra_get_cart() {
+
+		$output = '';
+
+		if( class_exists( 'WooCommerce' ) ) {
+
+			ob_start();
+			$cart_count = WC()->cart->cart_contents_count;
+			$cart_link  = WC()->cart->get_cart_url();
+		    ?>
+		    <span class="astra-menu-cart-item">
+			    <a class="cart-contents" href="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'astra' ); ?>">
+			    	<i class="astra-cart-icon"></i>
+					<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'astra' ), WC()->cart->get_cart_contents_count() ) );?></span>
+				</a>
+		    </span>
+		    <?php
+		    $output = ob_get_clean();
+		}
+
+	    return $output;
 	}
 }
 

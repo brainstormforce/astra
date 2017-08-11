@@ -116,7 +116,9 @@ module.exports = function (grunt) {
                 style: {
                     expand: true,
                     src: [
-                        'assets/css/unminified/style.css'
+                        'assets/css/unminified/style.css',
+                        'assets/css/unminified/*.css',
+                        'assets/css/unminified/site-compatible/*.css'
                     ]
                 }
             },

@@ -2119,8 +2119,12 @@ body {
   }
 }
 
-#secondary li:not(:last-child) {
+#secondary li {
   margin-bottom: 0.25em;
+}
+
+#secondary li:last-child {
+  margin-bottom: 0;
 }
 
 .ast-separate-container {

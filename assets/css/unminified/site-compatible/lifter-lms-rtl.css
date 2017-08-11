@@ -12,11 +12,13 @@
 }
 
 .widget .llms-progress .llms-progress-bar {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
   height: 20px;
 }
 
 .widget .llms-progress .progress-bar-complete {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 
