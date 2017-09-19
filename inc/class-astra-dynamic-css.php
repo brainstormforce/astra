@@ -598,6 +598,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, '769' );
 
+			/**
+			 * Astra Fonts
+			 */
+			if ( apply_filters( 'astra_fonts_support', true ) ) {
+				$astra_fonts  = '@font-face {';
+					$astra_fonts .= 'font-family: "Astra";';
+					$astra_fonts .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.woff) format("woff"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.ttf) format("truetype"),';
+						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/Astra.svg#Astra) format("svg");';
+					$astra_fonts .= 'font-weight: normal;';
+					$astra_fonts .= 'font-style: normal;';
+				$astra_fonts .= '}';
+				$parse_css .= $astra_fonts;
+			}
+
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
 				$blog_css  = '@media (min-width:769px) {';
