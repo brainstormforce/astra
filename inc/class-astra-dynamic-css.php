@@ -253,6 +253,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_color ),
 				),
 
+				'.main-header-menu.menu-item-hover-underline a:hover:after, .main-header-menu.menu-item-hover-underline li.current-menu-item a:after' => array(
+					'background-color' => esc_attr( $link_color ),
+				),
+
+				'.main-header-menu.menu-item-hover-background a:hover, .main-header-menu.menu-item-hover-background li.current-menu-item a' => array(
+					'background-color' => esc_attr( $btn_bg_hover_color ),
+					'color' => esc_attr( $btn_text_hover_color ),
+				),
+
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
 					'border-color' => esc_attr( $link_color ),
