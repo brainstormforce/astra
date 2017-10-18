@@ -292,3 +292,27 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
+
+@media (min-width: $col-md) {
+	.main-header-menu.menu-item-hover-underline a {
+    	line-height: 2;
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 2px;
+			transform: scale(0,1);
+			transform-origin: left center;
+			transition: all .15s ease-out;
+			opacity: 0;
+		}
+	}
+	.main-header-menu.menu-item-hover-underline {
+	  	li.current-menu-item a:after,
+		li:hover a:after,
+		li a:hover:after {
+			transform: scale(1,1);
+			opacity: 1;
+		}
+	}
+}
