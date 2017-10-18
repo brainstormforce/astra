@@ -192,6 +192,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+	/**
+	 * Option: Header Width
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-main-hover-style]', array(
+			'default'           => 'menu-item-hover-default',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[header-main-hover-style]', array(
+			'type'     => 'select',
+			'section'  => 'section-header',
+			'priority' => 40,
+			'label'    => __( 'Header Hover Style', 'astra' ),
+			'choices'  => array(
+				'menu-item-hover-default'    => __( 'Default', 'astra' ),
+				'menu-item-hover-underline' => __( 'Underline', 'astra' ),
+				'menu-item-hover-background' => __( 'Background', 'astra' ),
+			),
+		)
+	);
+
 
 	/**
 	 * Option: Mobile Menu Label Divider
