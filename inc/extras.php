@@ -541,7 +541,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . " " . $menu_hover_style,
+				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . ' ' . $menu_hover_style,
 				'container'       => 'div',
 				'container_class' => 'main-navigation',
 			);
@@ -553,7 +553,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 
-				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . " " . $menu_hover_style . '">',
+				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . ' ' . $menu_hover_style . '">',
 				'after'          => '</ul>',
 			);
 			?>
