@@ -1,0 +1,18 @@
+/*
+ * Astra Theme compatibility Site Origin Builder
+ */
+.siteorigin-panels .panel-row-style {
+  z-index: 0;
+  position: relative;
+}
+
+.siteorigin-panels .siteorigin-panels-stretch {
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.siteorigin-panels .siteorigin-panels-stretch[data-stretch-type="full"] {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}

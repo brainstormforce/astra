@@ -1,0 +1,7 @@
+/*
+ * Astra Theme compatibility with BNR Flyout
+ */
+html.flyout-lock {
+  overflow-y: scroll !important;
+  width: auto;
+}

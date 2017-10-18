@@ -1,0 +1,178 @@
+.customize-control-title .dashicons-editor-help {
+    position: relative;
+    top: 0.1em;
+}
+
+#customize-header-actions .spinner {
+    margin-left: 4px;
+}
+
+/* slider control */
+.customize-control-slider input[type=range] {
+	-webkit-appearance: none;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+	background-color: rgba(0,0,0,.1);
+	height: 5px;
+	width: -webkit-calc(100% - 74px);
+	width: calc(100% - 74px);
+	padding: 0;
+}
+.customize-control-slider input[type=range]:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: none;
+}
+.customize-control-slider input[type=range]:hover {
+	background-color: rgba(0,0,0,.25);
+}
+.customize-control-slider input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-slider input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border: none;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-slider input[type=range]::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-slider input[type=range]::-ms-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 0;
+	background-color: #3498D9;
+}
+.customize-control-slider input[type=range]::-moz-range-track {
+	border: inherit;
+	background: transparent;
+}
+.customize-control-slider input[type=range]::-ms-track {
+	border: inherit;
+	color: transparent;
+	background: transparent;
+}
+.customize-control-slider input[type=range]::-ms-fill-lower,
+.customize-control-slider input[type=range]::-ms-fill-upper {
+	background: transparent;
+}
+.customize-control-slider input[type=range]::-ms-tooltip {
+	display: none;
+}
+.customize-control-slider .ast-range-value {
+    display: inline-block;
+    padding: 0 5px;
+    position: relative;
+    top: 1px;
+}
+.customize-control-slider input#ast-range-value-input {
+	width: 42px;
+    height: 23px;
+    font-size: 13px;
+}
+.customize-control-slider .ast-slider-reset {
+	color: rgba(0,0,0,.2);
+	float: right;
+	-webkit-transition: color .5s ease-in;
+	transition: color .5s ease-in;
+}
+.customize-control-slider .ast-slider-reset span {
+	font-size: 16px;
+	line-height: 22px;
+	cursor: pointer;
+}
+.customize-control-slider .ast-slider-reset span:hover {
+	color: red;
+}
+
+.control-section.ast-hide {
+	display: none !important;
+}
+
+/**
+ * Typography Control Style
+ */
+.customize-pane-child > li[id="customize-control-astra-settings-headings-font-weight"],
+.customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"],
+.customize-pane-child > li[id="customize-control-astra-settings-body-font-weight"],
+.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    clear: none;
+}
+
+.customize-pane-child > li[id="customize-control-astra-settings-headings-font-weight"],
+.customize-pane-child > li[id="customize-control-astra-settings-body-font-weight"] {
+    padding-right: 5px;
+}
+
+.customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"],
+.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
+    padding-left: 5px;
+}
+
+.customize-pane-child > li[id$="-content-layout"] > label,
+.customize-pane-child > li[id$="-sidebar-layout"] > label {
+    display: flex;
+}
+
+.customize-pane-child > li[id$="-content-layout"] > label .customize-control-title,
+.customize-pane-child > li[id$="-sidebar-layout"] > label .customize-control-title,
+.customize-pane-child > li[id$="-content-layout"] > label select,
+.customize-pane-child > li[id$="-sidebar-layout"] > label select {
+    flex: 1;
+}
+
+.customize-pane-child > li[id$="-content-layout"] > label select,
+.customize-pane-child > li[id$="-sidebar-layout"] > label select {
+    margin-left: 10px;
+}
+
+/**
+ * Upgred To Astra Pro
+*/
+.control-section-astra-pro h3 {
+    margin: 0;
+   	padding: 1px 0;
+   	border: 0;
+    position: relative;
+}
+.control-section-astra-pro h3 a {
+    background: #FFF;
+    display: block;
+    padding: 11px 10px 12px 14px;
+    text-decoration: none;
+}
+.control-section-astra-pro h3 a:after {
+	content: "\f345";
+	position: absolute;
+	top: 11px;
+	right: 10px;
+	z-index: 1;
+	float: right;
+	border: none;
+	background: none;
+	font: normal 20px/1 dashicons;
+	speak: none;
+	display: block;
+	padding: 0;
+	text-indent: 0;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

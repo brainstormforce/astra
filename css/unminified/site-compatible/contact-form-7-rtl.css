@@ -1,0 +1,72 @@
+/**
+ * Astra Theme compatibility with Contact Form 7
+ */
+.wpcf7 {
+  /* Button */
+  /* Validation Fix */
+}
+
+.wpcf7 form {
+  position: relative;
+}
+
+.wpcf7 form > p,
+.wpcf7 form > div {
+  margin-bottom: 1.2em;
+}
+
+.wpcf7 .wpcf7-form-control-wrap {
+  width: 100%;
+  display: block;
+}
+
+.wpcf7 input:not([type="submit"]):focus,
+.wpcf7 textarea:focus,
+.wpcf7 select:focus {
+  background: #fff;
+  border-color: #eaeaea;
+  outline: 0;
+  box-shadow: none;
+}
+
+.wpcf7 input:not([type="submit"]), .wpcf7 textarea, .wpcf7 select {
+  width: 100%;
+  padding: 0.75em;
+}
+
+.wpcf7 input[type="file"] {
+  color: #666;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  border-radius: 2px;
+  background: #fafafa;
+  box-shadow: none;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+}
+
+.wpcf7 input[type="radio"],
+.wpcf7 input[type="checkbox"] {
+  display: inline-block;
+  background: #E9EEF2;
+  color: #555;
+  clear: none;
+  cursor: pointer;
+  line-height: 0;
+  height: 1.2em;
+  margin: -3px 0 0 4px;
+  outline: 0;
+  padding: 0;
+  border-radius: 0.2em;
+  text-align: center;
+  vertical-align: middle;
+  width: 1.4em;
+  min-width: 1.4em;
+  transition: all 0.2s linear;
+}
+
+.wpcf7 .wpcf7-validation-errors {
+  border-color: #f00;
+}
