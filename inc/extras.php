@@ -527,6 +527,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 	function astra_primary_navigation_markup() {
 
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
+		$menu_hover_style = astra_get_option( 'header-main-hover-style' );
 
 		if ( $disable_primary_navigation ) {
 			echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
@@ -540,7 +541,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . " " . $menu_hover_style,
 				'container'       => 'div',
 				'container_class' => 'main-navigation',
 			);
@@ -552,7 +553,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 
-				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . " " . $menu_hover_style . '">',
 				'after'          => '</ul>',
 			);
 			?>
@@ -1238,16 +1239,16 @@ endif; // End if().
 /**
  * Astra Color Palletes.
  */
-if ( ! function_exists( 'astra_color_palette' ) ) :
+if ( ! function_exists( 'astra_color_pallets' ) ) :
 
 	/**
 	 * Astra Color Palletes.
 	 *
 	 * @return array Color Palletes.
 	 */
-	function astra_color_palette() {
+	function astra_color_pallets() {
 
-		$color_palette = array(
+		$color_pallets = array(
 			'#000000',
 			'#ffffff',
 			'#dd3333',
@@ -1258,6 +1259,6 @@ if ( ! function_exists( 'astra_color_palette' ) ) :
 			'#8224e3',
 		);
 
-		return apply_filters( 'astra_color_palettes', $color_palette );
+		return apply_filters( 'astra_color_palletes', $color_pallets );
 	}
 endif; // End if().
