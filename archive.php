@@ -8,13 +8,33 @@
  * @since 1.0.0
  */
 
+/**
+ * Archive markup ( Post Found )
+ *
+ * => Action hooked in standard loop for markup
+ *
+ * 'astra_loop_content' action found in "framework/structure/loops.php"
+ * 'astra_archive_content_template' function found in "framework/structure/archive.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_loop_content', 'astra_archive_content_template' );
+
+/**
+ * Archive markup ( Post Not Found )
+ *
+ * => Action hooked in standard loop else for markup
+ *
+ * 'astra_loop_content_else' action found in "framework/structure/loops"
+ * 'astra_archive_content_else_template' function found in "framework/structure/archive.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_loop_content_else', 'astra_archive_content_else_template' );
+
 get_header(); ?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_before(); ?>
 
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -24,39 +44,15 @@ get_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php ;/* Start the Loop */ ?>
-			<?php astra_content_while_before(); ?>
-
 			<div class="ast-row">
-
-				<?php
-				while ( have_posts() ) :
-					the_post();
-?>
-
-					<?php
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', astra_get_post_format() );
-					?>
-
-				<?php endwhile; ?>
+				
+				<?php astra_before_loop(); ?>
+		
+				<?php astra_loop(); ?>
+				
+				<?php astra_after_loop(); ?>
 
 			</div>
-
-			<?php astra_content_while_after(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
 
 		</main><!-- #main -->
 
@@ -66,10 +62,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>

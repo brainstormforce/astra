@@ -8,13 +8,26 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+<?php
 
-	<?php get_sidebar(); ?>
+/**
+ * 404 Content Template Part
+ *
+ * => Action hooked 'astra_entry_content_404_page'
+ *
+ * 'astra_entry_content_404_page_template' function found in "framework/structure/404.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 
-<?php endif ?>
+?>
+
+<?php get_header(); ?>
+
+<?php astra_primary_before(); ?>
 
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -42,10 +55,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>

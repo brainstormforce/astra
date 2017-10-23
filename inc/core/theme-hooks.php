@@ -284,6 +284,13 @@ function astra_entry_content_after() {
 }
 
 /**
+ * Entry content
+ */
+function astra_entry_content() {
+	do_action( 'astra_entry_content' );
+}
+
+/**
  * Entry Top
  */
 function astra_entry_top() {
@@ -295,34 +302,6 @@ function astra_entry_top() {
  */
 function astra_entry_bottom() {
 	do_action( 'astra_entry_bottom' );
-}
-
-/**
- * Single Post Header Before
- */
-function astra_single_header_before() {
-	do_action( 'astra_single_header_before' );
-}
-
-/**
- * Single Post Header After
- */
-function astra_single_header_after() {
-	do_action( 'astra_single_header_after' );
-}
-
-/**
- * Single Post Header Top
- */
-function astra_single_header_top() {
-	do_action( 'astra_single_header_top' );
-}
-
-/**
- * Single Post Header Bottom
- */
-function astra_single_header_bottom() {
-	do_action( 'astra_single_header_bottom' );
 }
 
 /**
@@ -355,6 +334,13 @@ function astra_sidebars_before() {
  */
 function astra_sidebars_after() {
 	do_action( 'astra_sidebars_after' );
+}
+
+/**
+ * Sidebars Content
+ */
+function astra_sidebars_content() {
+	do_action( 'astra_sidebars_content' );
 }
 
 /**
@@ -455,4 +441,112 @@ function astra_primary_content_top() {
  */
 function astra_primary_content_bottom() {
 	do_action( 'astra_primary_content_bottom' );
+}
+
+/**
+ * Before Primary
+ */
+function astra_primary_before() {
+	do_action( 'astra_primary_before' );
+}
+
+/**
+ * After Primary
+ */
+function astra_primary_after() {
+	do_action( 'astra_primary_after' );
+}
+
+/**
+ * Before Loop
+ */
+function astra_before_loop() {
+	do_action( 'astra_before_loop' );
+}
+
+/**
+ * After Loop
+ */
+function astra_after_loop() {
+	do_action( 'astra_after_loop' );
+}
+
+/**
+ * Loop
+ */
+function astra_loop() {
+	do_action( 'astra_loop' );
+}
+
+/* Single.php */
+/**
+ * Single Post Header Before
+ */
+function astra_single_header_before() {
+	do_action( 'astra_single_header_before' );
+}
+
+/**
+ * Single Post Header After
+ */
+function astra_single_header_after() {
+	do_action( 'astra_single_header_after' );
+}
+
+/**
+ * Single Post Header Top
+ */
+function astra_single_header_top() {
+	do_action( 'astra_single_header_top' );
+}
+
+/**
+ * Single Post Header Bottom
+ */
+function astra_single_header_bottom() {
+	do_action( 'astra_single_header_bottom' );
+}
+
+/**
+ * Single Entry Edit Post Link
+ */
+function astra_entry_single_edit_post_link() {
+	do_action( 'astra_entry_single_edit_post_link' );
+}
+
+/**
+ * Single Entry Content Link Pages
+ */
+function astra_entry_single_content_link_pages() {
+	do_action( 'astra_entry_single_content_link_pages' );
+}
+
+
+/* Page.php */
+/**
+ * Entry Content Page
+ */
+function astra_entry_content_page() {
+	do_action( 'astra_entry_content_page' );
+}
+
+/**
+ * Page Entry Header Content
+ */
+function astra_entry_page_header_content() {
+	do_action( 'astra_entry_page_header_content' );
+}
+
+/**
+ * Page Entry Content Link Pages
+ */
+function astra_entry_page_content_link_pages() {
+	do_action( 'astra_entry_page_content_link_pages' );
+}
+
+/**
+ * Page Entry Edit Post Link
+ */
+function astra_entry_page_edit_post_link() {
+	do_action( 'astra_entry_page_edit_post_link' );
 }

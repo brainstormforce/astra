@@ -8,13 +8,34 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+/**
+ * Search markup ( Post found )
+ *
+ * => Action hooked in standard loop for markup
+ *
+ * 'astra_loop_content' action found in "framework/structure/loops.php"
+ * 'astra_search_content_template' function found in "framework/structure/search.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_loop_content', 'astra_search_content_template' );
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+/**
+ * Search markup ( Post not found )
+ *
+ * => Action hooked in standard loop else for markup
+ *
+ * 'astra_loop_content_else' action found in "framework/structure/loops"
+ * 'astra_search_content_else_template' function found in "framework/structure/search.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_loop_content_else', 'astra_search_content_else_template' );
 
-	<?php get_sidebar(); ?>
+get_header();
+?>
 
-<?php endif ?>
+<?php astra_primary_before(); ?>
 
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -24,37 +45,15 @@ get_header(); ?>
 
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php ;/* Start the Loop */ ?>
 			<div class="ast-row">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-?>
+				
+				<?php astra_before_loop(); ?>
+		
+				<?php astra_loop(); ?>
+				
+				<?php astra_after_loop(); ?>
 
-				<?php astra_entry_before(); ?>
-
-				<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-					<?php astra_entry_top(); ?>
-
-					<?php astra_entry_content_blog(); ?>
-
-					<?php astra_entry_bottom(); ?>
-
-				</article><!-- #post-## -->
-
-				<?php astra_entry_after(); ?>
-
-			<?php endwhile; ?>
 			</div>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
 
 		</main><!-- #main -->
 
@@ -64,10 +63,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>
