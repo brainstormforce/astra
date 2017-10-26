@@ -51,6 +51,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
 
+			//add custom column
+			add_action( 'manage_post_posts_columns', array( $this, 'add_custom_admin_column' ), 10, 1 );
+			
+			//populate column
+			add_action( 'manage_posts_custom_column', array( $this, 'manage_custom_admin_columns' ), 10, 2);
+        	
+        	//output form elements for quickedit interface
+        	add_action( 'quick_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
+
+        	//enqueue admin script (for prepopulting fields with JS)
+        	add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
 		}
 
 		/**
@@ -60,6 +71,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
 			add_action( 'save_post',      array( $this, 'save_meta_box' ) );
+
 
 			/**
 			 * Set metabox options
@@ -316,6 +328,63 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				}
 			}
 
+		}
+
+		/**
+		 * Quick edit custom column to hold our data
+		 *
+		 * @param  number $columns Columns.
+		 * @return void
+		 */
+		function add_custom_admin_column( $columns ){
+		    $new_columns = array();
+
+		    $new_columns['site-sidebar-layout'] = 'Sidebar Layout?';
+
+		    return array_merge($columns, $new_columns);
+		}
+
+		//customise the data for our custom column, it's here we pull in metadata info for each post. These will be referred to in our JavaScript file for pre-populating our quick-edit screen
+		function manage_custom_admin_columns( $column_name, $post_id ){
+
+		    $html = '';
+
+		    if($column_name == 'site-sidebar-layout'){
+		        $site_sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
+
+		        $html .= '<div id="site-sidebar-layout-' . $post_id . '">';
+		            $html .= $site_sidebar;
+		        $html .= '</div>';
+		    }
+
+		    echo $html;
+		}
+
+		//Display our custom content on the quick-edit interface, no values can be pre-populated (all done in JavaScript)
+		function display_quick_edit_custom( $column ){
+
+		    $html = '';
+		    wp_nonce_field( 'post_metadata', 'post_metadata_field' );
+
+		    if($column == 'site-sidebar-layout'){     
+		        $html .= '<fieldset class="inline-edit-col-center ">';
+		            $html .= '<div class="inline-edit-group wp-clearfix">';
+		                $html .= '<label class="alignleft" for="site-sidebar-layout">Sidebar Layout</label>';
+		                $html .= '<select name="site-sidebar-layout" id="site-sidebar-layout">';
+		                    $html .= '<option value="default" selected="selected">Customizer Setting</option>';
+		                    $html .= '<option value="left-sidebar">Left Sidebar</option>';
+		                    $html .= '<option value="right-sidebar">Right Sidebar</option>';
+		                    $html .= '<option value="no-sidebar">No Sidebar</option>';
+		                $html .= '</select>';
+		            $html .= '</div>';
+		        $html .= '</fieldset>';    
+		    }
+
+		    echo $html;
+		}
+
+		function enqueue_admin_scripts_and_styles(){
+		    wp_enqueue_script( 'quick-edit-script', ASTRA_THEME_URI . 'inc/assets/js/post-quick-edit-script.js', array('jquery','inline-edit-post' ));
 		}
 	}
 }// End if().
