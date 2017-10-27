@@ -32,4 +32,39 @@ jQuery(document).ready(function($){
         }
     }
 
+
+    jQuery( "#bulk_edit" ).on( "click", function(e) {
+
+        e.preventDefault();
+
+
+        var bulk_row = jQuery( "#bulk-edit" );
+        var post_ids = new Array();
+        bulk_row.find( "#bulk-titles" ).children().each( function() {
+            post_ids.push( jQuery( this ).attr( "id" ).replace( /^(ttle)/i, "" ) );
+        });
+
+        var site_sidebar_layout = bulk_row.find('[name="site-sidebar-layout"]').val();
+        var site_content_layout = bulk_row.find('[name="site-content-layout"]').val();
+        var site_post_title     = bulk_row.find('[name="site-post-title"]').val();
+        var primary_header      = bulk_row.find('[name="ast-main-header-display"]').val();
+        var ast_featured_img    = bulk_row.find('[name="ast-featured-img"]').val();
+        
+
+        jQuery.ajax({
+            url: ajaxurl,
+            type: "POST",
+            async: false,
+            cache: false,
+            data: {
+                action: "astra_save_post_bulk_edit",
+                post_ids: post_ids,
+                site_sidebar_layout: site_sidebar_layout,
+                site_content_layout: site_content_layout,
+                site_post_title: site_post_title,
+                primary_header: primary_header,
+                ast_featured_img: ast_featured_img,
+            }
+        });
+    });
 });
