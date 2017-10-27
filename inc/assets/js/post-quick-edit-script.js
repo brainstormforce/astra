@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
 
     jQuery( "#bulk_edit" ).on( "click", function(e) {
 
-        e.preventDefault();
+        // e.preventDefault();
 
 
         var bulk_row = jQuery( "#bulk-edit" );
@@ -44,11 +44,11 @@ jQuery(document).ready(function($){
             post_ids.push( jQuery( this ).attr( "id" ).replace( /^(ttle)/i, "" ) );
         });
 
-        var site_sidebar_layout = bulk_row.find('[name="site-sidebar-layout"]').val();
-        var site_content_layout = bulk_row.find('[name="site-content-layout"]').val();
-        var site_post_title     = bulk_row.find('[name="site-post-title"]').val();
-        var primary_header      = bulk_row.find('[name="ast-main-header-display"]').val();
-        var ast_featured_img    = bulk_row.find('[name="ast-featured-img"]').val();
+        var site_sidebar_layout         = bulk_row.find('[name="site-sidebar-layout"]').val();
+        var site_content_layout         = bulk_row.find('[name="site-content-layout"]').val();
+        var site_post_title             = ( bulk_row.find('[name="site-post-title"]').prop('checked') ) ? bulk_row.find('[name="site-post-title"]').val() : '';
+        var ast_main_header_display     = ( bulk_row.find('[name="ast-main-header-display"]').prop('checked') ) ? bulk_row.find('[name="ast-main-header-display"]').val() : '';
+        var ast_featured_img            = ( bulk_row.find('[name="ast-featured-img"]').prop('checked') ) ? bulk_row.find('[name="ast-featured-img"]').val() : '';
         
 
         jQuery.ajax({
@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
                 site_sidebar_layout: site_sidebar_layout,
                 site_content_layout: site_content_layout,
                 site_post_title: site_post_title,
-                primary_header: primary_header,
+                ast_main_header_display: ast_main_header_display,
                 ast_featured_img: ast_featured_img,
             }
         });
