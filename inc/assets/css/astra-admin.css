@@ -42,6 +42,9 @@
 }
 
 /*.astra-bulk-settings*/
+.column-astra-settings {
+    display: none;
+}
 .ast-float-left {
 	float: left;
 }
