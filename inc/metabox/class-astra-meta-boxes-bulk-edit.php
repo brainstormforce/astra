@@ -239,62 +239,38 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 		//customise the data for our custom column, it's here we pull in metadata info for each post. These will be referred to in our JavaScript file for pre-populating our quick-edit screen
 		function manage_custom_admin_columns( $column_name, $post_id ){
 
-		    $html = '';
 
-		    if($column_name == 'astra-settings'){
+		    if( $column_name == 'astra-settings' ){
+		        
+		    	$html = '';
 		        
 		        $stored = get_post_meta( $post_id );
 				$meta 	= self::get_meta_option();
 
-			    // Set stored and override defaults.
+	        	// Set stored and override defaults.
 				foreach ( $stored as $key => $value ) {
-					$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+		        	if ( array_key_exists( $key, $meta ) ) {
+						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+					}
 				}
-
-				// Get defaults.
-
-				/**
-				 * Get options
-				 */
-				$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
-				$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
-				$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-				$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-				$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
-				$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
-				$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-
-		        $html .= '<div id="site-sidebar-layout-' . $post_id . '">';
-		            $html .= $site_sidebar;
-		        $html .= '</div>';
-
-		        $html .= '<div id="site-content-layout-' . $post_id . '">';
-		            $html .= $site_content_layout;
-		        $html .= '</div>';
-
-		        $html .= '<div id="site-post-title-' . $post_id . '">';
-		            $html .= $site_post_title;
-		        $html .= '</div>';
-
-		        $html .= '<div id="ast-main-header-display-' . $post_id . '">';
-		            $html .= $primary_header;
-		        $html .= '</div>';
-
-		        $html .= '<div id="ast-featured-img-' . $post_id . '">';
-		            $html .= $ast_featured_img;
-		        $html .= '</div>';
 		        
-		        $html .= '<div id="footer-adv-display-' . $post_id . '">';
-		            $html .= $footer_widgets;
-		        $html .= '</div>';
+		        foreach ( $meta as $key => $value ) {
+			        
+			        $default_value = '';
+			        
+			        $html .= '<div class="astra-bulk-edit-field-'.$post_id.'" data-name="'.$key.'"  id="'.$key.'-'.$post_id.'">';
 
-		        $html .= '<div id="footer-sml-layout-' . $post_id . '">';
-		            $html .= $footer_bar;
-		        $html .= '</div>';
+			        	if ( isset( $meta[ $key ]['default'] ) ) {
+			        		$default_value = $meta[ $key ]['default'];
+			        	}
 
+			            $html .= $default_value;
+			        $html .= '</div>';
+		        }
+
+		    	echo $html;
 		    }
 
-		    echo $html;
 		}
 
 		//Display our custom content on the quick-edit interface, no values can be pre-populated (all done in JavaScript)

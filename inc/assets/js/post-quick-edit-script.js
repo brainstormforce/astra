@@ -22,13 +22,32 @@ jQuery(document).ready(function($){
         if(post_id != 0){
 
             //find our row
-            $row = $('#edit-' + post_id);
+            var $row    = $('#edit-' + post_id);
+            var $fields = $('.astra-bulk-edit-field-' + post_id);
 
-            //sidebar_layout
-            $sidebar_layout = $('#site-sidebar-layout-' + post_id);
-            $sidebar_layout_value = $sidebar_layout.text();
-            $row.find('#site-sidebar-layout').val($sidebar_layout_value);
-            $row.find('#site-sidebar-layout').children('[value="' + $sidebar_layout_value + '"]').attr('selected', true);
+            if ( $fields.length > 0 ) {
+
+                $fields.each(function(i) {
+                    
+                    var field       = $(this);
+                    var field_name  = field.attr('data-name');
+                    var field_val   = field.text();
+                    
+                    var new_field       = $row.find( '#' + field_name );
+                    var new_field_type  = new_field.attr('type');
+                    var new_field_tag   = new_field.prop("tagName");
+                    
+
+                    if ( 'SELECT' == new_field_tag ) {
+                        new_field.val( field_val );
+                    }else if ( 'checkbox' == new_field_type ) {
+
+                        if ( 'disabled' == field_val ) {
+                            new_field.prop( "checked", true );
+                        }
+                    }
+                });
+            }
         }
     }
 
