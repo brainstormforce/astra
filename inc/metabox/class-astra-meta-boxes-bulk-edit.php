@@ -50,18 +50,30 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 
 			$this->setup_bulk_options();
 
-			//add custom column
-			add_action( 'manage_post_posts_columns', array( $this, 'add_custom_admin_column' ), 10, 1 );
-			//populate column
-			add_action( 'manage_posts_custom_column', array( $this, 'manage_custom_admin_columns' ), 10, 2);
-        	
-        	//output form elements for quickedit interface
-        	add_action( 'bulk_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
-        	add_action( 'quick_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
-			
-			//enqueue admin script (for prepopulting fields with JS)
-        	add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
-			
+			// Get all public posts.
+			$post_types = get_post_types(
+				array(
+					'public' => true,
+				)
+			);
+
+			// Enable for all posts.
+			foreach ( $post_types as $type ) {
+
+				if ( 'attachment' !== $type && 'fl-theme-layout' !== $type ) {
+					// add custom column.
+					add_action( 'manage_' . $type . '_posts_columns', array( $this, 'add_custom_admin_column' ), 10, 1 );
+					// populate column.
+					add_action( 'manage_' . $type . '_posts_custom_column', array( $this, 'manage_custom_admin_columns' ), 10, 2 );
+				}
+			}
+
+			// output form elements for quickedit interface.
+			add_action( 'bulk_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
+			add_action( 'quick_edit_custom_box', array( $this, 'display_quick_edit_custom' ), 10, 2 );
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
+
 			add_action( 'save_post',      array( $this, 'save_meta_box' ) );
 
 			add_action( 'wp_ajax_astra_save_post_bulk_edit', array( $this, 'save_post_bulk_edit' ) );
@@ -141,7 +153,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 				// Sanitize values.
 				$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
 
-
 				switch ( $sanitize_filter ) {
 
 					case 'FILTER_SANITIZE_STRING':
@@ -171,24 +182,26 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 
 		}
 
+		/**
+		 * Save bulk edit options.
+		 */
 		function save_post_bulk_edit() {
 
 			$post_ids = ! empty( $_POST['post'] ) ? $_POST['post'] : array();
-	
+
 			if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
 
 				/**
 				 * Get meta options
 				 */
 				$post_meta = self::get_meta_option();
-				
+
 				foreach ( $post_ids as $post_id ) {
 
 					foreach ( $post_meta as $key => $data ) {
 
 						// Sanitize values.
 						$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
-
 
 						switch ( $sanitize_filter ) {
 
@@ -226,93 +239,109 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 		 * Quick edit custom column to hold our data
 		 *
 		 * @param  number $columns Columns.
-		 * @return void
+		 * @return array Column array.
 		 */
-		function add_custom_admin_column( $columns ){
-		    $new_columns = array();
+		function add_custom_admin_column( $columns ) {
+			$new_columns = array();
 
-		    $new_columns['astra-settings'] = 'Astra Settings';
+			$new_columns['astra-settings'] = 'Astra Settings';
 
-		    return array_merge($columns, $new_columns);
+			return array_merge( $columns, $new_columns );
 		}
 
-		//customise the data for our custom column, it's here we pull in metadata info for each post. These will be referred to in our JavaScript file for pre-populating our quick-edit screen
-		function manage_custom_admin_columns( $column_name, $post_id ){
+		/**
+		 * Customize the data for our custom column,
+		 * It's here we pull in metadata info for each post.
+		 * These will be referred to in our JavaScript file for pre-populating our quick-edit screen
+		 *
+		 * @param  string $column_name Column name.
+		 * @param  number $post_id Post ID.
+		 * @return void
+		 */
+		function manage_custom_admin_columns( $column_name, $post_id ) {
 
+			if ( 'astra-settings' == $column_name ) {
 
-		    if( $column_name == 'astra-settings' ){
-		        
-		    	$html = '';
-		        
-		        $stored = get_post_meta( $post_id );
-				$meta 	= self::get_meta_option();
+				$html = '';
 
-	        	// Set stored and override defaults.
+				$stored = get_post_meta( $post_id );
+				$meta   = self::get_meta_option();
+
+				// Set stored and override defaults.
 				foreach ( $stored as $key => $value ) {
-		        	if ( array_key_exists( $key, $meta ) ) {
+					if ( array_key_exists( $key, $meta ) ) {
 						$meta[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
 					}
 				}
-		        
-		        foreach ( $meta as $key => $value ) {
-			        
-			        $default_value = '';
-			        
-			        $html .= '<div class="astra-bulk-edit-field-'.$post_id.'" data-name="'.$key.'"  id="'.$key.'-'.$post_id.'">';
 
-			        	if ( isset( $meta[ $key ]['default'] ) ) {
-			        		$default_value = $meta[ $key ]['default'];
-			        	}
+				foreach ( $meta as $key => $value ) {
 
-			            $html .= $default_value;
-			        $html .= '</div>';
-		        }
+					$default_value = '';
 
-		    	echo $html;
-		    }
+					$html .= '<div class="astra-bulk-edit-field-' . $post_id . '" data-name="' . $key . '"  id="' . $key . '-' . $post_id . '">';
+
+					if ( isset( $meta[ $key ]['default'] ) ) {
+						$default_value = $meta[ $key ]['default'];
+					}
+
+					$html .= $default_value;
+					$html .= '</div>';
+				}
+
+				echo $html;
+			}
 
 		}
 
-		//Display our custom content on the quick-edit interface, no values can be pre-populated (all done in JavaScript)
-		function display_quick_edit_custom( $column, $screen ){
+		/**
+		 * Display our custom content on the quick-edit interface,
+		 * no values can be pre-populated (all done in JavaScript)
+		 *
+		 * @param  string $column Column name.
+		 * @param  string $screen Screen.
+		 * @return void
+		 */
+		function display_quick_edit_custom( $column, $screen ) {
 
-		    $html = '';
-		    
-		    wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
+			$html = '';
 
-		    if($column == 'astra-settings'){ ?>
-		        <fieldset class="astra-bulk-settings inline-edit-col ">
-		            <div class="inline-edit-col wp-clearfix">
-		            	
-		            	<h4 class="title"><?php esc_html_e( 'Astra Setting', 'astra' ); ?></h4>
+				wp_nonce_field( basename( __FILE__ ), 'astra_settings_bulk_meta_box' );
 
-		            	<div class="ast-float-left inline-edit-col-left wp-clearfix">
-			                <label class="inline-edit" for="site-sidebar-layout">
-				                <span class="title"><?php esc_html_e('Sidebar', 'astra'); ?></span>
-				                
-				                <select name="site-sidebar-layout" id="site-sidebar-layout">
-				                    <option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra' ); ?></option>
-				                    <option value="left-sidebar"><?php _e( 'Left Sidebar', 'astra' ); ?></option>
-				                    <option value="right-sidebar"><?php _e( 'Right Sidebar', 'astra' ); ?></option>
-				                    <option value="no-sidebar"><?php _e( 'No Sidebar', 'astra' ); ?></option>
-				                </select>
-				            </label>
+			if ( 'astra-settings' == $column ) { ?>
+				<fieldset class="astra-bulk-settings inline-edit-col ">
+					<div class="inline-edit-col wp-clearfix">
+			
+									<h4 class="title"><?php esc_html_e( 'Astra Setting', 'astra' ); ?></h4>
 
-				            <label class="inline-edit" for="site-content-layout">
-				                <span class="title"><?php _e('Content Layout', 'astra'); ?>'</span>
-				                
-				                <select name="site-content-layout" id="site-content-layout">
-				                    <option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra' ); ?></option>
-				                    <option value="content-boxed-container"><?php _e( 'Boxed', 'astra' ); ?></option>
-				                    <option value="content-boxed-container"><?php _e( 'Content Boxed', 'astra' ); ?></option>
-				                    <option value="plain-container"><?php _e( 'Full Width / Contained', 'astra' ); ?></option>
-				                    <option value="page-builder"><?php _e( 'Full Width / Stretched', 'astra' ); ?></option>
-				                </select>
-				            </label>
-				        </div>
+						<div class="ast-float-left inline-edit-col-left wp-clearfix">
+							<label class="inline-edit" for="site-sidebar-layout">
+								<span class="title"><?php esc_html_e( 'Sidebar', 'astra' ); ?></span>
+				
+												<select name="site-sidebar-layout" id="site-sidebar-layout">
+									<option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra' ); ?></option>
+									<option value="left-sidebar"><?php _e( 'Left Sidebar', 'astra' ); ?></option>
+									<option value="right-sidebar"><?php _e( 'Right Sidebar', 'astra' ); ?></option>
+									<option value="no-sidebar"><?php _e( 'No Sidebar', 'astra' ); ?></option>
+								</select>
+							</label>
 
-				        <div class="ast-float-left inline-edit-col-center wp-clearfix">
-				            <label class="inline-edit" for="ast-main-header-display">
+							<label class="inline-edit" for="site-content-layout">
+								<span class="title"><?php _e( 'Content Layout', 'astra' ); ?>'</span>
+				
+												<select name="site-content-layout" id="site-content-layout">
+									<option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra' ); ?></option>
+									<option value="content-boxed-container"><?php _e( 'Boxed', 'astra' ); ?></option>
+									<option value="content-boxed-container"><?php _e( 'Content Boxed', 'astra' ); ?></option>
+									<option value="plain-container"><?php _e( 'Full Width / Contained', 'astra' ); ?></option>
+									<option value="page-builder"><?php _e( 'Full Width / Stretched', 'astra' ); ?></option>
+								</select>
+							</label>
+
+							<?php do_action( 'astra_meta_bulk_edit_left_bottom' ); ?>
+						</div>
+
+						<div class="ast-float-left inline-edit-col-center wp-clearfix">
+							<label class="inline-edit" for="ast-main-header-display">
 								<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled"/>
 								<?php _e( 'Disable Primary Header', 'astra' ); ?>
 							</label>
@@ -329,7 +358,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 
 							<?php
 							$footer_adv_layout = astra_get_option( 'footer-adv' );
-							if ( 'disabled' != $footer_adv_layout ) { ?>
+							if ( 'disabled' != $footer_adv_layout ) {
+							?>
 								<label class="inline-edit" for="footer-adv-display">
 									<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled"/>
 									<?php _e( 'Disable Footer Widgets', 'astra' ); ?>
@@ -338,22 +368,27 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 
 							<?php
 							$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
-							if ( 'disabled' != $footer_sml_layout ) { ?>
+							if ( 'disabled' != $footer_sml_layout ) {
+							?>
 								<label class="inline-edit" for="footer-sml-layout">
 									<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled"/>
 									<?php _e( 'Disable Footer Bar', 'astra' ); ?>
 								</label>
 							<?php } ?>
 
-							<?php do_action( 'astra_meta_bulk_edit_bottom' ); ?>
+							<?php do_action( 'astra_meta_bulk_edit_center_bottom' ); ?>
 						</div>
-		            </div>
-		        </fieldset>;
-		    <?php }
+					</div>
+				</fieldset>;
+			<?php
+			}
 		}
 
-		function enqueue_admin_scripts_and_styles(){
-		    wp_enqueue_script( 'quick-edit-script', ASTRA_THEME_URI . 'inc/assets/js/post-quick-edit-script.js', array('jquery','inline-edit-post' ));
+		/**
+		 *  Quick edit and bulk edit script function.
+		 */
+		function enqueue_admin_scripts_and_styles() {
+			wp_enqueue_script( 'quick-edit-script', ASTRA_THEME_URI . 'inc/assets/js/post-quick-edit-script.js', array( 'jquery', 'inline-edit-post' ) );
 		}
 	}
 }// End if().
