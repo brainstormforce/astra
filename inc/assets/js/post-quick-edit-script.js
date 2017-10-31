@@ -37,34 +37,25 @@ jQuery(document).ready(function($){
 
         // e.preventDefault();
 
-
         var bulk_row = jQuery( "#bulk-edit" );
         var post_ids = new Array();
         bulk_row.find( "#bulk-titles" ).children().each( function() {
             post_ids.push( jQuery( this ).attr( "id" ).replace( /^(ttle)/i, "" ) );
         });
 
-        var site_sidebar_layout         = bulk_row.find('[name="site-sidebar-layout"]').val();
-        var site_content_layout         = bulk_row.find('[name="site-content-layout"]').val();
-        var site_post_title             = ( bulk_row.find('[name="site-post-title"]').prop('checked') ) ? bulk_row.find('[name="site-post-title"]').val() : '';
-        var ast_main_header_display     = ( bulk_row.find('[name="ast-main-header-display"]').prop('checked') ) ? bulk_row.find('[name="ast-main-header-display"]').val() : '';
-        var ast_featured_img            = ( bulk_row.find('[name="ast-featured-img"]').prop('checked') ) ? bulk_row.find('[name="ast-featured-img"]').val() : '';
-        
+        var form = bulk_row.closest('form');
+        var post_data = form.serialize();
+
+        post_data += '&action=astra_save_post_bulk_edit';
 
         jQuery.ajax({
             url: ajaxurl,
             type: "POST",
             async: false,
             cache: false,
-            data: {
-                action: "astra_save_post_bulk_edit",
-                post_ids: post_ids,
-                site_sidebar_layout: site_sidebar_layout,
-                site_content_layout: site_content_layout,
-                site_post_title: site_post_title,
-                ast_main_header_display: ast_main_header_display,
-                ast_featured_img: ast_featured_img,
-            }
+            data: post_data,
+            type: 'POST',
+            dataType: 'json',
         });
     });
 });
