@@ -201,6 +201,7 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 	function astra_footer_small_footer_template() {
 
 		$small_footer_layout = astra_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
+		$small_footer_layout = apply_filters( 'ast_footer_sml_layout', $small_footer_layout );
 
 		if ( 'disabled' != $small_footer_layout ) {
 

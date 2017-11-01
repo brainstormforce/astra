@@ -54,6 +54,10 @@
 	line-height: 4;
 	padding: 1em 0;
 
+	&:empty {
+	    padding: 0;
+	}
+	
 	.children,
 	.sub-menu {
 		line-height: 1.45;

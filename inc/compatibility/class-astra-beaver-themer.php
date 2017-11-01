@@ -47,7 +47,8 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			add_action( 'wp',                           array( $this, 'theme_header_footer_render' ) );
 			add_filter( 'fl_theme_builder_part_hooks',  array( $this, 'register_part_hooks' ) );
 			add_filter( 'post_class',                   array( $this, 'render_post_class' ), 99 );
-			add_filter( 'astra_get_content_layout',     array( $this, 'builder_template_content_layout' ), 20 );
+			add_action( 'fl_theme_builder_before_render_content',     array( $this, 'builder_before_render_content' ), 10, 1 );
+			add_action( 'fl_theme_builder_after_render_content',     array( $this, 'builder_after_render_content' ), 10, 1 );
 		}
 
 		/**
@@ -128,6 +129,65 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				remove_action( 'astra_footer', 'astra_footer_markup' );
 				add_action( 'astra_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
+
+			// BB Themer Support.
+			$template_ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
+
+			if ( ! empty( $template_ids ) ) {
+
+				$template_id    = $template_ids[0];
+				$template_type  = get_post_meta( $template_id, '_fl_theme_layout_type', true );
+
+				if ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) {
+
+					$sidebar = get_post_meta( $template_id, 'site-sidebar-layout', true );
+
+					if ( 'default' !== $sidebar ) {
+						add_filter(
+							'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
+
+								return $sidebar;
+							}
+						);
+					}
+
+					$content_layout = get_post_meta( $template_id, 'site-content-layout', true );
+					if ( 'default' !== $content_layout ) {
+						add_filter(
+							'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
+
+								return $content_layout;
+							}
+						);
+					}
+
+					$main_header_display = get_post_meta( $template_id, 'ast-main-header-display', true );
+					if ( 'disabled' === $main_header_display ) {
+
+						if ( 'archive' === $template_type ) {
+							 remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+						} else {
+							add_filter(
+								'ast_main_header_display', function( $display_header ) {
+
+									return 'disabled';
+								}
+							);
+						}
+					}
+
+					$footer_layout = get_post_meta( $template_id, 'footer-sml-layout', true );
+					if ( 'disabled' === $footer_layout ) {
+
+						add_filter(
+							'ast_footer_sml_layout', function( $is_footer ) {
+
+								return 'disabled';
+							}
+						);
+					}
+				}
+			}
 		}
 
 		/**
@@ -187,6 +247,45 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					),
 				),
 			);
+		}
+
+		/**
+		 * Function to theme before render content
+		 *
+		 * @param int $post_id Post ID.
+		 * @since 1.0.28
+		 */
+		function builder_before_render_content( $post_id ) {
+
+		?>
+			<?php if ( 'left-sidebar' === astra_page_layout() ) : ?>
+
+				<?php get_sidebar(); ?>
+
+			<?php endif ?>
+
+			<div id="primary" <?php astra_primary_class(); ?>>
+		<?php
+		}
+
+		/**
+		 * Function to theme after render content
+		 *
+		 * @param int $post_id Post ID.
+		 * @since 1.0.28
+		 */
+		function builder_after_render_content( $post_id ) {
+
+		?>
+			</div><!-- #primary -->
+				
+			<?php if ( 'right-sidebar' === astra_page_layout() ) : ?>
+
+				<?php get_sidebar(); ?>
+
+			<?php endif ?>
+
+		<?php
 		}
 	}
 

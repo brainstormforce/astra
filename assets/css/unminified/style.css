@@ -2091,6 +2091,10 @@ textarea {
   margin-bottom: 2em;
 }
 
+.elementor-image-gallery .gallery-icon {
+  border: none;
+}
+
 /* Astra Respnosive oEmbed Video container */
 .ast-oembed-container {
   position: relative;
@@ -3220,6 +3224,10 @@ body {
   position: relative;
   line-height: 4;
   padding: 1em 0;
+}
+
+.main-header-bar .main-header-bar-navigation:empty {
+  padding: 0;
 }
 
 .main-header-bar .main-header-bar-navigation .children,
