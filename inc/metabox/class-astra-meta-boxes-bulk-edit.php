@@ -326,7 +326,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes_Bulk_Edit' ) ) {
 							</label>
 
 							<label class="inline-edit" for="site-content-layout">
-								<span class="title"><?php _e( 'Content Layout', 'astra' ); ?>'</span>
+								<span class="title"><?php esc_html_e( 'Content Layout', 'astra' ); ?></span>
 				
 												<select name="site-content-layout" id="site-content-layout">
 									<option value="default" selected="selected"><?php _e( 'Customizer Setting', 'astra' ); ?></option>

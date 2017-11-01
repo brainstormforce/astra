@@ -42,6 +42,14 @@
 }
 
 /*.astra-bulk-settings*/
+.astra-bulk-settings .inline-edit .title {
+    min-width: 115px;
+}
+
+.astra-bulk-settings .inline-edit select {
+	min-width: 200px;
+}
+
 .column-astra-settings {
     display: none;
 }
