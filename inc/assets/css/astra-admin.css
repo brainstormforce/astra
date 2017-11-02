@@ -38,5 +38,20 @@
 
 #normal-sortables #astra_settings_meta_box select {
 	min-width: 200px;
+}
 
+/*.astra-bulk-settings*/
+.astra-bulk-settings .inline-edit .title {
+    min-width: 115px;
+}
+
+.astra-bulk-settings .inline-edit select {
+	min-width: 200px;
+}
+
+.column-astra-settings {
+    display: none;
+}
+.ast-float-left {
+	float: left;
 }

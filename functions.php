@@ -83,6 +83,11 @@ if ( is_admin() ) {
 	 * Metabox additions.
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes.php';
+
+	/**
+	 * Metabox bulk edit.
+	 */
+	require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes-bulk-edit.php';
 }
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
