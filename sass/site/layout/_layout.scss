@@ -10,7 +10,9 @@ body{
 #page {
 	display: block;
 }
-
+.site {
+	overflow: hidden;
+}
 #primary,
 #secondary {
 	display: block;

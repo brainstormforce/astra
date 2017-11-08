@@ -2127,6 +2127,10 @@ body {
   display: block;
 }
 
+.site {
+  overflow: hidden;
+}
+
 #primary,
 #secondary {
   display: block;
