@@ -6,10 +6,17 @@
  * @since 1.0.0
  */
 
+
 /**
- * Index Content
+ * Index Template Part
+ *
+ * => Used in files:
+ *
+ * /index.php
+ *
+ * @since 1.0.0
  */
-function astra_index_content() {
+function astra_index_content_template() {
 	/*
 	 * Include the Post-Format-specific template for the content.
 	 * If you want to override this in a child theme, then include a file
@@ -17,10 +24,17 @@ function astra_index_content() {
 	 */
 	get_template_part( 'template-parts/content', astra_get_post_format() );
 }
+
 /**
- * Index Content Else.
+ * Index Template Else Part
+ *
+ * => Used in files:
+ *
+ * /index.php
+ *
+ * @since 1.0.0
  */
-function astra_index_content_else() {
+function astra_index_content_else_template() {
 
 	get_template_part( 'template-parts/content', 'none' );
 }

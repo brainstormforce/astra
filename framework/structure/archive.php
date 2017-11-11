@@ -7,9 +7,15 @@
  */
 
 /**
- * Archive Content
+ * Archive Content Part
+ *
+ * => Used in files:
+ *
+ * /archive.php
+ *
+ * @since 1.0.0
  */
-function astra_archive_content() {
+function astra_archive_content_template() {
 	/*
 	 * Include the Post-Format-specific template for the content.
 	 * If you want to override this in a child theme, then include a file
@@ -17,10 +23,17 @@ function astra_archive_content() {
 	 */
 	get_template_part( 'template-parts/content', astra_get_post_format() );
 }
+
 /**
- * Archive Content Else.
+ * Archive Content Else Part.
+ *
+ * => Used in files:
+ *
+ * /archive.php
+ *
+ * @since 1.0.0
  */
-function astra_archive_content_else() {
+function astra_archive_content_else_template() {
 
 	get_template_part( 'template-parts/content', 'none' );
 }

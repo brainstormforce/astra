@@ -10,9 +10,17 @@
 
 /* ==================================================== */
 
-
-add_action( 'astra_loop_content', 'astra_single_content' );
-add_action( 'astra_loop_content', 'astra_single_comments' );
+/**
+ * Single Content Main Template
+ *
+ * => Action hooked in standard loop for markup
+ *
+ * 'astra_loop_content' action found in "framework/structure/loops.php"
+ * 'astra_single_content_template' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_loop_content', 'astra_single_content_template' );
 
 get_header(); ?>
 

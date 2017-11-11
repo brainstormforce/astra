@@ -305,34 +305,6 @@ function astra_entry_bottom() {
 }
 
 /**
- * Single Post Header Before
- */
-function astra_single_header_before() {
-	do_action( 'astra_single_header_before' );
-}
-
-/**
- * Single Post Header After
- */
-function astra_single_header_after() {
-	do_action( 'astra_single_header_after' );
-}
-
-/**
- * Single Post Header Top
- */
-function astra_single_header_top() {
-	do_action( 'astra_single_header_top' );
-}
-
-/**
- * Single Post Header Bottom
- */
-function astra_single_header_bottom() {
-	do_action( 'astra_single_header_bottom' );
-}
-
-/**
  * Comments block hooks
  *
  * $astra_supports[] = 'comments';
@@ -506,6 +478,50 @@ function astra_loop() {
 	do_action( 'astra_loop' );
 }
 
+/* Single.php */
+/**
+ * Single Post Header Before
+ */
+function astra_single_header_before() {
+	do_action( 'astra_single_header_before' );
+}
+
+/**
+ * Single Post Header After
+ */
+function astra_single_header_after() {
+	do_action( 'astra_single_header_after' );
+}
+
+/**
+ * Single Post Header Top
+ */
+function astra_single_header_top() {
+	do_action( 'astra_single_header_top' );
+}
+
+/**
+ * Single Post Header Bottom
+ */
+function astra_single_header_bottom() {
+	do_action( 'astra_single_header_bottom' );
+}
+
+/**
+ * Single Entry Edit Post Link
+ */
+function astra_entry_single_edit_post_link() {
+	do_action( 'astra_entry_single_edit_post_link' );
+}
+
+/**
+ * Single Entry Content Link Pages
+ */
+function astra_entry_single_content_link_pages() {
+	do_action( 'astra_entry_single_content_link_pages' );
+}
+
+
 /* Page.php */
 /**
  * Entry Content Page
@@ -513,7 +529,6 @@ function astra_loop() {
 function astra_entry_content_page() {
 	do_action( 'astra_entry_content_page' );
 }
-
 
 /**
  * Page Entry Header Content

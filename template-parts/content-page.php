@@ -12,8 +12,28 @@
 
 <?php
 
+/**
+ * Page Content Template Part
+ *
+ * => Action hooked 'astra_entry_content_page'
+ *
+ * 'astra_entry_content_page_template' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
 add_action( 'astra_entry_content_page', 'astra_entry_content_page_template', 10 );
+
+/**
+ * Page Content Comments
+ *
+ * => Action hooked 'astra_entry_after'
+ *
+ * 'astra_page_comments' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
 add_action( 'astra_entry_after', 'astra_page_comments' );
+
 ?>
 
 <?php astra_entry_before(); ?>

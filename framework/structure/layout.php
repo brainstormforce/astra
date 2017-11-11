@@ -6,6 +6,9 @@
  * @since 1.0.0
  */
 
+add_action( 'astra_primary_before', 'astra_left_sidebar_layout' );
+add_action( 'astra_primary_after', 'astra_right_sidebar_layout' );
+
 /**
  * Left Sidebar Layout.
  */
@@ -15,7 +18,6 @@ function astra_left_sidebar_layout() {
 		get_sidebar();
 	endif;
 }
-add_action( 'astra_primary_before', 'astra_left_sidebar_layout' );
 
 /**
  * RIght Sidebar Layout
@@ -26,4 +28,3 @@ function astra_right_sidebar_layout() {
 		get_sidebar();
 	endif;
 }
-add_action( 'astra_primary_after', 'astra_right_sidebar_layout' );
