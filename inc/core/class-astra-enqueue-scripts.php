@@ -44,8 +44,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'astra_get_fonts',          array( $this, 'add_fonts' ), 1 );
-			add_action( 'wp_enqueue_scripts',       array( $this, 'enqueue_scripts' ), 1 );
+			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 
 		}
 
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$default_assets = array(
 
 				// handle => location ( in /assets/js/ ) ( without .js ext).
-				'js' => array(
+				'js'  => array(
 					'astra-theme-js' => 'style',
 				),
 

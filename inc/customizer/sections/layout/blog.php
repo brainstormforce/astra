@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 5,
 				'label'    => __( 'Blog Post Structure', 'astra' ),
 				'choices'  => array(
-					'image' => __( 'Featured Image', 'astra' ),
+					'image'      => __( 'Featured Image', 'astra' ),
 					'title-meta' => __( 'Title & Blog Meta', 'astra' ),
 				),
 			)

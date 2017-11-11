@@ -85,8 +85,12 @@
         "Alegreya": [
             "regular",
             "italic",
+            "500",
+            "500italic",
             "700",
             "700italic",
+            "800",
+            "800italic",
             "900",
             "900italic"
         ]
@@ -95,8 +99,12 @@
         "Alegreya SC": [
             "regular",
             "italic",
+            "500",
+            "500italic",
             "700",
             "700italic",
+            "800",
+            "800italic",
             "900",
             "900italic"
         ]
@@ -216,12 +224,6 @@
     },
     {
         "Amatic SC": [
-            "regular",
-            "700"
-        ]
-    },
-    {
-        "Amatica SC": [
             "regular",
             "700"
         ]
@@ -626,6 +628,72 @@
     {
         "Bangers": [
             "regular"
+        ]
+    },
+    {
+        "Barlow": [
+            "100",
+            "100italic",
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic",
+            "900",
+            "900italic"
+        ]
+    },
+    {
+        "Barlow Condensed": [
+            "100",
+            "100italic",
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic",
+            "900",
+            "900italic"
+        ]
+    },
+    {
+        "Barlow Semi Condensed": [
+            "100",
+            "100italic",
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic",
+            "900",
+            "900italic"
         ]
     },
     {
@@ -1468,25 +1536,6 @@
         ]
     },
     {
-        "Droid Sans": [
-            "regular",
-            "700"
-        ]
-    },
-    {
-        "Droid Sans Mono": [
-            "regular"
-        ]
-    },
-    {
-        "Droid Serif": [
-            "regular",
-            "italic",
-            "700",
-            "700italic"
-        ]
-    },
-    {
         "Duru Sans": [
             "regular"
         ]
@@ -1498,7 +1547,16 @@
     },
     {
         "EB Garamond": [
-            "regular"
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic"
         ]
     },
     {
@@ -4942,6 +5000,24 @@
         ]
     },
     {
+        "Spectral SC": [
+            "200",
+            "200italic",
+            "300",
+            "300italic",
+            "regular",
+            "italic",
+            "500",
+            "500italic",
+            "600",
+            "600italic",
+            "700",
+            "700italic",
+            "800",
+            "800italic"
+        ]
+    },
+    {
         "Spicy Rice": [
             "regular"
         ]
@@ -5381,6 +5457,14 @@
             "700italic",
             "900",
             "900italic"
+        ]
+    },
+    {
+        "Vollkorn SC": [
+            "regular",
+            "600",
+            "700",
+            "900"
         ]
     },
     {

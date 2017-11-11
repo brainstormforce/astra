@@ -48,9 +48,46 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
+			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
+		}
 
+		/**
+		 * Check if layout is bb themer's layout
+		 */
+		public static function is_bb_themer_layout() {
+
+			$is_layout = false;
+
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
+
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$is_layout = true;
+			}
+
+			return $is_layout;
+		}
+
+		/**
+		 *  Remove Metabox for beaver themer specific layouts
+		 */
+		public function remove_metabox() {
+
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
+
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$template_type = get_post_meta( $post_id, '_fl_theme_layout_type', true );
+
+				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
+
+					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
+				}
+			}
 		}
 
 		/**
@@ -59,7 +96,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		public function init_metabox() {
 
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
-			add_action( 'save_post',      array( $this, 'save_meta_box' ) );
+			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 
 			/**
 			 * Set metabox options
@@ -71,24 +108,24 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-sml-layout' => array(
+					'footer-sml-layout'       => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'footer-adv-display' => array(
+					'footer-adv-display'      => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-post-title' => array(
+					'site-post-title'         => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-layout' => array(
+					'site-sidebar-layout'     => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-layout' => array(
+					'site-content-layout'     => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img' => array(
+					'ast-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
@@ -107,10 +144,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				)
 			);
 
+			$post_types['fl-theme-layout'] = 'fl-theme-layout';
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
-				if ( 'attachment' !== $type && 'fl-theme-layout' !== $type ) {
+				if ( 'attachment' !== $type ) {
 					add_meta_box(
 						'astra_settings_meta_box',              // Id.
 						__( 'Astra Settings', 'astra' ), // Title.
@@ -159,103 +198,105 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+
+			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
 			 * Option: Sidebar
 			 */
 			?>
-			<p class="post-attributes-label-wrapper" >
-				<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
-			</p>
-			<select name="site-sidebar-layout" id="site-sidebar-layout">
-				<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-				<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
-				<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
-				<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
-			</select>
-
+			<div class="site-sidebar-layout-meta-wrap">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
+				</p>
+				<select name="site-sidebar-layout" id="site-sidebar-layout">
+					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
+					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
+					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
+				</select>
+			</div>
 			<?php
 			/**
 			 * Option: Sidebar
 			 */
 			?>
-			<p class="post-attributes-label-wrapper" >
-				<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
-			</p>
-			<select name="site-content-layout" id="site-content-layout">
-				<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-				<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-				<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-				<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
-				<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
-			</select>
-
+			<div class="site-content-layout-meta-wrap">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
+				</p>
+				<select name="site-content-layout" id="site-content-layout">
+					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
+					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
+					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
+					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
+				</select>
+			</div>
 			<?php
 			/**
 			 * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
 			 */
 			?>
-			<p class="post-attributes-label-wrapper">
-				<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
-			</p>
-			<span>
-				<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
+			<div class="disable-section-meta-wrap">
+				<p class="post-attributes-label-wrapper">
+					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
+				</p>
+				<div class="disable-section-meta">
+					<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
 
-				<span class="ast-main-header-display-option-wrap">
-					<label for="ast-main-header-display">
-						<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
+					<div class="ast-main-header-display-option-wrap">
+						<label for="ast-main-header-display">
+							<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
+							<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
+						</label>
+					</div>
 
-				<span class="site-post-title-option-wrap">
-					<label for="site-post-title">
-						<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Title', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
+					<?php if ( $show_meta_field ) { ?>
+						<div class="site-post-title-option-wrap">
+							<label for="site-post-title">
+								<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
+								<?php esc_html_e( 'Disable Title', 'astra' ); ?>
+							</label>
+						</div>
 
-				<span class="ast-featured-img-option-wrap">
-					<label for="ast-featured-img">
-						<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
+						<div class="ast-featured-img-option-wrap">
+							<label for="ast-featured-img">
+								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+								<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
+							</label>
+						</div>
+					<?php } ?>
 
-				<?php
-				$footer_adv_layout = astra_get_option( 'footer-adv' );
+					<?php
+					$footer_adv_layout = astra_get_option( 'footer-adv' );
 
-				if ( 'disabled' != $footer_adv_layout ) {
-				?>
-				<span class="footer-adv-display-option-wrap">
-					<label for="footer-adv-display">
-						<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
+					if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
+					?>
+					<div class="footer-adv-display-option-wrap">
+						<label for="footer-adv-display">
+							<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
+							<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
+						</label>
+					</div>
 
-				<?php
-				}
-				$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
-				if ( 'disabled' != $footer_sml_layout ) {
-				?>
-				<span class="footer-sml-layout-option-wrap">
-					<label for="footer-sml-layout">
-						<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
-						<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
-					</label>
-				</span>
-				<br />
-				<?php } ?>
+					<?php
+					}
+					$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
+					if ( 'disabled' != $footer_sml_layout ) {
+					?>
+					<div class="footer-sml-layout-option-wrap">
+						<label for="footer-sml-layout">
+							<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
+							<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
+						</label>
+					</div>
+					<?php } ?>
 
-				<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
-			</span>
-
+					<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
+				</div>
+			</div>
 			<?php
 
 			do_action( 'astra_meta_box_markup_after', $meta );

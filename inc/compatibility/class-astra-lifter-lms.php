@@ -45,8 +45,8 @@ if ( ! class_exists( 'Astra_Lifter_LMS' ) ) :
 		public function __construct() {
 
 			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
-			add_action( 'after_setup_theme',              array( $this, 'add_theme_support' ) );
-			add_filter( 'astra_theme_assets',               array( $this, 'add_styles' ) );
+			add_action( 'after_setup_theme', array( $this, 'add_theme_support' ) );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Lifter_LMS' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-lifter-lms'] = 'site-compatible/lifter-lms' ;
+			$assets['css']['astra-lifter-lms'] = 'site-compatible/lifter-lms';
 			return $assets;
 		}
 

@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $type     = 'astra-pro';
+		public $type = 'astra-pro';
 
 		/**
 		 * Custom pro button URL.
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $pro_url  = '';
+		public $pro_url = '';
 
 		/**
 		 * Add custom parameters to pass to the JS via JSON.
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 */
 		public function json() {
 			$json            = parent::json();
-			$json['pro_url'] = esc_url( $this->pro_url );
+			$json['pro_url'] = esc_url_raw( $this->pro_url );
 			return $json;
 		}
 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-default">
 			<h3 class="wp-ui-highlight">
 				<# if ( data.title && data.pro_url ) { #>
-				<a href="{{ data.pro_url }}" class="wp-ui-text-highlight" target="_blank">{{ data.title }}</a>
+				<a href="{{ data.pro_url }}" class="wp-ui-text-highlight" target="_blank" rel="noopener">{{ data.title }}</a>
 				<# } #>
 			</h3>
 		</li>

@@ -17,7 +17,7 @@
 	<?php astra_entry_top(); ?>
 
 	<?php astra_entry_content_single(); ?>
-	
+
 	<?php astra_entry_bottom(); ?>
 
 </article><!-- #post-## -->

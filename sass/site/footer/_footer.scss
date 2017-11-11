@@ -4,7 +4,6 @@
 @import "footer-sml-layout-2";
 
 .site-footer {
-	background-color: $footer-background-color;
 	color: $footer-text-color;
 
 	.widget-title {
@@ -19,9 +18,6 @@
 	    }
 	}
 
-	li > a {
-		line-height: 2;
-	}
 	ul {
 	    margin: 0;
 	    list-style-type: none;

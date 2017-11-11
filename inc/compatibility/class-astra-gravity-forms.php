@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-gravity-forms'] = 'site-compatible/gravity-forms' ;
+			$assets['css']['astra-gravity-forms'] = 'site-compatible/gravity-forms';
 			return $assets;
 		}
 

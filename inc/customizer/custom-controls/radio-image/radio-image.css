@@ -12,6 +12,10 @@
   border: 1px solid transparent;
 }
 
+.customize-control-ast-radio-image input + label img {
+  border: 1px solid #f1f1f1;
+}
+
 .customize-control-ast-radio-image input:checked + label img {
   -webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
   box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);

@@ -47,11 +47,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Customizer
 			 */
-			add_action( 'customize_preview_init',                  array( $this, 'preview_init' ) );
-			add_action( 'customize_controls_enqueue_scripts',      array( $this, 'controls_scripts' ) );
+			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
-			add_action( 'customize_register',                      array( $this, 'customize_register' ) );
-			add_action( 'customize_save_after',                    array( $this, 'customize_save' ) );
+			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 		}
 
 		/**
@@ -61,24 +61,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-			$output = '<script type="text/javascript">';
+			$output      = '<script type="text/javascript">';
 				$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
 	                	var desc = ctrl.container.find(".customize-control-description");
 	                	if( desc.length) {
-	                    	var title = ctrl.container.find(".customize-control-title");
+	                    	var title 		= ctrl.container.find(".customize-control-title");
+	                    	var li_wrapper 	= desc.closest("li");
 	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	title.append(" <i class=\'dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
 	        	});';
 
 				$output .= Astra_Fonts_Data::js();
-			$output .= '</script>';
+			$output     .= '</script>';
 
 			echo $output;
 		}
@@ -108,6 +109,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
+			$wp_customize->register_control_type( 'Astra_Control_Color' );
 
 			/**
 			 * Helper files
@@ -180,8 +182,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize', array(
 						'customizer' => array(
 							'settings' => array(
-								'sidebars' => array(
-									'single' => array(
+								'sidebars'  => array(
+									'single'  => array(
 										'single-post-sidebar-layout',
 										'single-page-sidebar-layout',
 									),
@@ -190,7 +192,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 									),
 								),
 								'container' => array(
-									'single' => array(
+									'single'  => array(
 										'single-post-content-layout',
 										'single-page-content-layout',
 									),
@@ -200,7 +202,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 							),
 						),
-						'theme' => array(
+						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
 						),
 					)
@@ -247,7 +249,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/* Generate Header Logo */
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 
+			add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
 			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+			remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 
 			do_action( 'astra_customizer_save' );
 		}
@@ -268,9 +272,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( is_array( $sizes ) && '' != $logo_width ) {
 
 				$sizes['ast-logo-size'] = array(
-					'width'     => (int) $logo_width,
-					'height'    => 0,
-					'crop'      => false,
+					'width'  => (int) $logo_width,
+					'height' => 0,
+					'crop'   => false,
 				);
 			}
 
@@ -286,8 +290,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		static public function generate_logo_by_width( $custom_logo_id ) {
 			if ( $custom_logo_id ) {
 
-				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-
 				$image = get_post( $custom_logo_id );
 
 				if ( $image ) {
@@ -302,8 +304,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						}
 					}
 				}
-
-				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
 			}
 		}
 	}

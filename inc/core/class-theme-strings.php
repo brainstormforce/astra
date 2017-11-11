@@ -31,7 +31,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 				'string-header-skip-link'                => __( 'Skip to content', 'astra' ),
 
 				// 404 Page Strings.
-				'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. May be try searching?', 'astra' ),
+				'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. Maybe try searching?', 'astra' ),
 
 				// Search Page Strings.
 				'string-search-nothing-found'            => __( 'Nothing Found', 'astra' ),

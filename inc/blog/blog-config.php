@@ -62,6 +62,9 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 						$output_str .= $comment;
 					}
 					break;
+				default:
+					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
+
 			}// End switch().
 
 			$loop_count ++;
@@ -86,10 +89,10 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 	 */
 	function astra_post_date() {
 
-		$output = '';
-		$format = apply_filters( 'astra_post_date_format','' );
+		$output      = '';
+		$format      = apply_filters( 'astra_post_date_format', '' );
 		$time_string = esc_html( get_the_date( $format ) );
-		$posted_on = sprintf(
+		$posted_on   = sprintf(
 			esc_html( '%s' ),
 			$time_string
 		);
@@ -147,9 +150,12 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 			return $output_filter;
 		}
 
+		$read_more_text    = apply_filters( 'astra_post_read_more', __( 'Read More &raquo;', 'astra' ) );
+		$read_more_classes = apply_filters( 'astra_post_read_more_class', array() );
+
 		$post_link = sprintf(
 			esc_html( '%s' ),
-			'<a href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . __( 'Read More &raquo;', 'astra' ) . '</a>'
+			'<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $read_more_text . '</a>'
 		);
 
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
@@ -314,7 +320,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 			$post_format = 'standard';
 		}
 
-		$classes[]   = 'ast-post-format-' . $post_format;
+		$classes[] = 'ast-post-format-' . $post_format;
 
 		if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
 			switch ( $post_format ) {

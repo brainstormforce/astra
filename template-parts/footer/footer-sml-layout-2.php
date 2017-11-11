@@ -9,11 +9,11 @@
  * @since       Astra 1.0.0
  */
 
-$section_1    = astra_get_small_footer( 'footer-sml-section-1' );
-$section_2    = astra_get_small_footer( 'footer-sml-section-2' );
-$sections     = 0;
-$sections     = $sections + count( $section_1 );
-$sections     = $sections + count( $section_2 );
+$section_1 = astra_get_small_footer( 'footer-sml-section-1' );
+$section_2 = astra_get_small_footer( 'footer-sml-section-2' );
+$sections  = 0;
+$sections  = $sections + count( $section_1 );
+$sections  = $sections + count( $section_2 );
 
 switch ( $sections ) {
 
@@ -42,7 +42,7 @@ switch ( $sections ) {
 		<div class="ast-container">
 			<div class="ast-small-footer-wrap" >
 					<div class="ast-row ast-flex">
-				
+
 					<?php if ( $section_1 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
 							<?php

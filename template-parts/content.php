@@ -31,11 +31,11 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. */
-						 __( 'Continue reading %s', 'astra' ) . ' <span class="meta-nav">&rarr;</span>', array(
-							 'span' => array(
-								 'class' => array(),
-							 ),
-						 )
+						__( 'Continue reading %s', 'astra' ) . ' <span class="meta-nav">&rarr;</span>', array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
 					),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				)

@@ -26,8 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[button-color]', array(
-				'section'     => 'section-buttons',
-				'label'       => __( 'Button Text Color', 'astra' ),
+				'section' => 'section-buttons',
+				'label'   => __( 'Button Text Color', 'astra' ),
 			)
 		)
 	);
@@ -45,8 +45,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[button-h-color]', array(
-				'section'     => 'section-buttons',
-				'label'       => __( 'Button Text Hover Color', 'astra' ),
+				'section' => 'section-buttons',
+				'label'   => __( 'Button Text Hover Color', 'astra' ),
 			)
 		)
 	);
@@ -64,8 +64,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
-				'section'     => 'section-buttons',
-				'label'       => __( 'Button Background Color', 'astra' ),
+				'section' => 'section-buttons',
+				'label'   => __( 'Button Background Color', 'astra' ),
 			)
 		)
 	);
@@ -83,8 +83,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
-				'section'     => 'section-buttons',
-				'label'       => __( 'Button Background Hover Color', 'astra' ),
+				'section' => 'section-buttons',
+				'label'   => __( 'Button Background Hover Color', 'astra' ),
 			)
 		)
 	);

@@ -42,9 +42,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 -------------------------------------------------------
 Screenshot Licenses
 -------------------------------------------------------
-Screenshot images are all licensed under CC0 1.0 Universal
-http://creativecommons.org/publicdomain/zero/1.0/deed.en
-https://pixabay.com/en/barley-field-sunrise-morning-solar-1684052/
+Screenshot images are all licensed under CC0 Universal
+https://www.pexels.com/photo/adult-business-woman-businessman-chairs-529923/
+https://www.pexels.com/photo/adult-beard-beverage-blur-551652/
+https://www.pexels.com/photo/whiteboard-sketching-design-planning-7366/
 
 -------------------------------------------------------
 Normalizing styles

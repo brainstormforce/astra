@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp',  array( $this, 'meta_hooks' ) );
+			add_action( 'wp', array( $this, 'meta_hooks' ) );
 		}
 
 		/**
@@ -49,9 +49,9 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		function meta_hooks() {
 
 			if ( is_singular() ) {
-				add_action( 'wp_head' ,               array( $this, 'primary_header' ) );
-				add_filter( 'astra_the_title_enabled' , array( $this, 'post_title' ) );
-				add_filter( 'body_class',             array( $this, 'body_class' ) );
+				add_action( 'wp_head', array( $this, 'primary_header' ) );
+				add_filter( 'astra_the_title_enabled', array( $this, 'post_title' ) );
+				add_filter( 'body_class', array( $this, 'body_class' ) );
 			}
 		}
 
@@ -61,6 +61,8 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 		function primary_header() {
 
 			$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
+
+			$display_header = apply_filters( 'ast_main_header_display', $display_header );
 
 			if ( 'disabled' == $display_header ) {
 

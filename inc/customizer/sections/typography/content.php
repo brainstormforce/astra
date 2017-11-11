@@ -18,11 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h1]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-content-typo',
-				'priority'    => 4,
-				'label'       => __( 'Heading 1 (H1)', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-content-typo',
+				'priority' => 4,
+				'label'    => __( 'Heading 1 (H1)', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -41,16 +41,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-h1]', array(
-				'type'     => 'ast-responsive',
-				'section'  => 'section-content-typo',
-				'priority' => 5,
-				'label'    => __( 'Font Size', 'astra' ),
+				'type'        => 'ast-responsive',
+				'section'     => 'section-content-typo',
+				'priority'    => 5,
+				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -62,11 +62,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h2]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-content-typo',
-				'priority'    => 9,
-				'label'       => __( 'Heading 2 (H2)', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-content-typo',
+				'priority' => 9,
+				'label'    => __( 'Heading 2 (H2)', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -85,16 +85,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-h2]', array(
-				'type'     => 'ast-responsive',
-				'section'  => 'section-content-typo',
-				'priority' => 10,
-				'label'    => __( 'Font Size', 'astra' ),
+				'type'        => 'ast-responsive',
+				'section'     => 'section-content-typo',
+				'priority'    => 10,
+				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -106,11 +106,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h3]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-content-typo',
-				'priority'    => 14,
-				'label'       => __( 'Heading 3 (H3)', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-content-typo',
+				'priority' => 14,
+				'label'    => __( 'Heading 3 (H3)', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -129,16 +129,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-h3]', array(
-				'type'     => 'ast-responsive',
-				'section'  => 'section-content-typo',
-				'priority' => 15,
-				'label'    => __( 'Font Size', 'astra' ),
+				'type'        => 'ast-responsive',
+				'section'     => 'section-content-typo',
+				'priority'    => 15,
+				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -150,11 +150,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h4]', array(
-				'label'       => __( 'Heading 4 (H4)', 'astra' ),
-				'section'     => 'section-content-typo',
-				'type'        => 'ast-divider',
-				'priority'    => 19,
-				'settings'    => array(),
+				'label'    => __( 'Heading 4 (H4)', 'astra' ),
+				'section'  => 'section-content-typo',
+				'type'     => 'ast-divider',
+				'priority' => 19,
+				'settings' => array(),
 			)
 		)
 	);
@@ -173,16 +173,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-h4]', array(
-				'type'     => 'ast-responsive',
-				'section'  => 'section-content-typo',
-				'priority' => 20,
-				'label'    => __( 'Font Size', 'astra' ),
+				'type'        => 'ast-responsive',
+				'section'     => 'section-content-typo',
+				'priority'    => 20,
+				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -194,11 +194,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h5]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-content-typo',
-				'priority'    => 24,
-				'label'       => __( 'Heading 5 (H5)', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-content-typo',
+				'priority' => 24,
+				'label'    => __( 'Heading 5 (H5)', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -224,9 +224,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -238,11 +238,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-h6]', array(
-				'label'       => __( 'Heading 6 (H6)', 'astra' ),
-				'section'     => 'section-content-typo',
-				'type'        => 'ast-divider',
-				'priority'    => 29,
-				'settings'    => array(),
+				'label'    => __( 'Heading 6 (H6)', 'astra' ),
+				'section'  => 'section-content-typo',
+				'type'     => 'ast-divider',
+				'priority' => 29,
+				'settings' => array(),
 			)
 		)
 	);
@@ -268,9 +268,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)

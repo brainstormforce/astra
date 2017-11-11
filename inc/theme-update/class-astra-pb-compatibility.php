@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 
 			// Theme Updates.
 			add_action( 'do_meta_boxes', array( $this, 'page_builder_compatibility' ) );
-			add_action( 'wp',            array( $this, 'page_builder_compatibility' ) );
+			add_action( 'wp', array( $this, 'page_builder_compatibility' ) );
 		}
 
 		/**
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 				'no_found_rows'  => true,
 				'post_status'    => 'any',
 				'offset'         => $offset_comp,
-				'date_query' => array(
+				'date_query'     => array(
 					array(
 						'before'    => $comp_time,
 						'inclusive' => true,
@@ -139,8 +139,8 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 					}
 				}
 
-				$elementor    = get_post_meta( $id, '_elementor_edit_mode', true );
-				$vc           = get_post_meta( $id, '_wpb_vc_js_status', true );
+				$elementor = get_post_meta( $id, '_elementor_edit_mode', true );
+				$vc        = get_post_meta( $id, '_wpb_vc_js_status', true );
 				if ( 'page-builder' === $site_content ) {
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );

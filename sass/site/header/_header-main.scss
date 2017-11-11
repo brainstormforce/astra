@@ -48,32 +48,40 @@
 /**
  * 4 - Search Form & Main Header
  */
-.main-header-bar {
+.main-header-bar{
 	z-index: 4;
 	position: relative;
 	line-height: 4;
 	padding: 1em 0;
 
-	.children,
-	.sub-menu {
-		line-height: 1.45;
-	}
+	.main-header-bar-navigation {
 
-	.page_item_has_children > a:after,
-	.menu-item-has-children > a:after {
-		@include ast-has-child-menu-item();
-		line-height: normal;
-	}
-	.ast-search-icon {
-		display: block;
-		z-index: 4;
-		position: relative;
-	}
+		&:empty {
+		    padding: 0;
+		}
+		
+		.children,
+		.sub-menu {
+			line-height: 1.45;
+		}
 
-	.slide-search .search-field {
-		background-color: white;
-		&:focus {
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
+			@include ast-has-child-menu-item();
+			line-height: normal;
+		}
+
+		.ast-search-icon {
+			display: block;
+			z-index: 4;
+			position: relative;
+		}
+
+		.slide-search .search-field {
 			background-color: white;
+			&:focus {
+				background-color: white;
+			}
 		}
 	}
 }
@@ -177,68 +185,67 @@ li.ast-masthead-custom-menu-items {
 	.ast-site-identity {
 		padding: 0;
 	}
+	.main-header-bar-navigation {
 
-	.page_item_has_children > a:after,
-	.menu-item-has-children > a:after {
-		display: none;
+		.page_item_has_children > a:after,
+		.menu-item-has-children > a:after {
+			display: none;
+		}
 	}
 
 	.main-header-bar {
-		line-height: 3;
 		display: block;
 		padding: 1.5em 0 0;
 
-		.children,
-		.sub-menu {
+		.main-header-bar-navigation {
 			line-height: 3;
-		}
+			display: none;
 
-		.page_item_has_children,
-		.menu-item-has-children {
-
+			.children,
 			.sub-menu {
-				display:none;
+				line-height: 3;
 			}
 
-			> .ast-menu-toggle {
+			.page_item_has_children,
+			.menu-item-has-children {
 
-				display: inline-block;
-				position: absolute;
-				font-size: inherit;
-				top: -1px;
-				right: 20px;
-				cursor: pointer;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				padding: 0 0.907em;
-				font-weight: normal;
-				line-height: inherit;
-				transition: all .2s;
-				&::before {
-					font-weight: bold;
-					content: "\e900";
-					font-family: 'Astra';
-					text-decoration: inherit;
+				.sub-menu {
+					display:none;
+				}
+
+				> .ast-menu-toggle {
+
 					display: inline-block;
+					position: absolute;
+					font-size: inherit;
+					top: -1px;
+					right: 20px;
+					cursor: pointer;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					padding: 0 0.907em;
+					font-weight: normal;
+					line-height: inherit;
+					transition: all .2s;
+					&::before {
+						font-weight: bold;
+						content: "\e900";
+						font-family: 'Astra';
+						text-decoration: inherit;
+						display: inline-block;
+					}
 				}
 			}
-		}
-		.ast-submenu-expanded {
-			>.ast-menu-toggle::before {
-			   transform: rotateX(180deg);
+			.ast-submenu-expanded {
+				>.ast-menu-toggle::before {
+				   transform: rotateX(180deg);
+				}
+			}
+
+			.main-header-menu {
+				border-top: 1px solid #eaeaea;
 			}
 		}
-
-		.main-header-bar-navigation {
-			display: none;
-		}
-		.main-header-menu {
-			border-top: 1px solid #eaeaea;
-		}
-
-
-		//  On Desktop we toggle by jQuery
-		//  So, Showing search with !important for mobile & tablets
 	}
 
 	.ast-search-menu-icon {

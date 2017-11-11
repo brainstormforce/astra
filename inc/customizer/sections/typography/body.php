@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-base-typo]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-body-typo',
-				'priority'    => 4,
-				'label'       => __( 'Body & Content', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-body-typo',
+				'priority' => 4,
+				'label'    => __( 'Body & Content', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -122,8 +122,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
+				'units'       => array(
+					'px' => 'px',
 				),
 			)
 		)
@@ -149,9 +149,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'       => __( 'Line Height', 'astra' ),
 				'suffix'      => '',
 				'input_attrs' => array(
-					'min'    => 1,
-					'step'   => 0.01,
-					'max'    => 5,
+					'min'  => 1,
+					'step' => 0.01,
+					'max'  => 5,
 				),
 			)
 		)
@@ -177,9 +177,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'       => __( 'Paragraph Margin Bottom', 'astra' ),
 				'suffix'      => '',
 				'input_attrs' => array(
-					'min'    => 0.5,
-					'step'   => 0.01,
-					'max'    => 5,
+					'min'  => 0.5,
+					'step' => 0.01,
+					'max'  => 5,
 				),
 			)
 		)
@@ -191,11 +191,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-headings-typo]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-body-typo',
-				'priority'    => 30,
-				'label'       => __( 'Headings', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-body-typo',
+				'priority' => 30,
+				'label'    => __( 'Headings', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -216,7 +216,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-font-family',
 				'label'    => __( 'Font Family', 'astra' ),
 				'section'  => 'section-body-typo',
-				'priority'    => 35,
+				'priority' => 35,
 				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 			)
 		)

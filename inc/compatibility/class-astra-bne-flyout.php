@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-bne-flyout'] = 'site-compatible/bne-flyout' ;
+			$assets['css']['astra-bne-flyout'] = 'site-compatible/bne-flyout';
 			return $assets;
 		}
 

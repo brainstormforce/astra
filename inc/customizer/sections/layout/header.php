@@ -32,15 +32,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Header', 'astra' ),
 				'type'     => 'ast-radio-image',
 				'choices'  => array(
-					'header-main-layout-1'          => array(
+					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-1-60x60.png',
 					),
-					'header-main-layout-2'          => array(
+					'header-main-layout-2' => array(
 						'label' => __( 'Logo Center', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-2-60x60.png',
 					),
-					'header-main-layout-3'      => array(
+					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/header-layout-3-60x60.png',
 					),
@@ -61,10 +61,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[disable-primary-nav]', array(
-			'type'        => 'checkbox',
-			'section'     => 'section-header',
-			'label'       => __( 'Disable Menu', 'astra' ),
-			'priority'    => 5,
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Disable Menu', 'astra' ),
+			'priority' => 5,
 		)
 	);
 
@@ -212,18 +212,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-			'default'   => astra_get_option( 'header-main-menu-label' ),
-			'type'      => 'option',
-			'transport' => 'postMessage',
+			'default'           => astra_get_option( 'header-main-menu-label' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-label]', array(
-			'section'     => 'section-header',
-			'priority'    => 60,
-			'label'       => __( 'Menu Label on Small Devices', 'astra' ),
-			'type'        => 'text',
+			'section'  => 'section-header',
+			'priority' => 60,
+			'label'    => __( 'Menu Label on Small Devices', 'astra' ),
+			'type'     => 'text',
 		)
 	);
 
@@ -239,13 +239,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-			'type'        => 'select',
-			'section'     => 'section-header',
-			'priority'    => 65,
-			'label'       => __( 'Mobile Header Alignment', 'astra' ),
-			'choices'     => array(
-				'inline'    => __( 'Inline', 'astra' ),
-				'stack'      => __( 'Stack', 'astra' ),
+			'type'     => 'select',
+			'section'  => 'section-header',
+			'priority' => 65,
+			'label'    => __( 'Mobile Header Alignment', 'astra' ),
+			'choices'  => array(
+				'inline' => __( 'Inline', 'astra' ),
+				'stack'  => __( 'Stack', 'astra' ),
 			),
 		)
 	);

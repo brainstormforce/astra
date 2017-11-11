@@ -64,11 +64,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
-			'type'        => 'select',
-			'section'     => 'section-sidebars',
-			'priority'    => 5,
-			'label'       => __( 'Pages', 'astra' ),
-			'choices'     => array(
+			'type'     => 'select',
+			'section'  => 'section-sidebars',
+			'priority' => 5,
+			'label'    => __( 'Pages', 'astra' ),
+			'choices'  => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
@@ -89,11 +89,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-			'type'        => 'select',
-			'section'     => 'section-sidebars',
-			'priority'    => 5,
-			'label'       => __( 'Blog Posts', 'astra' ),
-			'choices'     => array(
+			'type'     => 'select',
+			'section'  => 'section-sidebars',
+			'priority' => 5,
+			'label'    => __( 'Blog Posts', 'astra' ),
+			'choices'  => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
@@ -114,11 +114,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
-			'type'        => 'select',
-			'section'     => 'section-sidebars',
-			'priority'    => 5,
-			'label'       => __( 'Blog Post Archives', 'astra' ),
-			'choices'     => array(
+			'type'     => 'select',
+			'section'  => 'section-sidebars',
+			'priority' => 5,
+			'label'    => __( 'Blog Post Archives', 'astra' ),
+			'choices'  => array(
 				'default'       => __( 'Default', 'astra' ),
 				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
 				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
@@ -133,10 +133,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]', array(
-				'section'     => 'section-sidebars',
-				'type'        => 'ast-divider',
-				'priority'    => 10,
-				'settings'    => array(),
+				'section'  => 'section-sidebars',
+				'type'     => 'ast-divider',
+				'priority' => 10,
+				'settings' => array(),
 			)
 		)
 	);
@@ -161,9 +161,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'       => __( 'Sidebar Width', 'astra' ),
 				'suffix'      => '%',
 				'input_attrs' => array(
-					'min'    => 15,
-					'step'   => 1,
-					'max'    => 50,
+					'min'  => 15,
+					'step' => 1,
+					'max'  => 50,
 				),
 			)
 		)

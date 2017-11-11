@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function init_admin_settings() {
 
-			self::$menu_page_title  = apply_filters( 'astra_menu_page_title', __( 'Astra' , 'astra' ) );
+			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra', 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -115,8 +115,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( empty( self::$view_actions ) ) {
 
-				$actions = array(
-					'general'          => array(
+				$actions            = array(
+					'general' => array(
 						'label' => __( 'Welcome', 'astra' ),
 						'show'  => ! is_network_admin(),
 					),
@@ -150,6 +150,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), ASTRA_THEME_VERSION );
+
+			$color_palettes = json_encode( astra_color_palette() );
+			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
+
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+
+			$assets_js_uri = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+
+			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), ASTRA_THEME_VERSION, true );
 		}
 
 		/**
@@ -253,7 +264,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Settings update message.
 			if ( isset( $_REQUEST['message'] ) && ( 'saved' == $_REQUEST['message'] || 'saved_ext' == $_REQUEST['message'] ) ) {
 				?>
-					<span id="message" class="notice notice-success is-dismissive"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
+					<span id="message" class="notice notice-success is-dismissive astra-notice"><p> <?php esc_html_e( 'Settings saved successfully.', 'astra' ); ?> </p></span>
 				<?php
 			}
 

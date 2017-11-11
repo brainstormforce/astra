@@ -663,6 +663,9 @@
  * @package Astra
  */
 
+var isIE = false;
+var isEdge = false;
+
 /**
  * Get all of an element's parent elements up the DOM tree
  *
@@ -721,6 +724,32 @@ var toggleClass = function ( el, className ) {
 		el.classList.add( className );
 	}
 };
+
+// CustomEvent() constructor functionality in Internet Explorer 9 and higher.
+(function () {
+
+	
+    // Internet Explorer 6-11
+    isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    // Edge 20+
+    isEdge = !isIE && !!window.StyleMedia;
+
+
+	if ( typeof window.CustomEvent === "function" ) return false;
+
+	function CustomEvent ( event, params ) {
+		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		var evt = document.createEvent( 'CustomEvent' );
+		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+		return evt;
+	}
+
+	CustomEvent.prototype = window.Event.prototype;
+
+	window.CustomEvent = CustomEvent;
+
+})();
 
 ( function() {
 
@@ -899,6 +928,13 @@ var toggleClass = function ( el, className ) {
 
 					var header_content_bp = window.getComputedStyle( headerWrap[i] ).content;
 
+					// Edge/Explorer header break point.
+					if( isEdge || isIE || header_content_bp === 'normal' ) {
+						if( window.innerWidth <= break_point ) {
+							header_content_bp = break_point;
+						}
+					}
+
 					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
 					header_content_bp = parseInt( header_content_bp );
 
@@ -1069,7 +1105,7 @@ var toggleClass = function ( el, className ) {
 				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
 			}
 		}
-	}( container ) );	
+	}( container ) );
 
 } )();
 

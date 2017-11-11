@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			if ( isset( $input_attrs ) ) {
 
-				$input_attrs['min'] = isset( $input_attrs['min'] ) ? $input_attrs['min'] : 0;
+				$input_attrs['min']  = isset( $input_attrs['min'] ) ? $input_attrs['min'] : 0;
 				$input_attrs['step'] = isset( $input_attrs['step'] ) ? $input_attrs['step'] : 1;
 
 				if ( isset( $input_attrs['max'] ) && $val > $input_attrs['max'] ) {
@@ -265,6 +265,29 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize Alpha color
+		 *
+		 * @param  string $color setting input.
+		 * @return string        setting input value.
+		 */
+		static public function sanitize_alpha_color( $color ) {
+
+			if ( '' === $color ) {
+				return '';
+			}
+
+			if ( false === strpos( $color, 'rgba' ) ) {
+				/* Hex sanitize */
+				return self::sanitize_hex_color( $color );
+			}
+
+			/* rgba sanitize */
+			$color = str_replace( ' ', '', $color );
+			sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+			return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+		}
+
+		/**
 		 * Sanitize html
 		 *
 		 * @param  string $input    setting input.
@@ -285,7 +308,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 
 			// Get list of choices from the control
 			// associated with the setting.
-			$choices = $setting->manager->get_control( $setting->id )->choices;
+			$choices    = $setting->manager->get_control( $setting->id )->choices;
 			$input_keys = $input;
 
 			foreach ( $input_keys as $key => $value ) {

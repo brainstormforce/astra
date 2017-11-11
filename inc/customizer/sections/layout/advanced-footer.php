@@ -31,11 +31,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Footer Widgets Layout', 'astra' ),
 				'section' => 'section-footer-adv',
 				'choices' => array(
-					'disabled'    => array(
+					'disabled' => array(
 						'label' => __( 'Disable', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/no-adv-footer-115x48.png',
 					),
-					'layout-4'  => array(
+					'layout-4' => array(
 						'label' => __( 'Layout 4', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/layout-4-115x48.png',
 					),

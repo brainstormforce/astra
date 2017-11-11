@@ -1,0 +1,10 @@
+.customize-control-ast-color .wp-color-result span {
+	background: #f7f7f7;
+}
+.customize-control-ast-color .wp-color-result span.color-alpha {
+	height:22px !important;
+}
+
+.customize-control-ast-color .wp-picker-container input[type="text"].wp-color-picker {
+	width: 65px !important;
+}

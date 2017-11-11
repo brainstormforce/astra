@@ -1808,7 +1808,6 @@ html {
 }
 
 body {
-  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1934,7 +1933,7 @@ input[type="submit"]:focus {
   color: #999;
 }
 
-.ast-header-break-point .main-header-bar-wrap .ast-search-icon {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: none;
 }
 
@@ -2092,6 +2091,29 @@ textarea {
   margin-bottom: 2em;
 }
 
+.elementor-image-gallery .gallery-icon {
+  border: none;
+}
+
+/* Astra Respnosive oEmbed Video container */
+.ast-oembed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.ast-oembed-container iframe, .ast-oembed-container object, .ast-oembed-container embed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /*----------  Basic Layout  ----------*/
 .hidden {
   display: none !important;
@@ -2103,6 +2125,10 @@ body {
 
 #page {
   display: block;
+}
+
+.site {
+  overflow: hidden;
 }
 
 #primary,
@@ -2158,7 +2184,7 @@ body {
 
 .ast-separate-container .blog-layout-1 {
   padding: 0;
-  background-color: #fff;
+  /*background-color: $color-background-content;*/
   border-bottom: 0;
 }
 
@@ -2238,6 +2264,10 @@ body {
   margin-left: auto;
   padding-right: 20px;
   padding-left: 20px;
+}
+
+.ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
+  margin-top: 0;
 }
 
 .ast-page-builder-template .entry-header.ast-header-without-markup {
@@ -2571,6 +2601,10 @@ body {
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a:before {
   content: "----";
   margin-left: 2px;
+}
+
+.ast-header-break-point .ast-header-custom-item {
+  background-color: #f9f9f9;
 }
 
 .ast-header-break-point .main-header-menu {
@@ -3200,13 +3234,17 @@ body {
   padding: 1em 0;
 }
 
-.main-header-bar .children,
-.main-header-bar .sub-menu {
+.main-header-bar .main-header-bar-navigation:empty {
+  padding: 0;
+}
+
+.main-header-bar .main-header-bar-navigation .children,
+.main-header-bar .main-header-bar-navigation .sub-menu {
   line-height: 1.45;
 }
 
-.main-header-bar .page_item_has_children > a:after,
-.main-header-bar .menu-item-has-children > a:after {
+.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after,
+.main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after {
   content: "\e900";
   display: inline-block;
   font-family: 'Astra';
@@ -3221,17 +3259,17 @@ body {
   line-height: normal;
 }
 
-.main-header-bar .ast-search-icon {
+.main-header-bar .main-header-bar-navigation .ast-search-icon {
   display: block;
   z-index: 4;
   position: relative;
 }
 
-.main-header-bar .slide-search .search-field {
+.main-header-bar .main-header-bar-navigation .slide-search .search-field {
   background-color: white;
 }
 
-.main-header-bar .slide-search .search-field:focus {
+.main-header-bar .main-header-bar-navigation .slide-search .search-field:focus {
   background-color: white;
 }
 
@@ -3364,29 +3402,33 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0;
 }
 
-.ast-header-break-point .page_item_has_children > a:after,
-.ast-header-break-point .menu-item-has-children > a:after {
+.ast-header-break-point .main-header-bar-navigation .page_item_has_children > a:after,
+.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > a:after {
   display: none;
 }
 
 .ast-header-break-point .main-header-bar {
-  line-height: 3;
   display: block;
   padding: 1.5em 0 0;
 }
 
-.ast-header-break-point .main-header-bar .children,
-.ast-header-break-point .main-header-bar .sub-menu {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation {
   line-height: 3;
-}
-
-.ast-header-break-point .main-header-bar .page_item_has_children .sub-menu,
-.ast-header-break-point .main-header-bar .menu-item-has-children .sub-menu {
   display: none;
 }
 
-.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle,
-.ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .children,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .sub-menu {
+  line-height: 3;
+}
+
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu {
+  display: none;
+}
+
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
   display: inline-block;
   position: absolute;
   font-size: inherit;
@@ -3402,8 +3444,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   transition: all .2s;
 }
 
-.ast-header-break-point .main-header-bar .page_item_has_children > .ast-menu-toggle::before,
-.ast-header-break-point .main-header-bar .menu-item-has-children > .ast-menu-toggle::before {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
   font-weight: bold;
   content: "\e900";
   font-family: 'Astra';
@@ -3411,16 +3453,12 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: inline-block;
 }
 
-.ast-header-break-point .main-header-bar .ast-submenu-expanded > .ast-menu-toggle::before {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-submenu-expanded > .ast-menu-toggle::before {
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation {
-  display: none;
-}
-
-.ast-header-break-point .main-header-bar .main-header-menu {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu {
   border-top: 1px solid #eaeaea;
 }
 
@@ -3590,27 +3628,27 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   list-style-type: none;
 }
 
-.widget ul ul.sub-menu {
+.widget_nav_menu ul ul.sub-menu {
   margin-top: 0.25em;
 }
 
-.widget ul ul.sub-menu li {
+.widget_nav_menu ul ul.sub-menu li {
   padding-right: 20px;
 }
 
-.widget ul ul.sub-menu a:after {
+.widget_nav_menu ul ul.sub-menu a:after {
   right: -20px;
 }
 
-.widget ul ul.sub-menu ul a:after {
+.widget_nav_menu ul ul.sub-menu ul a:after {
   right: -40px;
 }
 
-.widget ul ul.sub-menu ul ul a:after {
+.widget_nav_menu ul ul.sub-menu ul ul a:after {
   right: -60px;
 }
 
-.widget li {
+.widget_nav_menu li {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
@@ -3803,6 +3841,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
  *
  */
 .ast-footer-overlay {
+  background-color: #3a3a3a;
   padding-top: 2em;
   padding-bottom: 2em;
 }
@@ -3908,7 +3947,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .site-footer {
-  background-color: #3a3a3a;
   color: #fff;
 }
 
@@ -3924,10 +3962,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   color: #fff;
 }
 
-.site-footer li > a {
-  line-height: 2;
-}
-
 .site-footer ul {
   margin: 0;
   list-style-type: none;
@@ -3941,6 +3975,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
  * Footer Widget Layouts
  */
 .footer-adv-overlay {
+  background-color: #3a3a3a;
   padding-top: 70px;
   padding-bottom: 70px;
 }
@@ -5789,16 +5824,4 @@ input[type="color"]::-webkit-color-swatch {
   -ms-flex-item-align: stretch;
   -ms-grid-row-align: stretch;
   align-self: stretch;
-}
-
-/**
- * CSS is generated in /assets/css/{unminified/minified}/
- * And fonts are added in /assets/fonts/
- * For that added URL '../../' here.
- */
-@font-face {
-  font-family: 'Astra';
-  src: url(../../fonts/Astra.woff) format("woff"), url(../../fonts/Astra.ttf) format("truetype"), url(../../fonts/Astra.svg#Astra) format("svg");
-  font-weight: normal;
-  font-style: normal;
 }

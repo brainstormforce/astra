@@ -27,9 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
-				'section'  => 'title_tagline',
-				'priority' => 5,
-				'label'    => __( 'Retina Logo', 'astra' ),
+				'section'        => 'title_tagline',
+				'priority'       => 5,
+				'label'          => __( 'Retina Logo', 'astra' ),
 				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 			)
 		)
@@ -88,10 +88,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[display-site-title]', array(
-			'type'        => 'checkbox',
-			'section'     => 'title_tagline',
-			'label'       => __( 'Display Site Title', 'astra' ),
-			'priority'    => 6,
+			'type'     => 'checkbox',
+			'section'  => 'title_tagline',
+			'label'    => __( 'Display Site Title', 'astra' ),
+			'priority' => 6,
 		)
 	);
 
@@ -108,9 +108,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[display-site-tagline]', array(
-			'type'        => 'checkbox',
-			'section'     => 'title_tagline',
-			'label'       => __( 'Display Site Tagline', 'astra' ),
+			'type'    => 'checkbox',
+			'section' => 'title_tagline',
+			'label'   => __( 'Display Site Tagline', 'astra' ),
 		)
 	);
 

@@ -22,7 +22,7 @@ if ( ! function_exists( 'astra_widget_tag_cloud_args' ) ) :
 	 */
 	function astra_widget_tag_cloud_args( $args = array() ) {
 
-		$sidebar_link_font_size = astra_get_option( 'font-size-body' );
+		$sidebar_link_font_size            = astra_get_option( 'font-size-body' );
 		$sidebar_link_font_size['desktop'] = ( '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
 
 		$args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;

@@ -141,8 +141,8 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 					WP_Filesystem();
 				}
 
-				$file_contants      = $wp_filesystem->get_contents( $google_fonts_file );
-				$google_fonts_json  = json_decode( $file_contants, 1 );
+				$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
+				$google_fonts_json = json_decode( $file_contants, 1 );
 
 				foreach ( $google_fonts_json as $key => $font ) {
 					$name = key( $font );

@@ -170,10 +170,10 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											$args, array(
 												'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
 												'add_below' => 'comment',
-												'depth'     => $depth,
+												'depth'  => $depth,
 												'max_depth' => $args['max_depth'],
-												'before'    => '<span class="ast-reply-link">',
-												'after'     => '</span>',
+												'before' => '<span class="ast-reply-link">',
+												'after'  => '</span>',
 											)
 										)
 									);
@@ -206,7 +206,7 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 	 */
 	function astra_single_post_navigation_markup() {
 
-		$single_post_navigation_enabled = apply_filters( 'astra_sigle_post_navigation_enabled', true );
+		$single_post_navigation_enabled = apply_filters( 'astra_single_post_navigation_enabled', true );
 
 		if ( is_single() && $single_post_navigation_enabled ) {
 

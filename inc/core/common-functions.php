@@ -35,13 +35,13 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			$hex = str_replace( '#', '', $hex );
 
 			if ( 3 == strlen( $hex ) ) {
-				$hex = str_repeat( substr( $hex,0,1 ), 2 ) . str_repeat( substr( $hex,1,1 ), 2 ) . str_repeat( substr( $hex,2,1 ), 2 );
+				$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 			}
 
 			// Get r, g & b codes from hex code.
-			$r   = hexdec( substr( $hex,0,2 ) );
-			$g   = hexdec( substr( $hex,2,2 ) );
-			$b   = hexdec( substr( $hex,4,2 ) );
+			$r   = hexdec( substr( $hex, 0, 2 ) );
+			$g   = hexdec( substr( $hex, 2, 2 ) );
+			$b   = hexdec( substr( $hex, 4, 2 ) );
 			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
 
 			return 128 <= $hex ? '#000000' : '#ffffff';
@@ -251,7 +251,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 			case 'px':
 			case '%':
-						$value = ( '' != $value ) ? $value : $default;
+						$value   = ( '' != $value ) ? $value : $default;
 						$css_val = esc_attr( $value ) . $unit;
 				break;
 
@@ -396,7 +396,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 		 * @since  1.0.20
 		 * @var Mixed.
 		 */
-		return apply_filters( "astra_get_option_{$option}", $value,  $option, $default );
+		return apply_filters( "astra_get_option_{$option}", $value, $option, $default );
 	}
 }
 
@@ -443,7 +443,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 		 * @since  1.0.20
 		 * @var Mixed.
 		 */
-		return apply_filters( "astra_get_option_meta_{$option_id}", $value,  $default, $default );
+		return apply_filters( "astra_get_option_meta_{$option_id}", $value, $default, $default );
 	}
 }// End if().
 
@@ -679,8 +679,8 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 	 */
 	function astra_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
-		$title = '';
-		$blog_post_title = astra_get_option( 'blog-post-structure' );
+		$title             = '';
+		$blog_post_title   = astra_get_option( 'blog-post-structure' );
 		$single_post_title = astra_get_option( 'blog-single-post-structure' );
 
 		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
@@ -690,7 +690,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 				$before = apply_filters( 'astra_the_title_before', $before );
 				$after  = apply_filters( 'astra_the_title_after', $after );
 
-				$title  = $before . $title . $after;
+				$title = $before . $title . $after;
 			}
 		}
 
@@ -725,13 +725,13 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 		} else {
 			if ( is_front_page() && is_home() ) {
 				// Default homepage.
-				$title = apply_filters( 'astra_the_default_home_page_title', esc_html( 'Home', 'astra' ) );
+				$title = apply_filters( 'astra_the_default_home_page_title', esc_html__( 'Home', 'astra' ) );
 			} elseif ( is_home() ) {
 				// blog page.
 				$title = apply_filters( 'astra_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
 			} elseif ( is_404() ) {
 				// for 404 page - title always display.
-				$title = apply_filters( 'astra_the_404_page_title', esc_html( 'This page doesn\'t seem to exist.', 'astra' ) );
+				$title = apply_filters( 'astra_the_404_page_title', esc_html__( 'This page doesn\'t seem to exist.', 'astra' ) );
 
 				// for search page - title always display.
 			} elseif ( is_search() ) {
@@ -778,11 +778,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 
 				<section class="ast-author-box ast-archive-description">
 					<div class="ast-author-bio">
-						 <h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
-						 <p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
+						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
 					</div>
 					<div class="ast-author-avatar">
-						<?php echo get_avatar( get_the_author_meta( 'email' ) , 120 ); ?>
+						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
 					</div>
 				</section>
 
@@ -858,12 +858,12 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 	function astra_adjust_brightness( $hex, $steps, $type ) {
 
 		// Get rgb vars.
-		$hex = str_replace( '#','',$hex );
+		$hex = str_replace( '#', '', $hex );
 
 		$shortcode_atts = array(
-			'r' => hexdec( substr( $hex,0,2 ) ),
-			'g' => hexdec( substr( $hex,2,2 ) ),
-			'b' => hexdec( substr( $hex,4,2 ) ),
+			'r' => hexdec( substr( $hex, 0, 2 ) ),
+			'g' => hexdec( substr( $hex, 2, 2 ) ),
+			'b' => hexdec( substr( $hex, 4, 2 ) ),
 		);
 
 		// Should we darken the color?
@@ -876,9 +876,9 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 		// Build the new color.
 		$steps = max( -255, min( 255, $steps ) );
 
-		$shortcode_atts['r']  = max( 0,min( 255,$shortcode_atts['r'] + $steps ) );
-		$shortcode_atts['g'] = max( 0,min( 255,$shortcode_atts['g'] + $steps ) );
-		$shortcode_atts['b'] = max( 0,min( 255,$shortcode_atts['b'] + $steps ) );
+		$shortcode_atts['r'] = max( 0, min( 255, $shortcode_atts['r'] + $steps ) );
+		$shortcode_atts['g'] = max( 0, min( 255, $shortcode_atts['g'] + $steps ) );
+		$shortcode_atts['b'] = max( 0, min( 255, $shortcode_atts['b'] + $steps ) );
 
 		$r_hex = str_pad( dechex( $shortcode_atts['r'] ), 2, '0', STR_PAD_LEFT );
 		$g_hex = str_pad( dechex( $shortcode_atts['g'] ), 2, '0', STR_PAD_LEFT );

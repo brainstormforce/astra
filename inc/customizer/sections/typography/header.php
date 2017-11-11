@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
-				'type'        => 'ast-divider',
-				'section'     => 'section-header-typo',
-				'priority'    => 5,
-				'label'       => __( 'Site Title', 'astra' ),
-				'settings'    => array(),
+				'type'     => 'ast-divider',
+				'section'  => 'section-header-typo',
+				'priority' => 5,
+				'label'    => __( 'Site Title', 'astra' ),
+				'settings' => array(),
 			)
 		)
 	);
@@ -49,9 +49,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -93,9 +93,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'input_attrs' => array(
 					'min' => 0,
 				),
-				'units' => array(
-					'px'  => 'px',
-					'em'  => 'em',
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)

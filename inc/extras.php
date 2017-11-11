@@ -56,7 +56,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$classes[]   = esc_attr( $page_layout );
 
 		// Current Astra verion.
-		$classes[]   = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
+		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
 		return $classes;
 	}
@@ -215,7 +215,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 */
 	function astra_get_search( $option = '' ) {
 
-		$search_html = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
+		$search_html  = '<div class="ast-search-icon"><a class="slide-search astra-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'astra' ) . '</span></a></div>
 						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
@@ -299,7 +299,7 @@ if ( ! function_exists( 'astra_get_small_footer' ) ) {
 	function astra_get_small_footer( $section = '' ) {
 
 		$small_footer_type = astra_get_option( $section );
-		$output = null;
+		$output            = null;
 
 		switch ( $small_footer_type ) {
 			case 'menu':
@@ -460,8 +460,8 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 	 */
 	function astra_toggle_buttons_markup() {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
-		$custom_header_section = astra_get_option( 'header-main-rt-section' );
-		$menu_bottons = true;
+		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
+		$menu_bottons               = true;
 		if ( $disable_primary_navigation && 'none' == $custom_header_section ) {
 			$menu_bottons = false;
 		}
@@ -496,11 +496,14 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 	function astra_primary_navigation_markup() {
 
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
+		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
 
 		if ( $disable_primary_navigation ) {
-			echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
-			echo astra_masthead_get_menu_items();
-			echo '</div>';
+			if ( 'none' != $custom_header_section ) {
+				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				echo astra_masthead_get_menu_items();
+				echo '</div>';
+			}
 		} else {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
@@ -652,8 +655,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 	 */
 	function astra_header_classes() {
 
-		$classes = array( 'site-header' );
-		$menu_logo_location = astra_get_option( 'header-layouts' );
+		$classes                 = array( 'site-header' );
+		$menu_logo_location      = astra_get_option( 'header-layouts' );
 		$mobile_header_alignment = astra_get_option( 'header-main-menu-align' );
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -717,14 +720,14 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		}
 		<?php
 
-		$astra_header_width   = astra_get_option( 'header-main-layout-width' );
+		$astra_header_width = astra_get_option( 'header-main-layout-width' );
 
 		/* Width for Header */
 		if ( 'content' != $astra_header_width ) {
 			$genral_global_responsive = array(
 				'#masthead .ast-container' => array(
-					'max-width' => '100%',
-					'padding-left' => '35px',
+					'max-width'     => '100%',
+					'padding-left'  => '35px',
 					'padding-right' => '35px',
 				),
 			);
@@ -758,16 +761,16 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 	function astra_comment_form_default_fields_markup( $fields ) {
 
 		$commenter = wp_get_current_commenter();
-		$req = get_option( 'require_name_email' );
-		$aria_req = ( $req ? " aria-required='true'" : '' );
+		$req       = get_option( 'require_name_email' );
+		$aria_req  = ( $req ? " aria-required='true'" : '' );
 
 		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
 					'<label for="author" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['email'] = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+		$fields['email']  = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
 					'<label for="email" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['url'] = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
+		$fields['url']    = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
 					'<label for="url" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
 					'" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 		return $fields;
@@ -789,11 +792,11 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 	 */
 	function astra_comment_form_default_markup( $args ) {
 
-		$args['id_form']            = 'ast-commentform';
-		$args['title_reply']        = astra_default_strings( 'string-comment-title-reply', false );
-		$args['cancel_reply_link']  = astra_default_strings( 'string-comment-cancel-reply-link', false );
-		$args['label_submit']       = astra_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']      = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		$args['id_form']           = 'ast-commentform';
+		$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
+		$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
+		$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
+		$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		return $args;
 	}
 }
@@ -938,28 +941,28 @@ if ( ! function_exists( 'astra_google_fonts_callback' ) ) {
 
 		foreach ( $fonts as $font_name => $font_weight ) {
 
-			$is_true = false;
+			$is_true         = false;
 			$new_font_weight = '';
 
 			switch ( $font_name ) {
 				case 'Buda':
 				case 'Open Sans Condensed':
-						$is_true = true;
+						$is_true         = true;
 						$new_font_weight = 300;
 					break;
 				case 'Coda Caption':
-						$is_true = true;
+						$is_true         = true;
 						$new_font_weight = 800;
 					break;
 				case 'UnifrakturCook':
-						$is_true = true;
+						$is_true         = true;
 						$new_font_weight = 700;
 					break;
 			}
 
 			if ( $is_true ) {
 				if ( in_array( 'normal', $font_weight ) ) {
-					$key = array_search( 'normal', $font_weight );
+					$key                         = array_search( 'normal', $font_weight );
 					$fonts[ $font_name ][ $key ] = $new_font_weight;
 				}
 			}
@@ -1018,11 +1021,11 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id           = astra_get_post_id();
-		$classes           = array();
-		$title_markup      = astra_the_title( '', '', $post_id, false );
-		$thumb_markup      = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup  = astra_single_get_post_meta( '', '', false );
+		$post_id          = astra_get_post_id();
+		$classes          = array();
+		$title_markup     = astra_the_title( '', '', $post_id, false );
+		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup = astra_single_get_post_meta( '', '', false );
 
 		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
@@ -1066,8 +1069,8 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$output = '';
 
-		$featured_image     = true;
-		$is_featured_image  = astra_get_option_meta( 'ast-featured-img' );
+		$featured_image    = true;
+		$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
 
 		if ( 'disabled' === $is_featured_image ) {
 			$featured_image = false;
@@ -1075,21 +1078,31 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$featured_image = apply_filters( 'astra_featured_image_enabled', $featured_image );
 
-		$blog_post_thumb = astra_get_option( 'blog-post-structure' );
+		$blog_post_thumb   = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
 
 		if ( ( ( ! is_singular() && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
-			if ( $featured_image && ( ! (is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
-				$output .= '<div class="post-thumb">';
-				if ( ! is_singular() ) {
-					$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+
+			if ( $featured_image && ( ! ( is_singular() ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+
+				$post_thumb = get_the_post_thumbnail();
+
+				if ( '' != $post_thumb ) {
+					$output .= '<div class="post-thumb-img-content post-thumb">';
+					if ( ! is_singular() ) {
+						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+					}
+					$output .= $post_thumb;
+					if ( ! is_singular() ) {
+						$output .= '</a>';
+					}
+					$output .= '</div>';
 				}
-				$output .= get_the_post_thumbnail();
-				if ( ! is_singular() ) {
-					$output .= '</a>';
-				}
-				$output .= '</div>';
 			}
+		}
+
+		if ( ! is_singular() ) {
+			$output = apply_filters( 'astra_blog_post_featured_image_after', $output );
 		}
 
 		if ( $echo ) {
@@ -1187,7 +1200,7 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 			$attr['srcset'] = '';
 
 			if ( apply_filters( 'astra_main_header_retina', true ) && '' !== $retina_logo ) {
-				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 				$cutom_logo_url = $cutom_logo[0];
 
 				if ( astra_check_is_ie() ) {
@@ -1201,5 +1214,32 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 		}
 
 		return $attr;
+	}
+endif; // End if().
+
+/**
+ * Astra Color Palletes.
+ */
+if ( ! function_exists( 'astra_color_palette' ) ) :
+
+	/**
+	 * Astra Color Palletes.
+	 *
+	 * @return array Color Palletes.
+	 */
+	function astra_color_palette() {
+
+		$color_palette = array(
+			'#000000',
+			'#ffffff',
+			'#dd3333',
+			'#dd9933',
+			'#eeee22',
+			'#81d742',
+			'#1e73be',
+			'#8224e3',
+		);
+
+		return apply_filters( 'astra_color_palettes', $color_palette );
 	}
 endif; // End if().

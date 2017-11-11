@@ -104,10 +104,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
-			'type'        => 'textarea',
-			'section'     => 'section-footer-small',
-			'priority'    => 20,
-			'label'       => __( 'Section 1 Custom Text', 'astra' ),
+			'type'     => 'textarea',
+			'section'  => 'section-footer-small',
+			'priority' => 20,
+			'label'    => __( 'Section 1 Custom Text', 'astra' ),
 		)
 	);
 
@@ -159,10 +159,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
-			'type'        => 'textarea',
-			'section'     => 'section-footer-small',
-			'priority'    => 30,
-			'label'       => __( 'Section 2 Custom Text', 'astra' ),
+			'type'     => 'textarea',
+			'section'  => 'section-footer-small',
+			'priority' => 30,
+			'label'    => __( 'Section 2 Custom Text', 'astra' ),
 		)
 	);
 
@@ -248,11 +248,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[footer-layout-width]', array(
-			'type'        => 'select',
-			'section'     => 'section-footer-small',
-			'priority'    => 35,
-			'label'       => __( 'Footer Bar Width', 'astra' ),
-			'choices'     => array(
+			'type'     => 'select',
+			'section'  => 'section-footer-small',
+			'priority' => 35,
+			'label'    => __( 'Footer Bar Width', 'astra' ),
+			'choices'  => array(
 				'full'    => __( 'Full Width', 'astra' ),
 				'content' => __( 'Content Width', 'astra' ),
 			),

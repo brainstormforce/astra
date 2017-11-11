@@ -18,7 +18,6 @@ $section_2 = astra_get_small_footer( 'footer-sml-section-2' );
 	<div class="ast-footer-overlay">
 		<div class="ast-container">
 			<div class="ast-small-footer-wrap" >
-				
 				<?php if ( $section_1 ) : ?>
 					<div class="ast-small-footer-section ast-small-footer-section-1" >
 						<?php

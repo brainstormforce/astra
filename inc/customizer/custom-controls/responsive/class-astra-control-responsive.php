@@ -77,12 +77,12 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 			);
 		}
 
-		$this->json['value']    = $val;
-		$this->json['choices']  = $this->choices;
-		$this->json['link']     = $this->get_link();
-		$this->json['id']       = $this->id;
-		$this->json['label']    = esc_html( $this->label );
-		$this->json['units']    = $this->units;
+		$this->json['value']   = $val;
+		$this->json['choices'] = $this->choices;
+		$this->json['link']    = $this->get_link();
+		$this->json['id']      = $this->id;
+		$this->json['label']   = esc_html( $this->label );
+		$this->json['units']   = $this->units;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -145,7 +145,7 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 			} #>
 
 			<div class="input-wrapper ast-responsive-wrapper">
-				
+
 				<input {{{ data.inputAttrs }}} data-id='desktop' class="ast-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
 				<select class="ast-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
@@ -159,14 +159,14 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 					<option value="{{{ key }}}" <# if ( data.value['tablet-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>
 				</select>
-				
+
 				<input {{{ data.inputAttrs }}} data-id='mobile' class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
 				<select class="ast-responsive-select mobile" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( data.value['mobile-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>
 				</select>
-				
+
 			</div>
 		</label>
 		<?php

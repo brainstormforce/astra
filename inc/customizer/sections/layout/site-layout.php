@@ -32,9 +32,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'       => __( 'Container Width', 'astra' ),
 				'suffix'      => '',
 				'input_attrs' => array(
-					'min'    => 768,
-					'step'   => 1,
-					'max'    => 1920,
+					'min'  => 768,
+					'step' => 1,
+					'max'  => 1920,
 				),
 			)
 		)

@@ -47,10 +47,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function __construct() {
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ), 10 );
-			add_action( 'woocommerce_after_main_content',  array( $this, 'before_main_content_end' ), 10 );
-			add_filter( 'astra_theme_assets',                array( $this, 'add_styles' ) );
-			add_action( 'after_setup_theme',               array( $this, 'setup_theme' ) );
-			add_action( 'init',                            array( $this, 'woocommerce_init' ), 1 );
+			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ), 10 );
+			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
+			add_action( 'init', array( $this, 'woocommerce_init' ), 1 );
 
 		}
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function before_main_content_start() {
 			$site_sidebar = astra_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
-				 get_sidebar();
+				get_sidebar();
 			}
 			?>
 			<div <?php astra_attr( 'primary', 'woocommerce' ); ?> class="content-area primary">
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			<?php
 			$site_sidebar = astra_page_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
-				 get_sidebar();
+				get_sidebar();
 			}
 		}
 

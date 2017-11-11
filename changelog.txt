@@ -1,5 +1,47 @@
+v1.0.30
+# Fixed: Regression in v1.0.29 which caused site logo to be full width.
+
+v1.0.29
+# New: Added filters `astra_post_read_more` and `astra_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
+# Fix: Site SVG logo only visible if site title is enabled in some cases.
+
+v1.0.28
+# Set correct page meta settings on themer layouts if they are empty.
+
+v1.0.27
+# Fix: Two primary menu navigation drop-down icon visible for responsive devices.
+# Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
+# Improvement: Renamed filter `astra_sigle_post_navigation_enabled` to `astra_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
+# Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
+
+v1.0.26
+# Fix: duplicate menu dropdown toggle appearing on mobile devices
+
+v1.0.25
+# Fixed: Astra's menu CSS being applied to the Elementor's menu when used as replacement in the header.
+# Updated the theme screenshot and correct license details for the screenshot.
+
+v1.0.24
+# Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
+
+v1.0.23
+# Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
+# Improvement: Renamed filter `astra_color_palletes` to `astra_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
+# Fix: Mobile navigation breakpoint not working on IE11 and Edge.
+
+v1.0.22
+# Improvement: Background Color picker with opacity option added the Customizer.
+# Fix: Divi Page builder preview for Tablet / Phone view not working.
+
+v1.0.21
+# Improvement: Updated the Toolset Types compatibility configuration.
+# Updated the theme screenshot.
+
 v1.0.20
 # New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
+# New: Added fullscreen support for any oEmbed markup.
+# New: Added filter 'astra_enable_default_fonts' to disable astra default font file.
+# New: Added filter 'astra_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
 # Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
 
 v1.0.19

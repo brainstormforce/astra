@@ -52,17 +52,3 @@
 @import "site-compatible/page-builder/page-builder";
 
 @import "layout/flex";
-
-/**
- * CSS is generated in /assets/css/{unminified/minified}/
- * And fonts are added in /assets/fonts/
- * For that added URL '../../' here.
- */
-@font-face {
-	font-family: 'Astra';
-		src: url(../../fonts/Astra.woff) format('woff'),
-    	url(../../fonts/Astra.ttf) format("truetype"),
-    	url(../../fonts/Astra.svg#Astra) format("svg");;
-	font-weight: normal;
-	font-style: normal;
-}

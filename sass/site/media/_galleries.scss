@@ -26,3 +26,29 @@
         margin-bottom: 2em;
     }
 }
+
+
+.elementor-image-gallery .gallery-icon {
+    border: none;
+}
+
+/* Astra Respnosive oEmbed Video container */
+
+.ast-oembed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+
+    iframe, object, embed { 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+

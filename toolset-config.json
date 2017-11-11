@@ -1,16 +1,123 @@
 {
   "data": [
     {
-      "name": "site-sidebar-layout",
+      "name": "ast-main-header-display",
       "type": [
-        "global",
         "local"
       ],
-      "global_key" : "astra-settings",
-      "group": "General Settings",
+      "group": "Layout Settings",
       "target": [
-        "archive",
         "single"
+      ],
+      "gui": {
+        "display_name": "Primary Header",
+        "type": "select",
+        "values": [
+          {
+            "text": "Disabled",
+            "value": "disabled"
+          },
+          {
+            "text": "Enabled",
+            "value": "enabled"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "site-post-title",
+      "type": [
+        "local"
+      ],
+      "group": "Layout Settings",
+      "target": [
+        "single"
+      ],
+      "gui": {
+        "display_name": "Post Title",
+        "type": "select",
+        "values": [
+          {
+            "text": "Disabled",
+            "value": "disabled"
+          },
+          {
+            "text": "Enabled",
+            "value": "enabled"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "site-sidebar-layout",
+      "type": [
+        "local"
+      ],
+      "group": "Layout Settings",
+      "target": [
+        "single"
+      ],
+      "gui": {
+        "display_name": "Sidebar",
+        "type": "select",
+        "values": [
+          {
+            "text": "No Sidebar",
+            "value": "no-sidebar"
+          },
+          {
+            "text": "Left Sidebar",
+            "value": "left-sidebar"
+          },
+          {
+            "text": "Right Sidebar",
+            "value": "right-sidebar"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "site-sidebar-layout",
+      "type": [
+        "global"
+      ],
+      "global_key" : "astra-settings",
+      "group": "Archive Layout Settings",
+      "target": [
+        "archive"
+      ],
+      "gui": {
+        "display_name": "Sidebar",
+        "type": "select",
+        "values": [
+          {
+            "text": "No Sidebar",
+            "value": "no-sidebar"
+          },
+          {
+            "text": "Left Sidebar",
+            "value": "left-sidebar"
+          },
+          {
+            "text": "Right Sidebar",
+            "value": "right-sidebar"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "archive-post-sidebar-layout",
+      "type": [
+        "global"
+      ],
+      "global_key" : "astra-settings",
+      "group": "Archive Layout Settings on Blog and Search Results",
+      "target": [
+        "archive"
       ],
       "gui": {
         "display_name": "Sidebar",
@@ -35,14 +142,79 @@
     {
       "name": "site-content-layout",
       "type": [
-        "global",
         "local"
       ],
-      "global_key" : "astra-settings",
-      "group": "General Settings",
+      "group": "Layout Settings",
       "target": [
-        "archive",
         "single"
+      ],
+      "gui": {
+        "display_name": "Content Layout",
+        "type": "select",
+        "values": [
+          {
+            "text": "Boxed",
+            "value": "boxed-container"
+          },
+          {
+            "text": "Content Boxed",
+            "value": "content-boxed-container"
+          },
+          {
+            "text": "Full Width / Stretched",
+            "value": "page-builder"
+          },
+		  {
+            "text": "Full Width / Contained",
+            "value": "plain-container"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "site-content-layout",
+      "type": [
+        "global"
+      ],
+      "global_key" : "astra-settings",
+      "group": "Archive Layout Settings",
+      "target": [
+        "archive"
+      ],
+      "gui": {
+        "display_name": "Content Layout",
+        "type": "select",
+        "values": [
+          {
+            "text": "Boxed",
+            "value": "boxed-container"
+          },
+          {
+            "text": "Content Boxed",
+            "value": "content-boxed-container"
+          },
+          {
+            "text": "Full Width / Stretched",
+            "value": "page-builder"
+          },
+		  {
+            "text": "Full Width / Contained",
+            "value": "plain-container"
+          }
+        ]
+      },
+      "default_value": "toolset_use_theme_setting"
+    },
+	{
+      "name": "archive-post-content-layout",
+      "type": [
+        "global"
+      ],
+      "global_key" : "astra-settings",
+      "group": "Archive Layout Settings on Blog and Search Results",
+      "target": [
+        "archive"
       ],
       "gui": {
         "display_name": "Content Layout",
@@ -69,42 +241,12 @@
       "default_value": "toolset_use_theme_setting"
     },
     {
-      "name": "site-post-title",
-      "type": [
-        "global",
-        "local"
-      ],
-      "global_key" : "astra-settings",
-      "group": "General Settings",
-      "target": [
-        "single"
-      ],
-      "gui": {
-        "display_name": "Post Title",
-        "type": "select",
-        "values": [
-          {
-            "text": "Disabled",
-            "value": "disabled"
-          },
-          {
-            "text": "Enabled",
-            "value": "enabled"
-          }
-        ]
-      },
-      "default_value": "toolset_use_theme_setting"
-    },
-    {
       "name": "footer-sml-layout",
       "type": [
-        "global",
         "local"
       ],
-      "global_key" : "astra-settings",
-      "group": "General Settings",
+      "group": "Layout Settings",
       "target": [
-        "archive",
         "single"
       ],
       "gui": {
@@ -123,93 +265,23 @@
       },
       "default_value": "toolset_use_theme_setting"
     },
-    {
-      "name": "ast-main-header-display",
+	{
+      "name": "footer-sml-layout",
       "type": [
-        "global",
-        "local"
+        "global"
       ],
       "global_key" : "astra-settings",
-      "group": "General Settings",
+      "group": "Archive Layout Settings",
       "target": [
-        "archive",
-        "single"
+        "archive"
       ],
       "gui": {
-        "display_name": "Primary Header",
+        "display_name": "Small Footer",
         "type": "select",
         "values": [
           {
             "text": "Disabled",
             "value": "disabled"
-          },
-          {
-            "text": "Enabled",
-            "value": "enabled"
-          }
-        ]
-      },
-      "default_value": "toolset_use_theme_setting"
-    },
-    {
-      "name": "archive-post-sidebar-layout",
-      "type": [
-        "global"
-      ],
-      "global_key" : "astra-settings",
-      "target": [
-        "archive"
-      ],
-      "group": "Search Page",
-      "gui": {
-        "display_name": "Archive Sidebar",
-        "type": "select",
-        "values": [
-          {
-            "text": "No Sidebar",
-            "value": "no-sidebar"
-          },
-          {
-            "text": "Left Sidebar",
-            "value": "left-sidebar"
-          },
-          {
-            "text": "Right Sidebar",
-            "value": "right-sidebar"
-          }
-        ]
-      },
-      "default_value": "toolset_use_theme_setting"
-    },
-    {
-      "name": "archive-site-content-layout",
-      "type": [
-        "global"
-      ],
-      "global_key" : "astra-settings",
-      "target": [
-        "archive"
-      ],
-      "group": "Search Page",
-      "gui": {
-        "display_name": "Content Layout",
-        "type": "select",
-        "values": [
-          {
-            "text": "Plain",
-            "value": "plain-container"
-          },
-          {
-            "text": "Boxed",
-            "value": "boxed-container"
-          },
-          {
-            "text": "Content Boxed",
-            "value": "content-boxed-container"
-          },
-          {
-            "text": "Page Builder",
-            "value": "page-builder"
           }
         ]
       },
@@ -253,7 +325,7 @@
       ],
       "group": "Disable Elements",
       "gui": {
-        "display_name": "Title",
+        "display_name": "Archive Title",
         "type": "select",
         "values": [
           {
@@ -281,33 +353,6 @@
       "group": "Disable Elements",
       "gui": {
         "display_name": "Featured Image",
-        "type": "select",
-        "values": [
-          {
-            "text": "Enable",
-            "value": 0
-          },
-          {
-            "text": "Disable",
-            "value": 1
-          }
-        ]
-      },
-      "trigger_value": 1,
-      "default_value": 0
-    },
-    {
-      "name": "astra_post_link_enabled",
-      "filter_method": "__return_false",
-      "type": [
-        "control_filters"
-      ],
-      "target": [
-        "archive"
-      ],
-      "group": "Disable Elements",
-      "gui": {
-        "display_name": "Read more link for excerpts",
         "type": "select",
         "values": [
           {
