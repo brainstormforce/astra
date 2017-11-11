@@ -18,7 +18,7 @@
  *
  * @since 1.0.0
  */
-add_action( 'astra_loop_content', 'astra_archive_content_template' );
+//add_action( 'astra_loop_content', 'astra_archive_content_template' );
 
 /**
  * Archive markup ( Post Not Found )
@@ -30,7 +30,7 @@ add_action( 'astra_loop_content', 'astra_archive_content_template' );
  *
  * @since 1.0.0
  */
-add_action( 'astra_loop_content_else', 'astra_archive_content_else_template' );
+//add_action( 'astra_loop_content_else', 'astra_archive_content_else_template' );
 
 get_header(); ?>
 

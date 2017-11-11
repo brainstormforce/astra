@@ -13,30 +13,6 @@
  * @since 1.0.0
  */
 
-/**
- * Index markup ( Post Found )
- *
- * => Action hooked in standard loop for markup
- *
- * 'astra_loop_content' action found in "framework/structure/loops.php"
- * 'astra_index_content_template' function found in "framework/structure/index.php"
- *
- * @since 1.0.0
- */
-add_action( 'astra_loop_content', 'astra_index_content_template' );
-
-/**
- * Index markup ( Post Not Found )
- *
- * => Action hooked in standard loop else for markup
- *
- * 'astra_loop_content_else' action found in "framework/structure/loops"
- * 'astra_index_content_else_template' function found in "framework/structure/index.php"
- *
- * @since 1.0.0
- */
-add_action( 'astra_loop_content_else', 'astra_index_content_else_template' );
-
 get_header(); ?>
 
 <?php astra_primary_before(); ?>

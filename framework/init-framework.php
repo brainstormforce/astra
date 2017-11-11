@@ -27,6 +27,9 @@ function astra_setup() {
 	require_once $structure_path . 'search.php';
 	require_once $structure_path . 'sidebar.php';
 	require_once $structure_path . 'single.php';
+	
+	/* Execute All loops of hierarchy */
+	require_once $structure_path . 'execute-loops.php';
 }
 add_action( 'astra_init', 'astra_setup' );
 

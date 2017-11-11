@@ -20,7 +20,7 @@
  *
  * @since 1.0.0
  */
-add_action( 'astra_loop_content', 'astra_single_content_template' );
+//add_action( 'astra_loop_content', 'astra_single_content_template' );
 
 get_header(); ?>
 

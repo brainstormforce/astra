@@ -21,7 +21,7 @@
  *
  * @since 1.0.0
  */
-add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
+//add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 
 ?>
 
