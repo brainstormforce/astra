@@ -7,6 +7,85 @@
  */
 
 /**
+ * Page Content Template Part
+ *
+ * => Action hooked 'astra_entry_content_page'
+ *
+ * 'astra_entry_content_page_template' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_content_page', 'astra_entry_content_page_template', 10 );
+
+/**
+ * Page Content Comments
+ *
+ * => Action hooked 'astra_entry_after'
+ *
+ * 'astra_page_comments' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_after', 'astra_page_comments' );
+
+/* page-layout.php */
+/**
+ * Page content.
+ *
+ * => Action hooked 'astra_entry_content'
+ *
+ * 'astra_page_content' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_content', 'astra_page_content', 10 );
+
+/**
+ * Page featured image.
+ *
+ * => Action hooked 'astra_entry_page_header_content'
+ *
+ * 'astra_entry_page_header_the_image' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_page_header_content', 'astra_entry_page_header_the_image', 5 );
+
+/**
+ * Page title.
+ *
+ * => Action hooked 'astra_entry_page_header_content'
+ *
+ * 'astra_entry_page_header_the_title' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_page_header_content', 'astra_entry_page_header_the_title', 10 );
+
+/**
+ * Page Content Pagination.
+ *
+ * => Action hooked 'astra_entry_page_content_link_pages'
+ *
+ * 'astra_entry_page_content_the_link_pages' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_page_content_link_pages', 'astra_entry_page_content_the_link_pages', 10 );
+
+/**
+ * Page Edit Link.
+ *
+ * => Action hooked 'astra_entry_page_edit_post_link'
+ *
+ * 'astra_entry_page_the_edit_post_link' function found in "framework/structure/page.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_page_edit_post_link', 'astra_entry_page_the_edit_post_link', 10 );
+
+
+/**
  * Page Content Main Template
  *
  * => Used in files:
@@ -16,7 +95,11 @@
  * @since 1.0.0
  */
 function astra_page_content_template() {
-	get_template_part( 'template-parts/content', 'page' );
+	
+	if ( is_singular( 'page' ) ) {
+	
+		get_template_part( 'template-parts/content', 'page' );
+	}
 }
 
 /**
@@ -30,10 +113,13 @@ function astra_page_content_template() {
  */
 function astra_page_comments() {
 
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
+	if ( is_singular( 'page' ) ) {
+		
+		// If comments are open or we have at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
+	}
 }
 
 
