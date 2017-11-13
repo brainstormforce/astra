@@ -96,10 +96,7 @@ add_action( 'astra_entry_page_edit_post_link', 'astra_entry_page_the_edit_post_l
  */
 function astra_page_content_template() {
 	
-	if ( is_singular( 'page' ) ) {
-	
-		get_template_part( 'template-parts/content', 'page' );
-	}
+	get_template_part( 'template-parts/content', 'page' );
 }
 
 /**
@@ -122,20 +119,6 @@ function astra_page_comments() {
 	}
 }
 
-
-/**
- * Page markup ( template part )
- *
- * => Used in files:
- *
- * /template-parts/content-page.php
- *
- * @since 1.0.0
- */
-function astra_entry_content_page_template() {
-	get_template_part( 'template-parts/page/page-layout' );
-}
-
 /**
  * Page Content
  *
@@ -146,7 +129,11 @@ function astra_entry_content_page_template() {
  * @since 1.0.0
  */
 function astra_page_content() {
-	the_content();
+	
+	if ( is_singular( 'page' ) ) {
+	
+		the_content();
+	}
 }
 
 /**

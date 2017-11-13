@@ -63,23 +63,6 @@ add_action( 'astra_entry_single_edit_post_link', 'astra_entry_single_the_edit_po
 add_action( 'astra_entry_single_content_link_pages', 'astra_entry_single_content_the_link_pages', 10 );
 
 /**
- * Single Content Main Template
- *
- * => Used in files:
- *
- * /single.php
- *
- * @since 1.0.0
- */
-function astra_single_content_template() {
-	
-	if ( is_singular() && !is_singular( 'page' ) ) {
-	
-		get_template_part( 'template-parts/content', 'single' );
-	}
-}
-
-/**
  * Single Post Comments
  *
  * => Used in files:
@@ -123,7 +106,11 @@ function astra_entry_content_single_template() {
  * @since 1.0.0
  */
 function astra_single_content() {
-	the_content();
+
+	if ( is_singular() && !is_singular( 'page' ) ) {
+	
+		the_content();
+	}
 }
 
 /**

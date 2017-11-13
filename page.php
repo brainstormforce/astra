@@ -13,18 +13,6 @@
  * @since 1.0.0
  */
 
-/**
- * Page Content Main Template
- *
- * => Action hooked in standard loop for markup
- *
- * 'astra_loop_content' action found in "framework/structure/loops.php"
- * 'astra_page_content_template' function found in "framework/structure/page.php"
- *
- * @since 1.0.0
- */
-//add_action( 'astra_loop_content', 'astra_page_content_template' );
-
 get_header(); ?>
 
 <?php astra_primary_before(); ?>

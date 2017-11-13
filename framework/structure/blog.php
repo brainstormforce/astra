@@ -17,17 +17,6 @@
 add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
 
 /**
- * Content Blog Templates.
- *
- * => Action hooked 'astra_entry_content_search'
- * 
- *
- * @since 1.0.0
- */
-add_action( 'astra_entry_content_search', 'astra_entry_content_blog_template' );
-
-
-/**
  * Content Blog Templates
  *
  * => Used in files:

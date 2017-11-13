@@ -8,30 +8,6 @@
  * @since 1.0.0
  */
 
-/**
- * Search markup ( Post found )
- *
- * => Action hooked in standard loop for markup
- *
- * 'astra_loop_content' action found in "framework/structure/loops.php"
- * 'astra_search_content_template' function found in "framework/structure/search.php"
- *
- * @since 1.0.0
- */
-//add_action( 'astra_loop_content', 'astra_search_content_template' );
-
-/**
- * Search markup ( Post not found )
- *
- * => Action hooked in standard loop else for markup
- *
- * 'astra_loop_content_else' action found in "framework/structure/loops"
- * 'astra_search_content_else_template' function found in "framework/structure/search.php"
- *
- * @since 1.0.0
- */
-//add_action( 'astra_loop_content_else', 'astra_search_content_else_template' );
-
 get_header();
 ?>
 

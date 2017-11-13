@@ -7,29 +7,28 @@
  */
 
 /**
- * Search Template Part
+ * Content Blog Templates.
  *
- * => Used in files:
- *
- * /search.php
+ * => Action hooked 'astra_entry_content_search'
+ * 
  *
  * @since 1.0.0
  */
-function astra_search_content_template() {
-
-	get_template_part( 'template-parts/search/search-layout' );
-}
+add_action( 'astra_entry_content', 'astra_entry_content_search_template' );
 
 /**
- * Search Template Part Else
+ * Content Blog Templates
  *
  * => Used in files:
  *
- * /search.php
+ * /template-parts/search/search-layout.php
  *
  * @since 1.0.0
  */
-function astra_search_content_else_template() {
+function astra_entry_content_search_template() {
 
-	get_template_part( 'template-parts/content', 'none' );
+	if ( is_search() ) {
+		
+		get_template_part( 'template-parts/blog/blog-layout' );
+	}
 }

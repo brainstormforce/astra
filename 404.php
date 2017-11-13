@@ -10,21 +10,6 @@
 
 ?>
 
-<?php
-
-/**
- * 404 Content Template Part
- *
- * => Action hooked 'astra_entry_content_404_page'
- *
- * 'astra_entry_content_404_page_template' function found in "framework/structure/404.php"
- *
- * @since 1.0.0
- */
-//add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
-
-?>
-
 <?php get_header(); ?>
 
 <?php astra_primary_before(); ?>

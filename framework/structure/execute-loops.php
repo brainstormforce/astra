@@ -29,6 +29,8 @@ add_action( 'astra_loop_content', 'astra_do_loop_content' );
  */
 function astra_do_loop_content() {
 	
+	vl( is_404() );
+
 	if ( is_home() || is_archive() ) {
 		
 		/**
@@ -40,9 +42,6 @@ function astra_do_loop_content() {
 	}elseif ( is_search() ) {
 		
 		get_template_part( 'template-parts/search/search-layout' );
-	}elseif ( is_404() ) {
-		
-		get_template_part( 'template-parts/404/404-layout' );
 	}elseif ( is_singular() ) {
 		
 		if ( is_page() ) {
