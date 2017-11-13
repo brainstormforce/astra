@@ -56,7 +56,7 @@ add_action( 'astra_entry_single_content_link_pages', 'astra_entry_single_content
 
 		<?php astra_single_header_top(); ?>
 
-		<?php astra_blog_post_thumbnai_and_title_order(); ?>
+		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
 		<?php astra_single_header_bottom(); ?>
 
