@@ -7,6 +7,62 @@
  */
 
 /**
+ * Single Content Template Part
+ *
+ * => Action hooked 'astra_entry_content_single'
+ *
+ * 'astra_entry_content_single_template' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_content_single', 'astra_entry_content_single_template', 10 );
+
+/**
+ * Single Content Comments
+ *
+ * => Action hooked 'astra_entry_after'
+ *
+ * 'astra_single_comments' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_after', 'astra_single_comments' );
+
+/* template-parts */
+/**
+ * Single Post content.
+ *
+ * => Action hooked 'astra_entry_content'
+ *
+ * 'astra_single_content' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_content', 'astra_single_content', 10 );
+
+/**
+ * Single Edit Post Link.
+ *
+ * => Action hooked 'astra_entry_single_edit_post_link'
+ *
+ * 'astra_entry_single_the_edit_post_link' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_single_edit_post_link', 'astra_entry_single_the_edit_post_link', 10 );
+
+/**
+ * Single Post Content Pagination.
+ *
+ * => Action hooked 'astra_entry_single_content_link_pages'
+ *
+ * 'astra_entry_single_content_the_link_pages' function found in "framework/structure/single.php"
+ *
+ * @since 1.0.0
+ */
+add_action( 'astra_entry_single_content_link_pages', 'astra_entry_single_content_the_link_pages', 10 );
+
+/**
  * Single Content Main Template
  *
  * => Used in files:
@@ -16,7 +72,11 @@
  * @since 1.0.0
  */
 function astra_single_content_template() {
-	get_template_part( 'template-parts/content', 'single' );
+	
+	if ( is_singular() && !is_singular( 'page' ) ) {
+	
+		get_template_part( 'template-parts/content', 'single' );
+	}
 }
 
 /**
@@ -30,10 +90,13 @@ function astra_single_content_template() {
  */
 function astra_single_comments() {
 
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
+	if ( is_singular() && !is_singular( 'page' ) ) {
+		
+		// If comments are open or we have at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
+	}
 }
 
 
