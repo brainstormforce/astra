@@ -14,7 +14,7 @@
 
 	<div class="post-content ast-col-md-12">
 
-		<?php astra_blog_post_thumbnai_and_title_order(); ?>
+		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
 		<div <?php astra_attr( 'entry-content', 'archive' ); ?> class="entry-content clear" >
 

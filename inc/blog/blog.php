@@ -146,14 +146,14 @@ add_action( 'astra_blog_post_featured_format', 'astra_blog_post_get_featured_ite
 /**
  * Blog Post Thumbnail / Title & Meta Order
  */
-if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
+if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 
 	/**
 	 * Blog post Thubmnail, Title & Blog Meta order
 	 *
 	 * @since  1.0.8
 	 */
-	function astra_blog_post_thumbnai_and_title_order() {
+	function astra_blog_post_thumbnail_and_title_order() {
 
 		$blog_post_thumb_title_order = astra_get_option( 'blog-post-structure' );
 		if ( is_single() ) {
