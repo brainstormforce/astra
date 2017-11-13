@@ -29,8 +29,6 @@ add_action( 'astra_loop_content', 'astra_do_loop_content' );
  */
 function astra_do_loop_content() {
 	
-	vl( is_404() );
-
 	if ( is_home() || is_archive() ) {
 		
 		/**

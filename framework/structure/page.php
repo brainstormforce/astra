@@ -86,20 +86,6 @@ add_action( 'astra_entry_page_edit_post_link', 'astra_entry_page_the_edit_post_l
 
 
 /**
- * Page Content Main Template
- *
- * => Used in files:
- *
- * /page.php
- *
- * @since 1.0.0
- */
-function astra_page_content_template() {
-	
-	get_template_part( 'template-parts/content', 'page' );
-}
-
-/**
  * Page Comments
  *
  * => Used in files:
