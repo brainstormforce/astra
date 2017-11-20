@@ -13,13 +13,13 @@ get_header();
 
 <?php astra_primary_before(); ?>
 
-	<div <?php astra_attr( 'primary', 'search' ); ?> <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', 'search' ); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
 		<?php astra_archive_header(); ?>
 
-		<main <?php astra_attr( 'main', 'search' ); ?> class="site-main" >
+		<main <?php astra_attr( 'main', 'search' ); ?>>
 
 			<div class="ast-row">
 				

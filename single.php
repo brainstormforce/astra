@@ -12,11 +12,11 @@ get_header(); ?>
 
 <?php astra_primary_before(); ?>
 		
-	<div <?php astra_attr( 'primary', 'single' ); ?> <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', 'single' ); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
-		<main <?php astra_attr( 'main', 'single' ); ?> class="site-main" >
+		<main <?php astra_attr( 'main', 'single' ); ?>>
 
 			<?php
 
