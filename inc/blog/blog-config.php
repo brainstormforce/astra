@@ -96,7 +96,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 			esc_html( '%s' ),
 			$time_string
 		);
-		$output .= '<span class="posted-on" ' . astra_attr( 'post-meta-posted-date', '', false ) . ' > ' . $posted_on . '</span>';
+		$output     .= '<span class="posted-on" ' . astra_attr( 'post-meta-posted-date', '', false ) . ' > ' . $posted_on . '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }// End if().

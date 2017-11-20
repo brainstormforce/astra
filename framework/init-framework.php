@@ -19,16 +19,14 @@ function astra_setup() {
 	$structure_path = $framework_path . 'structure/';
 	/* Common Layout Functions */
 	require_once $structure_path . 'sidebar.php';
-	require_once $structure_path . 'common.php';
 	require_once $structure_path . '404.php';
 	require_once $structure_path . 'blog.php';
-	require_once $structure_path . 'index.php';
 	require_once $structure_path . 'layout.php';
 	require_once $structure_path . 'loops.php';
 	require_once $structure_path . 'page.php';
 	require_once $structure_path . 'search.php';
 	require_once $structure_path . 'single.php';
-	
+
 	/* Execute All loops of hierarchy */
 	require_once $structure_path . 'execute-loops.php';
 }

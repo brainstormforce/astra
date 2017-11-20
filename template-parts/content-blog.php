@@ -7,6 +7,7 @@
  * @package Astra
  * @since 1.0.0
  */
+
 ?>
 
 <?php astra_entry_before(); ?>

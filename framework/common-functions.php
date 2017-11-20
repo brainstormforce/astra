@@ -14,18 +14,18 @@ if ( ! function_exists( 'astra_attr' ) ) :
 	/**
 	 * Replace header logo.
 	 *
-	 * @param array  $attr Image.
-	 * @param object $attachment Image obj.
-	 * @param sting  $size Size name.
+	 * @param string  $context name.
+	 * @param string  $layout type of layout ( optional ).
+	 * @param boolean $echo echo result or return.
 	 *
-	 * @return array Image attr.
+	 * @return string attr output or return.
 	 */
 	function astra_attr( $context = '', $layout = '', $echo = true ) {
 
 		$attrs_output = '';
 
-		if( ! empty( $context ) ) {
-			
+		if ( ! empty( $context ) ) {
+
 			$attrs = apply_filters( 'astra_attr_' . $context, array(), $layout );
 			if ( is_array( $attrs ) && ! empty( $attrs ) ) {
 				foreach ( $attrs as $key => $value ) {
@@ -46,7 +46,7 @@ if ( ! function_exists( 'astra_attr' ) ) :
 
 		if ( $echo ) {
 			echo $attrs_output;
-		} else{
+		} else {
 			return $attrs_output;
 		}
 	}

@@ -11,7 +11,7 @@
 get_header(); ?>
 
 <?php astra_primary_before(); ?>
-		
+
 	<div <?php astra_attr( 'primary', 'single' ); ?>>
 
 		<?php astra_primary_content_top(); ?>
@@ -33,7 +33,7 @@ get_header(); ?>
 		<?php astra_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
-	
+
 <?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>

@@ -144,7 +144,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				if ( is_home() || is_front_page() ) {
 					$tag = 'h1';
 				}
-				$html .= '<' . $tag . ' ' . astra_attr( 'site-identity-name', '', false ) . ' class="site-title"> <a ' . astra_attr( 'site-identity-url', '', false ) .' >' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+				$html .= '<' . $tag . ' ' . astra_attr( 'site-identity-name', '', false ) . ' class="site-title"> <a ' . astra_attr( 'site-identity-url', '', false ) . ' >' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 			}
 
 			// Site description.

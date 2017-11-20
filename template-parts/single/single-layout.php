@@ -38,6 +38,5 @@
 		<?php astra_entry_content_after(); ?>
 
 		<?php astra_entry_single_content_link_pages(); ?>
-			
 	</div><!-- .entry-content .clear -->
 </div>

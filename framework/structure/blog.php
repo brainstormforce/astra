@@ -10,7 +10,6 @@
  * Content Blog Templates.
  *
  * => Action hooked 'astra_entry_content_blog'
- * 
  *
  * @since 1.0.0
  */

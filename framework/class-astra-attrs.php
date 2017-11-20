@@ -38,10 +38,16 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return self::$instance;
 		}
 
+		/**
+		 * Constructor.
+		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'init' ) );
 		}
 
+		/**
+		 * Init attr filters.
+		 */
 		public function init() {
 			add_filter( 'astra_attr_body', array( $this, 'body_attrs' ) );
 			add_filter( 'astra_attr_primary', array( $this, 'primary_attrs' ) );
@@ -59,76 +65,147 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			add_filter( 'astra_attr_site-navigation', array( $this, 'site_navigation_attrs' ) );
 		}
 
+
+		/**
+		 * Body Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function body_attrs( $attrs ) {
-			
+
 			$classes = get_body_class();
 
 			$attrs['class'] = join( ' ', $classes );
 			return $attrs;
 		}
-		
+
+		/**
+		 * Primary Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function primary_attrs( $attrs ) {
 
-			$attrs['id'] = 'primary';
+			$attrs['id']    = 'primary';
 			$attrs['class'] = join( ' ', astra_get_primary_class() );
 			return $attrs;
 		}
 
+		/**
+		 * Main Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function main_attrs( $attrs ) {
 
-			$attrs['id'] = 'main';
-			$attrs['role'] = 'main';
+			$attrs['id']    = 'main';
+			$attrs['role']  = 'main';
 			$attrs['class'] = 'site-main';
 			return $attrs;
 		}
 
+		/**
+		 * Page Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function page_attrs( $attrs ) {
 
-			$attrs['id'] = 'page';
+			$attrs['id']    = 'page';
 			$attrs['class'] = 'hfeed site';
 			return $attrs;
 		}
 
+		/**
+		 * Content Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function content_attrs( $attrs ) {
 
-			$attrs['id'] = 'content';
+			$attrs['id']    = 'content';
 			$attrs['class'] = 'site-content';
 			return $attrs;
 		}
 
+		/**
+		 * Comment Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function comment_attrs( $attrs ) {
 
-			$attrs['id'] = 'comments';
+			$attrs['id']    = 'comments';
 			$attrs['class'] = 'comments-area';
 			return $attrs;
 		}
 
+		/**
+		 * Comment Navigation Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function comment_navigation_attrs( $attrs ) {
 
-			$attrs['id'] = 'comment-nav-below';
-			$attrs['role'] = 'navigation';
-			$attrs['class'] = 'navigation comment-navigation';
+			$attrs['id']         = 'comment-nav-below';
+			$attrs['role']       = 'navigation';
+			$attrs['class']      = 'navigation comment-navigation';
 			$attrs['aria-label'] = esc_html__( 'Comments Navigation', 'astra' );
 			return $attrs;
 		}
 
+		/**
+		 * Article Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function article_attrs( $attrs ) {
 
 			$classes = get_post_class();
-			
-			$attrs['id'] = 'post-' . get_the_ID();
+
+			$attrs['id']    = 'post-' . get_the_ID();
 			$attrs['class'] = join( ' ', $classes );
 			return $attrs;
 		}
 
+		/**
+		 * Sidebar Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function sidebar_attrs( $attrs ) {
 
-			$attrs['id']   = 'secondary';
-			$attrs['role'] = 'complementary';
+			$attrs['id']    = 'secondary';
+			$attrs['role']  = 'complementary';
 			$attrs['class'] = join( ' ', get_astra_secondary_class() );
 			return $attrs;
 		}
 
+		/**
+		 * Footer Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function footer_attrs( $attrs ) {
 
 			$attrs['id']   = 'colophon';
@@ -136,6 +213,13 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Header Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function header_attrs( $attrs ) {
 
 			$attrs['id']   = 'masthead';
@@ -143,6 +227,13 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Post meta author url Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_author_url_attrs( $attrs ) {
 
 			/* translators: 1. %s: author */
@@ -152,6 +243,13 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Site Identity Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_identity_url_attrs( $attrs ) {
 
 			$attrs['href'] = esc_url( home_url( '/' ) );
@@ -159,6 +257,13 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Site Navigation Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_navigation_attrs( $attrs ) {
 
 			$attrs['id']         = 'site-navigation';

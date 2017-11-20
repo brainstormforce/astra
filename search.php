@@ -22,11 +22,11 @@ get_header();
 		<main <?php astra_attr( 'main', 'search' ); ?>>
 
 			<div class="ast-row">
-				
+
 				<?php astra_before_loop(); ?>
-		
+
 				<?php astra_loop(); ?>
-				
+
 				<?php astra_after_loop(); ?>
 
 			</div>

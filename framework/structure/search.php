@@ -10,7 +10,6 @@
  * Content Blog Templates.
  *
  * => Action hooked 'astra_entry_content_search'
- * 
  *
  * @since 1.0.0
  */
@@ -28,7 +27,7 @@ add_action( 'astra_entry_content', 'astra_entry_content_search_template' );
 function astra_entry_content_search_template() {
 
 	if ( is_search() ) {
-		
+
 		get_template_part( 'template-parts/blog/blog-layout' );
 	}
 }

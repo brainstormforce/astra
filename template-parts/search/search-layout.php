@@ -8,6 +8,7 @@
  * @link        http://wpastra.com/
  * @since       Astra 1.0.0
  */
+
 ?>
 
 <?php astra_entry_before(); ?>

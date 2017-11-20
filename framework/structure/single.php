@@ -73,8 +73,8 @@ add_action( 'astra_entry_single_content_link_pages', 'astra_entry_single_content
  */
 function astra_single_comments() {
 
-	if ( is_singular() && !is_singular( 'page' ) ) {
-		
+	if ( is_singular() && ! is_singular( 'page' ) ) {
+
 		// If comments are open or we have at least one comment, load up the comment template.
 		if ( comments_open() || get_comments_number() ) :
 			comments_template();
@@ -107,8 +107,8 @@ function astra_entry_content_single_template() {
  */
 function astra_single_content() {
 
-	if ( is_singular() && !is_singular( 'page' ) ) {
-	
+	if ( is_singular() && ! is_singular( 'page' ) ) {
+
 		the_content();
 	}
 }

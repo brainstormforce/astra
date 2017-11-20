@@ -15,9 +15,9 @@
 	<div class="sidebar-main">
 
 		<?php astra_sidebars_before(); ?>
-		
+
 		<?php astra_sidebars_content(); ?>
-		
+
 		<?php astra_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->

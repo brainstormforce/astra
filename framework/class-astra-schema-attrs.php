@@ -38,26 +38,32 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return self::$instance;
 		}
 
+		/**
+		 * Constructor.
+		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'init' ) );
 		}
 
+		/**
+		 * Schema init.
+		 */
 		public function init() {
 
 			$article_schema = apply_filters( 'astra_article_schema_enabled', true );
 			if ( $article_schema ) {
 				add_filter( 'astra_attr_article', array( $this, 'article_attrs' ) );
 				add_filter( 'astra_attr_entry-content', array( $this, 'entry_content_attrs' ) );
-				
+
 				add_filter( 'astra_attr_post-meta-author', array( $this, 'post_meta_author_attrs' ) );
 				add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
 				add_filter( 'astra_attr_post-meta-author-name', array( $this, 'post_meta_author_name_attrs' ) );
 				add_filter( 'astra_attr_post-entry-title', array( $this, 'post_entry_title_attrs' ) );
-			
+
 				add_filter( 'astra_attr_post-meta-comment-statistic', array( $this, 'post_meta_comment_statistic_attrs' ) );
 				add_filter( 'astra_attr_post-meta-comment-type', array( $this, 'post_meta_comment_type_attrs' ) );
 				add_filter( 'astra_attr_post-meta-comment-count', array( $this, 'post_meta_comment_count_attrs' ) );
-				
+
 				add_filter( 'astra_attr_post-meta-posted-date', array( $this, 'post_meta_posted_date_attrs' ) );
 			}
 
@@ -94,6 +100,13 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			}
 		}
 
+		/**
+		 * Article Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function article_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/CreativeWork';
@@ -101,12 +114,26 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Entry Content Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function entry_content_attrs( $attrs ) {
 
 			$attrs['itemprop'] = 'text';
 			return $attrs;
 		}
 
+		/**
+		 * Sidebar Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function sidebar_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/WPSideBar';
@@ -114,6 +141,13 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Footer Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function footer_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/WPFooter';
@@ -121,6 +155,13 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Header Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function header_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/WPHeader';
@@ -128,6 +169,13 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Author Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_author_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/Person';
@@ -136,24 +184,52 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Author Url Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_author_url_attrs( $attrs ) {
 
-			$attrs['itemprop']  = 'url';
+			$attrs['itemprop'] = 'url';
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Author Name Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_author_name_attrs( $attrs ) {
 
-			$attrs['itemprop']  = 'name';
+			$attrs['itemprop'] = 'name';
 			return $attrs;
 		}
 
+		/**
+		 * Entry Title Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_entry_title_attrs( $attrs ) {
 
-			$attrs['itemprop']  = 'headline';
+			$attrs['itemprop'] = 'headline';
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Comment Stats Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_comment_statistic_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/InteractionCounter';
@@ -162,26 +238,54 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Comment Type Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_comment_type_attrs( $attrs ) {
 
 			$attrs['content']  = 'http://schema.org/CommentAction';
-			$attrs['itemprop']  = 'interactionType';
+			$attrs['itemprop'] = 'interactionType';
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Comment Count Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_comment_count_attrs( $attrs ) {
 
 			$attrs['content']  = absint( wp_count_comments( get_the_ID() )->approved );
-			$attrs['itemprop']  = 'userInteractionCount';
+			$attrs['itemprop'] = 'userInteractionCount';
 			return $attrs;
 		}
 
+		/**
+		 * Post Meta Posted Date Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function post_meta_posted_date_attrs( $attrs ) {
 
-			$attrs['itemprop']  = 'datePublished';
+			$attrs['itemprop'] = 'datePublished';
 			return $attrs;
 		}
 
+		/**
+		 * Site Identity Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_identity_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/Organization';
@@ -189,31 +293,66 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		/**
+		 * Site Identity Name Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_identity_name_attrs( $attrs ) {
 
 			$attrs['itemprop'] = 'name';
 			return $attrs;
 		}
 
+		/**
+		 * Site Identity Url Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_identity_url_attrs( $attrs ) {
 
 			$attrs['itemprop'] = 'url';
 			return $attrs;
 		}
 
+		/**
+		 * Site Identity Description Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_identity_description_attrs( $attrs ) {
 
 			$attrs['itemprop'] = 'description';
 			return $attrs;
 		}
 
+		/**
+		 * Site Navigation Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function site_navigation_attrs( $attrs ) {
 
-			$attrs['itemtype'] = 'http://schema.org/SiteNavigationElement';
+			$attrs['itemtype']  = 'http://schema.org/SiteNavigationElement';
 			$attrs['itemscope'] = 'itemscope';
 			return $attrs;
 		}
 
+		/**
+		 * Body Attributes.
+		 *
+		 * @param array $attrs default attributes.
+		 *
+		 * @return array attributes.
+		 */
 		public function body_attrs( $attrs ) {
 
 			// Check conditions.
@@ -228,7 +367,7 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			// Get itemtype for search results.
 			$itemtype = ( is_search() ) ? 'SearchResultsPage' : $itemtype;
 
-			$attrs['itemtype'] = 'http://schema.org/'. $itemtype;
+			$attrs['itemtype']  = 'http://schema.org/' . $itemtype;
 			$attrs['itemscope'] = 'itemscope';
 			return $attrs;
 		}

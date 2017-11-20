@@ -14,7 +14,7 @@ add_action( 'astra_loop', 'astra_global_loop' );
  * => Action hooked in 'astra_loop' action
  *
  * 'astra_loop' action is used to global loop
- *	
+ *
  * @since 1.0.0
  */
 function astra_global_loop() {
