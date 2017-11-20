@@ -99,6 +99,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		public function comment_attrs( $attrs ) {
 
 			$attrs['id'] = 'comments';
+			$attrs['class'] = 'comments-area';
 			return $attrs;
 		}
 
@@ -106,6 +107,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 
 			$attrs['id'] = 'comment-nav-below';
 			$attrs['role'] = 'navigation';
+			$attrs['class'] = 'navigation comment-navigation';
 			$attrs['aria-label'] = esc_html__( 'Comments Navigation', 'astra' );
 			return $attrs;
 		}
