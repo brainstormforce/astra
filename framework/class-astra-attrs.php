@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		}
 
 		public function init() {
+			add_filter( 'astra_attr_body', array( $this, 'body_attrs' ) );
 			add_filter( 'astra_attr_primary', array( $this, 'primary_attrs' ) );
 			add_filter( 'astra_attr_main', array( $this, 'main_attrs' ) );
 			add_filter( 'astra_attr_page', array( $this, 'page_attrs' ) );
@@ -58,6 +59,14 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			add_filter( 'astra_attr_site-navigation', array( $this, 'site_navigation_attrs' ) );
 		}
 
+		public function body_attrs( $attrs ) {
+			
+			$classes = get_body_class();
+
+			$attrs['class'] = join( ' ', $classes );
+			return $attrs;
+		}
+		
 		public function primary_attrs( $attrs ) {
 
 			$attrs['id'] = 'primary';
