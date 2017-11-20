@@ -70,6 +70,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		public function primary_attrs( $attrs ) {
 
 			$attrs['id'] = 'primary';
+			$attrs['class'] = join( ' ', astra_get_primary_class() );
 			return $attrs;
 		}
 
@@ -77,6 +78,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 
 			$attrs['id'] = 'main';
 			$attrs['role'] = 'main';
+			$attrs['class'] = 'site-main';
 			return $attrs;
 		}
 
