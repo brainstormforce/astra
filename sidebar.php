@@ -10,7 +10,7 @@
 
 ?>
 
-<div <?php astra_attr( 'sidebar' ); ?> <?php astra_secondary_class(); ?> >
+<div <?php astra_attr( 'sidebar' ); ?>>
 
 	<div class="sidebar-main">
 

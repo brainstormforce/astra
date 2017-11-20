@@ -120,6 +120,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 
 			$attrs['id']   = 'secondary';
 			$attrs['role'] = 'complementary';
+			$attrs['class'] = join( ' ', get_astra_secondary_class() );
 			return $attrs;
 		}
 
