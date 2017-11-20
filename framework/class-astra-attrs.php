@@ -83,6 +83,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		public function page_attrs( $attrs ) {
 
 			$attrs['id'] = 'page';
+			$attrs['class'] = 'hfeed site';
 			return $attrs;
 		}
 
