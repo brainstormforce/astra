@@ -12,7 +12,7 @@
 
 <?php astra_entry_before(); ?>
 
-<article <?php astra_attr( 'article', 'single' ); ?> <?php post_class(); ?>>
+<article <?php astra_attr( 'article', 'single' ); ?>>
 
 	<?php astra_entry_top(); ?>
 

@@ -11,7 +11,7 @@
 
 <?php astra_entry_before(); ?>
 
-<article <?php astra_attr( 'article', 'archive' ); ?> <?php post_class(); ?>>
+<article <?php astra_attr( 'article', 'archive' ); ?>>
 
 	<?php astra_entry_top(); ?>
 

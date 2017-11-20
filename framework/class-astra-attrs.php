@@ -114,7 +114,10 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 
 		public function article_attrs( $attrs ) {
 
+			$classes = get_post_class();
+			
 			$attrs['id'] = 'post-' . get_the_ID();
+			$attrs['class'] = join( ' ', $classes );
 			return $attrs;
 		}
 
