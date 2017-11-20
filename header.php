@@ -37,7 +37,7 @@
 
 	<?php astra_content_before(); ?>
 
-	<div <?php astra_attr( 'content' ); ?> class="site-content">
+	<div <?php astra_attr( 'content' ); ?>>
 
 		<div class="ast-container">
 

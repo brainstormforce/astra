@@ -90,6 +90,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		public function content_attrs( $attrs ) {
 
 			$attrs['id'] = 'content';
+			$attrs['class'] = 'site-content';
 			return $attrs;
 		}
 
