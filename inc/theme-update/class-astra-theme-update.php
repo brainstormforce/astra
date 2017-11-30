@@ -67,6 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$version_array = array(
 					'theme-auto-version' => ASTRA_THEME_VERSION,
 				);
+				$saved_version = ASTRA_THEME_VERSION;
 
 				// Merge customizer options with version.
 				$theme_options = wp_parse_args( $version_array, $customizer_options );
