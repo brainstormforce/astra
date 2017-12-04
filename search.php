@@ -8,53 +8,28 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+get_header();
+?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+<?php astra_primary_before(); ?>
 
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', 'search' ); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
 		<?php astra_archive_header(); ?>
 
-		<main id="main" class="site-main" role="main">
+		<main <?php astra_attr( 'main', 'search' ); ?>>
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php ;/* Start the Loop */ ?>
 			<div class="ast-row">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-?>
 
-				<?php astra_entry_before(); ?>
+				<?php astra_before_loop(); ?>
 
-				<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php astra_loop(); ?>
 
-					<?php astra_entry_top(); ?>
+				<?php astra_after_loop(); ?>
 
-					<?php astra_entry_content_blog(); ?>
-
-					<?php astra_entry_bottom(); ?>
-
-				</article><!-- #post-## -->
-
-				<?php astra_entry_after(); ?>
-
-			<?php endwhile; ?>
 			</div>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
 
 		</main><!-- #main -->
 
@@ -64,10 +39,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>

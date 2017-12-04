@@ -8,19 +8,17 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+<?php get_header(); ?>
 
-	<?php get_sidebar(); ?>
+<?php astra_primary_before(); ?>
 
-<?php endif ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', '404' ); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
-		<main id="main" class="site-main" role="main">
+		<main <?php astra_attr( 'main', '404' ); ?>>
 
 			<?php astra_entry_before(); ?>
 
@@ -42,10 +40,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>

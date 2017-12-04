@@ -23,37 +23,6 @@ function astra_pingback_header() {
 }
 
 /**
- * Schema for <body> tag.
- */
-if ( ! function_exists( 'astra_schema_body' ) ) :
-
-	/**
-	 * Adds schema tags to the body classes.
-	 *
-	 * @since 1.0.0
-	 */
-	function astra_schema_body() {
-
-		// Check conditions.
-		$is_blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
-
-		// Set up default itemtype.
-		$itemtype = 'WebPage';
-
-		// Get itemtype for the blog.
-		$itemtype = ( $is_blog ) ? 'Blog' : $itemtype;
-
-		// Get itemtype for search results.
-		$itemtype = ( is_search() ) ? 'SearchResultsPage' : $itemtype;
-		// Get the result.
-		$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
-
-		// Return our HTML.
-		echo apply_filters( 'astra_schema_body', "itemtype='http://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
-	}
-endif;
-
-/**
  * Adds custom classes to the array of body classes.
  */
 if ( ! function_exists( 'astra_body_classes' ) ) {
@@ -173,12 +142,12 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				if ( is_home() || is_front_page() ) {
 					$tag = 'h1';
 				}
-				$html .= '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+				$html .= '<' . $tag . ' ' . astra_attr( 'site-identity-name', '', false ) . ' class="site-title"> <a ' . astra_attr( 'site-identity-url', '', false ) . ' >' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 			}
 
 			// Site description.
 			if ( $site_tagline ) {
-				$html .= '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+				$html .= '<p class="site-description" ' . astra_attr( 'site-identity-description', '', false ) . ' >' . get_bloginfo( 'description' ) . '</p>';
 			}
 		}
 		$html = apply_filters( 'astra_logo', $html, $display_site_tagline, $site_tagline );
@@ -437,7 +406,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	function astra_header_markup() {
 		?>
 
-		<header itemtype="http://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
+		<header <?php astra_attr( 'header' ); ?> <?php astra_header_classes(); ?> >
 
 			<?php astra_masthead_top(); ?>
 
@@ -466,7 +435,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div class="ast-site-identity" itemscope="itemscope" itemtype="http://schema.org/Organization">
+			<div class="ast-site-identity" <?php astra_attr( 'site-identity' ); ?> >
 				<?php astra_logo(); ?>
 			</div>
 		</div>
@@ -560,7 +529,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			<div class="main-header-bar-navigation" >
 
-				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php esc_attr_e( 'Site Navigation', 'astra' ); ?>">
+				<nav <?php astra_attr( 'site-navigation' ); ?> class="ast-flex-grow-1" >
 					<?php
 					if ( has_nav_menu( 'primary' ) ) {
 						wp_nav_menu( $primary_menu_args );
@@ -592,7 +561,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="http://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
+		<footer <?php astra_attr( 'footer' ); ?> <?php astra_footer_classes(); ?> >
 
 			<?php astra_footer_content_top(); ?>
 

@@ -12,17 +12,17 @@
 
 <?php astra_entry_before(); ?>
 
-<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php astra_attr( 'article', 'archive' ); ?>>
 
 	<?php astra_entry_top(); ?>
 
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
-		<?php astra_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php astra_the_title( sprintf( '<h2 class="entry-title" ' . astra_attr( 'post-entry-title', '', false ) . '><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" itemprop="text">
+	<div <?php astra_attr( 'entry-content', 'archive' ); ?> class="entry-content clear" >
 
 		<?php astra_entry_content_before(); ?>
 

@@ -21,8 +21,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
-
+<div <?php astra_attr( 'comment' ); ?>>
 	<?php astra_comments_before(); ?>
 
 	<?php if ( have_comments() ) : ?>
@@ -38,18 +37,6 @@ if ( post_password_required() ) {
 			</h3>
 		</div>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
-			<h3 class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( astra_default_strings( 'string-comment-navigation-previous', false ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></div>
-
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-above -->
-		<?php endif; ?>
-
 		<ol class="ast-comment-list">
 			<?php
 			wp_list_comments(
@@ -62,7 +49,7 @@ if ( post_password_required() ) {
 		</ol><!-- .ast-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
+		<nav <?php astra_attr( 'comment-navigation' ); ?>>
 			<h3 class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 

@@ -87,11 +87,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				get_sidebar();
 			}
 			?>
-			<div id="primary" class="content-area primary">
+			<div <?php astra_attr( 'primary', 'woocommerce' ); ?> class="content-area primary">
 
 				<?php astra_primary_content_top(); ?>
 
-				<main id="main" class="site-main" role="main">
+				<main <?php astra_attr( 'main', 'woocommerce' ); ?> class="site-main">
 					<div class="ast-woocommerce-container">
 			<?php
 		}

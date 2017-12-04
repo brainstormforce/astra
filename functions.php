@@ -17,6 +17,11 @@ define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
 define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
 
 /**
+ * Load Framework
+ */
+require_once ASTRA_THEME_DIR . 'framework/init-framework.php';
+
+/**
  * Update theme
  */
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-update.php';

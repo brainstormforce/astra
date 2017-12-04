@@ -14,9 +14,6 @@ add_action( 'astra_masthead', 'astra_masthead_primary_template' );
 add_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'astra_masthead_custom_nav_menu_items', 10, 2 );
 add_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
-add_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
-add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
-add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
 
 /**
@@ -232,73 +229,6 @@ if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
 	 */
 	function astra_masthead_primary_template() {
 		get_template_part( 'template-parts/header/header-main-layout' );
-	}
-}
-
-/**
- * Single post markup
- */
-if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
-
-	/**
-	 * Single post markup
-	 *
-	 * => Used in files:
-	 *
-	 * /template-parts/content-single.php
-	 *
-	 * @since 1.0.0
-	 */
-	function astra_entry_content_single_template() {
-		get_template_part( 'template-parts/single/single-layout' );
-	}
-}
-
-/**
- * Blog post list markup for blog & search page
- */
-if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
-
-	/**
-	 * Blog post list markup for blog & search page
-	 *
-	 * => Used in files:
-	 *
-	 * /template-parts/content-blog.php
-	 * /template-parts/content-search.php
-	 *
-	 * @since 1.0.0
-	 */
-	function astra_entry_content_blog_template() {
-		get_template_part( 'template-parts/blog/blog-layout' );
-	}
-}
-
-/**
- * 404 markup
- */
-if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
-
-	/**
-	 * 404 markup
-	 *
-	 * => Used in files:
-	 *
-	 * /template-parts/content-404.php
-	 *
-	 * @since 1.0.0
-	 */
-	function astra_entry_content_404_page_template() {
-
-		$layout_404 = astra_get_option( 'ast-404-layout' );
-		$layout_404 = str_replace( '404-layout-', '', $layout_404 );
-
-		// Default 404 is nothing but the 404 layout 1.
-		if ( '1' == $layout_404 ) {
-			$layout_404 = '';
-		}
-
-		get_template_part( 'template-parts/404/404-layout', $layout_404 );
 	}
 }
 
