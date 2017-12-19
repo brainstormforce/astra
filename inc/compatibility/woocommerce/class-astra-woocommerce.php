@@ -732,6 +732,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$css_output = astra_parse_css( $css_output );
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+			
+
+			/**
+			 * YITH WooCommerce Ajax Search Style
+			 */
+			$yith_woo_ajax_search_style = '
+				#yith-ajaxsearchform > div{
+					display: flex;
+				}
+				#yith-ajaxsearchform input[type="search"]{
+					width:100%;
+					flex:auto;
+				}
+				#yith-searchsubmit{
+					padding: 10px 15px;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}';
+
+			wp_add_inline_style( 'yith_wcas_frontend', $yith_woo_ajax_search_style );			
 		}
 
 		/**
