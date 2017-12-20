@@ -116,6 +116,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_1_0_beta_3();
 			}
 
+			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			if ( version_compare( $saved_version, '1.1.0-beta.4', '<' ) ) {
+				self::v_1_1_0_beta_4();
+			}
+
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
 
@@ -426,6 +431,42 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				);
 
 				unset( $astra_options['shop-grid'] );
+			}
+
+			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+		}
+
+		/**
+		 * Update options of older version than 1.1.0-beta.3.
+		 * 
+		 * Container Style 
+		 * Sidebar 
+		 * Grid 
+		 *
+		 * @since 1.1.0-beta.3
+		 */
+		static public function v_1_1_0_beta_4() {
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			$options = array(
+				'woocommerce-content-layout'   => 'default',
+				'woocommerce-sidebar-layout'   => 'default',
+				/* Shop */
+				'shop-grids'        			=> array(
+													'desktop' => 3,
+													'tablet'  => 2,
+													'mobile'  => 1,
+												),
+				'shop-no-of-products' 			=> '9'
+			);
+
+			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+
+			foreach ( $options as $key => $value ) {
+				if ( ! isset( $astra_options[ $key ] ) ) {
+					$astra_options[ $key ] = $value;
+				}
 			}
 
 			update_option( ASTRA_THEME_SETTINGS, $astra_options );

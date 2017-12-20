@@ -1,3 +1,11 @@
+v1.1.0-beta.4
+# New: Added Product image hover style option.
+# New: Display outside Custom Menu Item option added in Layout -> Primary Header.
+# Fixed: Updated Single product group product style.
+# Fixed: Updated Tracking order pages design.
+# Fixed: Updated Checkout Page payment box style.
+# Moved: Cart in Menu option moved to Layout -> Primary Header -> Custom Menu Item.
+
 v1.1.0-beta.3
 # New: Responsive control for the grid settings for the shop page.
 # Fixed: Styles for the WooCommerce my account pages improved.

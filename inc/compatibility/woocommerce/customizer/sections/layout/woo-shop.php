@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[shop-grids]', array(
 			'default'           => array(
 				'desktop' => 4,
-				'tablet'  => 2,
+				'tablet'  => 3,
 				'mobile'  => 2,
 			),
 			'type'              => 'option',
