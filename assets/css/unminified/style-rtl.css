@@ -3254,6 +3254,7 @@ body {
 
 .ast-logo-title-inline .ast-site-identity {
   display: table;
+  vertical-align: middle;
 }
 
 .ast-logo-title-inline .site-logo-img {
