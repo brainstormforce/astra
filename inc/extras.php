@@ -706,6 +706,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$mobile_header_alignment  = astra_get_option( 'header-main-menu-align' );
 		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
+		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -718,6 +719,10 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
+		}
+		// Add class if Inline Logo & Site Title.
+		if ( $logo_title_inline ) {
+			$classes[] = 'ast-logo-title-inline';
 		}
 
 		$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;

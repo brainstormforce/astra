@@ -114,6 +114,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+
+	/**
+	 * Option: Disable Menu
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[logo-title-inline]', array(
+			'default'           => astra_get_option( 'logo-title-inline' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		ASTRA_THEME_SETTINGS . '[logo-title-inline]', array(
+			'type'     => 'checkbox',
+			'section'  => 'title_tagline',
+			'label'    => __( 'Inline Logo & Site Title', 'astra' ),
+			'priority' => 10,
+		)
+	);
+
 	/**
 	 * Option: Divider
 	*/

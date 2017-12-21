@@ -45,6 +45,16 @@
 	margin-right: 10px;
 }
 
+.ast-logo-title-inline{
+	.ast-site-identity{
+		display: table;
+	}
+	.site-logo-img{
+		display: table-cell;
+		padding-right: 1em;
+	}
+}
+
 /**
  * 4 - Search Form & Main Header
  */
@@ -344,4 +354,6 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
+
 }
+

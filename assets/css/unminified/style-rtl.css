@@ -3038,6 +3038,13 @@ body {
     padding-bottom: 1em;
     padding-left: 0;
   }
+  .ast-header-break-point .ast-logo-title-inline .ast-site-identity {
+    display: block;
+  }
+  .ast-header-break-point .ast-logo-title-inline .site-logo-img {
+    display: block;
+    padding-left: 0;
+  }
 }
 
 /* 3 - Header Common  */
@@ -3243,6 +3250,15 @@ body {
 .socil-font {
   float: right;
   margin-left: 10px;
+}
+
+.ast-logo-title-inline .ast-site-identity {
+  display: table;
+}
+
+.ast-logo-title-inline .site-logo-img {
+  display: table-cell;
+  padding-left: 1em;
 }
 
 /**
