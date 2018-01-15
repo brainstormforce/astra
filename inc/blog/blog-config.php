@@ -101,10 +101,18 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 			esc_html( '%s' ),
 			$modified_date
 		);
-		$output       .= '<span class="posted-on">';
-		$output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
-		$output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
-		$output       .= '</span>';
+
+		$publishd_meta = '';
+		$modified_meta = '';
+		if ( ! is_home() ) {
+			$publishd_meta = 'itemprop="datePublished"';
+			$modified_meta = 'itemprop="dateModified"';
+		}
+
+		$output .= '<span class="posted-on">';
+		$output .= '<span class="published" ' . $publishd_meta . ' > ' . $posted_on . '</span>';
+		$output .= '<span class="updated" ' . $modified_meta . ' > ' . $modified_on . '</span>';
+		$output .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }// End if().
@@ -126,12 +134,22 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 	function astra_post_author( $output_filter = '' ) {
 		$output = '';
 
+		$posted_by_meta      = '';
+		$posted_by_url_meta  = '';
+		$posted_by_name_meta = '';
+
+		if ( ! is_home() ) {
+			$posted_by_meta      = 'itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"';
+			$posted_by_url_meta  = 'itemprop="url"';
+			$posted_by_name_meta = 'itemprop="name"';
+		}
+
 		$byline = sprintf(
 			esc_html( '%s' ),
-			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
+			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" ' . $posted_by_url_meta . '> <span class="author-name" ' . $posted_by_name_meta . '>' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by vcard author" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
+		$output .= '<span class="posted-by vcard author" ' . $posted_by_meta . ' > ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
@@ -193,6 +211,10 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 
 		ob_start();
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			$interaction_meta  = '';
+			$interaction_type  = '';
+			$interaction_count = '';
+
 			?>
 			<span class="comments-link">
 				<?php
@@ -204,11 +226,13 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
 
-				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
-					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
-				</span>
+				<?php if ( ! is_home() ) { ?>
+					<!-- Comment Schema Meta -->
+					<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+						<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
+						<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
+					</span>
+				<?php } ?>
 			</span>
 
 			<?php
