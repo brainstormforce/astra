@@ -101,18 +101,18 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 			esc_html( '%s' ),
 			$modified_date
 		);
-		
+
 		$publishd_meta = '';
 		$modified_meta = '';
-		if( ! is_home() ) {
+		if ( ! is_home() ) {
 			$publishd_meta = 'itemprop="datePublished"';
 			$modified_meta = 'itemprop="dateModified"';
 		}
 
-		$output       .= '<span class="posted-on">';
-		$output       .= '<span class="published" ' . $publishd_meta . ' > ' . $posted_on . '</span>';
-		$output       .= '<span class="updated" ' . $modified_meta . ' > ' . $modified_on . '</span>';
-		$output       .= '</span>';
+		$output .= '<span class="posted-on">';
+		$output .= '<span class="published" ' . $publishd_meta . ' > ' . $posted_on . '</span>';
+		$output .= '<span class="updated" ' . $modified_meta . ' > ' . $modified_on . '</span>';
+		$output .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }// End if().
@@ -134,13 +134,13 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 	function astra_post_author( $output_filter = '' ) {
 		$output = '';
 
-		$posted_by_meta = '';
-		$posted_by_url_meta = '';
+		$posted_by_meta      = '';
+		$posted_by_url_meta  = '';
 		$posted_by_name_meta = '';
 
-		if( ! is_home() ) {
-			$posted_by_meta = 'itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"';
-			$posted_by_url_meta = 'itemprop="url"';
+		if ( ! is_home() ) {
+			$posted_by_meta      = 'itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"';
+			$posted_by_url_meta  = 'itemprop="url"';
 			$posted_by_name_meta = 'itemprop="name"';
 		}
 
@@ -211,8 +211,8 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 
 		ob_start();
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			$interaction_meta = '';
-			$interaction_type = '';
+			$interaction_meta  = '';
+			$interaction_type  = '';
 			$interaction_count = '';
 
 			?>
@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
 
-				<?php if( ! is_home() ) { ?>
+				<?php if ( ! is_home() ) { ?>
 					<!-- Comment Schema Meta -->
 					<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
 						<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
