@@ -69,6 +69,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'init', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'init', array( $this, 'woocommerce_init' ), 1 );
+			add_action( 'wp', array( $this, 'shop_meta_option' ), 1 );
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
 			add_filter( 'loop_shop_columns', array( $this, 'shop_columns' ) );
@@ -456,6 +457,35 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			return $layout;
 		}
 
+		/**
+		 * Shop Page Meta
+		 *
+		 * @return void
+		 */
+		function shop_meta_option() {
+
+			// Page Title.
+			if ( is_shop() ) {
+
+				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
+				$shop_title          = get_post_meta( $shop_page_id, 'site-post-title', true );
+				$main_header_display = get_post_meta( $shop_page_id, 'ast-main-header-display', true );
+				$footer_layout       = get_post_meta( $shop_page_id, 'footer-sml-layout', true );
+
+				if ( 'disabled' === $shop_title ) {
+					add_filter( 'woocommerce_show_page_title', '__return_false' );
+				}
+
+				if ( 'disabled' === $main_header_display ) {
+					remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				}
+
+				if ( 'disabled' === $footer_layout ) {
+					remove_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
+				}
+			}
+		}
+
 
 		/**
 		 * Shop customization.
@@ -463,18 +493,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 */
 		function shop_customization() {
-
-			// Page Title.
-			if ( is_shop() ) {
-
-				$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-				$shop_title   = get_post_meta( $shop_page_id, 'site-post-title', true );
-
-				if ( 'disabled' === $shop_title ) {
-
-					add_filter( 'woocommerce_show_page_title', '__return_false' );
-				}
-			}
 
 			if ( ! apply_filters( 'astra_woo_shop_product_structure_override', false ) ) {
 
@@ -644,7 +662,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .ast-woo-product-category, .wc-layered-nav-rating a' => array(
 					'color' => $text_color,
 				),
-				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
+				// Form Fields, Pagination border Color.
+				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li,.woocommerce form .form-row.woocommerce-validated .select2-container, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select' => array(
 					'border-color' => $theme_color,
 				),
 				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(

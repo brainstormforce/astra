@@ -1,3 +1,6 @@
+v1.1.6
+# Fix: Astra Settings options on shop page are not working.
+
 v1.1.5
 # Improvement: Slightly improved the size of woocomerce header cart icon for small devices for better accessibility.
 # Improvement: Improved woocommerce invalid input field default color.
