@@ -583,19 +583,37 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			);
 			?>
 
-			<div class="main-header-bar-navigation" >
+			<?php
+			if ( apply_filters( 'astra_primary_maga_menu_support', false ) ) {
 
-				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php esc_attr_e( 'Site Navigation', 'astra' ); ?>">
-					<?php
-					if ( has_nav_menu( 'primary' ) ) {
-						wp_nav_menu( $primary_menu_args );
-					} else {
-						wp_page_menu( $fallback_menu_args );
-					}
-					?>
-				</nav><!-- #site-navigation -->
+				// Primary Menu.
+				$primary_menu_args = array(
+					'theme_location'  => 'primary',
+					'menu_id'         => 'primary-menu',
+					'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+					'container'       => 'div',
+					'container_class' => 'main-header-bar-navigation main-navigation ast-flex-grow-1',
+				);
 
-			</div>
+				if ( has_nav_menu( 'primary' ) ) {
+					wp_nav_menu( $primary_menu_args );
+				} else {
+					wp_page_menu( $fallback_menu_args );
+				}
+			} else {
+						?>
+							<div class="main-header-bar-navigation" >
+								<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php esc_attr_e( 'Site Navigation', 'astra' ); ?>">
+			<?php
+			if ( has_nav_menu( 'primary' ) ) {
+				wp_nav_menu( $primary_menu_args );
+			} else {
+				wp_page_menu( $fallback_menu_args );
+			}
+						?>
+					</nav><!-- #site-navigation -->
+				</div>
+						<?php } ?>
 			<?php
 		}// End if().
 
