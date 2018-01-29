@@ -418,29 +418,25 @@ if ( ! function_exists( 'astra_get_small_footer_menu' ) ) {
 	function astra_get_small_footer_menu() {
 
 		ob_start();
-		?>
 
-		<div class="footer-primary-navigation">
-			<?php
-			if ( has_nav_menu( 'footer_menu' ) ) {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'footer_menu',
-						'menu_class'     => 'nav-menu',
-						'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-						'depth'          => 1,
-					)
-				);
-			} else {
-				if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
-					?>
-						<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'astra' ); ?></a>
-					<?php
-				}
+		if ( has_nav_menu( 'footer_menu' ) ) {
+			wp_nav_menu(
+				array(
+					'container'       => 'div',
+					'container_class' => 'footer-primary-navigation',
+					'theme_location'  => 'footer_menu',
+					'menu_class'      => 'nav-menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'depth'           => 1,
+				)
+			);
+		} else {
+			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
+				?>
+					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'astra' ); ?></a>
+				<?php
 			}
-			?>
-		</div> <!-- .footer-primary-navigation -->
-		<?php
+		}
 
 		return ob_get_clean();
 	}
@@ -562,15 +558,6 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
 
-			// Primary Menu.
-			$primary_menu_args = array(
-				'theme_location'  => 'primary',
-				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-				'container'       => 'div',
-				'container_class' => 'main-navigation',
-			);
-
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
 				'theme_location' => 'primary',
@@ -581,22 +568,33 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
-			?>
 
-			<div class="main-header-bar-navigation" >
+			$items_wrap  = '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap .= '<div class="main-navigation">';
+			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
+			$items_wrap .= '</div>';
+			$items_wrap .= '</nav>';
 
-				<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="<?php esc_attr_e( 'Site Navigation', 'astra' ); ?>">
-					<?php
-					if ( has_nav_menu( 'primary' ) ) {
-						wp_nav_menu( $primary_menu_args );
-					} else {
+			// Primary Menu.
+			$primary_menu_args = array(
+				'theme_location'  => 'primary',
+				'menu_id'         => 'primary-menu',
+				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
+				'container'       => 'div',
+				'container_class' => 'main-header-bar-navigation',
+				'items_wrap'      => $items_wrap,
+			);
+
+			if ( has_nav_menu( 'primary' ) ) {
+				wp_nav_menu( $primary_menu_args );
+			} else {
+
+				echo '<div class="main-header-bar-navigation">';
+					echo '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
-					}
-					?>
-				</nav><!-- #site-navigation -->
-
-			</div>
-			<?php
+					echo  '</nav>';
+				echo  '</div>';
+			}
 		}// End if().
 
 	}
