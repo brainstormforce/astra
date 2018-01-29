@@ -528,7 +528,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 	}
 }// End if().
 
-add_action( 'astra_masthead_content', 'astra_toggle_buttons_markup', 9 );
+// add_action( 'astra_masthead_content', 'astra_toggle_buttons_markup', 9 );
 
 /**
  * Function to get Primary navigation menu
@@ -569,19 +569,24 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap = '';
+			ob_start();
+			astra_toggle_buttons_markup();
+			$items_wrap  .= ob_get_clean();
+
+			$items_wrap  .= '<div class="main-header-bar-navigation"><nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
-			$items_wrap .= '</nav>';
+			$items_wrap .= '</nav></div>';
 
 			// Primary Menu.
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
 				'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-				'container'       => 'div',
-				'container_class' => 'main-header-bar-navigation',
+				'container'       => false,
+				'container_class' => false,
 				'items_wrap'      => $items_wrap,
 			);
 
