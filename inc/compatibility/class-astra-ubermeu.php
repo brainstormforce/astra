@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				// self::$instance = new self;
 			}
 			return self::$instance;
 		}
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 * @since  1.1.7
 		 */
 		public function __construct() {
-			add_filter( 'astra_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ), 30 );
+			// add_filter( 'astra_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ), 30 );
 		}
 
 		/**
