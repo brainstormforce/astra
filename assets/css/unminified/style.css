@@ -2729,7 +2729,7 @@ body {
   flex: 1;
 }
 
-.ast-main-header-bar-alignment {
+nav {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -moz-box-flex: 1;
@@ -2754,7 +2754,7 @@ body {
   flex: auto;
 }
 
-.ast-header-break-point .ast-main-header-bar-alignment {
+.ast-header-break-point nav {
   display: block;
   -webkit-box-flex: 1;
   -webkit-flex: auto;
