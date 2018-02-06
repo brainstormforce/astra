@@ -2761,9 +2761,6 @@ nav {
   -moz-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  width: -webkit-calc(100% + 40px);
-  width: calc(100% + 40px);
-  margin: 0 -20px;
 }
 
 /**
