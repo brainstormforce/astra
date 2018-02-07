@@ -87,6 +87,10 @@
 	flex: 1;
 }
 
+nav {
+	flex: 1;
+}
+
 /* Responsive Screen */
 .ast-header-break-point {
 
@@ -99,6 +103,10 @@
 	}
 
 	.main-header-bar-navigation {
+		flex: auto;
+	}
+	nav {
+		display: block;
 		flex: auto;
 	}
 }
