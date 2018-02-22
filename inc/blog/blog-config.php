@@ -102,8 +102,8 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 			$modified_date
 		);
 		$output       .= '<span class="posted-on">';
-		$output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
-		$output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
+		$output       .= '<span class="published" '.astra_get_schema_markup( 'published_date' ).'> ' . $posted_on . '</span>';
+		$output       .= '<span class="updated" '.astra_get_schema_markup( 'modified_date' ).'> ' . $modified_on . '</span>';
 		$output       .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
@@ -128,10 +128,10 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		$byline = sprintf(
 			esc_html( '%s' ),
-			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
+			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" '.astra_get_schema_markup( 'url' ).'> <span class="author-name" '.astra_get_schema_markup( 'author_name' ).'>' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
+		$output .= '<span class="posted-by '.astra_get_schema_markup( 'vcard' ).' author" '.astra_get_schema_markup( 'author_link' ).'> ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
@@ -205,9 +205,9 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				?>
 
 				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
+				<span<?php astra_schema_markup( 'interaction_counter' ); ?>>
+					<meta<?php astra_schema_markup( 'comment_action' ); ?> />
+					<meta<?php astra_schema_markup( 'user_interaction_counter' ); ?> content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
 				</span>
 			</span>
 

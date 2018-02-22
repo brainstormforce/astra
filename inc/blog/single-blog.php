@@ -142,7 +142,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
 							<div class="ast-comment-meta-wrap">
-								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
+								<header class="ast-comment-meta ast-row ast-comment-author <?php astra_schema_markup( 'vcard' ); ?> capitalize">
 
 									<?php
 

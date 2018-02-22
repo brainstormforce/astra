@@ -33,6 +33,11 @@ if ( ! function_exists( 'astra_schema_body' ) ) :
 	 * @since 1.0.0
 	 */
 	function astra_schema_body() {
+		
+		// Return if disabled
+		if ( ! get_theme_mod( 'astra_schema_markup', true ) ) {
+			return null;
+		}
 
 		// Check conditions.
 		$is_blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
@@ -457,7 +462,7 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	function astra_header_markup() {
 		?>
 
-		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
+		<header<?php astra_schema_markup( 'header' ); ?> id="masthead" <?php astra_header_classes(); ?> role="banner">
 
 			<?php astra_masthead_top(); ?>
 
@@ -486,7 +491,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
+			<div class="ast-site-identity"<?php astra_schema_markup( 'site_branding' ); ?>>
 				<?php astra_logo(); ?>
 			</div>
 		</div>
@@ -571,7 +576,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav '.astra_get_schema_markup( 'site_navigation' ).' id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -596,7 +601,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			} else {
 
 				echo '<div class="main-header-bar-navigation">';
-					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+					echo '<nav '.astra_get_schema_markup( 'site_navigation' ).' id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo  '</nav>';
 				echo  '</div>';
@@ -621,7 +626,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
+		<footer<?php astra_schema_markup( 'footer' ); ?> id="colophon" <?php astra_footer_classes(); ?> role="contentinfo">
 
 			<?php astra_footer_content_top(); ?>
 
@@ -1361,3 +1366,118 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 		return apply_filters( 'astra_theme_name', $theme_name );
 	}
 endif; // End if().
+/**
+ * Return Schema & Microdata markup
+ *
+ */
+if ( ! function_exists( 'astra_get_schema_markup' ) ) {
+
+	function astra_get_schema_markup( $location ) {
+
+		// Return if disabled
+		if ( ! get_theme_mod( 'astra_schema_markup', true ) ) {
+			return null;
+		}
+
+		// Default
+		$schema = $itemprop = $itemtype = '';
+	
+		// Header
+		if ( 'header' == $location ) {
+			$schema = 'itemscope="itemscope" itemtype="https://schema.org/WPHeader"';
+		}
+
+		// Branding
+		elseif ( 'site_branding' == $location ) {
+			$schema = 'itemscope="itemscope" itemtype="https://schema.org/Organization"';
+		}
+		
+		// Navigation
+		elseif ( 'site_navigation' == $location ) {
+			$schema = 'itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"';
+		}
+				
+		// Sidebar
+		elseif ( 'sidebar' == $location ) {
+			$schema = 'itemscope="itemscope" itemtype="https://schema.org/WPSideBar"';
+		}
+
+		// Footer 
+		elseif ( 'footer' == $location ) {
+			$schema = 'itemscope="itemscope" itemtype="https://schema.org/WPFooter"';
+		}
+
+		// Headline
+		elseif ( 'headline' == $location ) {
+			$schema = 'itemprop="headline"';
+		}
+
+		// Posts
+		elseif ( 'entry_content' == $location ) {
+			$schema = 'itemprop="text"';
+		}
+
+		// Publish date
+		elseif ( 'publish_date' == $location ) {
+			$schema = 'itemprop="datePublished" pubdate';
+		}
+
+		// Author name
+		elseif ( 'author_name' == $location ) {
+			$schema = 'itemprop="name"';
+		}
+
+		// Author link
+		elseif ( 'author_link' == $location ) {
+			$schema = 'itemprop="author" itemscope="itemscope" itemtype="https://schema.org/Person"';
+		}
+		
+		// Interaction counter
+		elseif ( 'interaction_counter' == $location ) {
+			$schema = 'itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter"';
+		}
+		
+		// User interaction counter
+		elseif ( 'user_interaction_counter' == $location ) {
+			$schema = 'itemprop="userInteractionCount"';
+		}
+		
+		// Comment action
+		elseif ( 'comment_action' == $location ) {
+			$schema = 'itemprop="interactionType" content="https://schema.org/CommentAction"';
+		}
+
+		// Url
+		elseif ( 'url' == $location ) {
+			$schema = 'itemprop="url"';
+		}
+		
+		// hfeed
+		elseif ( 'hfeed' == $location ) {
+			$schema = 'hfeed';
+		}
+		
+		// vcard
+		elseif ( 'vcard' == $location ) {
+			$schema = 'vcard';
+		}
+				
+		return ' ' . apply_filters( 'astra_schema_markup', $schema );
+
+	}
+
+}
+
+/**
+ * Outputs Schema & Microdata markup
+ *
+ */
+if ( ! function_exists( 'astra_schema_markup' ) ) {
+
+	function astra_schema_markup( $location ) {
+
+		echo astra_get_schema_markup( $location );
+
+	}
+
+}

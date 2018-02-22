@@ -27,7 +27,7 @@
 
 	<?php astra_single_header_after(); ?>
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content clear"<?php astra_schema_markup( 'entry_content' ); ?>>
 
 		<?php astra_entry_content_before(); ?>
 

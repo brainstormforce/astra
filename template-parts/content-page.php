@@ -12,7 +12,7 @@
 
 <?php astra_entry_before(); ?>
 
-<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article<?php astra_schema_markup( 'creativework' ); ?> id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
 
@@ -20,10 +20,10 @@
 
 		<?php astra_get_post_thumbnail(); ?>
 
-		<?php astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+		<?php astra_the_title( '<h1 class="entry-title" '.astra_get_schema_markup( 'headline' ).'>', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content clear"<?php astra_schema_markup( 'entry_content' ); ?>>
 
 		<?php astra_entry_content_before(); ?>
 

@@ -12,7 +12,7 @@ $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 ?>
 
-<div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php astra_secondary_class(); ?> role="complementary">
+<div<?php astra_schema_markup( 'sidebar' ); ?> id="secondary" <?php astra_secondary_class(); ?> role="complementary">
 
 	<div class="sidebar-main">
 
