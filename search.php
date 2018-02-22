@@ -35,7 +35,7 @@ get_header(); ?>
 
 				<?php astra_entry_before(); ?>
 
-				<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article<?php astra_schema_markup( 'creativework' ); ?> id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<?php astra_entry_top(); ?>
 

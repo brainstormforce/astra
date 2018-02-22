@@ -16,7 +16,7 @@
 
 		<?php astra_blog_post_thumbnai_and_title_order(); ?>
 
-		<div class="entry-content clear" itemprop="text">
+		<div class="entry-content clear"<?php astra_schema_markup( 'entry_content' ); ?>>
 
 			<?php astra_entry_content_before(); ?>
 

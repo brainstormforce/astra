@@ -117,6 +117,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'label'   => __( 'Display Site Tagline', 'astra' ),
 		)
 	);
+	
+	/**
+	 * Option: Enable Schema & Microdata
+	 */
+	$wp_customize->add_setting( 'astra_schema_markup', array(
+			'default'           => true,
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'priority'          => 5,
+		)
+	);
+	$wp_customize->add_control( 'astra_schema_markup', array(
+			'type'    => 'checkbox',
+			'section' => 'title_tagline',
+			'settings'=> 'astra_schema_markup',
+			'label'   => __( 'Enable Schema & Microdata', 'astra' ),
+		)
+	);
 
 
 	/**
