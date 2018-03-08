@@ -12,6 +12,45 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+	
+	/**
+	 * Option: Footer Widget Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-widget-tabs]', array(
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-widget-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Footer Widget Tabs', 'astra' ),
+				'section'  => 'section-footer-adv',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_footer_widget_tabs', array(
+					'layout'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-adv]'
+					),
+					'colors'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-text-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-text-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-link-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-link-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-link-h-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-link-h-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-background-divider]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-bg-color]',
+						ASTRA_THEME_SETTINGS . '[footer-adv-bg-color]',
+					),
+					'typography' => array(),
+				) ),
+			)
+		)
+	);
 
 	/**
 	 * Option: Footer Widgets Layout Layout
@@ -40,6 +79,116 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'path'  => ASTRA_THEME_URI . '/assets/images/layout-4-115x48.png',
 					),
 				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Widget Title Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
+				'label'   => __( 'Widget Title Color', 'astra' ),
+				'section' => 'section-footer-adv',
+			)
+		)
+	);
+
+	/**
+	 * Option: Text Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-adv-text-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-text-color]', array(
+				'label'   => __( 'Text Color', 'astra' ),
+				'section' => 'section-footer-adv',
+			)
+		)
+	);
+
+	/**
+	 * Option: Link Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-adv-link-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-link-color]', array(
+				'label'   => __( 'Link Color', 'astra' ),
+				'section' => 'section-footer-adv',
+			)
+		)
+	);
+
+	/**
+	 * Option: Link Hover Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
+				'label'   => __( 'Link Hover Color', 'astra' ),
+				'section' => 'section-footer-adv',
+			)
+		)
+	);
+
+
+	/**
+	 * Option: Background Color
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-background-divider]', array(
+				'section' => 'section-footer-adv',
+				'type'     => 'ast-divider',
+				'settings' => array(),
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-adv-bg-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Color(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv-bg-color]', array(
+				'type'    => 'ast-color',
+				'label'   => __( 'Background Color', 'astra' ),
+				'section' => 'section-footer-adv',
 			)
 		)
 	);

@@ -14,6 +14,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Sidebar Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[sidebar-tabs]', array(
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[sidebar-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Sidebar Tabs', 'astra' ),
+				'section'  => 'section-sidebars',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_sidebar_tabs', array(
+					'layout' => array(
+						ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
+						ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
+						ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
+						ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]',
+						ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
+						ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]',
+						ASTRA_THEME_SETTINGS . '[site-sidebar-width]',
+						ASTRA_THEME_SETTINGS . '[site-sidebar-width-description]',
+					),
+					'colors' => array(),
+					'typography' => array(),
+				) ),
+			)
+		)
+	);
+
+
+	/**
 	 * Option: Default Sidebar Position
 	 */
 	$wp_customize->add_setting(

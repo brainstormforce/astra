@@ -20,6 +20,44 @@ $header_rt_sections = array(
 	'widget'    => __( 'Widget', 'astra' ),
 );
 
+	/**
+	 * Option: Header Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[header-tabs]', array(
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[header-tabs]', array(
+				'type'    => 'ast-radio-tabs',
+				'label'   => __( 'Radio Tabs', 'astra' ),
+				'section' => 'section-header',
+				'priority' => 0,
+				'choices' => apply_filters( 
+					'astra_customizer_header_tabs', array(
+						'layout' => array(
+							ASTRA_THEME_SETTINGS . '[header-layouts]',
+							ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+							ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
+							ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]',
+							ASTRA_THEME_SETTINGS . '[header-main-sep]',
+							ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
+							ASTRA_THEME_SETTINGS . '[header-main-layout-width]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-label]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
+						),
+						'colors' => array(),
+						'typography' => array(),
+					)
+				),
+			)
+		)
+	);
 
 	/**
 	 * Option: Header Layout

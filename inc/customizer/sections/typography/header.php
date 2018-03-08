@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+	
 	/**
 	 * Option: Divider
 	 */

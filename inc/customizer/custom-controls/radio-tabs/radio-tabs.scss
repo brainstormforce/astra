@@ -1,0 +1,35 @@
+.customize-control-ast-radio-tabs {
+	label {
+		position: relative;
+		display: inline-block;
+		margin: 0 5px 5px 0;
+	}
+	input {
+		display: none;
+		
+		img {
+			border: 1px solid transparent;
+		}
+		
+		& + label img {
+			border: 1px solid #f1f1f1;
+		}
+
+
+		&:checked + label img {
+			-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+			box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+			border: 1px solid transparent;
+		}
+		
+		& + label .image-clickable {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

@@ -107,6 +107,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 			$wp_customize->register_control_type( 'Astra_Control_Sortable' );
 			$wp_customize->register_control_type( 'Astra_Control_Radio_Image' );
+			$wp_customize->register_control_type( 'Astra_Control_Radio_Tabs' );
 			$wp_customize->register_control_type( 'Astra_Control_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
@@ -164,13 +165,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/header.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/body.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/content.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/single.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/archive.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
 
 		}

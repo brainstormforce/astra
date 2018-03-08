@@ -14,6 +14,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Footer Bar Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-bar-tabs]', array(
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bar-tabs]', array(
+				'type'    => 'ast-radio-tabs',
+				'label'   => __( 'Footer Bar Tabs', 'astra' ),
+				'section' => 'section-footer-small',
+				'priority' => 0,
+				'choices' => apply_filters( 'astra_customizer_footer_bar_tabs', array(
+					'layout' => array(
+						ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-1]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-2]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]',
+						ASTRA_THEME_SETTINGS . '[footer-layout-width]',
+					),
+					'colors' => array(
+						ASTRA_THEME_SETTINGS . '[footer-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
+						ASTRA_THEME_SETTINGS . '[footer-bg-color]',
+					),
+					'typography' => array(),
+				) ),
+			)
+		)
+	);
+
+	/**
 	 * Option: Footer Bar Layout
 	 */
 	$wp_customize->add_setting(
@@ -250,11 +289,105 @@ if ( ! defined( 'ABSPATH' ) ) {
 		ASTRA_THEME_SETTINGS . '[footer-layout-width]', array(
 			'type'     => 'select',
 			'section'  => 'section-footer-small',
-			'priority' => 35,
+			'priority' => 50,
 			'label'    => __( 'Footer Bar Width', 'astra' ),
 			'choices'  => array(
 				'full'    => __( 'Full Width', 'astra' ),
 				'content' => __( 'Content Width', 'astra' ),
 			),
+		)
+	);
+
+	/**
+	 * Option: Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-color]', array(
+				'label'   => __( 'Text Color', 'astra' ),
+				'section' => 'section-footer-small',
+			)
+		)
+	);
+
+	/**
+	 * Option: Link Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
+				'label'   => __( 'Link Color', 'astra' ),
+				'section' => 'section-footer-small',
+			)
+		)
+	);
+
+	/**
+	 * Option: Link Hover Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
+				'label'   => __( 'Link Hover Color', 'astra' ),
+				'section' => 'section-footer-small',
+			)
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-footer-image]', array(
+				'section'  => 'section-footer-small',
+				'type'     => 'ast-divider',
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Background Color
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Color(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
+				'type'    => 'ast-color',
+				'label'   => __( 'Background Color', 'astra' ),
+				'section' => 'section-footer-small',
+			)
 		)
 	);

@@ -316,20 +316,16 @@
 					'astra-settings[footer-sml-section-1]',
 					'astra-settings[footer-sml-section-2]',
 					'astra-settings[section-ast-small-footer-background-styling]',
-					'astra-settings[ast-small-footer-color]',
-					'astra-settings[ast-small-footer-link-color]',
-					'astra-settings[ast-small-footer-link-hover-color]',
 					'astra-settings[ast-small-footer-bg-img]',
 					'astra-settings[section-ast-small-footer-typography]',
 					'astra-settings[ast-small-footer-text-font]',
 					'astra-settings[footer-sml-divider]',
-					'astra-settings[section-ast-small-footer-layout-info]',
 					'astra-settings[footer-layout-width]',
+					
 					'astra-settings[footer-color]',
 					'astra-settings[footer-link-color]',
 					'astra-settings[footer-link-h-color]',
 					'astra-settings[footer-bg-color]',
-					'astra-settings[divider-footer-image]',
 				],
 				callback: function( small_footer_layout ) {
 

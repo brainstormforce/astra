@@ -12,6 +12,40 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+	/**
+	 * Option: Blog Single Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[blog-single-tabs]', array(
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Blog Single Tabs', 'astra' ),
+				'section'  => 'section-blog-single',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_blog_single_tabs', array(
+					'layout' => array(
+						ASTRA_THEME_SETTINGS . '[blog-single-tabs]',
+						ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+						ASTRA_THEME_SETTINGS . '[blog-single-meta]',
+						ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]',
+						ASTRA_THEME_SETTINGS . '[blog-single-width]',
+						ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					),
+					'colors' => array(),
+					'typography' => array(
+						ASTRA_THEME_SETTINGS . '[divider-font-size-entry-title]',
+						ASTRA_THEME_SETTINGS . '[font-size-entry-title]',
+					),
+				) ),
+			)
+		)
+	);
 
 	/**
 	 * Option: Display Post Structure
@@ -126,6 +160,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'min'  => 768,
 					'step' => 1,
 					'max'  => 1920,
+				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-font-size-entry-title]', array(
+				'type'     => 'ast-divider',
+				'section'     => 'section-blog-single',
+				'priority' => 5,
+				'label'    => __( 'Single Post / Page Title', 'astra' ),
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Single Post / Page Title Font Size
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
+			'default'           => astra_get_option( 'font-size-entry-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Responsive(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
+				'type'        => 'ast-responsive',
+				'section'     => 'section-blog-single',
+				'priority'    => 10,
+				'label'       => __( 'Font Size', 'astra' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
