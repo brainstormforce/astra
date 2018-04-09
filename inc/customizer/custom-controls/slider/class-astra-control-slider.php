@@ -109,4 +109,11 @@ class Astra_Control_Slider extends WP_Customize_Control {
 		</label>
 		<?php
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }

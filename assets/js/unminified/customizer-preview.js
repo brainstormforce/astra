@@ -274,7 +274,9 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		wp_customize.preview.send( 'refresh' );
 	}else{
 		if ( '' !== bg_img && '' !== bg_color) {
-			gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+			if ( undefined !== bg_color ) {
+				gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+			}
 		}else if ( '' !== bg_img ) {
 			gen_bg_css = 'background-image: url(' + bg_img + ');';
 		}else if ( '' !== bg_color ) {
