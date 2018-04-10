@@ -150,7 +150,14 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_default() {
-			if ( ! is_page() && ! is_single() && ! is_search() ) {
+
+			if ( 'page.php' === basename( get_page_template() ) && is_archive() ) {
+
+				/**
+				 * 
+				 */
+				get_template_part( 'template-parts/content', 'page' );
+			} elseif ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
