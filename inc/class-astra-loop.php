@@ -150,6 +150,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_default() {
+
 			if ( ! is_page() && ! is_single() && ! is_search() ) {
 				/*
 				 * Include the Post-Format-specific template for the content.
