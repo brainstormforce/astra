@@ -3472,6 +3472,20 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: 1;
 }
 
+/* Hide Mobile logo. */
+.ast-mobile-header-logo {
+  display: none;
+}
+
+/* Hide Site Title & Site Tagline . */
+.ast-has-not-site-title .site-title {
+  display: none;
+}
+
+.ast-has-not-site-tagline .site-description {
+  display: none;
+}
+
 .ast-header-break-point {
   /* Styling Nav */
   /* Main Header */
@@ -3529,7 +3543,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation {
   line-height: 3;
-  display: none;
+  overflow: hidden;
 }
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation .children,
@@ -3659,6 +3673,30 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point.ast-header-custom-item-outside .header-main-layout-2 .ast-masthead-custom-menu-items {
   text-align: center;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .custom-logo {
+  display: none;
+}
+
+.ast-header-break-point .ast-has-mobile-header-logo .ast-mobile-header-logo {
+  display: block;
+}
+
+.ast-header-break-point .ast-has-mobile-site-title .site-title {
+  display: block;
+}
+
+.ast-header-break-point .ast-has-mobile-site-tagline .site-description {
+  display: block;
+}
+
+.ast-header-break-point .ast-has-not-mobile-site-title .site-title {
+  display: none;
+}
+
+.ast-header-break-point .ast-has-not-mobile-site-tagline .site-description {
+  display: none;
 }
 
 /* 7 - Header Toggle Buttons */

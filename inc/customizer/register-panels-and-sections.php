@@ -38,16 +38,52 @@
 		)
 	);
 
+	/*
+	 * Header section
+	 *
+	 * @since x.x.x
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-header-group',
+			array(
+				'priority' => 20,
+				'title'    => __( 'Header', 'astra' ),
+				'panel'    => 'panel-layout',
+			)
+		)
+	);
+
+	/*
+	 * Update the Primary Header section
+	 *
+	 * @since x.x.x
+	 */
 	$wp_customize->add_section(
 		new Astra_WP_Customize_Section(
 			$wp_customize, 'section-header',
-			apply_filters(
-				'astra_customizer_primary_header_layout',
-				array(
-					'title'    => __( 'Primary Header', 'astra' ),
-					'panel'    => 'panel-layout',
-					'priority' => 20,
-				)
+			array(
+				'priority' => 20,
+				'title'    => __( 'Primary Header', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-header-group',
+			)
+		)
+	);
+
+	/*
+	 * Mobile Header section
+	 *
+	 * @since x.x.x
+	 */
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-mobile-header',
+			array(
+				'priority' => 40,
+				'title'    => __( 'Mobile Header', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-header-group',
 			)
 		)
 	);

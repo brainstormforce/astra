@@ -159,6 +159,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/header.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/mobile-header.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';

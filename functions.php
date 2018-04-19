@@ -64,6 +64,7 @@ require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
  */
 require_once ASTRA_THEME_DIR . 'inc/template-parts.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-loop.php';
+require_once ASTRA_THEME_DIR . 'inc/class-astra-mobile-header.php';
 
 /**
  * Functions and definitions.

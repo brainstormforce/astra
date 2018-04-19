@@ -69,6 +69,91 @@ var toggleClass = function ( el, className ) {
 	}
 };
 
+ //GLOBAL VARIABLES
+  var duration = 15,
+      height, interval, counter, flag = 0;
+  // var button = d.getElementById("button"),
+  //     ease = d.getElementById("easing"),
+  //     element = d.getElementById("element"),
+  //     duration = 15,
+  //     height, interval, counter, flag = 0;
+  
+  //**************************************
+  //FUNCTIONS
+  //#1 this is the transition, it won't work for old IE
+  function addEasing(a) {
+    
+    if (flag === 1) { //check flag
+      a.style.cssText = "transition: height 500ms; -webkit-transition: height 500ms; -moz-transition: height 500ms; -o-transition: height 500ms";
+    } else {
+      a.style.cssText = "transition: none; -webkit-transition: none; -moz-transition: none; -o-transition: none";
+    }
+    
+  }
+
+  //#2 the slideUp
+  function slideUp(a, b) {
+    
+    height = a.offsetHeight; //declare the value of "height" variable
+    counter = height; //declare the value of "counter" variable
+
+    var subtractor = height/10;
+
+    //add CSS3 transition
+    addEasing(a);          
+
+    //disable easing button
+    // ease.disabled = 1;
+
+    //to hide the content of the element
+    a.style.overflow = "hidden";
+	
+	setInterval
+
+
+    //decreasing the height
+    interval = setInterval(function () {
+      
+      counter -= subtractor;            
+      if (counter > 0) {
+        a.style.height = counter + "px";
+      } else {
+        a.style.height = 0;
+        b.disabled = 0;
+        // b.innerHTML = "slideDown";              
+        clearInterval(interval);
+      }
+    }, duration);
+
+    // setInterval(function () {
+    //    a.style.height = '';
+    //     b.disabled = '';
+    //   }, 500);
+
+  }
+
+  //#3 the slideDown
+  function slideDown(a, b) {
+
+    var adder = height/10; //the height is global variable          
+
+    //iteratively increase the height
+    interval = setInterval(function () {            
+      counter += adder;
+      if (counter < height) {
+        a.style.height = counter + "px";
+      } else {
+        a.style.height = height + "px";
+        b.disabled = 0;
+        // b.innerHTML = "slideUp";
+        //enable easing button              
+        // ease.disabled = 0;
+        clearInterval(interval);
+      }
+    }, duration); 
+    
+  }
+
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
 (function () {
 
@@ -217,8 +302,10 @@ var toggleClass = function ( el, className ) {
 							toggleClass( __main_header_all[event_index], 'toggle-on' );
 							toggleClass( menu_toggle_all[event_index], 'toggled' );
 							if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
+								 slideDown(__main_header_all[event_index], this);
 								__main_header_all[event_index].style.display = 'block';		
 							} else {		
+								 slideUp(__main_header_all[event_index], this);
 								__main_header_all[event_index].style.display = '';		
 							}
 						break;
@@ -423,36 +510,5 @@ var toggleClass = function ( el, className ) {
 			self = self.parentElement;
 		}
 	}
-
-	/**
-	 * Toggles `focus` class to allow submenu access on tablets.
-	 */
-	( function( container ) {
-		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-
-		if ( 'ontouchstart' in window ) {
-			touchStartFn = function( e ) {
-				var menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem === menuItem.parentNode.children[i] ) {
-							continue;
-						}
-						menuItem.parentNode.children[i].classList.remove( 'focus' );
-					}
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
-			};
-
-			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
-			}
-		}
-	}( container ) );
 
 } )();
