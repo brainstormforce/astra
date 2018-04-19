@@ -186,6 +186,15 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			if ( is_home() || is_front_page() ) {
 				$tag = 'h1';
 			}
+
+			/**
+			 * Filters the tags for site title.
+			 *
+			 * @since 1.3.1
+			 *
+			 * @param string $tags string containing the HTML tags for Site Title.
+			 */
+			$tag               = apply_filters( 'astra_site_title_tag', $tag );
 			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
 			// Site Description.

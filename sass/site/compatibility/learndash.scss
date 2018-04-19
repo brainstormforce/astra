@@ -31,6 +31,10 @@
 	.sfwd-certificates{
 		.entry-header{
 			margin-bottom: .5em;
+			.ast-single-post-order + .post-thumb img {
+				margin-top: 1em;
+				margin-bottom: 1em;	
+			}
 		}
 	}
 	.sfwd-lessons{
@@ -390,11 +394,30 @@ body {
 	}
 
 	.expand_collapse,
-	#learndash_profile .expand_collapse {
-		top: -1em;
-		a {
-			font-size: .8em;
+	#learndash_profile {
+		.expand_collapse {
+			top: -1em;
+			a {
+				font-size: .8em;
+			}
 		}
+		.list_arrow {
+			&.collapse,
+			&.expand {
+				vertical-align: top;
+				&:before{
+					content: "\e900";
+					transform: rotate(270deg);
+					font-weight: bold;
+				}
+			}
+			&.expand {
+				&:before{
+					transform: rotate(0deg);
+				}
+			}
+		}
+
 	}
 
 	.list_arrow {
@@ -410,23 +433,30 @@ body {
 				line-height: 1.5;
 			}
 		}
-
-		&:before {
-			content: "\e900";
-			display: inline-block;
-			font-family: 'Astra';
-			font-weight: bold;
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			font-size: .8em;
-		}
-
-		&.collapse {
-			background-position: 50% .5em;
+		&.lesson_completed {
 			&:before {
-				transform: rotate(270deg);
-			}		
+				content: "\e901";
+				font-weight: bold;
+			}	
+		}
+		&.lesson_incomplete{
+			&:before {
+				color: rgba(0,0,0,0.5);
+				content: "\e903";
+				font-weight: normal;
+			}	
+		}
+		&:before {
+		    display: inline-block;
+		    font-family: 'Astra';
+		    text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		    font-size: 1em;
+		    font-weight: normal;
+		    margin-right: 5px;
+		    cursor: pointer;
+		    vertical-align: middle;
 		}
 	}
 

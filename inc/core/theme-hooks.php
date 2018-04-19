@@ -254,6 +254,15 @@ function astra_content_loop() {
 }
 
 /**
+ * Conten Page Loop.
+ *
+ * Called from page.php
+ */
+function astra_content_page_loop() {
+	do_action( 'astra_content_page_loop' );
+}
+
+/**
  * Content while after
  */
 function astra_content_while_after() {

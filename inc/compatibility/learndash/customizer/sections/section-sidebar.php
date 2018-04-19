@@ -42,7 +42,7 @@ $wp_customize->add_control(
 		'type'        => 'select',
 		'section'     => 'section-sidebars',
 		'priority'    => 5,
-		'label'       => __( 'LearnDash LMS', 'astra' ),
+		'label'       => __( 'LearnDash', 'astra' ),
 		'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
 		'choices'     => array(
 			'default'       => __( 'Default', 'astra' ),

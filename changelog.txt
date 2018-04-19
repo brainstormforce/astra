@@ -1,3 +1,11 @@
+v1.3.1
+- New: New filter `astra_site_title_tag` to change the HTML tag of the site title.
+- Improvement: Improve RTL support for customizer controls.
+- Fix: Correct template part not being loaded for plugins that change the default WordPress template hierarchy. This fixes compatibility with plugins bbPress, LearnPress, PeepSo Core etc.
+- Fix: Background param color does not save then value when it is empty.
+- Fix: Added the same icon of the LearnDash course status to the Course Navigation widget.
+- Fix: Learndash - Use theme color instead of link color for table's heading, icons, progress bar.
+
 v1.3.0
 - New: Added LearnDash LMS complete support.
 - New: Introduced option to set the background image to the body. More background image options added from Astra Pro.

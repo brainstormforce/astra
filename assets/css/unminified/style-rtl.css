@@ -1353,7 +1353,8 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -4959,6 +4960,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .comments-area .no-comments {
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .comments-area p.logged-in-as {

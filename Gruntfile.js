@@ -27,7 +27,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],
@@ -41,7 +40,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],
@@ -54,7 +52,6 @@ module.exports = function (grunt) {
                             src: [
                                     '*.css',
                                     '!*-rtl.css',
-                                    '!customizer-controls.css',
                                     '!font-awesome.css',
                                     '!astra-fonts.css',
                                 ],

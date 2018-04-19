@@ -4,7 +4,7 @@
 }
 
 #customize-header-actions .spinner {
-    margin-left: 4px;
+    margin-right: 4px;
 }
 
 /* slider control */
@@ -86,7 +86,7 @@
 }
 .customize-control-slider .ast-slider-reset {
 	color: rgba(0,0,0,.2);
-	float: right;
+	float: left;
 	-webkit-transition: color .5s ease-in;
 	transition: color .5s ease-in;
 }
@@ -120,12 +120,12 @@
 
 .customize-pane-child > li[id="customize-control-astra-settings-headings-font-weight"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-font-weight"] {
-    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .customize-pane-child > li[id="customize-control-astra-settings-headings-text-transform"],
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
-    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .customize-pane-child > li[id$="-content-layout"] > label,
@@ -151,7 +151,7 @@
 
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /**
@@ -166,16 +166,16 @@
 .control-section-astra-pro h3 a {
     background: #FFF;
     display: block;
-    padding: 11px 10px 12px 14px;
+    padding: 11px 14px 12px 10px;
     text-decoration: none;
 }
 .control-section-astra-pro h3 a:after {
 	content: "\f345";
 	position: absolute;
 	top: 11px;
-	right: 10px;
+	left: 10px;
 	z-index: 1;
-	float: right;
+	float: left;
 	border: none;
 	background: none;
 	font: normal 20px/1 dashicons;

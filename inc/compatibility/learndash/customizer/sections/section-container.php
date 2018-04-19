@@ -42,8 +42,8 @@ $wp_customize->add_control(
 		'type'        => 'select',
 		'section'     => 'section-container-layout',
 		'priority'    => 68,
-		'label'       => __( 'Container for LearnDash LMS', 'astra' ),
-		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash LMS shortcodes.', 'astra' ),
+		'label'       => __( 'Container for LearnDash', 'astra' ),
+		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
 		'choices'     => array(
 			'default'                 => __( 'Default', 'astra' ),
 			'boxed-container'         => __( 'Boxed', 'astra' ),

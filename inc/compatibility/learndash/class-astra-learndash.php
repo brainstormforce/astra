@@ -68,16 +68,18 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
-			$theme_color  = astra_get_option( 'link-color' );
+			$link_color   = astra_get_option( 'link-color' );
+			$theme_color  = astra_get_option( 'theme-color' );
 			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$body_font_family = astra_body_font_family();
 
+			$link_forground_color  = astra_get_foreground_color( $link_color );
 			$theme_forground_color = astra_get_foreground_color( $theme_color );
 			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
-				$btn_color = $theme_forground_color;
+				$btn_color = $link_forground_color;
 			}
 
 			$btn_h_color = astra_get_option( 'button-h-color' );
@@ -112,7 +114,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'background-color' => $theme_color,
 				),
 				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, #learndash_profile .profile_edit_profile a, body #learndash_profile .expand_collapse a, body #learndash_profile a span, #lessons_list .list-count, #quiz_list .list-count' => array(
-					'color' => $theme_color,
+					'color' => $link_color,
 				),
 				'.learndash .notcompleted:before, #learndash_profile .notcompleted:before, .learndash_topic_dots ul .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list .topic-notcompleted span:before, .learndash_navigation_lesson_topics_list ul .topic-notcompleted span:before, .learndash .topic-notcompleted span:before' => array(
 					'color' => astra_hex_to_rgba( $text_color, .5 ),
@@ -121,13 +123,16 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					'background-color' => $theme_color,
 					'color'            => $theme_forground_color,
 				),
+				'.learndash .completed:before, #learndash_profile .completed:before, .learndash_topic_dots ul .topic-completed span:before, .learndash_navigation_lesson_topics_list .topic-completed span:before, .learndash_navigation_lesson_topics_list ul .topic-completed span:before, .learndash .topic-completed span:before, body .list_arrow.lesson_completed:before' => array(
+					'color' => $theme_color,
+				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
 					'border-top-color'   => astra_hex_to_rgba( $theme_color, .75 ),
 					'border-right-color' => astra_hex_to_rgba( $theme_color, .75 ),
 				),
 				'body .wpProQuiz_loadQuiz, body .wpProQuiz_lock' => array(
-					'border-color'     => astra_hex_to_rgba( $theme_color, .5 ),
-					'background-color' => astra_hex_to_rgba( $theme_color, .1 ),
+					'border-color'     => astra_hex_to_rgba( $link_color, .5 ),
+					'background-color' => astra_hex_to_rgba( $link_color, .1 ),
 				),
 				'#ld_course_list .entry-title' => array(
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),

@@ -29,6 +29,15 @@
   margin-bottom: .5em;
 }
 
+.single .sfwd-courses .entry-header .ast-single-post-order + .post-thumb img,
+.single .sfwd-lessons .entry-header .ast-single-post-order + .post-thumb img,
+.single .sfwd-topic .entry-header .ast-single-post-order + .post-thumb img,
+.single .sfwd-quiz .entry-header .ast-single-post-order + .post-thumb img,
+.single .sfwd-certificates .entry-header .ast-single-post-order + .post-thumb img {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .single .sfwd-lessons .learndash_content .ast-oembed-container {
   margin-bottom: 1.6em;
 }
@@ -355,14 +364,37 @@ body #learndash_quizzes .right {
   width: auto;
 }
 
-body .expand_collapse,
+body .expand_collapse .expand_collapse,
 body #learndash_profile .expand_collapse {
   top: -1em;
 }
 
-body .expand_collapse a,
+body .expand_collapse .expand_collapse a,
 body #learndash_profile .expand_collapse a {
   font-size: .8em;
+}
+
+body .expand_collapse .list_arrow.collapse, body .expand_collapse .list_arrow.expand,
+body #learndash_profile .list_arrow.collapse,
+body #learndash_profile .list_arrow.expand {
+  vertical-align: top;
+}
+
+body .expand_collapse .list_arrow.collapse:before, body .expand_collapse .list_arrow.expand:before,
+body #learndash_profile .list_arrow.collapse:before,
+body #learndash_profile .list_arrow.expand:before {
+  content: "\e900";
+  -webkit-transform: rotate(-270deg);
+  -ms-transform: rotate(-270deg);
+  transform: rotate(-270deg);
+  font-weight: bold;
+}
+
+body .expand_collapse .list_arrow.expand:before,
+body #learndash_profile .list_arrow.expand:before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 body .list_arrow.collapse, body .list_arrow.collapse.lesson_incomplete, body .list_arrow.collapse.lesson_completed, body .list_arrow.expand, body .list_arrow.expand.lesson_incomplete, body .list_arrow.expand.lesson_completed {
@@ -371,25 +403,28 @@ body .list_arrow.collapse, body .list_arrow.collapse.lesson_incomplete, body .li
   line-height: 1.5;
 }
 
+body .list_arrow.lesson_completed:before {
+  content: "\e901";
+  font-weight: bold;
+}
+
+body .list_arrow.lesson_incomplete:before {
+  color: rgba(0, 0, 0, 0.5);
+  content: "\e903";
+  font-weight: normal;
+}
+
 body .list_arrow:before {
-  content: "\e900";
   display: inline-block;
   font-family: 'Astra';
-  font-weight: bold;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: .8em;
-}
-
-body .list_arrow.collapse {
-  background-position: 50% .5em;
-}
-
-body .list_arrow.collapse:before {
-  -webkit-transform: rotate(-270deg);
-  -ms-transform: rotate(-270deg);
-  transform: rotate(-270deg);
+  font-size: 1em;
+  font-weight: normal;
+  margin-left: 5px;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
 body .course_navigation .learndash_navigation_lesson_topics_list .list_lessons {

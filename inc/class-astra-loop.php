@@ -47,9 +47,10 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		public function __construct() {
 			// Loop.
 			add_action( 'astra_content_loop', array( $this, 'loop_markup' ) );
+			add_action( 'astra_content_page_loop', array( $this, 'loop_markup_page' ) );
 
 			// Template Parts.
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_page' ) );
+			add_action( 'astra_page_template_parts_content', array( $this, 'template_parts_page' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_post' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_search' ) );
 			add_action( 'astra_template_parts_content', array( $this, 'template_parts_default' ) );
@@ -99,9 +100,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_page() {
-			if ( is_page() ) {
-				get_template_part( 'template-parts/content', 'page' );
-			}
+			get_template_part( 'template-parts/content', 'page' );
 		}
 
 		/**
@@ -161,12 +160,24 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		/**
+		 * Loop Markup for content page
+		 *
+		 * @since 1.3.1
+		 */
+		public function loop_markup_page() {
+			$this->loop_markup( true );
+		}
+
+		/**
 		 * Template part loop
 		 *
+		 * @param  boolean $is_page Loop outputs different content action for content page and default content.
+		 *         if is_page is set to true - do_action( 'astra_page_template_parts_content' ); is added
+		 *         if is_page is false - do_action( 'astra_template_parts_content' ); is added.
 		 * @since 1.2.7
 		 * @return void
 		 */
-		public function loop_markup() {
+		public function loop_markup( $is_page = false ) {
 			?>
 			<main id="main" class="site-main" role="main">
 
@@ -178,7 +189,12 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 					while ( have_posts() ) :
 						the_post();
 
-						do_action( 'astra_template_parts_content' );
+						if ( true == $is_page ) {
+							do_action( 'astra_page_template_parts_content' );
+						} else {
+							do_action( 'astra_template_parts_content' );
+						}
+
 						?>
 
 					<?php endwhile; ?>

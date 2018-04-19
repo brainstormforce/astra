@@ -17,7 +17,7 @@ $wp_customize->add_section(
 		$wp_customize, 'section-learndash',
 		array(
 			'priority' => 65,
-			'title'    => __( 'LearnDash LMS', 'astra' ),
+			'title'    => __( 'LearnDash', 'astra' ),
 			'panel'    => 'panel-layout',
 		)
 	)

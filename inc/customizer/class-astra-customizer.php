@@ -194,6 +194,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
+			if ( is_rtl() ) {
+				$css_prefix = '-rtl.min.css';
+				if ( SCRIPT_DEBUG ) {
+					$css_prefix = '-rtl.css';
+				}
+			}
+
 			// Customizer Core.
 			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
