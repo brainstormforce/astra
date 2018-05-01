@@ -598,65 +598,65 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		function register_builder_fields( $default_fields ) {
 
-			$disable_fields = array();
+			$disable_fields  = array();
 			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
 
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
-				'id' => 'ast-main-header-display',
-				'label' => esc_html__( 'Disable Primary Header', 'astra' ),
+				'id'        => 'ast-main-header-display',
+				'label'     => esc_html__( 'Disable Primary Header', 'astra' ),
 				'switch_on' => 'disabled',
-				'type' => 'switch',
- 			);
+				'type'      => 'switch',
+			);
 
 			if ( $show_meta_field ) {
 				$disable_fields[] = array(
 					'attribute' => 'site-post-title',
-					'id' => 'site-post-title',
-					'label' => esc_html__( 'Disable Title', 'astra' ),
+					'id'        => 'site-post-title',
+					'label'     => esc_html__( 'Disable Title', 'astra' ),
 					'switch_on' => 'disabled',
-					'type' => 'switch',
+					'type'      => 'switch',
 				);
 				$disable_fields[] = array(
 					'attribute' => 'ast-featured-img',
-					'id' => 'ast-featured-img',
-					'label' => esc_html__( 'Disable Featured Image', 'astra' ),
+					'id'        => 'ast-featured-img',
+					'label'     => esc_html__( 'Disable Featured Image', 'astra' ),
 					'switch_on' => 'disabled',
-					'type' => 'switch',
+					'type'      => 'switch',
 				);
 			}
 
 			if ( $show_meta_field && 'disabled' != astra_get_option( 'footer-adv' ) ) {
 				$disable_fields[] = array(
 					'attribute' => 'footer-adv-display',
-					'id' => 'footer-adv-display',
-					'label' => esc_html__( 'Disable Footer Widgets', 'astra' ),
+					'id'        => 'footer-adv-display',
+					'label'     => esc_html__( 'Disable Footer Widgets', 'astra' ),
 					'switch_on' => 'disabled',
-					'type' => 'switch',
+					'type'      => 'switch',
 				);
 			}
 
 			if ( 'disabled' != astra_get_option( 'footer-sml-layout' ) ) {
 				$disable_fields[] = array(
 					'attribute' => 'footer-sml-layout',
-					'id' => 'footer-sml-layout',
-					'label' => esc_html__( 'Disable Footer Bar', 'astra' ),
+					'id'        => 'footer-sml-layout',
+					'label'     => esc_html__( 'Disable Footer Bar', 'astra' ),
 					'switch_on' => 'disabled',
-					'type' => 'switch',
+					'type'      => 'switch',
 				);
 			}
 
 			$fields['astra_theme_settings'] = array(
-				'title' => __( 'Astra Settings', 'my-text-domain' ),
+				'title'      => __( 'Astra Settings', 'my-text-domain' ),
 				'toggleable' => true,
-				'fields' => array(
+				'fields'     => array(
 					array(
 						array(
 							'attribute' => 'site-sidebar-layout',
-							'id' => 'site-sidebar-layout',
-							'label' => esc_html__( 'Sidebar', 'astra' ),
-							'type' => 'select',
-							'options' => array(
+							'id'        => 'site-sidebar-layout',
+							'label'     => esc_html__( 'Sidebar', 'astra' ),
+							'type'      => 'select',
+							'options'   => array(
 								'default'       => esc_html__( 'Customizer Setting', 'astra' ),
 								'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
 								'right-sidebar' => esc_html__( 'Right Sidebar', 'astra' ),
@@ -665,10 +665,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 						),
 						array(
 							'attribute' => 'site-content-layout',
-							'id' => 'site-content-layout',
-							'label' => esc_html__( 'Content Layout', 'astra' ),
-							'type' => 'select',
-							'options' => array(
+							'id'        => 'site-content-layout',
+							'label'     => esc_html__( 'Content Layout', 'astra' ),
+							'type'      => 'select',
+							'options'   => array(
 								'default'                 => esc_html__( 'Customizer Setting', 'astra' ),
 								'boxed-container'         => esc_html__( 'Boxed', 'astra' ),
 								'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
@@ -682,8 +682,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			);
 
 			$default_fields['assignment'] = $fields;
-			$default_fields['lesson'] = $fields;
-			$default_fields['quiz'] = $fields;
+			$default_fields['lesson']     = $fields;
+			$default_fields['quiz']       = $fields;
 
 			return $default_fields;
 
