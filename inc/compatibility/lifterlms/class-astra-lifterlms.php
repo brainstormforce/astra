@@ -133,6 +133,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
+			if ( is_singular( 'llms_assignment' ) ) {
+				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+			}
+
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
 			add_action( 'lifterlms_single_course_after_summary', array( $this, 'single_reviews' ), 100 );
 
@@ -495,6 +499,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return   void
 		 */
 		function add_theme_support() {
+			add_theme_support( 'lifterlms' );
 			add_theme_support( 'lifterlms-quizzes' );
 			add_theme_support( 'lifterlms-sidebars' );
 		}
