@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
-			add_action( 'wp', array( $this, 'woocommerce_checkout' ) );
+			add_action( 'init', array( $this, 'woocommerce_checkout' ) );
 			add_action( 'wp', array( $this, 'shop_meta_option' ), 1 );
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
