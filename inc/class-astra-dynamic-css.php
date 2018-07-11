@@ -151,16 +151,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
 			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
 
-			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
-
-			if ( false == $btn_style_color ) {
-				// button text color.
-				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
-			} else {
-				// toggle button color.
-				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
-			}
-
 			$css_output = array();
 			// Body Font Family.
 			$body_font_family = astra_body_font_family();
@@ -433,7 +423,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Menu Toggle Fill.
 				'.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle' => array(
 					'background' => esc_attr( $mobile_header_toggle_btn_style_color ),
-					'color'      => $menu_btn_color,
+					'color'      => astra_get_foreground_color( $mobile_header_toggle_btn_style_color ),
 				),
 
 				// Menu Toggle Border Radius.
