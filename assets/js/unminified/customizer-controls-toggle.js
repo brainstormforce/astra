@@ -544,7 +544,7 @@
 				],
 				callback: function( style ) {
 
-					if ( 'default' === style ) {
+					if ( 'default' !== style ) {
 						return true;
 					}
 					return false;
