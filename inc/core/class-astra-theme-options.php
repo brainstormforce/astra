@@ -306,7 +306,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-order'              => 'header-order-default',
 
 					// toogle menu style.
-					'mobile-header-toggle-btn-style'   => 'minimal',
+					'mobile-header-toggle-btn-style'         => 'minimal',
+					'mobile-header-toggle-btn-style-color'   => '',
+					'mobile-header-toggle-btn-border-radius' => 2,
+
 					'hide-custom-menu-mobile'          => 0,
 				)
 			);

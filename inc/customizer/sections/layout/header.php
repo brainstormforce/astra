@@ -435,6 +435,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'priority' => 42,
 			'choices'  => array(
+				'default' => __( 'Default', 'astra' ),
 				'fill'    => __( 'Fill', 'astra' ),
 				'outline' => __( 'Outline', 'astra' ),
 				'minimal' => __( 'Minimal', 'astra' ),

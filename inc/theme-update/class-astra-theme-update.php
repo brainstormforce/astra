@@ -712,7 +712,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options = get_option( 'astra-settings' );
 
 			if ( ! isset( $theme_options['mobile-header-toggle-btn-style'] ) ) {
-				$theme_options['mobile-header-toggle-btn-style'] = 'fill';
+				$theme_options['mobile-header-toggle-btn-style'] = 'default';
 			}
 
 			update_option( 'astra-settings', $theme_options );

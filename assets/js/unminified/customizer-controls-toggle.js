@@ -536,6 +536,21 @@
 				}
 			}
 		],
+		'astra-settings[mobile-header-toggle-btn-style]' :
+		[
+			{
+				controls: [
+					'astra-settings[mobile-header-toggle-btn-style-color]'
+				],
+				callback: function( style ) {
+
+					if ( 'default' !== style ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 	};
 
 	if ( typeof ASTCustomizerToggles['astra-settings[header-display-outside-menu]'] != 'undefined' && ASTCustomizerToggles['astra-settings[header-display-outside-menu]'].length > 0 ) {
