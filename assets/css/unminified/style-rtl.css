@@ -3409,6 +3409,10 @@ body {
   padding-bottom: 0;
 }
 
+body:not(.ast-sticky-main-shrink) .main-header-bar .main-header-bar-navigation.toggle-on {
+  padding-top: 1.5em;
+}
+
 .main-header-bar {
   z-index: 4;
   position: relative;
@@ -3453,10 +3457,6 @@ body {
 
 .main-header-bar .main-header-bar-navigation .slide-search .search-field:focus {
   background-color: white;
-}
-
-.main-header-bar .main-header-bar-navigation.toggle-on {
-  padding-top: 1.5em;
 }
 
 .ast-search-menu-icon {

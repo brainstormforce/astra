@@ -54,6 +54,17 @@
     	padding-bottom: 0;
     }
 }
+
+body:not(.ast-sticky-main-shrink) {
+	.main-header-bar{
+		.main-header-bar-navigation {
+			&.toggle-on {
+				padding-top: 1.5em;
+			}
+		}
+	}
+}
+
 .main-header-bar{
 	z-index: 4;
 	position: relative;
@@ -88,10 +99,6 @@
 			&:focus {
 				background-color: white;
 			}
-		}
-
-		&.toggle-on {
-			padding-top: 1.5em;
 		}
 	}
 }
