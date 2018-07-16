@@ -3409,7 +3409,7 @@ body {
   padding-bottom: 0;
 }
 
-header:not(#ast-fixed-header) .main-header-bar .main-header-bar-navigation.toggle-on {
+body:not(.ast-sticky-main-shrink) .main-header-bar .main-header-bar-navigation.toggle-on {
   padding-top: 1.5em;
 }
 

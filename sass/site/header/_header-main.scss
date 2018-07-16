@@ -55,7 +55,7 @@
     }
 }
 
-header:not(#ast-fixed-header) {
+body:not(.ast-sticky-main-shrink) {
 	.main-header-bar{
 		.main-header-bar-navigation {
 			&.toggle-on {
