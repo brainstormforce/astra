@@ -795,22 +795,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_separator_color = astra_get_option( 'header-main-sep-color' );
 
 			$meta_style = array(
-				'.ast-header-break-point .site-header' => array(
-					'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
-					'border-bottom-color' => esc_attr( $header_separator_color ),
-				),
-			);
-
-			$parse_css = astra_parse_css( $meta_style );
-
-			$meta_style = array(
 				'.main-header-bar' => array(
 					'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
 			);
 
-			$parse_css .= astra_parse_css( $meta_style, '769' );
+			$parse_css = astra_parse_css( $meta_style );
 
 			if ( 'no-sidebar' !== astra_page_layout() ) :
 
