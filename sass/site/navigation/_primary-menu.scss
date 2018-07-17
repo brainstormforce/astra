@@ -139,34 +139,18 @@
 			&.children li a,
 			&.sub-menu li a {
 			    padding-left: 30px;
-			    &:before{
-			    	content: "-";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li a,
 			&.sub-menu li li a {
 			    padding-left: 40px;
-			    &:before{
-			    	content: "--";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li a,
 			&.sub-menu li li li a {
 			    padding-left: 50px;
-			    &:before{
-			    	content: "---";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li li a,
 			&.sub-menu li li li li a {
 			    padding-left: 60px;
-			    &:before{
-			    	content: "----";
-    				margin-right: 2px;
-			    }
 			}
 		}
 	}

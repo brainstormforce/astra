@@ -2590,21 +2590,9 @@ body {
   padding-left: 30px;
 }
 
-.ast-header-break-point .main-navigation ul.children li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li a:before {
-  content: "-";
-  margin-right: 2px;
-}
-
 .ast-header-break-point .main-navigation ul.children li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li a {
   padding-left: 40px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li a:before {
-  content: "--";
-  margin-right: 2px;
 }
 
 .ast-header-break-point .main-navigation ul.children li li li a,
@@ -2612,21 +2600,9 @@ body {
   padding-left: 50px;
 }
 
-.ast-header-break-point .main-navigation ul.children li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li a:before {
-  content: "---";
-  margin-right: 2px;
-}
-
 .ast-header-break-point .main-navigation ul.children li li li li a,
 .ast-header-break-point .main-navigation ul.sub-menu li li li li a {
   padding-left: 60px;
-}
-
-.ast-header-break-point .main-navigation ul.children li li li li a:before,
-.ast-header-break-point .main-navigation ul.sub-menu li li li li a:before {
-  content: "----";
-  margin-right: 2px;
 }
 
 .ast-header-break-point .ast-header-custom-item {
