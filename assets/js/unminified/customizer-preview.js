@@ -435,9 +435,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'astra-settings[header-main-sep]', function( setting ) {
 		setting.bind( function( border ) {
 
-			var dynamicStyle = 'body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px }';
-
-			dynamicStyle += 'body:not(.ast-header-break-point) .main-header-bar {';
+			var dynamicStyle = '.main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
@@ -516,9 +514,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'astra-settings[header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
-			var dynamicStyle = ' body.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
-
-			dynamicStyle += 'body:not(.ast-header-break-point) .main-header-bar {';
+			var dynamicStyle = '.main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 

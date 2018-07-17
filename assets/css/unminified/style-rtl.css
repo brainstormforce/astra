@@ -3239,10 +3239,6 @@ body {
 /**
  * 6 - all and (max-width: $mx-break-point)
  */
-.ast-header-break-point .main-header-bar {
-  border: 0;
-}
-
 .ast-header-break-point .nav-fallback-text {
   float: none;
 }
