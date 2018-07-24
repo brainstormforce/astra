@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
-			add_action( 'elementor/preview/init', array( $this, 'elementor_overlay_zindex' ) );
+			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
 		}
 
 		/**
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 			?>
 			<style type="text/css" id="ast-elementor-overlay-css">
-				.elementor-editor-active .elementor-element:hover > .elementor-element-overlay {
+				.elementor-editor-active .elementor-element > .elementor-element-overlay {
 					z-index: 9999;
 				}
 			</style>
