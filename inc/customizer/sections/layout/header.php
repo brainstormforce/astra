@@ -296,11 +296,10 @@ $header_rt_sections = array(
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', array(
-			'type'        => 'checkbox',
-			'section'     => 'section-header',
-			'label'       => __( 'Hide Last item in Menu on mobile', 'astra' ),
-			'priority'    => 45,
-			'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Hide Last item in Menu on mobile', 'astra' ),
+			'priority' => 45,
 		)
 	);
 
@@ -336,8 +335,8 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Astra_Control_Radio_Image(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[header-main-menu-align]', array(
-				'type'        => 'ast-radio-image',
-				'choices'     => array(
+				'type'     => 'ast-radio-image',
+				'choices'  => array(
 					'inline' => array(
 						'label' => __( 'Inline', 'astra' ),
 						'path'  => ASTRA_THEME_URI . '/assets/images/mobile-inline-layout-76x48.png',
@@ -347,10 +346,9 @@ $header_rt_sections = array(
 						'path'  => ASTRA_THEME_URI . '/assets/images/mobile-stack-layout-76x48.png',
 					),
 				),
-				'section'     => 'section-header',
-				'priority'    => 50,
-				'label'       => __( 'Mobile Header Alignment', 'astra' ),
-				'description' => __( 'This setting is only applied to the devices below 544px width ', 'astra' ),
+				'section'  => 'section-header',
+				'priority' => 50,
+				'label'    => __( 'Mobile Header Alignment', 'astra' ),
 			)
 		)
 	);
