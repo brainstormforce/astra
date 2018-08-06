@@ -69,7 +69,9 @@
     padding-left: 10px;
     text-decoration: none;
 }
-
+#astra-theme-rating {
+	border-left-color: #ffba00;
+}
 .astra-review-notice-container .dashicons:first-child {
     padding-left: 0;
 }
