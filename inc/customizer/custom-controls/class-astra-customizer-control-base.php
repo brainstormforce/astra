@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			global $wp_customize;
 			self::$controls[ $name ] = $atts;
 
-			if ( 'Astra_Control_Typography' !== $atts['callback'] ) {
+			if ( isset( $atts['callback'] ) && 'Astra_Control_Typography' !== $atts['callback'] ) {
 				/**
 				 * Register controls
 				 */
@@ -93,6 +93,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 		 * @return string
 		 */
 		public static function get_sanitize_call( $control ) {
+
 			if ( isset( self::$controls[ $control ]['sanitize_callback'] ) ) {
 				return self::$controls[ $control ]['sanitize_callback'];
 			}

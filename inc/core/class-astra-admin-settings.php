@@ -152,7 +152,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				Astra_Notices::add_notice(
 					array(
 						'id'                  => 'astra-theme-rating',
-						'type'                => 'info',
+						'type'                => 'warning',
 						/* translators: %1$s product rating link, %2$s dismissable notice transient time. */
 						'message'             => sprintf( __( 'Hello! Seems like you have used Astra theme to build this website — Thanks a ton!<br/><br/>Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.<br/><br/><div class="astra-review-notice-container"><span class="dashicons dashicons-external"></span><a href="%1$s" class="astra-notice-close astra-review-notice" target="_blank">Ok, you deserve it</a><span class="dashicons dashicons-calendar"></span><a href="#" data-repeat-notice-after="%2$s" class="astra-notice-close astra-review-notice">Nope, maybe later</a><span class="dashicons dashicons-smiley"></span><a href="#" class="astra-notice-close astra-review-notice">I already did</a></div>', 'astra' ), 'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post', MONTH_IN_SECONDS ),
 						'repeat-notice-after' => MONTH_IN_SECONDS,

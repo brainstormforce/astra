@@ -59,14 +59,19 @@
 	display: flex;
 	align-items: center;
 }
+
 .astra-review-notice-container .dashicons {
     font-size: 1.4em;
 	padding-left: 10px;
 }
+
 .astra-review-notice-container a {
     padding-left: 10px;
     text-decoration: none;
 }
 #astra-theme-rating {
 	border-left-color: #ffba00;
+}
+.astra-review-notice-container .dashicons:first-child {
+    padding-left: 0;
 }
