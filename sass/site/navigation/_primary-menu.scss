@@ -35,12 +35,6 @@
 		@include ast-transition();
 	}
 
-	.menu-item {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-	}
-
 	li {
 		position: relative;
 

@@ -981,7 +981,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			endif;
 
 			if ( false === self::astra_submenu_below_header_fix() ) :
-
+				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
+				// Also restore the padding to class `main-header-bar`.
 				$submenu_below_header = array(
 					'.ast-flex'          => array(
 						'-webkit-align-content' => 'center',
@@ -998,6 +999,34 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-site-identity' => array(
 						'padding' => '0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $submenu_below_header );
+
+			else :
+				// `.menu-item` required display:flex, although weight of this css increases because of which custom CSS added from child themes to be not working.
+				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
+				$submenu_below_header = array(
+					'.main-header-menu .menu-item' => array(
+						'-js-display'             => 'flex',
+						'display'                 => '-webkit-box',
+						'display'                 => '-webkit-flex',
+						'display'                 => '-moz-box',
+						'display'                 => '-ms-flexbox',
+						'display'                 => 'flex',
+						'-webkit-box-pack'        => 'center',
+						'-webkit-justify-content' => 'center',
+						'-moz-box-pack'           => 'center',
+						'-ms-flex-pack'           => 'center',
+						'justify-content'         => 'center',
+						'-webkit-box-orient'      => 'vertical',
+						'-webkit-box-direction'   => 'normal',
+						'-webkit-flex-direction'  => 'column',
+						'-moz-box-orient'         => 'vertical',
+						'-moz-box-direction'      => 'normal',
+						'-ms-flex-direction'      => 'column',
+						'flex-direction'          => 'column',
 					),
 				);
 
