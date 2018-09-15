@@ -1007,6 +1007,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			else :
 				// `.menu-item` required display:flex, although weight of this css increases because of which custom CSS added from child themes to be not working.
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
+				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
 					'.main-header-menu .menu-item' => array(
 						'-js-display'             => 'flex',
