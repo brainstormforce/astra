@@ -1009,7 +1009,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
-					'.main-header-menu .menu-item' => array(
+					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',
 						'display'                 => '-webkit-flex',
