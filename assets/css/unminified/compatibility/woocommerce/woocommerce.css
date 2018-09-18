@@ -4686,9 +4686,3 @@ button.pswp__button--zoom:hover {
 .ast-safari-browser-less-than-11.ast-woocommerce-cart-menu.ast-header-break-point .header-main-layout-2 .main-header-container {
   display: flex;
 }
-
-.site-header .woocommerce .products {
-  width: auto;
-  position: static;
-  background: inherit;
-}
