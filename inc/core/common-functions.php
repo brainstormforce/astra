@@ -1083,4 +1083,38 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 			return $result;
 		}
 	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_script_polyfill' ) ) :
+
+	/**
+	 * Returns contents of an inline script used in appending polyfill scripts for
+	 * browsers which fail the provided tests. The provided array is a mapping from
+	 * a condition to verify feature support to its polyfill script handle.
+	 *
+	 * @param array $tests Features to detect.
+	 * @return string Conditional polyfill inline script.
+	 */
+	function astra_get_script_polyfill( $tests ) {
+		global $wp_scripts;
+		$polyfill = '';
+		foreach ( $tests as $test => $handle ) {
+			if ( ! array_key_exists( $handle, $wp_scripts->registered ) ) {
+				continue;
+			}
+			$polyfill .= (
+				// Test presence of feature...
+				'( ' . $test . ' ) || ' .
+				// ...appending polyfill on any failures. Cautious viewers may balk
+				// at the `document.write`. Its caveat of synchronous mid-stream
+				// blocking write is exactly the behavior we need though.
+				'document.write( \'<script src="' .
+				esc_url( $wp_scripts->registered[ $handle ]->src ) .
+				'"></scr\' + \'ipt>\' );'
+			);
+		}
+		return $polyfill;
+	}
+
 endif;

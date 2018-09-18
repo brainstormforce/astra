@@ -116,8 +116,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
 
 			// Polyfill for CustomEvent for IE.
-			wp_enqueue_script( 'astra-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
-			wp_script_add_data( 'astra-customevent', 'conditional', 'IE' );
+			wp_register_script( 'astra-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION );
 
 			// All assets.
 			$all_assets = self::theme_assets();
@@ -153,6 +152,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					wp_enqueue_script( $key );
 				}
 			}
+
+
+			wp_script_add_data(
+				'astra-theme-js',
+				'data',
+				astra_get_script_polyfill(
+					array(
+						'typeof window.CustomEvent === "function"' => 'astra-customevent',
+					)
+				)
+			);
 
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
