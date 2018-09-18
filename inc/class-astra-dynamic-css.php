@@ -1029,6 +1029,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-ms-flex-direction'      => 'column',
 						'flex-direction'          => 'column',
 					),
+					'.main-header-menu > .menu-item > a' => array(
+						'height'              => '100%',
+						'-webkit-box-align'   => 'center',
+						'-webkit-align-items' => 'center',
+						'-moz-box-align'      => 'center',
+						'-ms-flex-align'      => 'center',
+						'align-items'         => 'center',
+						'-js-display'         => 'flex',
+						'display'             => '-webkit-box',
+						'display'             => '-webkit-flex',
+						'display'             => '-moz-box',
+						'display'             => '-ms-flexbox',
+						'display'             => 'flex',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $submenu_below_header );
