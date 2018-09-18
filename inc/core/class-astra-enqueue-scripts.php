@@ -153,7 +153,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-
 			wp_script_add_data(
 				'astra-theme-js',
 				'data',
