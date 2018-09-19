@@ -85,7 +85,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 		$post_meta   = astra_get_option( 'blog-single-meta' );
 
 		$output = '';
-		if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {
+		if ( is_array( $post_meta ) && ( 'post' == get_post_type() || 'attachment' == get_post_type() ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {
