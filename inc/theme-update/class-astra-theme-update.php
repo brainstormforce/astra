@@ -174,6 +174,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			if ( version_compare( $saved_version, '1.5.0-rc.1', '<' ) ) {
 				self::v_1_5_0_rc_1();
 			}
+			if ( version_compare( $saved_version, '1.5.0', '<' ) ) {
+				self::v_1_5_0();
+			}
 
 			// Not have stored?
 			if ( empty( $saved_version ) ) {
@@ -833,6 +836,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Set flag to use anchors CSS selectors in the CSS for headings.
 			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
 				$theme_options['submenu-below-header'] = false;
+				update_option( 'astra-settings', $theme_options );
+			}
+		}
+
+		/**
+		 * Set Primary Header submenu border color 'primary-submenu-b-color' to '#eaeaea' for old users who doesn't set any color and set the theme color who install the fresh 1.5.0 theme.
+		 *
+		 * @see https://github.com/brainstormforce/astra/pull/835
+		 *
+		 * @return void
+		 */
+		public static function v_1_5_0() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set the default #eaeaea sub menu border color who doesn't set any color.
+			if ( isset( $theme_options['primary-submenu-b-color'] ) && '' == $theme_options['primary-submenu-b-color'] ) {
+				$theme_options['primary-submenu-b-color'] = '#eaeaea';
 				update_option( 'astra-settings', $theme_options );
 			}
 		}

@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Submenu Bordercolor.
 			$submenu_border              = astra_get_option( 'primary-submenu-border' );
 			$primary_submenu_item_border = astra_get_option( 'primary-submenu-item-border' );
-			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color' );
+			$primary_submenu_b_color     = astra_get_option( 'primary-submenu-b-color', $theme_color );
 
 			/**
 			 * Apply text color depends on link color

@@ -2571,13 +2571,11 @@ body {
 .submenu-with-border .sub-menu {
   border-width: 1px;
   border-style: solid;
-  border-color: #eaeaea;
 }
 
 .submenu-with-border .sub-menu a {
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: #eaeaea;
 }
 
 .submenu-with-border .sub-menu .sub-menu {
