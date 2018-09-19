@@ -95,6 +95,7 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/spacing/spacing.css': 'inc/customizer/custom-controls/spacing/spacing.scss',
                             'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css': 'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss',
                             'inc/customizer/custom-controls/background/background.css': 'inc/customizer/custom-controls/background/background.scss',
+                            'inc/customizer/custom-controls/border/border.css': 'inc/customizer/custom-controls/border/border.scss',
                         },
 
                         /* Common Style */

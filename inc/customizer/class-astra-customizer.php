@@ -483,6 +483,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
 				)
 			);
+			Astra_Customizer_Control_Base::add_control(
+				'ast-border',
+				array(
+					'callback'         => 'Astra_Control_Border',
+					'santize_callback' => 'sanitize_border',
+				)
+			);
 
 			/**
 			 * Helper files
