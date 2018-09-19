@@ -877,7 +877,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			// Submenu items goes outside?
+			$submenu_border_for_left_align_menu = array(
+				'.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
+					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( $submenu_border['left'] + $submenu_border['right'] ), 'px' ) : '',
+				),
+			);
+
 			$parse_css .= astra_parse_css( $submenu_border_style );
+			// Submenu items goes outside?
+			$parse_css .= astra_parse_css( $submenu_border_for_left_align_menu, '769' );
 
 			/* Small Footer CSS */
 			if ( 'disabled' != $small_footer_layout ) :

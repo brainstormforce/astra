@@ -687,6 +687,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
+					// Submenu items goes outside?
+					dynamicStyle += '@media (min-width: 769px){';
+					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '{';
+					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
+					dynamicStyle += '}';
+					dynamicStyle += '}';
+
 				astra_add_dynamic_css( 'primary-submenu-border', dynamicStyle );
 			} else {
 				wp.customize.preview.send( 'refresh' );
@@ -723,6 +731,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += 'border-bottom-width:'   + insideBorder.bottom + 'px;';
 					dynamicStyle += 'border-color:'        + color + ';';
 					dynamicStyle += 'border-style: solid;';
+					dynamicStyle += '}';
+
+					// Submenu items goes outside?
+					dynamicStyle += '@media (min-width: 769px){';
+					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '{';
+					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
+					dynamicStyle += '}';
 					dynamicStyle += '}';
 
 					astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
