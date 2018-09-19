@@ -851,7 +851,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			$theme_options = get_option( 'astra-settings' );
 
 			// Set the default #eaeaea sub menu border color who doesn't set any color.
-			if ( isset( $theme_options['primary-submenu-b-color'] ) && '' == $theme_options['primary-submenu-b-color'] ) {
+			if ( ! isset( $theme_options['primary-submenu-b-color'] ) ) {
 				$theme_options['primary-submenu-b-color'] = '#eaeaea';
 				update_option( 'astra-settings', $theme_options );
 			}
