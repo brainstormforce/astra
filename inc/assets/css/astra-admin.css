@@ -76,22 +76,16 @@
 }
 
 .notice-image img {
-    width: 6%;
-    vertical-align: top;
+    max-width: 100px;
+    min-width: 50px;
 }
 
 .notice-content {
-    display: inline-block;
     padding-top: 7px;
 }
 
 .notice-content .notice-heading {
     padding-bottom: 5px;
-}
-
-.notice-image {
-    width: 100%;
-    display: inline;
 }
 
 .notice-content {
@@ -101,4 +95,7 @@
 .notice-container {
     padding-top: 20px;
     padding-bottom: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
