@@ -135,7 +135,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 		<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
 			<?php // Translators: Author Name. ?>
 			<a class="url fn n" title="<?php printf( __( 'View all posts by %1$s', 'astra' ), get_the_author() ); ?>" 
-				href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" itemprop="url">
+				href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" itemprop="url">
 				<span class="author-name" itemprop="name"><?php echo get_the_author(); ?></span>
 			</a>
 		</span>
