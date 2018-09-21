@@ -59,6 +59,16 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'inc/assets/css',
+                            src: [
+                                    '*.css',
+                                    '!*-rtl.css',
+                                ],
+                            dest: 'inc/assets/css',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
