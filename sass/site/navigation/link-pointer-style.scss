@@ -10,12 +10,12 @@
         }
 
         > li > a {
-            transition: all linear 0.3s;
+            transition: all linear 0.2s;
             
             &:before {
                 display: block;
                 position: absolute;
-                transition: all linear 0.3s;
+                transition: all linear 0.2s;
             }
 
             &:not(:hover):not(:focus):before {
