@@ -89,6 +89,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 ( function() {
 
+	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
+
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
@@ -231,7 +233,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	var __main_header_all 	= document.querySelectorAll( '.main-header-bar-navigation' );
-	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
 
 	if ( menu_toggle_all.length > 0 ) {
 
@@ -318,14 +319,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 	}, false);
-	
-	
 
 	window.addEventListener("resize", function() {
 		updateHeaderBreakPoint();
 	});
 
-	
 
 	var get_browser = function () {
 	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
