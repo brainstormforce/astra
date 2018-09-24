@@ -89,6 +89,54 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 ( function() {
 
+	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
+
+	/* Add break point Class and related trigger */
+	var updateHeaderBreakPoint = function () {
+
+		var break_point = astra.break_point,
+			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
+
+		if ( headerWrap.length > 0  ) {
+			for ( var i = 0; i < headerWrap.length; i++ ) {
+
+				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
+
+					var header_content_bp = window.getComputedStyle( headerWrap[i], '::before' ).getPropertyValue('content');
+
+					// Edge/Explorer header break point.
+					if( isEdge || isIE || header_content_bp === 'normal' ) {
+						if( window.innerWidth <= break_point ) {
+							header_content_bp = break_point;
+						}
+					}
+
+					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
+					header_content_bp = parseInt( header_content_bp );
+
+					// `ast-header-break-point` class will use for Responsive Style of Header.
+					if ( header_content_bp != break_point ) {
+						//remove menu toggled class.
+						if ( null != menu_toggle_all[i] ) {
+							menu_toggle_all[i].classList.remove( 'toggled' );
+						}
+						document.body.classList.remove( "ast-header-break-point" );
+						document.body.classList.add("ast-desktop");
+						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
+
+					} else {
+
+						document.body.classList.add( "ast-header-break-point" );
+						document.body.classList.remove("ast-desktop");
+						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
+					}
+				}
+			}
+		}
+	}
+
+	updateHeaderBreakPoint();
+
 	AstraNavigationMenu = function( parentList ) {
 
 		for (var i = 0; i < parentList.length; i++) {
@@ -185,7 +233,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	};
 
 	var __main_header_all 	= document.querySelectorAll( '.main-header-bar-navigation' );
-	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
 
 	if ( menu_toggle_all.length > 0 ) {
 
@@ -272,56 +319,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 	}, false);
-	
-	/* Add break point Class and related trigger */
-	var updateHeaderBreakPoint = function () {
-
-		var break_point = astra.break_point,
-			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
-
-		if ( headerWrap.length > 0  ) {
-			for ( var i = 0; i < headerWrap.length; i++ ) {
-
-				if ( headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains( 'main-header-bar-wrap' ) ) {
-
-					var header_content_bp = window.getComputedStyle( headerWrap[i], '::before' ).getPropertyValue('content');
-
-					// Edge/Explorer header break point.
-					if( isEdge || isIE || header_content_bp === 'normal' ) {
-						if( window.innerWidth <= break_point ) {
-							header_content_bp = break_point;
-						}
-					}
-
-					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
-					header_content_bp = parseInt( header_content_bp );
-
-					// `ast-header-break-point` class will use for Responsive Style of Header.
-					if ( header_content_bp != break_point ) {
-						//remove menu toggled class.
-						if ( null != menu_toggle_all[i] ) {
-							menu_toggle_all[i].classList.remove( 'toggled' );
-						}
-						document.body.classList.remove( "ast-header-break-point" );
-						document.body.classList.add("ast-desktop");
-						astraTriggerEvent( document.body, "astra-header-responsive-enabled" );
-
-					} else {
-
-						document.body.classList.add( "ast-header-break-point" );
-						document.body.classList.remove("ast-desktop");
-						astraTriggerEvent( document.body, "astra-header-responsive-disabled" )						
-					}
-				}
-			}
-		}
-	}
 
 	window.addEventListener("resize", function() {
 		updateHeaderBreakPoint();
 	});
 
-	updateHeaderBreakPoint();
 
 	var get_browser = function () {
 	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
