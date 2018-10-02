@@ -818,6 +818,9 @@ body {
 			&.view-courses > a:before {
 				content: "\f02d";
 			}
+			&.view-memberships > a:before {
+				content: "\f0c0";
+			}
 			&.view-achievements > a:before {
 				content: "\f091";
 			}
