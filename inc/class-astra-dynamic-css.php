@@ -481,6 +481,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
+
+				// Added alignwide support for guternberg wide images.
+				'.entry-content .alignwide'               => array(
+					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+				),
 			);
 
 			/* Parse CSS from array() */
