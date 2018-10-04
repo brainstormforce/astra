@@ -93,9 +93,15 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
+		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
+
+		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+
 		$astra_typo_localize = array(
 			'inherit' => __( 'Inherit', 'astra' ),
 			'100'     => __( 'Thin 100', 'astra' ),
@@ -107,6 +113,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			'700'     => __( 'Bold 700', 'astra' ),
 			'800'     => __( 'Extra-Bold 800', 'astra' ),
 			'900'     => __( 'Ultra-Bold 900', 'astra' ),
+			'nonce'   => wp_create_nonce( 'astra_customize_nonce' ),
 		);
 
 		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
@@ -158,22 +165,24 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->render_connect_attribute();
 		echo '>';
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		echo '<optgroup label="Other System Fonts">';
 
-		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
-			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
+		// echo '<optgroup label="Other System Fonts">';
+
+		// foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
+		// 	echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
+		// }
 
 		// Add Custom Font List Into Customizer.
 		do_action( 'astra_customizer_font_list', $this->value() );
 
-		echo '<optgroup label="Google">';
+		// echo '<optgroup label="Google">';
 
-		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = astar( $single_font, '0' );
-			$category = astar( $single_font, '1' );
-			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
+		// echo '<option value="'. $this->value().'"' . selected( $this->value(), true ) . '>' . esc_attr( $this->value() ) . '</option>';
+		// 	foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
+		// 		$variants = astar( $single_font, '0' );
+		// 		$category = astar( $single_font, '1' );
+		// 		echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
+		// 	}
 
 		echo '</select>';
 		echo '</label>';

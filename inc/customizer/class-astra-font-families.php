@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 							}
 						}
 
-						self::$google_fonts[ $name ] = array_values( $font[ $name ] );
+						self::$google_fonts[ $name ] = $font[ $name ];
 					}
 				}
 			}

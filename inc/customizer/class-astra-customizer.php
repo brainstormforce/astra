@@ -78,6 +78,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+
+			add_action( 'wp_ajax_astra_get_all_google_fonts_ajax', array( $this, 'astra_get_all_google_fonts_ajax' ) );
+
 		}
 
 		/**
@@ -697,6 +700,45 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 				}
 			}
+		}
+
+		/**
+		 * Google Fonts array.
+		 *
+		 * @since x.x.x
+		 */
+		function astra_get_all_google_fonts_ajax() {
+			// Bail if the nonce doesn't check out
+			if ( ! isset( $_POST['astra_customize_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['astra_customize_nonce'] ), 'astra_customize_nonce' ) ) {
+				wp_die();
+			}
+
+			// Do another nonce check
+			check_ajax_referer( 'astra_customize_nonce', 'astra_customize_nonce' );
+
+			// Bail if user can't edit theme options
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				wp_die();
+			}
+			$search_term   = isset( $_POST['font_search'] ) ? sanitize_text_field( $_POST['font_search'] ) : '';
+			// Get all of our fonts
+			$all_fonts =  array();
+			
+			$system_fonts = Astra_Font_Families::get_system_fonts();
+			$google_fonts = Astra_Font_Families::get_google_fonts();
+			$custom_fonts = Astra_Font_Families::get_custom_fonts();
+			$astra_fonts = array_merge( $system_fonts, $google_fonts, $custom_fonts );
+			foreach ($astra_fonts as $key => $value) {
+				if (false !== stripos($key, $search_term)) {
+				    $all_fonts[$key] = $value;
+				}
+			}
+
+			// Send all of our fonts in JSON format
+			echo wp_json_encode( $all_fonts );
+
+			// Exit
+			die();
 		}
 	}
 }

@@ -7,7 +7,73 @@
  */
 
 ( function( $ ) {
+	$(document).ready(function() {
+		// Apply select2 only to the Base Typography -- Font Family.
+		// $('#customize-control-astra-settings-body-font-family select, #customize-control-astra-settings-headings-font-family select').select2({
+		// 	// minimumInputLength: 2,
 
+		// });
+		// multiple select with AJAX search
+		$('.customize-control-ast-font-family select').select2({
+			ajax: {
+				url: ajaxurl, // AJAX URL is predefined in WordPress admin
+				type: 'post',
+				dataType: 'json',
+				delay: 250, // delay in ms while typing when to perform a AJAX search
+				data: function (params) {
+						return {
+						font_search: params.term, 
+						action: 'astra_get_all_google_fonts_ajax',
+						astra_customize_nonce: astraTypo.nonce
+						};
+				},
+				processResults: function( data ) {
+					var options = [];
+					var systemFonts = { 
+						text: "System Fonts",
+						element:HTMLOptGroupElement,
+						children:[]
+					};
+					var googleFonts = { 
+						text: "Google Fonts", 
+						element:HTMLOptGroupElement,
+						children:[]
+					};
+					
+					if ( data ) {
+
+						// data is the array of arrays, and each of them contains ID and the Label of the option
+						$.each( data, function( index, keys ) { // do not forget that "index" is just auto incremented value
+							if( 'undefined' !== typeof( keys.fallback ) ){
+								var insideOption =  {
+									id:index, text:index 
+								};
+								systemFonts.children.push( insideOption );
+							}
+							if( 'undefined' !== typeof( keys.category ) ){
+								var insideOption =   {
+									id: "'" + index + "', " + keys.category, text:index 
+								};
+								googleFonts.children.push( insideOption );
+							}
+						});
+						if( systemFonts.children.length != 0 ){
+							options.push(systemFonts);
+						}
+						if( googleFonts.children.length != 0 ){
+							options.push(googleFonts);
+						}
+					}
+					return {
+						results: options
+					};
+				},
+				cache: true
+			},
+			minimumInputLength: 2, // the minimum of symbols to input before perform a search
+			placeholder: 'Search for a Font',
+		});
+	});
 	/* Internal shorthand */
 	var api = wp.customize;
 
@@ -50,15 +116,44 @@
 		 */
 		_initFont: function()
 		{
-			var select  = $( this ),
-			link    = select.data( 'customize-setting-link' ),
-			weight  = select.data( 'connected-control' );
+				var select  = $( this ),
+				link    = select.data( 'customize-setting-link' ),
+				weight  = select.data( 'connected-control' );			
 
-			if ( 'undefined' != typeof weight ) {
-				api( link ).bind( AstTypography._fontSelectChange );
-				AstTypography._setFontWeightOptions.apply( api( link ), [ true ] );
-			}
-		},
+				// select.on( 'change', function() {
+				// if ( 'undefined' != typeof weight ) {
+				// 	api( link ).bind( AstTypography._fontSelectChange );
+				// 	AstTypography._setFontWeightOptions.apply( api( link ), [ true ] );
+				// }
+
+// 				// Send our request to the generate_get_all_google_fonts_ajax function
+// 				var response = jQuery.getJSON({
+// 					type: 'POST',
+// 					url: ajaxurl,
+// 					data: {
+// 						action: 'astra_get_all_google_fonts_ajax',
+// 						astra_customize_nonce: astraTypo.nonce
+// 					},
+// 					async: false,
+// 					dataType: 'json',
+// 				});
+
+// 				// Get our response
+// 				var fonts = response.responseJSON;
+
+// 				// Create an ID from our selected font
+// 				var id = value.split(' ').join('_').toLowerCase();
+// console.log(id);
+// 				if ( id in fonts ) {
+// 					// Populate our select input with available variants
+// 					jQuery.each( fonts[ id ].variants, function( key, value ) {
+// 						jQuery( 'select[name="' + _variantsID + '"]' ).append( jQuery( '<option></option>' ).attr( 'value', value ).text( value ) );
+// 					} );
+// 					console.log(fonts);
+// 				}
+
+		// });
+		}, 
 
 		/**
 		 * Callback for when a font control changes.
