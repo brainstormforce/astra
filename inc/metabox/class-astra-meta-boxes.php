@@ -147,7 +147,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
+			$metabox_name = sprintf(
+				// Translators: %s is the theme name.
+				__( '%s Settings', 'astra' ), astra_get_theme_name()
+			);
+			
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
