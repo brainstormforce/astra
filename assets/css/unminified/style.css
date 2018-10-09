@@ -4403,8 +4403,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-.ast-header-break-point .footer-sml-layout-2 .ast-small-footer-section-2 {
-  margin-top: 1em;
+@media (max-width: 768px) {
+  .ast-header-break-point .footer-sml-layout-2 .ast-small-footer-section-2 {
+    margin-top: 1em;
+  }
 }
 
 @media screen and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) {
