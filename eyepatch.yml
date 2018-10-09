@@ -23,5 +23,5 @@ theme: astra
 # A list of plugins to be installed
 # first argument is the plugin slug and the second is the desired version
 plugins:
-woocommerce: "3.4.5"
-home-page-banner-for-astra-theme: "1.0.1"
+- woocommerce: "3.4.5"
+- home-page-banner-for-astra-theme: "1.0.1"
