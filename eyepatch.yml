@@ -1,0 +1,22 @@
+type: wordpress-theme
+
+# A list of paths to use
+paths:
+- "shop"
+- "product/long-sleeve-tee"
+- "blog"
+- "2013/01/10/markup-image-alignment"
+- "2013/01/11/markup-html-tags-and-formatting"
+
+# A list of sizes to use
+
+size:
+– 1360
+– 480
+
+# The wait time before taking a shot.
+wait: 1000
+
+# The theme slug if is a theme
+theme: astra
+
