@@ -2,11 +2,11 @@ type: wordpress-theme
 
 # A list of paths to use
 path:
-- "/shop/"
-- "/product/long-sleeve-tee/"
-- "/blog/"
-- "/2013/01/10/markup-image-alignment/"
-- "/2013/01/11/markup-html-tags-and-formatting/"
+- "shop"
+- "product/long-sleeve-tee"
+- "blog"
+- "2013/01/10/markup-image-alignment"
+- "2013/01/11/markup-html-tags-and-formatting"
 
 # A list of sizes to use
 
