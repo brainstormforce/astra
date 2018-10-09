@@ -535,7 +535,7 @@ INSERT INTO `shark_options` (`option_id`, `option_name`, `option_value`, `autolo
 (526, '_transient_is_multi_author', '1', 'yes'),
 (527, '_transient_timeout_external_ip_address_127.0.0.1', '1539670689', 'no'),
 (528, '_transient_external_ip_address_127.0.0.1', '114.143.194.50', 'no'),
-(529, 'upload_url_legacy', 'http://eyepatch-astra.sharkz.in/wp-content/uploads/', 'yes');
+(529, 'upload_url_legacy', 'https://themeisle.com/wp-content/uploads', 'yes');
 
 -- --------------------------------------------------------
 
