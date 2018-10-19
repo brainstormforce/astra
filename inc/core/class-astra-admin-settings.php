@@ -185,6 +185,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							__( 'Nope, maybe later', 'astra' ),
 							__( 'I already did', 'astra' )
 						),
+						'show_if'                    => current_user_can( 'edit_theme_options' ),
 						'repeat-notice-after'        => MONTH_IN_SECONDS,
 						'priority'                   => 10,
 						'display-with-other-notices' => false,
