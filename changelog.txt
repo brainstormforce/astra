@@ -1,3 +1,6 @@
+v1.5.3
+- Fix: Removed default margin bottom to images and iframes added in v1.5.2.
+
 v1.5.2
 - New: Complete Gutenberg Support: Editor Styles, Wide and full width support.
 - New: Font variants selection for the base typography settings.

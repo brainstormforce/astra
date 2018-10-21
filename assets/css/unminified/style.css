@@ -4823,13 +4823,8 @@ input[type="color"]::-webkit-color-swatch {
   word-wrap: break-word;
 }
 
-.entry-content p,
-.entry-content img {
+.entry-content p {
   margin-bottom: 1.6em;
-}
-
-.entry-content iframe {
-  padding-bottom: 1.6em;
 }
 
 .read-more {
