@@ -174,8 +174,8 @@
 	}
 
 	.columns-1 {
-		ul.products {
-			li.product {
+		&.products {
+			.product {
 				width: 100%;
 				margin-right: 0;
 			}
@@ -183,8 +183,8 @@
 	}
 
 	.columns-2 {
-		ul.products {
-			li.product {
+		&.products {
+			.product {
 				width: 48.4%;
 				width: calc(50% - 10px);
 
@@ -200,8 +200,8 @@
 	}
 
 	.columns-3 {
-		ul.products {
-			li.product {
+		&.products {
+			.product {
 				width: 31.2%;
 				width: calc( 33.33% - 14px );
 
@@ -217,8 +217,8 @@
 	}
 
 	.columns-4 {
-		ul.products {
-			li.product {
+		&.products {
+			.product {
 				width: 22.5%;
 				width: calc( 25% - 15px );
 
@@ -234,8 +234,8 @@
 	}
 
 	.columns-5 {
-		ul.products {
-			li.product {
+		&.products {
+			.product {
 				width: 17.5%;
 				width: calc( 20% - 16px );
 
