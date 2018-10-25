@@ -145,7 +145,14 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array
 		 */
 		function sort_notices( $array1, $array2 ) {
-			return strnatcmp( $array1['priority'], $array2['priority'] );
+			if ( ! isset( $array1['priority'] ) ) {
+				$array1['priority'] = 10;
+			}
+			if ( ! isset( $array2['priority'] ) ) {
+				$array2['priority'] = 10;
+			}
+
+			return $array1['priority'] - $array2['priority'];
 		}
 
 		/**
@@ -187,16 +194,14 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 						// don't display the notice if it is not supposed to be displayed with other notices.
 						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
-							return;
+							continue;
 						}
 
 						self::markup( $notice );
-						$notices_displayed++;
 					}
-				} else {
-					// No transient notices.
-					self::markup( $notice );
 				}
+
+				++$notices_displayed;
 			}
 
 		}
