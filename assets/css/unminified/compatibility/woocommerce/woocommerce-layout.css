@@ -328,78 +328,78 @@
   width: 13.5%;
 }
 
-.woocommerce.columns-1 ul.products li.product, .woocommerce-page.columns-1 ul.products li.product {
+.woocommerce .columns-1 ul.products li.product, .woocommerce-page .columns-1 ul.products li.product {
   width: 100%;
   margin-right: 0;
 }
 
-.woocommerce.columns-2 ul.products li.product, .woocommerce-page.columns-2 ul.products li.product {
+.woocommerce .columns-2 ul.products li.product, .woocommerce-page .columns-2 ul.products li.product {
   width: 48.4%;
   width: calc(50% - 10px);
 }
 
-.woocommerce.columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.columns-2 ul.products li.product:nth-child(2n) {
+.woocommerce .columns-2 ul.products li.product:nth-child(2n), .woocommerce-page .columns-2 ul.products li.product:nth-child(2n) {
   margin-right: 0;
   clear: right;
 }
 
-.woocommerce.columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.columns-2 ul.products li.product:nth-child(2n+1) {
+.woocommerce .columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page .columns-2 ul.products li.product:nth-child(2n+1) {
   clear: left;
 }
 
-.woocommerce.columns-3 ul.products li.product, .woocommerce-page.columns-3 ul.products li.product {
+.woocommerce .columns-3 ul.products li.product, .woocommerce-page .columns-3 ul.products li.product {
   width: 31.2%;
   width: calc( 33.33% - 14px);
 }
 
-.woocommerce.columns-3 ul.products li.product:nth-child(3n), .woocommerce-page.columns-3 ul.products li.product:nth-child(3n) {
+.woocommerce .columns-3 ul.products li.product:nth-child(3n), .woocommerce-page .columns-3 ul.products li.product:nth-child(3n) {
   margin-right: 0;
   clear: right;
 }
 
-.woocommerce.columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.columns-3 ul.products li.product:nth-child(3n+1) {
+.woocommerce .columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page .columns-3 ul.products li.product:nth-child(3n+1) {
   clear: left;
 }
 
-.woocommerce.columns-4 ul.products li.product, .woocommerce-page.columns-4 ul.products li.product {
+.woocommerce .columns-4 ul.products li.product, .woocommerce-page .columns-4 ul.products li.product {
   width: 22.5%;
   width: calc( 25% - 15px);
 }
 
-.woocommerce.columns-4 ul.products li.product:nth-child(4n), .woocommerce-page.columns-4 ul.products li.product:nth-child(4n) {
+.woocommerce .columns-4 ul.products li.product:nth-child(4n), .woocommerce-page .columns-4 ul.products li.product:nth-child(4n) {
   margin-right: 0;
   clear: right;
 }
 
-.woocommerce.columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.columns-4 ul.products li.product:nth-child(4n+1) {
+.woocommerce .columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page .columns-4 ul.products li.product:nth-child(4n+1) {
   clear: left;
 }
 
-.woocommerce.columns-5 ul.products li.product, .woocommerce-page.columns-5 ul.products li.product {
+.woocommerce .columns-5 ul.products li.product, .woocommerce-page .columns-5 ul.products li.product {
   width: 17.5%;
   width: calc( 20% - 16px);
 }
 
-.woocommerce.columns-5 ul.products li.product:nth-child(5n), .woocommerce-page.columns-5 ul.products li.product:nth-child(5n) {
+.woocommerce .columns-5 ul.products li.product:nth-child(5n), .woocommerce-page .columns-5 ul.products li.product:nth-child(5n) {
   margin-right: 0;
   clear: right;
 }
 
-.woocommerce.columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.columns-5 ul.products li.product:nth-child(5n+1) {
+.woocommerce .columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page .columns-5 ul.products li.product:nth-child(5n+1) {
   clear: left;
 }
 
-.woocommerce.columns-6 ul.products li.product, .woocommerce-page.columns-6 ul.products li.product {
+.woocommerce .columns-6 ul.products li.product, .woocommerce-page .columns-6 ul.products li.product {
   width: 14%;
   width: calc( 16.66% - 16.66px);
 }
 
-.woocommerce.columns-6 ul.products li.product:nth-child(6n), .woocommerce-page.columns-6 ul.products li.product:nth-child(6n) {
+.woocommerce .columns-6 ul.products li.product:nth-child(6n), .woocommerce-page .columns-6 ul.products li.product:nth-child(6n) {
   margin-right: 0;
   clear: right;
 }
 
-.woocommerce.columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.columns-6 ul.products li.product:nth-child(6n+1) {
+.woocommerce .columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page .columns-6 ul.products li.product:nth-child(6n+1) {
   clear: left;
 }
 
