@@ -683,6 +683,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 				'before'         => '<ul class="' . esc_attr( implode( ' ', $primary_menu_classes ) ) . '">',
 				'after'          => '</ul>',
+				'walker'         => new Astra_Walker_Page(),
 			);
 
 			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
