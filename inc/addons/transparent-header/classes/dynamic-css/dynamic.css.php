@@ -311,12 +311,6 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		} else {
 			$css .= astra_parse_css( $transparent_header_desktop, '769' );
 		}
-
-		$css .= '.ast-theme-transparent-header.ast-header-break-point .site-header {';
-		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
-		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
-		$css .= '}';
-
 	}
 
 	if ( 'mobile' === $transparent_header_devices ) {
@@ -365,13 +359,42 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$css .= astra_parse_css( $transparent_heder_base, '', '768' );
 		$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
 		$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
+	}
 
-		$css .= '@media (min-width: 769px) {';
-		$css .= '.ast-theme-transparent-header .main-header-bar {';
-		$css .= 'border-bottom-width:' . astra_get_css_value( $transparent_header_separator, 'px' ) . ';';
-		$css .= 'border-bottom-color:' . esc_attr( $transparent_header_separator_color ) . ';';
-		$css .= '}';
-		$css .= '}';
+	if ( 'both' === $transparent_header_devices ) {
+		$css .= astra_parse_css(
+			array(
+				'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header .site-header' => array(
+					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+				),
+			)
+		);
+	}
+
+	if ( 'mobile' === $transparent_header_devices ) {
+		$css .= astra_parse_css(
+			array(
+				'.ast-theme-transparent-header .site-header' => array(
+					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+				),
+			),
+			'',
+			'768'
+		);
+	}
+
+	if ( 'desktop' === $transparent_header_devices ) {
+		$css .= astra_parse_css(
+			array(
+				'.ast-theme-transparent-header .main-header-bar' => array(
+					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+				),
+			),
+			'768'
+		);
 	}
 
 	$dynamic_css .= $css;

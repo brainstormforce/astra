@@ -117,10 +117,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 * Option: Transparent Header Styling
 				 */
 				array(
-					'name' => ASTRA_THEME_SETTINGS . '[divider-section-transparent-display]',
-					'type' => 'control',
-					'control' => 'ast-divider',
-					'section' => 'section-transparent-header',
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-display]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
 					'priority' => 26,
 					'settings' => array(),
 				),
