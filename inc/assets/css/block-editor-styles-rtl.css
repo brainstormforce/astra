@@ -245,7 +245,7 @@ html {
 #wpwrap .edit-post-visual-editor .site-header a *,
 #wpwrap .edit-post-visual-editor .site-footer a *,
 #wpwrap .edit-post-visual-editor .secondary a * {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s linear;
 }
 
 #wpwrap .edit-post-visual-editor .capitalize {
@@ -320,7 +320,7 @@ html {
 #wpwrap .edit-post-visual-editor .site-description a,
 #wpwrap .edit-post-visual-editor .site-description:hover a,
 #wpwrap .edit-post-visual-editor .site-description:focus a {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s linear;
 }
 
 #wpwrap .edit-post-visual-editor .site-title a,

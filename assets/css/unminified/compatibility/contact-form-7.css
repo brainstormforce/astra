@@ -49,8 +49,8 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .wpcf7 input[type="radio"],
@@ -71,8 +71,8 @@
   vertical-align: middle;
   width: 1.4em;
   min-width: 1.4em;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .wpcf7 .wpcf7-validation-errors {

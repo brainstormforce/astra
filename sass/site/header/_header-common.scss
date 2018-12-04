@@ -210,6 +210,10 @@
             font-size: inherit;
             font-family: inherit;
             font-weight: inherit;
+
+            &:hover {
+                @include ast-transition(all, 0.1s, ease-in-out);
+            }
         }
     }
 }

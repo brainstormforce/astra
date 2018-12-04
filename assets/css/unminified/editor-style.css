@@ -1805,8 +1805,8 @@ a,
 .site-header a *,
 .site-footer a *,
 .secondary a * {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .capitalize {
@@ -1885,8 +1885,8 @@ input[type="submit"]:focus {
 .site-description a,
 .site-description:hover a,
 .site-description:focus a {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .site-title a,
