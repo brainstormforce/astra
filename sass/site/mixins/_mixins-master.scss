@@ -1,4 +1,4 @@
-@mixin ast-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
+@mixin ast-transition( $property: all, $transition-time: 0.2s, $transition-function: ease-in-out ) {
     transition: $property $transition-time $transition-function;
 }
 

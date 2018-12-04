@@ -1831,8 +1831,8 @@ a,
 .site-header a *,
 .site-footer a *,
 .secondary a * {
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .capitalize {
@@ -1911,8 +1911,8 @@ input[type="submit"]:focus {
 .site-description a,
 .site-description:hover a,
 .site-description:focus a {
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .site-title a,
@@ -2503,8 +2503,8 @@ body {
   text-decoration: none;
   padding: 0 1em;
   display: inline-block;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .main-header-menu li {
@@ -3295,8 +3295,8 @@ body {
 }
 
 .site-logo-img img {
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /**
@@ -4069,8 +4069,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   line-height: calc( 2.5em - 4px);
   display: inline-block;
   text-align: center;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .page-links .page-link:hover, .page-links .page-link:focus {
@@ -4264,8 +4264,8 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 .widget_nav_menu li {
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Search widget. */
@@ -4365,8 +4365,8 @@ body .entry-content .wp-block-latest-posts li {
   font-size: 14px;
   margin-right: 4px;
   line-height: 1.5;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Calender */
@@ -4656,8 +4656,8 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 input[type="text"]:focus,

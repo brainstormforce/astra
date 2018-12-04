@@ -2699,7 +2699,7 @@ p.demo_store a,
   margin: 0;
   opacity: 0;
   filter: blur(0);
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
 }
 
 .woocommerce li.product:hover .show-on-hover {
@@ -4469,7 +4469,7 @@ button.pswp__button--zoom:hover {
   font-size: 14px;
   margin-left: 4px;
   line-height: 1.5;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
 }
 
 .woocommerce .widget_shopping_cart .total,
