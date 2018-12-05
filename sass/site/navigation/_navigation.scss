@@ -15,8 +15,6 @@
  * @import
  */
 
-/* 1 - Primary Menus */
-@import "primary-menu";
 
 /**
  * Contents
@@ -25,6 +23,9 @@
 .ast-mobile-menu-buttons {
 	display: none;
 }
+
+/* 1 - Primary Menus */
+@import "primary-menu";
 
 /* Toggle Button */
 .ast-button-wrap {

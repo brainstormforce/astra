@@ -4,6 +4,11 @@
 /*----------  Site Variables  ----------*/
 @import "variables-site/colors";
 @import "variables-site/structure";
+
+/*----------  Navigation  ----------*/
+@import "navigation/navigation";
+
+/*----------  Site Variables  ----------*/
 @import "variables-site/typography";
 
 /*----------  Site Normalize  ----------*/
@@ -21,8 +26,6 @@
 /*----------  Basic Layout  ----------*/
 @import "layout/layout";
 
-/*----------  Navigation  ----------*/
-@import "navigation/navigation";
 
 /*----------  Header  ----------*/
 @import "header/header";
