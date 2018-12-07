@@ -36,26 +36,27 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-archive-typo',
-					'priority' => 0,
-					'title'    => __( 'Archive Summary Box Title', 'astra' ),
-					'settings' => array(),
+					'name'      => ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
+					'type'      => 'control',
+					'control'   => 'ast-divider',
+					'section'   => 'section-archive-typo',
+					'priority'  => 0,
+					'title'     => __( 'Blog Post Title', 'astra' ),
+					'settings'  => array(),
+					'separator' => false,
 				),
 
 				/**
-				 * Option: Archive Summary Box Title Font Size
+				 * Option: Blog - Post Title Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-page-title]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-archive-typo',
 					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'font-size-archive-summary-title' ),
 					'priority'    => 4,
+					'default'     => astra_get_option( 'font-size-page-title' ),
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -70,26 +71,26 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-archive-typo',
-					'priority' => 5,
-					'title'    => __( 'Blog Post Title', 'astra' ),
+					'priority' => 6,
+					'title'    => __( 'Archive Summary Box Title', 'astra' ),
 					'settings' => array(),
 				),
 
 				/**
-				 * Option: Blog - Post Title Font Size
+				 * Option: Archive Summary Box Title Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-page-title]',
+					'name'        => ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-archive-typo',
 					'transport'   => 'postMessage',
-					'priority'    => 10,
-					'default'     => astra_get_option( 'font-size-page-title' ),
+					'default'     => astra_get_option( 'font-size-archive-summary-title' ),
+					'priority'    => 11,
 					'title'       => __( 'Font Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,

@@ -24,6 +24,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		 * @return String CSS to be loaded in the editor interface.
 		 */
 		public static function get_css() {
+			global $pagenow;
+
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 );
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
@@ -83,7 +85,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color' => esc_attr( $highlight_theme_color ),
 				),
 
-				'#wpwrap .edit-post-visual-editor'    => astra_get_background_obj( $box_bg_obj ),
+				'.ast-separate-container #wpwrap .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
 				'#wpwrap .edit-post-visual-editor .editor-post-title__block,#wpwrap .edit-post-visual-editor .editor-default-block-appender,#wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
@@ -98,7 +100,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'#wpwrap .edit-post-visual-editor p,#wpwrap .edit-post-visual-editor .editor-block-list__block p' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
-				'#wpwrap .edit-post-visual-editor p,#wpwrap .edit-post-visual-editor .editor-block-list__block p, #wpwrap .edit-post-visual-editor .wp-block-latest-posts a' => array(
+				'#wpwrap .edit-post-visual-editor p,#wpwrap .edit-post-visual-editor .editor-block-list__block p, #wpwrap .edit-post-visual-editor .wp-block-latest-posts a,#wpwrap .edit-post-visual-editor .editor-default-block-appender textarea.editor-default-block-appender__content, #wpwrap .edit-post-visual-editor .editor-block-list__block' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -200,7 +202,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', '768' );
 
-			if ( 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
+			if ( in_array( $pagenow, array( 'post-new.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'#wpwrap .edit-post-visual-editor .editor-writing-flow' => array(
 						'max-width'        => 'calc( ' . astra_get_css_value( $site_content_width, 'px' ) . ' - 40px )',

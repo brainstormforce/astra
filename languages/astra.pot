@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.6.0\n"
+"Project-Id-Version: Astra 1.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-12-04 13:33:16+00:00\n"
+"POT-Creation-Date: 2018-12-07 06:55:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -378,10 +378,10 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:78
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:95
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:115
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:75
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:92
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:111
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:219
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:76
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:93
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:112
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:220
 msgid "Default"
 msgstr ""
 
@@ -750,8 +750,8 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:138
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:34
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:104
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:112
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:256
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:113
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:257
 msgid "None"
 msgstr ""
 
@@ -1516,10 +1516,10 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:287
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:555
 #: inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php:166
-#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:133
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:268
-#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:161
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:101
+#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:134
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:269
+#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:162
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:102
 msgid "Learn More"
 msgstr ""
 
@@ -1842,32 +1842,32 @@ msgid "Container Width"
 msgstr ""
 
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:44
-msgid "Archive Summary Box Title"
-msgstr ""
-
-#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:59
-#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:93
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:129
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:59
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:93
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:127
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:161
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:195
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:229
-#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:73
-#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:121
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:61
-msgid "Font Size"
-msgstr ""
-
-#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:78
 msgid "Blog Post Title"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:133
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:268
-#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:161
-#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:101
+#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:60
+#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:94
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:130
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:60
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:94
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:128
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:162
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:196
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:230
+#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:74
+#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:122
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:62
+msgid "Font Size"
+msgstr ""
+
+#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:79
+msgid "Archive Summary Box Title"
+msgstr ""
+
+#: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:134
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:269
+#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:162
+#: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:102
 msgid "More Options Available for Typography in Astra Pro!"
 msgstr ""
 
@@ -1875,58 +1875,58 @@ msgstr ""
 msgid "Body & Content"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:57
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:58
 msgid "Default System Font"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:61
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:202
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:62
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:203
 msgid "Font Family"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:78
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:222
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:79
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:223
 msgid "Font Variant"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:95
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:236
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:96
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:237
 msgid "Font Weight"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:109
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:251
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:110
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:252
 msgid "Text Transform"
-msgstr ""
-
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:113
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:257
-msgid "Capitalize"
 msgstr ""
 
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:114
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:258
-msgid "Uppercase"
+msgid "Capitalize"
 msgstr ""
 
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:115
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:259
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:116
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:260
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:150
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:151
 msgid "Line Height"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:171
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:172
 msgid "Paragraph Margin Bottom"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:189
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:190
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:255
+#: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:256
 #: inc/customizer/custom-controls/background/class-astra-control-background.php:174
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:79
 msgid "Inherit"
@@ -1936,23 +1936,23 @@ msgstr ""
 msgid "Heading 1 (H1)"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:78
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:79
 msgid "Heading 2 (H2)"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:112
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:113
 msgid "Heading 3 (H3)"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:143
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:144
 msgid "Heading 4 (H4)"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:180
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:181
 msgid "Heading 5 (H5)"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:212
+#: inc/customizer/configurations/typography/class-astra-content-typo-configs.php:213
 msgid "Heading 6 (H6)"
 msgstr ""
 
@@ -1960,7 +1960,7 @@ msgstr ""
 msgid "Site Title"
 msgstr ""
 
-#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:99
+#: inc/customizer/configurations/typography/class-astra-header-typo-configs.php:100
 msgid "Site Tagline"
 msgstr ""
 

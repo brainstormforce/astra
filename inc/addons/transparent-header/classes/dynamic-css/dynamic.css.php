@@ -99,7 +99,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$css              .= astra_parse_css( $mobile_css_output, '', '543' );
 
 	$transparent_heder_base = array(
-		'.ast-theme-transparent-header #masthead' => array(
+		'.ast-theme-transparent-header #masthead'         => array(
 			'position' => 'absolute',
 			'left'     => '0',
 			'right'    => '0',
@@ -121,12 +121,14 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			'display' => 'inline-block',
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header' => array(
-			'background' => 'none',
+		'.ast-theme-transparent-header .ast-above-header' => array(
+			'background-image' => 'none',
+			'background-color' => 'transparent',
 		),
 
-		'.ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
-			'background' => 'none',
+		'.ast-theme-transparent-header .ast-below-header' => array(
+			'background-image' => 'none',
+			'background-color' => 'transparent',
 		),
 	);
 
@@ -142,7 +144,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			'background-color' => esc_attr( $transparent_bg_color['desktop'] ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header, .ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
+		'.ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header' => array(
 			'background-color' => esc_attr( $transparent_bg_color['desktop'] ),
 		),
 
@@ -197,7 +199,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		'.ast-theme-transparent-header .main-header-bar .ast-search-menu-icon form' => array(
 			'background-color' => esc_attr( $transparent_bg_color['tablet'] ),
 		),
-		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header, .ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
+		'.ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header' => array(
 			'background-color' => esc_attr( $transparent_bg_color['tablet'] ),
 		),
 
@@ -253,7 +255,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			'background-color' => esc_attr( $transparent_bg_color['mobile'] ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-wrap .ast-above-header, .ast-theme-transparent-header .ast-below-header-wrap .ast-below-header' => array(
+		'.ast-theme-transparent-header .ast-above-header, .ast-theme-transparent-header .ast-below-header' => array(
 			'background-color' => esc_attr( $transparent_bg_color['mobile'] ),
 		),
 

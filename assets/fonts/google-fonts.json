@@ -5804,7 +5804,7 @@
                 "700",
                 "900"
             ],
-            "category": "sans-serif"
+            "category": "serif"
         }
     },
     {
@@ -5818,7 +5818,35 @@
                 "700",
                 "900"
             ],
-            "category": "sans-serif"
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif SC": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif TC": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {

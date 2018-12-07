@@ -177,11 +177,18 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					}
 				} elseif ( is_single() ) {
 
-					$single_post_max = astra_get_option( 'blog-single-width' );
+					if ( 'post' === get_post_type() ) {
+						$single_post_max = astra_get_option( 'blog-single-width' );
 
-					if ( 'custom' === $single_post_max ) {
-						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
+						if ( 'custom' === $single_post_max ) {
+							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
+						} else {
+							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+						}
 					}
+
+					// For custom post types set the global content width.
+					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
 				} else {
 					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
 				}

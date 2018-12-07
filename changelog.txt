@@ -1,3 +1,14 @@
+v1.6.1
+- Improvement: Updated default font-sizes for H1, H2, H3 and Post archive titles for new installations.
+- Improvement: Change the default value for option `Inline Logo & Site Title` to be `on` for the new sites.
+- Fix: Youtube inline embeds not going complete content width for custom post types.
+- Fix: Gutenberg - Fixed styling for columns block.
+- Fix: Gutenberg - Edit with elementor button is not correctly styled.
+- Fix: Gutenberg - Content background color not applied in Gutenberg editor.
+- Fix: Focus/active colors for Primary Header are coming from Sticky Header settings.
+- Fix: Transparent above header color not working.
+- Fix: Don't load transparent above and below header CSS if header sections are not active.
+
 v1.6.0
 - New: Transparent header options in Astra Theme.
 - New: Option to enable transparent header Only on Desktop/Mobile.

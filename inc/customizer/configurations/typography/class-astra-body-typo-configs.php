@@ -36,13 +36,14 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Body & Content Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-base-typo]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-body-typo',
-					'priority' => 4,
-					'title'    => __( 'Body & Content', 'astra' ),
-					'settings' => array(),
+					'name'      => ASTRA_THEME_SETTINGS . '[divider-base-typo]',
+					'type'      => 'control',
+					'control'   => 'ast-divider',
+					'section'   => 'section-body-typo',
+					'priority'  => 4,
+					'title'     => __( 'Body & Content', 'astra' ),
+					'settings'  => array(),
+					'separator' => false,
 				),
 
 				/**

@@ -1,4 +1,12 @@
 /* Variables */
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+/*
+ * Button mixin- creates 3d-ish button effect with correct
+ * highlights/shadows, based on a base color.
+ */
 html {
   font-size: 93.75%;
 }
@@ -8,10 +16,6 @@ html {
   /*----------  Line Height  ----------*/
   /*----------  Site Basic Structure  ----------*/
   /*----------  z-index Structure   ----------*/
-  /*----------  Media Query min-width Structure   ----------*/
-  /*----------  Media Query max-width Structure   ----------*/
-  /*----------  Break-point min-width Structure   ----------*/
-  /*----------  Break-point max-width Structure   ----------*/
   /* must have higher specificity than alternative color schemes inline styles */
 }
 
@@ -216,7 +220,7 @@ html {
 
 #wpwrap .edit-post-visual-editor ::selection {
   color: #fff;
-  background: #0274be;
+  background: royalblue;
 }
 
 #wpwrap .edit-post-visual-editor html {
@@ -411,48 +415,49 @@ html {
 
 #wpwrap .edit-post-visual-editor h1,
 #wpwrap .edit-post-visual-editor .entry-content h1 {
-  color: #3a3a3a;
+  color: #808285;
   font-size: 2em;
   line-height: 1.2;
 }
 
 #wpwrap .edit-post-visual-editor h2,
 #wpwrap .edit-post-visual-editor .entry-content h2 {
-  color: #3a3a3a;
+  color: #808285;
   font-size: 1.7em;
   line-height: 1.3;
 }
 
 #wpwrap .edit-post-visual-editor h3,
 #wpwrap .edit-post-visual-editor .entry-content h3 {
-  color: #3a3a3a;
+  color: #808285;
   font-size: 1.5em;
   line-height: 1.4;
 }
 
 #wpwrap .edit-post-visual-editor h4,
 #wpwrap .edit-post-visual-editor .entry-content h4 {
-  color: #3a3a3a;
+  color: #808285;
   line-height: 1.5;
   font-size: 1.3em;
 }
 
 #wpwrap .edit-post-visual-editor h5,
 #wpwrap .edit-post-visual-editor .entry-content h5 {
-  color: #3a3a3a;
+  color: #808285;
   line-height: 1.6;
   font-size: 1.2em;
 }
 
 #wpwrap .edit-post-visual-editor h6,
 #wpwrap .edit-post-visual-editor .entry-content h6 {
-  color: #3a3a3a;
+  color: #808285;
   line-height: 1.7;
   font-size: 1.1em;
 }
 
 #wpwrap .edit-post-visual-editor p,
-#wpwrap .edit-post-visual-editor .editor-block-list__block p {
+#wpwrap .edit-post-visual-editor .editor-block-list__block p,
+#wpwrap .edit-post-visual-editor .editor-default-block-appender textarea.editor-default-block-appender__content {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: inherit;
   font-size: 15px;
@@ -482,6 +487,14 @@ html {
 
 #wpwrap .edit-post-visual-editor .editor-block-list__block[data-align=wide] {
   max-width: 1400px;
+}
+
+#wpwrap .edit-post-visual-editor .editor-block-list__layout .editor-block-list__layout {
+  padding: 0;
+}
+
+#wpwrap .edit-post-visual-editor .editor-default-block-appender__content {
+  margin-top: 32px;
 }
 
 #wpwrap .edit-post-visual-editor .wp-block-latest-posts.is-grid {
@@ -520,4 +533,74 @@ html {
 #wpwrap .edit-post-visual-editor .editor-block-list__block blockquote p {
   font-size: 1.1rem;
   line-height: 1.8571428571;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button {
+  background: #0073aa;
+  border-color: #005177 #003f5e #003f5e;
+  color: #fff;
+  box-shadow: 0 1px 0 #003f5e;
+  text-shadow: 0 -1px 1px #003f5e, 1px 0 1px #003f5e, 0 1px 1px #003f5e, -1px 0 1px #003f5e;
+  font-size: 14px;
+  height: 46px;
+  line-height: 44px;
+  padding: 0 36px;
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  box-shadow: 0 2px 0 #006799;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:hover, #wpwrap .edit-post-visual-editor #elementor-editor-button:focus {
+  background: #007db9;
+  border-color: #003f5e;
+  color: #fff;
+  box-shadow: 0 1px 0 #003f5e;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:focus {
+  box-shadow: inset 0 1px 0 #005177, 0 0 2px 1px #33b3db;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button:active, #wpwrap .edit-post-visual-editor #elementor-editor-button.active, #wpwrap .edit-post-visual-editor #elementor-editor-button.active:focus, #wpwrap .edit-post-visual-editor #elementor-editor-button.active:hover {
+  background: #005177;
+  border-color: #003f5e;
+  box-shadow: inset 0 2px 0 #003f5e;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button[disabled], #wpwrap .edit-post-visual-editor #elementor-editor-button:disabled, #wpwrap .edit-post-visual-editor #elementor-editor-button.button-primary-disabled, #wpwrap .edit-post-visual-editor #elementor-editor-button.disabled {
+  color: #c7ced1 !important;
+  background: #005781 !important;
+  border-color: #003f5e !important;
+  text-shadow: none !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button.button-hero {
+  box-shadow: 0 2px 0 #003f5e !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button.button-hero:active {
+  box-shadow: inset 0 3px 0 #003f5e !important;
+}
+
+#wpwrap .edit-post-visual-editor #elementor-editor-button i {
+  font-style: normal;
+  color: white;
+}
+
+#wpwrap .edit-post-visual-editor .editor-media-placeholder button,
+#wpwrap .edit-post-visual-editor .fl-builder-layout-launch-view button {
+  margin: 2px;
+}
+
+#wpwrap .edit-post-visual-editor .fl-builder-layout-launch-view .is-primary.is-primary {
+  color: white;
+}
+
+.ast-separate-container #wpwrap .edit-post-visual-editor {
+  background-color: #f5f5f5;
 }

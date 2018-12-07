@@ -8,16 +8,22 @@
 /**
  * Transparent Above Header
  */
-add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_above_header_sections_dynamic_css' );
+add_filter( 'astra_dynamic_css', 'astra_ext_transparent_above_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return void
+ * @return String Generated dynamic CSS for above header transparent header.
  */
 function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	$above_header_layout = astra_get_option( 'above-header-layout' );
+
+	if ( 'disabled' == $above_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+		return $dynamic_css;
+	}
 
 	/**
 	 * Set colors
@@ -215,8 +221,8 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 	$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
-	$dynamic_css .= $css;
-	wp_add_inline_style( 'astra-transparent-header', $dynamic_css );
+	return $dynamic_css . $css;
+
 }
 
 
@@ -224,19 +230,22 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 /**
  * Transparent Below Header
  */
-add_filter( 'wp_enqueue_scripts', 'astra_ext_transparent_below_header_sections_dynamic_css' );
+add_filter( 'astra_dynamic_css', 'astra_ext_transparent_below_header_sections_dynamic_css' );
 
 /**
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return void
+ * @return String Generated dynamic CSS.
  */
 function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
-		return;
+	// set page width depending on site layout.
+	$below_header_layout = astra_get_option( 'below-header-layout' );
+
+	if ( 'disabled' == $below_header_layout && false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+		return $dynamic_css;
 	}
 
 	/**
@@ -466,7 +475,5 @@ function astra_ext_transparent_below_header_sections_dynamic_css( $dynamic_css, 
 	$css .= astra_parse_css( $transparent_header_tablet, '', '768' );
 	$css .= astra_parse_css( $transparent_header_mobile, '', '544' );
 
-	$dynamic_css .= $css;
-	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
-
+	return $dynamic_css . $css;
 }

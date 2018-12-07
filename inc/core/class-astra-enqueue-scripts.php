@@ -47,7 +47,32 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
+			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
+		}
 
+		/**
+		 * Admin body classes.
+		 *
+		 * Body classes to be added to <body> tag in admin page
+		 *
+		 * @param String $classes body classes returned from the filter.
+		 * @return String body classes to be added to <body> tag in admin page
+		 */
+		public function admin_body_class( $classes ) {
+			$content_layout = astra_get_content_layout();
+			if ( 'content-boxed-container' == $content_layout ) {
+				$classes .= ' ast-separate-container';
+			} elseif ( 'boxed-container' == $content_layout ) {
+				$classes .= ' ast-separate-container ast-two-container';
+			} elseif ( 'page-builder' == $content_layout ) {
+				$classes .= ' ast-page-builder-template';
+			} elseif ( 'plain-container' == $content_layout ) {
+				$classes .= ' ast-plain-container';
+			}
+
+			$classes .= ' ast-' . astra_page_layout();
+
+			return $classes;
 		}
 
 		/**

@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'display-site-title'                  => 1,
 					'display-site-tagline'                => 0,
-					'logo-title-inline'                   => 0,
+					'logo-title-inline'                   => 1,
 					// Header - Primary.
 					'disable-primary-nav'                 => false,
 					'header-layouts'                      => 'header-main-layout-1',
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                => array(
-						'desktop'      => 30,
+						'desktop'      => 40,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -291,7 +291,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h1'                        => array(
-						'desktop'      => 48,
+						'desktop'      => 40,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h2'                        => array(
-						'desktop'      => 42,
+						'desktop'      => 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -307,7 +307,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h3'                        => array(
-						'desktop'      => 30,
+						'desktop'      => 25,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
