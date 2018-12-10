@@ -123,10 +123,12 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 		'.ast-theme-transparent-header .ast-above-header' => array(
 			'background-image' => 'none',
+			'background-color' => 'transparent',
 		),
 
 		'.ast-theme-transparent-header .ast-below-header' => array(
 			'background-image' => 'none',
+			'background-color' => 'transparent',
 		),
 	);
 
