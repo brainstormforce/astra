@@ -17,7 +17,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 	class Astra_Attr {
 
 		/**
-		 * Member Variable
+		 * Store Instance on Current Class.
 		 *
 		 * @var object instance
 		 */
