@@ -75,7 +75,6 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 			$output = apply_filters( "astra_attr_{$context}_output", $output, $attributes, $context, $args );
 
 			return trim( $output );
-
 		}
 
 		/**
