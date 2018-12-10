@@ -1639,5 +1639,5 @@ endif;
  * @return string String of HTML attributes and values.
  */
 function astra_attr( $context, $attributes = array(), $args = array() ) {
-	return Astra_Attr::get_instance()->astra_attr( $context, $attributes = array(), $args = array() );
+	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * AMP Attributes.
+ * Astra Attributes Class.
  *
  * @package     Astra
  * @author      Astra
@@ -100,7 +100,6 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 
 			// Contextual filter.
 			return apply_filters( "astra_attr_{$context}", $attributes, $context, $args );
-
 		}
 
 	}
