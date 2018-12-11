@@ -126,7 +126,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( is_lesson() ) {
 				remove_action( 'lifterlms_single_lesson_after_summary', 'lifterlms_template_lesson_navigation', 20 );
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+				if ( 'yes' !== get_post_meta( get_the_ID(), '_llms_blocks_migrated', true ) ) {
+					add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+				}
 			}
 
 			if ( is_quiz() ) {
