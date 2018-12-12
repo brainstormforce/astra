@@ -47,6 +47,7 @@ require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
 /**
  * Custom template tags for this theme.
  */
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-attr.php';
 require_once ASTRA_THEME_DIR . 'inc/template-tags.php';
 
 require_once ASTRA_THEME_DIR . 'inc/widgets.php';

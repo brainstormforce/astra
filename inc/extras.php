@@ -1624,3 +1624,20 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	}
 
 endif;
+
+/**
+ * Build list of attributes into a string and apply contextual filter on string.
+ *
+ * The contextual filter is of the form `astra_attr_{context}_output`.
+ *
+ * @since x.x.x
+ * @credits - Genesis Theme By StudioPress.
+ *
+ * @param string $context    The context, to build filter name.
+ * @param array  $attributes Optional. Extra attributes to merge with defaults.
+ * @param array  $args       Optional. Custom data to pass to filter.
+ * @return string String of HTML attributes and values.
+ */
+function astra_attr( $context, $attributes = array(), $args = array() ) {
+	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
+}
