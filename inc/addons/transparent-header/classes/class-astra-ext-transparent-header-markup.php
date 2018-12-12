@@ -263,7 +263,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 				$diff_retina_logo = astra_get_option( 'different-transparent-retina-logo' );
 
-				if ( '1' === $diff_retina_logo ) {
+				if ( '1' == $diff_retina_logo ) {
 
 					$retina_logo = astra_get_option( 'transparent-header-retina-logo' );
 
