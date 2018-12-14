@@ -367,25 +367,31 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function store_widgets_init() {
 			register_sidebar(
-				array(
-					'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
-					'id'            => 'astra-woo-shop-sidebar',
-					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
-					'before_widget' => '<div id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+				apply_filters(
+					'astra_widgets_init',
+					array(
+						'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
+						'id'            => 'astra-woo-shop-sidebar',
+						'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</div>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					)
 				)
 			);
 			register_sidebar(
-				array(
-					'name'          => esc_html__( 'Product Sidebar', 'astra' ),
-					'id'            => 'astra-woo-single-sidebar',
-					'description'   => __( 'This sidebar will be used on Single Product page.', 'astra' ),
-					'before_widget' => '<div id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+				apply_filters(
+					'astra_widgets_init',
+					array(
+						'name'          => esc_html__( 'Product Sidebar', 'astra' ),
+						'id'            => 'astra-woo-single-sidebar',
+						'description'   => __( 'This sidebar will be used on Single Product page.', 'astra' ),
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</div>',
+						'before_title'  => '<h2 class="widget-title">',
+						'after_title'   => '</h2>',
+					)
 				)
 			);
 		}
