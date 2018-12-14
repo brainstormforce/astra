@@ -366,6 +366,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Store widgets init.
 		 */
 		function store_widgets_init() {
+
+			$tag = 'h2';
+
+			/**
+			* Filters the tags for widget title.
+			*
+			* @since 1.3.1
+			*
+			* @param string $tags string containing the HTML tags for Widget Title.
+			*/
+			$widget_title = apply_filters( 'astra_widget_title_tag', $tag );
+
 			register_sidebar(
 				array(
 					'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
@@ -373,8 +385,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			);
 			register_sidebar(
@@ -384,8 +396,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'description'   => __( 'This sidebar will be used on Single Product page.', 'astra' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			);
 		}

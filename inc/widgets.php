@@ -74,6 +74,17 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 	 */
 	function astra_widgets_init() {
 
+		$tag = 'h2';
+
+		/**
+		* Filters the tags for widget title.
+		*
+		* @since 1.3.1
+		*
+		* @param string $tags string containing the HTML tags for Widget Title.
+		*/
+		$widget_title = apply_filters( 'astra_widget_title_tag', $tag );
+
 		/**
 		 * Register Main Sidebar
 		 */
@@ -86,8 +97,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -104,8 +115,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -122,8 +133,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -137,8 +148,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -154,8 +165,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'id'            => 'advanced-footer-widget-1',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -168,8 +179,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'id'            => 'advanced-footer-widget-2',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -182,8 +193,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'id'            => 'advanced-footer-widget-3',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
@@ -196,8 +207,8 @@ if ( ! function_exists( 'astra_widgets_init' ) ) :
 					'id'            => 'advanced-footer-widget-4',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => sprintf( '<%1$s class="widget-title">', $widget_title ),
+					'after_title'   => sprintf( '</%1$s>', $widget_title ),
 				)
 			)
 		);
