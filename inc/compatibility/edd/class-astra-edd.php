@@ -628,7 +628,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 			register_sidebar(
 				apply_filters(
-					'astra_edd_product_widgets_init',
+					'astra_edd_single_product_sidebar_init',
 					array(
 						'name'          => esc_html__( 'EDD Single Product Sidebar', 'astra' ),
 						'id'            => 'astra-edd-single-product-sidebar',

@@ -368,7 +368,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
-					'astra_woocommerce_archive_widgets_init',
+					'astra_woocommerce_shop_sidebar_init',
 					array(
 						'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
 						'id'            => 'astra-woo-shop-sidebar',
@@ -382,7 +382,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 			register_sidebar(
 				apply_filters(
-					'astra_woocommerce_product_widgets_init',
+					'astra_woocommerce_single_sidebar_init',
 					array(
 						'name'          => esc_html__( 'Product Sidebar', 'astra' ),
 						'id'            => 'astra-woo-single-sidebar',
