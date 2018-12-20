@@ -614,7 +614,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
-					'astra_edd_downloads_widgets_init',
+					'astra_edd_sidebar_init',
 					array(
 						'name'          => esc_html__( 'Easy Digital Downloads Sidebar', 'astra' ),
 						'id'            => 'astra-edd-sidebar',
