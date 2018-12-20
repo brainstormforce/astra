@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2018, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 1.6.2
  */
 
 if ( ! class_exists( 'Astra_Attr' ) ) :
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		/**
 		 * Initialuze the Class.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.2
 		 */
 		private function __construct() {}
 
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		 *
 		 * The contextual filter is of the form `astra_attr_{context}_output`.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.2
 		 *
 		 * @param string $context    The context, to build filter name.
 		 * @param array  $attributes Optional. Extra attributes to merge with defaults.
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		 *
 		 * The contextual filter is of the form `astra_attr_{context}`.
 		 *
-		 * @since x.x.x
+		 * @since 1.6.2
 		 *
 		 * @param string $context    The context, to build filter name.
 		 * @param array  $attributes Optional. Extra attributes to merge with defaults.
