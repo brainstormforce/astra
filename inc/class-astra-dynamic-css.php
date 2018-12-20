@@ -380,7 +380,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Advanced Footer colors/fonts.
-				'.footer-adv .footer-adv-overlay' => array(
+				'.footer-adv .footer-adv-overlay'         => array(
 					'border-top-style' => 'solid',
 					'border-top-width' => astra_get_css_value( $footer_adv_border_width, 'px' ),
 					'border-top-color' => esc_attr( $footer_adv_border_color ),
