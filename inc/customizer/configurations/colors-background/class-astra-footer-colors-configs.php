@@ -94,6 +94,7 @@ if ( ! class_exists( 'Astra_Footer_Colors_Configs' ) ) {
 					'section'  => 'section-colors-footer',
 					'title'    => __( 'Background', 'astra' ),
 				),
+				
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

@@ -144,6 +144,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
 			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
+			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
+			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -376,7 +379,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
-				// Advanced Fotter colors/fonts.
+				// Advanced Footer colors/fonts.
+				'.footer-adv-overlay' => array(
+					'border-top-style' => 'solid',
+					'border-top-width' => astra_get_css_value( $footer_adv_border_width, 'px' ),
+					'border-top-color' => esc_attr( $footer_adv_border_color ),
+				),
 				'.footer-adv .widget-title,.footer-adv .widget-title a' => array(
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),

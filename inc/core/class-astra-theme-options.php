@@ -348,6 +348,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                          => 'disabled',
+					'footer-adv-border-width'             => '',
+					'footer-adv-border-color'             => '#7a7a7a',
 
 					// toogle menu style.
 					'mobile-header-toggle-btn-style'      => 'minimal',
