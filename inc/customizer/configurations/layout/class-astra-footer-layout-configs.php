@@ -275,7 +275,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[footer-adv-border-width]',
 					'type'        => 'control',
 					'control'     => 'number',
-					'transport' => 'postMessage',
+					'transport'   => 'postMessage',
 					'section'     => 'section-footer-adv',
 					'default'     => astra_get_option( 'footer-adv-border-width' ),
 					'priority'    => 40,
@@ -292,14 +292,14 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Top Border Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
-					'section'  => 'section-footer-adv',
-					'type'     => 'control',
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
+					'section'   => 'section-footer-adv',
+					'type'      => 'control',
 					'transport' => 'postMessage',
-					'control'  => 'ast-color',
-					'default'  => astra_get_option( 'footer-adv-border-color' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
-					'priority' => 45,
+					'control'   => 'ast-color',
+					'default'   => astra_get_option( 'footer-adv-border-color' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'priority'  => 45,
 				),
 			);
 
