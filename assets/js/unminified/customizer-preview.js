@@ -503,6 +503,23 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 
 	/**
+	 * Footer Widget Top Border
+	 */
+	wp.customize( 'astra-settings[footer-adv-border-width]', function( value ) {
+		value.bind( function( border_width ) {
+			jQuery( '.footer-adv .footer-adv-overlay' ).css( 'border-top-width', border_width + 'px' );
+		} );
+	} );
+
+
+	wp.customize( 'astra-settings[footer-adv-border-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.footer-adv .footer-adv-overlay' ).css( 'border-top-color', border_color );
+		} );
+	} );
+
+
+	/**
 	 * Small Footer Top Border Color
 	 */
 	wp.customize( 'astra-settings[footer-sml-divider-color]', function( value ) {
