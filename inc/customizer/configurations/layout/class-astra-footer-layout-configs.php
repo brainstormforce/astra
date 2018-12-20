@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'transport' => 'postMessage',
 					'control'  => 'ast-color',
-					'default'     => astra_get_option( 'footer-adv-border-color' ),
+					'default'  => astra_get_option( 'footer-adv-border-color' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'priority' => 45,
 				),

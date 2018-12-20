@@ -200,6 +200,19 @@
         }
     },
     {
+        "Aleo": {
+            "variants": [
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Alex Brush": {
             "variants": [
                 "regular"
@@ -804,6 +817,28 @@
                 "700italic"
             ],
             "category": "display"
+        }
+    },
+    {
+        "B612": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "B612 Mono": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -1642,6 +1677,15 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Charm": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -4814,6 +4858,14 @@
         }
     },
     {
+        "Major Mono Display": {
+            "variants": [
+                "regular"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Mako": {
             "variants": [
                 "regular"
@@ -7423,6 +7475,29 @@
         }
     },
     {
+        "Sarabun": {
+            "variants": [
+                "100",
+                "100italic",
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Sarala": {
             "variants": [
                 "regular",
@@ -7986,6 +8061,14 @@
         }
     },
     {
+        "Staatliches": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Stalemate": {
             "variants": [
                 "regular"
@@ -8256,6 +8339,17 @@
         "Text Me One": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Thasadith": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -8784,6 +8878,30 @@
                 "500",
                 "600",
                 "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "ZCOOL KuaiLe": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "ZCOOL QingKe HuangYou": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "ZCOOL XiaoWei": {
+            "variants": [
+                "regular"
             ],
             "category": "serif"
         }

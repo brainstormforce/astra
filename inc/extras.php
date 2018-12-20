@@ -1630,7 +1630,7 @@ endif;
  *
  * The contextual filter is of the form `astra_attr_{context}_output`.
  *
- * @since x.x.x
+ * @since 1.6.2
  * @credits - Genesis Theme By StudioPress.
  *
  * @param string $context    The context, to build filter name.
