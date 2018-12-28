@@ -19,6 +19,10 @@ body{
 }
 #primary{
 	margin: 4em 0;
+	// Remove top margin to accommodate transparent header
+	.ast-theme-transparent-header &{
+		margin-top: 0;
+	}
 }
 
 #secondary{
@@ -288,6 +292,10 @@ body{
 	#secondary {
 		padding: 1.5em 0;
 		margin: 0;
+		// Remove top padding to accommodate transparent header
+		.ast-theme-transparent-header &{
+			padding-top: 0;
+		}
 	}
 
 	.ast-left-sidebar {
