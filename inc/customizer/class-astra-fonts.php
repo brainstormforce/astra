@@ -132,20 +132,25 @@ final class Astra_Fonts {
 		$font_args = array();
 		$family    = array();
 
-		$fonts = apply_filters( 'astra_google_fonts', $fonts );
+		$fonts 				= apply_filters( 'astra_google_fonts', $fonts );
+		$google_fonts_arr	= Astra_Font_Families::get_google_fonts();
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
-			$font_name = str_replace( ' ', '+', $font_name );
 			if ( ! empty( $font_weight ) ) {
 				if ( is_array( $font_weight ) ) {
 					$font_weight = implode( ',', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
 				$font_family = str_replace( "'", '', astra_get_prop( $font_family, 0 ) );
-				$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
+				if( array_key_exists( $font_family, $google_fonts_arr ) ) {
+					$font_family = str_replace( '+', ' ', $font_family );
+					$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
+				}
 			} else {
-				$family[] = trim( $font_name );
+				if( array_key_exists( $font_family, $google_fonts_arr ) ) {
+					$family[] = trim( $font_name );
+				}
 			}
 		}
 
