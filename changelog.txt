@@ -1,3 +1,6 @@
+v1.6.4
+- Fix: Gutenberg columns not stacking correctly on mobile devices.
+
 v1.6.3
 - Fix: Block Editor - Background color from content does not work.
 - Fix: Block Editor - Columns block having incorrect margin when on tablet/mobile devices.

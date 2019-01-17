@@ -37,19 +37,8 @@
 				width: 100%;
 			}
 		}
-		.wp-block-columns .wp-block-column {
-			-webkit-box-flex: 1;
-		    -ms-flex: 1;
-		    flex: 1;
-		}
-		.has-2-columns .wp-block-column:first-child {
-			padding-right: 10px;
-		}
-
-		.has-2-columns .wp-block-column:last-child {
-			padding-left: 10px;
-		}
 	}
+
 	/* Boxed & Content Boxed container alignment support */
 	&.ast-separate-container{
 		.entry-content {
@@ -84,6 +73,16 @@
 				}
 			}
 		}
+	}
+}
+
+.entry-content {
+	.has-2-columns .wp-block-column:first-child {
+		padding-right: 10px;
+	}
+
+	.has-2-columns .wp-block-column:last-child {
+		padding-left: 10px;
 	}
 }
 
