@@ -67,6 +67,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'author'   => __( 'Author', 'astra' ),
 						'date'     => __( 'Publish Date', 'astra' ),
 						'tag'      => __( 'Tag', 'astra' ),
+						'read-time' => __( 'Read Time', 'astra' ),
 					),
 				),
 
