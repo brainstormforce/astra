@@ -714,7 +714,11 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			 * @since  1.5.0
 			 * @var Array
 			 */
-			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+			$primary_menu_classes = array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class );
+
+			if ( has_nav_menu( 'primary' ) ) {
+				$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', $primary_menu_classes );
+			}
 
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
