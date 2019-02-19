@@ -31,5 +31,6 @@
 
 	<?php wp_footer(); ?>
 
+	<?php astra_body_end(); ?>
 	</body>
 </html>

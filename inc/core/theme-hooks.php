@@ -110,6 +110,12 @@ function astra_body_bottom() {
 }
 
 /**
+ * Action just before closing body tag.
+ */
+function astra_body_end() {
+	do_action( 'astra_body_end' );
+}
+/**
  * HTML <head> hooks
  *
  * $astra_supports[] = 'head';
