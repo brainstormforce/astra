@@ -1690,8 +1690,8 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
  *
  * @return int affiliate id.
  */
-function ast_filter_ninja_forms_affiliate_id() {
+function astra_filter_ninja_forms_affiliate_id() {
 	return 1115254;
 };
 
-add_filter( 'ninja_forms_affiliate_id', 'ast_filter_ninja_forms_affiliate_id' );
+add_filter( 'ninja_forms_affiliate_id', 'astra_filter_ninja_forms_affiliate_id' );
