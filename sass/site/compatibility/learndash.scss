@@ -126,10 +126,18 @@
 		}
 	}
 
-	.ui-sortable {
-		overflow-y: auto !important;
-	}
+}
 
+body.single-sfwd-quiz {
+    overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content ul.wpProQuiz_maxtrixSortCriterion {
+	overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content .wpProQuiz_questionList {
+	overflow: unset;
 }
 
 #learndash_course_certificate {
