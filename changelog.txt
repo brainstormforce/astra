@@ -1,3 +1,10 @@
+v1.7.0.
+- New: Native AMP support from Astra Theme and Astra Pro. Read more about here - https://wpastra.com/astra-is-amp-ready/
+- Fix: Upload New Theme button not working when Astra Theme is activated.
+- Fix: Gutenberg - Container color does nto work on pages freshly created.
+- Fix: Block Quote border color issue in Gutenberg back end and front end.
+- Fix: Extra Padding bottom being applied to blog post meta even if it is disabled from post meta.
+
 v1.6.9
 - New: Filter to disable automatic logo resizing. (https://wpastra.com/docs/disable-logo-cropping/)
 - New: CSS class `ast-left-align-sub-menu` will change the direction navigation menu opens for all submenus. (https://wpastra.com/docs/change-the-direction-for-submenu-opening/)
