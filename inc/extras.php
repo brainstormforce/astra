@@ -1300,13 +1300,16 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id          = astra_get_post_id();
-		$classes          = array();
-		$title_markup     = astra_the_title( '', '', $post_id, false );
-		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup = astra_single_get_post_meta( '', '', false );
+		$post_id                    = astra_get_post_id();
+		$classes                    = array();
+		$title_markup               = astra_the_title( '', '', $post_id, false );
+		$thumb_markup               = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup           = astra_single_get_post_meta( '', '', false );
+		$blog_single_post_structure = astra_get_option( 'blog-single-post-structure' );
 
-		if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+		if ( ! $blog_single_post_structure || ( 'single-image' === astra_get_prop( $blog_single_post_structure, 0 ) && empty( $thumb_markup ) ) ) {
+			$classes[] = 'ast-header-without-markup';
+		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
 
