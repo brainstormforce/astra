@@ -756,7 +756,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				echo '</div>';
 			} else {
 
-				echo '<div class="ast-main-header-bar-alignment">';
+				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 					echo '<div class="main-header-bar-navigation">';
 						echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1 navigation-accessibility" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
