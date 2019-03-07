@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.4.0
 		 */
-		private static $version = '1.0.0';
+		private static $version = '1.1.1';
 
 		/**
 		 * Notices
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return Array
 		 */
-		function add_data_attributes( $allowedposttags, $context ) {
+		public function add_data_attributes( $allowedposttags, $context ) {
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
 
 			return $allowedposttags;
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function dismiss_notice() {
+		public function dismiss_notice() {
 			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
 			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
 
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				if ( ! empty( $repeat_notice_after ) ) {
 					set_transient( $notice_id, true, $repeat_notice_after );
 				} else {
-					update_user_meta( get_current_user_id(), $notice_id, true );
+					update_user_meta( get_current_user_id(), $notice_id, 'notice-dismissed' );
 				}
 
 				wp_send_json_success();
@@ -132,8 +132,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function enqueue_scripts() {
-			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), null, self::$version );
+		public function enqueue_scripts() {
+			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), self::$version, true );
 		}
 
 		/**
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @param array $array2 array two.
 		 * @return array
 		 */
-		function sort_notices( $array1, $array2 ) {
+		public function sort_notices( $array1, $array2 ) {
 			if ( ! isset( $array1['priority'] ) ) {
 				$array1['priority'] = 10;
 			}
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @since 1.4.0
 		 * @return void
 		 */
-		function show_notices() {
+		public function show_notices() {
 
 			$defaults = array(
 				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
@@ -169,6 +169,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'message'                    => '',      // Optional, Message.
 				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
 				'repeat-notice-after'        => '',      // Optional, Dismiss-able notice time. It'll auto show after given time.
+				'display-notice-after'       => false,      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
@@ -190,12 +191,13 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 				// Notices visible after transient expire.
 				if ( isset( $notice['show_if'] ) && true === $notice['show_if'] ) {
-					if ( self::is_expired( $notice ) ) {
 
-						// don't display the notice if it is not supposed to be displayed with other notices.
-						if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
-							continue;
-						}
+					// don't display the notice if it is not supposed to be displayed with other notices.
+					if ( 0 !== $notices_displayed && false === $notice['display-with-other-notices'] ) {
+						continue;
+					}
+
+					if ( self::is_expired( $notice ) ) {
 
 						self::markup( $notice );
 						++$notices_displayed;
@@ -285,11 +287,25 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return boolean
 		 */
 		private static function is_expired( $notice ) {
+			$transient_status = get_transient( $notice['id'] );
 
-			$expired = get_transient( $notice['id'] );
-			if ( false === $expired ) {
-				$expired = get_user_meta( get_current_user_id(), $notice['id'], true );
-				if ( empty( $expired ) ) {
+			if ( false === $transient_status ) {
+
+				if ( false !== $notice['display-notice-after'] ) {
+
+					if ( 'delayed-notice' !== get_user_meta( get_current_user_id(), $notice['id'], true ) &&
+						'notice-dismissed' !== get_user_meta( get_current_user_id(), $notice['id'], true ) ) {
+						set_transient( $notice['id'], 'delayed-notice', $notice['display-notice-after'] );
+						update_user_meta( get_current_user_id(), $notice['id'], 'delayed-notice' );
+
+						return false;
+					}
+				}
+
+				// Check the user meta status if current notice is dismissed or delay completed.
+				$meta_status = get_user_meta( get_current_user_id(), $notice['id'], true );
+
+				if ( empty( $meta_status ) || 'delayed-notice' === $meta_status ) {
 					return true;
 				}
 			}
