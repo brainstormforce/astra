@@ -1397,6 +1397,10 @@ pre {
   padding: 1.6em;
 }
 
+pre.wp-block-preformatted {
+  white-space: pre-wrap;
+}
+
 code,
 kbd,
 tt,

@@ -117,6 +117,10 @@ html {
   padding: 1.6em;
 }
 
+.edit-post-visual-editor pre.wp-block-preformatted {
+  white-space: pre-wrap;
+}
+
 .edit-post-visual-editor code,
 .edit-post-visual-editor kbd,
 .edit-post-visual-editor tt,
