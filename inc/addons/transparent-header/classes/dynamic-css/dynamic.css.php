@@ -99,7 +99,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$css              .= astra_parse_css( $mobile_css_output, '', '543' );
 
 	$transparent_heder_base = array(
-		'.ast-theme-transparent-header #masthead'         => array(
+		'.ast-theme-transparent-header #masthead' => array(
 			'position' => 'absolute',
 			'left'     => '0',
 			'right'    => '0',
