@@ -427,7 +427,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Each time a menu link is focused or blurred, toggle focus.
 		for ( i = 0, len = links.length; i < len; i++ ) {
 			links[i].addEventListener( 'focus', toggleFocus, true );
-			links[i].addEventListener( 'blur', toggleFocus, true );
 			links[i].addEventListener( 'click', toggleClose, true );
 		}	
 	}
@@ -457,6 +456,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					main_header_bar_navigation.style.display = 'none';
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
+                } else {
+					// On li elements toggle the class .focus.
+					var menu_item_has_children = document.querySelector( '.menu-item-has-children' );
+					menu_item_has_children.classList.remove( 'focus' );
+					
+					var menu_item_type_custom = document.querySelector( '.menu-item-type-custom' );
+	                menu_item_type_custom.classList.remove( 'focus' );
                 }
             }
         }        
