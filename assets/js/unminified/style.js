@@ -457,12 +457,16 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
                 } else {
-					// On li elements toggle the class .focus.
-					var menu_item_has_children = document.querySelector( '.menu-item-has-children' );
-					menu_item_has_children.classList.remove( 'focus' );
-					
-					var menu_item_type_custom = document.querySelector( '.menu-item-type-custom' );
-	                menu_item_type_custom.classList.remove( 'focus' );
+					// Move up through the ancestors of the current link until we hit .nav-menu.
+					while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+						// On li elements toggle the class .focus.
+						if ( 'li' === self.tagName.toLowerCase() ) {
+							if ( -1 !== self.className.indexOf( 'focus' ) ) {
+								self.className = self.className.replace( ' focus', '' );
+							}
+						}
+						self = self.parentElement;
+					}
                 }
             }
         }        
