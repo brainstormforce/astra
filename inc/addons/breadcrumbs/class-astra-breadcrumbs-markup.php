@@ -54,6 +54,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_breadcumb_template() {
 
+			if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+				return;
+			}
+
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
