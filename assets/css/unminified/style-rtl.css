@@ -1790,10 +1790,6 @@ object {
   background: #0274be;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3981,7 +3977,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-html {
+body {
   overflow-x: hidden;
 }
 

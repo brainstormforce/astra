@@ -1110,3 +1110,16 @@ body {
 		}
 	}
  }
+
+// LearnDash Quiz dragable elements not working scrolling the page on mobile devices.
+body.single-sfwd-quiz {
+	overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content ul.wpProQuiz_maxtrixSortCriterion {
+	overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content .wpProQuiz_questionList {
+	overflow: unset;
+}

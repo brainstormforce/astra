@@ -4,10 +4,6 @@
     background: $color-link;
 }
 
-html {
-	overflow-y: scroll;
-}
-
 body {
     &:not(.logged-in) {
         position: relative;

@@ -1050,3 +1050,15 @@ body .wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
     margin: 0 0 20px;
   }
 }
+
+body.single-sfwd-quiz {
+  overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content ul.wpProQuiz_maxtrixSortCriterion {
+  overflow: unset;
+}
+
+.single-sfwd-quiz .wpProQuiz_content .wpProQuiz_questionList {
+  overflow: unset;
+}

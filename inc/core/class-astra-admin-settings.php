@@ -952,7 +952,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'edd'                   => array(
 						'title'     => __( 'Easy Digital Downloads', 'astra' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/easy-digital-downloads-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',

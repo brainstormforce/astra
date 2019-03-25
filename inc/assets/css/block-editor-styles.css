@@ -223,10 +223,6 @@ html {
   background: royalblue;
 }
 
-.edit-post-visual-editor html {
-  overflow-y: scroll;
-}
-
 .edit-post-visual-editor body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
