@@ -44,11 +44,25 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Breadcrumb
 				 */
 				array(
-					'name'     => 'section-breadcrumb',
-					'type'     => 'section',
-					'title'    => __( 'Breadcrumb', 'astra' ),
-					'panel'    => 'panel-layout',
-					'priority' => 20,
+					'name'               => 'section-breadcrumb',
+					'type'               => 'section',
+					'priority'           => 20,
+					'title'              => __( 'Breadcrumb', 'astra' ),
+					'panel'              => 'panel-layout',
+					'description_hidden' => true,
+					'description'        => $this->section_get_description(
+						array(
+							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'links'       => array(
+								array(
+									'text'  => __( 'Breadcrumb Overview', 'astra' ) . ' »',
+									'attrs' => array(
+										'href' => astra_get_pro_url( 'https://wpastra.com/docs/sidebar-free/', 'customizer', 'sidebar', 'helpful-information' ),
+									),
+								),
+							),
+						)
+					),
 				),
 
 				/**
@@ -95,7 +109,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-breadcrumb',
 					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
-					'required'  => array(
+					'required' => array(
 						'conditions' => array(
 							array( ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]', '==', 'default' ),
 							array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
@@ -244,7 +258,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'section'        => 'section-breadcrumb',
 				),
-
 			);
 
 			return array_merge( $configurations, $_configs );

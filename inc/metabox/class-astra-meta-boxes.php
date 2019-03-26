@@ -129,6 +129,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'ast-breadcrumbs-content' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 				)
 			);
 		}
@@ -205,6 +208,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
@@ -299,8 +303,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
 						</label>
 					</div>
+						<?php
+					}
+					$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
+					if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
+						?>
+					<div class="ast-breadcrumbs-content-option-wrap">
+						<label for="ast-breadcrumbs-content">
+							<input type="checkbox" id="ast-breadcrumbs-content" name="ast-breadcrumbs-content" value="disabled" <?php checked( $breadcrumbs_content, 'disabled' ); ?> />
+							<?php esc_html_e( 'Disable Breadcrumb', 'astra' ); ?>
+						</label>
+					</div>
 					<?php } ?>
-
 					<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
 				</div>
 			</div>
