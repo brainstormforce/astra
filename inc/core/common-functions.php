@@ -828,6 +828,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			if ( is_author() ) { ?>
 
 				<section class="ast-author-box ast-archive-description">
+					<?php do_action( 'astra_archive_description_top' ); ?>
 					<div class="ast-author-bio">
 						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
 						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
@@ -835,6 +836,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 					<div class="ast-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
 					</div>
+					<?php do_action( 'astra_archive_description_bottom' ); ?>
 				</section>
 
 				<?php
@@ -844,8 +846,10 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_archive_description_top' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_archive_description_bottom' ); ?>
 				</section>
 
 				<?php
@@ -855,8 +859,10 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_archive_description_top' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_archive_description_bottom' ); ?>
 				</section>
 
 				<?php
@@ -866,11 +872,13 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_archive_description_top' ); ?>
 					<?php
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
 					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<?php do_action( 'astra_archive_description_bottom' ); ?>
 				</section>
 
 				<?php
@@ -880,8 +888,10 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_archive_description_top' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_archive_description_bottom' ); ?>
 				</section>
 
 				<?php
