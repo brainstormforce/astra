@@ -57,8 +57,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				),
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-text-color-responsive]',
-					'default'    => $defaults['breadcrumb-text-color-responsive'],
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-active-color-responsive]',
+					'default'    => $defaults['breadcrumb-active-color-responsive'],
 					'type'       => 'control',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
@@ -67,14 +67,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'responsive' => true,
 					'rgba'       => true,
 				),
-
+				
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-active-color-responsive]',
-					'default'    => $defaults['breadcrumb-active-color-responsive'],
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-text-color-responsive]',
+					'default'    => $defaults['breadcrumb-text-color-responsive'],
 					'type'       => 'control',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Active Text Color', 'astra' ),
+					'title'      => __( 'Link Color', 'astra' ),
 					'section'    => 'section-breadcrumb-color',
 					'responsive' => true,
 					'rgba'       => true,
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'type'       => 'control',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Hover Text Color', 'astra' ),
+					'title'      => __( 'Link Hover Color', 'astra' ),
 					'section'    => 'section-breadcrumb-color',
 					'responsive' => true,
 					'rgba'       => true,
