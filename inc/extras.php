@@ -577,6 +577,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_header_markup() {
+
+		do_action( 'astra_header_markup_before' );
 		?>
 
 		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
@@ -588,7 +590,10 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 			<?php astra_masthead_bottom(); ?>
 
 		</header><!-- #masthead -->
+
 		<?php
+		do_action( 'astra_header_markup_after' );
+
 	}
 }
 

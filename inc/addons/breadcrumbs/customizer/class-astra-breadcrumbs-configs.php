@@ -93,10 +93,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'  => 'select',
 					'priority' => 10,
 					'choices'  => array(
-						'none'                   => __( 'None', 'astra' ),
-						'astra_masthead_content' => __( 'Inside Header', 'astra' ),
-						'astra_header_after'     => __( 'After Header', 'astra' ),
-						'astra_entry_top'        => __( 'Before Title', 'astra' ),
+						'none'                      => __( 'None', 'astra' ),
+						'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
+						'astra_header_markup_after' => __( 'After Header', 'astra' ),
+						'astra_entry_top'           => __( 'Before Title', 'astra' ),
 					),
 				),
 
