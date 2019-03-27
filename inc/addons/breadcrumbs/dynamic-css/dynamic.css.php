@@ -491,5 +491,4 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$dynamic_css .= $css;
 
 	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
-	return;
 }
