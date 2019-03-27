@@ -448,9 +448,10 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css .= astra_parse_css(
 		array(
-			'.ast-breadcrumbs-wrapper .separator' => array(
-				'display'     => 'inline-flex',
-				'align-items' => 'center',
+			'.ast-header-break-point .main-header-bar.ast-header-breadcrumb' => array(
+				'border-bottom-width' => '1px',
+				'border-bottom-color' => '#eaeaea',
+				'border-bottom-style' => 'solid',
 			),
 		),
 		'',
