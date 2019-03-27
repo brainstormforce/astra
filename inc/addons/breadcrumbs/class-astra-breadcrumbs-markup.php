@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_get_breadcrumb() {
 			?>
 			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_load_selected_breadcrumb(); ?>
+				<?php $this->astra_breadcrumb_trail(); ?>
 			</div>
 			<?php
 		}
@@ -158,19 +158,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			}
 
 			return apply_filters( 'astra_breadcrumb_enabled', $display_breadcrumb );
-		}
-
-		/**
-		 * Get  Markup
-		 *
-		 * Loads markup for Inside Content Top option in panel for breadcrumbs.
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_load_selected_breadcrumb() {
-			astra_breadcrumb_trail();
 		}
 	}
 }
