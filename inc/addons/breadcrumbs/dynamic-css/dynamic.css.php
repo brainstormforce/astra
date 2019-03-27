@@ -8,7 +8,7 @@
 /**
  * Breadcrumbs
  */
-add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
+add_filter( 'astra_dynamic_css', 'astra_breadcrumb_section_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -20,6 +20,37 @@ add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
  * @since 1.7.0
  */
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+	$dynamic_css .= astra_parse_css(
+		array(
+			'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li' => array(
+				'display'     => 'inline-block',
+				'margin'      => '0',
+				'padding'     => '0',
+				'border'      => 'none',
+				'background'  => 'inherit',
+				'text-indent' => '0',
+			),
+			'.ast-breadcrumbs .trail-browse'      => array(
+				'font-size'   => 'inherit',
+				'font-style'  => 'inherit',
+				'font-weight' => 'inherit',
+				'color'       => 'inherit',
+			),
+			'.ast-breadcrumbs .trail-items'       => array(
+				'list-style' => 'none',
+			),
+			'.trail-items li::after'              => array(
+				'padding' => '0 0.3em',
+				'content' => '"»"',
+			),
+			'.trail-items li:last-of-type::after' => array(
+				'display' => 'none',
+			),
+		),
+		'',
+		''
+	);
 
 	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
 
@@ -147,16 +178,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Breadcrumb NavXT CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper a'             => array(
+			'.ast-breadcrumbs-wrapper a'                => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .current-item' => array(
+			'.ast-breadcrumbs-wrapper .current-item'    => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper a:hover'       => array(
+			'.ast-breadcrumbs-wrapper a:hover'          => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs'  => array(
+			'.ast-breadcrumbs-wrapper .ast-breadcrumbs' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
@@ -456,38 +487,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		''
 	);
 
-	$css .= astra_parse_css(
-		array(
-			'.breadcrumbs .trail-browse, .breadcrumbs .trail-items, .breadcrumbs .trail-items li' => array(
-				'display'     => 'inline-block',
-				'margin'      => '0',
-				'padding'     => '0',
-				'border'      => 'none',
-				'background'  => 'inherit',
-				'text-indent' => '0',
-			),
-			'.breadcrumbs .trail-browse'          => array(
-				'font-size'   => 'inherit',
-				'font-style'  => 'inherit',
-				'font-weight' => 'inherit',
-				'color'       => 'inherit',
-			),
-			'.breadcrumbs .trail-items'           => array(
-				'list-style' => 'none',
-			),
-			'.trail-items li::after'              => array(
-				'padding' => '0 0.3em',
-			),
-			'.trail-items li:last-of-type::after' => array(
-				'display' => 'none',
-			),
-		),
-		'',
-		''
-	);
-
 	$dynamic_css .= $css;
 
-	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
-
+	return $dynamic_css;
 }
