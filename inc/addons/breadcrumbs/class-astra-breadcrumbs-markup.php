@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_get_breadcrumb() {
 			?>
 			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_breadcrumb_trail(); ?>
+				<?php astra_breadcrumb_trail(); ?>
 			</div>
 			<?php
 		}
