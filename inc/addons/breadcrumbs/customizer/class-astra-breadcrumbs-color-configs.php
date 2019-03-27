@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'responsive' => true,
 					'rgba'       => true,
 				),
-				
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-text-color-responsive]',
 					'default'    => $defaults['breadcrumb-text-color-responsive'],
