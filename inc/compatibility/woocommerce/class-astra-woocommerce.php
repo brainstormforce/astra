@@ -99,6 +99,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
+
+			add_filter( 'astra_schema_body', array( $this, 'remove_body_schema' ) );
+		}
+
+		/**
+		 * Remove body schema when using WooCommerce template.
+		 * WooCommerce adds it's own product schema hence schema data from Astra should be disabled here.
+		 *
+		 * @since x.x.x
+		 * @param String $schema Schema markup.
+		 * @return String
+		 */
+		public function remove_body_schema( $schema ) {
+			if ( is_woocommerce() ) {
+				$schema = '';
+			}
+
+			return $schema;
 		}
 
 		/**

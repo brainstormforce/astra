@@ -1088,6 +1088,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$recommended_plugins = apply_filters(
 				'astra_recommended_plugins',
 				array(
+					'astra-import-export'           =>
+						array(
+							'plugin-name'        => 'Import / Export Customizer Settings',
+							'plugin-init'        => 'astra-import-export/astra-import-export.php',
+							'settings-link'      => '',
+							'settings-link-text' => 'Settings',
+						),
 					'reset-astra-customizer'        =>
 						array(
 							'plugin-name'        => 'Astra Customizer Reset',

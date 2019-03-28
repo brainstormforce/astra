@@ -124,7 +124,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'blockquote'               => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.05 ),
 				),
-				'.editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large)' => array(
+				'.editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote' => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
 				// Heading H1 - H6 font size.
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', '768' );
 
-			if ( in_array( $pagenow, array( 'post-new.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
+			if ( in_array( $pagenow, array( 'post-new.php', 'post.php' ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
 				$boxed_container = array(
 					'.editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
