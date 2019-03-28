@@ -8,7 +8,7 @@
 /**
  * Breadcrumbs
  */
-add_filter( 'astra_dynamic_css', 'astra_breadcrumb_section_dynamic_css' );
+add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -55,7 +55,8 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
 
 	if ( 'none' === $breadcrumb_position ) {
-		return $dynamic_css;
+		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
+		return;
 	}
 
 	/**
@@ -447,9 +448,10 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css .= astra_parse_css(
 		array(
-			'.ast-breadcrumbs-wrapper .separator' => array(
-				'display'     => 'inline-flex',
-				'align-items' => 'center',
+			'.ast-header-break-point .main-header-bar.ast-header-breadcrumb' => array(
+				'border-bottom-width' => '1px',
+				'border-bottom-color' => '#eaeaea',
+				'border-bottom-style' => 'solid',
 			),
 		),
 		'',
@@ -489,5 +491,5 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$dynamic_css .= $css;
 
-	return $dynamic_css;
+	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 }
