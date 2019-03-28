@@ -4,7 +4,7 @@ v1.8.0
 - Improvement: Remove body schema when using WooCommerce template.
 - Fix: WP Block pullquote border not visible issue. 
 - Fix: LearnDash: sortable/dragable elements unable to scroll the page.
-- Fix: HTML 5 Validation issue with button classes.
+- Fix: HTML 5 Validation error in the main header menu header toggle button classes.
 
 v1.7.2
 - New: Option to enable/disable transparent header on blog home.
