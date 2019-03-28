@@ -94,9 +94,9 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	 * Generate Dynamic CSS
 	 */
 
-	$css                         = '';
-	$breadcrumbs_default_padding = array();
-	$wpseo_option                = get_option( 'wpseo_internallinks' );
+	$css                     = '';
+	$breadcrumbs_default_css = array();
+	$wpseo_option            = get_option( 'wpseo_internallinks' );
 
 	$css .= astra_parse_css(
 		array(
@@ -406,7 +406,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
 			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
 		);
-		$breadcrumbs_default_padding['.ast-header-breadcrumb'] = array(
+		$breadcrumbs_default_css['.ast-header-breadcrumb'] = array(
 			'padding-top'    => '10px',
 			'padding-bottom' => '10px',
 		);
@@ -430,8 +430,11 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
 			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
 		);
-		$breadcrumbs_default_padding['.ast-breadcrumbs-inner #ast-breadcrumbs-yoast, .ast-breadcrumbs-inner .breadcrumbs, .ast-breadcrumbs-inner .rank-math-breadcrumb'] = array(
+		$breadcrumbs_default_css['.ast-breadcrumbs-inner #ast-breadcrumbs-yoast, .ast-breadcrumbs-inner .breadcrumbs, .ast-breadcrumbs-inner .rank-math-breadcrumb'] = array(
 			'padding-bottom' => '10px',
+		);
+		$breadcrumbs_default_css['.ast-header-break-point .ast-breadcrumbs-wrapper'] = array(
+			'order' => '4',
 		);
 	} else {
 		// Before Title.
@@ -463,7 +466,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$css .= astra_parse_css( $breadcrumbs_desktop );
 	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
 	$css .= astra_parse_css( $breadcrumbs_mobile, '', '544' );
-	$css .= astra_parse_css( $breadcrumbs_default_padding );
+	$css .= astra_parse_css( $breadcrumbs_default_css );
 
 	/* Breadcrumb default CSS */
 	$css .= astra_parse_css(
