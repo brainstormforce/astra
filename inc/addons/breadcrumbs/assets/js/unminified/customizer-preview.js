@@ -70,7 +70,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-separator-color]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper .ast-breadcrumbs-yoast span, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .trail-items li::after'
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .trail-items li::after'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Background Color */
