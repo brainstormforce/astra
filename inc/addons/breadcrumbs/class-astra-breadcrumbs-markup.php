@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				$breadcrumb_enabled = get_post_meta( get_the_ID(), 'ast-breadcrumbs-content', true );
 			}
 
-			if ( 'disabled' !== $breadcrumb_enabled && $breadcrumb_position && 'none' !== $breadcrumb_position && ! ( is_home() || is_front_page() ) ) {
+			if ( 'disabled' !== $breadcrumb_enabled && $breadcrumb_position && 'none' !== $breadcrumb_position ) {
 				if ( self::astra_breadcrumb_rules() ) {
 					if ( is_archive() && 'astra_entry_top' === $breadcrumb_position ) {
 						add_action( 'astra_before_archive_title', array( $this, 'astra_hook_breadcrumb_position' ), 15 );
