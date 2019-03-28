@@ -94,8 +94,10 @@
 	 */
 	wp.customize( 'astra-settings[breadcrumb-spacing]', function( value ) {
 		value.bind( function( padding ) {
-			if( 'astra_header_after' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
+			if( 'astra_header_markup_after' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.main-header-bar.ast-header-breadcrumb', 'padding',  ['top', 'right', 'bottom', 'left' ] );
+			} else if( 'astra_masthead_content' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
+				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper .ast-breadcrumbs-inner #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .breadcrumbs, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			} else {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			}
