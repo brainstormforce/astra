@@ -137,14 +137,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Disable Breadcrumb on Categories
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page]',
-					'default'  => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
-					'type'     => 'control',
-					'section'  => 'section-breadcrumb',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Blog / Posts Page?', 'astra' ),
-					'priority' => 25,
-					'control'  => 'checkbox',
+					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page]',
+					'default'     => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
+					'type'        => 'control',
+					'section'     => 'section-breadcrumb',
+					'description' => __( 'Latest Posts Page or when any page is selected as Blog Page', 'astra' ),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
+					'priority'    => 25,
+					'control'     => 'checkbox',
 				),
 
 				/**
@@ -207,14 +208,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Disable Breadcrumb on Singular
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular]',
-					'default'  => astra_get_option( 'breadcrumb-disable-singular' ),
-					'type'     => 'control',
-					'section'  => 'section-breadcrumb',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Singular?', 'astra' ),
-					'priority' => 50,
-					'control'  => 'checkbox',
+					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular]',
+					'default'     => astra_get_option( 'breadcrumb-disable-singular' ),
+					'type'        => 'control',
+					'section'     => 'section-breadcrumb',
+					'description' => __( 'All Pages, All Posts, All Attachments', 'astra' ),
+					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'       => __( 'Disable on Singular?', 'astra' ),
+					'priority'    => 50,
+					'control'     => 'checkbox',
 				),
 
 				/**
