@@ -1,3 +1,11 @@
+v1.8.0
+- New: Breadcrumb customizer option. Read more about here - https://wpastra.com/docs/add-breadcrumbs-with-astra/
+- New: Action hooks - astra_before_archive_title, astra_after_archive_title, astra_after_archive_description.
+- Improvement: Remove body schema when using WooCommerce template.
+- Fix: WP Block pullquote border not visible issue. 
+- Fix: LearnDash: sortable/dragable elements unable to scroll the page.
+- Fix: HTML 5 Validation issue with button classes.
+
 v1.7.2
 - New: Option to enable/disable transparent header on blog home.
 - Improvement: Removed default font weight form main navigation class
