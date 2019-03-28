@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				$display_breadcrumb = false;
 			}
 
-			if ( ( is_archive() || is_search() || is_404() ) && '1' == astra_get_option( 'breadcrumb-disable-archive' ) ) {
+			if ( ( is_archive() ) && '1' == astra_get_option( 'breadcrumb-disable-archive' ) ) {
 				$display_breadcrumb = false;
 			}
 
