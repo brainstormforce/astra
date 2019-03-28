@@ -123,12 +123,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Disable Breadcrumb on Categories
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-categories]',
-					'default'  => astra_get_option( 'breadcrumb-disable-categories' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home-page]',
+					'default'  => astra_get_option( 'breadcrumb-disable-home-page' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Categories?', 'astra' ),
+					'title'    => __( 'Disable on Home Page?', 'astra' ),
+					'priority' => 25,
+					'control'  => 'checkbox',
+				),
+
+				/**
+				 * Option: Disable Breadcrumb on Categories
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page]',
+					'default'  => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
+					'type'     => 'control',
+					'section'  => 'section-breadcrumb',
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'    => __( 'Disable on Blog / Posts Page?', 'astra' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),

@@ -129,7 +129,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			// Display Breadcrumb default true.
 			$display_breadcrumb = true;
 
-			if ( is_category() && '1' == astra_get_option( 'breadcrumb-disable-categories' ) ) {
+			if ( is_front_page() && '1' == astra_get_option( 'breadcrumb-disable-home-page' ) ) {
+				$display_breadcrumb = false;
+			}
+
+			if ( is_home() && '1' == astra_get_option( 'breadcrumb-disable-blog-posts-page' ) ) {
 				$display_breadcrumb = false;
 			}
 
