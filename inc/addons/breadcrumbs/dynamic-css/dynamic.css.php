@@ -96,6 +96,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css                         = '';
 	$breadcrumbs_default_padding = array();
+	$wpseo_option                = get_option( 'wpseo_internallinks' );
 
 	$css .= astra_parse_css(
 		array(
@@ -110,8 +111,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	/**
 	 * Breadcrumb Colors & Typography
 	 */
-
-	if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
+	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 
 		/* Yoast SEO Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
@@ -176,7 +176,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
-	} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
+	} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
 
 		/* Breadcrumb NavXT CSS - Desktop */
 		$breadcrumbs_desktop = array(
@@ -189,7 +189,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper a:hover'          => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
@@ -241,7 +241,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
-	} elseif ( $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
+	} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
 
 		/* Rank Math CSS - Desktop */
 		$breadcrumbs_desktop = array(

@@ -46,7 +46,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-text-color-responsive]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper a'
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a'
 		);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Active Color */
@@ -70,7 +70,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-separator-color]',
 		'color',
-		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .trail-items li::after'
+		'.ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .trail-items li::after'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Background Color */
