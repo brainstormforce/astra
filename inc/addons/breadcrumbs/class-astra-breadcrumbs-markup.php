@@ -63,9 +63,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				$breadcrumb_enabled = get_post_meta( get_the_ID(), 'ast-breadcrumbs-content', true );
 			}
 
-			if ( 'disabled' !== $breadcrumb_enabled && $breadcrumb_position && 'none' !== $breadcrumb_position && ! ( is_home() || is_front_page() ) ) {
+			if ( 'disabled' !== $breadcrumb_enabled && $breadcrumb_position && 'none' !== $breadcrumb_position && ! ( ( is_home() || is_front_page() ) && ( 'astra_entry_top' === $breadcrumb_position ) ) ) {
 				if ( self::astra_breadcrumb_rules() ) {
-					if ( is_archive() && 'astra_entry_top' === $breadcrumb_position ) {
+					if ( ( is_archive() || is_search() ) && 'astra_entry_top' === $breadcrumb_position ) {
 						add_action( 'astra_before_archive_title', array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 					} else {
 						add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
@@ -129,7 +129,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			// Display Breadcrumb default true.
 			$display_breadcrumb = true;
 
-			if ( is_category() && '1' == astra_get_option( 'breadcrumb-disable-categories' ) ) {
+			if ( is_front_page() && '1' == astra_get_option( 'breadcrumb-disable-home-page' ) ) {
+				$display_breadcrumb = false;
+			}
+
+			if ( is_home() && '1' == astra_get_option( 'breadcrumb-disable-blog-posts-page' ) ) {
 				$display_breadcrumb = false;
 			}
 
@@ -137,7 +141,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				$display_breadcrumb = false;
 			}
 
-			if ( ( is_archive() || is_search() || is_404() ) && '1' == astra_get_option( 'breadcrumb-disable-archive' ) ) {
+			if ( ( is_archive() ) && '1' == astra_get_option( 'breadcrumb-disable-archive' ) ) {
 				$display_breadcrumb = false;
 			}
 
