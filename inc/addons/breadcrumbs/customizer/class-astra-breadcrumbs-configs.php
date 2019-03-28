@@ -104,19 +104,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Breadcrumb Separator
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
-					'type'     => 'control',
-					'control'  => 'text',
-					'section'  => 'section-breadcrumb',
-					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
-					'required' => array(
-						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]', '==', 'default' ),
-							array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-						),
-					),
-					'priority' => 15,
-					'title'    => __( 'Breadcrumb Separator', 'astra' ),
+					'name'            => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+					'type'            => 'control',
+					'control'         => 'text',
+					'section'         => 'section-breadcrumb',
+					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
+					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'priority'        => 15,
+					'title'           => __( 'Breadcrumb Separator', 'astra' ),
+					'active_callback' => array( $this, 'is_selected_breadcrumb_active' ),
 				),
 
 				/**
@@ -281,10 +277,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 		}
 
 		/**
-		 * Decide if Notice for Header Built using Custom Layout should be displayed.
-		 * This runs teh target rules to check if the page neing previewed has a header built using Custom Layout.
+		 * Is third-party breadcrumb active.
+		 * Decide if the Source option should be visible depending on third party plugins.
 		 *
-		 * @return boolean  True - If the notice should be displayed, False - If the notice should be hidden.
+		 * @return boolean  True - If the option should be displayed, False - If the option should be hidden.
 		 */
 		public function is_third_party_breadcrumb_active() {
 
@@ -292,14 +288,42 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			$wpseo_option = get_option( 'wpseo_internallinks' );
 
 			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				// Check if breadcrumb is turned on from SEO Yoast plugin.
 				return true;
 			} elseif ( function_exists( 'bcn_display' ) ) {
 				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
 				return true;
 			} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
+				// Check if breadcrumb is turned on from Rank Math plugin.
 				return true;
 			} else {
 				return false;
+			}
+		}
+
+		/**
+		 * Is selected third-party breadcrumb active.
+		 * Decide if the Separator option should be visible depending on third party plugins.
+		 *
+		 * @return boolean  True - If the option should be displayed, False - If the option should be hidden.
+		 */
+		public function is_selected_breadcrumb_active() {
+
+			// Check if breadcrumb is turned on from WPSEO option.
+			$selected_breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+			$wpseo_option               = get_option( 'wpseo_internallinks' );
+
+			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && 'yoast-seo-breadcrumbs' === $selected_breadcrumb_source ) {
+				// Check if breadcrumb is turned on from SEO Yoast plugin.
+				return false;
+			} elseif ( function_exists( 'bcn_display' ) && 'breadcrumb-navxt' === $selected_breadcrumb_source ) {
+				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
+				return false;
+			} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && 'rank-math' === $selected_breadcrumb_source ) {
+				// Check if breadcrumb is turned on from Rank Math plugin.
+				return false;
+			} else {
+				return true;
 			}
 		}
 	}
