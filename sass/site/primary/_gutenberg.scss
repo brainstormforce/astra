@@ -158,3 +158,10 @@ body {
 		}
 	}
 }
+
+// Added default color for pullquote
+.wp-block-pullquote {
+    border-top: 4px solid #555d66;
+    border-bottom: 4px solid #555d66;
+    color: #40464d;
+}

@@ -4002,6 +4002,12 @@ body .entry-content .wp-block-latest-posts li {
   margin-bottom: auto;
 }
 
+.wp-block-pullquote {
+  border-top: 4px solid #555d66;
+  border-bottom: 4px solid #555d66;
+  color: #40464d;
+}
+
 /*----------  Secondary  ----------*/
 .widget-title {
   font-weight: normal;
@@ -4682,7 +4688,7 @@ input[type="color"]::-webkit-color-swatch {
   border-bottom: 0;
 }
 
-.search .site-content .search-form {
+.search .site-content .content-area .search-form {
   margin-bottom: 3em;
 }
 
