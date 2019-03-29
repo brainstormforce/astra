@@ -9,7 +9,7 @@
  */
 
 ( function( $ ) {
-
+	
 	/**
 	 * Transparent Logo Width
 	 */

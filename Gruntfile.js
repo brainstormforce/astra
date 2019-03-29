@@ -189,6 +189,18 @@ module.exports = function (grunt) {
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
+                        {
+                            src: [
+                                'inc/addons/breadcrumbs/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
+                        },
+                        {
+                            src: [
+                                'inc/addons/transparent-header/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/transparent-header/assets/js/minified/customizer-preview.min.js',
+                        },
 	               	]
                 }
             },

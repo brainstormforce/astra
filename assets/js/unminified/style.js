@@ -248,20 +248,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			};
 		}
 
-		var rel = this.getAttribute('rel') || '';
-
-		switch (rel) {
-			case 'main-menu':
-				toggleClass(__main_header_all[event_index], 'toggle-on');
-				toggleClass(menu_toggle_all[event_index], 'toggled');
-				if (__main_header_all[event_index].classList.contains('toggle-on')) {
-					__main_header_all[event_index].style.display = 'block';
-					document.body.classList.add("ast-main-header-nav-open");
-				} else {
-					__main_header_all[event_index].style.display = '';
-					document.body.classList.remove("ast-main-header-nav-open");
-				}
-				break;
+		var menu_class = this.getAttribute('class') || '';
+		
+		if ( menu_class.indexOf('main-header-menu-toggle') !== -1 ) {
+			toggleClass(__main_header_all[event_index], 'toggle-on');
+			toggleClass(menu_toggle_all[event_index], 'toggled');
+			if (__main_header_all[event_index].classList.contains('toggle-on')) {
+				__main_header_all[event_index].style.display = 'block';
+				document.body.classList.add("ast-main-header-nav-open");
+			} else {
+				__main_header_all[event_index].style.display = '';
+				document.body.classList.remove("ast-main-header-nav-open");
+			}
 		}
 	};
 

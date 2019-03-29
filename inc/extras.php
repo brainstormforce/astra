@@ -577,6 +577,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 	 * @since 1.0.0
 	 */
 	function astra_header_markup() {
+
+		do_action( 'astra_header_markup_before' );
 		?>
 
 		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php astra_header_classes(); ?> role="banner">
@@ -588,7 +590,10 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 			<?php astra_masthead_bottom(); ?>
 
 		</header><!-- #masthead -->
+
 		<?php
+		do_action( 'astra_header_markup_after' );
+
 	}
 }
 
@@ -1018,14 +1023,14 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		/* Width for Header */
 		if ( 'content' != $astra_header_width ) {
 			$genral_global_responsive = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'max-width'     => '100%',
 					'padding-left'  => '35px',
 					'padding-right' => '35px',
 				),
 			);
 			$padding_below_breakpoint = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'padding-left'  => '20px',
 					'padding-right' => '20px',
 				),
@@ -1704,3 +1709,14 @@ function astra_filter_ninja_forms_affiliate_id() {
 };
 
 add_filter( 'ninja_forms_affiliate_id', 'astra_filter_ninja_forms_affiliate_id' );
+
+/**
+ * Change upgrade link for wpforms.
+ *
+ * @return String updated upgrade link.
+ */
+function astra_wpforms_upgrade_link() {
+	return 'https://shareasale.com/r.cfm?b=834775&u=1115254&m=64312&urllink=&afftrack=';
+}
+
+add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
