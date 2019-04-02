@@ -384,7 +384,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
-			return;
+			button = container.getElementsByTagName( 'a' )[0];
+			if ( 'undefined' === typeof button ) {
+				return;
+			}
 		}
 
 		menu = container.getElementsByTagName( 'ul' )[0];
