@@ -300,6 +300,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	document.addEventListener('DOMContentLoaded', function () {
 		AstraToggleSetup();
+
+		var container, button, menu, links, subMenus, i, len, count;
+		container = document.querySelectorAll( '.navigation-accessibility' );
+		for ( count = 0; count <= container.length - 1; count++ ) {
+			if ( container.item( count ) ) {
+				navigation_accessibility( container.item( count ) );
+			}
+		}
 	});
 
 
@@ -367,16 +375,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
-	var container, button, menu, links, subMenus, i, len, count;
-
-	container = document.querySelectorAll( '.navigation-accessibility' );
-
-	for ( count = 0; count <= container.length - 1; count++ ) {
-		if ( container[count] ) {
-			navigation_accessibility( container[count] );
-		}
-	}
-
 	function navigation_accessibility( container ) {
 		if ( ! container ) {
 			return;
@@ -416,7 +414,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		links    = menu.getElementsByTagName( 'a' );
 		subMenus = menu.getElementsByTagName( 'ul' );
 
-
 		// Set menu items with submenus to aria-haspopup="true".
 		for ( i = 0, len = subMenus.length; i < len; i++ ) {
 			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
@@ -448,12 +445,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 if ( document.body.classList.contains('ast-header-break-point') && ! document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link") ) {
 	                var main_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
 	                main_header_menu_toggle.classList.remove( 'toggled' );
-
+	                
 	                var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
 	                main_header_bar_navigation.classList.remove( 'toggle-on' );
 
 					main_header_bar_navigation.style.display = 'none';
 					
+	                var before_header_menu_toggle = document.querySelector( '.menu-below-header-toggle' );
+	                before_header_menu_toggle.classList.remove( 'toggled' );
+	                
+	                var before_header_bar_navigation = document.querySelector( '.ast-below-header' );
+	                before_header_bar_navigation.classList.remove( 'toggle-on' );
+
+	                var before_header_bar = document.querySelector( '.ast-below-header-actual-nav' );
+					before_header_bar.style.display = 'none';
+
 					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
                 }
             }
@@ -482,3 +488,39 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	}
 
 } )();
+/**
+ * File skip-link-focus-fix.js
+ *
+ * Helps with accessibility for keyboard only users.
+ *
+ * Learn more: https://github.com/Automattic/_s/pull/136
+ *
+ * @package Astra
+ */
+
+( function() {
+	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
+	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' ) > -1,
+	    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' ) > -1;
+
+	if ( ( is_webkit || is_opera || is_ie ) && document.getElementById && window.addEventListener ) {
+		window.addEventListener( 'hashchange', function() {
+			var id = location.hash.substring( 1 ),
+				element;
+
+			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
+				return;
+			}
+
+			element = document.getElementById( id );
+
+			if ( element ) {
+				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
+					element.tabIndex = -1;
+				}
+
+				element.focus();
+			}
+		}, false );
+	}
+})();
