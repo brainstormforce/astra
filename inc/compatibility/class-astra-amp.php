@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Init Astra Amp Compatibility.
 		 * This adds required actions and filters only if AMP endpoinnt is detected.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @return void
 		 */
 		public function astra_amp_init() {
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		/**
 		 * Add ID to body to toggleClasses on AMP actions.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param String $schema markup returned from theme.
 		 * @return String
 		 */
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Dynamic CSS used for AMP pages.
 		 * This should be changed to main CSS in next versions, replacing JavaScript based interactions with pure CSS alternatives.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param String $compiled_css Dynamic CSS received to  be enqueued on page.
 		 *
 		 * @return String Updated dynamic CSS with AMP specific changes.
@@ -990,7 +990,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		/**
 		 * Add AMP attributes to the nav menu wrapper.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param Array $attr HTML attributes to be added to the nav menu wrapper.
 		 *
 		 * @return Array updated HTML attributes.
@@ -1006,7 +1006,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		/**
 		 * Set AMP State for eeach sub menu toggle.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param String  $item_output HTML markup for the menu item.
 		 * @param  WP_Post $item Post object for the navigation menu.
 		 *
@@ -1021,7 +1021,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		/**
 		 * Add AMP attribites to the toggle button to add `.ast-submenu-expanded` class to parent li.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param array  $attr Optional. Extra attributes to merge with defaults.
 		 * @param string $context    The context, to build filter name.
 		 * @param array  $args       Optional. Custom data to pass to filter.

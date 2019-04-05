@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Remove body schema when using WooCommerce template.
 		 * WooCommerce adds it's own product schema hence schema data from Astra should be disabled here.
 		 *
-		 * @since x.x.x
+		 * @since 1.8.1
 		 * @param String $schema Schema markup.
 		 * @return String
 		 */
