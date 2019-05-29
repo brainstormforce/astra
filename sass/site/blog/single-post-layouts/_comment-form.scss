@@ -36,6 +36,7 @@
     }
     .comment-respond{
         margin: 2.25em 0 0 0;
+        border-top: 1px solid #eaeaea;
         .comment-reply-title{
             margin-top:0;
             padding-top:0;
@@ -58,6 +59,13 @@
     }
     .comment-awaiting-moderation{
         margin-bottom: 0 ;
+    }
+    > .comment:last-child {
+        .ast-comment {
+            padding-bottom: 2.25em;
+            margin-bottom: 2.25em;
+            border-bottom: 1px solid #eaeaea;
+        }
     }
 }
 
@@ -238,18 +246,11 @@
             &.depth-1{
 
                 padding: 1.125em 0em;
-                .ast-comment{
-                    border-bottom: 0;
-                }
                 .children li {
                     padding-bottom: 0;
                     padding-top: 0;
                     margin-bottom: 0;
                 }
-            }
-            &.depth-1 .ast-comment,
-            &.depth-2 .ast-comment{
-                border-bottom: 0;
             }
             &.depth-1:last-child {
                 padding-bottom: 0em;
@@ -288,6 +289,13 @@
         .children {
             .ast-comment {
                 margin: 2.250em 0 0 0;
+            }
+        }
+        > .comment:last-child  {
+            .comment-respond {
+                padding: 0;
+                margin: 0;
+                border-top: 0;
             }
         }
     }
@@ -335,12 +343,6 @@
             padding: 4em 0em;
         }
     }
-}
-
-.comment-respond {
-    padding: 2.25em 0em 0em 0em;
-    border-top: 1px solid #eaeaea;
-    margin-top: 2.25em;
 }
 
 .comment-form-textarea,

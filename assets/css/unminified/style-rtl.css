@@ -5024,6 +5024,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-list .comment-respond {
   margin: 2.25em 0 0 0;
+  border-top: 1px solid #eaeaea;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5051,6 +5052,12 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-list .comment-awaiting-moderation {
   margin-bottom: 0;
+}
+
+.ast-comment-list > .comment:last-child .ast-comment {
+  padding-bottom: 2.25em;
+  margin-bottom: 2.25em;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .ast-comment {
@@ -5249,19 +5256,10 @@ input[type="color"]::-webkit-color-swatch {
   padding: 1.125em 0em;
 }
 
-.ast-separate-container .ast-comment-list li.depth-1 .ast-comment {
-  border-bottom: 0;
-}
-
 .ast-separate-container .ast-comment-list li.depth-1 .children li {
   padding-bottom: 0;
   padding-top: 0;
   margin-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list li.depth-1 .ast-comment,
-.ast-separate-container .ast-comment-list li.depth-2 .ast-comment {
-  border-bottom: 0;
 }
 
 .ast-separate-container .ast-comment-list li.depth-1:last-child {
@@ -5305,6 +5303,12 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list .children .ast-comment {
   margin: 2.250em 0 0 0;
+}
+
+.ast-separate-container .ast-comment-list > .comment:last-child .comment-respond {
+  padding: 0;
+  margin: 0;
+  border-top: 0;
 }
 
 .ast-separate-container .comment-respond {
@@ -5354,12 +5358,6 @@ input[type="color"]::-webkit-color-swatch {
   .ast-page-builder-template .comments-area {
     padding: 4em 0em;
   }
-}
-
-.comment-respond {
-  padding: 2.25em 0em 0em 0em;
-  border-top: 1px solid #eaeaea;
-  margin-top: 2.25em;
 }
 
 .comment-form-textarea,
