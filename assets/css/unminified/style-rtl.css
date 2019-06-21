@@ -3530,6 +3530,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point {
+  /** Option: Primary Header disable & Hide custom menu item on mobile */
   /* Styling Nav */
   /* Main Header */
 }
@@ -3543,6 +3544,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .ast-primary-menu-disabled .ast-mobile-menu-buttons {
+  display: none;
+}
+
+.ast-header-break-point .ast-primary-menu-disabled.ast-hide-custom-menu-mobile .ast-mobile-menu-buttons {
   display: none;
 }
 

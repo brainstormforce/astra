@@ -301,6 +301,11 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
+	/** Option: Primary Header disable & Hide custom menu item on mobile */
+    .ast-primary-menu-disabled.ast-hide-custom-menu-mobile .ast-mobile-menu-buttons {
+        display: none;
+    }
+
 	.ast-hide-custom-menu-mobile .ast-masthead-custom-menu-items{
 		display: none;
 	}
