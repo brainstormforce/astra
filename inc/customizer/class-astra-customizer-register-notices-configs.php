@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Notices_Configs' ) ) :
 			switch ( $context ) {
 
 				case 'transparent-header':
-					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply</p><p><a href="#" class="ast-customizer-internal-link" data-ast-customizer-section="section-colors-transparent-header">Click here</a> to modify the transparent header settings.<p></div>';
+					$notice = '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has Transparent Header enabled, so the settings in this section may not apply</p><p><a href="#" class="ast-customizer-internal-link" data-ast-customizer-section="section-transparent-header">Click here</a> to modify the transparent header settings.<p></div>';
 					break;
 
 				default:

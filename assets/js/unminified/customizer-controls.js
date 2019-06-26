@@ -28,6 +28,7 @@
 		init: function()
 		{
 			ASTCustomizer._initToggles();
+			$(document).on('click', ".ast-customizer-internal-link",ASTExtAdmin.navigate_section );
 		},
 
 		/**
@@ -75,6 +76,20 @@
 				});
 
 			});
+		},
+
+		/**
+		 * Initializes the logic for opening sections on click of notices
+		 *
+		 * @since x.x.x
+		 * @access private
+		 * @method navigate_section
+		 */
+		navigate_section: function() {
+			$this = jQuery( this );
+			var sectionToNavigate = $this.data('ast-customizer-section') || '';
+			var section = wp.customize.section( sectionToNavigate );
+			section.expand();
 		}
 	};
 
