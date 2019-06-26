@@ -44,39 +44,11 @@ if ( ! class_exists( 'Astra_Customizer_Register_Notices_Configs' ) ) :
 					/**
 					 * Notice for Colors - Transparent header enabled on page.
 					 */
-
-					array(
-						'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-above-header-notice]',
-						'type'            => 'control',
-						'control'         => 'ast-description',
-						'section'         => 'section-above-header',
-						'priority'        => 1,
-						'active_callback' => array( $this, 'is_transparent_header_enabled' ),
-						'help'            => $this->get_help_text_notice( 'transparent-header' ),
-					),
-
-					/**
-					 * Notice for Colors - Transparent header enabled on page.
-					 */
 					array(
 						'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-header-notice]',
 						'type'            => 'control',
 						'control'         => 'ast-description',
 						'section'         => 'section-header',
-						'priority'        => 1,
-						'active_callback' => array( $this, 'is_transparent_header_enabled' ),
-						'help'            => $this->get_help_text_notice( 'transparent-header' ),
-					),
-
-					/**
-					 * Notice for Colors - Transparent header enabled on page.
-					 */
-
-					array(
-						'name'            => ASTRA_THEME_SETTINGS . '[header-color-transparent-below-header-notice]',
-						'type'            => 'control',
-						'control'         => 'ast-description',
-						'section'         => 'section-below-header',
 						'priority'        => 1,
 						'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 						'help'            => $this->get_help_text_notice( 'transparent-header' ),
