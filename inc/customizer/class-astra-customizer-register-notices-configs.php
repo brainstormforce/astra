@@ -3,11 +3,11 @@
  * Customizer Notices Class.
  * Display Relavant notices in the customizer panels and sections to improve UX.
  *
- * @package     Astra Addon
+ * @package     Astra
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       1.4.0
+ * @since       x.x.x
  */
 
 // Block direct access to the file.
@@ -20,19 +20,19 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 	return;
 }
 
-if ( ! class_exists( 'Astra_Customizer_Notices_Configs' ) ) :
+if ( ! class_exists( 'Astra_Customizer_Register_Notices_Configs' ) ) :
 
 	/**
 	 * The Customizer class.
 	 */
-	class Astra_Customizer_Notices_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Customizer_Register_Notices_Configs extends Astra_Customizer_Config_Base {
 
 		/**
 		 * Register General Customizer Configurations.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since x.x.x
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -128,4 +128,4 @@ if ( ! class_exists( 'Astra_Customizer_Notices_Configs' ) ) :
 endif;
 
 
-new Astra_Customizer_Notices_Configs();
+new Astra_Customizer_Register_Notices_Configs();
