@@ -161,8 +161,9 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
 		$display_outside_menu       = astra_get_option( 'header-display-outside-menu' );
+		$hide_custom_menu_mobile    = astra_get_option( 'hide-custom-menu-mobile', false );
 
-		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
+		if ( ( ! $disable_primary_navigation && false == $hide_custom_menu_mobile ) && ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
 			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
 			$menu_icon           = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
