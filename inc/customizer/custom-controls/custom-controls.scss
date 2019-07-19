@@ -362,9 +362,18 @@
     }
   }
   .ast-radio-img-svg svg {
-    width: auto;
+    width: 73px;
     height: 49px;
   }
+}
+
+#customize-control-astra-settings-above-header-menu-align,
+#customize-control-astra-settings-header-main-menu-align,
+#customize-control-astra-settings-below-header-menu-align {
+  .ast-radio-img-svg svg {
+    width: 37px;
+    height: 49px;
+  } 
 }
 
 #customize-control-astra-settings-footer-adv .image label {
