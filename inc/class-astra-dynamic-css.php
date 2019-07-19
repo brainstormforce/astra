@@ -80,12 +80,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$headings_font_family    = astra_get_option( 'headings-font-family' );
 			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform = astra_get_option( 'headings-text-transform' );
-			$site_title_font_size    = astra_get_option_by_group( 'font-size-site-title', 'site-title-typography' );
-			$site_tagline_font_size  = astra_get_option_by_group( 'font-size-site-tagline', 'site-tagline-typography' );
+			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
+			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
-			$single_post_title_font_size     = astra_get_option_by_group( 'font-size-entry-title', 'blog-single-title-typo' );
-			$archive_summary_title_font_size = astra_get_option_by_group( 'font-size-archive-summary-title', 'blog-content-archive-summary-typo' );
-			$archive_post_title_font_size    = astra_get_option_by_group( 'font-size-page-title', 'blog-content-blog-post-title-typo' );
+			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
+			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
+			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
 			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
 			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
 			$heading_h3_font_size            = astra_get_option( 'font-size-h3' );
@@ -94,24 +94,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
 
 			// Button Styling.
-			$btn_border_radius      = astra_get_option_by_group( 'button-radius', 'theme-button-border-group' );
-			$btn_vertical_padding   = astra_get_option_by_group( 'button-v-padding', 'theme-button-border-group' );
-			$btn_horizontal_padding = astra_get_option_by_group( 'button-h-padding', 'theme-button-border-group' );
+			$btn_border_radius      = astra_get_option( 'button-radius' );
+			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 			$highlight_link_color   = astra_get_foreground_color( $link_color );
 			$highlight_theme_color  = astra_get_foreground_color( $theme_color );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = astra_get_option_by_group( 'footer-bg-obj', 'footer-bar-background-group' );
-			$footer_color        = astra_get_option_by_group( 'footer-color', 'footer-bar-content-group' );
-			$footer_link_color   = astra_get_option_by_group( 'footer-link-color', 'footer-bar-content-group' );
-			$footer_link_h_color = astra_get_option_by_group( 'footer-link-h-color', 'footer-bar-content-group' );
+			$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
+			$footer_color        = astra_get_option( 'footer-color' );
+			$footer_link_color   = astra_get_option( 'footer-link-color' );
+			$footer_link_h_color = astra_get_option( 'footer-link-h-color' );
 
 			// Color.
-			$footer_adv_bg_obj             = astra_get_option_by_group( 'footer-adv-bg-obj', 'footer-widget-background-group' );
-			$footer_adv_text_color         = astra_get_option_by_group( 'footer-adv-text-color', 'footer-widget-content-group' );
-			$footer_adv_widget_title_color = astra_get_option_by_group( 'footer-adv-wgt-title-color', 'footer-widget-content-group' );
-			$footer_adv_link_color         = astra_get_option_by_group( 'footer-adv-link-color', 'footer-widget-content-group' );
-			$footer_adv_link_h_color       = astra_get_option_by_group( 'footer-adv-link-h-color', 'footer-widget-content-group' );
+			$footer_adv_bg_obj             = astra_get_option( 'footer-adv-bg-obj' );
+			$footer_adv_text_color         = astra_get_option( 'footer-adv-text-color' );
+			$footer_adv_widget_title_color = astra_get_option( 'footer-adv-wgt-title-color' );
+			$footer_adv_link_color         = astra_get_option( 'footer-adv-link-color' );
+			$footer_adv_link_h_color       = astra_get_option( 'footer-adv-link-h-color' );
 
 			// Header Break Point.
 			$header_break_point = astra_header_break_point();
@@ -125,25 +125,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Custom Buttom menu item.
 			$header_custom_item                  = astra_get_option( 'header-main-rt-section' );
 			$header_custom_button_style          = astra_get_option( 'header-main-rt-section-button-style' );
-			$header_custom_button_text_color     = astra_get_option_by_group( 'header-main-rt-section-button-text-color', 'primary-header-button-color-group' );
-			$header_custom_button_text_h_color   = astra_get_option_by_group( 'header-main-rt-section-button-text-h-color', 'primary-header-button-color-group' );
-			$header_custom_button_back_color     = astra_get_option_by_group( 'header-main-rt-section-button-back-color', 'primary-header-button-color-group' );
-			$header_custom_button_back_h_color   = astra_get_option_by_group( 'header-main-rt-section-button-back-h-color', 'primary-header-button-color-group' );
+			$header_custom_button_text_color     = astra_get_option( 'header-main-rt-section-button-text-color' );
+			$header_custom_button_text_h_color   = astra_get_option( 'header-main-rt-section-button-text-h-color' );
+			$header_custom_button_back_color     = astra_get_option( 'header-main-rt-section-button-back-color' );
+			$header_custom_button_back_h_color   = astra_get_option( 'header-main-rt-section-button-back-h-color' );
 			$header_custom_button_spacing        = astra_get_option( 'header-main-rt-section-button-padding' );
-			$header_custom_button_radius         = astra_get_option_by_group( 'header-main-rt-section-button-border-radius', 'primary-header-button-border-group' );
-			$header_custom_button_border_color   = astra_get_option_by_group( 'header-main-rt-section-button-border-color', 'primary-header-button-border-group' );
-			$header_custom_button_border_h_color = astra_get_option_by_group( 'header-main-rt-section-button-border-h-color', 'primary-header-button-border-group' );
-			$header_custom_button_border_size    = astra_get_option_by_group( 'header-main-rt-section-button-border-size', 'primary-header-button-border-group' );
+			$header_custom_button_radius         = astra_get_option( 'header-main-rt-section-button-border-radius' );
+			$header_custom_button_border_color   = astra_get_option( 'header-main-rt-section-button-border-color' );
+			$header_custom_button_border_h_color = astra_get_option( 'header-main-rt-section-button-border-h-color' );
+			$header_custom_button_border_size    = astra_get_option( 'header-main-rt-section-button-border-size' );
 
-			$header_custom_trans_button_text_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-color', 'transparent-header-button-color-group' );
-			$header_custom_trans_button_text_h_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-text-h-color', 'transparent-header-button-color-group' );
-			$header_custom_trans_button_back_color     = astra_get_option_by_group( 'header-main-rt-trans-section-button-back-color', 'transparent-header-button-color-group' );
-			$header_custom_trans_button_back_h_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-back-h-color', 'transparent-header-button-color-group' );
+			$header_custom_trans_button_text_color     = astra_get_option( 'header-main-rt-trans-section-button-text-color' );
+			$header_custom_trans_button_text_h_color   = astra_get_option( 'header-main-rt-trans-section-button-text-h-color' );
+			$header_custom_trans_button_back_color     = astra_get_option( 'header-main-rt-trans-section-button-back-color' );
+			$header_custom_trans_button_back_h_color   = astra_get_option( 'header-main-rt-trans-section-button-back-h-color' );
 			$header_custom_trans_button_spacing        = astra_get_option( 'header-main-rt-trans-section-button-padding' );
-			$header_custom_trans_button_radius         = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-radius', 'transparent-header-button-border-group' );
-			$header_custom_trans_button_border_color   = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-color', 'transparent-header-button-border-group' );
-			$header_custom_trans_button_border_h_color = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-h-color', 'transparent-header-button-border-group' );
-			$header_custom_trans_button_border_size    = astra_get_option_by_group( 'header-main-rt-trans-section-button-border-size', 'transparent-header-button-border-group' );
+			$header_custom_trans_button_radius         = astra_get_option( 'header-main-rt-trans-section-button-border-radius' );
+			$header_custom_trans_button_border_color   = astra_get_option( 'header-main-rt-trans-section-button-border-color' );
+			$header_custom_trans_button_border_h_color = astra_get_option( 'header-main-rt-trans-section-button-border-h-color' );
+			$header_custom_trans_button_border_size    = astra_get_option( 'header-main-rt-trans-section-button-border-size' );
 
 			$footer_adv_border_width = astra_get_option( 'footer-adv-border-width' );
 			$footer_adv_border_color = astra_get_option( 'footer-adv-border-color' );
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text color depends on link color
 			 */
-			$btn_text_color = astra_get_option_by_group( 'button-color', 'theme-button-color-group' );
+			$btn_text_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_text_color ) ) {
 				$btn_text_color = astra_get_foreground_color( $theme_color );
 			}
@@ -159,12 +159,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text hover color depends on link hover color
 			 */
-			$btn_text_hover_color = astra_get_option_by_group( 'button-h-color', 'theme-button-color-group' );
+			$btn_text_hover_color = astra_get_option( 'button-h-color' );
 			if ( empty( $btn_text_hover_color ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
-			$btn_bg_color       = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', $theme_color );
-			$btn_bg_hover_color = astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group', $link_hover_color );
+			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
+			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
 			$small_footer_divider_color = astra_get_option( 'footer-sml-divider-color' );
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( false == $btn_style_color ) {
 				// button text color.
-				$menu_btn_color = esc_attr( astra_get_option_by_group( 'button-color', 'theme-button-color-group' ) );
+				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
 			} else {
 				// toggle button color.
 				$menu_btn_color = astra_get_foreground_color( $btn_style_color );

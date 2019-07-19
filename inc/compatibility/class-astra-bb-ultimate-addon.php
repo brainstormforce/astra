@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		function button_text_color() {
 			$theme_color = astra_get_option( 'theme-color' );
 			$link_color  = astra_get_option( 'link-color', $theme_color );
-			$color       = astra_get_option_by_group( 'button-color', 'theme-button-color-group' );
+			$color       = astra_get_option( 'button-color' );
 			if ( empty( $color ) ) {
 				$color = astra_get_foreground_color( $link_color );
 			}
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		function button_text_hover_color() {
 			$link_hover_color = astra_get_option( 'link-h-color' );
-			$color            = astra_get_option_by_group( 'button-h-color', 'theme-button-color-group' );
+			$color            = astra_get_option( 'button-h-color' );
 			if ( empty( $color ) ) {
 				$color = astra_get_foreground_color( $link_hover_color );
 			}
@@ -175,21 +175,21 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 * Button Background Color
 		 */
 		function button_bg_color() {
-			return astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group' );
+			return astra_get_option( 'button-bg-color' );
 		}
 
 		/**
 		 * Button Background Color
 		 */
 		function button_bg_hover_color() {
-			return astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group' );
+			return astra_get_option( 'button-bg-h-color' );
 		}
 
 		/**
 		 * Button Border Radius
 		 */
 		function button_border_radius() {
-			return astra_get_option_by_group( 'button-radius', 'theme-button-border-group' );
+			return astra_get_option( 'button-radius' );
 		}
 
 
@@ -199,8 +199,8 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		function button_padding() {
 
 			$padding   = '';
-			$v_padding = astra_get_option_by_group( 'button-v-padding', 'theme-button-border-group' );
-			$h_padding = astra_get_option_by_group( 'button-h-padding', 'theme-button-border-group' );
+			$v_padding = astra_get_option( 'button-v-padding' );
+			$h_padding = astra_get_option( 'button-h-padding' );
 
 			if ( '' != $v_padding && '' != $h_padding ) {
 				$padding = $v_padding . 'px ' . $h_padding . 'px';

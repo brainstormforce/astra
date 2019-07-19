@@ -77,8 +77,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 				array(
 					'name'       => 'breadcrumb-bg-color',
+					'type'       => 'sub-control',
 					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -91,7 +93,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				array(
 					'name'       => 'breadcrumb-active-color-responsive',
 					'default'    => astra_get_option( 'breadcrumb-active-color-responsive' ),
+					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -104,7 +108,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				array(
 					'name'       => 'breadcrumb-text-color-responsive',
 					'default'    => astra_get_option( 'breadcrumb-text-color-responsive' ),
+					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -117,7 +123,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				array(
 					'name'       => 'breadcrumb-hover-color-responsive',
 					'default'    => astra_get_option( 'breadcrumb-hover-color-responsive' ),
+					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Hover', 'astra' ),
 					'control'    => 'ast-responsive-color',
@@ -130,7 +138,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 				array(
 					'name'       => 'breadcrumb-separator-color',
 					'default'    => astra_get_option( 'breadcrumb-separator-color' ),
+					'type'       => 'sub-control',
 					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',

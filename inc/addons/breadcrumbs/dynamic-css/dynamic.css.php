@@ -69,17 +69,17 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'mobile'  => '',
 	);
 
-	$breadcrumb_text_color      = astra_get_option_by_group( 'breadcrumb-text-color-responsive', 'section-breadcrumb-color', $default_color_array );
-	$breadcrumb_active_color    = astra_get_option_by_group( 'breadcrumb-active-color-responsive', 'section-breadcrumb-color', $default_color_array );
-	$breadcrumb_hover_color     = astra_get_option_by_group( 'breadcrumb-hover-color-responsive', 'section-breadcrumb-color', $default_color_array );
-	$breadcrumb_separator_color = astra_get_option_by_group( 'breadcrumb-separator-color', 'section-breadcrumb-color', $default_color_array );
-	$breadcrumb_bg_color        = astra_get_option_by_group( 'breadcrumb-bg-color', 'section-breadcrumb-color', $default_color_array );
+	$breadcrumb_text_color      = astra_get_option( 'breadcrumb-text-color-responsive', $default_color_array );
+	$breadcrumb_active_color    = astra_get_option( 'breadcrumb-active-color-responsive', $default_color_array );
+	$breadcrumb_hover_color     = astra_get_option( 'breadcrumb-hover-color-responsive', $default_color_array );
+	$breadcrumb_separator_color = astra_get_option( 'breadcrumb-separator-color', $default_color_array );
+	$breadcrumb_bg_color        = astra_get_option( 'breadcrumb-bg-color', $default_color_array );
 
-	$breadcrumb_font_family    = astra_get_option_by_group( 'breadcrumb-font-family', 'section-breadcrumb-typo' );
-	$breadcrumb_font_weight    = astra_get_option_by_group( 'breadcrumb-font-weight', 'section-breadcrumb-typo' );
-	$breadcrumb_font_size      = astra_get_option_by_group( 'breadcrumb-font-size', 'section-breadcrumb-typo' );
-	$breadcrumb_line_height    = astra_get_option_by_group( 'breadcrumb-line-height', 'section-breadcrumb-typo' );
-	$breadcrumb_text_transform = astra_get_option_by_group( 'breadcrumb-text-transform', 'section-breadcrumb-typo' );
+	$breadcrumb_font_family    = astra_get_option( 'breadcrumb-font-family' );
+	$breadcrumb_font_weight    = astra_get_option( 'breadcrumb-font-weight' );
+	$breadcrumb_font_size      = astra_get_option( 'breadcrumb-font-size' );
+	$breadcrumb_line_height    = astra_get_option( 'breadcrumb-line-height' );
+	$breadcrumb_text_transform = astra_get_option( 'breadcrumb-text-transform' );
 
 	$breadcrumb_spacing = astra_get_option( 'breadcrumb-spacing' );
 

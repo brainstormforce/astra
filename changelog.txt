@@ -1,3 +1,8 @@
+v2.0.0-rc.1
+- Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Astra Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
+- Improvement: Changed the images inside customizer to new lightweight SVGs.
+- Improvement: Updated minor UI tweaks for all the customizer controls to unify the design accross all the options.
+
 v2.0.0-beta.4
 - Improvement: Layout design images.
 - Improvement: Control Sequence in WooCommerce Single Product Section in the Customizer.

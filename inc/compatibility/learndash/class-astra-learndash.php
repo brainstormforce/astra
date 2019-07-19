@@ -87,23 +87,23 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 			$link_forground_color  = astra_get_foreground_color( $link_color );
 			$theme_forground_color = astra_get_foreground_color( $theme_color );
-			$btn_color             = astra_get_option_by_group( 'button-color', 'theme-button-color-group' );
+			$btn_color             = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = $link_forground_color;
 			}
 
-			$btn_h_color = astra_get_option_by_group( 'button-h-color', 'theme-button-color-group' );
+			$btn_h_color = astra_get_option( 'button-h-color' );
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option_by_group( 'button-bg-color', 'theme-button-color-group', '', $theme_color );
-			$btn_bg_h_color = astra_get_option_by_group( 'button-bg-h-color', 'theme-button-color-group', '', $link_h_color );
+			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
+			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
-			$btn_border_radius      = astra_get_option_by_group( 'button-radius', 'theme-button-border-group' );
-			$btn_vertical_padding   = astra_get_option_by_group( 'button-v-padding', 'theme-button-border-group' );
-			$btn_horizontal_padding = astra_get_option_by_group( 'button-h-padding', 'theme-button-border-group' );
+			$btn_border_radius      = astra_get_option( 'button-radius' );
+			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
+			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
 
-			$archive_post_title_font_size = astra_get_option_by_group( 'font-size-page-title', 'blog-content-blog-post-title-typo' );
+			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
 
 			$css_output = array(
 				'body #learndash_lessons a, body #learndash_quizzes a, body .expand_collapse a, body .learndash_topic_dots a, body .learndash_topic_dots a > span, body #learndash_lesson_topics_list span a, body #learndash_profile a, body #learndash_profile a span' => array(

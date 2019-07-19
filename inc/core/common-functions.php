@@ -360,6 +360,10 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
+				if ( null === $properties ) {
+					break;
+				}
+
 				if ( ! count( $properties ) ) {
 					continue; }
 
@@ -1208,7 +1212,7 @@ endif;
 
 if ( ! function_exists( 'astra_get_option_by_group' ) ) :
 
-	/**
+	/** Delete this function soon
 	 * Get option value for defined group.
 	 *
 	 * @param string $option option name.

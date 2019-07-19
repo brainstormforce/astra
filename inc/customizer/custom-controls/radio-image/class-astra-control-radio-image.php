@@ -45,7 +45,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 		if ( '' === Astra_Control_Radio_Image::$higlight_color ) {
 			Astra_Control_Radio_Image::get_highlight_color();
 			?>
-			<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important }</style>
+			<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important; stroke: <?php echo Astra_Control_Radio_Image::$higlight_color; ?> !important }</style>
 			<?php
 		}
 	}
