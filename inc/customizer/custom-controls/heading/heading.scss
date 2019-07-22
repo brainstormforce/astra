@@ -1,0 +1,76 @@
+.ast-field-settings-wrap .customize-control-ast-heading {
+  margin: 0px 0 15px 0;
+}
+
+.accordion-section-content.open .customize-control-ast-heading {
+  &:nth-child(2), &:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+.customize-control-ast-heading {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  .ast-heading-wrapper {
+    margin: 0 -12px;
+  }
+  .customize-control-title {
+    display: block;
+    padding: 13px 12px;
+    margin: 0;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #dddddd;
+    background-color: #fff;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .customize-control-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .customize-control-description {
+    margin-top: 10px;
+  }
+}
+
+.ast-heading-wrapper {
+  label {
+    cursor: default;
+  }
+}
+
+.customize-control {
+  > label {
+    cursor: default;
+  }
+}
+
+.customize-control {
+  .ast-spacing-input-item-link, .ast-border-input-item-link {
+    cursor: pointer;
+  }
+  &.customize-control-ast-settings-group {
+    label {
+      cursor: pointer;
+    }
+  }
+  &.customize-control-ast-slider {
+    label { 
+      cursor: pointer;
+      .wrapper { 
+        input[type=range]{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+.customize-control-ast-slider {
+  .wrapper {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 5px;
+    padding: 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+    &:hover, &:focus {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      background-color: #3498D9;
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      border: none;
+      border-radius: 50%;
+      background-color: #3498D9;
+    }
+    &::-moz-range-thumb {
+      width: 15px;
+      height: 15px;
+      border: none;
+      border-radius: 50%;
+      background-color: #3498D9;
+    }
+    &::-ms-thumb {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 0;
+      background-color: #3498D9;
+    }
+    &::-moz-range-track {
+      border: inherit;
+      background: transparent;
+    }
+    &::-ms-track {
+      border: inherit;
+      color: transparent;
+      background: transparent;
+    }
+    &::-ms-fill-lower, &::-ms-fill-upper {
+      background: transparent;
+    }
+    &::-ms-tooltip {
+      display: none;
+    }
+  }
+  .astra_range_value {
+    font-size: 14px;
+    padding: 0 0 0 5px;
+    font-weight: 400;
+    position: relative;
+  }
+  .ast-slider-reset {
+    color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -28px;
+    right: 0;
+    /*float: right;*/
+    display: inline-block;
+    -webkit-transition: color 0.5s ease-in;
+    -moz-transition: color 0.5s ease-in;
+    -ms-transition: color 0.5s ease-in;
+    -o-transition: color 0.5s ease-in;
+    transition: color 0.5s ease-in;
+    span {
+      font-size: 16px;
+      line-height: 22px;
+      transition: unset;
+    }
+    &:hover, &:focus {
+      color: red;
+    }
+  }
+}
+
+.astra_range_value {
+  input.ast-range-value-input {
+    width: 50px;
+    height: 22px;
+    font-size: 12px;
+    padding: 3px;
+  }
+  .ast-range-unit {
+    margin-left: 5px;
+  }
+}

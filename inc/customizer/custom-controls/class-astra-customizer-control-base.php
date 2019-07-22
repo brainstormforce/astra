@@ -52,7 +52,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$file_rtl    = ( is_rtl() ) ? '-rtl' : '';
-			$css_uri     = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/' . $dir_name . '/';
+			$css_uri     = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir_name . '/';
 
 			wp_enqueue_style( 'custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
 
