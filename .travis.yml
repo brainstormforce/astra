@@ -43,6 +43,6 @@ jobs:
         - nvm install
       script:
         - npm run env:start
-        # - npm run env:reset-site
+        - npm run env:reset-site
         - npm run test:e2e:ci
         - npm run env:stop
