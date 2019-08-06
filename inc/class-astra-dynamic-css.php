@@ -242,7 +242,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				'.site-title'                             => array(
-					'font-size' => astra_responsive_font( $site_title_font_size, 'desktop' ),
+					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
 				),
 				'header .site-logo-img .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
