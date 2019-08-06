@@ -1,11 +1,11 @@
 var wpCli = require('node-wp-cli');
 
 beforeEach(() => {
-    cleanupWP();
+    // cleanupWP();
 });
 
 afterEach(() => {
-    cleanupWP();
+    // cleanupWP();
 });
 
 
