@@ -32,3 +32,6 @@ vendor/
 
 # Ignore screenshots from e2e tests
 tests/e2e/screenshots/**/**
+
+# Ignore cghooks
+cghooks.lock

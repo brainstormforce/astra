@@ -1,36 +1,28 @@
-var wpCli = require('node-wp-cli');
+const request = require("request");
 
 beforeEach(() => {
-    // cleanupWP();
+	cleanupWP();
 });
 
 afterEach(() => {
-    // cleanupWP();
+	cleanupWP();
 });
 
+const cleanupWP = async () => {
+	return new Promise((resolve, reject) => {
+		var options = {
+			uri:
+                `${ process.env.ASTRA_TESTS_URL }/wp-admin/admin-ajax.php?action=clean_site`
+		};
 
-const cleanupWP = (() => {
-    wpCli.call('option delete astra-settings', {  }, function(err, resp) {
-        if (err) throw err;
-    });
-
-    wpCli.call('theme mod remove custom_logo', {  }, function(err, resp) {
-        if (err) throw err;
-    })
-
-    wpCli.call('option delete site_title', {  }, function(err, resp) {
-        if (err) throw err;
-    })
-
-    wpCli.call('option delete site_icon', {  }, function(err, resp) {
-        if (err) throw err;
-    })
-
-    wpCli.call('option update blogdescription "Astra Test Enviornment"', {  }, function(err, resp) {
-        if (err) throw err;
-    })
-
-    wpCli.call('post delete --all --force', {  }, function(err, resp) {
-        if (err) throw err;
-    })
-});
+		request(options, function(error, response, body) {
+			if (!error && response.statusCode == 200) {
+				resolve(body);
+			} else {
+				console.log(response.statusCode);
+				console.log(response.statusMessage);
+				reject(response);
+			}
+		});
+	});
+};

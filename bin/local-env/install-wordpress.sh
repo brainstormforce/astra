@@ -80,6 +80,7 @@ docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run --rm $CONTAINER touch /var/www/h
 # Activate Astra.
 echo -e $(status_message "Activating Astra...")
 docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run --rm -u 33 $CLI theme activate astra --quiet
+docker-compose $DOCKER_COMPOSE_FILE_OPTIONS run --rm -u 33 $CLI plugin activate astra-e2e-plugins --quiet
 
 # Configure site constants.
 echo -e $(status_message "Configuring site constants...")
