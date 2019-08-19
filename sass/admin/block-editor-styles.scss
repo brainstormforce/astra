@@ -80,11 +80,6 @@ html {
     	.editor-block-list__block-edit {
     		margin-left: 0;
     		margin-right: 0;
-
-    		@media (min-width: 600px) {
-    			padding-left: 28px;
-    			padding-right: 28px;
-    		}
     	}
 
     	>.editor-block-mover {

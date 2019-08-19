@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
-			add_action( 'template_redirect', array( $this, 'setup_content_width' ) );
+			add_action( 'wp', array( $this, 'setup_content_width' ) );
 		}
 
 		/**
@@ -192,6 +192,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 					if ( 'custom' === $blog_width ) {
 						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-max-width', 1200 ) );
+					} else {
+						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
 					}
 				} elseif ( is_single() ) {
 

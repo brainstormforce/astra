@@ -507,13 +507,6 @@ html {
   margin-right: 0;
 }
 
-@media (min-width: 600px) {
-  .edit-post-visual-editor .editor-block-list__block .editor-block-list__block-edit {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-}
-
 .edit-post-visual-editor .editor-block-list__block > .editor-block-mover {
   left: -50px;
   top: -5px;

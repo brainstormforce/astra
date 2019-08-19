@@ -1,3 +1,6 @@
+v2.1.0-dev.1
+- Fix: Removed extra padding that were being applied to all the guttenberg blocks.
+
 v2.0.0
 - Improvement: Loading combined CSS and JS file for params in the customizer.
 - Improvement: Remove unnecessary role attribute from HTML. 
