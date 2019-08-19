@@ -54,7 +54,8 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		 */
 		function jetpack_setup() {
 			add_theme_support(
-				'infinite-scroll', array(
+				'infinite-scroll',
+				array(
 					'container' => 'main',
 					'render'    => array( $this, 'infinite_scroll_render' ),
 					'footer'    => 'page',

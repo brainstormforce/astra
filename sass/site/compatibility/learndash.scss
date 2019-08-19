@@ -363,9 +363,7 @@ body {
 				background: #fbfbfb;
 			}
 			h4 > a {
-				padding: 8px 2.5em;
-				margin-left: -2.5em;
-				margin-left: calc( -2.5em - 1px );
+				padding: 8px 2.5em 8px 0;
 				position: relative;
 			}
 		}
@@ -1108,3 +1106,8 @@ body {
 		}
 	}
  }
+
+// LearnDash Quiz dragable elements not working scrolling the page on mobile devices.
+body.single-sfwd-quiz {
+	overflow-x: unset;
+}

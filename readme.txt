@@ -1,7 +1,7 @@
 -------------------------------------------------------
 Welcome to ASTRA!
 -------------------------------------------------------
-Website: http://wpastra.com/
+Website: https://wpastra.com/
 Email: support@bsf.io
 
 -------------------------------------------------------
@@ -36,7 +36,7 @@ ASTRA License
 Astra WordPress Theme, Copyright 2018 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 -------------------------------------------------------
@@ -51,7 +51,7 @@ https://www.pexels.com/photo/whiteboard-sketching-design-planning-7366/
 Normalizing styles
 -------------------------------------------------------
 Normalizing styles have been helped along thanks to the fine work of.
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+Nicolas Gallagher and Jonathan Neal https://necolas.github.com/normalize.css/
 
 -------------------------------------------------------
 Flexibility JS
@@ -60,8 +60,14 @@ Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https:
 Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
 
 -------------------------------------------------------
+WP Color Picker Alpha
+-------------------------------------------------------
+WP Color Picker Alpha is used to Overwrite Automattic Iris for enabled Alpha Channel in wpColorPicker By Sergio. (https://github.com/kallookoo/wp-color-picker-alpha)
+Distributed under the terms of the GNU GPL v2.
+
+-------------------------------------------------------
 IcoMoon-Free
 -------------------------------------------------------
 Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
-IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (http://creativecommons.org/licenses/by/4.0/ or http://www.gnu.org/licenses/gpl.html)
-Source: http://keyamoon.com/
+IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
+Source: https://keyamoon.com/

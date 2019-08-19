@@ -1,0 +1,15 @@
+/*
+ * Astra Theme compatibility Divi Builder
+ */
+
+// Divi builder video conflict with ast-oembeded-container
+.et_divi_builder{
+	#et_builder_outer_content{
+		.et_pb_video_box{
+			.ast-oembed-container,
+			.ast-oembed-container > div{
+				position: initial;
+			}
+		}
+	}
+}

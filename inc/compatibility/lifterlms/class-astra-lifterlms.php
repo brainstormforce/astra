@@ -35,7 +35,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
 
-			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
@@ -126,7 +126,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( is_lesson() ) {
 				remove_action( 'lifterlms_single_lesson_after_summary', 'lifterlms_template_lesson_navigation', 20 );
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+				if ( 'yes' !== apply_filters( 'llms_blocks_is_post_migrated', get_post_meta( get_the_ID(), '_llms_blocks_migrated', true ), get_the_ID() ) ) {
+					add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+				}
 			}
 
 			if ( is_quiz() ) {
@@ -154,14 +156,14 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/register-panels-and-sections.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/class-astra-liferlms-section-configs.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/section-general.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php';
 		}
 
 		/**
@@ -240,7 +242,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
 						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h6>
 						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
 					</div>
 					<?php
@@ -452,7 +454,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 				<?php astra_primary_content_top(); ?>
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
 					<div class="ast-lifterlms-container">
 			<?php
 		}
@@ -688,4 +690,6 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_LifterLMS::get_instance();
+if ( apply_filters( 'astra_enable_lifterlms_integration', true ) ) {
+	Astra_LifterLMS::get_instance();
+}

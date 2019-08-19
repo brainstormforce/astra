@@ -1,0 +1,218 @@
+.ast-adv-toggle-icon {
+  left: 2px;
+  top: -2px;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 4px;
+  color: #0073aa;
+  background: #fff;
+}
+
+.ast-adv-toggle-icon:hover {
+  color: #099fd6;
+}
+
+.ast-adv-toggle-icon:before {
+  content: "\f464";
+}
+
+.ast-adv-toggle-icon.open:before {
+  content: "\f158";
+}
+
+.ast-field-settings-modal {
+  position: absolute;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: #fff;
+}
+
+.ast-field-settings-modal .customize-control-ast-divider:first-child {
+  margin-top: 15px;
+}
+
+.ast-field-settings-wrap {
+  width: 100%;
+}
+
+.ast-group-tabs, .ast-tab-content {
+  position: relative;
+}
+
+.ast-group-list {
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+}
+
+.ast-group-list:before, .ast-group-list:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+
+/* Tab anchor color */
+.ui-tabs-anchor {
+  float: right;
+  padding: .5em 0.5em;
+  color: #555d66;
+  text-decoration: none;
+}
+
+.ui-state-active .ui-tabs-anchor {
+  color: #ffffff;
+}
+
+.ui-tabs-anchor:hover {
+  color: #555d66;
+}
+
+.ui-state-active .ui-tabs-anchor:hover {
+  color: #ffffff;
+}
+
+.ast-group-tabs .ui-widget-content {
+  overflow: hidden;
+  /*padding-top: 15px;*/
+}
+
+.ast-group-tabs .ui-widget-content.iris-slider-offset, .ast-group-tabs .ui-widget-content.iris-slider-offset-alpha {
+  overflow: inherit;
+}
+
+.ast-fields-wrap {
+  overflow: hidden;
+}
+
+.ast-field-settings-wrap {
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 3px;
+  background-color: #fff;
+}
+
+.ast-field-settings-wrap .ast-field-settings-modal {
+  border-radius: 3px;
+  margin-top: 9px;
+  margin-bottom: 20px;
+}
+
+.ast-field-settings-modal::before {
+  content: '';
+  position: absolute;
+  top: -17px;
+  left: 8px;
+  border: 9px solid transparent;
+  border-bottom-color: #fff;
+  pointer-events: none;
+}
+
+.ast-group-tabs .ui-tabs-nav {
+  display: flex;
+  padding: 15px 15px 0 15px;
+}
+
+.ast-group-tabs .ui-tabs-nav .ui-corner-top {
+  align-items: center;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin: 0 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  transition: background-color 140ms linear;
+}
+
+.ast-group-tabs .ui-tabs-nav .ui-corner-top:first-child {
+  border-radius: 0px 3px 3px 0px;
+}
+
+.ast-group-tabs .ui-tabs-nav .ui-corner-top:last-child {
+  border-radius: 3px 0px 0px 3px;
+}
+
+.ast-group-tabs .ui-tabs-nav .ui-corner-top .ui-tabs-anchor {
+  width: 100%;
+  text-align: center;
+  padding: 2px 4px;
+  padding-right: 0;
+  padding-left: 0;
+  outline: none;
+}
+
+.ast-group-tabs ul.ast-group-list .ui-corner-top .ui-tabs-anchor:focus {
+  box-shadow: none;
+}
+
+.ast-group-tabs .ui-tabs-nav {
+  border: none;
+}
+
+.ast-group-tabs ul.ast-group-list .ui-corner-top.ui-state-active {
+  background-color: #0185BA;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ast-group-tabs .ui-tabs-nav {
+  overflow: visible;
+}
+
+.ast-group-tabs ul.ast-group-list .ui-corner-top:not(:first-child) {
+  border-right-width: 0;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
+  width: 67px !important;
+}
+
+.ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
+  margin-right: 6px;
+}
+
+/* Buttons */
+.wp-core-ui .ast-field-settings-modal .background-image-upload .button {
+  font-size: 11px;
+}
+
+/* Popup params padding */
+.ast-field-settings-modal .customize-control {
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.ast-field-settings-modal .customize-control:first-child {
+  margin-top: 15px;
+}
+
+.ast-field-settings-modal .ui-tabs-nav .customize-control:first-child {
+  margin-top: 0;
+}
+
+.ast-field-settings-modal .customize-control:last-child {
+  padding-bottom: 15px;
+}
+
+.customize-control-ast-settings-group {
+  line-height: 27px;
+}
+
+.customize-control-ast-settings-group .customize-control-title {
+  margin-bottom: 0;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.ast-field-settings-modal .customize-control {
+  margin-top: 10px;
+}

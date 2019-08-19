@@ -26,7 +26,6 @@
   background: #fff;
   border-color: #eaeaea;
   outline: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -41,15 +40,10 @@
   border-width: 1px;
   border-style: solid;
   border-color: #eaeaea;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   background: #fafafa;
-  -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
@@ -65,13 +59,11 @@
   margin: -3px 0 0 4px;
   outline: 0;
   padding: 0;
-  -webkit-border-radius: 0.2em;
   border-radius: 0.2em;
   text-align: center;
   vertical-align: middle;
   width: 1.4em;
   min-width: 1.4em;
-  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 

@@ -21,12 +21,14 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			value   = control.setting._value,
 			picker  = control.container.find( '.ast-color-control' );
 
-		// Hide unnecessary controls if the value doesn't have an image.
+		// Hide controls by default and show only when More Settings clicked.
+		control.container.find( '.background-wrapper > .background-repeat' ).hide();
+		control.container.find( '.background-wrapper > .background-position' ).hide();
+		control.container.find( '.background-wrapper > .background-size' ).hide();
+		control.container.find( '.background-wrapper > .background-attachment' ).hide();
+		// Hide More Settings control only when image is not selected.
 		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
-			control.container.find( '.background-wrapper > .background-repeat' ).hide();
-			control.container.find( '.background-wrapper > .background-position' ).hide();
-			control.container.find( '.background-wrapper > .background-size' ).hide();
-			control.container.find( '.background-wrapper > .background-attachment' ).hide();
+			control.container.find( '.more-settings' ).hide();
 		}
 
 		// Color.
@@ -60,6 +62,8 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Background-Size.
 		control.container.on( 'change click', '.background-size input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
 			control.saveValue( 'background-size', jQuery( this ).val() );
 		});
 
@@ -70,11 +74,13 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 		// Background-Attachment.
 		control.container.on( 'change click', '.background-attachment input', function() {
+            jQuery( this ).parent( '.buttonset' ).find( '.switch-input' ).removeAttr('checked');
+            jQuery( this ).attr( 'checked', 'checked' );
 			control.saveValue( 'background-attachment', jQuery( this ).val() );
 		});
 
 		// Background-Image.
-		control.container.on( 'click', '.background-image-upload-button', function( e ) {
+		control.container.on( 'click', '.background-image-upload-button, .thumbnail-image img', function( e ) {
 			var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
 				// This will return the selected image from the Media Uploader, the result is an object.
@@ -100,7 +106,7 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 
 				// Show extra controls if the value has an image.
 				if ( '' !== imageUrl ) {
-					control.container.find( '.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment' ).show();
+					control.container.find( '.more-settings' ).show();
 				}
 
 				control.saveValue( 'background-image', imageUrl );

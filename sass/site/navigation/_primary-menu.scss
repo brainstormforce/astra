@@ -1,6 +1,3 @@
-.astra-search-icon {
-	vertical-align: middle;
-}
 .astra-search-icon::before {
 	content: "\e8b6";
 	font-family: 'Astra';
@@ -18,7 +15,8 @@
 
 .main-navigation {
 	display: inline-flex;
-	font-weight:600;
+	height: 100%;
+
 	ul {
 		list-style: none;
 		margin: 0;
@@ -41,19 +39,36 @@
 
 		&:hover > ul,
 		&.focus > ul {
-			left: 0;
 			right: auto;
+			left: 0;
+		}
+	}
+
+	.ast-left-align-sub-menu:hover > .sub-menu,
+	.ast-left-align-sub-menu.focus > .sub-menu {
+		right: 0;
+		left: auto;	
+	}
+
+	@media (min-width: $col-md) {
+		.ast-sub-menu-goes-outside:hover > .sub-menu,
+		.ast-sub-menu-goes-outside.focus > .sub-menu {
+		    left: -100%;
 		}
 
-		@media (min-width: $col-md) {
-			&.ast-sub-menu-goes-outside:hover > ul,
-			&.ast-sub-menu-goes-outside.focus > ul {
-			    left: -100%;
+		.ast-left-align-sub-menu {
+			.sub-menu {
+				.menu-item {
+					&:hover > .sub-menu,
+					&.focus > .sub-menu {
+						left: -100%;
+					}
+				}
 			}
 		}
 	}
 
-	ul {
+	.sub-menu {
 		width: 240px;
 		background: $color-background-header-submenu;
 		left: -999em;
@@ -69,14 +84,17 @@
 					right: auto;
 				}
 
-				&.ast-left-align-sub-menu:hover > ul,
-				&.ast-left-align-sub-menu.focus > ul {
-					left: -100%;
-				}
+			}
+			
+			.ast-left-align-sub-menu:hover > .sub-menu,
+			.ast-left-align-sub-menu.focus > .sub-menu,
+			.ast-left-align-sub-menu:hover * .sub-menu,
+			.ast-left-align-sub-menu:focus * .sub-menu {
+				left: -100%;
 			}
 
-			.main-header-menu li.ast-sub-menu-goes-outside:hover > ul,
-			.main-header-menu li.ast-sub-menu-goes-outside.focus > ul {
+			.main-header-menu .ast-sub-menu-goes-outside:hover > .sub-menu,
+			.main-header-menu .ast-sub-menu-goes-outside.focus > .sub-menu {
 			    left: -100%;
 			}
 		}
@@ -109,16 +127,28 @@
 }
 
 .submenu-with-border {
-	ul {
-		border-top: 1px solid $color-border-submenu;
+	.sub-menu {
+		border-width: 1px;
+		border-style: solid;
 
 		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
+			border-width: 0 0 1px;
+			border-style: solid;
 		}
-
-		ul{
+		.sub-menu{
 			top: -1px;
+		}
+	}
+}
+/* Remove the last anchor border for desktop devices */
+.ast-desktop{
+	.submenu-with-border{
+		.sub-menu {
+			> li:last-child{
+				> a{
+					border-bottom-width: 0;
+				}
+			}
 		}
 	}
 }
@@ -128,43 +158,41 @@
 		padding-left: 0;
 
 		ul {
-			li a {
-				padding: 0 20px;
-				display: inline-block;
-				width: 100%;
-				border-bottom: 1px solid #dadada;
+			li,
+			.button-custom-menu-item {
+				a {
+					padding: 0 20px;
+					display: inline-block;
+					width: 100%;
+					border-bottom-width: 1px;
+					border-style: solid;
+					border-color: #eaeaea;
+				}
 			}
 			&.children li a,
 			&.sub-menu li a {
 			    padding-left: 30px;
 			    &:before{
-			    	content: "-";
-    				margin-right: 2px;
+			    	content: "\e900";
+				    font-family: 'Astra';
+				    font-size: .65em;
+				    text-decoration: inherit;
+				    display: inline-block;
+				    transform: translate(0, -2px) rotateZ(270deg);
+    				margin-right: 5px;
 			    }
 			}
 			&.children li li a,
 			&.sub-menu li li a {
 			    padding-left: 40px;
-			    &:before{
-			    	content: "--";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li a,
 			&.sub-menu li li li a {
 			    padding-left: 50px;
-			    &:before{
-			    	content: "---";
-    				margin-right: 2px;
-			    }
 			}
 			&.children li li li li a,
 			&.sub-menu li li li li a {
 			    padding-left: 60px;
-			    &:before{
-			    	content: "----";
-    				margin-right: 2px;
-			    }
 			}
 		}
 	}
@@ -172,8 +200,11 @@
 		background-color: $color-background-nav-mobile;
 	}
 
-	.main-header-menu {
+	.main-header-menu{
 		background-color: $color-background-nav-mobile;
+	}
+
+	.main-header-menu {
 		ul {
 			background-color: $color-background-nav-mobile;
 			position: static;
@@ -181,28 +212,22 @@
 			visibility: visible;
 			border: 0;
 			width: auto;
-			li {
-				&.ast-left-align-sub-menu:hover > ul,
-				&.ast-left-align-sub-menu.focus > ul {
-					left: 0;
-				}
+		}
+		.sub-menu {
+			.ast-left-align-sub-menu:hover > .sub-menu,
+			.ast-left-align-sub-menu.focus > .sub-menu {
+				left: 0;
 			}
 		}
-		li {
-			&.ast-sub-menu-goes-outside:hover > ul,
-			&.ast-sub-menu-goes-outside.focus > ul {
-			    left: 0;
-			}
+		.ast-sub-menu-goes-outside:hover > .sub-menu,
+		.ast-sub-menu-goes-outside.focus > .sub-menu {
+		    left: 0;
 		}
 	}
 
 	.submenu-with-border {
-		ul {
+		.sub-menu {
 			border: 0;
-
-			a {
-				border: 0;
-			}
 		}
 	}
 }

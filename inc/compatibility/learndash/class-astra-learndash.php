@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
 
-			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
+			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			// Sidebar Layout.
@@ -64,6 +64,16 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * @return void
 		 */
 		function add_dynamic_styles() {
+
+			$active_ld_theme = '';
+
+			if ( is_callable( 'LearnDash_Theme_Register::get_active_theme_key' ) ) {
+				$active_ld_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
+
+			if ( 'ld30' === $active_ld_theme ) {
+				return;
+			}
 
 			/**
 			 * - Variable Declaration
@@ -185,17 +195,26 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 */
 		function customize_register( $wp_customize ) {
 
+			$active_ld_theme = '';
+
+			if ( is_callable( 'LearnDash_Theme_Register::get_active_theme_key' ) ) {
+				$active_ld_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
+
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/register-panels-and-sections.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/class-astra-customizer-register-learndash-section.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/section-general.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-astra-learndash-container-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-astra-learndash-sidebar-configs.php';
+
+			if ( 'ld30' !== $active_ld_theme ) {
+				require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-astra-learndash-general-configs.php';
+			}
 		}
 
 		/**

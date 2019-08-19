@@ -1,0 +1,25 @@
+.customize-control-ast-responsive-color {
+  .wp-picker-container {
+    float: left;
+  }
+  .ast-responsive-color.wp-color-picker {
+    width: 67px !important;
+    line-height: 17px;
+  }
+  .wp-picker-clear {
+    margin-left: 1%;
+  }
+  button.button.wp-color-result.wp-picker-open {
+    margin: 0px 3px 6px 0px !important;
+  }
+  .customize-control-content .wp-picker-container {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.wp-picker-container.wp-picker-active .wp-picker-open {
+  margin: 0px 3px 6px 0px;
+}

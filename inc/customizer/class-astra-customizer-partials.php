@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -95,6 +95,15 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 			$right_section_html = astra_get_option( 'header-main-rt-section-html' );
 
 			return do_shortcode( $right_section_html );
+		}
+
+		/**
+		 * Render Partial Text Custom Menu Item
+		 */
+		static function _render_header_main_rt_section_button_text() {
+			$custom_button_text = astra_get_option( 'header-main-rt-section-button-text' );
+
+			return do_shortcode( $custom_button_text );
 		}
 
 		/**

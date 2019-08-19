@@ -5,6 +5,10 @@
  * @package Astra
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Adds custom classes to the array of body classes.
  */
@@ -85,7 +89,7 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 		$post_meta   = astra_get_option( 'blog-single-meta' );
 
 		$output = '';
-		if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {
+		if ( is_array( $post_meta ) && ( 'post' == get_post_type() || 'attachment' == get_post_type() ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {
@@ -142,9 +146,15 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="ast-comment-data-wrap">
 							<div class="ast-comment-meta-wrap">
-								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
-
-									<?php
+								<?php
+								echo '<header ';
+								echo astra_attr(
+									'commen-meta-author',
+									array(
+										'class' => 'ast-comment-meta ast-row ast-comment-author vcard capitalize',
+									)
+								);
+								echo '>';
 
 									printf(
 										'<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
@@ -161,7 +171,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 										sprintf( esc_html__( '%1$s at %2$s', 'astra' ), get_comment_date(), get_comment_time() )
 									);
 
-									?>
+								?>
 
 								</header> <!-- .ast-comment-meta -->
 							</div>
@@ -172,7 +182,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 									<?php
 									comment_reply_link(
 										array_merge(
-											$args, array(
+											$args,
+											array(
 												'reply_text' => astra_default_strings( 'string-comment-reply-link', false ),
 												'add_below' => 'comment',
 												'depth'  => $depth,
@@ -231,7 +242,8 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 			 */
 			the_post_navigation(
 				apply_filters(
-					'astra_single_post_navigation', array(
+					'astra_single_post_navigation',
+					array(
 						'next_text' => $next_text,
 						'prev_text' => $prev_text,
 					)

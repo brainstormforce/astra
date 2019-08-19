@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.23
  */
 
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Depreciating astra_color_palletes filter.
-add_filter( 'astra_color_palettes', 'deprecated_astra_color_palette', 10, 1 );
+add_filter( 'astra_color_palettes', 'astra_deprecated_color_palette', 10, 1 );
 
 /**
  * Astra Color Palettes
@@ -23,7 +23,7 @@ add_filter( 'astra_color_palettes', 'deprecated_astra_color_palette', 10, 1 );
  * @param array $color_palette  customizer color palettes.
  * @return array  $color_palette updated customizer color palettes.
  */
-function deprecated_astra_color_palette( $color_palette ) {
+function astra_deprecated_color_palette( $color_palette ) {
 
 	$color_palette = astra_apply_filters_deprecated( 'astra_color_palletes', array( $color_palette ), '1.0.22', 'astra_color_palettes', '' );
 
@@ -32,7 +32,7 @@ function deprecated_astra_color_palette( $color_palette ) {
 
 
 // Deprecating astra_sigle_post_navigation_enabled filter.
-add_filter( 'astra_single_post_navigation_enabled', 'deprecated_astra_sigle_post_navigation_enabled', 10, 1 );
+add_filter( 'astra_single_post_navigation_enabled', 'astra_deprecated_sigle_post_navigation_enabled', 10, 1 );
 
 /**
  * Astra Single Post Navigation
@@ -41,7 +41,7 @@ add_filter( 'astra_single_post_navigation_enabled', 'deprecated_astra_sigle_post
  * @param boolean $post_nav true | false.
  * @return boolean $post_nav true for enabled | false for disable.
  */
-function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
+function astra_deprecated_sigle_post_navigation_enabled( $post_nav ) {
 
 	$post_nav = astra_apply_filters_deprecated( 'astra_sigle_post_navigation_enabled', array( $post_nav ), '1.0.27', 'astra_single_post_navigation_enabled', '' );
 
@@ -49,7 +49,7 @@ function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 }
 
 // Deprecating astra_primary_header_main_rt_section filter.
-add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_main_rt_section', 10, 2 );
+add_filter( 'astra_header_section_elements', 'astra_deprecated_primary_header_main_rt_section', 10, 2 );
 
 /**
  * Astra Header elements.
@@ -59,7 +59,7 @@ add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_ma
  * @param string $header Header section type.
  * @return array
  */
-function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
+function astra_deprecated_primary_header_main_rt_section( $elements, $header ) {
 
 	$elements = astra_apply_filters_deprecated( 'astra_primary_header_main_rt_section', array( $elements, $header ), '1.2.2', 'astra_header_section_elements', '' );
 

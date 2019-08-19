@@ -1,12 +1,12 @@
 /**
 Theme Name: Astra
-Theme URI: http://wpastra.com/
+Theme URI: https://wpastra.com/
 Author: Brainstorm Force
-Author URI: http://wpastra.com/about/
-Description: Astra is fast, fully customizable & beautiful theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with Schema.org code integrated so search engines will love your site. It offers special features and templates so it works perfectly with all page builders like Elementor, Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
-Version: 1.3.4
+Author URI: https://wpastra.com/about/
+Description: Astra is fast, fully customizable & beautiful theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with Schema.org code integrated and is Native AMP ready so search engines will love your site. It offers special features and templates so it works perfectly with all page builders like Elementor, Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
+Version: 2.0.0
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: astra
 Domain Path: /languages
 Tags: one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
@@ -14,15 +14,15 @@ Tags: one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-c
 Astra WordPress Theme, Copyright 2018 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of.
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+Nicolas Gallagher and Jonathan Neal https://necolas.github.com/normalize.css/
 
 Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
-IcoMoon-Free vector icon distributed under terms of CC BY 4.0 or GPL. (http://creativecommons.org/licenses/by/4.0/ or http://www.gnu.org/licenses/gpl.html)
-Source: http://keyamoon.com/
+IcoMoon-Free vector icon distributed under terms of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
+Source: https://keyamoon.com/
 
 Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
 Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
@@ -30,11 +30,13 @@ Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LI
 Screenshot image is a collage of actual sites created using the Astra WordPress Theme.
 Images that appear in the collage are licensed under CC0.
 
+Astra default breadcrumb is based on Breadcrumb Trail by Justin Tadlock. (https://github.com/justintadlock/breadcrumb-trail)
+Breadcrumb Trail is distributed under the terms of the GNU GPL v2 or later.
+
 https://unsplash.com/photos/QE3BkF3ygp0
-https://unsplash.com/photos/BLF5vzY6d7s
 https://www.pexels.com/photo/woman-wearing-yellow-polo-shirt-standing-in-front-of-teal-concrete-wall-720606/
+https://pixabay.com/en/beautiful-female-girl-model-person-1844944/
 https://unsplash.com/photos/Zhv-RRD0KVg
 https://unsplash.com/photos/7WVdWF4Lb_Q
 
-*/
 /* Note: The CSS files are loaded from assets/css/ folder. */

@@ -1,0 +1,28 @@
+.customize-control-ast-responsive-color .wp-picker-container {
+  float: left;
+}
+
+.customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
+  width: 67px !important;
+  line-height: 17px;
+}
+
+.customize-control-ast-responsive-color .wp-picker-clear {
+  margin-left: 1%;
+}
+
+.customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
+  margin: 0px 3px 6px 0px !important;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .wp-picker-container {
+  display: none;
+}
+
+.customize-control-ast-responsive-color .customize-control-content .wp-picker-container.active {
+  display: block;
+}
+
+.wp-picker-container.wp-picker-active .wp-picker-open {
+  margin: 0px 3px 6px 0px;
+}

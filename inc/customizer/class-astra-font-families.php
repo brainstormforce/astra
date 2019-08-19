@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.19
  */
 
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 				global $wp_filesystem;
 				if ( empty( $wp_filesystem ) ) {
-					require_once( ABSPATH . '/wp-admin/includes/file.php' );
+					require_once ABSPATH . '/wp-admin/includes/file.php';
 					WP_Filesystem();
 				}
 
@@ -151,9 +151,6 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 						if ( 'variants' === $font_key ) {
 
 							foreach ( $single_font as $variant_key => $variant ) {
-								if ( stristr( $variant, 'italic' ) ) {
-									unset( $font[ $name ][ $font_key ][ $variant_key ] );
-								}
 
 								if ( 'regular' == $variant ) {
 									$font[ $name ][ $font_key ][ $variant_key ] = '400';

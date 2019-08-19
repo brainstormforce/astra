@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       1.0.0
  */
 
@@ -26,21 +26,6 @@ class Astra_Control_Sortable extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $type = 'ast-sortable';
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
-
-		wp_enqueue_script( 'astra-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-sortable-css', $css_uri . 'sortable.css', null, ASTRA_THEME_VERSION );
-
-	}
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -98,7 +83,7 @@ class Astra_Control_Sortable extends WP_Customize_Control {
 					</li>
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
-					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
+				<# if ( Array.isArray(data.value) && -1 === data.value.indexOf( choiceID ) ) { #>
 						<li {{{ data.inputAttrs }}} class='ast-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>

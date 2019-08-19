@@ -9,3 +9,29 @@
 		left: 0 !important;
 	}
 }
+
+// Add Default elementor styling to the post article when elementor prodct widget is used.
+.elementor-post {
+	&.elementor-grid-item{
+		&.hentry{
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Add Default elementor styling to the product list when elementor prodct widget is used.
+.elementor-page {
+	.elementor-element{
+		.elementor-wc-products{
+			.woocommerce[class*='columns-']{
+				ul.products{
+					li.product{
+						width: auto;
+						margin: 0;
+						float: none;
+					}
+				}
+			}
+		}
+	}
+}

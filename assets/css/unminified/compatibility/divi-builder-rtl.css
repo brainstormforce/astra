@@ -1,0 +1,7 @@
+/*
+ * Astra Theme compatibility Divi Builder
+ */
+.et_divi_builder #et_builder_outer_content .et_pb_video_box .ast-oembed-container,
+.et_divi_builder #et_builder_outer_content .et_pb_video_box .ast-oembed-container > div {
+  position: initial;
+}

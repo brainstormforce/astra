@@ -1,6 +1,9 @@
 # ignore PHPStorm extra directories
 .idea/
 
+# Ignore OS Specific files.
+.DS_Store
+
 # Leave node_modules from git
 node_modules/
 

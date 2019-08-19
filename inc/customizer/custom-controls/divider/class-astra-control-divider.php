@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       1.0.0
  */
 
@@ -36,15 +36,12 @@ class Astra_Control_Divider extends WP_Customize_Control {
 	public $caption = '';
 
 	/**
-	 * Enqueue control related scripts/styles.
+	 * The control type.
 	 *
 	 * @access public
+	 * @var string
 	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/divider/';
-		wp_enqueue_style( 'astra-divider-css', $css_uri . 'divider.css', null, ASTRA_THEME_VERSION );
-	}
+	public $separator = true;
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -56,6 +53,7 @@ class Astra_Control_Divider extends WP_Customize_Control {
 		$this->json['label']       = esc_html( $this->label );
 		$this->json['caption']     = $this->caption;
 		$this->json['description'] = $this->description;
+		$this->json['separator']   = $this->separator;
 	}
 
 	/**
@@ -74,7 +72,10 @@ class Astra_Control_Divider extends WP_Customize_Control {
 		<# if ( data.caption ) { #>
 			<span class="customize-control-caption">{{{ data.caption }}}</span>
 		<# } #>
-		<hr />
+
+		<# if ( data.separator ) { #>
+			<hr />
+		<# } #>
 
 		<label class="customizer-text">
 			<# if ( data.label ) { #>

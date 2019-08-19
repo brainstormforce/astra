@@ -28,9 +28,13 @@
 
 .ast-header-break-point {
 	.footer-sml-layout-2 {
-		.ast-small-footer-section-2{
-			margin-top: 1em;
+
+		@media (max-width: $mx-col-md) {
+			.ast-small-footer-section-2 {
+				margin-top: 1em;
+			}
 		}
+
 	}
 }
 

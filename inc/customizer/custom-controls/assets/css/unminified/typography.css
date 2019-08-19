@@ -1,0 +1,36 @@
+.select2-container {
+  width: 100% !important;
+}
+
+span.select2-container.select2-container--default.select2-container--open {
+  z-index: 999999;
+}
+
+span.select2-container.select2-container--default.select2-container--open li.select2-results__option {
+  margin: 0;
+}
+
+.select2-selection__rendered li {
+  margin-bottom: 0;
+}
+
+.select2-container--default .select2-selection--single, .select2-container--default.select2-container .select2-selection--multiple {
+  border-color: #ddd;
+  border-radius: 0;
+}
+
+.select2-dropdown, .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  border-color: #ddd;
+  border-radius: 0;
+}
+
+.customize-control-ast-hidden {
+  margin-top: 0;
+}
+
+/* Vetically align customizer footer device icons */
+.wp-full-overlay-footer .devices-wrapper .preview-desktop,
+.wp-full-overlay-footer .devices-wrapper .preview-tablet,
+.wp-full-overlay-footer .devices-wrapper .preview-mobile {
+  vertical-align: middle;
+}

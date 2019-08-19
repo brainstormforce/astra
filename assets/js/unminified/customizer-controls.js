@@ -40,6 +40,7 @@
 		 */
 		_initToggles: function()
 		{
+
 			// Trigger the Adv Tab Click trigger.
 			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
 
@@ -70,65 +71,6 @@
 								setting.bind( visibility );
 							});
 						});
-					});
-				});
-
-				// Hide Section without Controls.
-				$( '.customize-control *[data-customize-setting-link="' + settingId + '"]' ).on('change', function() {
-
-					setTimeout( function() {
-						$.each(toggles, function( i, toggle) {
-
-							$.each(toggle.controls, function( k, controlId) {
-
-								controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
-								var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
-								if ( typeof parent != 'undefined' ) {
-
-									var parentId = parent.attr( 'id' );
-									var visibleIt = false;
-
-									parent.find( ' > .customize-control' ).each(function(i,e) {
-										if ( $( this ).css( 'display' ) != 'none' ) {
-											visibleIt = true;
-										}
-									});
-
-									if ( ! visibleIt ) {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
-									} else {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
-									}
-								}
-							});
-						});
-					},300);
-				});
-
-				$.each(toggles, function( i, toggle) {
-
-					$.each(toggle.controls, function( k, controlId) {
-
-						controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
-						var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
-
-						if ( typeof parent != 'undefined' ) {
-
-							var parentId = parent.attr( 'id' );
-							var visibleIt = false;
-
-							parent.find( ' > .customize-control' ).each(function(i,e) {
-								if ( $( this ).css( 'display' ) != 'none' ) {
-									visibleIt = true;
-								}
-							});
-
-							if ( ! visibleIt ) {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
-							} else {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
-							}
-						}
 					});
 				});
 

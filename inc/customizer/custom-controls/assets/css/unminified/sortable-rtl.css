@@ -1,0 +1,31 @@
+.customize-control-ast-sortable ul.ui-sortable {
+  cursor: default;
+}
+
+.customize-control-ast-sortable ul.ui-sortable .dashicons-visibility {
+  cursor: pointer;
+}
+
+.customize-control-ast-sortable ul.ui-sortable li {
+  padding: 5px 10px;
+  border: 1px solid #333;
+  background: #fff;
+  cursor: move;
+}
+
+.customize-control-ast-sortable ul.ui-sortable li .dashicons.dashicons-menu {
+  float: left;
+}
+
+.customize-control-ast-sortable ul.ui-sortable li .dashicons.visibility {
+  margin-left: 10px;
+}
+
+.customize-control-ast-sortable ul.ui-sortable li.invisible {
+  color: #aaa;
+  border: 1px dashed #aaa;
+}
+
+.customize-control-ast-sortable ul.ui-sortable li.invisible .dashicons.visibility {
+  color: #aaa;
+}

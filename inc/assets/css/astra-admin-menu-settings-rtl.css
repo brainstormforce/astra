@@ -1,0 +1,273 @@
+/**
+ * CSS code for all Astra Extensions admin screens
+ *
+ * @package Astra
+ * @since 1.0.0
+ */
+
+.ast-clear:before, .ast-clear:after {
+	content: " ";
+	display: table;
+}
+.ast-clear:after {
+	clear: both;
+}
+
+/**
+ * Error Message
+ */
+#message {
+    display: block;
+    margin-right: 0;
+}
+
+/**
+ * CSS code for all Astra Extensions admin screens
+ *
+ * @package Astra
+ * @since 1.2.4
+ */
+/**
+ * Astra Welcome Page
+ */
+.appearance_page_astra #wpcontent{
+ 	padding: 0;
+ }
+.ast-menu-page-wrapper.wrap{
+	margin: 0;
+}
+.ast-menu-page-wrapper a{
+	text-decoration: none;
+}
+.ast-theme-page-header {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.ast-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.ast-container .ast-normal-cusror.hndle{
+    cursor: initial;
+}
+.ast-container .postbox .hndle{
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Details link for starter sites */
+a.astra-starter-sites-detail-link {
+    margin: 0 10px;
+}
+
+/* Top Right Links. */
+.ast-top-links {
+    flex: auto;
+    text-align: left;
+}
+
+.ast-top-links ul{
+    margin: 0;
+}
+.ast-top-links ul li {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.ast-container.ast-welcome,
+.general .ast-container {
+	max-width: 930px;
+}
+.ast-quick-setting-section span.dashicons {
+    margin: 1px 10px 0 3px;
+}
+.ast-container div.notice,
+.ast-container div.updated,
+.ast-container div.error{
+	margin-top: 0;
+}
+.ast-container #poststuff h2{
+	padding: 12px 12px;
+}
+.ast-container img.ast-starter-sites-img {
+    width: 100%;
+}
+.ast-flex{
+	-js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+.ast-theme-title {
+    align-content: flex-start;
+    text-align: right;
+}
+.ast-theme-title .astra-theme-version {
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    font-size:  0.5em;
+    font-weight:  400;
+    margin-right: 10px;
+    padding: 2px 7px;
+}
+.ast-theme-title a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ast-theme-title a,
+.ast-theme-title span{
+	font-size: 1.5rem;
+    color: #333333;
+    font-weight: 500;
+}
+
+.ast-theme-icon{
+	width: 125px;
+    vertical-align: bottom;
+}
+
+/**
+ * Astra Quick Settings
+ */
+ .ast-quick-setting-section ul,
+ .ast-addon-list-section ul{
+ 	margin: 0;
+ }
+.ast-quick-setting-section li{
+	border-bottom: 1px solid #eee;
+	margin-bottom: 0;
+}
+.ast-addon-list-section li{
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
+    margin-bottom: 0;
+}
+.ast-quick-setting-section li{
+    padding: 10px 0;
+}
+.ast-quick-setting-section li:nth-child(odd){
+    width: 74%;
+}
+.ast-quick-setting-section li:nth-child(even){
+    width: 26%;
+}
+.ast-quick-setting-section li a{
+	margin: 5px;
+	display: inline-block;
+}
+.ast-addon-list-section li{
+	padding: 10px 15px;
+}
+.ast-quick-setting-section a.ast-quick-setting-title{
+	flex: auto;
+}
+
+.ast-addon-list-section .ast-addon-list li {
+	-js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    padding: 10px 15px; 
+}
+
+.ast-addon-list-section .ast-addon-list li:nth-child(even){
+    background-color: #fbfbfb;
+}
+
+.ast-addon-link-wrapper{
+	-js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    display: -webkit-flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    flex: auto;
+}
+.ast-addon-link-wrapper a{
+    line-height: 1.6;
+}
+.ast-addon-link-wrapper a:nth-child(even){
+    margin: 0 10px;
+}
+
+/**
+ * Astra Welcome screen sidebar
+ */
+.ast-sidebar .hndle .dashicons{
+	margin: 0 0 0 5px;
+}
+
+@media (max-width: 544px){
+	.ast-quick-setting-section li{
+		width: 100%;
+	}
+}
+
+/**
+ * Astra Custom Notice for static position
+ */
+.ast-notice{
+    margin-bottom: 20px;
+}
+.ast-notice.ast-notice-error{
+    border-right-color: #dc3232;
+}
+
+.ast-notice{
+    background: #fff;
+    border-right: 4px solid #fff;
+    box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
+    padding: 1px 12px;
+}
+
+.ast-notice p{
+    margin: 0.5em 0;
+    padding: 2px;
+}

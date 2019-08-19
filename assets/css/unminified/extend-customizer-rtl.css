@@ -1,7 +1,5 @@
 .in-sub-panel #customize-theme-controls .customize-pane-child.current-panel-parent,
 #customize-theme-controls .customize-pane-child.current-section-parent {
-	-webkit-transform: translateX(100%);
-	-ms-transform: translateX(100%);
 	transform: translateX(100%);
 }
 
@@ -11,7 +9,6 @@
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     border-right: 4px solid #fff;
-    -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
     transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
 }
 
@@ -33,4 +30,34 @@
 #customize-controls .control-section-ast_section .accordion-section {
     margin-right: -12px;
     margin-left: -12px;
+}
+
+/**
+ * Section Description
+ */
+.customize-section-description .astra-section-description ul {
+    margin: 0;
+}
+
+.customize-section-description .astra-section-description ul > li {
+    list-style-type: none;
+}
+
+.customize-section-description .astra-section-description ul > li:last-child {
+    margin-bottom: 0;
+}
+
+.astra-section-description a {
+    text-decoration: none;
+    font-style: italic;
+    border-bottom: 1px dotted transparent;
+    transition: all ease-in-out .3s;
+}
+
+.astra-section-description a:hover {
+    border-bottom-color: inherit;
+}
+
+#customize-controls .control-section-ast_section .customize-info .customize-section-description {
+    margin-bottom: 0;
 }

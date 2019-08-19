@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
-
-	<rule ref="PHPCompatibility"/>
+	<rule ref="PHPCompatibility">
+	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
+		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+	</rule>
 	<config name="testVersion" value="5.3-"/>
 
 	<rule ref="WordPress-Core" />
@@ -15,6 +17,9 @@
 	<!-- Show sniff codes in all reports -->
 	<arg value="s"/>
 
+	<exclude-pattern>inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<!-- Exclude Libraries -->
+	<exclude-pattern>*/inc/theme-update/batch-processing/*</exclude-pattern>
 </ruleset>

@@ -4,10 +4,14 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 add_action( 'astra_masthead_toggle_buttons', 'astra_masthead_toggle_buttons_primary' );
 add_action( 'astra_masthead', 'astra_masthead_primary_template' );
@@ -129,7 +133,6 @@ if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
 		if ( isset( $args->theme_location ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
-
 				$markup = astra_masthead_get_menu_items();
 
 				if ( $markup ) {
@@ -172,11 +175,13 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
 			}
+
+			$menu_label_class = apply_filters( 'astra_main_menu_toggle_classes', $menu_label_class );
 			?>
 		<div class="ast-button-wrap">
-			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" aria-controls='primary-menu' aria-expanded='false'>
+			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" <?php echo apply_filters( 'astra_nav_toggle_data_attrs', '' ); ?> aria-controls='primary-menu' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
+				<span class="<?php echo esc_attr( $menu_icon ); ?>"></span>
 				<?php if ( '' != $menu_title ) { ?>
 
 					<span class="mobile-menu-wrap">

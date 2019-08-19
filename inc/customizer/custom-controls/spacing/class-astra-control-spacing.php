@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       1.0.0
  */
 
@@ -26,21 +26,6 @@ class Astra_Control_Spacing extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $type = 'ast-spacing';
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/spacing/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/spacing/';
-
-		wp_enqueue_script( 'astra-spacing', $js_uri . 'spacing.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-spacing', $css_uri . 'spacing.css', null, ASTRA_THEME_VERSION );
-
-	}
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.

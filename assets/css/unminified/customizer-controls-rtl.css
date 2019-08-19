@@ -10,16 +10,13 @@
 /* slider control */
 .customize-control-slider input[type=range] {
 	-webkit-appearance: none;
-	-webkit-transition: background .3s;
 	transition: background .3s;
 	background-color: rgba(0,0,0,.1);
 	height: 5px;
-	width: -webkit-calc(100% - 74px);
 	width: calc(100% - 74px);
 	padding: 0;
 }
 .customize-control-slider input[type=range]:focus {
-	-webkit-box-shadow: none;
 	box-shadow: none;
 	outline: none;
 }
@@ -39,7 +36,6 @@
 	width: 15px;
 	height: 15px;
 	border: none;
-	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	background-color: #3498D9;
 }
@@ -87,7 +83,6 @@
 .customize-control-slider .ast-slider-reset {
 	color: rgba(0,0,0,.2);
 	float: left;
-	-webkit-transition: color .5s ease-in;
 	transition: color .5s ease-in;
 }
 .customize-control-slider .ast-slider-reset span {
@@ -112,8 +107,6 @@
 .customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
     width: 50%;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     clear: none;
 }
@@ -128,13 +121,13 @@
     padding-right: 5px;
 }
 
+.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
+	padding-top: 2px;
+}
+
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
     -js-display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: flex;
 }
 
@@ -142,10 +135,6 @@
 .customize-pane-child > li[id$="-sidebar-layout"] > label .customize-control-title,
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -moz-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
 }
 
@@ -189,4 +178,29 @@
 }
 .rtl .control-section-astra-pro h3 a:after {
     content: "\f341";
+}
+
+.ast-hide{
+	display: none !important;
+}
+
+
+/* Primary Sub Menu Item Border */
+#customize-control-astra-settings-primary-submenu-item-border .ast-border-wrapper{
+	width: 100%;
+}
+
+.actions .button.upload-button {
+	text-transform: capitalize;
+}
+
+.wp-picker-container .iris-square-handle {
+	z-index: 8;
+}
+
+/* Site Identity */
+#customize-control-custom_logo .attachment-media-view .button-add-media,
+#customize-control-site_icon .attachment-media-view .placeholder,
+#customize-control-astra-settings-transparent-header-logo .attachment-media-view .button-add-media {
+	text-transform: capitalize;
 }

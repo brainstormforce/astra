@@ -1,0 +1,90 @@
+/**
+ * Slide Up
+ */
+.ast-desktop {
+  /**
+     * Slide Down
+     */
+  /**
+     * Fade
+     */
+}
+
+.ast-desktop .astra-menu-animation-slide-up > .menu-item > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item > .sub-menu .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5em);
+  transition: visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-up > .menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item:hover > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item:hover > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-up > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: flex;
+}
+
+.ast-desktop .astra-menu-animation-slide-down > .menu-item > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5em);
+  transition: visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-down > .menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item:hover > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item:hover > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+}
+
+.ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-slide-down > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: flex;
+}
+
+.ast-desktop .astra-menu-animation-fade > .menu-item > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu,
+.ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu .sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity ease-in-out .3s;
+}
+
+.ast-desktop .astra-menu-animation-fade > .menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-fade > .menu-item:hover > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-fade > .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-fade > .menu-item:hover > .sub-menu,
+.ast-desktop .astra-menu-animation-fade > .menu-item .menu-item.focus > .sub-menu,
+.ast-desktop .astra-menu-animation-fade > .menu-item .menu-item:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity ease-in-out .3s;
+}
+
+.ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item.focus > .astra-full-megamenu-wrapper,
+.ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
+  -js-display: flex;
+  display: flex;
+}

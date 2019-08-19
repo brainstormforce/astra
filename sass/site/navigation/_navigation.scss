@@ -22,6 +22,10 @@
  * Contents
  */
 
+.ast-mobile-menu-buttons {
+	display: none;
+}
+
 /* Toggle Button */
 .ast-button-wrap {
     display: inline-block;
@@ -79,16 +83,24 @@
 	}
 }
 
-.ast-mobile-menu-buttons {
-	display: none;
-}
-
 .main-header-bar-navigation {
 	flex: 1;
 }
 
-.ast-main-header-bar-alignment {
-	flex: 1;
+.header-main-layout-1 {
+	.ast-main-header-bar-alignment {
+		margin-left: auto;
+	}
+}
+
+.header-main-layout-3 {
+	.ast-main-header-bar-alignment {
+		margin-right: auto;
+	}
+}
+
+#site-navigation {
+	height: 100%;
 }
 
 /* Responsive Screen */
@@ -100,6 +112,7 @@
 
 	.ast-mobile-menu-buttons {
 		display: block;
+		align-self: center;
 	}
 
 	.main-header-bar-navigation {

@@ -4,10 +4,14 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Meta Boxes setup
@@ -38,7 +42,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -101,10 +105,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Set metabox options
 			 *
-			 * @see http://php.net/manual/en/filter.filters.sanitize.php
+			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
-				'astra_meta_box_options', array(
+				'astra_meta_box_options',
+				array(
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -128,6 +133,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'ast-breadcrumbs-content' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 				)
 			);
 		}
@@ -146,7 +154,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
+			$metabox_name = sprintf(
+				// Translators: %s is the theme name.
+				__( '%s Settings', 'astra' ),
+				astra_get_theme_name()
+			);
+
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
@@ -199,15 +212,16 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 
-			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-sidebar-layout-meta-wrap">
+			<div class="site-sidebar-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
 				</p>
@@ -223,7 +237,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Sidebar
 			 */
 			?>
-			<div class="site-content-layout-meta-wrap">
+			<div class="site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>
@@ -240,7 +254,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
 			 */
 			?>
-			<div class="disable-section-meta-wrap">
+			<div class="disable-section-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper">
 					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
 				</p>
@@ -293,8 +307,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
 						</label>
 					</div>
+						<?php
+					}
+					$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
+					if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
+						?>
+					<div class="ast-breadcrumbs-content-option-wrap">
+						<label for="ast-breadcrumbs-content">
+							<input type="checkbox" id="ast-breadcrumbs-content" name="ast-breadcrumbs-content" value="disabled" <?php checked( $breadcrumbs_content, 'disabled' ); ?> />
+							<?php esc_html_e( 'Disable Breadcrumb', 'astra' ); ?>
+						</label>
+					</div>
 					<?php } ?>
-
 					<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
 				</div>
 			</div>

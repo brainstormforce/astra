@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -26,26 +26,26 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
+		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
 
-		} else {
-
-			// Get clean hex code.
-			$hex = str_replace( '#', '', $hex );
-
-			if ( 3 == strlen( $hex ) ) {
-				$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
-			}
-
-			// Get r, g & b codes from hex code.
-			$r   = hexdec( substr( $hex, 0, 2 ) );
-			$g   = hexdec( substr( $hex, 2, 2 ) );
-			$b   = hexdec( substr( $hex, 4, 2 ) );
-			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
-
-			return 128 <= $hex ? '#000000' : '#ffffff';
 		}
+
+		// Get clean hex code.
+		$hex = str_replace( '#', '', $hex );
+
+		if ( 3 == strlen( $hex ) ) {
+			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+		}
+
+		// Get r, g & b codes from hex code.
+		$r   = hexdec( substr( $hex, 0, 2 ) );
+		$g   = hexdec( substr( $hex, 2, 2 ) );
+		$b   = hexdec( substr( $hex, 4, 2 ) );
+		$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
+
+		return 128 <= $hex ? '#000000' : '#ffffff';
 	}
 }
 
@@ -360,6 +360,10 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 			foreach ( $css_output as $selector => $properties ) {
 
+				if ( null === $properties ) {
+					break;
+				}
+
 				if ( ! count( $properties ) ) {
 					continue; }
 
@@ -448,6 +452,31 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 		 * @var Mixed.
 		 */
 		return apply_filters( "astra_get_option_{$option}", $value, $option, $default );
+	}
+}
+
+if ( ! function_exists( 'astra_update_option' ) ) {
+
+	/**
+	 * Update Theme options.
+	 *
+	 * @param  string $option option key.
+	 * @param  Mixed  $value  option value.
+	 * @return void
+	 */
+	function astra_update_option( $option, $value ) {
+
+		do_action( "astra_before_update_option_{$option}", $value, $option );
+
+		// Get all customizer options.
+		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+
+		// Update value in options array.
+		$theme_options[ $option ] = $value;
+
+		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+
+		do_action( "astra_after_update_option_{$option}", $value, $option );
 	}
 }
 
@@ -607,14 +636,14 @@ if ( ! function_exists( 'astra_secondary_class' ) ) {
 	function astra_secondary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', get_astra_secondary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', astra_get_secondary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the secondary element as an array.
  */
-if ( ! function_exists( 'get_astra_secondary_class' ) ) {
+if ( ! function_exists( 'astra_get_secondary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the secondary element as an array.
@@ -622,7 +651,7 @@ if ( ! function_exists( 'get_astra_secondary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function get_astra_secondary_class( $class = '' ) {
+	function astra_get_secondary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
@@ -801,6 +830,8 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 			}
 		}
 
+		$title = apply_filters( 'astra_the_title', $title, $post_id );
+
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
 			echo $title;
@@ -829,8 +860,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 
 				<section class="ast-author-box ast-archive-description">
 					<div class="ast-author-bio">
+						<?php do_action( 'astra_before_archive_title' ); ?>
 						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+						<?php do_action( 'astra_after_archive_title' ); ?>
 						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
+						<?php do_action( 'astra_after_archive_description' ); ?>
 					</div>
 					<div class="ast-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
@@ -844,8 +878,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -855,8 +892,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -866,11 +906,13 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
 					<?php
 						/* translators: 1: search string */
 						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
 					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
 				</section>
 
 				<?php
@@ -880,8 +922,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
+					<?php do_action( 'astra_after_archive_title' ); ?>
 					<?php the_archive_description(); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -1079,4 +1124,158 @@ if ( ! function_exists( 'astra_get_default_option' ) ) {
 		 */
 		return apply_filters( "astra_get_default_option_{$option}", $value, $option, $default );
 	}
+}
+
+/**
+ * Search Form
+ */
+if ( ! function_exists( 'astra_get_search_form' ) ) :
+	/**
+	 * Display search form.
+	 *
+	 * @param bool $echo Default to echo and not return the form.
+	 * @return string|void String when $echo is false.
+	 */
+	function astra_get_search_form( $echo = true ) {
+
+		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+			<label>
+				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
+				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
+			</label>
+			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"><i class="astra-search-icon"></i></button>
+		</form>';
+
+		/**
+		 * Filters the HTML output of the search form.
+		 *
+		 * @param string $form The search form HTML output.
+		 */
+		$result = apply_filters( 'astra_get_search_form', $form );
+
+		if ( null === $result ) {
+			$result = $form;
+		}
+
+		if ( $echo ) {
+			echo $result;
+		} else {
+			return $result;
+		}
+	}
+
+endif;
+
+/**
+ * Check if we're being delivered AMP
+ *
+ * @return bool
+ */
+function astra_is_emp_endpoint() {
+	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+}
+
+/*
+ * Get Responsive Spacing
+ */
+if ( ! function_exists( 'astra_responsive_spacing' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $side  top | bottom | left | right.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+
+		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
+			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+		} elseif ( is_numeric( $option ) ) {
+			$spacing = astra_get_css_value( $option );
+		} else {
+			$spacing = ( ! is_array( $option ) ) ? $option : '';
+		}
+
+		return $spacing;
+	}
+}
+
+/*
+ * Apply CSS for the element
+ */
+if ( ! function_exists( 'astra_color_responsive_css' ) ) {
+
+	/**
+	 * Astra Responsive Colors
+	 *
+	 * @param  array  $setting      Responsive colors.
+	 * @param  string $css_property CSS property.
+	 * @param  string $selector     CSS selector.
+	 * @return string               Dynamic responsive CSS.
+	 */
+	function astra_color_responsive_css( $setting, $css_property, $selector ) {
+		$css = '';
+		if ( isset( $setting['desktop'] ) && ! empty( $setting['desktop'] ) ) {
+			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
+		}
+		if ( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
+			$css .= '@media (max-width:768px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
+		}
+		if ( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
+			$css .= '@media (max-width:544px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
+		}
+		return $css;
+	}
+}
+
+if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
+
+	/**
+	 * Check if layout is bb themer's layout
+	 */
+	function astra_check_is_bb_themer_layout() {
+
+		$is_layout = false;
+
+		$post_type = get_post_type();
+		$post_id   = get_the_ID();
+
+		if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+			$is_layout = true;
+		}
+
+		return $is_layout;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'astra_is_white_labelled' ) ) :
+
+	/**
+	 * Check if white label option is enabled in astra pro plugin
+	 */
+	function astra_is_white_labelled() {
+
+		if ( is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) && ! Astra_Ext_White_Label_Markup::show_branding() ) {
+			return apply_filters( 'astra_is_white_labelled', true );
+		}
+
+		return apply_filters( 'astra_is_white_labelled', false );
+	}
+
+endif;
+
+/**
+ * Get the value for font-display property.
+ *
+ * @since 1.8.6
+ * @return string
+ */
+function astra_get_fonts_display_property() {
+	return apply_filters( 'astra_fonts_display_property', 'fallback' );
 }

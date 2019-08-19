@@ -44,7 +44,7 @@
     text-align: center;
     padding: 20px 0;
     margin-bottom: 20px;
-    box-shadow: 0 2px 0 #efefef, 0 2px 2px #ececec;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
 .ast-container {
     max-width: 1200px;
@@ -56,8 +56,13 @@
     cursor: initial;
 }
 .ast-container .postbox .hndle{
-    background: #f7f7f7;
-    border-bottom: 2px solid #e6e6e6;
+    background: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Details link for starter sites */
+a.astra-starter-sites-detail-link {
+    margin: 0 10px;
 }
 
 /* Top Right Links. */
@@ -89,6 +94,9 @@
 .ast-container #poststuff h2{
 	padding: 12px 12px;
 }
+.ast-container img.ast-starter-sites-img {
+    width: 100%;
+}
 .ast-flex{
 	-js-display: flex;
     display: -webkit-box;
@@ -109,9 +117,21 @@
     align-content: center;
 }
 .ast-theme-title {
-    flex: auto;
     align-content: flex-start;
     text-align: left;
+}
+.ast-theme-title .astra-theme-version {
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    font-size:  0.5em;
+    font-weight:  400;
+    margin-left: 10px;
+    padding: 2px 7px;
+}
+.ast-theme-title a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .ast-theme-title a,
 .ast-theme-title span{

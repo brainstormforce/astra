@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -39,6 +39,10 @@ final class Astra_Fonts {
 
 		if ( 'inherit' == $name ) {
 			return;
+		}
+		if ( ! is_array( $variants ) ) {
+			// For multiple variant selectons for fonts.
+			$variants = explode( ',', str_replace( 'italic', 'i', $variants ) );
 		}
 
 		if ( is_array( $variants ) ) {
@@ -128,7 +132,10 @@ final class Astra_Fonts {
 		$font_args = array();
 		$family    = array();
 
+		// This is deprecated filter hook.
 		$fonts = apply_filters( 'astra_google_fonts', $fonts );
+
+		$fonts = apply_filters( 'astra_google_fonts_selected', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
@@ -138,7 +145,7 @@ final class Astra_Fonts {
 					$font_weight = implode( ',', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
-				$font_family = str_replace( "'", '', astar( $font_family, 0 ) );
+				$font_family = str_replace( "'", '', astra_get_prop( $font_family, 0 ) );
 				$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );
@@ -164,6 +171,8 @@ final class Astra_Fonts {
 
 				$font_args['subset'] = urlencode( trim( $subsets ) );
 			}
+
+			$font_args['display'] = astra_get_fonts_display_property();
 
 			return add_query_arg( $font_args, $base_url );
 		}

@@ -1,0 +1,98 @@
+/* Customizer Scroll CSS */
+
+.accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
+	width: 5px;
+	background-color: #f1f1f1;
+}
+
+.accordion-section-content::-webkit-scrollbar-thumb, .wp-full-overlay-sidebar-content::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: #d8d8d8;
+}
+
+.accordion-section-content::-webkit-scrollbar-track, .wp-full-overlay-sidebar-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,.3);
+    width: 20px;
+}
+
+#customize-theme-controls .control-section-ast-section-separator{
+	margin-top: 15px;
+	border-top: 1px solid #ddd;
+	display: block !important;
+}
+
+.customize-control {
+	position: relative;
+	margin-bottom: 0;
+	margin-top: 12px;
+}
+
+.customize-control .customize-inside-control-row {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.customize-control-title {
+	display: inline-block;
+	margin-bottom: 12px;
+}
+
+.customize-control-ast-font-variant .select2 {
+	margin-bottom: 12px;
+}
+
+.customize-control .ast-control-tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.customize-control.customize-control-ast-divider .ast-control-tooltip {
+    position: absolute;
+    top: auto;
+    bottom: 3px;
+    right: 0;
+}
+.ast-fields-wrap .customize-control .ast-control-tooltip {
+    right: 15px;
+    top: 6px;
+}
+
+/* CSS to show popups without scroll */
+#customize-theme-controls .control-section.open {
+    height: 100%;
+}
+
+/* Safari Browser specific CSS */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+            display: inline-block;
+            width: 100%;
+        }
+        .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
+            color: #000000;
+            opacity: .75;
+        }
+        .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+            width: 20%;
+        }
+    }
+}
+
+/* Firefox Browser specific CSS */
+@-moz-document url-prefix() {
+    .control-section.open .customize-control:last-child {
+        margin-bottom: 20px;
+    }
+}
+
+/* IE Browser specific CSS */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .control-section.open .customize-control:last-child {
+        padding-bottom: 20px;
+    }
+    #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+        margin-left: 0px;
+        margin-right: 20px;
+    }
+ }

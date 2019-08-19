@@ -6,6 +6,10 @@
  * @since 1.2.7
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Loop' ) ) :
 
 	/**
@@ -181,7 +185,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function loop_markup( $is_page = false ) {
 			?>
-			<main id="main" class="site-main" role="main">
+			<main id="main" class="site-main">
 
 				<?php if ( have_posts() ) : ?>
 

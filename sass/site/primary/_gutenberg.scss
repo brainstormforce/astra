@@ -1,0 +1,176 @@
+/* .alignwide & .alignfull CSS compatibility */
+.ast-no-sidebar {
+	.entry-content {
+
+		.alignfull {
+			margin-left: calc(-50vw  + 50% );
+			margin-right: calc(-50vw  + 50% );
+			max-width: 100vw;
+			width: 100vw;
+			.alignfull,
+			.alignwide{
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		.alignwide {
+			margin-left: -100px;
+			margin-right: -100px;
+			max-width: unset;
+			width: unset;
+			.alignfull,
+			.alignwide{
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		/* Alignment while using the column block */
+		.wp-block-column {
+			.alignfull,
+			.alignwide {
+				margin-left: auto;
+				margin-right: auto;
+				width: 100%;
+			}
+		}
+	}
+
+	/* Boxed & Content Boxed container alignment support */
+	&.ast-separate-container{
+		.entry-content {
+			.alignfull{
+				margin-left: - 6.67em;
+				margin-right: - 6.67em;
+				width: auto;
+				@media (max-width: $mx-col-xl) {
+					margin-left: - 2.4em;
+					margin-right: - 2.4em;
+				}
+				@media (max-width: $mx-col-md) {
+					margin-left: - 2.14em;
+					margin-right: - 2.14em;
+				}
+				@media (max-width: $mx-col-sm) {				
+					margin-left: - 1em;
+					margin-right: - 1em;
+				}
+			}
+			.alignwide {
+				margin-left: -20px;
+				margin-right: -20px;
+			}
+			/* Alignment while using the column block */
+			.wp-block-column {
+				.alignfull,
+				.alignwide {
+					margin-left: auto;
+					margin-right: auto;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+// Removing margin from wp block gallery element.
+.wp-block-gallery {
+    margin: 0;
+}
+
+.wp-block-separator {
+	max-width: 100px;
+	
+
+	&.is-style-wide {
+		max-width: none;
+	}
+}
+
+.entry-content {
+	.has-2-columns .wp-block-column:first-child {
+		padding-right: 10px;
+	}
+
+	.has-2-columns .wp-block-column:last-child {
+		padding-left: 10px;
+	}
+}
+
+// Remove left margins from gutenberg columns.
+@media (max-width: 782px) {
+	.entry-content {
+		.wp-block-columns .wp-block-column {
+			-ms-flex-preferred-size: 100%;
+			flex-basis: 100%;
+			margin-left: 0;
+		}
+		.has-2-columns .wp-block-column:first-child {
+			padding-right: 0;
+		}
+
+		.has-2-columns .wp-block-column:last-child {
+			padding-left: 0;
+		}
+	}
+}
+
+// Fullwidth image overflows out of container and adds a scrollbar in windows due to difference in calculation of `vh`.
+// see - https://github.com/WordPress/gutenberg/issues/8289#issuecomment-414721567
+// overflow-x: hidden hides this scroll bar.
+body {
+	overflow-x: hidden;
+}
+
+body {
+	.entry-content {
+
+		// Style latest post block to remove dics from post list.
+		.wp-block-latest-posts {
+			margin-left: 0;
+			li {
+				list-style: none;
+			}
+		}
+
+	}
+}
+
+.ast-no-sidebar {
+	.ast-container {
+		.entry-content {
+			.wp-block-latest-posts {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.ast-header-break-point {
+	.entry-content {
+
+		.alignwide {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+	}
+}
+
+.entry-content{
+	.blocks-gallery-item{
+		img{
+			margin-bottom: auto;
+		}
+	}
+}
+
+// Added default color for pullquote
+.wp-block-pullquote {
+    border-top: 4px solid #555d66;
+    border-bottom: 4px solid #555d66;
+    color: #40464d;
+}

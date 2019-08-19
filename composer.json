@@ -1,10 +1,22 @@
 {
-    "require-dev": {
+  "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-        "squizlabs/php_codesniffer": "^3.2",
-        "wimg/php-compatibility": "^8.0",
-        "wp-coding-standards/wpcs": "^0.14.0"
+        "wp-coding-standards/wpcs": "dev-master",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "brainmaestro/composer-git-hooks": "^2.6"
     },
-    "require": {
-    }
+    "scripts": {
+          "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+          "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source",
+          "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+          "post-update-cmd": "vendor/bin/cghooks update"
+      },
+      "extra": {
+          "hooks": {
+                  "pre-commit": [
+                          "echo committing as $(git config user.name)",
+                          "sh bin/block-commits-with-merge-conflict.sh"
+                  ]
+          }
+  }
 }

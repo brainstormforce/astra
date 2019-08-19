@@ -76,9 +76,7 @@
 
     &-flex {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
-        align-content: center;
         @for $i from 1 through 5 {
             &-#{$i} {
                 flex: $i;

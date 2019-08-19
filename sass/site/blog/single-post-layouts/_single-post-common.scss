@@ -144,3 +144,14 @@
 		}
 	}
 }
+
+//Full width / stretched for single post
+.ast-page-builder-template{
+	&.single-post{
+		.site-content{
+			> .ast-container{
+				max-width: 100%;
+			}
+		}
+	}
+}

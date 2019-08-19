@@ -1,0 +1,96 @@
+.ast-responsive-btns {
+  display: inline-block;
+  float: right;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+.ast-responsive-btns > li {
+  margin-bottom: 0;
+  display: none;
+}
+
+.ast-responsive-btns > li.active {
+  display: inline-block;
+}
+
+.ast-responsive-btns button[type="button"] {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: .75;
+  outline: none;
+}
+
+.ast-responsive-btns button[type="button"] > i {
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+}
+
+.ast-field-settings-modal .ast-responsive-btns {
+  margin-top: 6px;
+}
+
+.customize-control-ast-responsive .input-wrapper {
+  overflow: hidden;
+}
+
+.customize-control-ast-responsive .input-wrapper input {
+  display: none;
+  width: 82%;
+  float: none;
+}
+
+.customize-control-ast-responsive .input-wrapper input.active {
+  display: block;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+  width: 50px;
+  margin: 0;
+  display: none;
+  padding: .1em;
+  margin-left: 2px;
+  float: none;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+  display: block;
+  width: 17%;
+  float: none;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
+  display: inline-block;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input.active {
+  display: inline-block;
+}
+
+.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
+  display: inline-block;
+}
+
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
+  display: inline-block;
+}
+
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+  display: none;
+}
+
+#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
+  width: 100%;
+}
+
+.input-wrapper.ast-responsive-wrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-right: 0;
+  align-items: flex-start;
+  flex: 0 1;
+  width: 100%;
+}

@@ -624,12 +624,20 @@
 .woocommerce #content table.cart td.actions .coupon, .woocommerce-page table.cart td.actions .coupon,
 .woocommerce-page #content table.cart td.actions .coupon {
   float: left;
+  display: flex;
+  margin: 0 auto;
 }
 
 .woocommerce table.cart td.actions .coupon label,
 .woocommerce #content table.cart td.actions .coupon label, .woocommerce-page table.cart td.actions .coupon label,
 .woocommerce-page #content table.cart td.actions .coupon label {
   display: none;
+}
+
+.woocommerce table.cart td.actions .button,
+.woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button,
+.woocommerce-page #content table.cart td.actions .button {
+  margin-left: 5px;
 }
 
 @media (min-width: 545px) {

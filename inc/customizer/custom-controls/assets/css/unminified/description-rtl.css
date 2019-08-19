@@ -1,0 +1,13 @@
+.customize-control-ast-description .ast-description {
+  font-style: italic;
+}
+
+.customize-control-ast-description a.button {
+  margin-top: 10px;
+  font-style: normal;
+}
+
+.customize-control-ast-description p {
+  margin: 0;
+  cursor: initial;
+}

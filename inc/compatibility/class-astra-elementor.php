@@ -47,6 +47,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
+			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
 		}
 
 		/**
@@ -91,13 +92,15 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
-						'astra_page_layout', function() {
+						'astra_page_layout',
+						function() {
 							return 'no-sidebar';
 						}
 					);
 
 					add_filter(
-						'astra_get_content_layout', function () {
+						'astra_get_content_layout',
+						function () {
 							return 'page-builder';
 						}
 					);
@@ -106,6 +109,29 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					add_filter( 'astra_featured_image_enabled', '__return_false' );
 				}
 			}
+		}
+
+		/**
+		 * Add z-index CSS for elementor's drag drop
+		 *
+		 * @return void
+		 * @since  1.4.0
+		 */
+		function elementor_overlay_zindex() {
+
+			// return if we are not on Elementor's edit page.
+			if ( ! $this->is_elementor_editor() ) {
+				return;
+			}
+
+			?>
+			<style type="text/css" id="ast-elementor-overlay-css">
+				.elementor-editor-active .elementor-element > .elementor-element-overlay {
+					z-index: 9999;
+				}
+			</style>
+
+			<?php
 		}
 
 		/**

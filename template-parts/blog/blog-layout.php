@@ -4,8 +4,8 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
 
@@ -14,7 +14,7 @@
 
 	<div class="post-content ast-col-md-12">
 
-		<?php astra_blog_post_thumbnai_and_title_order(); ?>
+		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 
 		<div class="entry-content clear" itemprop="text">
 

@@ -42,6 +42,8 @@
 
 			});
 
+			jQuery( '.customize-control-ast-responsive .input-wrapper input.' + 'desktop' + ', .customize-control .ast-responsive-btns > li.' + 'desktop' ).addClass( 'active' );
+
 		},
 
 		/**
