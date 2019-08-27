@@ -28,7 +28,15 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @var array
 		 */
-		private static $db_updates = array();
+		private static $db_updates = array(
+			'2.1.1' => array(
+				'theme_update_site_icon_defaults',
+				'theme_update_transparent_header_defaults',
+				'theme_update_sticky_header_new_option',
+				'theme_update_above_header_new_option',
+				'theme_update_footer_options_defaults',
+			),
+		);
 
 		/**
 		 *  Constructor
