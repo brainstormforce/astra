@@ -39,11 +39,11 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 
 			do_action( 'astra_batch_process_task'. '-' .$process , $process );
 
+			error_log( sprintf( 'process: %s' , $process ) );
+
 			if( function_exists( $process ) ) {
 				call_user_func( $process );
-			}
-
-			if( 'update_db_version' === $process ) {
+			} else if( 'update_db_version' === $process ) {
 				Astra_Theme_Background_Updater::update_db_version();
 			}
 

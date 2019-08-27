@@ -74,14 +74,34 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			}
 
 			
-			$is_queue_running = astra_get_option( 'is_theme_queue_running' );
+			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
 			error_log( sprintf( 'is theme queue running %s', $is_queue_running ) );
 
 			if ( $this->needs_db_update() && ! $is_queue_running ) {
 				$this->update();
 			} else {
-				self::update_db_version();
+				if( ! $is_queue_running ) {
+					self::update_db_version();
+				}
 			}
+		}
+
+		/**
+		 * Is this a brand new theme install?
+		 *
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		function is_new_install() {
+
+			// Get auto saved version number.
+			$saved_version = astra_get_option( 'theme-auto-version', false );
+
+			if ( false === $saved_version ) {
+				return true;
+			}
+
+			return false;
 		}
 
 		/**
@@ -127,12 +147,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 					}
 				}
 			}
-
-			astra_update_option( 'is_theme_queue_running', true );
-
+			
 			self::$background_updater->push_to_queue( 'update_db_version' );
-			self::$background_updater->save()->dispatch();
-
+			astra_update_option( 'is_theme_queue_running', true );
+			
+			self::$background_updater->save()->dispatch();	
 		}
 
 		/**
@@ -157,11 +176,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
-				$is_addon_queue_running = astra_get_option( 'is_addon_queue_running' );
-				error_log( sprintf( 'with addon update %s', $is_addon_queue_running ) );
-				if(! $is_addon_queue_running ) {
-					do_action( 'astra_theme_update_after' );
-				}
+				do_action( 'astra_theme_update_after' );
 				return;
 			}
 
@@ -189,24 +204,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			astra_update_option( 'is_theme_queue_running', false );
 
 			do_action( 'astra_theme_update_after' );
-		}
-
-		/**
-		 * Is this a brand new theme install?
-		 *
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		function is_new_install() {
-
-			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version', false );
-
-			if ( false === $saved_version ) {
-				return true;
-			}
-
-			return false;
 		}
 	}
 }
