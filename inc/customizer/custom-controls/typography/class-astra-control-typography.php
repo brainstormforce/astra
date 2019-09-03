@@ -28,6 +28,38 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	public $connect = false;
 
 	/**
+	 * Option name.
+	 *
+	 * @since 1.0.0
+	 * @var string $name
+	 */
+	public $name = '';
+
+	/**
+	 * Option label.
+	 *
+	 * @since 1.0.0
+	 * @var string $label
+	 */
+	public $label = '';
+
+	/**
+	 * Option description.
+	 *
+	 * @since 1.0.0
+	 * @var string $description
+	 */
+	public $description = '';
+
+	/**
+	 * Control type.
+	 *
+	 * @since 1.0.0
+	 * @var string $type
+	 */
+	public $type = 'ast-font';
+
+	/**
 	 * Used to connect variant controls to each other.
 	 *
 	 * @since 1.5.2
@@ -137,7 +169,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
@@ -177,6 +208,9 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
 			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
 		}
+
+		echo ' data-value="' . esc_attr( $this->value() ) . '"';
+		echo ' data-name="' . esc_attr( $this->name ) . '"';
 	}
 
 	/**
@@ -196,23 +230,6 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		$this->link();
 		$this->render_connect_attribute();
 		echo '>';
-		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
-		echo '<optgroup label="Other System Fonts">';
-
-		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
-			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
-
-		// Add Custom Font List Into Customizer.
-		do_action( 'astra_customizer_font_list', $this->value() );
-
-		echo '<optgroup label="Google">';
-
-		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = astra_get_prop( $single_font, '0' );
-			$category = astra_get_prop( $single_font, '1' );
-			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-		}
 
 		echo '</select>';
 	}
@@ -278,5 +295,56 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		}
 		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
 		echo '</select>';
+		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
+	}
+
+	/**
+	 * Refresh the parameters passed to the JavaScript via JSON.
+	 *
+	 * @see WP_Customize_Control::to_json()
+	 */
+	public function to_json() {
+		parent::to_json();
+
+		$this->json['label']       = esc_html( $this->label );
+		$this->json['description'] = $this->description;
+		$this->json['name']        = $this->name;
+		$this->json['value']       = $this->value();
+	}
+
+	/**
+	 * An Underscore (JS) template for this control's content (but not its container).
+	 *
+	 * Class variables for this control class are available in the `data` JS object;
+	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
+	 *
+	 * @see WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 */
+	protected function content_template() {
+
+		?>
+
+		<label>
+		<# if ( data.label ) { #>
+			<span class="customize-control-title">{{{data.label}}}</span>
+		<# } #>
+
+		</label>
+		<select data-inherit="<?php echo $this->ast_inherit; ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
+		data-value="{{data.value}}" 
+
+		<# if ( data.connect ) { #>
+			data-connected-control={{ data.connect }}
+		<# } #>
+		<# if ( data.variant ) { #>
+			data-connected-variant="{{data.variant}}"; 
+		<# } #>
+
+		>
+		</select>
+
+		<?php
 	}
 }

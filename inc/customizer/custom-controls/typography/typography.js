@@ -38,6 +38,23 @@
 		 */
 		_initFonts: function()
 		{
+			$( '.customize-control-ast-font-family select' ).each( function(e) {
+
+				if( 'undefined' != typeof astra.customizer ) {
+					var fonts = astra.customizer.settings.google_fonts;
+					var optionName = $(this).data('name');
+
+					$(this).html( fonts );
+
+					// Set inherit option text defined in control parameters.
+					$("select[data-name='" + optionName + "'] option[value='inherit']").text( $(this).data('inherit') );
+
+					var font_val = $(this).data('value');
+
+					$(this).val( font_val );
+				}
+			});
+
 			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
 			// Added select2 for all font family & font variant.
 			$('.customize-control-ast-font-family select, .customize-control-ast-font-variant select').selectWoo();
@@ -148,8 +165,8 @@
 				weightObject = Object.keys(weightObject).map(function(k) {
 				  return weightObject[k];
 				});
-			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
-				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
+			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue ] ) {
+				weightObject = AstFontFamilies.custom[ fontValue ].weights;
 			}
 
 			return weightObject;

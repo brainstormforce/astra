@@ -44,21 +44,6 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 	public $units = array();
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-
-		wp_enqueue_script( 'astra-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-css', $css_uri . 'responsive.css', null, ASTRA_THEME_VERSION );
-
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -120,8 +105,8 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 
 				<# if ( data.responsive ) { #>
 				<ul class="ast-responsive-btns">
-					<li class="desktop active">
-						<button type="button" class="preview-desktop active" data-device="desktop">
+					<li class="desktop">
+						<button type="button" class="preview-desktop" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
 						</button>
 					</li>
@@ -161,30 +146,30 @@ class Astra_Control_Responsive extends WP_Customize_Control {
 			<div class="input-wrapper ast-responsive-wrapper">
 
 				<# if ( data.responsive ) { #>
-					<input {{{ data.inputAttrs }}} data-id='desktop' class="ast-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
-					<select class="ast-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+					<input {{{ data.inputAttrs }}} data-id='desktop' class="ast-responsive-input desktop active" type="number" data-name="{{data.name}}" value="{{ value_desktop }}"/>
+					<select class="ast-responsive-select desktop" data-name="{{data.name}}" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 					<# _.each( data.units, function( value, key ) { #>
 						<option value="{{{ key }}}" <# if ( data.value['desktop-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 					<# }); #>
 					</select>
 
-					<input {{{ data.inputAttrs }}} data-id='tablet' class="ast-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
-					<select class="ast-responsive-select tablet" data-id='tablet-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+					<input {{{ data.inputAttrs }}} data-id='tablet' data-name="{{data.name}}" class="ast-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
+					<select class="ast-responsive-select tablet" data-name="{{data.name}}" data-id='tablet-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 					<# _.each( data.units, function( value, key ) { #>
 						<option value="{{{ key }}}" <# if ( data.value['tablet-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 					<# }); #>
 					</select>
 
-					<input {{{ data.inputAttrs }}} data-id='mobile' class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
-					<select class="ast-responsive-select mobile" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+					<input {{{ data.inputAttrs }}} data-id='mobile' data-name="{{data.name}}" class="ast-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
+					<select class="ast-responsive-select mobile" data-name="{{data.name}}" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 					<# _.each( data.units, function( value, key ) { #>
 						<option value="{{{ key }}}" <# if ( data.value['mobile-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 					<# }); #>
 					</select>
 
 				<# } else { #>
-					<input {{{ data.inputAttrs }}} data-id='desktop' class="ast-responsive-input ast-non-reponsive desktop active" type="number" value="{{ value_desktop }}"/>
-					<select class="ast-responsive-select ast-non-reponsive desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+					<input {{{ data.inputAttrs }}} data-id='desktop' data-name="{{data.name}}" class="ast-responsive-input ast-non-reponsive desktop active" type="number" value="{{ value_desktop }}"/>
+					<select class="ast-responsive-select ast-non-reponsive desktop" data-id='desktop-unit' data-name="{{data.name}}" <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 					<# _.each( data.units, function( value, key ) { #>
 						<option value="{{{ key }}}" <# if ( data.value['desktop-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 					<# }); #>

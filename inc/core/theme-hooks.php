@@ -11,6 +11,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Themes and Plugins can check for astra_hooks using current_theme_supports( 'astra_hooks', $hook )
  * to determine whether a theme declares itself to support this specific hook type.

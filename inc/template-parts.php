@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action( 'astra_masthead_toggle_buttons', 'astra_masthead_toggle_buttons_primary' );
 add_action( 'astra_masthead', 'astra_masthead_primary_template' );
 add_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );

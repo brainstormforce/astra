@@ -44,20 +44,6 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	public $unit_choices = array( 'px' => 'px' );
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
-
-		wp_enqueue_script( 'astra-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-spacing', $css_uri . 'responsive-spacing.css', null, ASTRA_THEME_VERSION );
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -138,6 +124,9 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
+
+		$item_link_desc = __( 'Link Values Together', 'astra' );
+
 		?>
 		<label class='ast-spacing-responsive' for="" >
 
@@ -187,8 +176,8 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 				<ul class="ast-spacing-wrapper desktop active"><# 
 					if ( data.linked_choices ) { #>
 					<li class="ast-spacing-input-item-link">
-							<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+							<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
+							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
 						</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) {
@@ -214,8 +203,8 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 
 					if ( data.linked_choices ) { #>
 					<li class="ast-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
+						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
@@ -240,8 +229,8 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 				<ul class="ast-spacing-wrapper mobile"><# 
 					if ( data.linked_choices ) { #>
 					<li class="ast-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
+						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 

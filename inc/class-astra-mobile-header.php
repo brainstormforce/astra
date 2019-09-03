@@ -6,6 +6,10 @@
  * @since 1.4.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 	/**
@@ -67,9 +71,10 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		public function toggle_button( $item_output, $item, $depth, $args ) {
 			// Add toggle button if menu is from Astra.
 			if ( true === is_object( $args ) ) {
-				if ( 'primary' === $args->theme_location ||
+				if ( isset( $args->theme_location ) &&
+				( 'primary' === $args->theme_location ||
 				'above_header_menu' === $args->theme_location ||
-				'below_header_menu' === $args->theme_location
+				'below_header_menu' === $args->theme_location )
 				) {
 					if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
 						$item_output = $this->menu_arrow_button_markup( $item_output, $item );

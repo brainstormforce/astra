@@ -9,6 +9,10 @@
  * @since       Astra 1.7.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 
 	/**
@@ -44,7 +48,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			// Load Google fonts.
-			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ) );
+			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		}
 
 		/**
@@ -53,9 +57,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @return void
 		 */
 		public function add_fonts() {
-			$font_family_product_title = astra_get_option( 'breadcrumb-font-family' );
-			$font_weight_product_title = astra_get_option( 'breadcrumb-font-weight' );
-			Astra_Fonts::add_font( $font_family_product_title, $font_weight_product_title );
+			$breadcrumb_font_family = astra_get_option( 'breadcrumb-font-family' );
+			$breadcrumb_font_weight = astra_get_option( 'breadcrumb-font-weight' );
+			Astra_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
 		}
 
 		/**
@@ -65,6 +69,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @return array
 		 */
 		function theme_defaults( $defaults ) {
+
+			/**
+			 * Breadcrumb Typography
+			 */
+			$defaults['breadcrumb-font-family']    = 'inherit';
+			$defaults['breadcrumb-font-weight']    = 'inherit';
+			$defaults['breadcrumb-text-transform'] = 'inherit';
 
 			/**
 			 * Breadcrumb Responsive Colors

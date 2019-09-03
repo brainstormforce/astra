@@ -42,19 +42,6 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public $linked = '';
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/customizer-link/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/customizer-link/';
-
-		wp_enqueue_style( 'astra-customizer-link-css', $css_uri . 'customizer-link.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_script( 'astra-customizer-link-css', $js_uri . 'customizer-link.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()

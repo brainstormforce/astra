@@ -11,6 +11,10 @@
  * @since 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will
@@ -44,7 +48,7 @@ if ( post_password_required() ) {
 		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
+		<nav id="comment-nav-above" class="navigation comment-navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 
@@ -67,7 +71,7 @@ if ( post_password_required() ) {
 		</ol><!-- .ast-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
+		<nav id="comment-nav-below" class="navigation comment-navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'astra' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 

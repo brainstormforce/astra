@@ -15,6 +15,10 @@
  * @since 1.4.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Notices' ) ) :
 
 	/**
@@ -173,6 +177,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
+				'is_dismissible'             => true,
 			);
 
 			// Count for the notices that are rendered.
@@ -218,6 +223,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			wp_enqueue_script( 'astra-notices' );
 
+			do_action( 'astra_notice_before_markup' );
+
 			do_action( "astra_notice_before_markup_{$notice['id']}" );
 
 			?>
@@ -231,6 +238,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			do_action( "astra_notice_after_markup_{$notice['id']}" );
 
+			do_action( 'astra_notice_after_markup' );
+
 		}
 
 		/**
@@ -242,7 +251,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array       Notice wrapper classes.
 		 */
 		private static function get_wrap_classes( $notice ) {
-			$classes   = array( 'astra-notice', 'notice', 'is-dismissible' );
+			$classes = array( 'astra-notice', 'notice' );
+
+			if ( $notice['is_dismissible'] ) {
+				$classes[] = 'is-dismissible';
+			}
+
 			$classes[] = $notice['class'];
 			if ( isset( $notice['type'] ) && '' !== $notice['type'] ) {
 				$classes[] = 'notice-' . $notice['type'];

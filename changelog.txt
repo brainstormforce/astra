@@ -1,8 +1,53 @@
+v2.0.1
+- Fix: JavaScript error causing customizer to not load for a few users due to conflict with some third-party plugins.
+- Fix: Do not load accessibility fix for skip link in AMP endpoint as it is included in the amphtml (props @amedina)
+- Fix: Rename function astra_is_emp_endpoint() to astra_is_amp_endpoint() and depracate astra_is_emp_endpoint() to fix the typo in the function name.  
+
+v2.0.0
+- Improvement: Loading combined CSS and JS file for params in the customizer.
+- Improvement: Remove unnecessary role attribute from HTML. 
+- Improvement: Crossbrowser compatibility for customizer UI. 
+- Improvement: Optimized number of queries executed on admin pages.  
+- Improvement: Live preview for controls. 
+- Improvement: Optimized logic for generating settings group control data. 
+- Fix: WooCommerce shop page cannot take fullwidth stretch layout when using Elementor/Beaver Builder page builder.
+- Fix: Prevent PHP warning in the customizer for PHP 7.1.
+- Fix: Infinite Scroll not working on WooCommerce Subcategory pages.
+- Fix: Fonts from custom font plugin not appearing in fonts list in the customizer. 
+- Fix: Group popup not closing in customizer for the WooCommerce product catalog section. 
+- Fix: Section title does not stick in the customizer. 
+- Fix: RTL fixes for customizer custom controls.
+
+v2.0.0-rc.1
+- Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Astra Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
+- Improvement: Changed the images inside customizer to new lightweight SVGs.
+- Improvement: Updated minor UI tweaks for all the customizer controls to unify the design accross all the options.
+
+v2.0.0-beta.4
+- Improvement: Layout design images.
+- Improvement: Control Sequence in WooCommerce Single Product Section in the Customizer.
+- Improvement: Distinguish Astra Sections from Default Sections in the Customizer. 
+- Improvement: Option Labels in the Customizer. 
+- Fix: PHP Warning in the Customizer while Woocommerce is not Active.
+
+v2.0.0-beta.3
+- New: Added Global Section for Site Options.
+- Improvement: Categorization for Customizer - Theme Sections Listed under Main Panel.
+
+v2.0.0-beta.2
+- Improvement: Preview for base typography options without page refresh.
+- Fix: Toggle button displays when there are no items to display in the menu. 
+
 v1.8.7
 - New: Introduced wp_body_open action hook.
 - Improvement: Show notification when Dropdown Target selected as "Link".
 - Fix: Product widget grid design conflict with Elementor editor mobile device view.
 - Fix: Padding added from Elementor product widget not working on the Front-end.
+
+v2.0.0-beta.1
+- New: Introduced a Group Param for customizer Settings. 
+- Improvement: Live preview for Typography options.
+- Improvement: Customizer performance.
 
 v1.8.6
 - Improvement: Deprecated layout options for LearnDash 3.0 template.

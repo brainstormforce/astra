@@ -8,13 +8,31 @@
  * @since 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '1.9.0-beta.1' );
+define( 'ASTRA_THEME_VERSION', '2.0.1' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
+
+
+/**
+ * Minimum Version requirement of the Astra Pro addon.
+ * This constant will be used to display the notice asking user to update the Astra addon to latest version.
+ */
+define( 'ASTRA_EXT_MIN_VER', '2.0.0' );
+
+/**
+ * Setup helper functions of Astra.
+ */
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-options.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-theme-strings.php';
+require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 
 /**
  * Update theme
@@ -22,11 +40,6 @@ define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri(
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-update.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-pb-compatibility.php';
 
-/**
- * Load theme hooks
- */
-require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-options.php';
-require_once ASTRA_THEME_DIR . 'inc/core/class-theme-strings.php';
 
 /**
  * Fonts Files
@@ -38,7 +51,6 @@ if ( is_admin() ) {
 
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 
-require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';

@@ -1,0 +1,29 @@
+.customize-control-ast-color {
+  .wp-color-result span {
+    background: #f7f7f7;
+    &.color-alpha {
+      height: 22px !important;
+    }
+  }
+  .ast-color-picker-alpha.wp-color-picker {
+    width: 67px !important;
+    line-height: 17px;
+  }
+  .wp-picker-clear {
+    margin-left: 2%;
+  }
+}
+
+.wp-picker-input-wrap label {
+  font-size: 0;
+}
+
+@media (max-width: 1755px) {
+  .iris-picker.iris-border {
+    width: 245px !important;
+  }
+  .iris-slider.iris-strip, .iris-strip.iris-slider.iris-alpha-slider {
+    width: 13px !important;
+    margin-left: 8px !important;
+  }
+}

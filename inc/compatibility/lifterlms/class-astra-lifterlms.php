@@ -454,7 +454,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 				<?php astra_primary_content_top(); ?>
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
 					<div class="ast-lifterlms-container">
 			<?php
 		}

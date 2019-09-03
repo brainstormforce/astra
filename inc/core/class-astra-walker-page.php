@@ -9,6 +9,10 @@
  * @since       Astra 1.5.4
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Custom wp_nav_menu walker.
  *

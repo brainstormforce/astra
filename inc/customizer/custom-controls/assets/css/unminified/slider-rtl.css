@@ -1,0 +1,123 @@
+.customize-control-ast-slider .wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.customize-control-ast-slider input[type=range] {
+  -webkit-appearance: none;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  transition: background 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 5px;
+  padding: 0;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.customize-control-ast-slider input[type=range]:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.customize-control-ast-slider input[type=range]:hover, .customize-control-ast-slider input[type=range]:focus {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.customize-control-ast-slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #3498D9;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3498D9;
+}
+
+.customize-control-ast-slider input[type=range]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background-color: #3498D9;
+}
+
+.customize-control-ast-slider input[type=range]::-ms-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #3498D9;
+}
+
+.customize-control-ast-slider input[type=range]::-moz-range-track {
+  border: inherit;
+  background: transparent;
+}
+
+.customize-control-ast-slider input[type=range]::-ms-track {
+  border: inherit;
+  color: transparent;
+  background: transparent;
+}
+
+.customize-control-ast-slider input[type=range]::-ms-fill-lower, .customize-control-ast-slider input[type=range]::-ms-fill-upper {
+  background: transparent;
+}
+
+.customize-control-ast-slider input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+.customize-control-ast-slider .astra_range_value {
+  font-size: 14px;
+  padding: 0 5px 0 0;
+  font-weight: 400;
+  position: relative;
+}
+
+.customize-control-ast-slider .ast-slider-reset {
+  color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -28px;
+  left: 0;
+  /*float: right;*/
+  display: inline-block;
+  -webkit-transition: color 0.5s ease-in;
+  -moz-transition: color 0.5s ease-in;
+  -ms-transition: color 0.5s ease-in;
+  -o-transition: color 0.5s ease-in;
+  transition: color 0.5s ease-in;
+}
+
+.customize-control-ast-slider .ast-slider-reset span {
+  font-size: 16px;
+  line-height: 22px;
+  transition: unset;
+}
+
+.customize-control-ast-slider .ast-slider-reset:hover, .customize-control-ast-slider .ast-slider-reset:focus {
+  color: red;
+}
+
+.astra_range_value input.ast-range-value-input {
+  width: 50px;
+  height: 22px;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.astra_range_value .ast-range-unit {
+  margin-right: 5px;
+}

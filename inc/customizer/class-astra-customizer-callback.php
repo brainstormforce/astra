@@ -5,6 +5,10 @@
  * @package Astra Theme
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Customizer Callback
  */

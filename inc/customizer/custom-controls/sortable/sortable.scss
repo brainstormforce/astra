@@ -1,29 +1,27 @@
 .customize-control-ast-sortable ul.ui-sortable {
-	cursor: default;
-
-	.dashicons-visibility {
-		cursor: pointer;
-	}
-
-	li {
-		padding: 5px 10px;
-		border: 1px solid #333;
-		background: #fff;
-		cursor: move;
-
-		.dashicons.dashicons-menu {
-			float: right;
-		}
-		.dashicons.visibility {
-			margin-right: 10px;
-		}
-		&.invisible {
-			color: #aaa;
-			border: 1px dashed #aaa;
-
-			.dashicons.visibility {
-				color: #aaa;
-			}
-		}
-	}
+  cursor: default;
+  .dashicons-visibility {
+    cursor: pointer;
+  }
+  li {
+    padding: 5px 10px;
+    border: 1px solid #333;
+    background: #fff;
+    cursor: move;
+    .dashicons {
+      &.dashicons-menu {
+        float: right;
+      }
+      &.visibility {
+        margin-right: 10px;
+      }
+    }
+    &.invisible {
+      color: #aaa;
+      border: 1px dashed #aaa;
+      .dashicons.visibility {
+        color: #aaa;
+      }
+    }
+  }
 }

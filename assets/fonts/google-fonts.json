@@ -858,6 +858,14 @@
         }
     },
     {
+        "Bahianita": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Bai Jamjuree": {
             "variants": [
                 "200",
@@ -1048,6 +1056,14 @@
         }
     },
     {
+        "Barriecito": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Barrio": {
             "variants": [
                 "regular"
@@ -1132,6 +1148,14 @@
     },
     {
         "Berkshire Swash": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Beth Ellen": {
             "variants": [
                 "regular"
             ],
@@ -1248,6 +1272,21 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Blinker": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -2103,6 +2142,29 @@
         }
     },
     {
+        "Crimson Pro": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic",
+                "900",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Crimson Text": {
             "variants": [
                 "regular",
@@ -2167,6 +2229,37 @@
         }
     },
     {
+        "DM Sans": {
+            "variants": [
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "DM Serif Display": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "DM Serif Text": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Damion": {
             "variants": [
                 "regular"
@@ -2189,6 +2282,20 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Darker Grotesque": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -2610,6 +2717,8 @@
         "Enriqueta": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -2741,6 +2850,17 @@
         }
     },
     {
+        "Farro": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Farsan": {
             "variants": [
                 "regular"
@@ -2841,6 +2961,18 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Fira Code": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -3333,6 +3465,31 @@
         }
     },
     {
+        "Grenze": {
+            "variants": [
+                "100",
+                "100italic",
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic",
+                "900",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Griffy": {
             "variants": [
                 "regular"
@@ -3479,6 +3636,22 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Hepta Slab": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -4346,6 +4519,8 @@
             "variants": [
                 "300",
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -4416,6 +4591,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Lacquer": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4533,6 +4716,62 @@
         }
     },
     {
+        "Lexend Deca": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Exa": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Giga": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Mega": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Peta": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Tera": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Lexend Zetta": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Libre Barcode 128": {
             "variants": [
                 "regular"
@@ -4591,6 +4830,24 @@
         }
     },
     {
+        "Libre Caslon Display": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Libre Caslon Text": {
+            "variants": [
+                "regular",
+                "italic",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Libre Franklin": {
             "variants": [
                 "100",
@@ -4619,7 +4876,8 @@
         "Life Savers": {
             "variants": [
                 "regular",
-                "700"
+                "700",
+                "800"
             ],
             "category": "display"
         }
@@ -4655,6 +4913,52 @@
                 "italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Literata": {
+            "variants": [
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Liu Jian Mao Cao": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Livvic": {
+            "variants": [
+                "100",
+                "100italic",
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "900",
+                "900italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4709,6 +5013,14 @@
                 "900"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Long Cang": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -4797,6 +5109,14 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Ma Shan Zheng": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -6864,6 +7184,7 @@
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700"
             ],
             "category": "sans-serif"
@@ -7041,6 +7362,34 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Red Hat Display": {
+            "variants": [
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "700",
+                "700italic",
+                "900",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Red Hat Text": {
+            "variants": [
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "700",
+                "700italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -7450,6 +7799,14 @@
         }
     },
     {
+        "Saira Stencil One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Salsa": {
             "variants": [
                 "regular"
@@ -7770,6 +8127,14 @@
                 "italic",
                 "900",
                 "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Single Day": {
+            "variants": [
+                "regular"
             ],
             "category": "display"
         }
@@ -8923,6 +9288,14 @@
     },
     {
         "Zeyada": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Zhi Mang Xing": {
             "variants": [
                 "regular"
             ],

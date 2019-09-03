@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Astra BB Ultimate Addon Compatibility
  */
@@ -53,7 +57,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		public function astra_amp_init() {
 
 			// bail if AMP endpoint is not detected.
-			if ( ! astra_is_emp_endpoint() ) {
+			if ( ! astra_is_amp_endpoint() ) {
 				return;
 			}
 

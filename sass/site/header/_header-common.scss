@@ -37,6 +37,10 @@
     border-bottom-style: solid;
 }
 
+.main-header-bar {
+    transition: all 0.2s linear;
+}
+
 /**
  * 6 - all and (max-width: $mx-break-point)
  */

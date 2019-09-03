@@ -11,6 +11,10 @@
  * @since       Astra 1.1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Shop page - Products Title markup updated
  */

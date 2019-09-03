@@ -6,6 +6,10 @@
  * @package Astra
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Common Functions for Blog and Single Blog
  *
@@ -132,10 +136,18 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		ob_start();
 
-		?>
-
-		<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author">
-			<?php // Translators: Author Name. ?>
+		echo '<span ';
+			echo astra_attr(
+				'post-meta-author',
+				array(
+					'class'     => 'posted-by vcard author',
+					'itemtype'  => 'https://schema.org/Person',
+					'itemscope' => 'itemscope',
+					'itemprop'  => 'author',
+				)
+			);
+		echo '>';
+			// Translators: Author Name. ?>
 			<a class="url fn n" title="<?php printf( esc_attr__( 'View all posts by %1$s', 'astra' ), get_the_author() ); ?>" 
 				href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" itemprop="url">
 				<span class="author-name" itemprop="name"><?php echo get_the_author(); ?></span>
@@ -218,10 +230,41 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				?>
 
 				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
-				</span>
+				<?php
+				echo '<span ';
+					echo astra_attr(
+						'comments-interactioncounter',
+						array(
+							'itemprop'  => 'interactionStatistic',
+							'itemscope' => '',
+							'itemtype'  => 'https://schema.org/InteractionCounter',
+						)
+					);
+				echo '>';
+
+					echo '<meta ';
+						echo astra_attr(
+							'comments-interactioncounter-interactiontype',
+							array(
+								'itemprop' => 'interactionType',
+								'content'  => 'https://schema.org/CommentAction',
+							)
+						);
+					echo '/>';
+
+					echo '<meta ';
+						echo astra_attr(
+							'comments-interactioncounter-userinteractioncount',
+							array(
+								'itemprop' => 'userInteractionCount',
+								'content'  => absint( wp_count_comments( get_the_ID() )->approved ),
+							)
+						);
+
+					echo '/>';
+
+				echo '</span>';
+				?>
 			</span>
 
 			<?php

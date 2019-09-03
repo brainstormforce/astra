@@ -45,77 +45,110 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider
+				 * Option: breadcrumb color Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => 'section-breadcrumb',
+					'title'    => __( 'Colors', 'astra' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'priority' => 72,
+					'settings' => array(),
+				),
+
 				/*
 				 * Breadcrumb Color
 				 */
 				array(
-					'name'     => 'section-breadcrumb-color',
-					'type'     => 'section',
-					'title'    => __( 'Breadcrumb', 'astra' ),
-					'panel'    => 'panel-colors-background',
-					'priority' => 10,
+					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'default'   => astra_get_option( 'section-breadcrumb-color' ),
+					'type'      => 'control',
+					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Content', 'astra' ),
+					'section'   => 'section-breadcrumb',
+					'transport' => 'postMessage',
+					'priority'  => 72,
 				),
 
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-active-color-responsive]',
-					'default'    => $defaults['breadcrumb-active-color-responsive'],
-					'type'       => 'control',
+					'name'       => 'breadcrumb-bg-color',
+					'type'       => 'sub-control',
+					'default'    => astra_get_option( 'breadcrumb-bg-color' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
 					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Text Color', 'astra' ),
-					'section'    => 'section-breadcrumb-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-text-color-responsive]',
-					'default'    => $defaults['breadcrumb-text-color-responsive'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Link Color', 'astra' ),
-					'section'    => 'section-breadcrumb-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-hover-color-responsive]',
-					'default'    => $defaults['breadcrumb-hover-color-responsive'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Link Hover Color', 'astra' ),
-					'section'    => 'section-breadcrumb-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-color]',
-					'default'    => $defaults['breadcrumb-separator-color'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Separator Color', 'astra' ),
-					'section'    => 'section-breadcrumb-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-bg-color]',
-					'default'    => $defaults['breadcrumb-bg-color'],
-					'type'       => 'control',
-					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
 					'control'    => 'ast-responsive-color',
 					'title'      => __( 'Background Color', 'astra' ),
-					'section'    => 'section-breadcrumb-color',
 					'responsive' => true,
 					'rgba'       => true,
+					'priority'   => 5,
 				),
 
+				array(
+					'name'       => 'breadcrumb-active-color-responsive',
+					'default'    => astra_get_option( 'breadcrumb-active-color-responsive' ),
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Text Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 10,
+				),
+
+				array(
+					'name'       => 'breadcrumb-text-color-responsive',
+					'default'    => astra_get_option( 'breadcrumb-text-color-responsive' ),
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Link Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 15,
+				),
+
+				array(
+					'name'       => 'breadcrumb-hover-color-responsive',
+					'default'    => astra_get_option( 'breadcrumb-hover-color-responsive' ),
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Hover', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Link Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 20,
+				),
+
+				array(
+					'name'       => 'breadcrumb-separator-color',
+					'default'    => astra_get_option( 'breadcrumb-separator-color' ),
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
+					'section'    => 'section-breadcrumb',
+					'transport'  => 'postMessage',
+					'tab'        => __( 'Normal', 'astra' ),
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Separator Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 25,
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

@@ -1,10 +1,11 @@
-/**
- * File spacing.js
- *
- * Handles the spacing
- *
- * @package Astra
- */
+( function( $ ) {
+	/**
+	 * File spacing.js
+	 *
+	 * Handles the spacing
+	 *
+	 * @package Astra
+	 */
 
 	wp.customize.controlConstructor['ast-spacing'] = wp.customize.Control.extend({
 
@@ -49,3 +50,4 @@
 			control.setting.set( newValue );
 		}
 	});
+})(jQuery);

@@ -81,13 +81,13 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 					$val = $input_attrs['min'];
 				}
 
-						$dv = $val / $input_attrs['step'];
+				$dv = (float) $val / $input_attrs['step'];
 
-						$dv = round( $dv );
+				$dv = round( $dv );
 
-						$val = $dv * $input_attrs['step'];
+				$val = $dv * $input_attrs['step'];
 
-					$val = number_format( (float) $val, 2, '.', '' );
+				$val = number_format( (float) $val, 2, '.', '' );
 				if ( $val == (int) $val ) {
 					$val = (int) $val;
 				}
@@ -253,12 +253,12 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				'mobile-unit'  => '',
 			);
 			if ( is_array( $val ) ) {
-				$responsive['desktop']      = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
-				$responsive['tablet']       = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
-				$responsive['mobile']       = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
-				$responsive['desktop-unit'] = in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['desktop-unit'] : 'px';
-				$responsive['tablet-unit']  = in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['tablet-unit'] : 'px';
-				$responsive['mobile-unit']  = in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['mobile-unit'] : 'px';
+				$responsive['desktop']      = ( isset( $val['desktop'] ) && is_numeric( $val['desktop'] ) ) ? $val['desktop'] : '';
+				$responsive['tablet']       = ( isset( $val['tablet'] ) && is_numeric( $val['tablet'] ) ) ? $val['tablet'] : '';
+				$responsive['mobile']       = ( isset( $val['mobile'] ) && is_numeric( $val['mobile'] ) ) ? $val['mobile'] : '';
+				$responsive['desktop-unit'] = ( isset( $val['desktop-unit'] ) && in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['desktop-unit'] : 'px';
+				$responsive['tablet-unit']  = ( isset( $val['tablet-unit'] ) && in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['tablet-unit'] : 'px';
+				$responsive['mobile-unit']  = ( isset( $val['mobile-unit'] ) && in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ) ? $val['mobile-unit'] : 'px';
 			} else {
 				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
 			}

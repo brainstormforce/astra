@@ -50,20 +50,6 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		public $unit_choices = array( 'px' => 'px' );
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-
-			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
-			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
-
-			wp_enqueue_script( 'astra-border', $js_uri . 'border.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'astra-border', $css_uri . 'border.css', null, ASTRA_THEME_VERSION );
-		}
-
-		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
 		 *
 		 * @see WP_Customize_Control::to_json()
@@ -90,7 +76,6 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
 			$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
-
 		}
 
 		/**
@@ -104,6 +89,8 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		 * @access protected
 		 */
 		protected function content_template() {
+
+			$item_link_desc = __( 'Link Values Together', 'astra' );
 			?>
 			<label class='ast-border' for="" >
 
@@ -120,13 +107,13 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 					<ul class="ast-border-wrapper desktop active"><# 
 						if ( data.linked_choices ) { #>
 						<li class="ast-border-input-item-link">
-								<span class="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-								<span class="dashicons dashicons-editor-unlink ast-border-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+								<span class="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
+								<span class="dashicons dashicons-editor-unlink ast-border-disconnected" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>
 							</li><#
 						}
 						_.each( data.choices, function( choiceLabel, choiceID ) {
 						#><li {{{ data.inputAttrs }}} class='ast-border-input-item'>
-							<input type='number' class='ast-border-input ast-border-desktop' data-id= '{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+							<input type='number' class='ast-border-input ast-border-desktop' data-id= '{{ choiceID }}' data-name="{{ data.name }}" value='{{ data.value[ choiceID ] }}'>
 							<span class="ast-border-title">{{{ data.choices[ choiceID ] }}}</span>
 						</li><#
 						}); #>

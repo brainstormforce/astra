@@ -32,6 +32,19 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Text Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
+					'default'  => '#3a3a3a',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'  => 'section-colors-body',
+					'priority' => 5,
+					'title'    => __( 'Text Color', 'astra' ),
+				),
+
+				/**
 				 * Option: Theme Color
 				 */
 				array(
@@ -55,19 +68,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'  => '#0274be',
 					'priority' => 5,
 					'title'    => __( 'Link Color', 'astra' ),
-				),
-
-				/**
-				 * Option: Text Color
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
-					'default'  => '#3a3a3a',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'  => 'section-colors-body',
-					'priority' => 10,
-					'title'    => __( 'Text Color', 'astra' ),
 				),
 
 				/**

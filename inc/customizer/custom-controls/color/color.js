@@ -1,14 +1,16 @@
-/**
- * File slider.js
- *
- * Handles Slider control
- *
- * @package Astra
- */
+( function( $ ) {
 
-jQuery(window).on("load", function() {
-  	jQuery('html').addClass('colorpicker-ready');
-});
+	/**
+	 * File slider.js
+	 *
+	 * Handles Slider control
+	 *
+	 * @package Astra
+	 */
+
+	jQuery(window).on("load", function() {
+		jQuery('html').addClass('colorpicker-ready');
+	});
 
 	wp.customize.controlConstructor['ast-color'] = wp.customize.Control.extend({
 
@@ -54,3 +56,5 @@ jQuery(window).on("load", function() {
 			});
 		}
 	});
+
+})(jQuery);

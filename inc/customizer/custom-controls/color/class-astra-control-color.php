@@ -62,19 +62,6 @@ class Astra_Control_Color extends WP_Customize_Control {
 	}
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
-
-		wp_enqueue_script( 'astra-color', $js_uri . 'color.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-color', $css_uri . 'color.css', null, ASTRA_THEME_VERSION );
-	}
-
-	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *
 	 * Class variables for this control class are available in the `data` JS object;
@@ -100,13 +87,13 @@ class Astra_Control_Color extends WP_Customize_Control {
 		<# if ( data.label ) { #>
 			<label>
 				<span class="customize-control-title">{{{ data.label }}}</span>
+				<# if ( data.description ) { #>
+					<i class="ast-control-tooltip dashicons dashicons-editor-help" title="{{data.description}}"></i>
+				<# } #>
 			</label>
 		<# } #>
-		<# if ( data.description ) { #>
-			<span class="description customize-control-description">{{{ data.description }}}</span>
-		<# } #>
 		<div class="customize-control-content">
-			<input class="ast-color-picker-alpha color-picker-hex" type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
+			<input class="ast-color-picker-alpha color-picker-hex" data-name="{{data.name}}"  type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
 		</div>
 
 		<?php

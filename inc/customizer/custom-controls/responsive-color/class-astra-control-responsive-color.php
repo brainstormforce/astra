@@ -97,19 +97,6 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 		}
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-color/';
-			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-color/';
-
-			wp_enqueue_script( 'responsive-color', $js_uri . 'responsive-color.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'responsive-color', $css_uri . 'responsive-color.css', null, ASTRA_THEME_VERSION );
-		}
-
-		/**
 		 * An Underscore (JS) template for this control's content (but not its container).
 		 *
 		 * Class variables for this control class are available in the `data` JS object;
@@ -143,8 +130,8 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 
 				<# if ( data.responsive ) { #>
 					<ul class="ast-responsive-btns">
-						<li class="desktop active">
-							<button type="button" class="preview-desktop active" data-device="desktop">
+						<li class="desktop">
+							<button type="button" class="preview-desktop" data-device="desktop">
 								<i class="dashicons dashicons-desktop"></i>
 							</button>
 						</li>
@@ -181,11 +168,11 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 
 					<# if ( data.responsive ) { #>
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active" type="text" maxlength="7" data-alpha="{{ data.rgba }}" data-id='desktop' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_desktop }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='desktop' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_desktop }}" />
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet" type="text" maxlength="7" data-alpha="{{ data.rgba }}" data-id='tablet' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_tablet }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='tablet' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_tablet }}" />
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile" type="text" maxlength="7" data-alpha="{{ data.rgba }}" data-id='mobile' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_mobile }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='mobile' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_mobile }}" />
 
 					<# } else { #>
 

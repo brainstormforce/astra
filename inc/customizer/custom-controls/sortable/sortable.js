@@ -1,10 +1,11 @@
-/**
- * File sortable.js
- *
- * Handles sortable list
- *
- * @package Astra
- */
+( function( $ ) {
+	/**
+	 * File sortable.js
+	 *
+	 * Handles sortable list
+	 *
+	 * @package Astra
+	 */
 
 	wp.customize.controlConstructor['ast-sortable'] = wp.customize.Control.extend({
 
@@ -56,3 +57,4 @@
 			control.setting.set( newValue );
 		}
 	});
+})(jQuery);

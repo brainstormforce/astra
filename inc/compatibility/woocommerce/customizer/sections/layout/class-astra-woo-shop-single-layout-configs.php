@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'control'  => 'checkbox',
 					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
 					'title'    => __( 'Disable Breadcrumb', 'astra' ),
-					'priority' => 10,
+					'priority' => 16,
 				),
 
 				/**

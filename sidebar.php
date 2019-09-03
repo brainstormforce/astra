@@ -8,6 +8,10 @@
  * @since 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 ?>

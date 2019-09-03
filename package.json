@@ -1,6 +1,6 @@
 {
   "name": "astra",
-  "version": "1.8.7",
+  "version": "2.0.1",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
   "repository": {
@@ -10,22 +10,23 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.0.0",
+    "autoprefixer": "^9.6.1",
     "grunt": "^1.0.4",
     "grunt-bumpup": "^0.6.3",
+    "grunt-concat-css": "^0.3.2",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-compress": "^1.2.0",
+    "grunt-contrib-compress": "^1.5.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
     "grunt-postcss": "^0.9.0",
     "grunt-rtlcss": "^2.0.1",
-    "grunt-sass": "^3.0.1",
+    "grunt-sass": "^3.0.2",
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "^1.0.3",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "postcss-flexibility": "^2.0.0"
   }
 }

@@ -5,6 +5,10 @@
  * @package Astra Addon
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 	/**

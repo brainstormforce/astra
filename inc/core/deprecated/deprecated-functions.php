@@ -132,3 +132,14 @@ if ( ! function_exists( 'astar' ) ) :
 	}
 
 endif;
+
+/**
+ * Check if we're being delivered AMP.
+ *
+ * @return bool
+ */
+function astra_is_emp_endpoint() {
+	_deprecated_function( __FUNCTION__, '2.0.1', 'astra_is_amp_endpoint()' );
+
+	return astra_is_amp_endpoint();
+}

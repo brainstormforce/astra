@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-container-layout',
 					'priority' => 50,
-					'title'    => __( 'Default Container', 'astra' ),
+					'title'    => __( 'Layout', 'astra' ),
 					'choices'  => array(
 						'boxed-container'         => __( 'Boxed', 'astra' ),
 						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'default'  => astra_get_option( 'single-page-content-layout' ),
 					'section'  => 'section-container-layout',
-					'title'    => __( 'Container for Pages', 'astra' ),
+					'title'    => __( 'Page Layout', 'astra' ),
 					'priority' => 55,
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'single-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 60,
-					'title'    => __( 'Container for Blog Posts', 'astra' ),
+					'title'    => __( 'Blog Post Layout', 'astra' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'archive-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 65,
-					'title'    => __( 'Container for Blog Archives', 'astra' ),
+					'title'    => __( 'Archives Layout', 'astra' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'section'  => 'section-container-layout',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available for Container in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 				);

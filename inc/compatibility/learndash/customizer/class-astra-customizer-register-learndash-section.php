@@ -10,6 +10,10 @@
  * @since       1.4.6 Chnaged to using Astra_Customizer API
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 
 	/**
@@ -34,7 +38,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Learndash_Section' ) ) {
 					'name'     => 'section-learndash',
 					'priority' => 65,
 					'title'    => __( 'LearnDash', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 			);
 

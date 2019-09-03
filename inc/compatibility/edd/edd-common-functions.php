@@ -9,6 +9,10 @@
  * @since       Astra 1.5.5
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Current Page is EDD page
  */

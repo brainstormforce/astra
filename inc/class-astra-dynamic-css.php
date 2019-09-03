@@ -73,15 +73,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$link_hover_color = astra_get_option( 'link-h-color' );
 
 			// Typography.
-			$body_font_size                  = astra_get_option( 'font-size-body' );
-			$body_line_height                = astra_get_option( 'body-line-height' );
-			$para_margin_bottom              = astra_get_option( 'para-margin-bottom' );
-			$body_text_transform             = astra_get_option( 'body-text-transform' );
-			$headings_font_family            = astra_get_option( 'headings-font-family' );
-			$headings_font_weight            = astra_get_option( 'headings-font-weight' );
-			$headings_text_transform         = astra_get_option( 'headings-text-transform' );
-			$site_title_font_size            = astra_get_option( 'font-size-site-title' );
-			$site_tagline_font_size          = astra_get_option( 'font-size-site-tagline' );
+			$body_font_size          = astra_get_option( 'font-size-body' );
+			$body_line_height        = astra_get_option( 'body-line-height' );
+			$para_margin_bottom      = astra_get_option( 'para-margin-bottom' );
+			$body_text_transform     = astra_get_option( 'body-text-transform' );
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_text_transform = astra_get_option( 'headings-text-transform' );
+			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
+			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
+
 			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
 			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
 			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
@@ -205,8 +206,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ) {
-				$skin_css_output                    = array(
-					'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
+				$skin_css_output = array(
+					'p, .entry-content p, .single .entry-content p, .ast-comment-data-wrap .ast-comment-content p, .single .entry-content p' => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
@@ -219,9 +220,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => astra_get_css_value( (int) $body_font_size_desktop * 2.25, 'px' ),
 					),
 				);
-				$parse_css                          = astra_parse_css( $skin_css_output );
+				$parse_css       = astra_parse_css( $skin_css_output );
 			} else {
-				$skin_css_output                    = array(
+				$skin_css_output = array(
 					'p, .entry-content p'  => array(
 						'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 					),
@@ -232,7 +233,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 					),
 				);
-				$parse_css                          = astra_parse_css( $skin_css_output );
+				$parse_css       = astra_parse_css( $skin_css_output );
 
 				/* Width for Comments for Full Width / Stretched Template */
 				if ( 'classic-skin' === Astra_Skins::astra_get_selected_skin() ) {
@@ -490,7 +491,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
-					'color'       => esc_attr( $link_color ),
+					'color' => esc_attr( $link_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
 					'color' => esc_attr( $link_hover_color ),
@@ -1158,6 +1159,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
+					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'display' => 'block',
+					),
 					'.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',

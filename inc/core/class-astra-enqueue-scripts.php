@@ -59,8 +59,14 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 *
 		 * @link https://git.io/vWdr2
 		 * @link https://github.com/WordPress/twentynineteen/pull/47/files
+		 * @link https://github.com/ampproject/amphtml/issues/18671
 		 */
 		function astra_skip_link_focus_fix() {
+			// Skip printing script on AMP content, since accessibility fix is covered by AMP framework.
+			if ( astra_is_amp_endpoint() ) {
+				return;
+			}
+
 			// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
 			?>
 			<script>
@@ -206,7 +212,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				wp_enqueue_style( 'astra-menu-animation' );
 			}
 
-			if ( astra_is_emp_endpoint() ) {
+			if ( astra_is_amp_endpoint() ) {
 				return;
 			}
 

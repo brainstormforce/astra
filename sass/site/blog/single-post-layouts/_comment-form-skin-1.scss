@@ -298,6 +298,12 @@
 }
 
 .ast-plain-container {
+    .comments-count-wrapper {
+        padding: 0 0 1.875em 0;
+        @media (max-width: $mx-col-sm) {
+            padding: 1em 0 1em 0;
+        }
+    }
     .children {
         .ast-comment {
             margin: 2.250em 0 0 0;

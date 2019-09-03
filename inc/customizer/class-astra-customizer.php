@@ -9,6 +9,10 @@
  * @since       Astra 1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Customizer Loader
  */
@@ -37,6 +41,24 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @var Array
 		 */
 		private static $configuration;
+
+		/**
+		 * All groups parent-child relation array data.
+		 *
+		 * @access Public
+		 * @since 2.0.0
+		 * @var Array
+		 */
+		public static $group_configs = array();
+
+		/**
+		 * Customizer controls data.
+		 *
+		 * @access Public
+		 * @since 2.0.0
+		 * @var Array
+		 */
+		public $control_types = array();
 
 		/**
 		 * Customizer Dependency Array.
@@ -95,6 +117,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
 
 				switch ( $config['type'] ) {
+
 					case 'panel':
 						// Remove type from configuration.
 						unset( $config['type'] );
@@ -111,6 +134,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 						break;
 
+					case 'sub-control':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
+						$this->register_sub_control_setting( $config, $wp_customize );
+
+						break;
+
 					case 'control':
 						// Remove type from configuration.
 						unset( $config['type'] );
@@ -120,7 +151,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 				}
 			}
+		}
 
+		/**
+		 * Check if string is start with a string provided.
+		 *
+		 * @param string $string main string.
+		 * @param string $start_string string to search.
+		 * @since 2.0.0
+		 * @return bool.
+		 */
+		function starts_with( $string, $start_string ) {
+			$len = strlen( $start_string );
+			return ( substr( $string, 0, $len ) === $start_string );
 		}
 
 		/**
@@ -164,6 +207,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'transport'            => null,
 					'default'              => null,
 					'selector'             => null,
+					'ast_fields'           => array(),
 				)
 			);
 		}
@@ -198,12 +242,37 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Register Customizer Control and Setting.
 		 *
-		 * @param Array                $config Panel Configuration settings.
+		 * @param Array                $control_config Panel Configuration settings.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since 2.0.0
 		 * @return void
 		 */
-		private function register_setting_control( $config, $wp_customize ) {
+		private function register_sub_control_setting( $control_config, $wp_customize ) {
+
+			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
+
+			$parent = astra_get_prop( $control_config, 'parent' );
+			$tab    = astra_get_prop( $control_config, 'tab' );
+
+			if ( empty( self::$group_configs[ $parent ] ) ) {
+				self::$group_configs[ $parent ] = array();
+			}
+
+			if ( array_key_exists( 'tab', $control_config ) ) {
+				self::$group_configs[ $parent ]['tabs'][ $tab ][] = $control_config;
+			} else {
+				self::$group_configs[ $parent ][] = $control_config;
+			}
+
+			$config = array(
+				'name'              => $sub_control_name,
+				'datastore_type'    => 'option',
+				'transport'         => 'postMessage',
+				'control'           => 'ast-hidden',
+				'section'           => astra_get_prop( $control_config, 'section', 'title_tagline' ),
+				'default'           => astra_get_prop( $control_config, 'default' ),
+				'sanitize_callback' => astra_get_prop( $control_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $control_config, 'control' ) ) ),
+			);
 
 			$wp_customize->add_setting(
 				astra_get_prop( $config, 'name' ),
@@ -212,6 +281,43 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'type'              => astra_get_prop( $config, 'datastore_type' ),
 					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
 					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+				)
+			);
+
+			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
+
+			if ( false !== $instance ) {
+				$wp_customize->add_control(
+					new $instance( $wp_customize, $sub_control_name, $config )
+				);
+			} else {
+				$wp_customize->add_control( $sub_control_name, $config );
+			}
+		}
+
+		/**
+		 * Register Customizer Control and Setting.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		private function register_setting_control( $config, $wp_customize ) {
+
+			if ( 'ast-settings-group' === $config['control'] ) {
+				$callback = false;
+			} else {
+				$callback = astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+			}
+
+			$wp_customize->add_setting(
+				astra_get_prop( $config, 'name' ),
+				array(
+					'default'           => astra_get_prop( $config, 'default' ),
+					'type'              => astra_get_prop( $config, 'datastore_type' ),
+					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => $callback,
 				)
 			);
 
@@ -352,6 +458,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
 			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
+			$wp_customize->register_section_type( 'Astra_WP_Customize_Separator' );
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				$wp_customize->register_section_type( 'Astra_Pro_Customizer' );
@@ -359,6 +466,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-separator.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
 
 			/**
@@ -438,6 +546,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
+				'ast-hidden',
+				array(
+					'callback'          => 'Astra_Control_Hidden',
+					'sanitize_callback' => '',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
 				'ast-color',
 				array(
 					'callback'          => 'Astra_Control_Color',
@@ -507,6 +623,21 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			Astra_Customizer_Control_Base::add_control(
+				'ast-settings-group',
+				array(
+					'callback' => 'Astra_Control_Settings_Group',
+				)
+			);
+
+			Astra_Customizer_Control_Base::add_control(
+				'ast-select',
+				array(
+					'callback'          => 'Astra_Control_Select',
+					'sanitize_callback' => '',
+				)
+			);
+
 			/**
 			 * Helper files
 			 */
@@ -562,11 +693,16 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
+				$css_prefix = '.min-rtl.css';
 				if ( SCRIPT_DEBUG ) {
 					$css_prefix = '-rtl.css';
 				}
 			}
+
+			wp_enqueue_script( 'astra-color-alpha' );
+
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
 
 			// Customizer Core.
 			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
@@ -581,6 +717,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
+			$google_fonts = Astra_Font_Families::get_google_fonts();
+			$string       = $this->generate_font_dropdown();
+
+			$tmpl = '<div class="ast-field-settings-modal">
+					<ul class="ast-fields-wrap">
+					</ul>
+			</div>';
+
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -588,8 +732,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings' => array(
-								'sidebars'  => array(
+							'settings'         => array(
+								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
 										'single-page-sidebar-layout',
@@ -598,7 +742,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 										'archive-post-sidebar-layout',
 									),
 								),
-								'container' => array(
+								'container'    => array(
 									'single'  => array(
 										'single-post-content-layout',
 										'single-page-content-layout',
@@ -607,7 +751,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 										'archive-post-content-layout',
 									),
 								),
+								'google_fonts' => $string,
 							),
+							'group_modal_tmpl' => $tmpl,
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
@@ -616,7 +762,52 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					)
 				)
 			);
+		}
 
+		/**
+		 * Generates HTML for font dropdown.
+		 *
+		 * @return string
+		 */
+		function generate_font_dropdown() {
+
+			ob_start();
+
+			?>
+
+			<option value="inherit"><?php _e( 'Default System Font', 'astra' ); ?></option>
+			<optgroup label="Other System Fonts">
+
+			<?php
+
+			$system_fonts = Astra_Font_Families::get_system_fonts();
+			$google_fonts = Astra_Font_Families::get_google_fonts();
+
+			foreach ( $system_fonts as $name => $variants ) {
+				?>
+
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_attr( $name ); ?></option>
+				<?php
+			}
+
+			// Add Custom Font List Into Customizer.
+			do_action( 'astra_customizer_font_list', '' );
+
+			?>
+			<optgroup label="Google">
+
+			<?php
+			foreach ( $google_fonts as $name => $single_font ) {
+				$variants = astra_get_prop( $single_font, '0' );
+				$category = astra_get_prop( $single_font, '1' );
+
+				?>
+				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
+
+				<?php
+			}
+
+			return ob_get_clean();
 		}
 
 		/**
@@ -644,6 +835,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$localize_array = array(
 				'headerBreakpoint'            => astra_header_break_point(),
 				'includeAnchorsInHeadindsCss' => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
+				'googleFonts'                 => Astra_Font_Families::get_google_fonts(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

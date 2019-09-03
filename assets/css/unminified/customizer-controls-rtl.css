@@ -121,6 +121,10 @@
     padding-right: 5px;
 }
 
+.customize-pane-child > li[id="customize-control-astra-settings-body-text-transform"] {
+	padding-top: 2px;
+}
+
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
     -js-display: flex;
@@ -184,4 +188,19 @@
 /* Primary Sub Menu Item Border */
 #customize-control-astra-settings-primary-submenu-item-border .ast-border-wrapper{
 	width: 100%;
+}
+
+.actions .button.upload-button {
+	text-transform: capitalize;
+}
+
+.wp-picker-container .iris-square-handle {
+	z-index: 8;
+}
+
+/* Site Identity */
+#customize-control-custom_logo .attachment-media-view .button-add-media,
+#customize-control-site_icon .attachment-media-view .placeholder,
+#customize-control-astra-settings-transparent-header-logo .attachment-media-view .button-add-media {
+	text-transform: capitalize;
 }

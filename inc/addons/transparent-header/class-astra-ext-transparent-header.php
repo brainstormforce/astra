@@ -5,6 +5,10 @@
  * @package Astra Addon
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 define( 'ASTRA_THEME_TRANSPARENT_HEADER_DIR', ASTRA_THEME_DIR . 'inc/addons/transparent-header/' );
 define( 'ASTRA_THEME_TRANSPARENT_HEADER_URI', ASTRA_THEME_URI . 'inc/addons/transparent-header/' );
 

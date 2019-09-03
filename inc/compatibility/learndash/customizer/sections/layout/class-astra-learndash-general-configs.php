@@ -33,19 +33,6 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-content]',
-					'type'     => 'control',
-					'title'    => __( 'Course Content Table', 'astra' ),
-					'section'  => 'section-learndash',
-					'control'  => 'ast-divider',
-					'priority' => 20,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Display Serial Number
 				 */
 				array(

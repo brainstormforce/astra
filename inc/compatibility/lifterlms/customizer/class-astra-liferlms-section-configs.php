@@ -9,6 +9,10 @@
  * @since       Astra 1.2.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 
 	/**
@@ -33,7 +37,6 @@ if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 					'type'     => 'section',
 					'priority' => 65,
 					'title'    => __( 'LifterLMS', 'astra' ),
-					'panel'    => 'panel-layout',
 				),
 			);
 

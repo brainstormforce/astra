@@ -1,10 +1,11 @@
-/**
- * File spacing.js
- *
- * Handles the spacing
- *
- * @package Astra
- */
+( function( $ ) {
+	/**
+	 * File spacing.js
+	 *
+	 * Handles the spacing
+	 *
+	 * @package Astra
+	 */
 
 	wp.customize.controlConstructor['ast-responsive-spacing'] = wp.customize.Control.extend({
 
@@ -175,3 +176,4 @@
 		jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper, .customize-control .ast-spacing-responsive-btns > li' ).removeClass( 'active' );
 		jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.' + device + ', .customize-control .ast-spacing-responsive-btns > li.' + device ).addClass( 'active' );
 	});
+})(jQuery);

@@ -44,17 +44,6 @@ class Astra_Control_Divider extends WP_Customize_Control {
 	public $separator = true;
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/divider/';
-		wp_enqueue_style( 'astra-divider-css', $css_uri . 'divider.css', null, ASTRA_THEME_VERSION );
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()

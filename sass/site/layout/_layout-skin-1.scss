@@ -104,11 +104,6 @@ body{
 		#secondary{
 			padding: 1.5em 0;
 		}
-		&.ast-right-sidebar{
-			#secondary{
-				padding-left: 1em;
-			}
-		}
 		&.ast-two-container{
 			#secondary {
 				padding-left: 0;
@@ -234,6 +229,10 @@ body{
 			margin: 2em 1em 2em 1em;
 		}
 	}
+}
+
+.no-results .search-field {
+	margin-bottom: 10px; 
 }
 
 //page builder content layout

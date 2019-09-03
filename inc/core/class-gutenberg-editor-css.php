@@ -11,6 +11,10 @@
  * @since       Astra 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 	/**
