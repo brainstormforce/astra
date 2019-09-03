@@ -257,11 +257,9 @@ body{
 	.hentry {
 		margin: 0;
 	}
-	.hentry:first-child {
-		.blog-layout-1,
-		.single-layout-1 {
-			margin-top: 3em;
-		}
+	.hentry:first-child,
+	.ast-article-single {
+		margin-top: 3em;
 	}
 	.hentry:last-child {
 		padding-bottom: 0;

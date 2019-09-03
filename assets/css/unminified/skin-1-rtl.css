@@ -1000,8 +1000,8 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .hentry:first-child .blog-layout-1,
-.ast-page-builder-template .hentry:first-child .single-layout-1 {
+.ast-page-builder-template .hentry:first-child,
+.ast-page-builder-template .ast-article-single {
   margin-top: 3em;
 }
 
