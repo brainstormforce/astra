@@ -2598,7 +2598,7 @@ body {
   padding-left: 60px;
 }
 
-.ast-header-break-point .ast-header-custom-item {
+.ast-header-break-point .ast-masthead-custom-menu-items {
   background-color: #f9f9f9;
 }
 
@@ -3115,7 +3115,7 @@ body {
   border-bottom-style: solid;
 }
 
-.ast-header-break-point .ast-header-custom-item {
+.ast-header-break-point .ast-masthead-custom-menu-items {
   border-top: 1px solid #eaeaea;
 }
 
@@ -3391,6 +3391,9 @@ body {
   }
   .ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form {
     right: -1em;
+  }
+  .ast-primary-menu-disabled.ast-mobile-header-inline .ast-masthead-custom-menu-items {
+      padding: 0 20px;
   }
 }
 
