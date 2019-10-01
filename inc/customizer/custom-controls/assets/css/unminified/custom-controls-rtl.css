@@ -3,12 +3,13 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 74px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-background .wp-picker-clear {
+.customize-control-ast-background .button.button-small.wp-picker-clear {
   margin-right: 2%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-background .screen-reader-text {
@@ -207,17 +208,14 @@
   background: #f7f7f7;
 }
 
-.customize-control-ast-color .wp-color-result span.color-alpha {
-  height: 22px !important;
-}
-
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 77px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-color .wp-picker-clear {
+.customize-control-ast-color .button.button-small.wp-picker-clear {
   margin-right: 2%;
+  line-height: 2.4;
 }
 
 .wp-picker-input-wrap label {
@@ -239,12 +237,13 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 74px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-background .wp-picker-clear {
+.customize-control-ast-background .button.button-small.wp-picker-clear {
   margin-right: 2%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-background .screen-reader-text {
@@ -443,17 +442,14 @@
   background: #f7f7f7;
 }
 
-.customize-control-ast-color .wp-color-result span.color-alpha {
-  height: 22px !important;
-}
-
 .customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 77px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-color .wp-picker-clear {
+.customize-control-ast-color .button.button-small.wp-picker-clear {
   margin-right: 2%;
+  line-height: 2.4;
 }
 
 .wp-picker-input-wrap label {
@@ -542,6 +538,11 @@
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+}
+
+.customize-control input[type="text"],
+.customize-control input[type="number"] {
+  line-height: 1.9;
 }
 
 /* Safari Browser specific CSS */
@@ -739,12 +740,13 @@
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 77px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-responsive-color .wp-picker-clear {
+.customize-control-ast-responsive-color .button.button-small.wp-picker-clear {
   margin-right: 1%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
@@ -1347,7 +1349,7 @@
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 67px !important;
+  width: 77px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
@@ -1713,6 +1715,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   height: 100%;
 }
 
+.customize-control input[type="text"],
+.customize-control input[type="number"] {
+  line-height: 1.9;
+}
+
 /* Safari Browser specific CSS */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
@@ -1908,12 +1915,13 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 77px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-responsive-color .wp-picker-clear {
+.customize-control-ast-responsive-color .button.button-small.wp-picker-clear {
   margin-right: 1%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
@@ -2516,7 +2524,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 67px !important;
+  width: 77px !important;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {

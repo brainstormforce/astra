@@ -1,16 +1,18 @@
 .customize-control-ast-color {
   .wp-color-result span {
     background: #f7f7f7;
-    &.color-alpha {
-      height: 22px !important;
-    }
   }
   .ast-color-picker-alpha.wp-color-picker {
-    width: 67px !important;
-    line-height: 17px;
+    width: 77px !important;
+    line-height: 26px;
   }
-  .wp-picker-clear {
-    margin-left: 2%;
+  .button {
+    &.button-small {
+      &.wp-picker-clear {
+        margin-left: 2%;
+        line-height: 2.4;
+      }
+    }
   }
 }
 

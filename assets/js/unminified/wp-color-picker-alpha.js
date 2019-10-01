@@ -152,7 +152,7 @@
 				'border-left': '1px solid #ccc',
 				'color': '#555',
 				'display': 'block',
-				'line-height': '22px',
+				'line-height': '26px',
 				'padding': '0 6px',
 				'text-align': 'center'
 			});
@@ -187,7 +187,7 @@
 						}
 						self.toggler.find( 'span.color-alpha' ).css( {
 							'width'                     : '30px',
-							'height'                    : '22px',
+							'height'                    : '26px',
 							'position'                  : 'absolute',
 							'top'                       : 0,
 							'left'                      : 0,

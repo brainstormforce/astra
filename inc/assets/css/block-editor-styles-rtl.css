@@ -12,7 +12,7 @@ html {
 /*----------  Site Basic Structure  ----------*/
 /*----------  z-index Structure   ----------*/
 /*
- * Button mixin- creates 3d-ish button effect with correct
+ * Button mixin- creates a button effect with correct
  * highlights/shadows, based on a base color.
  */
 .edit-post-visual-editor {
@@ -582,10 +582,8 @@ h6 {
 
 #elementor-editor-button {
   background: #0073aa;
-  border-color: #005177 #003f5e #003f5e;
+  border-color: #0073aa;
   color: #fff;
-  box-shadow: 0 1px 0 #003f5e;
-  text-shadow: 0 -1px 1px #003f5e, -1px 0 1px #003f5e, 0 1px 1px #003f5e, 1px 0 1px #003f5e;
   font-size: 14px;
   height: 46px;
   line-height: 44px;
@@ -602,34 +600,24 @@ h6 {
 
 #elementor-editor-button:hover, #elementor-editor-button:focus {
   background: #007db9;
-  border-color: #003f5e;
+  border-color: #00699b;
   color: #fff;
-  box-shadow: 0 1px 0 #003f5e;
 }
 
 #elementor-editor-button:focus {
-  box-shadow: inset 0 1px 0 #005177, 0 0 2px 1px #33b3db;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0073aa;
 }
 
 #elementor-editor-button:active, #elementor-editor-button.active, #elementor-editor-button.active:focus, #elementor-editor-button.active:hover {
-  background: #005177;
-  border-color: #003f5e;
-  box-shadow: inset 0 2px 0 #003f5e;
+  background: #006291;
+  border-color: #006291;
 }
 
 #elementor-editor-button[disabled], #elementor-editor-button:disabled, #elementor-editor-button.button-primary-disabled, #elementor-editor-button.disabled {
   color: #c7ced1 !important;
-  background: #005781 !important;
-  border-color: #003f5e !important;
+  background: #00a7f7 !important;
+  border-color: #00a7f7 !important;
   text-shadow: none !important;
-}
-
-#elementor-editor-button.button-hero {
-  box-shadow: 0 2px 0 #003f5e !important;
-}
-
-#elementor-editor-button.button-hero:active {
-  box-shadow: inset 0 3px 0 #003f5e !important;
 }
 
 #elementor-editor-button i {

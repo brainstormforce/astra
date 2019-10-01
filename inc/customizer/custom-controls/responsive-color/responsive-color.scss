@@ -3,11 +3,16 @@
     float: left;
   }
   .ast-responsive-color.wp-color-picker {
-    width: 67px !important;
-    line-height: 17px;
+    width: 77px !important;
+    line-height: 26px;
   }
-  .wp-picker-clear {
-    margin-left: 1%;
+  .button {
+    &.button-small {
+      &.wp-picker-clear {
+        margin-left: 1%;
+        line-height: 2.4;
+      }
+    }
   }
   button.button.wp-color-result.wp-picker-open {
     margin: 0px 3px 6px 0px !important;

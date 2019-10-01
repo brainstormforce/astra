@@ -66,6 +66,13 @@
     height: 100%;
 }
 
+.customize-control {
+    input[type="text"],
+    input[type="number"] {
+        line-height: 1.9;
+    }
+}
+
 /* Safari Browser specific CSS */
 @media not all and (min-resolution:.001dpcm) { 
     @supports (-webkit-appearance:none) {

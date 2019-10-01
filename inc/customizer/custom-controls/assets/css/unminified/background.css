@@ -3,12 +3,13 @@
 }
 
 .customize-control-ast-background .ast-color-control.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 74px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-background .wp-picker-clear {
+.customize-control-ast-background .button.button-small.wp-picker-clear {
   margin-left: 2%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-background .screen-reader-text {

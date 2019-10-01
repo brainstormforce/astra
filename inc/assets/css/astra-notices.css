@@ -67,6 +67,7 @@
     height: 30px;
     line-height: 26px;
     padding: 0 12px;
+    min-height: 30px;
 }
 
 #astra-sites-on-active .astra-review-notice-container {

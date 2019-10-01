@@ -3,12 +3,13 @@
 }
 
 .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 67px !important;
-  line-height: 17px;
+  width: 77px !important;
+  line-height: 26px;
 }
 
-.customize-control-ast-responsive-color .wp-picker-clear {
+.customize-control-ast-responsive-color .button.button-small.wp-picker-clear {
   margin-left: 1%;
+  line-height: 2.4;
 }
 
 .customize-control-ast-responsive-color button.button.wp-color-result.wp-picker-open {
