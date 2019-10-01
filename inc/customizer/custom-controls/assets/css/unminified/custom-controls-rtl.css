@@ -545,6 +545,11 @@
   line-height: 1.9;
 }
 
+.select2-search__field input[type="text"] {
+  line-height: 1;
+  border-radius: 0;
+}
+
 /* Safari Browser specific CSS */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
@@ -1718,6 +1723,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control input[type="text"],
 .customize-control input[type="number"] {
   line-height: 1.9;
+}
+
+input[type="text"].select2-search__field {
+  line-height: 1;
+  border-radius: 0;
 }
 
 /* Safari Browser specific CSS */

@@ -73,6 +73,13 @@
     }
 }
 
+input[type="text"] {
+    &.select2-search__field {
+        line-height: 1;
+        border-radius: 0;
+    }
+}
+
 /* Safari Browser specific CSS */
 @media not all and (min-resolution:.001dpcm) { 
     @supports (-webkit-appearance:none) {
