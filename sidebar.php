@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 echo '<div ';
-
 	echo astra_attr(
 		'sidebar',
 		array(
@@ -26,7 +25,6 @@ echo '<div ';
 			'role'      => 'complementary',
 		)
 	);
-
 	echo '>';
 	?>
 

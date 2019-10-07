@@ -591,23 +591,19 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 		do_action( 'astra_header_markup_before' );
 		?>
 
-		<header
-
+		<header 
 			<?php
-
-				echo astra_attr(
-					'header',
-					array(
-						'itemtype'  => 'https://schema.org/WPHeader',
-						'itemscope' => 'itemscope',
-						'id'        => 'masthead',
-						'class'     => join( ' ', astra_get_header_classes() ),
-						'role'      => 'banner',
-					)
-				);
-
+					echo astra_attr(
+						'header',
+						array(
+							'itemtype'  => 'https://schema.org/WPHeader',
+							'itemscope' => 'itemscope',
+							'id'        => 'masthead',
+							'class'     => join( ' ', astra_get_header_classes() ),
+							'role'      => 'banner',
+						)
+					);
 			?>
-
 		>
 
 			<?php astra_masthead_top(); ?>
@@ -859,23 +855,19 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer
-
-				<?php
-
-				echo astra_attr(
-					'footer',
-					array(
-						'itemtype'  => 'https://schema.org/WPFooter',
-						'itemscope' => 'itemscope',
-						'id'        => 'colophon',
-						'class'     => join( ' ', astra_get_footer_classes() ),
-						'role'      => 'contentinfo',
-					)
-				);
-
-				?>
-
+		<footer 
+			<?php
+					echo astra_attr(
+						'footer',
+						array(
+							'itemtype'  => 'https://schema.org/WPFooter',
+							'itemscope' => 'itemscope',
+							'id'        => 'colophon',
+							'class'     => join( ' ', astra_get_footer_classes() ),
+							'role'      => 'contentinfo',
+						)
+					);
+			?>
 		>
 
 			<?php astra_footer_content_top(); ?>
