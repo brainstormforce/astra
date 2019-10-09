@@ -35,3 +35,4 @@ require $control_dir . '/border/class-astra-control-border.php';
 require $control_dir . '/customizer-link/class-astra-control-customizer-link.php';
 require $control_dir . '/settings-group/class-astra-control-settings-group.php';
 require $control_dir . '/select/class-astra-control-select.php';
+require $control_dir . '/class-astra-customizer-wp-compatibility.php';

@@ -2,8 +2,8 @@
   float: right;
 }
 
-.customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 77px !important;
+.customize-control-ast-responsive-color .ast-responsive-color {
+  width: 67px;
   line-height: 26px;
 }
 

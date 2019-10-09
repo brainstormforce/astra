@@ -208,8 +208,8 @@
   background: #f7f7f7;
 }
 
-.customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 77px !important;
+.customize-control-ast-color .ast-color-picker-alpha {
+  width: 67px;
   line-height: 26px;
 }
 
@@ -510,8 +510,8 @@ input[type="text"].select2-search__field {
   float: left;
 }
 
-.customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 77px !important;
+.customize-control-ast-responsive-color .ast-responsive-color {
+  width: 67px;
   line-height: 26px;
 }
 
@@ -1119,8 +1119,8 @@ input[type="text"].select2-search__field {
   border-left-width: 0;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control.wp-color-picker, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color.wp-color-picker {
-  width: 77px !important;
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-bg-color-control, .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-color {
+  width: 67px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {

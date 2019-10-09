@@ -2,8 +2,8 @@
   background: #f7f7f7;
 }
 
-.customize-control-ast-color .ast-color-picker-alpha.wp-color-picker {
-  width: 77px !important;
+.customize-control-ast-color .ast-color-picker-alpha {
+  width: 67px;
   line-height: 26px;
 }
 
