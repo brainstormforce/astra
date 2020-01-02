@@ -26,10 +26,10 @@ Looking for a perfect base theme? Look no further. Astra is fast, fully customiz
 
 == License ==
 
-Astra WordPress Theme, Copyright 2019 WPAstra.
+Astra WordPress Theme, Copyright 2020 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2019 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 == Features ==

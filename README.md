@@ -25,10 +25,10 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 
 ## ASTRA License
-Astra WordPress Theme, Copyright 2019 WPAstra.
+Astra WordPress Theme, Copyright 2020 WPAstra.
 Astra is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2019 Automattic, Inc.
+Astra is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 ### Screenshot Licenses
