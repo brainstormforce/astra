@@ -1155,3 +1155,7 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 .ast-woocommerce-cart-menu .main-header-bar .main-header-log-out {
   padding-left: 10px;
 }
+
+.llms-certificate-container .ast-article-single.llms_certificate {
+    background-color: transparent;
+}
