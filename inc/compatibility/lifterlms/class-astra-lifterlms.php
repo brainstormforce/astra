@@ -139,6 +139,26 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
+			if ( 'llms_certificate' === get_post_type() ) {
+				if ( ! is_admin() ) {
+					add_filter( 'post_class', 'astra_certificate_class' );
+
+					/**
+					 * Remove ast-article-single class in case of content-boxed and boxed layout.
+					 *
+					 * @since 2.2.2
+					 * @param array $array is a array of classes.
+					 */
+					function astra_certificate_class( $array ) {
+						$delete_class = array_search( 'ast-article-single', $array );
+						if ( false !== $delete_class ) {
+							unset( $array[ $delete_class ] );
+						}
+						return $array;
+					}
+				}
+			}
+
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
 			add_action( 'lifterlms_single_course_after_summary', array( $this, 'single_reviews' ), 100 );
 

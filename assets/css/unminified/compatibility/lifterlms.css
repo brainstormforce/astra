@@ -1156,7 +1156,3 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
   padding-left: 10px;
 }
 
-.ast-separate-container .llms-certificate-container  .llms_certificate.ast-article-single{
-  background-color:transparent;
-  padding: unset;
-}
