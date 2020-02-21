@@ -340,10 +340,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['detail_link']             = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
 				$ast_sites_notice_btn['detail_link_text']        = __( 'Details »', 'astra' );
 			} else {
-				$ast_sites_notice_btn['class']       = 'active';
-				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$is_starter_templates_new_plugin_installed = self::is_starter_templates_installed();
-				if ( $is_starter_templates_new_plugin_installed ) {
+				$ast_sites_notice_btn['class']             = 'active';
+				$ast_sites_notice_btn['button_text']       = __( 'See Library »', 'astra' );
+				$is_starter_templates_2_0_0 = self::is_starter_templates_2_0_0_installed();
+				if ( $is_starter_templates_2_0_0 ) {
 					$ast_sites_notice_btn['link'] = admin_url( 'themes.php?page=starter-templates' );
 				} else {
 					$ast_sites_notice_btn['link'] = admin_url( 'themes.php?page=astra-sites' );
@@ -358,7 +358,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		public static function is_starter_templates_installed() {
+		public static function is_starter_templates_2_0_0_installed() {
 
 			if ( defined( 'ASTRA_PRO_SITES_VER' ) ) {
 				return version_compare( ASTRA_PRO_SITES_VER, '2.0.0', '>=' );
