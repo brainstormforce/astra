@@ -342,7 +342,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$is_starter_templates_v_2_0_0          = self::is_starter_templates_v_2_0_0_installed();
+				$is_starter_templates_v_2_0_0        = self::is_starter_templates_v_2_0_0_installed();
 				if ( $is_starter_templates_v_2_0_0 ) {
 					$ast_sites_notice_btn['link'] = admin_url( 'themes.php?page=starter-templates' );
 				} else {
