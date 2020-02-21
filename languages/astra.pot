@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 2.3.1\n"
+"Project-Id-Version: Astra 2.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-02-13 12:37:41+00:00\n"
+"POT-Creation-Date: 2020-02-20 07:35:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1781,7 +1781,7 @@ msgstr ""
 msgid "Enter valid email address!"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:791
+#: inc/customizer/class-astra-customizer.php:792
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:58
 msgid "Default System Font"
 msgstr ""

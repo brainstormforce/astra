@@ -51,8 +51,7 @@ Astra has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 
 There are multiple ways you can use a child theme with the Astra Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
 1. Download the child theme from Github - https://github.com/brainstormforce/astra-child/releases/latest/
-2. Using Plugin One click Child theme - https://wordpress.org/plugins/one-click-child-theme/
-3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
+2. More information on creating child theme. - https://developer.wordpress.org/themes/advanced-topics/child-themes/
 
 
 = Screenshot Licenses =

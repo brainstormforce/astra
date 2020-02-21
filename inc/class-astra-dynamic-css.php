@@ -1193,9 +1193,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
 				$astra_fonts          = '@font-face {';
 					$astra_fonts     .= 'font-family: "Astra";';
-					$astra_fonts     .= 'src: url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.woff) format("woff"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.ttf) format("truetype"),';
-						$astra_fonts .= 'url( ' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
+					$astra_fonts     .= 'src: url(' . ASTRA_THEME_URI . 'assets/fonts/astra.woff) format("woff"),';
+						$astra_fonts .= 'url(' . ASTRA_THEME_URI . 'assets/fonts/astra.ttf) format("truetype"),';
+						$astra_fonts .= 'url(' . ASTRA_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
 					$astra_fonts     .= 'font-weight: normal;';
 					$astra_fonts     .= 'font-style: normal;';
 					$astra_fonts     .= 'font-display: ' . astra_get_fonts_display_property() . ';';

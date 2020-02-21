@@ -168,11 +168,11 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 
 					<# if ( data.responsive ) { #>
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='desktop' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_desktop }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color desktop active" type="text" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='desktop' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_desktop }}" />
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='tablet' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_tablet }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color tablet" type="text" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='tablet' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_tablet }}" />
 
-						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile" type="text" maxlength="7" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='mobile' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_mobile }}" />
+						<input class="ast-color-picker-alpha color-picker-hex ast-responsive-color mobile" type="text" data-name="{{data.name}}" data-alpha="{{ data.rgba }}" data-id='mobile' placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{ value_mobile }}" />
 
 					<# } else { #>
 
