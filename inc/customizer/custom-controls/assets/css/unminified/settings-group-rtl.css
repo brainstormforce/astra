@@ -168,10 +168,6 @@
   border-right-width: 0;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-background .wp-picker-clear, .ast-field-settings-modal .customize-control-ast-responsive-color .wp-picker-clear {
-  margin-right: 6px;
-}
-
 /* Buttons */
 .wp-core-ui .ast-field-settings-modal .background-image-upload .button {
   font-size: 11px;

@@ -138,17 +138,6 @@
 	border-radius: 0;
 }
 
-.customize-control .wp-picker-container button,
-.customize-control .wp-picker-container .wp-color-picker {
-	min-height: 24px;
-}
-
-.customize-control .wp-picker-container .wp-color-picker {
-	padding: 3px 5px;
-	width: 71px !important;
-	line-height: 17px;
-}
-
 .customize-control input[type="number"].ast-spacing-input,
 .customize-control input.ast-border-input {
 	min-height: 28px;
@@ -243,3 +232,15 @@
 #customize-control-astra-settings-transparent-header-logo .attachment-media-view .button-add-media {
 	text-transform: capitalize;
 }
+
+/* Color picker clear button size */
+.customize-control-ast-color .wp-picker-container .wp-picker-clear,
+.customize-control-ast-responsive-color .wp-picker-container .wp-picker-clear,
+.customize-control-ast-background .wp-picker-container .wp-picker-clear {
+ 	margin-right: 4px;
+	min-height: 30px;
+ }
+
+ .customize-control-ast-background .wp-picker-container {
+ 	display: block;
+ }

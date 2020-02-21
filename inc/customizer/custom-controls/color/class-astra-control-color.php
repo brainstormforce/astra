@@ -93,7 +93,7 @@ class Astra_Control_Color extends WP_Customize_Control {
 			</label>
 		<# } #>
 		<div class="customize-control-content">
-			<input class="ast-color-picker-alpha color-picker-hex" data-name="{{data.name}}"  type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
+			<input class="ast-color-picker-alpha color-picker-hex" data-name="{{data.name}}"  type="text" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
 		</div>
 
 		<?php
