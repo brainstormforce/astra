@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
 				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
 				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
-				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=astra-sites' );
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=starter-templates' );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
 				$ast_sites_notice_btn['detail_link']             = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
@@ -344,11 +344,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=starter-templates' );
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
 				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
-				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=starter-templates' );
 			}
 			return $ast_sites_notice_btn;
 		}
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+					'astraSitesLink'                     => admin_url( 'themes.php?page=starter-templates' ),
 					'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
@@ -487,7 +487,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=starter-templates' ),
 				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
 				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
 				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
