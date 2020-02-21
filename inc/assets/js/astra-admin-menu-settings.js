@@ -1,5 +1,5 @@
 /**
- * Install Astra Starter Templates
+ * Install Starter Templates
  *
  *
  * @since 1.2.4
