@@ -337,7 +337,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=starter-templates' );
 				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
 				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
-				$ast_sites_notice_btn['detail_link']             = is_multisite() ? network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' ) : admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
+				$ast_sites_notice_btn['detail_link']             = network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
 				$ast_sites_notice_btn['detail_link_text']        = __( 'Details »', 'astra' );
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
