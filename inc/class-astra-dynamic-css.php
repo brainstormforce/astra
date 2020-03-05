@@ -598,6 +598,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css = astra_parse_css( $css_output );
 
 			/**
+			 * Elementor Theme Style - Button Text Color compatibility. This should be looked in the future for proper solution.
+			 *
+			 * Reference: https://github.com/elementor/elementor/issues/10733
+			 * Reference: https://github.com/elementor/elementor/issues/10739
+			 */
+			$ele_btn_global_text_color = false;
+			$ele_kit_id                = get_option( 'elementor_active_kit', false );
+			if ( false !== $ele_kit_id ) {
+				$ele_global_btn_data = get_post_meta( $ele_kit_id, '_elementor_page_settings' );
+				// Elementor Global theme style button text color fetch value from database.
+				$ele_btn_global_text_color = isset( $ele_global_btn_data[0]['button_text_color'] ) ? $ele_global_btn_data[0]['button_text_color'] : $ele_btn_global_text_color;
+			}
+
+			/**
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
@@ -635,14 +649,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
+				// Check if Global Elementor - Theme Style - button color is set. If yes then remove ( :visited ) CSS for the compatibility.
+				if ( false === $ele_btn_global_text_color ) {
+					$ele_btn_selectors = '.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link';
+				} else {
+					$ele_btn_selectors = '.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link';
+				}
+
+				$global_button_page_builder_text_color_desktop = array(
+					$ele_btn_selectors => array(
+						'color' => esc_attr( $btn_text_color ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css .= astra_parse_css( $global_button_page_builder_text_color_desktop );
+
 				$global_button_page_builder_desktop = array(
-					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited, .wp-block-button .wp-block-button__link' => array(
+					'.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button, .wp-block-button .wp-block-button__link' => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
 						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
 						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
-						'color'               => esc_attr( $btn_text_color ),
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'background-color'    => esc_attr( $btn_bg_color ),
 						'font-family'         => astra_get_font_family( $theme_btn_font_family ),
