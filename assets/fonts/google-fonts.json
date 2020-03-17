@@ -9786,7 +9786,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
