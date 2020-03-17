@@ -135,7 +135,7 @@ function astra_elementor_default_color_typo_comp() {
 /**
  * For existing users, change the separator from html entity to css entity.
  *
- * @since x.x.x
+ * @since 2.3.4
  *
  * @return void
  */
