@@ -1,3 +1,7 @@
+v2.3.4
+- Fix: Lightning icon not appearing on astra options page.
+- Fix: Breadcrumb separator appearing as HTML entity for new users.
+
 v2.3.3
 - Improvement: Compatibility with Elementor Theme Style.
 - Improvement: Theme Button options dependency on Elementor global color/font settings.
