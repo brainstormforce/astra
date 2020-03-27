@@ -100,6 +100,7 @@ if ( is_admin() ) {
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
+	require_once ASTRA_THEME_DIR . 'inc/lib/bsf-analytics/class-bsf-analytics.php';
 
 	/**
 	 * Metabox additions.
