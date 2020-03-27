@@ -1,6 +1,7 @@
 v2.4.0
-- New: Filter to change default breakpoint of tablet & mobile devices. ( Doc Link )
-- Improvement: Background color/image responsive param. ( Doc Link )
+- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-responsive-tab-breakpoints-in-astra/ )
+- New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
+- Improvement: Background color/image responsive param. ( https://wpastra.com/docs/how-to-set-background-image-for-the-site/ )
 - Improvement: Updated admin strings.
 - Improvement: Addon minimum version notice is now dismissible.
 - Fix: Global button Color and Background Color options not working with Gutenberg button.
