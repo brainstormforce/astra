@@ -201,3 +201,24 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * If user is old then set a flag for backward compatibility to work Blog Meta structure as per previous configurations.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_blog_pro_layouts_title_meta_compatibilitty() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$blog_post_structure = isset( $theme_options['blog-post-structure'] ) ? $theme_options['blog-post-structure'] : array();
+
+	if ( in_array( 'title-meta', $blog_post_structure ) && ! isset( $theme_options['user-has-title-meta-in-blog-post-structure'] ) ) {
+		// Set a flag to check if user activated Title in their Blog Meta structure.
+		$theme_options['user-has-title-meta-in-blog-post-structure'] = true;
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}

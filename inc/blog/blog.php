@@ -239,7 +239,9 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 
 		$blog_post_structure = astra_get_option( 'blog-post-structure' );
 
-		if ( is_array( $blog_post_structure ) && in_array( 'title-meta', $blog_post_structure ) ) {
+		$old_user_with_title_meta = astra_get_option( 'user-has-title-meta-in-blog-post-structure', false );
+
+		if ( in_array( 'title-meta', $blog_post_structure ) || $old_user_with_title_meta ) {
 
 			do_action( 'astra_archive_entry_header_before' );
 			?>
@@ -275,6 +277,10 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 				</header><!-- .entry-header -->
 			<?php
 			do_action( 'astra_archive_entry_header_after' );
+
+			if ( $old_user_with_title_meta ) {
+				astra_delete_option( 'user-has-title-meta-in-blog-post-structure' );
+			}
 		}
 	}
 }

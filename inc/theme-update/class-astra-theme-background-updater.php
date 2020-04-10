@@ -49,6 +49,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_responsive_base_background_option',
 				'astra_update_theme_tablet_breakpoint',
 			),
+			'2.4.1' => array(
+				'astra_blog_pro_layouts_title_meta_compatibilitty',
+			),
 		);
 
 		/**
