@@ -237,46 +237,45 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 	 */
 	function astra_get_blog_post_title_meta() {
 
-		// Blog Post Title and Blog Post Meta.
-		do_action( 'astra_archive_entry_header_before' );
-		?>
-		<header class="entry-header">
-			<?php
+		$blog_post_structure = astra_get_option( 'blog-post-structure' );
 
-				do_action( 'astra_archive_post_title_before' );
+		if ( is_array( $blog_post_structure ) && in_array( 'title-meta', $blog_post_structure ) ) {
 
-				/* translators: 1: Current post link, 2: Current post id */
-				astra_the_post_title(
-					sprintf(
-						'<h2 class="entry-title" %2$s><a href="%1$s" rel="bookmark">',
-						esc_url( get_permalink() ),
-						astra_attr(
-							'article-title-blog',
-							array(
-								'class' => '',
-							)
-						)
-					),
-					'</a></h2>',
-					get_the_id()
-				);
-
-				do_action( 'astra_archive_post_title_after' );
-
+			do_action( 'astra_archive_entry_header_before' );
 			?>
+				<header class="entry-header">
+					<?php
+
+						do_action( 'astra_archive_post_title_before' );
+
+						/* translators: 1: Current post link, 2: Current post id */
+						astra_the_post_title(
+							sprintf(
+								'<h2 class="entry-title" %2$s><a href="%1$s" rel="bookmark">',
+								esc_url( get_permalink() ),
+								astra_attr(
+									'article-title-blog',
+									array(
+										'class' => '',
+									)
+								)
+							),
+							'</a></h2>',
+							get_the_id()
+						);
+
+						do_action( 'astra_archive_post_title_after' );
+
+						do_action( 'astra_archive_post_meta_before' );
+
+						astra_blog_get_post_meta();
+
+						do_action( 'astra_archive_post_meta_after' );
+					?>
+				</header><!-- .entry-header -->
 			<?php
-
-				do_action( 'astra_archive_post_meta_before' );
-
-				astra_blog_get_post_meta();
-
-				do_action( 'astra_archive_post_meta_after' );
-
-			?>
-		</header><!-- .entry-header -->
-		<?php
-
-		do_action( 'astra_archive_entry_header_after' );
+			do_action( 'astra_archive_entry_header_after' );
+		}
 	}
 }
 
