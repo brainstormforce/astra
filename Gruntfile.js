@@ -355,7 +355,7 @@ module.exports = function (grunt) {
                     '!.git/**',
                     '!bin/**',
                     '!.gitlab-ci.yml',
-                    '!bin/**',
+                    '!cghooks.lock',
                     '!tests/**',
                     '!phpunit.xml.dist',
                     '!*.sh',
