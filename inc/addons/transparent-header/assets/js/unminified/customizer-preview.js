@@ -31,7 +31,7 @@
 	wp.customize( 'astra-settings[transparent-header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
-			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
+			var dynamicStyle = ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
 
 			dynamicStyle += 'body.ast-theme-transparent-header.ast-desktop .main-header-bar {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
@@ -54,7 +54,7 @@
 			if ( color ) {
 
 				var dynamicStyle = ' body.ast-theme-transparent-header.ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
-					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
+					dynamicStyle += ' body.ast-theme-transparent-header.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
 
 				astra_add_dynamic_css( 'transparent-header-main-sep-color', dynamicStyle );
 			}

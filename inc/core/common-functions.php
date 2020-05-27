@@ -39,6 +39,11 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 		}
 
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
+		}
+
 		// Get r, g & b codes from hex code.
 		$r   = hexdec( substr( $hex, 0, 2 ) );
 		$g   = hexdec( substr( $hex, 2, 2 ) );
@@ -987,6 +992,11 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 
 		// Get rgb vars.
 		$hex = str_replace( '#', '', $hex );
+
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
+		}
 
 		$shortcode_atts = array(
 			'r' => hexdec( substr( $hex, 0, 2 ) ),

@@ -29,6 +29,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 		 */
 		public static function get_css() {
 			global $pagenow;
+			global $post;
+			$post_id = astra_get_post_id();
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -101,6 +103,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h3_font_weight    = astra_get_option( 'font-weight-h3' );
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
+
+			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
+			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );
 
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
@@ -205,7 +210,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.block-editor-block-list__block[data-align=wide]' => array(
 					'max-width' => astra_get_css_value( $site_content_width + 200, 'px' ),
 				),
-				'.editor-post-title__block .editor-post-title__input,  .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6' => array(
+				'.editor-post-title__block .editor-post-title__input,  .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6' => array(
 					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
@@ -216,7 +221,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .block-editor-block-list__layout, .editor-post-title' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block' => array(
+				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -235,7 +240,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				/**
 				 * Content base heading color.
 				 */
-				'.editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6, .edit-post-visual-editor .wp-block-heading, .edit-post-visual-editor .wp-block-uagb-advanced-heading h1, .edit-post-visual-editor .wp-block-uagb-advanced-heading h2, .edit-post-visual-editor .wp-block-uagb-advanced-heading h3, .edit-post-visual-editor .wp-block-uagb-advanced-heading h4, .edit-post-visual-editor .wp-block-uagb-advanced-heading h5, .edit-post-visual-editor .wp-block-uagb-advanced-heading h6' => array(
+				'.editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6, .edit-post-visual-editor .wp-block-heading, .edit-post-visual-editor .wp-block-uagb-advanced-heading h1, .edit-post-visual-editor .wp-block-uagb-advanced-heading h2, .edit-post-visual-editor .wp-block-uagb-advanced-heading h3, .edit-post-visual-editor .wp-block-uagb-advanced-heading h4, .edit-post-visual-editor .wp-block-uagb-advanced-heading h5, .edit-post-visual-editor .wp-block-uagb-advanced-heading h6' => array(
 					'color' => esc_attr( $heading_base_color ),
 				),
 				// Blockquote Text Color.
@@ -252,36 +257,36 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
 				// Heading H1 - H6 font size.
-				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
 					'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 					'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
 					'line-height'    => esc_attr( $h1_line_height ),
 					'text-transform' => esc_attr( $h1_text_transform ),
 				),
-				'.edit-post-visual-editor h2, .wp-block-heading h2, .wp-block-freeform.block-library-rich-text__tinymce h2, .edit-post-visual-editor .wp-block-heading h2, .wp-block-heading h2.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h2' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h2, .wp-block-heading h2, .wp-block-freeform.block-library-rich-text__tinymce h2, .edit-post-visual-editor .wp-block-heading h2, .wp-block-heading h2.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h2' => array(
 					'font-size'      => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 					'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
 					'line-height'    => esc_attr( $h2_line_height ),
 					'text-transform' => esc_attr( $h2_text_transform ),
 				),
-				'.edit-post-visual-editor h3, .wp-block-heading h3, .wp-block-freeform.block-library-rich-text__tinymce h3, .edit-post-visual-editor .wp-block-heading h3, .wp-block-heading h3.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h3' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h3, .wp-block-heading h3, .wp-block-freeform.block-library-rich-text__tinymce h3, .edit-post-visual-editor .wp-block-heading h3, .wp-block-heading h3.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h3' => array(
 					'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 					'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
 					'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
 					'line-height'    => esc_attr( $h3_line_height ),
 					'text-transform' => esc_attr( $h3_text_transform ),
 				),
-				'.edit-post-visual-editor h4, .wp-block-heading h4, .wp-block-freeform.block-library-rich-text__tinymce h4, .edit-post-visual-editor .wp-block-heading h4, .wp-block-heading h4.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h4' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h4, .wp-block-heading h4, .wp-block-freeform.block-library-rich-text__tinymce h4, .edit-post-visual-editor .wp-block-heading h4, .wp-block-heading h4.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h4' => array(
 					'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h4_line_height ),
 				),
-				'.edit-post-visual-editor h5, .wp-block-heading h5, .wp-block-freeform.block-library-rich-text__tinymce h5, .edit-post-visual-editor .wp-block-heading h5, .wp-block-heading h5.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h5' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h5, .wp-block-heading h5, .wp-block-freeform.block-library-rich-text__tinymce h5, .edit-post-visual-editor .wp-block-heading h5, .wp-block-heading h5.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h5' => array(
 					'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h5_line_height ),
 				),
-				'.edit-post-visual-editor h6, .wp-block-heading h6, .wp-block-freeform.block-library-rich-text__tinymce h6, .edit-post-visual-editor .wp-block-heading h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6' => array(
+				'.edit-post-visual-editor .block-editor-block-list__block h6, .wp-block-heading h6, .wp-block-freeform.block-library-rich-text__tinymce h6, .edit-post-visual-editor .wp-block-heading h6, .wp-block-heading h6.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h6' => array(
 					'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h6_line_height ),
 				),
@@ -313,6 +318,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
 			);
+
+			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+				$destop_title_css = array(
+					'.editor-post-title__block' => array(
+						'opacity' => '0.2',
+					),
+				);
+				$css             .= astra_parse_css( $destop_title_css );
+			}
 
 			$css .= astra_parse_css( $desktop_css );
 
@@ -466,56 +480,35 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $mobile_css, '', astra_get_mobile_breakpoint() );
 
-			if ( 'page-builder' === $container_layout ) {
-				$page_builder_css = array(
-					'.editor-post-title__block, .editor-default-block-appender, .block-editor-block-list__block' => array(
-						'width'     => '100%',
-						'max-width' => '100%',
-					),
-					'.block-editor-block-list__layout' => array(
-						'padding-left'  => 0,
-						'padding-right' => 0,
-					),
-					'.editor-block-list__block-edit .editor-block-list__block-edit' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
-					'.edit-post-visual-editor .block-editor-block-list__block' => array(
-						'padding-left'  => '20px',
-						'padding-right' => '20px',
-					),
-					'.edit-post-visual-editor .wp-block .block-editor-block-list__block' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
-				);
+			$page_builder_css = array(
+				'.ast-page-builder-template .editor-post-title__block, .ast-page-builder-template .editor-default-block-appender, .ast-page-builder-template .block-editor-block-list__block' => array(
+					'width'     => '100%',
+					'max-width' => '100%',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'padding-left'  => 0,
+					'padding-right' => 0,
+				),
+				'.ast-page-builder-template .editor-block-list__block-edit'   => array(
+					'padding-left'  => '20px',
+					'padding-right' => '20px',
+				),
+				'.ast-page-builder-template .editor-block-list__block-edit .editor-block-list__block-edit' => array(
+					'padding-left'  => '0',
+					'padding-right' => '0',
+				),
+			);
 
-				$css .= astra_parse_css( $page_builder_css );
-			}
-
-			if ( 'page-builder' === $container_layout || 'plain-container' === $container_layout ) {
-				$aligned_full_content_css = array(
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-					),
-					'.block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-					),
-				);
-
-				$css .= astra_parse_css( $aligned_full_content_css );
-			}
+			$css .= astra_parse_css( $page_builder_css );
 
 			if ( 'page-builder' === $container_layout ) {
 				$full_width_streched_css = array(
-					'.block-editor-block-list__layout' => array(
+					'.wp-block .block-editor-block-list__layout' => array(
 						'margin-left'  => '60px',
 						'margin-right' => '60px',
 					),
 					// WordPress 5.4 compatibility CSS.
-					'.wp-block .block-editor-block-list__layout' => array(
+					'.wp-block .block-editor-block-list__layout .block-editor-block-list__layout' => array(
 						'margin-left'  => '0px',
 						'margin-right' => '0px',
 					),
@@ -524,7 +517,128 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $full_width_streched_css );
 			}
 
-			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) || 'content-boxed-container' === $container_layout || 'boxed-container' === $container_layout ) {
+			$full_width_streched_css = array(
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'margin-left'  => '60px',
+					'margin-right' => '60px',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__layout' => array(
+					'margin-left'  => '0px',
+					'margin-right' => '0px',
+				),
+			);
+
+			$css .= astra_parse_css( $full_width_streched_css );
+
+			$aligned_full_content_css = array(
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-plain-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"]' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+			);
+
+			$css .= astra_parse_css( $aligned_full_content_css );
+
+			$boxed_container = array(
+				'.ast-separate-container .block-editor-writing-flow, .ast-two-container .block-editor-writing-flow'       => array(
+					'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
+					'margin'           => '0 auto',
+					'background-color' => '#fff',
+				),
+				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor'         => array(
+					'background-color' => '#f5f5f5',
+				),
+
+				'.ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-block-list__layout' => array(
+					'padding-top' => '0',
+				),
+
+				'.ast-two-container .editor-post-title, .ast-separate-container .block-editor-block-list__layout, .ast-two-container .editor-post-title' => array(
+					'padding-top'    => 'calc( 5.34em - 19px)',
+					'padding-bottom' => '5.34em',
+					'padding-left'   => 'calc( 6.67em - 28px )',
+					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
+				'.ast-separate-container .block-editor-block-list__layout' => array(
+					'padding-top'    => '0',
+					'padding-bottom' => '5.34em',
+					'padding-left'   => 'calc( 6.67em - 28px )',
+					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
+				'.ast-separate-container .editor-post-title' => array(
+					'padding-top'    => 'calc( 5.34em - 19px)',
+					'padding-bottom' => '5.34em',
+					'padding-left'   => 'calc( 6.67em - 28px )',
+					'padding-right'  => 'calc( 6.67em - 28px )',
+				),
+
+				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'         => array(
+					'padding-bottom' => '0',
+				),
+				'.ast-separate-container .editor-block-list__block, .ast-two-container .editor-block-list__block'  => array(
+					'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
+				),
+				'.ast-separate-container .editor-block-list__block[data-align=wide], .ast-two-container .editor-block-list__block[data-align=wide]' => array(
+					'margin-left'  => '-20px',
+					'margin-right' => '-20px',
+				),
+				'.ast-separate-container .editor-block-list__block[data-align=full], .ast-two-container .editor-block-list__block[data-align=full]' => array(
+					'margin-left'  => '-6.67em',
+					'margin-right' => '-6.67em',
+				),
+				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-separate-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
+					'margin-left'  => '0',
+					'margin-right' => '0',
+				),
+			);
+
+			$css .= astra_parse_css( $boxed_container );
+
+			$ast_gtn_mobile_css = array(
+				'.ast-separate-container .editor-post-title' => array(
+					'padding-top'   => 'calc( 2.34em - 19px)',
+					'padding-left'  => 'calc( 3.67em - 28px )',
+					'padding-right' => 'calc( 3.67em - 28px )',
+				),
+				'.ast-separate-container .block-editor-block-list__layout' => array(
+					'padding-bottom' => '2.34em',
+					'padding-left'   => 'calc( 3.67em - 28px )',
+					'padding-right'  => 'calc( 3.67em - 28px )',
+				),
+				'.ast-page-builder-template .block-editor-block-list__layout' => array(
+					'margin-left'  => '30px',
+					'margin-right' => '30px',
+				),
+				'.ast-plain-container .block-editor-block-list__layout' => array(
+					'padding-left'  => '30px',
+					'padding-right' => '30px',
+				),
+			);
+
+			$css .= astra_parse_css( $ast_gtn_mobile_css, '', astra_get_mobile_breakpoint() );
+
+			$gtn_full_wide_image_css = array(
+				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] figure.wp-block-image' => array(
+					'margin-left'  => '-4.8em',
+					'margin-right' => '-4.81em',
+					'max-width'    => 'unset',
+					'width'        => 'unset',
+				),
+				'.ast-separate-container .block-editor-block-list__block[data-align="full"] .wp-block-cover' => array(
+					'margin-left'  => '-4.8em',
+					'margin-right' => '-4.81em',
+					'max-width'    => 'unset',
+					'width'        => 'unset',
+				),
+			);
+			$css                    .= astra_parse_css( $gtn_full_wide_image_css );
+
+			if ( ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) ) {
+
 				$boxed_container = array(
 					'.block-editor-writing-flow'       => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
@@ -572,4 +686,4 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 	}
 
-endif;
+			endif;

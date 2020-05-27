@@ -44,6 +44,7 @@ class Astra_WPHeader_Schema extends Astra_Schema {
 	public function wpheader_Schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/WPHeader';
 		$attr['itemscope'] = 'itemscope';
+		$attr['itemid']    = '#masthead';
 
 		return $attr;
 	}

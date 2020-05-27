@@ -1,8 +1,32 @@
-v2.4.0
-- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-responsive-tab-breakpoints-in-astra/ )
+v2.4.4
+- Improvement: Gutenberg editor improvements.
+- Improvement: Hardened the security of theme.
+- Fix: Added ID attribute for WP Header and WP Footer schema.
+- Fix: Different image size on elementor product pages in mobile view. 
+- Fix: Renamed .hidden CSS class to .ast-hidden to avoid conflict with other plugins.
+- Fix: UAE Nav Menu widget conflict with Mega Menu.
+- Fix: Submenu icon not appearing properly on AMP pages.
+- Fix: Transparent header bottom border is not working on mobile and tablet.
+- Fix: Prevent PHP notice for PHP 7.4.
+
+v2.4.3
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
+- Fix: Updated Breadcrumb schema.
+- Fix: Customizer scrolling issue on Firefox.
+- Fix: Gutenberg editor Full Width layout background color not working for new post.
+- Fix: Gutenberg editor Headings color and typography not working.
+
+v2.4.2
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
+- Fix: Theme check warnings.
+
+v2.4.1
+- Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
+
+v2.4.0
+- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-update-breakpoints-tablet-mobile-in-astra/ )
 - Improvement: Background color/image responsive param. ( https://wpastra.com/docs/how-to-set-background-image-for-the-site/ )
-- Improvement: Updated admin strings.
+- Improvement: Updated admin Starter Templates plugin's informative strings.
 - Improvement: Addon minimum version notice is now dismissible.
 - Fix: Global button Color and Background Color options not working with Gutenberg button.
 - Fix: W3C markup validation.

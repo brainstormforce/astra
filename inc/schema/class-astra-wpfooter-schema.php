@@ -44,7 +44,7 @@ class Astra_WPFooter_Schema extends Astra_Schema {
 	public function wpfooter_Schema( $attr ) {
 		$attr['itemtype']  = 'https://schema.org/WPFooter';
 		$attr['itemscope'] = 'itemscope';
-
+		$attr['itemid']    = '#colophon';
 		return $attr;
 	}
 

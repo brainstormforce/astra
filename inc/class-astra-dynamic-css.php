@@ -596,6 +596,43 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = astra_parse_css( $css_output );
 
+			/*
+			* Fix the wide width issue in gutenberg
+			* check if the current user is existing user or new user.
+			* if new user load the CSS bty default if existing provide a filter
+			*/
+			if ( self::gtn_image_group_css_comp() ) {
+
+				$gtn_full_wide_image_css = array(
+					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull' => array(
+						'margin-left'  => '-6.67em',
+						'margin-right' => '-6.67em',
+						'max-width'    => 'unset',
+						'width'        => 'unset',
+					),
+					'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignwide,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignwide,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide' => array(
+						'margin-left'  => '-20px',
+						'margin-right' => '-20px',
+						'max-width'    => 'unset',
+						'width'        => 'unset',
+					),
+					'.wp-block-group .has-background' => array(
+						'padding' => '20px',
+					),
+				);
+				$parse_css              .= astra_parse_css( $gtn_full_wide_image_css, '1200' );
+
+			} else {
+
+				$gtn_tablet_column_css = array(
+					'.entry-content .wp-block-columns .wp-block-column' => array(
+						'margin-left' => '0px',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $gtn_tablet_column_css, '', '782' );
+			}
+
 			$static_layout_css = array(
 				'#secondary.secondary'                  => array(
 					'padding-top' => 0,
@@ -1759,7 +1796,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$header_separator_color = astra_get_option( 'header-main-sep-color' );
 
 			$meta_style = array(
-				'.ast-header-break-point .site-header' => array(
+				'.ast-header-break-point .main-header-bar' => array(
 					'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
@@ -2064,6 +2101,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['ele-default-color-typo-setting-comp'] = ( isset( $astra_settings['ele-default-color-typo-setting-comp'] ) && false === $astra_settings['ele-default-color-typo-setting-comp'] ) ? false : true;
 			return apply_filters( 'astra_elementor_default_color_font_comp', $astra_settings['ele-default-color-typo-setting-comp'] );
+		}
+
+		/**
+		 * For existing users, do not load the wide/full width image CSS by default.
+		 *
+		 * @since 2.4.4
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function gtn_image_group_css_comp() {
+			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['gtn-full-wide-image-grp-css'] = isset( $astra_settings['gtn-full-wide-image-grp-css'] ) ? false : true;
+			return apply_filters( 'gtn_image_group_css_comp', $astra_settings['gtn-full-wide-image-grp-css'] );
 		}
 	}
 }

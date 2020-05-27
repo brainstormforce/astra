@@ -209,11 +209,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$content = sprintf( // WPCS: XSS OK.
 					/* translators: 1: number of products */
-				_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'astra' ),
+				_nx( '%1$s Product', '%1$s Products', $category->count, 'product categories', 'astra' ),
 				number_format_i18n( $category->count )
 			);
 
-			return $content;
+			return '<mark class="count">' . $content . '</mark>';
 		}
 
 		/**

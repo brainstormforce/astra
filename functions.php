@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '2.4.1' );
+define( 'ASTRA_THEME_VERSION', '2.5.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -25,7 +25,7 @@ define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri(
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to latest version.
  */
-define( 'ASTRA_EXT_MIN_VER', '2.4.0' );
+define( 'ASTRA_EXT_MIN_VER', '2.5.0' );
 
 /**
  * Setup helper functions of Astra.
@@ -108,7 +108,7 @@ if ( is_admin() ) {
 }
 
 // BSF Analytics library.
-require_once ASTRA_THEME_DIR . 'inc/lib/bsf-analytics/class-bsf-analytics.php';
+require_once ASTRA_THEME_DIR . 'admin/bsf-analytics/class-bsf-analytics.php';
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 

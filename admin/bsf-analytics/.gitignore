@@ -1,0 +1,33 @@
+# ignore PHPStorm extra directories
+.idea/
+
+# Leave node_modules from git
+node_modules/
+
+# sass cache
+.sass-cache
+
+# map files
+*.map
+
+# Skip package file from versoning
+*.zip
+
+# ignore git inside subproject
+admin/bsf-core/.git
+
+# ignore PHPCS report files
+phpcs-summary.log
+phpcs-full.log
+
+# Exclude OS specific files
+.DS_Store
+
+# Exclude composer's directories
+vendor/
+
+# Exclude exported settings
+borders-for-default-menu.json
+defaults.json
+no-toggle-border-fix.json
+cghooks.lock

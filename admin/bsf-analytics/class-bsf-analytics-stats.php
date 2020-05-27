@@ -37,6 +37,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Create only once instance of a class.
 		 *
 		 * @return object
+		 * @since 1.0.0
 		 */
 		public static function instance() {
 			if ( null === self::$instance ) {
@@ -50,6 +51,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Get stats.
 		 *
 		 * @return array stats data.
+		 * @since 1.0.0
 		 */
 		public function get_stats() {
 			return apply_filters( 'bsf_core_stats', $this->get_default_stats() );
@@ -59,6 +61,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Retrieve stats for site.
 		 *
 		 * @return array stats data.
+		 * @since 1.0.0
 		 */
 		private function get_default_stats() {
 			return array(
@@ -103,6 +106,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Get installed PHP version.
 		 *
 		 * @return float PHP version.
+		 * @since 1.0.0
 		 */
 		private function get_php_version() {
 			if ( defined( 'PHP_MAJOR_VERSION' ) && defined( 'PHP_MINOR_VERSION' ) && defined( 'PHP_RELEASE_VERSION' ) ) { // phpcs:ignore
@@ -116,6 +120,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * User count on site.
 		 *
 		 * @return int User count.
+		 * @since 1.0.0
 		 */
 		private function get_user_count() {
 			if ( is_multisite() ) {
@@ -132,6 +137,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Get active plugin's data.
 		 *
 		 * @return array active plugin's list.
+		 * @since 1.0.0
 		 */
 		private function get_active_plugins() {
 			if ( ! $this->plugins ) {
@@ -153,6 +159,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 *
 		 * @param string $plugin plugin.
 		 * @return array formatted plugin data.
+		 * @since 1.0.0
 		 */
 		public function format_plugin( $plugin ) {
 			return array(
@@ -169,6 +176,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Curl SSL version.
 		 *
 		 * @return float SSL version.
+		 * @since 1.0.0
 		 */
 		private function get_curl_ssl_version() {
 			$curl = array();
@@ -183,6 +191,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Get cURL version.
 		 *
 		 * @return float cURL version.
+		 * @since 1.0.0
 		 */
 		private function get_curl_version() {
 			$curl = array();
@@ -197,6 +206,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Get MySQL version.
 		 *
 		 * @return float MySQL version.
+		 * @since 1.0.0
 		 */
 		private function get_mysql_version() {
 			global $wpdb;
@@ -207,6 +217,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * Check if content directory is writable.
 		 *
 		 * @return bool
+		 * @since 1.0.0
 		 */
 		private function is_content_writable() {
 			$upload_dir = wp_upload_dir();
@@ -223,6 +234,7 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 	 * Get timezone string.
 	 *
 	 * @return string timezone string.
+	 * @since 1.0.0
 	 */
 	function wp_timezone_string() {
 		$timezone_string = get_option( 'timezone_string' );

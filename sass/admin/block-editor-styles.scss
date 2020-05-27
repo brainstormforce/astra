@@ -49,6 +49,29 @@ html {
     }
 }
 
+.editor-styles-wrapper {
+	.block-editor-block-list__block {
+		h1 {
+			line-height: $line-height-h1;
+		}
+		h2 {
+			line-height: $line-height-h2;
+		}
+		h3 {
+			line-height: $line-height-h3;
+		}
+		h4 {
+			line-height: $line-height-h4;
+		}
+		h5 {
+			line-height: $line-height-h5;
+		}
+		h6 {
+			line-height: $line-height-h6;
+		}
+	}
+}
+
 .edit-post-visual-editor p,
 .block-editor-block-list__block p,
 .editor-default-block-appender textarea.editor-default-block-appender__content {
@@ -89,14 +112,6 @@ html {
     }
 }
 
-.editor-post-title__block {
-    .editor-post-title__input {
-        padding-left: 28px;
-        padding-right: 28px;
-        font-weight: normal;
-    }
-}
-
 .editor-post-title__block,
 .editor-default-block-appender,
 .block-editor-block-list__block {
@@ -118,11 +133,14 @@ html {
     max-width: 1400px;
 }
 
-.block-editor-block-list__layout {
-    .block-editor-block-list__layout {
-        padding: 0;
-    }
+.edit-post-visual-editor{
+	.block-editor-block-list__layout {
+		.block-editor-block-list__layout {
+			padding: 0;
+		}
+	}
 }
+
 
 .editor-default-block-appender__content {
     margin-top: 32px;

@@ -4,14 +4,13 @@ services:
   - docker
 
 language: php
-dist: precise
 
 cache:
   - $HOME/.composer/cache
 
 matrix:
   include:
-    - php: 7.2
+    - php: 7.4snapshot
       env: WP_TRAVISCI=phpcs
 
 before_script:

@@ -84,7 +84,26 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @return String body classes to be added to <body> tag in admin page
 		 */
 		public function admin_body_class( $classes ) {
-			$content_layout = astra_get_content_layout();
+
+			global $pagenow;
+			$screen = get_current_screen();
+
+			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) {
+				return;
+			}
+
+			$post_id = get_the_ID();
+
+			if ( $post_id ) {
+				$meta_content_layout = get_post_meta( $post_id, 'site-content-layout', true );
+			}
+
+			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
+				$content_layout = $meta_content_layout;
+			} else {
+				$content_layout = astra_get_option( 'site-content-layout' );
+			}
+
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
 			} elseif ( 'boxed-container' == $content_layout ) {
@@ -295,8 +314,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
+			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
 
 			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();

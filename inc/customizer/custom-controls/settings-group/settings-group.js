@@ -6,6 +6,12 @@
     jQuery( document ).ready(function() {
         var last_scroll_top = 0;
         var parentSection   = jQuery( '.wp-full-overlay-sidebar-content' );
+        var browser = navigator.userAgent.toLowerCase();
+        if ( ! ( browser.indexOf( 'firefox' ) > -1 ) ) {
+        var parent_width_remove = 6;
+        } else {
+        var parent_width_remove = 16;
+        }
         jQuery('#customize-controls .wp-full-overlay-sidebar-content .control-section').on( 'scroll', function (event) {
             var $this = jQuery(this);
             // Run sticky js for only open section.
@@ -19,8 +25,10 @@
                 } else {
                     // On scroll up, add sticky section title.
                     var parent_width = $this.outerWidth();
-                    section_title.addClass( 'maybe-sticky' ).addClass( 'is-in-view' ).addClass( 'is-sticky' ).width( parent_width - 6 ).css( 'top', parentSection.css( 'top' ) );
-                    $this.css( 'padding-top', section_title.height() );
+                    section_title.addClass( 'maybe-sticky' ).addClass( 'is-in-view' ).addClass( 'is-sticky' ).width( parent_width - parent_width_remove ).css( 'top', parentSection.css( 'top' ) );
+                    if ( ! ( browser.indexOf( 'firefox' ) > -1 ) ) {
+                        $this.css( 'padding-top', section_title.height() );
+                    }
                     if( scroll_top === 0 ) {
                         // Remove sticky section heading when scrolled to the top.
                         section_title.removeClass( 'maybe-sticky' ).removeClass( 'is-in-view' ).removeClass( 'is-sticky' );

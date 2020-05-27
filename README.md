@@ -3,9 +3,9 @@
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 **Tags:** custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog  
-**Tested up to:** 5.4  
+**Tested up to:** 5.4.1  
 **Requires PHP:** 5.3  
-**Stable tag:** 2.4.0  
+**Stable tag:** 2.4.4  
 
 Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
@@ -56,10 +56,12 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 
 ### Screenshot Licenses ###
 
-All vectors published on unDraw can be used for free (https://undraw.co/license)
-https://undraw.co/illustrations
-Font Awesome Svg are all licensed under CC BY 4.0 (https://fontawesome.com/license/free)
-https://fontawesome.com/icons
+Screenshot images are all licensed under Creative Commons Zero (CC0) ( https://pxhere.com/en/license )
+https://pxhere.com/en/photo/100653
+https://pxhere.com/en/photo/759723
+https://pxhere.com/en/photo/1259448
+https://pxhere.com/en/photo/1456591
+https://pxhere.com/en/photo/1389199
 
 
 ### Normalizing styles ###
