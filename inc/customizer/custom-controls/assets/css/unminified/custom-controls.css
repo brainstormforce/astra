@@ -274,6 +274,12 @@ input[type="text"].select2-search__field {
   border-radius: 0;
 }
 
+/* CSS for a Description as a Notice. */
+.ast-customizer-notice {
+  margin: 0 -12px;
+  padding: 12px;
+}
+
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;

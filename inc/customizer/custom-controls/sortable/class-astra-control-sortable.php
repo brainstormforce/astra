@@ -75,13 +75,15 @@ class Astra_Control_Sortable extends WP_Customize_Control {
 			<# } #>
 
 			<ul class="sortable">
-				<# _.each( data.value, function( choiceID ) { #>
-					<li {{{ data.inputAttrs }}} class='ast-sortable-item' data-value='{{ choiceID }}'>
-						<i class='dashicons dashicons-menu'></i>
-						<i class="dashicons dashicons-visibility visibility"></i>
-						{{{ data.choices[ choiceID ] }}}
-					</li>
-				<# }); #>
+				<# _.each( data.value, function( choiceID ) {
+					if ( data.choices[ choiceID ] ) { #>
+						<li {{{ data.inputAttrs }}} class='ast-sortable-item' data-value='{{ choiceID }}'>
+							<i class='dashicons dashicons-menu'></i>
+							<i class="dashicons dashicons-visibility visibility"></i>
+							{{{ data.choices[ choiceID ] }}}
+						</li>
+					<# }
+				}); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
 				<# if ( Array.isArray(data.value) && -1 === data.value.indexOf( choiceID ) ) { #>
 						<li {{{ data.inputAttrs }}} class='ast-sortable-item invisible' data-value='{{ choiceID }}'>

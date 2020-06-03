@@ -42,6 +42,13 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public $linked = '';
 
 	/**
+	 * Linked customizer section.
+	 *
+	 * @var string
+	 */
+	public $link_type = '';
+
+	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -50,6 +57,7 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 		parent::to_json();
 		$this->json['link_text'] = $this->link_text;
 		$this->json['linked']    = $this->linked;
+		$this->json['link_type'] = $this->link_type;
 	}
 
 	/**
@@ -66,7 +74,7 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 		?>
 
 		<# if ( data.linked && data.link_text ) { #>
-			<a href="#" class="customizer-link" data-customizer-linked="{{{ data.linked }}}">
+			<a href="#" class="customizer-link" data-customizer-linked="{{{ data.linked }}}" data-ast-customizer-link-type="{{{ data.link_type }}}">
 				{{{ data.link_text }}}
 			</a>
 		<# } #>

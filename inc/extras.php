@@ -1933,9 +1933,11 @@ add_filter( 'astra_customizer_configurations', 'remove_controls', 99 );
  * @return array $default_stats Default stats with Theme specific stats array.
  */
 function astra_add_theme_specific_stats( $default_stats ) {
-	$default_stats['astra_theme_version']       = ASTRA_THEME_VERSION;
-	$default_stats['astra_breadcrumb-position'] = astra_get_option( 'breadcrumb-position', false );
-	$default_stats['astra_mobile-menu-style']   = astra_get_option( 'mobile-menu-style', false );
+	$default_stats['astra_settings'] = array(
+		'version'             => ASTRA_THEME_VERSION,
+		'breadcrumb-position' => astra_get_option( 'breadcrumb-position', false ),
+		'mobile-menu-style'   => astra_get_option( 'mobile-menu-style', false ),
+	);
 	return $default_stats;
 }
 

@@ -15,9 +15,22 @@ wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.ex
 		this.container.on('click', '.customizer-link', function (e) {
 			e.preventDefault();
 
-			var sectionName = this.getAttribute('data-customizer-linked');
-			var section = wp.customize.section(sectionName);
-			section.expand();
+			var section;
+			var linked = this.getAttribute('data-customizer-linked');
+			var linkType = this.getAttribute('data-ast-customizer-link-type');
+			switch (linkType) {
+				case 'section':
+					section = wp.customize.section(linked);
+					section.expand();
+					break;
+
+				case 'control':
+					wp.customize.control(linked).focus();
+					break;
+			
+				default:
+					break;
+			}
 		});
 	},
 

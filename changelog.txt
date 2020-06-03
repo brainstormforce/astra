@@ -1,3 +1,11 @@
+v2.4.5
+- Improvement: Transparent Header Logo notice in Site Identity section if the logo is set from Transparent Header in customizer.
+- Fix: Toggle Button contrast color not working properly.
+- Fix: Introducing new CSS class for Single Product having stock available in backorder. (props @pippyn)
+- Fix: Transparent Header Logo disappearing when Site Identity Logo is removed in the customizer.
+- Fix: Read Time meta option appearing in customizer even when Addon is deactivated.
+- Fix: Space appearing below Elementor Heading after updating Elementor plugin to v2.9.9 and above.
+
 v2.4.4
 - Improvement: Gutenberg editor improvements.
 - Improvement: Hardened the security of theme.

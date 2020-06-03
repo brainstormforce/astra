@@ -592,6 +592,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		public static function sanitize_customizer_links( $val ) {
 			$val['linked']    = sanitize_text_field( $val['linked'] );
 			$val['link_text'] = esc_html( $val['link_text'] );
+			$val['link_type'] = esc_html( $val['link_type'] );
 
 			return $val;
 		}

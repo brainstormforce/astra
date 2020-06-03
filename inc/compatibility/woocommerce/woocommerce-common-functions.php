@@ -130,12 +130,13 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 			$product_avail  = $product->get_availability();
 			$stock_quantity = $product->get_stock_quantity();
 			$availability   = $product_avail['availability'];
+			$avail_class    = $product_avail['class'];
 			if ( ! empty( $availability ) && $stock_quantity ) {
 				ob_start();
 				?>
 				<p class="ast-stock-detail">
 					<span class="ast-stock-avail"><?php esc_html_e( 'Availability:', 'astra' ); ?></span>
-					<span class="stock in-stock"><?php echo esc_html( $availability ); ?></span>
+					<span class="stock <?php echo esc_html( $avail_class ); ?>"><?php echo esc_html( $availability ); ?></span>
 				</p>
 				<?php
 				$markup = ob_get_clean();

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 2.4.4\n"
+"Project-Id-Version: Astra 2.4.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
-"POT-Creation-Date: 2020-05-20 07:16:31+00:00\n"
+"POT-Creation-Date: 2020-06-02 09:09:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +77,7 @@ msgid "Browse:"
 msgstr ""
 
 #: inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php:407
-#: inc/core/common-functions.php:846
+#: inc/core/common-functions.php:853
 msgid "Home"
 msgstr ""
 
@@ -411,8 +411,8 @@ msgstr ""
 #: inc/addons/heading-colors/customizer/class-astra-heading-colors-configs.php:290
 #: inc/core/class-astra-admin-settings.php:918
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:285
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:210
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:237
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:249
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:276
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:43
 #: inc/customizer/configurations/typography/class-astra-single-typo-configs.php:46
 msgid "Typography"
@@ -646,17 +646,17 @@ msgid "Logo"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:213
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:56
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:95
 msgid "Different Logo For Retina Devices?"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:230
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:71
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:110
 msgid "Retina Logo"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:246
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:118
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:157
 msgid "Logo Width"
 msgstr ""
 
@@ -687,7 +687,7 @@ msgid "Background"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:328
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:200
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:239
 msgid "Site Title"
 msgstr ""
 
@@ -1241,7 +1241,7 @@ msgstr ""
 msgid "Out of stock"
 msgstr ""
 
-#: inc/compatibility/woocommerce/woocommerce-common-functions.php:137
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:138
 msgid "Availability:"
 msgstr ""
 
@@ -1701,16 +1701,16 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: inc/core/common-functions.php:852
+#: inc/core/common-functions.php:859
 msgid "This page doesn't seem to exist."
 msgstr ""
 
-#: inc/core/common-functions.php:858 inc/core/common-functions.php:950
+#: inc/core/common-functions.php:865 inc/core/common-functions.php:957
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/core/common-functions.php:1153
+#: inc/core/common-functions.php:1160
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:35
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:155
 #: inc/extras.php:400
@@ -2223,35 +2223,39 @@ msgstr ""
 msgid "Archives Layout"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:43
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:70
+msgid "Customize Transparent Header."
+msgstr ""
+
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:82
 msgid "Site Logo"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:84
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:123
 msgid "Different Logo For Mobile Devices?"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:99
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:138
 msgid "Mobile Logo (optional)"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:133
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:172
 msgid "Site Icon"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:148
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:187
 msgid "Display Site Title"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:168
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:207
 msgid "Display Site Tagline"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:189
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:228
 msgid "Inline Logo & Site Title"
 msgstr ""
 
-#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:228
+#: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:267
 msgid "Site Tagline"
 msgstr ""
 
@@ -2768,12 +2772,12 @@ msgid_plural "%1$s Products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/core/common-functions.php:1150
+#: inc/core/common-functions.php:1157
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: inc/core/common-functions.php:1151
+#: inc/core/common-functions.php:1158
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""

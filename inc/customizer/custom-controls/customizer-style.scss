@@ -79,6 +79,12 @@ input[type="text"] {
     }
 }
 
+/* CSS for a Description as a Notice. */
+.ast-customizer-notice {
+    margin: 0 -12px;
+    padding: 12px;
+}
+
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
     height: 100%;
