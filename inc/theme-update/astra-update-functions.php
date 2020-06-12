@@ -232,9 +232,9 @@ function astra_blog_pro_layouts_title_meta_compatibilitty() {
 
 	$blog_post_structure = isset( $theme_options['blog-post-structure'] ) ? $theme_options['blog-post-structure'] : array();
 
-	if ( in_array( 'title-meta', $blog_post_structure ) && ! isset( $theme_options['user-has-title-meta-in-blog-post-structure'] ) ) {
+	if ( in_array( 'title-meta', $blog_post_structure ) && ! isset( $theme_options['load-title-meta-in-blog-structure'] ) ) {
 		// Set a flag to check if user activated Title in their Blog Meta structure.
-		$theme_options['user-has-title-meta-in-blog-post-structure'] = true;
+		$theme_options['load-title-meta-in-blog-structure'] = true;
 	}
 
 	update_option( 'astra-settings', $theme_options );
