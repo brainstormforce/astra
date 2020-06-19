@@ -226,6 +226,23 @@ if ( ! function_exists( 'astra_get_blog_post_thumbnail' ) ) {
 }
 
 /**
+ * Can load Title-Meta in Blog structure on basis of user status old/new.
+ */
+if ( ! function_exists( 'can_load_title_in_blog_layout' ) ) {
+
+	/**
+	 * For existing users, do not hide the title meta directly.
+	 *
+	 * @return boolean false if it is an existing user , true if not.
+	 * @since  x.x.x
+	 */
+	function can_load_title_in_blog_layout() {
+		$can_display_title_blog_meta = astra_get_option( 'load-title-meta-in-blog-structure', false );
+		return apply_filters( 'astra_title_meta_blog_structure_comp', $can_display_title_blog_meta );
+	}
+}
+
+/**
  * Blog Post Title & Meta Order
  */
 if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
@@ -237,11 +254,15 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 	 */
 	function astra_get_blog_post_title_meta() {
 
-		$blog_post_structure = astra_get_option( 'blog-post-structure' );
+		$load_blog_meta              = false;
+		$blog_post_structure         = astra_get_option( 'blog-post-structure' );
+		$can_display_title_blog_meta = can_load_title_in_blog_layout();
 
-		$old_user_with_title_meta = astra_get_option( 'load-title-meta-in-blog-structure', false );
+		if ( false === $can_display_title_blog_meta ) {
+			$load_blog_meta = in_array( 'title-meta', $blog_post_structure );
+		}
 
-		if ( in_array( 'title-meta', $blog_post_structure ) || $old_user_with_title_meta ) {
+		if ( $load_blog_meta || $can_display_title_blog_meta ) {
 
 			do_action( 'astra_archive_entry_header_before' );
 			?>
@@ -277,10 +298,6 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 				</header><!-- .entry-header -->
 			<?php
 			do_action( 'astra_archive_entry_header_after' );
-
-			if ( $old_user_with_title_meta ) {
-				astra_delete_option( 'load-title-meta-in-blog-structure' );
-			}
 		}
 	}
 }
