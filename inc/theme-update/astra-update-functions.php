@@ -226,14 +226,12 @@ function astra_gtn_full_wide_image_group_css() {
  *
  * @return void
  */
-function astra_blog_pro_layouts_title_meta_compatibilitty() {
+function astra_blog_pro_layouts_title_meta_compatibility() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	$blog_post_structure = isset( $theme_options['blog-post-structure'] ) ? $theme_options['blog-post-structure'] : array();
-
-	if ( in_array( 'title-meta', $blog_post_structure ) && ! isset( $theme_options['load-title-meta-in-blog-structure'] ) ) {
-		// Set a flag to check if user activated Title in their Blog Meta structure.
+	// Set a flag to check if user activated Title in their Blog Meta structure.
+	if ( ! isset( $theme_options['load-title-meta-in-blog-structure'] ) ) {
 		$theme_options['load-title-meta-in-blog-structure'] = true;
 	}
 
