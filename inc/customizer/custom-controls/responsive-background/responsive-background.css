@@ -2,14 +2,6 @@
   position: relative;
 }
 
-.customize-control-ast-responsive-background .wp-picker-clear {
-  margin-left: 2%;
-}
-
-.customize-control-ast-responsive-background .screen-reader-text {
-  top: initial;
-}
-
 .customize-control-ast-responsive-background .background-container h4 {
   font-size: 14px;
   font-weight: 600;
@@ -69,7 +61,7 @@
 }
 
 .customize-control-ast-responsive-background .more-settings {
-  margin-top: 6px;
+  margin-top: 12px;
   display: inline-block;
   padding: 5px 0 5px 0;
   float: right;
@@ -90,4 +82,13 @@
 
 .customize-control-ast-responsive-background .background-container.active {
   display: block;
+}
+
+.customize-control-ast-responsive-background .wp-picker-container {
+  display: block;
+}
+
+.customize-control-ast-responsive-background .wp-picker-container .wp-picker-clear {
+  margin-left: 4px;
+  min-height: 30px;
 }

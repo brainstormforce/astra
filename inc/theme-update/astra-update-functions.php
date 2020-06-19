@@ -220,6 +220,64 @@ function astra_gtn_full_wide_image_group_css() {
 }
 
 /**
+ * Migrate Footer Bar & Footer Widgets options data from previous background option to its desktop counterpart.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_responsive_footer_background_option() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Footer Widgets Background option migration.
+	if ( ! isset( $theme_options['footer-adv-bg-obj-responsive'] ) && isset( $theme_options['footer-adv-bg-obj'] ) ) {
+
+		$theme_options['footer-adv-bg-obj-responsive']['desktop'] = $theme_options['footer-adv-bg-obj'];
+		$theme_options['footer-adv-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['footer-adv-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	// Footer Bar Background option migration.
+	if ( ! isset( $theme_options['footer-bg-obj-responsive'] ) && isset( $theme_options['footer-bg-obj'] ) ) {
+
+		$theme_options['footer-bg-obj-responsive']['desktop'] = $theme_options['footer-bg-obj'];
+		$theme_options['footer-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['footer-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
  * If user is old then set a flag for backward compatibility to work Blog Meta structure as per previous configurations.
  *
  * @since x.x.x
@@ -234,6 +292,4 @@ function astra_blog_pro_layouts_title_meta_compatibility() {
 	if ( ! isset( $theme_options['load-title-meta-in-blog-structure'] ) ) {
 		$theme_options['load-title-meta-in-blog-structure'] = true;
 	}
-
-	update_option( 'astra-settings', $theme_options );
 }

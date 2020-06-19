@@ -1917,7 +1917,6 @@ function remove_controls( $wp_customize ) {
 		);
 
 		$wp_customize = array_merge( $wp_customize, $layout );
-
 	}
 
 	return $wp_customize;

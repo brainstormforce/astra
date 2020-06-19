@@ -584,14 +584,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
-				'ast-background',
-				array(
-					'callback'          => 'Astra_Control_Background',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
 				'image',
 				array(
 					'callback'          => 'WP_Customize_Image_Control',

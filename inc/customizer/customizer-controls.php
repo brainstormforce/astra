@@ -29,7 +29,6 @@ require $control_dir . '/hidden/class-astra-control-hidden.php';
 require $control_dir . '/link/class-astra-control-link.php';
 require $control_dir . '/color/class-astra-control-color.php';
 require $control_dir . '/description/class-astra-control-description.php';
-require $control_dir . '/background/class-astra-control-background.php';
 require $control_dir . '/responsive-color/class-astra-control-responsive-color.php';
 require $control_dir . '/responsive-background/class-astra-control-responsive-background.php';
 require $control_dir . '/border/class-astra-control-border.php';
