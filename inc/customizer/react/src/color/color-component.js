@@ -40,7 +40,7 @@ class ColorComponent extends Component {
 			...defaultParams,
 			...this.props.control.params.input_attrs,
 		} : defaultParams;
-		const palette = JSON.parse( this.props.customizer.control( 'kadence_color_palette' ).setting.get() );
+		const palette = [];
 		console.log(palette);
 		this.state = {
 			value: value,
