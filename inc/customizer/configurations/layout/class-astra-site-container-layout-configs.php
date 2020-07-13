@@ -133,7 +133,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'priority'  => 25,
 					'title'     => __( 'Background', 'astra' ),
 				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

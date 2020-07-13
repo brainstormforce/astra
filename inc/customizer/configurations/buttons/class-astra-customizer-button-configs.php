@@ -342,6 +342,141 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'     => __( 'Background Color', 'astra' ),
 				),
 
+				/**
+				 * Option: Primary Header Button Typography
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'default'   => astra_get_option( 'primary-header-button-text-typography' ),
+					'type'      => 'control',
+					'control'   => 'ast-settings-group',
+					'title'     => __( 'Typography', 'astra' ),
+					'section'   => 'section-primary-menu',
+					'transport' => 'postMessage',
+					'priority'  => 20,
+					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+				),
+
+				/**
+				 * Option: Primary Header Button Font Family
+				 */
+				array(
+					'name'      => 'primary-header-button-font-family',
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'   => 'section-primary-menu',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'title'     => __( 'Family', 'astra' ),
+					'default'   => astra_get_option( 'primary-header-button-font-family' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[primary-header-button-font-weight]',
+					'priority'  => 1,
+				),
+
+				/**
+				 * Option: Primary Header Button Font Size
+				 */
+				array(
+					'name'        => 'primary-header-button-font-size',
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra' ),
+					'type'        => 'sub-control',
+					'parent'      => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'     => 'section-primary-menu',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( 'primary-header-button-font-size' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Primary Header Button Font Weight
+				 */
+				array(
+					'name'              => 'primary-header-button-font-weight',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'           => 'section-primary-menu',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'title'             => __( 'Weight', 'astra' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'primary-header-button-font-weight' ),
+					'connect'           => 'primary-header-button-font-family',
+					'priority'          => 2,
+				),
+
+				/**
+				 * Option: Primary Header Button Text Transform
+				 */
+				array(
+					'name'      => 'primary-header-button-text-transform',
+					'transport' => 'postMessage',
+					'default'   => astra_get_option( 'primary-header-button-text-transform' ),
+					'title'     => __( 'Text Transform', 'astra' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'   => 'section-primary-menu',
+					'control'   => 'ast-select',
+					'priority'  => 3,
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Primary Header Button Line Height
+				 */
+				array(
+					'name'              => 'primary-header-button-line-height',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => astra_get_option( 'primary-header-button-line-height' ),
+					'parent'            => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'           => 'section-primary-menu',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra' ),
+					'suffix'            => '',
+					'priority'          => 4,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 0.01,
+						'max'  => 5,
+					),
+				),
+
+				/**
+				 * Option: Primary Header Button Letter Spacing
+				 */
+				array(
+					'name'              => 'primary-header-button-letter-spacing',
+					'control'           => 'ast-slider',
+					'transport'         => 'postMessage',
+					'type'              => 'sub-control',
+					'default'           => '',
+					'parent'            => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
+					'section'           => 'section-primary-menu',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Letter Spacing', 'astra' ),
+					'suffix'            => '',
+					'priority'          => 5,
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 100,
+					),
+				),
+
 				// Option: Custom Menu Button Border.
 				array(
 					'type'           => 'control',
@@ -350,7 +485,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'        => 'section-primary-menu',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
-					'priority'       => 20,
+					'priority'       => 21,
 					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'default'        => astra_get_option( 'header-main-rt-section-button-padding' ),
 					'title'          => __( 'Padding', 'astra' ),

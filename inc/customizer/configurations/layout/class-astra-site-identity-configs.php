@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 		 * @return boolean True - If Transparent Header is enabled, False if not.
 		 */
 		public function is_transparent_header_enabled() {
-			$status = Astra_Ext_Transparent_Header_Markup::get_instance()->is_transparent_header();
+			$status = Astra_Ext_Transparent_Header_Markup::is_transparent_header();
 			return ( true === $status ? true : false );
 		}
 

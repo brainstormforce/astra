@@ -1,8 +1,5 @@
 .customize-control-ast-responsive-background {
     position: relative;
-    .screen-reader-text {
-        top: initial;
-    }
 	.background-container h4 {
 		font-size: 14px;
         font-weight: 600;
@@ -59,7 +56,7 @@
     }
 
     .more-settings {
-        margin-top: 6px;
+        margin-top: 12px;
         display: inline-block;
         padding: 5px 0 5px 0;
         float: right;
@@ -82,5 +79,11 @@
 			display: block;
 		}
 	}
-
+    .wp-picker-container {
+        display: block;
+        .wp-picker-clear {
+            margin-left: 4px;
+            min-height: 30px;
+        }
+    }
 }

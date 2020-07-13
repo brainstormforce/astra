@@ -202,7 +202,6 @@ function astra_responsive_base_background_option() {
 	update_option( 'astra-settings', $theme_options );
 }
 
-
 /**
  * Do not apply new wide/full image CSS for existing users.
  *
@@ -211,6 +210,7 @@ function astra_responsive_base_background_option() {
  * @return void
  */
 function astra_gtn_full_wide_image_group_css() {
+
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.

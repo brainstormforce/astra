@@ -54,8 +54,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 *
 			 * @since  2.4.5
 			 */
-			add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
-			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ), 10, 2 );
 		}
 
 		/**
@@ -66,17 +65,32 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 *
 		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
 		 *
-		 * @return void
+		 * @param  string $dynamic_css Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @return string $dynamic_css Generated CSS.
+		 *
 		 * @since  2.4.5
 		 */
-		public function enqueue_elementor_compatibility_styles() {
-			?>
-				<style type="text/css" id="ast-elementor-compatibility-css">
-					.elementor-widget-heading .elementor-heading-title {
-						margin: 0;
-					}
-				</style>
-			<?php
+		public function enqueue_elementor_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+			global $post;
+			$id = astra_get_post_id();
+
+			if ( $this->is_elementor_activated( $id ) ) {
+
+				$elementor_heading_margin_comp = array(
+					'.elementor-widget-heading .elementor-heading-title' => array(
+						'margin' => '0',
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
+
+				$dynamic_css .= $parse_css;
+
+				return $dynamic_css;
+			}
 		}
 
 		/**

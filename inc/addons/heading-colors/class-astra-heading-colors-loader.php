@@ -56,6 +56,10 @@ class Astra_Heading_Colors_Loader {
 		$theme_btn_font_family = astra_get_option( 'font-family-button' );
 		$theme_btn_font_weight = astra_get_option( 'font-weight-button' );
 		Astra_Fonts::add_font( $theme_btn_font_family, $theme_btn_font_weight );
+
+		$header_btn_font_family = astra_get_option( 'primary-header-button-font-family' );
+		$header_btn_font_weight = astra_get_option( 'primary-header-button-font-weight' );
+		Astra_Fonts::add_font( $header_btn_font_family, $header_btn_font_weight );
 	}
 
 	/**

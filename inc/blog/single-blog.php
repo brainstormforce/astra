@@ -85,11 +85,13 @@ if ( ! function_exists( 'astra_single_get_post_meta' ) ) {
 	 */
 	function astra_single_get_post_meta( $echo = true ) {
 
-		$enable_meta = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
-		$post_meta   = astra_get_option( 'blog-single-meta' );
+		$enable_meta       = apply_filters( 'astra_single_post_meta_enabled', '__return_true' );
+		$post_meta         = astra_get_option( 'blog-single-meta' );
+		$current_post_type = get_post_type();
+		$post_type_array   = apply_filters( 'astra_single_post_type_meta', array( 'post' ) );
 
 		$output = '';
-		if ( is_array( $post_meta ) && ( 'post' == get_post_type() || 'attachment' == get_post_type() ) && $enable_meta ) {
+		if ( is_array( $post_meta ) && ( in_array( $current_post_type, $post_type_array ) || 'attachment' == $current_post_type ) && $enable_meta ) {
 
 			$output_str = astra_get_post_meta( $post_meta );
 			if ( ! empty( $output_str ) ) {

@@ -72,6 +72,7 @@ require_once ASTRA_THEME_DIR . 'inc/core/sidebar-manager.php';
 /**
  * Markup Functions
  */
+require_once ASTRA_THEME_DIR . 'inc/markup-extras.php';
 require_once ASTRA_THEME_DIR . 'inc/extras.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog-config.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog.php';
