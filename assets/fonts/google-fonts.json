@@ -3897,9 +3897,11 @@
         "Heebo": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
                 "800",
                 "900"
@@ -6328,6 +6330,22 @@
         }
     },
     {
+        "MuseoModerno": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Mystery Quest": {
             "variants": [
                 "regular"
@@ -7988,14 +8006,18 @@
         "Roboto Mono": {
             "variants": [
                 "100",
-                "100italic",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "monospace"

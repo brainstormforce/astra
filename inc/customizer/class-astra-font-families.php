@@ -129,16 +129,31 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				/**
+				 * Deprecating the Filter to change the Google Fonts JSON file path.
+				 *
+				 * @since x.x.x
+				 * @param string $json_file File where google fonts json format added.
+				 * @return array
+				 */
+				$google_fonts_json_file = astra_apply_filters_deprecated( 'astra_google_fonts_json_file', array( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json', '' ), '2.5.0', false, '`astra_google_fonts_php_file`. Please check this doc for more information - https://wpastra.com/docs/deprecated-google-fonts-filter' );
+				$google_fonts_file      = apply_filters( 'astra_google_fonts_php_file', ASTRA_THEME_DIR . 'inc/google-fonts.php' );
 
-				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				if ( ! file_exists( $google_fonts_file ) ) {
 					return array();
 				}
 
-				$file_contants     = astra_filesystem()->get_contents( $google_fonts_file );
-				$google_fonts_json = json_decode( $file_contants, 1 );
+				if ( ( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) === $google_fonts_json_file ) {
+					$google_fonts_arr = include $google_fonts_file;
+				} else {
+					if ( ! file_exists( $google_fonts_json_file ) ) {
+						return array();
+					}
+					$file_contents    = astra_filesystem()->get_contents( $google_fonts_json_file );
+					$google_fonts_arr = json_decode( $file_contents, 1 );
+				}
 
-				foreach ( $google_fonts_json as $key => $font ) {
+				foreach ( $google_fonts_arr as $key => $font ) {
 					$name = key( $font );
 					foreach ( $font[ $name ] as $font_key => $single_font ) {
 

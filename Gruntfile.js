@@ -373,6 +373,7 @@ module.exports = function (grunt) {
                     '!composer.lock',
                     '!package-lock.json',
                     '!phpcs.xml.dist',
+                    '!assets/fonts/google-fonts.json',
                     '!admin/bsf-analytics/.git/**',
                     '!admin/bsf-analytics/bin/**',
                     '!admin/bsf-analytics/.gitignore',
@@ -551,7 +552,22 @@ module.exports = function (grunt) {
 					'README.md': 'readme.txt'
 				}
 			},
-		},
+        },
+        
+        json2php: {
+            options: {
+                // Task-specific options go here.
+                compress: true,
+                cover: function (phpArrayString, destFilePath) {
+                    return '<?php\n/**\n * Google fonts array file.\n *\n * @package     Astra\n * @author      Astra\n * @copyright   Copyright (c) 2020, Astra\n * @link        https://wpastra.com/\n * @since       Astra 2.5.0\n */\n\n/**\n * Returns google fonts array\n *\n * @since 2.5.0\n */\nreturn ' + phpArrayString + ';\n';
+                }
+            },
+            your_target: {
+				files: {
+					'inc/google-fonts.php': 'assets/fonts/google-fonts.json'
+				}
+            },
+        },
     }
     );
 
@@ -568,7 +584,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
-    grunt.loadNpmTasks("grunt-wp-readme-to-markdown")
+    grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+    grunt.loadNpmTasks('grunt-json2php');
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
@@ -581,9 +598,8 @@ module.exports = function (grunt) {
 
     // min all
     grunt.registerTask('minify', ['style', 'concat', 'uglify:js', 'cssmin:css']);
-
-    // Update google Fonts
-    grunt.registerTask('google-fonts', function () {
+    
+    grunt.registerTask('download-google-fonts', function () {
         var done = this.async();
         var request = require('request');
         var fs = require('fs');
@@ -604,10 +620,17 @@ module.exports = function (grunt) {
                 fs.writeFile('assets/fonts/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
                     if (!err) {
                         console.log("Google Fonts Updated!");
+                        done();
                     }
                 });
             }
         });
+    });
+
+    // Update google Fonts
+    grunt.registerTask('google-fonts', function () {
+        grunt.task.run('download-google-fonts');
+        grunt.task.run('json2php');
     });
 
     // Grunt release - Create installable package of the local files

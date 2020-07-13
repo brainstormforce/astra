@@ -28,6 +28,7 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "^1.0.3",
     "grunt-wp-readme-to-markdown": "^2.0.1",
+    "grunt-json2php": "^0.1.4",
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "node-sass": "^4.13.1",
