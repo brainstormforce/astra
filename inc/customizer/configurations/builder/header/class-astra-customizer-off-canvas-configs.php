@@ -67,7 +67,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'select',
 					'section'   => $_section,
-					'priority'  => 30,
+					'priority'  => 25,
 					'title'     => __( 'Header Type', 'astra' ),
 					'choices'   => array(
 						'off-canvas' => __( 'Off-Canvas', 'astra' ),

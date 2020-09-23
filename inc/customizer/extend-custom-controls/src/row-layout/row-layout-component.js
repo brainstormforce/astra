@@ -62,22 +62,6 @@ class RowLayoutComponent extends Component {
 
 		const responsiveControlLabel = (
 			<Fragment>
-				{ this.state.currentDevice !== 'desktop' && (
-					<Tooltip text={ __( 'Reset Device Values', 'astra' ) }>
-						<Button
-							className="reset ahfb-reset"
-							disabled={ ( this.state.value[this.state.currentDevice] === this.defaultValue[this.state.currentDevice] ) }
-							onClick={ () => {
-								let value = this.state.value;
-								value[this.state.currentDevice] = this.defaultValue[this.state.currentDevice];
-								this.setState( { value: value } );
-								this.updateValues();
-							} }
-						>
-							<Dashicon icon='image-rotate' />
-						</Button>
-					</Tooltip>
-				) }
 				{ this.props.control.params.label &&
 					this.props.control.params.label
 				}

@@ -134,11 +134,15 @@
  * AST HF Builder - Logo related CSS.
  * Align center section's Site title & Tagline center align.
  */
-.grid-section-center .ast-site-identity {
+.grid-section-center .ast-site-identity > :first-child {
     text-align: center;
 }
 
-.header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity {
+.ast-grid-right-section .ast-site-identity > :first-child {
+    text-align: left;
+}
+
+.header-main-layout-2 .site-header-section-left .ast-site-identity, .header-main-layout-2 .site-header-section-left .ast-site-identity, .ast-grid-right-section .ast-grid-right-center-section .ast-site-identity > :first-child {
     text-align: right;
 }
 
@@ -152,7 +156,6 @@
     color: #3a3a3a;
     background: transparent;
     vertical-align: middle;
-    border-radius: 3px;
     transition: all 0.01s;
     margin-right: 6px;
     margin-left: 6px;

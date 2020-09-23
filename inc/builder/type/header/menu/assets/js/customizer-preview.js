@@ -101,9 +101,9 @@
 			);
 
 			// Menu - Normal Background
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu .menu-item > .menu-link', 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu .menu-item > .menu-link', 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu .menu-item > .menu-link', 'mobile' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu', 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu', 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[header-' + prefix + '-bg-obj-responsive]', selector + '.ast-nav-menu', 'mobile' );
 			
 			// Menu - Hover Background
 			astra_color_responsive_css(

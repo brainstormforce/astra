@@ -85,37 +85,37 @@ function astra_builder_social_css( builder_type = 'header' ) {
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	// Icon Color.
-	astra_color_responsive_css( 
-		'hfb-soc-color', 
-		'astra-settings[' + builder_type + '-social-icons-color]', 
-		'color', 
-		selector + ' .ast-builder-social-element' 
+	astra_color_responsive_css(
+		'hfb-soc-color',
+		'astra-settings[' + builder_type + '-social-icons-color]',
+		'color',
+		selector + ' .ast-builder-social-element'
 	);
-	astra_color_responsive_css( 
-		'hfb-soc-color-h', 
-		'astra-settings[' + builder_type + '-social-icons-h-color]', 
-		'color', 
-		selector + ' .ast-builder-social-element:hover' 
+	astra_color_responsive_css(
+		'hfb-soc-color-h',
+		'astra-settings[' + builder_type + '-social-icons-h-color]',
+		'color',
+		selector + ' .ast-builder-social-element:hover'
 	);
-	astra_color_responsive_css( 
-		'hfb-soc-svg-color-h', 
-		'astra-settings[' + builder_type + '-social-icons-h-color]', 
-		'fill', 
-		selector + ' .ast-builder-social-element:hover svg' 
+	astra_color_responsive_css(
+		'hfb-soc-svg-color-h',
+		'astra-settings[' + builder_type + '-social-icons-h-color]',
+		'fill',
+		selector + ' .ast-builder-social-element:hover svg'
 	);
 
 	// Icon Background Color.
-	astra_color_responsive_css( 
-		'hfb-soc-bg-color', 
-		'astra-settings[' + builder_type + '-social-icons-bg-color]', 
-		'background-color', 
-		selector + ' .ast-builder-social-element' 
+	astra_color_responsive_css(
+		'hfb-soc-bg-color',
+		'astra-settings[' + builder_type + '-social-icons-bg-color]',
+		'background-color',
+		selector + ' .ast-builder-social-element'
 	);
-	astra_color_responsive_css( 
-		'hfb-soc-bg-color-h', 
-		'astra-settings[' + builder_type + '-social-icons-bg-h-color]', 
-		'background-color', 
-		selector + ' .ast-builder-social-element:hover' 
+	astra_color_responsive_css(
+		'hfb-soc-bg-color-h',
+		'astra-settings[' + builder_type + '-social-icons-bg-h-color]',
+		'background-color',
+		selector + ' .ast-builder-social-element:hover'
 	);
 
 	// Icon Size - Height.
@@ -229,6 +229,6 @@ function astra_builder_social_css( builder_type = 'header' ) {
 	// Typography CSS Generation.
 	astra_responsive_font_size(
         'astra-settings[font-size-' + section + ']',
-        selector
+        selector + ' .social-item-label'
     );
 }

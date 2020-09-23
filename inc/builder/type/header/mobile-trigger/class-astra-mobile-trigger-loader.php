@@ -29,6 +29,19 @@ class Astra_Mobile_Trigger_Loader {
 	 */
 	public function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
+		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+	}
+
+	/**
+	 * Enqueue google fonts.
+	 *
+	 * @since x.x.x
+	 */
+	public function add_fonts() {
+
+		$header_menu_trigger_font_family = astra_get_option( 'mobile-header-label-font-family' );
+		$header_menu_trigger_font_weight = astra_get_option( 'mobile-header-label-font-weight' );
+		Astra_Fonts::add_font( $header_menu_trigger_font_family, $header_menu_trigger_font_weight );
 	}
 
 	/**

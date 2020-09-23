@@ -103,7 +103,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'      => 'control',
 						'control'   => 'select',
 						'section'   => $_section,
-						'priority'  => 30,
+						'priority'  => 31,
 						'title'     => __( 'Container Animation', 'astra' ),
 						'choices'   => array(
 							''           => __( 'Default', 'astra' ),

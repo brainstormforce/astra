@@ -54,10 +54,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$menu_resp_color_tablet  = ( isset( $menu_resp_color['tablet'] ) ) ? $menu_resp_color['tablet'] : '';
 		$menu_resp_color_mobile  = ( isset( $menu_resp_color['mobile'] ) ) ? $menu_resp_color['mobile'] : '';
 
-		$menu_resp_bg_color_desktop = ( isset( $menu_resp_bg_color['desktop'] ) ) ? $menu_resp_bg_color['desktop'] : '';
-		$menu_resp_bg_color_tablet  = ( isset( $menu_resp_bg_color['tablet'] ) ) ? $menu_resp_bg_color['tablet'] : '';
-		$menu_resp_bg_color_mobile  = ( isset( $menu_resp_bg_color['mobile'] ) ) ? $menu_resp_bg_color['mobile'] : '';
-
 		$menu_resp_color_hover_desktop = ( isset( $menu_resp_color_hover['desktop'] ) ) ? $menu_resp_color_hover['desktop'] : '';
 		$menu_resp_color_hover_tablet  = ( isset( $menu_resp_color_hover['tablet'] ) ) ? $menu_resp_color_hover['tablet'] : '';
 		$menu_resp_color_hover_mobile  = ( isset( $menu_resp_color_hover['mobile'] ) ) ? $menu_resp_color_hover['mobile'] : '';
@@ -195,7 +191,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_desktop[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_desktop );
+		$css_output_desktop[ $selector ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'desktop' );
 
 		$css_output_tablet = array(
 
@@ -240,7 +236,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_tablet[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_tablet );
+		$css_output_tablet[ $selector ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' );
 
 		$css_output_mobile = array(
 
@@ -282,7 +278,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			),
 		);
 
-		$css_output_mobile[ $selector ] = astra_get_background_obj( $menu_resp_bg_color_mobile );
+		$css_output_mobile[ $selector ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 		if ( true === $sub_menu_divider_toggle ) {
 

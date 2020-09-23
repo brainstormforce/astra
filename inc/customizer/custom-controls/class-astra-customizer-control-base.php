@@ -74,6 +74,9 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
 				wp_enqueue_script( 'astra-custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', $custom_controls_deps, ASTRA_THEME_VERSION, true );
 
+				$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+
+				wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
 				
 				$astra_typo_localize = array(
 					'100'       => __( 'Thin 100', 'astra' ),

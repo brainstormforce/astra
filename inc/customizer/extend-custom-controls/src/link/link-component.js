@@ -89,8 +89,7 @@ class LinkComponent extends Component {
 					/>
 				</div>
 				<div className="customize-control-content ast-link-open-in-new-tab-wrapper">
-					<input type="checkbox" id="ast-link-open-in-new-tab" className="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" checked={ new_tab } onChange={ () => this.onCheckboxChange() } />
-					<label>{  __( 'Open in a New Tab' ) }</label>
+					<label for="ast-link-open-in-new-tab"> <input type="checkbox" id="ast-link-open-in-new-tab" className="ast-link-open-in-new-tab" name="ast-link-open-in-new-tab" checked={ new_tab } onChange={ () => this.onCheckboxChange() } /> {  __( 'Open in a New Tab' ) }</label>
 				</div>
 				<div className="customize-control-content">
 					<label>

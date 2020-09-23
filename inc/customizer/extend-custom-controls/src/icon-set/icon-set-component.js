@@ -71,22 +71,6 @@ class IconSetComponent extends Component {
 	render() {
 		const responsiveControlLabel = (
 			<Fragment>
-				{ this.state.currentDevice !== 'desktop' && (
-					<Tooltip text={ __( 'Reset Device Values', 'astra' ) }>
-						<Button
-							className="reset ahfb-reset"
-							disabled={ ( this.state.value[this.state.currentDevice] === this.defaultValue[this.state.currentDevice] ) }
-							onClick={ () => {
-								let value = this.state.value;
-								value[this.state.currentDevice] = this.defaultValue[this.state.currentDevice];
-								this.setState( value );
-								this.updateValues( value );
-							} }
-						>
-							<Dashicon icon='image-rotate' />
-						</Button>
-					</Tooltip>
-				) }
 				{ this.props.control.params.label &&
 					this.props.control.params.label
 				}
@@ -94,19 +78,6 @@ class IconSetComponent extends Component {
 		);
 		const controlLabel = (
 			<Fragment>
-				<Tooltip text={ __( 'Reset Values', 'astra' ) }>
-					<Button
-						className="reset ahfb-reset"
-						disabled={ ( this.state.value === this.defaultValue ) }
-						onClick={ () => {
-							let value = this.defaultValue;
-							this.setState( { value: this.defaultValue } );
-							this.updateValues( value );
-						} }
-					>
-						<Dashicon icon='image-rotate' />
-					</Button>
-				</Tooltip>
 				{ this.props.control.params.label &&
 					this.props.control.params.label
 				}
@@ -129,7 +100,7 @@ class IconSetComponent extends Component {
 													isTertiary
 													className={ ( item === this.state.value[this.state.currentDevice] ?
 															'active-radio ' :
-															'' ) + 'kt-ratio-' + item + ( this.controlParams.layout[ item ].icon && this.controlParams.layout[ item ].name ? ' btn-flex-col' : '' ) }
+															'' ) + 'ast-radio-img-svg ast-radio-' + item + ( this.controlParams.layout[ item ].icon && this.controlParams.layout[ item ].name ? ' btn-flex-col' : '' ) }
 													onClick={ () => {
 														let value = this.state.value;
 														value[ this.state.currentDevice ] = item;

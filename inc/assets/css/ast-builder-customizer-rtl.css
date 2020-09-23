@@ -971,29 +971,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     line-height: 18px;
 }
 
-.ahfb-control-field .components-button.ahfb-reset {
-    height: 18px;
-    padding: 0 5px;
-    margin-left: 0;
-    margin-right: -10px;
-    opacity: 0.5;
-}
-
-.ahfb-control-field .components-button.ahfb-reset svg {
-    width: 12px;
-    height: 12px;
-}
-
-.ahfb-control-field .components-button.ahfb-reset:disabled {
-    opacity: 0;
-}
-
-.ahfb-control-field .components-button.ahfb-reset:not(:disabled):hover {
-    opacity: 1;
-    color: #007cba;
-    box-shadow: none !important;
-}
-
 .ahfb-sorter-drop-social_item_group .ahfb-radio-container-control {
     display: block;
     padding: 10px;
@@ -1430,12 +1407,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     padding: 0 12px 2px;
 }
 
-.ahfb-social-add-area .ahfb-sorter-add-item svg {
-    width: 14px;
-    height: 14px;
-    margin: 4px 5px 0 0;
-}
-
 .ahfb-sorter-row {
     margin-bottom: 16px;
 }
@@ -1444,22 +1415,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     display: block;
     margin-bottom: 20px;
     height: auto;
-}
-
-.social-custom-image {
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.social-custom-image .components-button.remove-image.is-destructive {
-    color: #b52727;
-}
-
-.ahfb-social-image {
-    max-width: 50px;
-    padding-left: 20px;
 }
 
 .ahfb-sorter-item-panel-content .ahfb-radio-container-control .components-button.is-tertiary {

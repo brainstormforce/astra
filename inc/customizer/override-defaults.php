@@ -66,6 +66,3 @@ if ( class_exists( 'WooCommerce' ) ) {
 	$wp_customize->get_section( 'woocommerce_checkout' )->priority        = 21;
 	$wp_customize->get_panel( 'woocommerce' )->priority                   = 70;
 }
-
-
-
