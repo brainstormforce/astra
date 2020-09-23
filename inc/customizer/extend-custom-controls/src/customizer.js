@@ -465,8 +465,13 @@
 
 	// Event listener on change of required dependency.
 	document.addEventListener( 'AstraBuilderChangeRequiredDependency', function( e ) {
+
 		if ( e.detail.id ) {
-			set_context( e.detail.id );
+			let section = api.section(  api.control( e.detail.id ).section() );
+			_.each( section.controls(), function (control) {
+				console.log("Updated context for: " + control.id);
+				set_context(control.id);
+			});
 		}
 	} );
 
