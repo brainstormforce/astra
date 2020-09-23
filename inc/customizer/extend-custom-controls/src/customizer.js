@@ -469,10 +469,10 @@
 		if ( e.detail.id ) {
 			let section = api.section(  api.control( e.detail.id ).section() );
 			_.each( section.controls(), function (control) {
-				console.log("Updated context for: " + control.id);
 				set_context(control.id);
 			});
 		}
+
 	} );
 
 })(jQuery, wp.customize);
