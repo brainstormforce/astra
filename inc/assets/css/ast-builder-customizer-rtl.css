@@ -1713,6 +1713,10 @@ button.components-button.ahfb-sorter-item-expand {
     row-gap: 10px;
 }
 
+.ahfb-builder-mode-footer .ast-grid-row-layout-6-equal {
+    grid-template-columns: repeat( 6, 1fr );
+}
+
 .ahfb-builder-mode-footer .ast-grid-row-layout-5-equal {
     grid-template-columns: repeat( 5, 1fr );
 }
