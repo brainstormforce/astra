@@ -463,4 +463,11 @@
 		});
 	});
 
+	// Event listener on change of required dependency.
+	document.addEventListener( 'AstraBuilderChangeRequiredDependency', function( e ) {
+		if ( e.detail.id ) {
+			set_context( e.detail.id );
+		}
+	} );
+
 })(jQuery, wp.customize);

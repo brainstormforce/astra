@@ -42,6 +42,7 @@
 
                     $this.handleDependency();
                     $this.hideEmptySections();
+                    $this.hasDependencyWithContext( setting.id );
 
                 }
             });
@@ -82,6 +83,19 @@
             return check;
 
         },
+
+
+		hasDependencyWithContext: function ( control_id ) {
+
+			let event = new CustomEvent(
+				'AstraBuilderChangeRequiredDependency', {
+					'detail': {
+						id: control_id
+					}
+				});
+			document.dispatchEvent(event);
+
+		},
 
 		/**
 		 * Handles dependency for controls.
