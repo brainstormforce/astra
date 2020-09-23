@@ -87,13 +87,14 @@
 
 		hasDependencyWithContext: function ( control_id ) {
 
-			let event = new CustomEvent(
-				'AstraBuilderChangeRequiredDependency', {
-					'detail': {
-						id: control_id
-					}
-				});
-			document.dispatchEvent(event);
+			document.dispatchEvent(
+				new CustomEvent(
+					'AstraBuilderChangeRequiredDependency', {
+						'detail': {
+							id: control_id
+						}
+					})
+			);
 
 		},
 

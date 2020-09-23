@@ -11,6 +11,10 @@
     grid-template-columns: 1fr auto 1fr;
 }
 
+.ast-builder-grid-row-6-equal .ast-builder-grid-row {
+    grid-template-columns: repeat( 6, 1fr );
+}
+
 .ast-builder-grid-row-5-equal .ast-builder-grid-row {
     grid-template-columns: repeat( 5, 1fr );
 }
