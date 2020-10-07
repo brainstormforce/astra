@@ -426,6 +426,105 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $css_global_button_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
+			if ( Astra_Dynamic_CSS::gutenberg_core_blocks_css_comp() ) {
+
+				$desktop_screen_gb_css = array(
+					'.wp-block-columns'                  => array(
+						'margin-bottom' => 'unset',
+					),
+					'figure.size-full'                   => array(
+						'margin' => '2rem 0',
+					),
+					'.wp-block-gallery'                  => array(
+						'margin-bottom' => '1.6em',
+					),
+					'.wp-block-group'                    => array(
+						'padding-top'    => '4em',
+						'padding-bottom' => '4em',
+					),
+					'.wp-block-group__inner-container:last-child, .wp-block-table table' => array(
+						'margin-bottom' => '0',
+					),
+					'.blocks-gallery-grid'               => array(
+						'width' => '100%',
+					),
+					'.wp-block-navigation-link__content' => array(
+						'padding' => '5px 0',
+					),
+					'.wp-block-group .wp-block-group .has-text-align-center, .wp-block-group .wp-block-column .has-text-align-center' => array(
+						'max-width' => '100%',
+					),
+					'.has-text-align-center'             => array(
+						'margin' => '0 auto',
+					),
+				);
+
+				/* Parse CSS from array() -> Desktop CSS */
+				$css .= astra_parse_css( $desktop_screen_gb_css );
+
+				$middle_screen_min_gb_css = array(
+					'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
+						'max-width' => '1200px',
+						'margin'    => '0 auto',
+					),
+					'.wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
+						'margin' => '2rem 0 1rem 0',
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: (1200)px CSS */
+				$css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
+
+				$middle_screen_max_gb_css = array(
+					'.wp-block-group'                     => array(
+						'padding' => '3em',
+					),
+					'.wp-block-group .wp-block-group'     => array(
+						'padding' => '1.5em',
+					),
+					'.wp-block-columns, .wp-block-column' => array(
+						'margin' => '1rem 0',
+					),
+				);
+
+				/* Parse CSS from array() -> max-width: (1200)px CSS */
+				$css .= astra_parse_css( $middle_screen_max_gb_css, '', '1200' );
+
+				$tablet_screen_min_gb_css = array(
+					'.wp-block-columns .wp-block-group' => array(
+						'padding' => '2em',
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: (tablet-breakpoint)px CSS */
+				$css .= astra_parse_css( $tablet_screen_min_gb_css, astra_get_tablet_breakpoint() );
+
+				$mobile_screen_max_gb_css = array(
+					'.wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '3em 2em',
+					),
+					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
+						'width' => 'unset',
+					),
+					'.wp-block-cover, .wp-block-cover-image' => array(
+						'padding' => '2em 0',
+					),
+					'.wp-block-group, .wp-block-cover' => array(
+						'padding' => '2em',
+					),
+					'.wp-block-media-text__media img, .wp-block-media-text__media video' => array(
+						'width'     => 'unset',
+						'max-width' => '100%',
+					),
+					'.wp-block-media-text.has-background .wp-block-media-text__content' => array(
+						'padding' => '1em',
+					),
+				);
+
+				/* Parse CSS from array() -> max-width: (mobile-breakpoint)px CSS */
+				$css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
+			}
+
 			$tablet_css = array(
 				'.editor-post-title__block .editor-post-title__input' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
@@ -787,7 +886,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			return $css;
 		}
-
 	}
 
-			endif;
+endif;
