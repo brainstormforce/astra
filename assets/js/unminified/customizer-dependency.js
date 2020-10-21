@@ -39,10 +39,10 @@
                 var has_dependents = $this.hasDependentControls( setting.id );
 
                 if( has_dependents ) {
-                    
+
                     $this.handleDependency();
                     $this.hideEmptySections();
-                    
+
                 }
             });
         },
@@ -77,9 +77,9 @@
                     }
                 }
 
-            });   
+            });
 
-            return check;              
+            return check;
 
         },
 
@@ -185,7 +185,7 @@
                     value = values[test];
                     check = control.compareValues( value, cond, cond_val );
                 }
-                
+
 
             } else if ( _.isArray( test ) ) {
 
@@ -194,7 +194,7 @@
                     var cond_key = val[0];
                     var cond_cond = val[1];
                     var cond_val = val[2];
-                    var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : ''; 
+                    var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : '';
 
                     if ( 'undefined' !== typeof astra.config[cond_key] ) {
 

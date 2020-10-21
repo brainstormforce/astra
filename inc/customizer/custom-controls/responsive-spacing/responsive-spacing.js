@@ -15,7 +15,7 @@
 
 			var control = this,
 		    value;
-		    
+
 		    control.astResponsiveInit();
 
 			// Set the spacing container.
@@ -77,7 +77,7 @@
 					device 			= spacing_unit.attr('data-device'),
 					device_val 		= spacing_unit.val(),
 					name 			= device + '-unit';
-					
+
 				newValue[ name ] = device_val;
 			});
 
@@ -88,11 +88,11 @@
 		 * Set the responsive devices fields
 		 */
 		astResponsiveInit : function() {
-			
+
 			'use strict';
 
 			var control = this;
-			
+
 			control.container.find( '.ast-spacing-responsive-btns button' ).on( 'click', function( event ) {
 
 				var device = jQuery(this).attr('data-device');
@@ -109,7 +109,7 @@
 
 			// Unit click
 			control.container.on( 'click', '.ast-spacing-responsive-units .single-unit', function() {
-				
+
 				var $this 		= jQuery(this);
 
 				if ( $this.hasClass('active') ) {
@@ -118,7 +118,7 @@
 
 				var	unit_value 	= $this.attr('data-unit'),
 					device 		= jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-				
+
 				$this.siblings().removeClass('active');
 				$this.addClass('active');
 
@@ -137,7 +137,7 @@
 
 			// Remove connected class
 			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
+
 			// Remove class
 			jQuery(this).parent( '.ast-spacing-input-item-link' ).removeClass( 'disconnected' );
 
@@ -148,7 +148,7 @@
 
 			// Set up variables
 			var elements 	= jQuery(this).data( 'element-connect' );
-			
+
 			// Add connected class
 			jQuery(this).parent().parent( '.ast-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
 

@@ -85,7 +85,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
 			control.saveValue( screen, 'background-size', item_value );
 		});
-		
+
 		// Background-Position.
 		control.container.on( 'change', '.background-position select', function() {
 			var responsive_input = jQuery( this ),
@@ -94,7 +94,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
 			control.saveValue( screen, 'background-position', item_value );
 		});
-		
+
 		// Background-Attachment.
 		control.container.on( 'change click', '.background-attachment input', function() {
 			var responsive_input = jQuery( this ),
@@ -106,12 +106,12 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
 			control.saveValue( screen, 'background-attachment', item_value );
 		});
-		
+
 		// Background-Image.
 		control.container.on( 'click', '.background-image-upload-button', function( e ) {
 			var responsive_input = jQuery( this ),
 			screen = responsive_input.data( 'id' );
-			
+
 			var image = wp.media({ multiple: false }).open().on( 'select', function() {
 
 				// This will return the selected image from the Media Uploader, the result is an object.
@@ -174,7 +174,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-position' ).hide();
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-size' ).hide();
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-attachment' ).hide();
-			
+
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).attr('data-direction', 'down');
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.icon').html( '↓' );
@@ -210,7 +210,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 		});
 	},
 	astResponsiveInit : function() {
-			
+
 			'use strict';
 			this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
 
@@ -235,7 +235,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 		var control = this,
 			input   = jQuery( '#customize-control-' + control.id.replace( '[', '-' ).replace( ']', '' ) + ' .responsive-background-hidden-value' ),
 			val     = control.setting._value;
-		
+
 		val[ screen ][ property ] = value;
 
 		jQuery( input ).attr( 'value', JSON.stringify( val ) ).trigger( 'change' );

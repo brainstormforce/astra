@@ -1,5 +1,5 @@
 ( function( $ ) {
-    
+
     /**
      * JS to manage the sticky heading of an open section on scroll up.
      */
@@ -63,18 +63,18 @@
                     $( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
                 }
             });
-            
+
             control.container.on( 'click', '.ast-toggle-desc-wrap .ast-adv-toggle-icon', function( e ) {
-                
+
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 var $this = jQuery(this);
-                
+
                 var parent_wrap = $this.closest( '.customize-control-ast-settings-group' );
                 var is_loaded = parent_wrap.find( '.ast-field-settings-modal' ).data('loaded');
                 var parent_section = parent_wrap.parents('.control-section');
-                
+
                 if( $this.hasClass('open') ) {
                     parent_wrap.find( '.ast-field-settings-modal' ).hide();
                 } else {
@@ -137,8 +137,8 @@
                 var clean_param_name = control_elem.params.name.replace( '[', '-' ),
                     clean_param_name = clean_param_name.replace( ']', '' );
 
-                fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">'; 
-                fields_html += '<ul class="ast-group-list">'; 
+                fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">';
+                fields_html += '<ul class="ast-group-list">';
                 var counter = 0;
 
                 _.each( fields.tabs, function ( value, key ) {
@@ -152,7 +152,7 @@
                     counter++;
                 });
 
-                fields_html += '</ul>'; 
+                fields_html += '</ul>';
 
                 fields_html += '<div class="ast-tab-content" >';
 
@@ -168,7 +168,7 @@
                         control_types.push({
                             key: control_value.key,
                             value : control_value.value,
-                            name  : control_value.name 
+                            name  : control_value.name
                         });
                     });
 
@@ -186,7 +186,7 @@
                 var result = control.generateFieldHtml( fields, field_values );
 
                 fields_html += result.html;
-                
+
                 _.each( result.controls, function (control_value, control_key) {
                     control_types.push({
                         key: control_value.key,
@@ -204,13 +204,13 @@
 
                     case "ast-responsive-color":
                         control.initResponsiveColor( ast_field_wrap, control_elem, control_type.name );
-                    break;  
+                    break;
 
-                    case "ast-color": 
+                    case "ast-color":
                         control.initColor( ast_field_wrap, control_elem, control_type.name );
                     break;
 
-                    case "ast-font": 
+                    case "ast-font":
 
                         var googleFontsString = astra.customizer.settings.google_fonts;
                         control.container.find( '.ast-font-family' ).html( googleFontsString );
@@ -230,7 +230,7 @@
                             control.generateDropdownHtml( weightObject, fontWeightContainer );
                             fontWeightContainer.val( fontWeightContainer.data('value') );
 
-                        }); 
+                        });
 
                         control.container.find( '.ast-font-family' ).selectWoo();
                         control.container.find( '.ast-font-family' ).on( 'select2:select', function() {
@@ -251,7 +251,7 @@
                             font_weight_control = font_weight_control.replace( 'customize-control-', '' );
 
                             control.container.trigger( 'ast_settings_changed', [ control, fontWeightContainer, fontWeightContainer.val(), font_weight_control ] );
-                            
+
                         });
 
                         control.container.find( '.ast-font-weight' ).on( 'change', function() {
@@ -263,15 +263,15 @@
 
                             control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
                         });
-                        
-                    break;  
 
-                    case "ast-responsive": 
+                    break;
 
-                        control.initResponsiveTrigger( ast_field_wrap, control_elem ); 
+                    case "ast-responsive":
+
+                        control.initResponsiveTrigger( ast_field_wrap, control_elem );
 
                         control.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
-            
+
                             name = $(this).parents( '.customize-control' ).attr( 'id' );
                             name = name.replace( 'customize-control-', '' );
 
@@ -288,15 +288,15 @@
                             var value = jQuery( this ).val();
 
                             name = $(this).parents( '.customize-control' ).attr( 'id' );
-                            name = name.replace( 'customize-control-', '' );  
+                            name = name.replace( 'customize-control-', '' );
 
                             control.container.trigger( 'ast_settings_changed', [ control, jQuery(this), value, name ] );
                         });
 
                     break;
 
-                    case "ast-slider": 
-                    
+                    case "ast-slider":
+
                         control.container.on('input change', 'input[type=range]', function () {
                             var value = jQuery(this).attr('value'),
                                 input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
@@ -334,7 +334,7 @@
 
                             name = $(this).parents( '.customize-control' ).attr( 'id' );
                             name = name.replace( 'customize-control-', '' );
-    
+
                             control.container.trigger('ast_settings_changed', [control, jQuery(this), value, name]);
                         });
 
@@ -362,7 +362,7 @@
             });
 
             wrap.find( '.ast-field-settings-modal' ).data( 'loaded', true );
-            
+
         },
 
         initAstBorderControl: function( control_elem, control_type, name ) {
@@ -370,7 +370,7 @@
             var control = this,
                 value            = control.setting._value,
                 control_name     = control_type.name;
-            
+
             // Save the value.
             this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
 
@@ -384,7 +384,7 @@
 
                 // Remove connected class
                 jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-                
+
                 // Remove class
                 jQuery(this).parent( '.ast-border-input-item-link' ).removeClass( 'disconnected' );
 
@@ -395,7 +395,7 @@
 
                 // Set up variables
                 var elements    = jQuery(this).data( 'element-connect' );
-                
+
                 // Add connected class
                 jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
 
@@ -417,7 +417,7 @@
             } );
         },
 
-        generateFieldHtml: function ( fields_data, field_values ) {    
+        generateFieldHtml: function ( fields_data, field_values ) {
 
             var fields_html = '';
             var control_types = [];
@@ -425,7 +425,7 @@
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' );
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -499,7 +499,7 @@
                     weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
                 }
             }
-            
+
             element.html( weightOptions );
         },
 
@@ -531,7 +531,7 @@
                 change: function (event, ui) {
 
                     if ('undefined' != typeof event.originalEvent || 'undefined' != typeof ui.color._alpha) {
-                    
+
                         var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
                         jQuery(element).val( ui.color.toString() );
                         name = jQuery(element).parents('.customize-control').attr('id');
@@ -711,7 +711,7 @@
                 return false;
             }
             return true;
-        },   
+        },
 
         initAstResonsiveBgControl: function( control, control_atts, name ) {
 
@@ -1062,7 +1062,7 @@
                 controlContainer.find( '.background-wrapper > .background-position' ).hide();
                 controlContainer.find( '.background-wrapper > .background-size' ).hide();
                 controlContainer.find( '.background-wrapper > .background-attachment' ).hide();
-                
+
                 controlContainer.find( '.more-settings' ).attr('data-direction', 'down');
                 controlContainer.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
                 controlContainer.find( '.more-settings' ).find('.icon').html( '↓' );
@@ -1098,7 +1098,7 @@
         saveValue: function ( screen, property, value, element, name ) {
 
             var control = this,
-                input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value'); 
+                input = jQuery('#customize-control-' + control.id.replace('[', '-').replace(']', '') + ' .responsive-background-hidden-value');
 
             var val = JSON.parse( input.val() );
             val[screen][property] = value;
@@ -1149,12 +1149,12 @@
 
                 item_value = spacing_input.val();
                 newValue[ item ] = item_value;
-                
+
                 spacing_input.attr( 'value', item_value );
 
             });
 
-            
+
             control.container.trigger( 'ast_settings_changed', [control, element, newValue, name ] );
         }
     });

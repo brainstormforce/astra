@@ -2729,7 +2729,7 @@ body {
  * 1 - Header Layout 1
  * 2 - Header Layout 2
  * 3 - Header Layout 3
- * 4 - Header Inline Logo & Site Title 
+ * 4 - Header Inline Logo & Site Title
  * 5 - Next Button Menu Item
  * 6 - Responsive Style
 */
@@ -2952,7 +2952,7 @@ body {
 }
 
 /**
- * 4 - Header Inline Logo & Site Title 
+ * 4 - Header Inline Logo & Site Title
 */
 .ast-logo-title-inline .ast-site-identity {
   -js-display: inline-flex;
@@ -3161,7 +3161,7 @@ body {
 }
 
 /**
- * 10 - Submenu container box shadow 
+ * 10 - Submenu container box shadow
  */
 .ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu {
   box-shadow: none;

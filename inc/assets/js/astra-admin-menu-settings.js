@@ -182,7 +182,7 @@
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
 						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').removeClass('active');
-						
+
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
 					} else {
@@ -225,7 +225,7 @@
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );
 				} );
 			}
-			
+
 			wp.updates.installPlugin( {
 				slug:    $button.data( 'slug' )
 			});

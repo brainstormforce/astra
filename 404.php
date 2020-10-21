@@ -24,7 +24,7 @@ get_header(); ?>
 
 		<?php astra_primary_content_top(); ?>
 
-		<?php astra_404_content_template(); ?>		
+		<?php astra_404_content_template(); ?>
 
 		<?php astra_primary_content_bottom(); ?>
 

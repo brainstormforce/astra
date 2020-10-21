@@ -15,7 +15,7 @@
 
 			var control = this,
 			value;
-			
+
 
 			// Set the spacing container.
 			// this.container = control.container.find( 'ul.ast-border-wrapper' ).first();
@@ -65,7 +65,7 @@
 
 			// Remove connected class
 			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
+
 			// Remove class
 			jQuery(this).parent( '.ast-border-input-item-link' ).removeClass( 'disconnected' );
 
@@ -76,7 +76,7 @@
 
 			// Set up variables
 			var elements 	= jQuery(this).data( 'element-connect' );
-			
+
 			// Add connected class
 			jQuery(this).parent().parent( '.ast-border-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
 

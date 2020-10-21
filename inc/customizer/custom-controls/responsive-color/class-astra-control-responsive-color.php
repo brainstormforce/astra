@@ -152,15 +152,15 @@ if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Cus
 					value_tablet  = '';
 					value_mobile  = '';
 
-					if ( data.value['desktop'] ) { 
+					if ( data.value['desktop'] ) {
 						value_desktop = data.value['desktop'];
-					} 
+					}
 
-					if ( data.value['tablet'] ) { 
+					if ( data.value['tablet'] ) {
 						value_tablet = data.value['tablet'];
-					} 
+					}
 
-					if ( data.value['mobile'] ) { 
+					if ( data.value['mobile'] ) {
 						value_mobile = data.value['mobile'];
 					} #>
 

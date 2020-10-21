@@ -26,7 +26,7 @@ get_header(); ?>
 
 		<?php astra_archive_header(); ?>
 
-		<?php astra_content_loop(); ?>		
+		<?php astra_content_loop(); ?>
 
 		<?php astra_pagination(); ?>
 

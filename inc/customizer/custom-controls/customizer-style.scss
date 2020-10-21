@@ -68,7 +68,7 @@
         input[type="text"] {
             &.select2-search__field {
                 min-height: 17px;
-            }   
+            }
         }
     }
 }
@@ -91,7 +91,7 @@ input[type="text"] {
 }
 
 /* Safari Browser specific CSS */
-@media not all and (min-resolution:.001dpcm) { 
+@media not all and (min-resolution:.001dpcm) {
     @supports (-webkit-appearance:none) {
         #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
             display: inline-block;

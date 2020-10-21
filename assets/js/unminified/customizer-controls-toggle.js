@@ -69,7 +69,7 @@
 		'astra-settings[ast-header-retina-logo]' :[],
 
 		'custom_logo' : [],
-		
+
 		/**
 		 * Section - Header
 		 *
@@ -83,52 +83,52 @@
 		// Layout 2 > Right Section > Search Type
 		// Layout 2 > Right Section > Search Type > Search Box Type.
 		'astra-settings[header-main-rt-section]' : [],
-		
+
 
 		'astra-settings[hide-custom-menu-mobile]' :[],
-		
+
 
 		/**
 		 * Blog
 		 */
 		'astra-settings[blog-width]' :[],
-		
+
 		'astra-settings[blog-post-structure]' :[],
 
 		/**
 		 * Blog Single
 		 */
 		 'astra-settings[blog-single-post-structure]' : [],
-		
+
 		'astra-settings[blog-single-width]' : [],
-		
-		'astra-settings[blog-single-meta]' :[], 
-		
+
+		'astra-settings[blog-single-meta]' :[],
+
 
 		/**
 		 * Small Footer
 		 */
 		'astra-settings[footer-sml-layout]' : [],
-		
+
 		'astra-settings[footer-sml-section-1]' :[],
-		
+
 		'astra-settings[footer-sml-section-2]' :[],
-		
+
 		'astra-settings[footer-sml-divider]' :[],
-		
+
 		'astra-settings[header-main-sep]' :[],
-	
+
 		'astra-settings[disable-primary-nav]' :[],
-		
+
 		/**
 		 * Footer Widgets
 		 */
 		'astra-settings[footer-adv]' :[],
-		
+
 		'astra-settings[shop-archive-width]' :[],
-		
+
 		'astra-settings[mobile-header-logo]' :[],
-		
+
 		'astra-settings[different-mobile-logo]' :[],
 
 	};

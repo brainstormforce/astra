@@ -26,14 +26,14 @@
 			this.container.on( 'input change', 'input[type=range]', function() {
 				var value 		 = jQuery( this ).val(),
 					input_number = jQuery( this ).closest( '.input-field-wrapper' ).find( '.ast-responsive-range-value-input' );
-				
+
 				input_number.val( value );
 				input_number.trigger( 'change' );
 			});
 
 			// Handle the reset button.
 			this.container.on('click', '.ast-responsive-slider-reset', function() {
-				
+
 				var wrapper 		= jQuery( this ).parent().find('.input-field-wrapper.active'),
 					input_range   	= wrapper.find( 'input[type=range]' ),
 					input_number 	= wrapper.find( '.ast-responsive-range-value-input' ),
@@ -48,7 +48,7 @@
 			this.container.on( 'input change', 'input[type=number]', function() {
 				var value = jQuery( this ).val();
 				jQuery( this ).closest( '.input-field-wrapper' ).find( 'input[type=range]' ).val( value );
-				
+
 				control.updateValue();
 			});
 		},
@@ -79,7 +79,7 @@
 		},
 
 		astResponsiveInit : function() {
-			
+
 			this.container.on( 'click', '.ast-responsive-slider-btns button', function( event ) {
 
 				event.preventDefault();
@@ -104,5 +104,5 @@
 		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper, .customize-control .ast-responsive-slider-btns > li' ).removeClass( 'active' );
 		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
 	});
-	
+
 })(jQuery);

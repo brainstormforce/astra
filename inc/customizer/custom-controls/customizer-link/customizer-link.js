@@ -27,7 +27,7 @@ wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.ex
 				case 'control':
 					wp.customize.control(linked).focus();
 					break;
-			
+
 				default:
 					break;
 			}

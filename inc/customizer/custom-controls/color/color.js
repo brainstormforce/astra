@@ -22,7 +22,7 @@
 				value,
 				thisInput,
 				inputDefault,
-				changeAction;			
+				changeAction;
 
 			this.container.find('.ast-color-picker-alpha' ).wpColorPicker({
 				/**

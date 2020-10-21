@@ -18,7 +18,7 @@
 			value;
 
 			control.astResponsiveInit();
-			
+
 			/**
 			 * Save on change / keyup / paste
 			 */
@@ -81,7 +81,7 @@
 		},
 
 		astResponsiveInit : function() {
-			
+
 			'use strict';
 			this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
 

@@ -333,13 +333,13 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		</label>
 		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
-		data-value="{{data.value}}" 
+		data-value="{{data.value}}"
 
 		<# if ( data.connect ) { #>
 			data-connected-control={{ data.connect }}
 		<# } #>
 		<# if ( data.variant ) { #>
-			data-connected-variant="{{data.variant}}"; 
+			data-connected-variant="{{data.variant}}";
 		<# } #>
 
 		>

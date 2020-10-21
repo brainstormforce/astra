@@ -352,7 +352,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 						if ( apply_filters( 'astra_edd_default_header_cart_icon', true ) ) {
 							?>
 							<div class="ast-edd-cart-menu-wrap">
-								<span class="count"> 
+								<span class="count">
 									<?php
 									if ( apply_filters( 'astra_edd_header_cart_total', true ) ) {
 										$cart_items = count( edd_get_cart_contents() );

@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php astra_body_top(); ?>
 <?php wp_body_open(); ?>
-<div 
+<div
 	<?php
 	echo astra_attr(
 		'site',

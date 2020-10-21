@@ -109,7 +109,7 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 			<# } #>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } 
+			<# }
 
 			value_desktop = '';
 			value_tablet  = '';
@@ -118,27 +118,27 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 			default_tablet  = '';
 			default_mobile  = '';
 
-			if ( data.value['desktop'] ) { 
+			if ( data.value['desktop'] ) {
 				value_desktop = data.value['desktop'];
-			} 
+			}
 
-			if ( data.value['tablet'] ) { 
+			if ( data.value['tablet'] ) {
 				value_tablet = data.value['tablet'];
-			} 
+			}
 
-			if ( data.value['mobile'] ) { 
+			if ( data.value['mobile'] ) {
 				value_mobile = data.value['mobile'];
 			}
 
-			if ( data.default['desktop'] ) { 
+			if ( data.default['desktop'] ) {
 				default_desktop = data.default['desktop'];
-			} 
+			}
 
-			if ( data.default['tablet'] ) { 
+			if ( data.default['tablet'] ) {
 				default_tablet = data.default['tablet'];
-			} 
+			}
 
-			if ( data.default['mobile'] ) { 
+			if ( data.default['mobile'] ) {
 				default_mobile = data.default['mobile'];
 			} #>
 			<div class="wrapper">

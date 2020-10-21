@@ -108,7 +108,7 @@
 }
 
 .customize-control-ast-slider .ast-slider-reset:hover, .customize-control-ast-slider .ast-slider-reset:focus {
-  color: red;
+  color: #FF0000;
 }
 
 .astra_range_value input.ast-range-value-input {

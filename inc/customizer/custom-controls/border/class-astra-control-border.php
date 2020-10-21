@@ -104,7 +104,7 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 			<div class="ast-border-outer-wrapper">
 				<div class="input-wrapper ast-border-wrapper">
 
-					<ul class="ast-border-wrapper desktop active"><# 
+					<ul class="ast-border-wrapper desktop active"><#
 						if ( data.linked_choices ) { #>
 						<li class="ast-border-input-item-link">
 								<span class="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="<?php echo esc_html( $item_link_desc ); ?>"></span>

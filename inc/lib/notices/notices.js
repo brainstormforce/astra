@@ -70,7 +70,7 @@
 		},
 
 		_ajax: function( notice_id, repeat_notice_after ) {
-			
+
 			if( '' === notice_id ) {
 				return;
 			}

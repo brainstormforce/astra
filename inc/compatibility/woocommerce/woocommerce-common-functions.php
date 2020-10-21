@@ -62,7 +62,7 @@ if ( ! function_exists( 'astra_woo_shop_parent_category' ) ) :
 				}
 
 				?>
-			</span> 
+			</span>
 			<?php
 		endif;
 	}
