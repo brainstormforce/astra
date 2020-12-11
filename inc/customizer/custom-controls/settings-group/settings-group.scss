@@ -279,4 +279,9 @@
       }
     }
   }
+  .components-angle-picker-control {
+    .components-flex__block {
+      min-width: auto;
+    }
+  }
 }

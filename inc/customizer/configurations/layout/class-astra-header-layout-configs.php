@@ -178,7 +178,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.button-custom-menu-item',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_header_main_rt_section_button_text',
 					),
 					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority'  => 10,
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'render_header_main_rt_section_html' ),
+						'render_callback'     => 'Astra_Customizer_Partials::render_header_main_rt_section_html',
 					),
 					'title'     => __( 'Custom Menu Text / HTML', 'astra' ),
 				),
@@ -498,7 +498,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'partial'   => array(
 						'selector'            => '.ast-button-wrap',
 						'container_inclusive' => false,
-						'render_callback'     => array( 'Astra_Customizer_Partials', 'mobile_toggle_menu' ),
+						'render_callback'     => 'Astra_Customizer_Partials::mobile_toggle_menu',
 					),
 				),
 

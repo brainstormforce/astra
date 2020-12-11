@@ -280,6 +280,12 @@ return array(
 		),
 	),
 	array(
+		'Andika New Basic' => array(
+			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Angkor' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -377,7 +383,7 @@ return array(
 	),
 	array(
 		'Arimo' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -1111,6 +1117,12 @@ return array(
 		'Carter One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Castoro' => array(
+			'variants' => array( 'regular', 'italic' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -2698,6 +2710,12 @@ return array(
 		),
 	),
 	array(
+		'JetBrains Mono' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
 		'Jim Nightshade' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -2735,7 +2753,7 @@ return array(
 	),
 	array(
 		'Josefin Slab' => array(
-			'variants' => array( '100', '100italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2837,7 +2855,7 @@ return array(
 	),
 	array(
 		'Karla' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -3065,6 +3083,12 @@ return array(
 	),
 	array(
 		'Lancelot' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Langar' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
@@ -3905,6 +3929,12 @@ return array(
 	),
 	array(
 		'Nanum Pen Script' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Nerko One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
 		),
@@ -5695,6 +5725,12 @@ return array(
 		'Text Me One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Texturina' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
