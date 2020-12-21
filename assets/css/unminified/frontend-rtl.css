@@ -3400,7 +3400,7 @@ body .entry-content .wp-block-latest-posts li {
 [data-section*="section-hb-button-"] .ast-butiler-button-size-xs .ast-custom-button,
 [data-section*="section-fb-button-"] .ast-butiler-button-size-xs .ast-custom-button {
   font-size: 13px;
-  padding: 8px 30px;
+  padding: 8px 20px;
 }
 
 [data-section*="section-hb-button-"] .ast-butiler-button-size-sm .ast-custom-button,
