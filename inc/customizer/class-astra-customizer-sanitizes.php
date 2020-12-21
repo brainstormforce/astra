@@ -204,6 +204,54 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
+		 * Sanitize responsive Spacing
+		 *
+		 * @param  number $val Customizer setting input number.
+		 * @return number        Return number.
+		 * @since  x.x.x
+		 */
+		public static function sanitize_responsive_box_shadow( $val ) {
+
+			$spacing = array(
+				'desktop'      => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+			);
+
+			if ( isset( $val['desktop'] ) ) {
+				$box_shadow['desktop'] = array_map( 'self::check_numberic_values', $val['desktop'] );
+
+				$box_shadow['tablet'] = array_map( 'self::check_numberic_values', $val['tablet'] );
+
+				$box_shadow['mobile'] = array_map( 'self::check_numberic_values', $val['mobile'] );
+
+				return $box_shadow;
+
+			} else {
+				foreach ( $val as $key => $value ) {
+					$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
+				}
+				return $val;
+			}
+
+		}
+
+		/**
 		 * Check numeric values.
 		 *
 		 * @param  int|string $value Value of variable.

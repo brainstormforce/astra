@@ -3,6 +3,7 @@ import BorderComponent from '../border/border-component';
 import ResponsiveComponent from '../responsive/responsive-component';
 import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
 import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
+import ResponsiveBoxShadowComponent from '../responsive-box-shadow/responsive-box-shadow-component';
 import SliderComponent from '../slider/slider-component';
 import Background from '../background/background';
 import ResponsiveBackground from '../responsive-background/responsive-background';
@@ -18,7 +19,8 @@ import {
 	astraGetResponsiveColorJs,
 	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
-	astraGetResponsiveSpacingJs
+	astraGetResponsiveSpacingJs,
+	astraGetResponsiveBoxShadowJs
 } from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
@@ -244,6 +246,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				case "ast-responsive-spacing":
 					astraGetResponsiveSpacingJs( control )
 					break;
+				case "ast-responsive-box-shadow":
+					astraGetResponsiveBoxShadowJs( control )
+					break;
 				case "ast-font":
 
 					var googleFontsString = astra.customizer.settings.google_fonts;
@@ -451,6 +456,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-slider' : ResponsiveSliderComponent,
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
+			'ast-responsive-box-shadow' : ResponsiveBoxShadowComponent,
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
 		};

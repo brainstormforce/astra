@@ -25,6 +25,7 @@ require $control_dir . '/responsive/class-astra-control-responsive.php';
 require $control_dir . '/typography/class-astra-control-typography.php';
 require $control_dir . '/font-variant/class-astra-control-font-variant.php';
 require $control_dir . '/responsive-spacing/class-astra-control-responsive-spacing.php';
+require $control_dir . '/responsive-box-shadow/class-astra-control-responsive-box-shadow.php';
 require $control_dir . '/divider/class-astra-control-divider.php';
 require $control_dir . '/heading/class-astra-control-heading.php';
 require $control_dir . '/hidden/class-astra-control-hidden.php';
