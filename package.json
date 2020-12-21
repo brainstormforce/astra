@@ -32,7 +32,8 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "node-sass": "^4.14.1",
-    "postcss-flexibility": "^2.0.0"
+    "postcss-flexibility": "^2.0.0",
+    "webpack": "^5.11.0"
   },
   "dependencies": {
     "grunt-cli": "^1.3.2"

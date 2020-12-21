@@ -74,11 +74,11 @@ final class Astra_Builder_Base_Configuration {
 				'default'        => '',
 				'type'           => 'control',
 				'transport'      => 'postMessage',
-				'control'        => 'ast-responsive-box-shadow',
+				'control'        => 'ast-responsive-spacing',
 				'section'        => $section_id,
 				'priority'       => 210,
 				'title'          => __( 'Padding', 'astra' ),
-				// 'linked_choices' => true,
+				'linked_choices' => false,
 				// 'unit_choices'   => array( 'px', 'em', '%' ),
 				'choices'        => array(
 					'x'    => __( 'X', 'astra' ),
