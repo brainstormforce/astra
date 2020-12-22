@@ -312,46 +312,7 @@
 		}
 	}
 }
-/**
- * AST HF Builder - Widgets related CSS.
- * Button.
- */
-[data-section*="section-hb-button-"],
-[data-section*="section-fb-button-"] {
-	.menu-link {
-		display: none;
-	}
-	.ast-butiler-button-size-xs {
-		.ast-custom-button {
-			font-size: 13px;
-			padding: 8px 20px;
-		}
-	}
-	.ast-butiler-button-size-sm {
-		.ast-custom-button {
-			font-size: 15px;
-			padding: 10px 40px;
-		}
-	}
-	.ast-butiler-button-size-md {
-		.ast-custom-button {
-			font-size: 17px;
-			padding: 15px 45px;
-		}
-	}
-	.ast-butiler-button-size-lg {
-		.ast-custom-button {
-			font-size: 19px;
-			padding: 20px 50px;
-		}
-	}
-	.ast-butiler-button-size-xl {
-		.ast-custom-button {
-			font-size: 21px;
-			padding: 25px 55px;
-		}
-	}
-}
+
 .ast-footer-html-inner {
 	p {
 		margin-bottom: 0;

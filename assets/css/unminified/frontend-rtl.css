@@ -3388,45 +3388,6 @@ body .entry-content .wp-block-latest-posts li {
   margin-left: 0;
 }
 
-/**
- * AST HF Builder - Widgets related CSS.
- * Button.
- */
-[data-section*="section-hb-button-"] .menu-link,
-[data-section*="section-fb-button-"] .menu-link {
-  display: none;
-}
-
-[data-section*="section-hb-button-"] .ast-butiler-button-size-xs .ast-custom-button,
-[data-section*="section-fb-button-"] .ast-butiler-button-size-xs .ast-custom-button {
-  font-size: 13px;
-  padding: 8px 20px;
-}
-
-[data-section*="section-hb-button-"] .ast-butiler-button-size-sm .ast-custom-button,
-[data-section*="section-fb-button-"] .ast-butiler-button-size-sm .ast-custom-button {
-  font-size: 15px;
-  padding: 10px 40px;
-}
-
-[data-section*="section-hb-button-"] .ast-butiler-button-size-md .ast-custom-button,
-[data-section*="section-fb-button-"] .ast-butiler-button-size-md .ast-custom-button {
-  font-size: 17px;
-  padding: 15px 45px;
-}
-
-[data-section*="section-hb-button-"] .ast-butiler-button-size-lg .ast-custom-button,
-[data-section*="section-fb-button-"] .ast-butiler-button-size-lg .ast-custom-button {
-  font-size: 19px;
-  padding: 20px 50px;
-}
-
-[data-section*="section-hb-button-"] .ast-butiler-button-size-xl .ast-custom-button,
-[data-section*="section-fb-button-"] .ast-butiler-button-size-xl .ast-custom-button {
-  font-size: 21px;
-  padding: 25px 55px;
-}
-
 .ast-footer-html-inner p {
   margin-bottom: 0;
 }
