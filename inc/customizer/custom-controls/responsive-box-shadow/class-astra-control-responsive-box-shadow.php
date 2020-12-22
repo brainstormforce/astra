@@ -70,6 +70,8 @@ class Astra_Control_Responsive_Box_Shadow extends WP_Customize_Control {
 		$this->json['choices']        = $this->choices;
 		$this->json['id']             = $this->id;
 		$this->json['label']          = esc_html( $this->label );
+		$this->json['linked_choices'] = $this->linked_choices;
+		$this->json['unit_choices']   = $this->unit_choices;
 		$this->json['inputAttrs']     = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';

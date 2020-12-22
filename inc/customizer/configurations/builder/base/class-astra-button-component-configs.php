@@ -341,6 +341,27 @@ class Astra_Button_Component_Configs {
 						'em' => 'em',
 					),
 				),
+
+				/**
+				 * Option: Padded Layout Custom Width
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-control]',
+					'default'        => '',
+					'type'           => 'control',
+					'transport'      => 'postMessage',
+					'control'        => 'ast-responsive-box-shadow',
+					'section'        => $_section,
+					'priority'       => 210,
+					'title'          => __( 'Box Shadow', 'astra' ),
+					'choices'        => array(
+						'x'    => __( 'X', 'astra' ),
+						'y'  => __( 'Y', 'astra' ),
+						'blur' => __( 'Blur', 'astra' ),
+						'spread'   => __( 'Spread', 'astra' ),
+					),
+					'context'        => Astra_Builder_Helper::$general_tab,
+				),
 			);
 
 			if ( 'footer' === $builder_type ) {

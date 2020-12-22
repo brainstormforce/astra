@@ -32,6 +32,15 @@ const ResponsiveBoxShadowComponent = props => {
 		setPropsValue(updateState);
 	};
 
+	const onUnitChange = (device, unitKey = '') => {
+		let updateState = {
+			...props_value
+		};
+		updateState[`${device}-unit`] = unitKey;
+		props.control.setting.set(updateState);
+		setPropsValue(updateState);
+	};
+
 	const renderResponsiveInput = (device) => {
 		return <input key={device} type='hidden' onChange={() => onUnitChange(device, '')}
 					  className={`ast-box-shadow-unit-input ast-box-shadow-${device}-unit`} data-device={`${device}`}
@@ -42,9 +51,13 @@ const ResponsiveBoxShadowComponent = props => {
 		const {
 			id,
 			choices,
-			inputAttrs
+			inputAttrs,
+			unit_choices
 		} = props.control.params;
 
+		let itemLinkDesc = __('Link Values Together', 'astra');
+
+		let linkHtml = null;
 		let htmlChoices = null;
 		let respHtml = null;
 
@@ -52,13 +65,30 @@ const ResponsiveBoxShadowComponent = props => {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let html = <li key={choiceID} {...inputAttrs} className='ast-box-shadow-input-item'>
 					<input type='number' className={`ast-box-shadow-input ast-box-shadow-${device} connected`} data-id={choiceID}
-						   value={props_value[device][choiceID]} onChange={() => onBoxShadowChange(device, choiceID)}
+						   value={props_value[device][choiceID]} onChange={() => onbox-shadowChange(device, choiceID)}
 						   data-element-connect={id}/>
 					<span className="ast-box-shadow-title">{choices[choiceID]}</span>
 				</li>;
 				return html;
 			});
 		}
+
+		if( unit_choices ) {
+			respHtml = Object.values(unit_choices).map(unitKey => {
+				let unitClass = '';
+
+				if (props_value[`${device}-unit`] === unitKey) {
+					unitClass = 'active';
+				}
+
+				let html = <li key={unitKey} className={`single-unit ${unitClass}`}
+							   onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
+					<span className="unit-text">{unitKey}</span>
+				</li>;
+				return html;
+			});
+		}
+
 
 		return <ul key={device} className={`ast-box-shadow-wrapper ${device} ${active}`}>
 			{htmlChoices}
