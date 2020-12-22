@@ -225,9 +225,6 @@ export function astraGetResponsiveSpacingJs ( control ) {
     });
 }
 export function astraGetResponsiveBoxShadowJs ( control ) {
-
-    console.log( 'heyyy from responsive-helper' );
-    
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')

@@ -19,13 +19,13 @@ const ResponsiveBoxShadowComponent = props => {
 			...updateState[device]
 		};
 
-		if (!event.target.classList.contains('connected')) {
-			deviceUpdateState[choiceID] = event.target.value;
-		} else {
+		// if (!event.target.classList.contains('connected')) {
+		// 	deviceUpdateState[choiceID] = event.target.value;
+		// } else {
 			for (let choiceID in choices) {
 				deviceUpdateState[choiceID] = event.target.value;
 			}
-		}
+		// }
 
 		updateState[device] = deviceUpdateState;
 		props.control.setting.set(updateState);
@@ -64,9 +64,9 @@ const ResponsiveBoxShadowComponent = props => {
 		if( choices ) {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let html = <li key={choiceID} {...inputAttrs} className='ast-box-shadow-input-item'>
-					<input type='number' className={`ast-box-shadow-input ast-box-shadow-${device} connected`} data-id={choiceID}
+					<input type='number' className={`ast-box-shadow-input ast-box-shadow-${device}`} data-id={choiceID}
 						   value={props_value[device][choiceID]} onChange={() => onbox-shadowChange(device, choiceID)}
-						   data-element-connect={id}/>
+						   data-element-connect=''/>
 					<span className="ast-box-shadow-title">{choices[choiceID]}</span>
 				</li>;
 				return html;
