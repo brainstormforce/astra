@@ -347,7 +347,7 @@ class Astra_Button_Component_Configs {
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-control]',
-					'default'        => '',
+					'default'        => astra_get_option( $_section . '-box-shadow-control' ),
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-box-shadow',

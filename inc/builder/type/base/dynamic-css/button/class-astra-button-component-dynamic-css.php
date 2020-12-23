@@ -74,6 +74,19 @@ class Astra_Button_Component_Dynamic_CSS {
 			$button_border_h_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'tablet' );
 			$button_border_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'mobile' );
 
+			$box_shadow   = astra_get_option( $_section . '-box-shadow-control' );
+
+			// Box Shadow.
+			$box_shadow_x = ( isset( $box_shadow ) && isset( $box_shadow['x'] ) ) ? astra_get_css_value( $box_shadow['x'], 'px' ) : '0px';
+
+			$box_shadow_y = ( isset( $box_shadow ) && isset( $box_shadow['y'] ) ) ? astra_get_css_value( $box_shadow['y'], 'px' ) : '0px';
+
+			$box_shadow_blur = ( isset( $box_shadow ) && isset( $box_shadow['blur'] ) ) ? astra_get_css_value( $box_shadow['blur'], 'px' ) : '0px';
+
+			$box_shadow_spread = ( isset( $box_shadow ) && isset( $box_shadow['spread'] ) ) ? astra_get_css_value( $box_shadow['spread'], 'px' ) : '0px';
+
+			$is_inset = ( isset( $box_shadow ) && isset( $box_shadow['inset'] ) && 'on' === $box_shadow['inset'] ) ? 'inset' : '';
+
 			/**
 			 * Button CSS.
 			 */
@@ -104,6 +117,10 @@ class Astra_Button_Component_Dynamic_CSS {
 					'color'        => $button_h_color_desktop,
 					'background'   => $button_bg_h_color_desktop,
 					'border-color' => $button_border_h_color_desktop,
+				),
+				// box shadow Options.
+				$selector . ' .ast-builder-button-wrap .ast-custom-button' => array(
+					'box-shadow'   => $box_shadow_x . ' ' . $box_shadow_y . ' ' . $box_shadow_blur . ' ' . $box_shadow_spread . ' rgba(0,0,0,0.5) ' . $is_inset, 
 				),
 			);
 

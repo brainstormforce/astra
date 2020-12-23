@@ -365,6 +365,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet'  => '',
 			'mobile'  => '',
 		);
+		$defaults[ 'header-' . $_prefix . '-box-shadow-control' ]    = array(
+			'x'    => '',
+			'y'  => '',
+			'blur' => '',
+			'spread'   => '',
+		);
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
@@ -451,6 +457,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'desktop' => 'sm',
 			'tablet'  => '',
 			'mobile'  => '',
+		);		
+		$defaults[ 'footer-' . $_prefix . '-box-shadow-control' ]    = array(
+			'x'    => '',
+			'y'  => '',
+			'blur' => '',
+			'spread'   => '',
 		);
 	}
 
