@@ -371,6 +371,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'blur' => '',
 			'spread'   => '',
 		);
+		$defaults['header-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
@@ -464,6 +465,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'blur' => '',
 			'spread'   => '',
 		);
+		$defaults['footer-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
+
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_html; $index++ ) {

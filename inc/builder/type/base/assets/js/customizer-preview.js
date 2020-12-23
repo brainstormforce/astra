@@ -177,7 +177,9 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 
 					if( shadow.x != '' && shadow.y != '' && shadow.blur != '' && shadow.spread != '' ) {
 
-						// var displayOn = (typeof ( wp.customize._value['astra-settings[transparent-header-on-devices]'] ) != 'undefined') ? wp.customize._value['astra-settings[transparent-header-on-devices]']._value : 'both';
+						var color = wp.customize( 'astra-settings[' + section + '-box-shadow-color]' ).get();
+
+						var box_shadow_color = ( '' !== color ) ? color + ' ' : 'rgba(0,0,0,0.5) ';
 
 						var is_inset = ( 'undefined' != typeof shadow.inset && 'on' == shadow.inset ) ? 'inset' : '';
 						var x_val = ( '' !== shadow.x ) ? ( shadow.x + 'px ' ) : '0px ';
@@ -186,7 +188,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 						var spread_val = ( '' !== shadow.spread ) ? ( shadow.spread + 'px ' ) : '0px ';
 
 						var dynamicStyle = '.ast-' + builder_type + '-button-'+ index +' .ast-builder-button-wrap .ast-custom-button {';
-							dynamicStyle += 'box-shadow:' + x_val + y_val + blur_val + spread_val + 'rgba(0,0,0,0.5) ' + is_inset + ';';
+							dynamicStyle += 'box-shadow:' + x_val + y_val + blur_val + spread_val + box_shadow_color + is_inset + ';';
 							dynamicStyle += '}';
 
 						astra_add_dynamic_css( section + '-box-shadow-control', dynamicStyle );

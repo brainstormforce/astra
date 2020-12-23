@@ -362,6 +362,18 @@ class Astra_Button_Component_Configs {
 					),
 					'context'        => Astra_Builder_Helper::$general_tab,
 				),
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-color]',
+					'default'    => astra_get_option( $_section . '-box-shadow-color' ),
+					'type'       => 'control',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'control'    => 'ast-color',
+					'title'      => __( 'Box Shadow Color', 'astra' ),
+					'rgba'       => true,
+					'priority'   => 210,
+				),
 			);
 
 			if ( 'footer' === $builder_type ) {
