@@ -1910,6 +1910,10 @@ input[type="text"].select2-search__field {
   /* Unit Screen wrap */
 }
 
+.customize-control-ast-responsive-box-shadow .ast-link-box-shadow-inset-wrapper {
+  margin: 10px 0;
+}
+
 .customize-control-ast-responsive-box-shadow .customize-control-title {
   display: inline-block;
 }
@@ -3646,6 +3650,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-box-shadow {
   /* Unit Screen wrap */
+}
+
+.customize-control-ast-responsive-box-shadow .ast-link-box-shadow-inset-wrapper {
+  margin: 10px 0;
 }
 
 .customize-control-ast-responsive-box-shadow .customize-control-title {

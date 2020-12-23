@@ -8,6 +8,16 @@ const ResponsiveBoxShadowComponent = props => {
 	value = (undefined === value || '' === value) ? props.control.params.value : value;
 	const [props_value, setPropsValue] = useState(value);
 
+	const onCheckboxChange = () => {
+		let updateState = {
+			...props_value
+		};
+		updateState['inset'] = event.target.value;
+		props.control.setting.set(updateState);
+		setPropsValue(updateState);
+
+	};
+
 	const onConnectedClick = () => {
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.ast-box-shadow-input');
@@ -129,7 +139,6 @@ const ResponsiveBoxShadowComponent = props => {
 			});
 		}
 
-
 		return <ul key={device} className={`ast-box-shadow-wrapper ${device} ${active}`}>
 			{linkHtml}
 			{htmlChoices}
@@ -197,6 +206,11 @@ const ResponsiveBoxShadowComponent = props => {
 			<div className="ast-box-shadow-responsive-units-screen-wrap">
 				{responsiveHtml}
 			</div>
+		</div>
+		<div className="customize-control-content ast-box-shadow-inset-wrapper">
+			<input type="checkbox" id="ast-box-shadow-inset" className="ast-box-shadow-inset"
+				name="ast-box-shadow-inset" onChange={() => onCheckboxChange()} checked={props_value['inset']} />
+			<label>{ __( 'Inset', 'astra' ) }</label>
 		</div>
 	</label>;
 
