@@ -167,8 +167,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 		// Advanced Visibility CSS Generation.
 		astra_builder_visibility_css( section, selector, 'block' );
 
-		  // Padding.
-		  wp.customize( 'astra-settings[' + section + '-padding]', function( value ) {
+		// Padding.
+		wp.customize( 'astra-settings[' + section + '-padding]', function( value ) {
 			value.bind( function( padding ) {
 				if(
 					padding.desktop.bottom != '' || padding.desktop.top != '' || padding.desktop.left != '' || padding.desktop.right != '' ||

@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Astra_Control_Responsive_Box_Shadow extends WP_Customize_Control {
+class Astra_Control_Box_Shadow extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,7 +25,7 @@ class Astra_Control_Responsive_Box_Shadow extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-responsive-box-shadow';
+	public $type = 'ast-box-shadow';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -41,30 +41,6 @@ class Astra_Control_Responsive_Box_Shadow extends WP_Customize_Control {
 		}
 
 		$val = maybe_unserialize( $this->value() );
-
-		if ( ! is_array( $val ) || is_numeric( $val ) ) {
-
-			$val = array(
-				'desktop'      => array(
-					'x'    => $val,
-					'y'  => $val,
-					'blur' => $val,
-					'spread'   => $val,
-				),
-				'tablet'       => array(
-					'x'    => $val,
-					'y'  => $val,
-					'blur' => $val,
-					'spread'   => $val,
-				),
-				'mobile'       => array(
-					'x'    => $val,
-					'y'  => $val,
-					'blur' => $val,
-					'spread'   => $val,
-				),
-			);
-		}
 
 		$this->json['value']          = $val;
 		$this->json['choices']        = $this->choices;

@@ -350,7 +350,7 @@ class Astra_Button_Component_Configs {
 					'default'        => '',
 					'type'           => 'control',
 					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-box-shadow',
+					'control'        => 'ast-box-shadow',
 					'section'        => $_section,
 					'priority'       => 210,
 					'title'          => __( 'Box Shadow', 'astra' ),

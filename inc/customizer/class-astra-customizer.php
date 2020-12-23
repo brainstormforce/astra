@@ -317,30 +317,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						);
 					}
 					break;
-				case 'ast-responsive-box-shadow':
-					if ( ! is_array( $val ) || is_numeric( $val ) ) {
-
-						$configuration['value'] = array(
-							'desktop'      => array(
-								'top'    => $val,
-								'right'  => '',
-								'bottom' => $val,
-								'left'   => '',
-							),
-							'tablet'       => array(
-								'top'    => $val,
-								'right'  => '',
-								'bottom' => $val,
-								'left'   => '',
-							),
-							'mobile'       => array(
-								'top'    => $val,
-								'right'  => '',
-								'bottom' => $val,
-								'left'   => '',
-							),
-						);
-					}
+				case 'ast-box-shadow':
+					$configuration['value'] = $val;
 					break;
 				case 'ast-radio-image':
 					$configuration['value'] = $val;
@@ -959,10 +937,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			Astra_Customizer_Control_Base::add_control(
-				'ast-responsive-box-shadow',
+				'ast-box-shadow',
 				array(
-					'callback'          => 'Astra_Control_Responsive_Box_Shadow',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_box_shadow' ),
+					'callback'          => 'Astra_Control_Box_Shadow',
+					'sanitize_callback' => '',
 				)
 			);
 

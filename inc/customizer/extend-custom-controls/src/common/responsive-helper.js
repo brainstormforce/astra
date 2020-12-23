@@ -224,38 +224,4 @@ export function astraGetResponsiveSpacingJs ( control ) {
         jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
     });
 }
-export function astraGetResponsiveBoxShadowJs ( control ) {
-    'use strict';
 
-    let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
-
-    jQuery( '.customize-control-ast-responsive-box-shadow .input-wrapper .ast-box-shadow-wrapper' ).removeClass( 'active' );
-
-    jQuery( '.customize-control-ast-responsive-box-shadow .input-wrapper .ast-box-shadow-wrapper.' + device ).addClass( 'active' );
-
-    jQuery( '.customize-control-ast-responsive-box-shadow .ast-box-shadow-responsive-btns li' ).removeClass( 'active' );
-
-    jQuery( '.customize-control-ast-responsive-box-shadow .ast-box-shadow-responsive-btns li.' + device ).addClass( 'active' );
-
-    jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
-
-        let device = jQuery(this).attr('data-device');
-
-        jQuery( '.customize-control-ast-responsive-box-shadow .input-wrapper .ast-box-shadow-wrapper, .customize-control .ast-box-shadow-responsive-btns > li' ).removeClass( 'active' );
-        jQuery( '.customize-control-ast-responsive-box-shadow .input-wrapper .ast-box-shadow-wrapper.' + device + ', .customize-control .ast-box-shadow-responsive-btns > li.' + device ).addClass( 'active' );
-    });
-
-    control.container.find( '.ast-box-shadow-responsive-btns button' ).on( 'click', function( event ) {
-        event.preventDefault();
-        let device = jQuery(this).attr('data-device');
-        if( 'desktop' == device ) {
-            device = 'tablet';
-        } else if( 'tablet' == device ) {
-            device = 'mobile';
-        } else {
-            device = 'desktop';
-        }
-
-        jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-    });
-}
