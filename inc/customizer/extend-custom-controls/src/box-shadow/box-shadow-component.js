@@ -88,7 +88,7 @@ const BoxShadowComponent = props => {
 		</div>
 		<div className="customize-control-content ast-box-shadow-inset-wrapper">
 			<input type="checkbox" id="ast-box-shadow-inset" className="ast-box-shadow-inset"
-				name="ast-box-shadow-inset" onChange={() => onCheckboxChange()} checked={props_value['inset']} />
+				name="ast-box-shadow-inset" onChange={() => onCheckboxChange()}  />
 			<label>{ __( 'Inset', 'astra' ) }</label>
 		</div>
 	</label>;

@@ -940,7 +940,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-box-shadow',
 				array(
 					'callback'          => 'Astra_Control_Box_Shadow',
-					'sanitize_callback' => '',
+					'sanitize_callback' => array( 'sanitize_box_shadow' )
 				)
 			);
 
