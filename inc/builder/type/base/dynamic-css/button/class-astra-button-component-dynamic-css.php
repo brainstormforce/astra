@@ -76,17 +76,18 @@ class Astra_Button_Component_Dynamic_CSS {
 
 			$box_shadow   = astra_get_option( $_section . '-box-shadow-control' );
 			$box_shadow_color   = astra_get_option( $_section . '-box-shadow-color' );
+			$is_shadow = isset( $box_shadow );
 
 			// Box Shadow.
-			$box_shadow_x = ( isset( $box_shadow ) && isset( $box_shadow['x'] ) ) ? ( $box_shadow['x'] . 'px ') : '0px ';
+			$box_shadow_x = ( $is_shadow && isset( $box_shadow['x'] ) && '' !== $box_shadow['x'] ) ? ( $box_shadow['x'] . 'px ') : '0px ';
 
-			$box_shadow_y = ( isset( $box_shadow ) && isset( $box_shadow['y'] ) ) ? ( $box_shadow['y'] . 'px ') : '0px ';
+			$box_shadow_y = ( $is_shadow && isset( $box_shadow['y'] ) && '' !== $box_shadow['y'] ) ? ( $box_shadow['y'] . 'px ') : '0px ';
 
-			$box_shadow_blur = ( isset( $box_shadow ) && isset( $box_shadow['blur'] ) ) ? ( $box_shadow['blur'] . 'px ') : '10px ';
+			$box_shadow_blur = ( $is_shadow && isset( $box_shadow['blur'] ) && '' !== $box_shadow['blur'] ) ? ( $box_shadow['blur'] . 'px ') : '0px ';
 
-			$box_shadow_spread = ( isset( $box_shadow ) && isset( $box_shadow['spread'] ) ) ? ( $box_shadow['spread'] . 'px ') : '0px ';
+			$box_shadow_spread = ( $is_shadow && isset( $box_shadow['spread'] ) && '' !== $box_shadow['spread'] ) ? ( $box_shadow['spread'] . 'px ') : '0px ';
 
-			$is_inset = ( isset( $box_shadow ) && isset( $box_shadow['inset'] ) && $box_shadow['inset'] ) ? ' inset ' : '';
+			$is_inset = ( $is_shadow && isset( $box_shadow['inset'] ) && $box_shadow['inset'] ) ? ' inset ' : '';
 
 			$shadow_color = ( isset( $box_shadow_color ) ? $box_shadow_color : 'rgba(0,0,0,0.5)' );
 
@@ -113,6 +114,9 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-left-width'   => astra_get_css_value( $button_border_width['left'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $button_border_width['right'], 'px' ),
 					'border-radius'       => astra_get_css_value( $button_border_radius, 'px' ),
+					
+					// box shadow.
+					'box-shadow'   => $box_shadow_x . $box_shadow_y . $box_shadow_blur . $box_shadow_spread . $shadow_color . $is_inset, 
 				),
 
 				// Hover Options.
@@ -120,10 +124,6 @@ class Astra_Button_Component_Dynamic_CSS {
 					'color'        => $button_h_color_desktop,
 					'background'   => $button_bg_h_color_desktop,
 					'border-color' => $button_border_h_color_desktop,
-				),
-				// box shadow Options.
-				$selector . ' .ast-builder-button-wrap .ast-custom-button' => array(
-					'box-shadow'   => $box_shadow_x . $box_shadow_y . $box_shadow_blur . $box_shadow_spread . $shadow_color . $is_inset, 
 				),
 			);
 
