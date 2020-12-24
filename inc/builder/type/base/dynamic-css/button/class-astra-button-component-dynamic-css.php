@@ -82,11 +82,11 @@ class Astra_Button_Component_Dynamic_CSS {
 
 			$box_shadow_y = ( isset( $box_shadow ) && isset( $box_shadow['y'] ) ) ? ( $box_shadow['y'] . 'px ') : '0px ';
 
-			$box_shadow_blur = ( isset( $box_shadow ) && isset( $box_shadow['blur'] ) ) ? ( $box_shadow['blur'] . 'px ') : '0px ';
+			$box_shadow_blur = ( isset( $box_shadow ) && isset( $box_shadow['blur'] ) ) ? ( $box_shadow['blur'] . 'px ') : '10px ';
 
 			$box_shadow_spread = ( isset( $box_shadow ) && isset( $box_shadow['spread'] ) ) ? ( $box_shadow['spread'] . 'px ') : '0px ';
 
-			$is_inset = ( isset( $box_shadow ) && isset( $box_shadow['inset'] ) && 'on' === $box_shadow['inset'] ) ? ' inset ' : '';
+			$is_inset = ( isset( $box_shadow ) && isset( $box_shadow['inset'] ) && $box_shadow['inset'] ) ? ' inset ' : '';
 
 			$shadow_color = ( isset( $box_shadow_color ) ? $box_shadow_color : 'rgba(0,0,0,0.5)' );
 

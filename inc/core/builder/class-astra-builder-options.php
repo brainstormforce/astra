@@ -366,10 +366,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => '',
 		);
 		$defaults[ 'header-' . $_prefix . '-box-shadow-control' ]    = array(
-			'x'    => '',
-			'y'  => '',
-			'blur' => '',
-			'spread'   => '',
+			'x'    => '0',
+			'y'  => '0',
+			'blur' => '10',
+			'spread'   => '0',
 		);
 		$defaults['header-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
 	}
@@ -460,10 +460,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'mobile'  => '',
 		);		
 		$defaults[ 'footer-' . $_prefix . '-box-shadow-control' ]    = array(
-			'x'    => '',
-			'y'  => '',
-			'blur' => '',
-			'spread'   => '',
+			'x'    => '0',
+			'y'  => '0',
+			'blur' => '10',
+			'spread'   => '0',
 		);
 		$defaults['footer-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
 

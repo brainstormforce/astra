@@ -181,7 +181,7 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 
 						var box_shadow_color = ( '' !== color ) ? color + ' ' : 'rgba(0,0,0,0.5) ';
 
-						var is_inset = ( 'undefined' != typeof shadow.inset && 'on' == shadow.inset ) ? 'inset' : '';
+						var is_inset = ( 'undefined' != typeof shadow.inset && shadow.inset ) ? 'inset' : '';
 						var x_val = ( '' !== shadow.x ) ? ( shadow.x + 'px ' ) : '0px ';
 						var y_val = ( '' !== shadow.y ) ? ( shadow.y + 'px ' ) : '0px ';
 						var blur_val = ( '' !== shadow.blur ) ? ( shadow.blur + 'px ' ) : '0px ';

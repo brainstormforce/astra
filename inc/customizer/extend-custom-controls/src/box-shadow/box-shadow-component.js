@@ -10,7 +10,7 @@ const BoxShadowComponent = props => {
 		let updateState = {
 			...props_value
 		};
-		updateState['inset'] = event.target.value;
+		updateState['inset'] = event.target.checked;
 		props.control.setting.set(updateState);
 		setPropsValue(updateState);
 
