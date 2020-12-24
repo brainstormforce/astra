@@ -3397,6 +3397,15 @@ body .entry-content .wp-block-latest-posts li {
   align-content: center;
 }
 
+/**	
+ * AST HF Builder - Widgets related CSS.	
+ * Button.	
+ */
+[data-section*="section-hb-button-"] .menu-link,
+[data-section*="section-fb-button-"] .menu-link {
+  display: none;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Header Nav and Submenu compatibility CSS.

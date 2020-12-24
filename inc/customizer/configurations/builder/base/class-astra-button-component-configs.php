@@ -362,8 +362,6 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_box_shadow_options( $_section, 91 );
-
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );

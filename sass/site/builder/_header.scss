@@ -322,6 +322,16 @@
 	display: grid;
 	align-content: center;
 }
+/**	
+ * AST HF Builder - Widgets related CSS.	
+ * Button.	
+ */	
+ [data-section*="section-hb-button-"],	
+ [data-section*="section-fb-button-"] {	
+	.menu-link {	
+		display: none;	
+	}	
+ }
 /**
  * AST HF Builder - Widgets related CSS.
  * Header Nav and Submenu compatibility CSS.
