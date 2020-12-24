@@ -42,11 +42,11 @@ class Astra_Control_Box_Shadow extends WP_Customize_Control {
 
 		$val = maybe_unserialize( $this->value() );
 
-		$this->json['value']          = $val;
-		$this->json['choices']        = $this->choices;
-		$this->json['id']             = $this->id;
-		$this->json['label']          = esc_html( $this->label );
-		$this->json['inputAttrs']     = '';
+		$this->json['value']      = $val;
+		$this->json['choices']    = $this->choices;
+		$this->json['id']         = $this->id;
+		$this->json['label']      = esc_html( $this->label );
+		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}

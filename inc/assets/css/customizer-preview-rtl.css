@@ -78,6 +78,19 @@
     text-shadow: none;
 }
 
+.elementor-page .customize-partial-edit-shortcut button {
+    padding: 3px !important;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    min-height: 26px !important;
+    border-radius: 50% !important;
+    border: 1px solid #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 3px !important;
+ }
+
 .customize-partial-edit-shortcut > button svg {
     min-width: 16px;
     min-height: 16px;

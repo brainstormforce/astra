@@ -141,3 +141,75 @@ function astra_builder_advanced_css( section, selector ) {
     } );
 
 }
+// Single Post Content Width
+wp.customize( 'astra-settings[blog-single-width]', function( value ) {
+    value.bind( function( value ) {
+
+        var single_post_max_width = wp.customize('astra-settings[blog-single-max-width]').get();
+
+        var dynamicStyle = '';
+
+        if ( 'custom' === value ) {
+
+            dynamicStyle += '.single-post .site-content > .ast-container {';
+            dynamicStyle += 'max-width: ' + single_post_max_width + 'px;';
+            dynamicStyle += '} ';
+        }
+        astra_add_dynamic_css( 'blog-single-width', dynamicStyle );
+    } );
+} );
+
+// Blog Post Content Width
+wp.customize( 'astra-settings[blog-width]', function( value ) {
+    value.bind( function( value ) {
+
+        var blog_max_width = wp.customize('astra-settings[blog-max-width]').get();
+
+        var dynamicStyle = '';
+
+        if ( 'custom' === value ) {
+
+            dynamicStyle += '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container {';
+            dynamicStyle += 'max-width: ' + blog_max_width + 'px;';
+            dynamicStyle += '} ';
+        }
+        astra_add_dynamic_css( 'blog-width', dynamicStyle );
+    } );
+} );
+
+// Blog Post Content Width
+wp.customize( 'astra-settings[edd-archive-grids]', function( value ) {
+    value.bind( function( value ) {
+
+        for ( var i = 1; i < 7; i++ ) {
+            jQuery('body').removeClass( 'columns-' + i );
+            jQuery('body').removeClass( 'tablet-columns-' + i );
+            jQuery('body').removeClass( 'mobile-columns-' + i );
+        }
+
+        if ( jQuery('body').hasClass( 'ast-edd-archive-page' ) ) {
+
+            jQuery('body').addClass( 'columns-' + value['desktop'] );
+            jQuery('body').addClass( 'tablet-columns-' + value['tablet'] );
+            jQuery('body').addClass( 'mobile-columns-' + value['mobile'] );
+        }
+    } );
+} );
+
+
+// Blog Post Content Width
+wp.customize( 'astra-settings[edd-archive-width]', function( value ) {
+    value.bind( function( value ) {
+
+        var edd_archive_max_width = wp.customize('astra-settings[edd-archive-max-width]').get();
+        edd_archive_max_width = ( 'custom' === value ) ? edd_archive_max_width : edd_archive_max_width + 40;
+
+        var dynamicStyle = '';
+        dynamicStyle += '.ast-edd-archive-page .site-content > .ast-container {';
+        dynamicStyle += 'max-width: ' + edd_archive_max_width + 'px;';
+        dynamicStyle += '} ';
+        
+        astra_add_dynamic_css( 'edd-archive-width', dynamicStyle );
+    } );
+} );
+

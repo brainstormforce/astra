@@ -45,15 +45,6 @@ class Astra_Header_Search_Component_Loader {
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-header-builder-search-customizer-preview-js', ASTRA_HEADER_SEARCH_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
-		// Localize variables for Astra Breakpoints JS.
-		wp_localize_script(
-			'astra-header-builder-search-customizer-preview-js',
-			'astraBuilderPreview',
-			array(
-				'tablet_break_point' => astra_get_tablet_breakpoint(),
-				'mobile_break_point' => astra_get_mobile_breakpoint(),
-			)
-		);
 	}
 
 	/**

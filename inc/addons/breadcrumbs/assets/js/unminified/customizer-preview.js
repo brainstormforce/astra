@@ -96,5 +96,18 @@
 		} );
 	} );
 
+	/**
+	 * Breadcrumb Separator.
+	 */
+	wp.customize( 'astra-settings[breadcrumb-separator]', function( value ) {
+		value.bind( function( value ) {
+			var dynamicStyle = '';
+                dynamicStyle += '.trail-items li::after {';
+                dynamicStyle += 'content: "' + value + '";';
+                dynamicStyle += '} ';
+				astra_add_dynamic_css( 'breadcrumb-separator', dynamicStyle );
+		} );
+	} );
+
 } )( jQuery );
 		

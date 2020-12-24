@@ -48,14 +48,15 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				 * Option: Blog Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
-					'default'  => astra_get_option( 'blog-width' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-blog',
-					'priority' => 50,
-					'title'    => __( 'Content Width', 'astra' ),
-					'choices'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[blog-width]',
+					'default'   => astra_get_option( 'blog-width' ),
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => 'section-blog',
+					'priority'  => 50,
+					'transport' => 'postMessage',
+					'title'     => __( 'Content Width', 'astra' ),
+					'choices'   => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),

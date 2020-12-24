@@ -316,6 +316,35 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'mobile-unit'  => 'px',
 						);
 					}
+
+					if ( empty( $val ) ) {
+
+						$default_responsive_spacing = array(
+							'desktop'      => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'tablet'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'mobile'       => array(
+								'top'    => '',
+								'right'  => '',
+								'bottom' => '',
+								'left'   => '',
+							),
+							'desktop-unit' => 'px',
+							'tablet-unit'  => 'px',
+							'mobile-unit'  => 'px',
+						);
+
+						astra_update_option( $data[1], $default_responsive_spacing );
+					}
 					break;
 				case 'ast-box-shadow':
 					$configuration['value'] = $val;
@@ -940,7 +969,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-box-shadow',
 				array(
 					'callback'          => 'Astra_Control_Box_Shadow',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_box_shadow' )
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_box_shadow' ),
 				)
 			);
 

@@ -290,17 +290,17 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 		$_prefix = 'button' . $index;
 
-		$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );
-		$defaults[ 'header-' . $_prefix . '-link-option' ]    = array(
+		$defaults[ 'header-' . $_prefix . '-text' ]               = __( 'Button', 'astra' );
+		$defaults[ 'header-' . $_prefix . '-link-option' ]        = array(
 			'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 			'new_tab'  => false,
 			'link_rel' => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-font-family' ]    = 'inherit';
-		$defaults[ 'header-' . $_prefix . '-font-weight' ]    = 'inherit';
-		$defaults[ 'header-' . $_prefix . '-text-transform' ] = '';
-		$defaults[ 'header-' . $_prefix . '-line-height' ]    = '';
-		$defaults[ 'header-' . $_prefix . '-font-size' ]      = array(
+		$defaults[ 'header-' . $_prefix . '-font-family' ]        = 'inherit';
+		$defaults[ 'header-' . $_prefix . '-font-weight' ]        = 'inherit';
+		$defaults[ 'header-' . $_prefix . '-text-transform' ]     = '';
+		$defaults[ 'header-' . $_prefix . '-line-height' ]        = '';
+		$defaults[ 'header-' . $_prefix . '-font-size' ]          = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -308,27 +308,27 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		$defaults[ 'header-' . $_prefix . '-text-color' ]     = array(
+		$defaults[ 'header-' . $_prefix . '-text-color' ]         = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-back-color' ]     = array(
+		$defaults[ 'header-' . $_prefix . '-back-color' ]         = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-text-h-color' ]   = array(
+		$defaults[ 'header-' . $_prefix . '-text-h-color' ]       = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-back-h-color' ]   = array(
+		$defaults[ 'header-' . $_prefix . '-back-h-color' ]       = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-padding' ]        = array(
+		$defaults[ 'header-' . $_prefix . '-padding' ]            = array(
 			'desktop' => array(
 				'top'    => '',
 				'right'  => '',
@@ -348,30 +348,30 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 				'left'   => '',
 			),
 		);
-		$defaults[ 'header-' . $_prefix . '-border-size' ]    = array(
+		$defaults[ 'header-' . $_prefix . '-border-size' ]        = array(
 			'top'    => '',
 			'right'  => '',
 			'bottom' => '',
 			'left'   => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-border-color' ]   = array(
+		$defaults[ 'header-' . $_prefix . '-border-color' ]       = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
-		$defaults[ 'header-' . $_prefix . '-size' ]   = array(
+		$defaults[ 'header-' . $_prefix . '-border-radius' ]      = '';
+		$defaults[ 'header-' . $_prefix . '-size' ]               = array(
 			'desktop' => 'sm',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$defaults[ 'header-' . $_prefix . '-box-shadow-control' ]    = array(
-			'x'    => '0',
-			'y'  => '0',
-			'blur' => '10',
-			'spread'   => '0',
+		$defaults[ 'header-' . $_prefix . '-box-shadow-control' ] = array(
+			'x'      => '0',
+			'y'      => '0',
+			'blur'   => '10',
+			'spread' => '0',
 		);
-		$defaults['header-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
+		$defaults[ 'header-' . $_prefix . '-box-shadow-color' ]   = 'rgba(0,0,0,0.5)';
 	}
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
@@ -449,23 +449,23 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		);
 		$defaults[ 'footer-' . $_prefix . '-border-radius' ]  = '';
 
-		$defaults[ 'footer-button-' . $index . '-alignment' ] = array(
+		$defaults[ 'footer-button-' . $index . '-alignment' ]     = array(
 			'desktop' => 'center',
 			'tablet'  => 'center',
 			'mobile'  => 'center',
 		);
-		$defaults[ 'footer-' . $_prefix . '-size' ]   = array(
+		$defaults[ 'footer-' . $_prefix . '-size' ]               = array(
 			'desktop' => 'sm',
 			'tablet'  => '',
 			'mobile'  => '',
-		);		
-		$defaults[ 'footer-' . $_prefix . '-box-shadow-control' ]    = array(
-			'x'    => '0',
-			'y'  => '0',
-			'blur' => '10',
-			'spread'   => '0',
+		);      
+		$defaults[ 'footer-' . $_prefix . '-box-shadow-control' ] = array(
+			'x'      => '0',
+			'y'      => '0',
+			'blur'   => '10',
+			'spread' => '0',
 		);
-		$defaults['footer-' . $_prefix . '-box-shadow-color']    = 'rgba(0,0,0,0.5)';
+		$defaults[ 'footer-' . $_prefix . '-box-shadow-color' ]   = 'rgba(0,0,0,0.5)';
 
 	}
 
@@ -1583,3 +1583,4 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	return $defaults;
 }
+

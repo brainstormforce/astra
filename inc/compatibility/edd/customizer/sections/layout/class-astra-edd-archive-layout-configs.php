@@ -52,6 +52,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
+					'transport'   => 'postMessage',
 				),
 
 				/**
@@ -159,17 +160,18 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-width' ),
-					'priority' => 220,
-					'title'    => __( 'Archive Content Width', 'astra' ),
-					'choices'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => 'section-edd-archive',
+					'default'   => astra_get_option( 'edd-archive-width' ),
+					'priority'  => 220,
+					'title'     => __( 'Archive Content Width', 'astra' ),
+					'choices'   => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'transport' => 'postMessage',
 				),
 
 				/**

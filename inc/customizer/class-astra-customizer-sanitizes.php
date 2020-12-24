@@ -586,16 +586,16 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		public static function sanitize_box_shadow( $val ) {
 
 			$box_shadow = array(
-				'x'    => '',
-				'y'  => '',
-				'blur' => '',
-				'spread'   => '',
+				'x'      => '',
+				'y'      => '',
+				'blur'   => '',
+				'spread' => '',
 			);
 			if ( is_array( $val ) ) {
-				$box_shadow['x']    = is_numeric( $val['x'] ) ? $val['x'] : '';
-				$box_shadow['y']  = is_numeric( $val['y'] ) ? $val['y'] : '';
-				$box_shadow['blur'] = is_numeric( $val['blur'] ) ? $val['blur'] : '';
-				$box_shadow['spread']   = is_numeric( $val['spread'] ) ? $val['spread'] : '';
+				$box_shadow['x']      = is_numeric( $val['x'] ) ? $val['x'] : '';
+				$box_shadow['y']      = is_numeric( $val['y'] ) ? $val['y'] : '';
+				$box_shadow['blur']   = is_numeric( $val['blur'] ) ? $val['blur'] : '';
+				$box_shadow['spread'] = is_numeric( $val['spread'] ) ? $val['spread'] : '';
 			}
 			return $box_shadow;
 		}
