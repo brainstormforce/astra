@@ -378,6 +378,12 @@
                         control.initAstBorderControl( control_elem, control_type, control_type.name );
 
                     break;
+
+                    case "ast-box-shadow":
+
+                        control.initAstBoxShadowControl( control_elem, control_type, control_type.name );
+
+                    break;
                 }
 
             });
@@ -436,6 +442,19 @@
                 } );
 
             } );
+        },
+
+        initAstBoxShadowControl: function( control_elem, control_type, name ) {
+
+            var control = this;
+            
+            // Save the value.
+            this.container.on( 'change keyup paste', 'input.ast-box-shadow-input', function() {
+
+                // Update value on change.
+                control.saveBoxShadowValue( 'box-shadow', jQuery( this ).val(), jQuery( this ), name );
+
+            });
         },
 
         generateFieldHtml: function ( fields_data, field_values ) {    
@@ -1172,6 +1191,34 @@
                 newValue[ item ] = item_value;
                 
                 spacing_input.attr( 'value', item_value );
+
+            });
+
+            
+            control.container.trigger( 'ast_settings_changed', [control, element, newValue, name ] );
+        },
+
+        /**
+         * Saves the value.
+         */
+        saveBoxShadowValue: function( property, value, element, name ) {
+
+            var control = this,
+                newValue = {
+                    'x'   : '',
+                    'y' : '',
+                    'blur' : '',
+                    'spread'   : '',
+                };
+
+            control.container.find( 'input.ast-box-shadow-desktop' ).each( function() {
+                var shadow_input = jQuery( this ),
+                    item          = shadow_input.data( 'id' );
+
+                item_value = shadow_input.val();
+                newValue[ item ] = item_value;
+                
+                shadow_input.attr( 'value', item_value );
 
             });
 

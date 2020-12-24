@@ -74,23 +74,6 @@ class Astra_Button_Component_Dynamic_CSS {
 			$button_border_h_color_tablet  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'tablet' );
 			$button_border_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'mobile' );
 
-			$box_shadow   = astra_get_option( $_section . '-box-shadow-control' );
-			$box_shadow_color   = astra_get_option( $_section . '-box-shadow-color' );
-			$is_shadow = isset( $box_shadow );
-
-			// Box Shadow.
-			$box_shadow_x = ( $is_shadow && isset( $box_shadow['x'] ) && '' !== $box_shadow['x'] ) ? ( $box_shadow['x'] . 'px ') : '0px ';
-
-			$box_shadow_y = ( $is_shadow && isset( $box_shadow['y'] ) && '' !== $box_shadow['y'] ) ? ( $box_shadow['y'] . 'px ') : '0px ';
-
-			$box_shadow_blur = ( $is_shadow && isset( $box_shadow['blur'] ) && '' !== $box_shadow['blur'] ) ? ( $box_shadow['blur'] . 'px ') : '0px ';
-
-			$box_shadow_spread = ( $is_shadow && isset( $box_shadow['spread'] ) && '' !== $box_shadow['spread'] ) ? ( $box_shadow['spread'] . 'px ') : '0px ';
-
-			$is_inset = ( $is_shadow && isset( $box_shadow['inset'] ) && $box_shadow['inset'] ) ? ' inset ' : '';
-
-			$shadow_color = ( isset( $box_shadow_color ) ? $box_shadow_color : 'rgba(0,0,0,0.5)' );
-
 			/**
 			 * Button CSS.
 			 */
@@ -114,9 +97,6 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-left-width'   => astra_get_css_value( $button_border_width['left'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $button_border_width['right'], 'px' ),
 					'border-radius'       => astra_get_css_value( $button_border_radius, 'px' ),
-					
-					// box shadow.
-					'box-shadow'   => $box_shadow_x . $box_shadow_y . $box_shadow_blur . $box_shadow_spread . $shadow_color . $is_inset, 
 				),
 
 				// Hover Options.
@@ -187,7 +167,9 @@ class Astra_Button_Component_Dynamic_CSS {
 			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector . ' .ast-builder-button-wrap .ast-custom-button' );
 
 			$visibility_selector = '.ast-' . $builder_type . '-button-' . $index . '[data-section="' . $_section . '"]';
-			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );     
+			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
+
+			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_box_shadow_css( $_section, $selector . ' .ast-custom-button' );
 		}
 
 		return $generated_css;

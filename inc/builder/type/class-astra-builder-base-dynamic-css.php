@@ -351,6 +351,45 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 
 			return $css_output;
 		}
+
+		/**
+		 * Prepare Element box_shadow Dynamic CSS.
+		 *
+		 * @param string $_section section.
+		 * @param string $selector selector.
+		 * @return array
+		 */
+		public static function prepare_box_shadow_css( $_section, $selector ) {
+
+			$box_shadow   = astra_get_option( $_section . '-box-shadow-control' );
+			$box_shadow_color   = astra_get_option( $_section . '-box-shadow-color' );
+			$is_shadow = isset( $box_shadow );
+
+			// Box Shadow.
+			$box_shadow_x = ( $is_shadow && isset( $box_shadow['x'] ) && '' !== $box_shadow['x'] ) ? ( $box_shadow['x'] . 'px ') : '0px ';
+
+			$box_shadow_y = ( $is_shadow && isset( $box_shadow['y'] ) && '' !== $box_shadow['y'] ) ? ( $box_shadow['y'] . 'px ') : '0px ';
+
+			$box_shadow_blur = ( $is_shadow && isset( $box_shadow['blur'] ) && '' !== $box_shadow['blur'] ) ? ( $box_shadow['blur'] . 'px ') : '0px ';
+
+			$box_shadow_spread = ( $is_shadow && isset( $box_shadow['spread'] ) && '' !== $box_shadow['spread'] ) ? ( $box_shadow['spread'] . 'px ') : '0px ';
+
+			$is_inset = ( $is_shadow && isset( $box_shadow['inset'] ) && $box_shadow['inset'] ) ? ' inset ' : '';
+
+			$shadow_color = ( isset( $box_shadow_color ) ? $box_shadow_color : 'rgba(0,0,0,0.5)' );
+
+			$css_output = array(
+				$selector => array(
+					// box shadow.
+					'box-shadow'   => $box_shadow_x . $box_shadow_y . $box_shadow_blur . $box_shadow_spread . $shadow_color . $is_inset, 
+				),
+			);
+
+			/* Parse CSS from array() */
+			$css_output  = astra_parse_css( $css_output );
+
+			return $css_output;
+		}
 	}
 
 	/**

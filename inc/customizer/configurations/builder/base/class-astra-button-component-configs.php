@@ -341,39 +341,6 @@ class Astra_Button_Component_Configs {
 						'em' => 'em',
 					),
 				),
-
-				/**
-				 * Option: Padded Layout Custom Width
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-control]',
-					'default'        => astra_get_option( $_section . '-box-shadow-control' ),
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-box-shadow',
-					'section'        => $_section,
-					'priority'       => 210,
-					'title'          => __( 'Box Shadow', 'astra' ),
-					'choices'        => array(
-						'x'    => __( 'X', 'astra' ),
-						'y'  => __( 'Y', 'astra' ),
-						'blur' => __( 'Blur', 'astra' ),
-						'spread'   => __( 'Spread', 'astra' ),
-					),
-					'context'        => Astra_Builder_Helper::$general_tab,
-				),
-
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-color]',
-					'default'    => astra_get_option( $_section . '-box-shadow-color' ),
-					'type'       => 'control',
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-color',
-					'title'      => __( 'Box Shadow Color', 'astra' ),
-					'rgba'       => true,
-					'priority'   => 210,
-				),
 			);
 
 			if ( 'footer' === $builder_type ) {
@@ -394,6 +361,8 @@ class Astra_Button_Component_Configs {
 					'transport' => 'postMessage',
 				);
 			}
+
+			$html_config[] = Astra_Builder_Base_Configuration::prepare_box_shadow_options( $_section, 91 );
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 

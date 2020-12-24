@@ -519,6 +519,55 @@ final class Astra_Builder_Base_Configuration {
 
 	}
 
+	
+	/**
+	 * Prepare box shadow configuration.
+	 *
+	 * @param string $_section section.
+	 * @param integer $priority of control.
+	 * @return array
+	 */
+	public static function prepare_box_shadow_options( $_section, $priority ) {
+
+		return array(
+
+			/**
+			 * Option: box shadow
+			 */
+			array(
+				'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-control]',
+				'default'        => astra_get_option( $_section . '-box-shadow-control' ),
+				'type'           => 'control',
+				'transport'      => 'postMessage',
+				'control'        => 'ast-box-shadow',
+				'section'        => $_section,
+				'priority'       => $priority,
+				'title'          => __( 'Box Shadow', 'astra' ),
+				'choices'        => array(
+					'x'    => __( 'X', 'astra' ),
+					'y'  => __( 'Y', 'astra' ),
+					'blur' => __( 'Blur', 'astra' ),
+					'spread'   => __( 'Spread', 'astra' ),
+				),
+				'context'        => Astra_Builder_Helper::$design_tab,
+			),
+
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[' . $_section . '-box-shadow-color]',
+				'default'    => astra_get_option( $_section . '-box-shadow-color' ),
+				'type'       => 'control',
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'control'    => 'ast-color',
+				'title'      => __( 'Box Shadow Color', 'astra' ),
+				'rgba'       => true,
+				'priority'   => $priority,
+				'context'        => Astra_Builder_Helper::$design_tab,
+			),
+
+		);
+	}
+
 }
 
 /**

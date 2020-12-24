@@ -827,7 +827,6 @@ function astra_builder_divider_css( builder_type = 'header', divider_count ) {
  * 
  * @param string section Section ID.
  * @param string selector Base Selector.
- * @param string default_property default CSS property.
  */
 function astra_builder_box_shadow_css( section, selector ) {
 
