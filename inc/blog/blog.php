@@ -351,7 +351,7 @@ if ( ! function_exists( 'astra_get_audios_from_post' ) ) {
 			return '';
 		}
 
-		// check what is the first embed containg video tag, youtube or vimeo.
+		// check what is the first embed containing audio tag.
 		foreach ( $embeds as $embed ) {
 			if ( strpos( $embed, 'audio' ) ) {
 				return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
@@ -376,13 +376,13 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
 
 		$post    = get_post( $post_id );
 		$content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
-		$embeds  = apply_filters( 'astra_get_post_audio', get_media_embedded_in_content( $content ) );
+		$embeds  = apply_filters( 'astra_get_post_video', get_media_embedded_in_content( $content ) );
 
 		if ( empty( $embeds ) ) {
 			return '';
 		}
 
-		// check what is the first embed containg video tag, youtube or vimeo.
+		// check what is the first embed containing video tag, youtube or vimeo.
 		foreach ( $embeds as $embed ) {
 			if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
 				return $embed;
