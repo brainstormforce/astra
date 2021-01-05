@@ -89,12 +89,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_hook_breadcrumb_position() {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 
-			if ( $breadcrumb_position && 'astra_header_markup_after' === $breadcrumb_position ) {
+			if ( $breadcrumb_position && ( 'astra_header_markup_after' === $breadcrumb_position || 'astra_header_after' === $breadcrumb_position ) ) {
 				echo '<div class="main-header-bar ast-header-breadcrumb">
 							<div class="ast-container">';
 			}
 			astra_get_breadcrumb();
-			if ( $breadcrumb_position && 'astra_header_markup_after' === $breadcrumb_position ) {
+			if ( $breadcrumb_position && ( 'astra_header_markup_after' === $breadcrumb_position || 'astra_header_after' === $breadcrumb_position ) ) {
 				echo '	</div>
 					</div>';
 			}

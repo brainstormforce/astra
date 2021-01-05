@@ -52,20 +52,22 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
+					'transport'   => 'postMessage',
 				),
 
 				/**
 				 * Option: EDD Archive Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
-					'type'     => 'control',
-					'control'  => 'ast-sortable',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-product-structure' ),
-					'priority' => 30,
-					'title'    => __( 'Product Structure', 'astra' ),
-					'choices'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+					'type'        => 'control',
+					'control'     => 'ast-sortable',
+					'section'     => 'section-edd-archive',
+					'default'     => astra_get_option( 'edd-archive-product-structure' ),
+					'priority'    => 30,
+					'title'       => __( 'Product Structure', 'astra' ),
+					'description' => __( 'The Image option cannot be sortable if the Product Style is selected to the List Style ', 'astra' ),
+					'choices'     => array(
 						'image'      => __( 'Image', 'astra' ),
 						'category'   => __( 'Category', 'astra' ),
 						'title'      => __( 'Title', 'astra' ),
@@ -84,9 +86,16 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-add-to-cart-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
 					'priority' => 31,
 					'title'    => __( 'Cart Button Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
 				),
 
 				/**
@@ -98,7 +107,14 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-variable-button' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button', 'astra' ),
 					'choices'  => array(
@@ -116,7 +132,14 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => astra_get_option( 'edd-archive-variable-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]', '==', 'button' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
+							'operator' => '==',
+							'value'    => 'button',
+						),
+					),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button Text', 'astra' ),
 				),
@@ -137,17 +160,18 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-edd-archive',
-					'default'  => astra_get_option( 'edd-archive-width' ),
-					'priority' => 220,
-					'title'    => __( 'Archive Content Width', 'astra' ),
-					'choices'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+					'type'      => 'control',
+					'control'   => 'select',
+					'section'   => 'section-edd-archive',
+					'default'   => astra_get_option( 'edd-archive-width' ),
+					'priority'  => 220,
+					'title'     => __( 'Archive Content Width', 'astra' ),
+					'choices'   => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'transport' => 'postMessage',
 				),
 
 				/**
@@ -160,7 +184,15 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'section'     => 'section-edd-archive',
 					'default'     => 1200,
 					'priority'    => 225,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
+					),
+
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '',

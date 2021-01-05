@@ -3,9 +3,7 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 .ast-container {
-  @include make-container();
   @include make-container-max-widths();
-
 }
 
 
@@ -14,7 +12,7 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 
-.ast-container-fluid {
+.ast-container-fluid, .ast-container {
   @include make-container();
 }
 

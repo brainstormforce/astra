@@ -344,6 +344,7 @@ html {
 
 .edit-post-visual-editor .ast-search-menu-icon {
   position: relative;
+  z-index: 3;
 }
 
 .edit-post-visual-editor .ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {

@@ -14,7 +14,6 @@
 }
 
 .main-navigation {
-	display: inline-flex;
 	height: 100%;
 
 	ul {
@@ -28,7 +27,7 @@
 .main-header-menu {
 
 	.menu-link,
-	a {
+	> a {
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;
@@ -48,7 +47,7 @@
 	.ast-left-align-sub-menu:hover > .sub-menu,
 	.ast-left-align-sub-menu.focus > .sub-menu {
 		right: 0;
-		left: auto;	
+		left: auto;
 	}
 
 	@media (min-width: $col-md) {
@@ -86,7 +85,7 @@
 				}
 
 			}
-			
+
 			.ast-left-align-sub-menu:hover > .sub-menu,
 			.ast-left-align-sub-menu.focus > .sub-menu,
 			.ast-left-align-sub-menu:hover * .sub-menu,
@@ -156,7 +155,7 @@
 .ast-header-break-point {
 	.main-navigation {
 		padding-left: 0;
-		
+
 		ul {
 			.menu-item {
 				.menu-link {

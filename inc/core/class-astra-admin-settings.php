@@ -491,6 +491,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
 				'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
+				'ajax_nonce'                         => wp_create_nonce( 'astra-builder-module-nonce' ),
+				'old_header_footer'                  => __( 'Use Old Header/Footer', 'astra' ),
+				'migrate_to_builder'                 => __( 'Use New Header/Footer Builder', 'astra' ),
 			);
 			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 
@@ -811,40 +814,40 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$quick_settings = apply_filters(
 				'astra_quick_settings',
 				array(
+					'header'       => array(
+						'title'     => __( 'Header Options', 'astra' ),
+						'dashicon'  => 'dashicons-align-center',
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
+					),
 					'logo-favicon' => array(
 						'title'     => __( 'Upload Logo', 'astra' ),
 						'dashicon'  => 'dashicons-format-image',
 						'quick_url' => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
+					),
+					'footer'       => array(
+						'title'     => __( 'Footer Settings', 'astra' ),
+						'dashicon'  => 'dashicons-align-wide',
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
 					'colors'       => array(
 						'title'     => __( 'Set Colors', 'astra' ),
 						'dashicon'  => 'dashicons-admin-customizer',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-colors-background' ),
 					),
-					'typography'   => array(
-						'title'     => __( 'Customize Fonts', 'astra' ),
-						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
-					),
 					'layout'       => array(
 						'title'     => __( 'Layout Options', 'astra' ),
 						'dashicon'  => 'dashicons-layout',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-container-layout' ),
 					),
-					'header'       => array(
-						'title'     => __( 'Header Options', 'astra' ),
-						'dashicon'  => 'dashicons-align-center',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
+					'typography'   => array(
+						'title'     => __( 'Customize Fonts', 'astra' ),
+						'dashicon'  => 'dashicons-editor-textcolor',
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
 					),
 					'blog-layout'  => array(
 						'title'     => __( 'Blog Layouts', 'astra' ),
 						'dashicon'  => 'dashicons-welcome-write-blog',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-blog-group' ),
-					),
-					'footer'       => array(
-						'title'     => __( 'Footer Settings', 'astra' ),
-						'dashicon'  => 'dashicons-admin-generic',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
 					'sidebars'     => array(
 						'title'     => __( 'Sidebar Options', 'astra' ),
@@ -1110,7 +1113,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								<ul class="ast-flex">
 									<?php
 									foreach ( (array) $quick_settings as $key => $link ) {
-										echo '<li class=""><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="ast-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a></li>';
+										if ( Astra_Builder_Helper::$is_header_footer_builder_active && ( 'header' === $key || 'footer' === $key ) ) {
+											echo '<li class="' . esc_attr( $key ) . '"><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="ast-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a><a class="highlight-ahfb">NEW</a></li>';
+										} else {
+											echo '<li class="' . esc_attr( $key ) . '"><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="ast-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a></li>';
+										}
 									}
 									?>
 								</ul>

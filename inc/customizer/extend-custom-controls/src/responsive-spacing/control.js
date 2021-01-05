@@ -1,5 +1,5 @@
 import ResponsiveSpacingComponent from './responsive-spacing-component.js';
-import { astraGetResponsiveSpacingJs } from '../common/responsive-helper';
+import {astraGetResponsiveSpacingJs} from '../common/responsive-helper';
 
 export const responsiveSpacingControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {

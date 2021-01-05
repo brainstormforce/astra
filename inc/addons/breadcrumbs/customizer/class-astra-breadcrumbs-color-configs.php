@@ -55,9 +55,17 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'section'  => 'section-breadcrumb',
 					'title'    => __( 'Colors', 'astra' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority' => 72,
 					'settings' => array(),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
 				),
 
 				/*
@@ -67,12 +75,20 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-color]',
 					'default'   => astra_get_option( 'section-breadcrumb-color' ),
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Content', 'astra' ),
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 72,
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						Astra_Builder_Helper::$is_header_footer_builder_active ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
 				),
 
 				array(

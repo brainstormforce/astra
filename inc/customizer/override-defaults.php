@@ -33,7 +33,7 @@ $wp_customize->get_control( 'custom_logo' )->priority      = 5;
 $wp_customize->get_control( 'blogname' )->priority         = 7;
 $wp_customize->get_control( 'blogdescription' )->priority  = 10;
 $wp_customize->get_control( 'header_textcolor' )->priority = 9;
-$wp_customize->get_control( 'site_icon' )->priority        = 6;
+$wp_customize->get_control( 'site_icon' )->priority        = 16;
 
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial(

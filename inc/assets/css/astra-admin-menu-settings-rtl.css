@@ -280,3 +280,19 @@ a.astra-starter-sites-detail-link {
     margin: 0.5em 0;
     padding: 2px;
 }
+
+/**
+ * Adding new UI CSS for launching new HF Builder as requirement for test drive marketing.
+ */
+
+.ast-hf-builder-activated .ast-quick-links .footer .highlight-ahfb, .ast-hf-builder-activated .ast-quick-links .header .highlight-ahfb {
+    color: #fff;
+    background: linear-gradient(-90deg, rgba(73,44,221,1) 0%, rgba(173,56,226,1) 100%);
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 0.3em 0.6em;
+    letter-spacing: 0.5px;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    border-radius: 2px;
+}

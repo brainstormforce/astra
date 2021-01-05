@@ -69,13 +69,12 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[body-font-variant]',
 					'type'              => 'control',
-					'control'           => 'ast-font',
-					'font-type'         => 'ast-font-variant',
+					'control'           => 'ast-font-variant',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
 					'default'           => astra_get_option( 'body-font-variant' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
 					'section'           => 'section-body-typo',
-					'priority'          => 10,
+					'priority'          => 6,
 					'title'             => __( 'Variants', 'astra' ),
 					'variant'           => ASTRA_THEME_SETTINGS . '[body-font-family]',
 				),
@@ -213,8 +212,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
 					'type'              => 'control',
-					'control'           => 'ast-font',
-					'font-type'         => 'ast-font-variant',
+					'control'           => 'ast-font-variant',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
 					'default'           => astra_get_option( 'headings-font-variant' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
@@ -290,5 +288,3 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 }
 
 new Astra_Body_Typo_Configs();
-
-

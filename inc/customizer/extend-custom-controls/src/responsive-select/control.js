@@ -3,7 +3,7 @@ import ResponsiveSelectComponent from './responsive-select-component.js';
 export const responsiveSelectControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
 		let control = this;
-	ReactDOM.render( <ResponsiveSelectComponent control={ control } />, control.container[0] );
+		ReactDOM.render( <ResponsiveSelectComponent control={ control } />, control.container[0] );
 	},
 	ready: function() {
 

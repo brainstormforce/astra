@@ -37,7 +37,7 @@ export function astraGetResponsiveBgJs( control, child_control_name ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        var device = jQuery(this).attr('data-device');
+        let device = jQuery(this).attr('data-device');
 
         jQuery( '.customize-control-ast-responsive-background .customize-control-content .background-container' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive-background .customize-control-content .background-container.' + device ).addClass( 'active' );
@@ -46,8 +46,8 @@ export function astraGetResponsiveBgJs( control, child_control_name ) {
     });
 
     control.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
-
-        var device = jQuery(this).attr('data-device');
+        event.preventDefault();
+        let device = jQuery(this).attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {
@@ -86,7 +86,7 @@ export function astraGetResponsiveColorJs( control, child_control_name ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        var device = jQuery(this).attr('data-device');
+        let device = jQuery(this).attr('data-device');
 
         jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive-color .customize-control-content .ast-responsive-color.' + device ).addClass( 'active' );
@@ -95,8 +95,8 @@ export function astraGetResponsiveColorJs( control, child_control_name ) {
     });
 
     control.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
-
-        var device = jQuery(this).attr('data-device');
+        event.preventDefault();
+        let device = jQuery(this).attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {
@@ -133,7 +133,7 @@ export function astraGetResponsiveJs ( control ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        var device = jQuery(this).attr('data-device');
+        let device = jQuery(this).attr('data-device');
 
         jQuery( '.customize-control-ast-responsive .input-wrapper input, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
@@ -141,8 +141,8 @@ export function astraGetResponsiveJs ( control ) {
     });
 
     control.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
-
-        var device = jQuery(this).attr('data-device');
+        event.preventDefault();
+        let device = jQuery(this).attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {
@@ -169,15 +169,15 @@ export function astraGetResponsiveSliderJs ( control ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        var device = jQuery(this).attr('data-device');
+        let device = jQuery(this).attr('data-device');
 
         jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper, .customize-control .ast-responsive-slider-btns > li' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
     });
 
     control.container.find( '.ast-responsive-slider-btns button' ).on( 'click', function( event ) {
-
-        var device = jQuery(this).attr('data-device');
+        event.preventDefault();
+        let device = jQuery(this).attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {
@@ -204,15 +204,15 @@ export function astraGetResponsiveSpacingJs ( control ) {
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function() {
 
-        var device = jQuery(this).attr('data-device');
+        let device = jQuery(this).attr('data-device');
 
         jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper, .customize-control .ast-spacing-responsive-btns > li' ).removeClass( 'active' );
         jQuery( '.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper.' + device + ', .customize-control .ast-spacing-responsive-btns > li.' + device ).addClass( 'active' );
     });
 
     control.container.find( '.ast-spacing-responsive-btns button' ).on( 'click', function( event ) {
-
-        var device = jQuery(this).attr('data-device');
+        event.preventDefault();
+        let device = jQuery(this).attr('data-device');
         if( 'desktop' == device ) {
             device = 'tablet';
         } else if( 'tablet' == device ) {

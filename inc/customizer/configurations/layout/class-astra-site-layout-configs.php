@@ -40,7 +40,14 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
 					'title'       => __( 'Width', 'astra' ),
-					'required'    => array( ASTRA_THEME_SETTINGS . '[site-layout]', '==', 'ast-full-width-layout' ),
+					'context'     => defined( 'ASTRA_EXT_VER' ) ? array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
+							'operator' => '==',
+							'value'    => 'ast-full-width-layout',
+						),
+					) : array(),
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,
@@ -52,7 +59,6 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 
 			return array_merge( $configurations, $_configs );
 		}
-
 	}
 }
 

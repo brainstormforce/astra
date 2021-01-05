@@ -1,223 +1,182 @@
 import PropTypes from 'prop-types';
-import { Component } from '@wordpress/element';
-import { Dashicon } from '@wordpress/components';
+import {useState} from 'react';
+import {Dashicon} from '@wordpress/components';
 import AstraColorPickerControl from '../common/astra-color-picker-control';
-import { __ } from '@wordpress/i18n';
+import {__} from '@wordpress/i18n';
 
-class Background extends Component {
+const Background = props => {
 
-	constructor(props) {
+	const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-		super( props );
-
-		let value = this.props.control.setting.get();
-
-		this.defaultValue = this.props.control.params.default;
-		this.onSelectImage = this.onSelectImage.bind( this );
-
-		this.state = {
-			value: value,
-		};
-
-		this.updateBackgroundType();
-	}
-
-	updateBackgroundType() {
-
+	const updateBackgroundType = () => {
 		let obj = {
-			...this.state.value,
+			...props_value
 		};
 
-		if ( undefined === this.state.value['background-type']  || '' === this.state.value['background-type'] ) {
-
-			if ( undefined !== this.state.value['background-color'] && '' !== this.state.value['background-color'] ) {
-
+		if (props_value['background-type']) {
+			if (props_value['background-color']) {
 				obj['background-type'] = 'color';
-				this.updateValues( obj );
+				props.control.setting.set(obj);
+				setPropsValue( obj );
 
-				if ( this.state.value['background-color'].includes('gradient') ) {
-
+				if (props_value['background-color'].includes('gradient')) {
 					obj['background-type'] = 'gradient';
-
-					this.updateValues( obj );
+					props.control.setting.set(obj);
+					setPropsValue( obj );
 				}
 			}
-			if ( undefined !== this.state.value['background-image'] && '' !== this.state.value['background-image'] ) {
 
+			if (props_value['background-image']) {
 				obj['background-type'] = 'image';
-				this.updateValues( obj );
+				props.control.setting.set(obj);
+				setPropsValue( obj );
 			}
 		}
-	}
-	renderReset () {
-		return (
-			<span className="customize-control-title">
+	};
+
+	const renderReset = () => {
+		return <span className="customize-control-title">
 				<div className="ast-color-btn-reset-wrap">
 					<button
 						className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-						disabled={ ( JSON.stringify( this.state.value ) === JSON.stringify( this.defaultValue ) ) }
-						onClick={ (e) => {
-							e.preventDefault();
-							let value = JSON.parse( JSON.stringify( this.defaultValue ) );
+						disabled={JSON.stringify(props_value) === JSON.stringify(props.control.params.default)} onClick={e => {
+						e.preventDefault();
+						let value = JSON.parse(JSON.stringify(props.control.params.default));
 
-							if ( undefined !== value && '' !== value ) {
-								if ( undefined === value['background-color'] || '' === value['background-color'] ) {
-									value['background-color'] = '';
-									wp.customize.previewer.refresh();
-								}
-								if ( undefined === value['background-image'] || '' === value['background-image'] ) {
-									value['background-image'] = '';
-									wp.customize.previewer.refresh();
-								}
-								if ( undefined === value['background-media'] || '' === value['background-media'] ) {
-									value['background-media'] = '';
-									wp.customize.previewer.refresh();
-								}
+						if (undefined !== value && '' !== value) {
+							if (undefined === value['background-color'] || '' === value['background-color']) {
+								value['background-color'] = '';
+								wp.customize.previewer.refresh();
 							}
 
-							this.updateValues( value );
-							this.refs.ChildAstraColorPickerControl.onResetRefresh();
-						} }
-					>
-						<Dashicon icon='image-rotate' style={{width: 12, height: 12, fontSize: 12}} />
+							if (undefined === value['background-image'] || '' === value['background-image']) {
+								value['background-image'] = '';
+								wp.customize.previewer.refresh();
+							}
+
+							if (undefined === value['background-media'] || '' === value['background-media']) {
+								value['background-media'] = '';
+								wp.customize.previewer.refresh();
+							}
+						}
+
+						props.control.setting.set(value);
+						setPropsValue( value );
+						// refs.ChildAstraColorPickerControl.onResetRefresh();
+					}}>
+						<Dashicon icon='image-rotate' style={{
+							width: 12,
+							height: 12,
+							fontSize: 12
+						}}/>
 					</button>
 				</div>
-			</span>
-		)
-	}
-	onSelectImage ( media, backgroundType ) {
+			</span>;
+	};
 
+	const onSelectImage = ( media, backgroundType ) => {
 		let obj = {
-			...this.state.value,
+			...props_value
 		};
-		obj['background-media'] = media.id
-		obj['background-image'] = media.url
+		obj['background-media'] = media.id;
+		obj['background-image'] = media.url;
+		obj['background-type'] = backgroundType;
+		props.control.setting.set(obj);
+		setPropsValue( obj );
+	};
 
-		obj['background-type'] = backgroundType
-
-        this.updateValues( obj );
-	}
-	onChangeImageOptions( mainKey, value, backgroundType ) {
-
+	const onChangeImageOptions = ( mainKey, value, backgroundType ) => {
 		let obj = {
-			...this.state.value,
+			...props_value
 		};
+		obj[mainKey] = value;
+		obj['background-type'] = backgroundType;
+		props.control.setting.set(obj);
+		setPropsValue( obj );
+	};
 
-		obj[mainKey] = value
-		obj['background-type'] = backgroundType
+	const renderSettings = () => {
+		return <>
+			<AstraColorPickerControl
+				color={undefined !== props_value['background-color'] && props_value['background-color'] ? props_value['background-color'] : ''}
+				onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
+				media={undefined !== props_value['background-media'] && props_value['background-media'] ? props_value['background-media'] : ''}
+				backgroundImage={undefined !== props_value['background-image'] && props_value['background-image'] ? props_value['background-image'] : ''}
+				backgroundAttachment={undefined !== props_value['background-attachment'] && props_value['background-attachment'] ? props_value['background-attachment'] : ''}
+				backgroundPosition={undefined !== props_value['background-position'] && props_value['background-position'] ? props_value['background-position'] : ''}
+				backgroundRepeat={undefined !== props_value['background-repeat'] && props_value['background-repeat'] ? props_value['background-repeat'] : ''}
+				backgroundSize={undefined !== props_value['background-size'] && props_value['background-size'] ? props_value['background-size'] : ''}
+				onSelectImage={(media, backgroundType) => onSelectImage(media, backgroundType)}
+				onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
+				backgroundType={undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color'}
+				allowGradient={true} allowImage={true} />
+		</>;
+	};
 
-        this.updateValues( obj );
-	}
-	renderSettings () {
+	const handleChangeComplete = ( color, backgroundType ) => {
+		let value = '';
 
-		return (
-			<>
-				<AstraColorPickerControl
-					color={ ( undefined !== this.state.value['background-color'] && this.state.value['background-color'] ? this.state.value['background-color'] :  '' ) }
-					onChangeComplete={ ( color, backgroundType ) => this.handleChangeComplete( color, backgroundType ) }
-					media={ ( undefined !== this.state.value['background-media'] && this.state.value['background-media'] ? this.state.value['background-media'] :  '' ) }
-					backgroundImage = { ( undefined !== this.state.value['background-image'] && this.state.value['background-image'] ? this.state.value['background-image'] :  '' ) }
-					backgroundAttachment = { ( undefined !== this.state.value['background-attachment'] && this.state.value['background-attachment'] ? this.state.value['background-attachment'] :  '' ) }
-					backgroundPosition = { ( undefined !== this.state.value['background-position'] && this.state.value['background-position'] ? this.state.value['background-position'] :  '' ) }
-					backgroundRepeat = { ( undefined !== this.state.value['background-repeat'] && this.state.value['background-repeat'] ? this.state.value['background-repeat'] :  '' ) }
-					backgroundSize = { ( undefined !== this.state.value['background-size'] && this.state.value['background-size'] ? this.state.value['background-size'] :  '' ) }
-					onSelectImage = { ( media, backgroundType ) => this.onSelectImage( media, backgroundType ) }
-					onChangeImageOptions = { ( mainKey, value, backgroundType ) => this.onChangeImageOptions( mainKey, value, backgroundType ) }
-					backgroundType = { ( undefined !== this.state.value['background-type'] && this.state.value['background-type'] ? this.state.value['background-type'] :  'color' ) }
-					allowGradient={ true }
-					allowImage={ true }
-					ref="ChildAstraColorPickerControl"
-				/>
-			</>
-		)
-	}
-	handleChangeComplete( color, backgroundType ) {
-		let value;
-
-		if ( typeof color === 'string' || color instanceof String ) {
-			value = color;
-		} else if ( undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a ) {
-			value = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
-		} else {
-			value = color.hex;
+		if (color) {
+			if (typeof color === 'string' || color instanceof String) {
+				value = color;
+			} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+				value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+			} else {
+				value = color.hex;
+			}
 		}
 
 		let obj = {
-			...this.state.value,
+			...props_value
 		};
-
 		obj['background-color'] = value;
 		obj['background-type'] = backgroundType;
+		props.control.setting.set(obj);
+		setPropsValue( obj );
+	};
 
-        this.updateValues( obj );
-	}
+	const {
+		defaultValue,
+		label,
+		description
+	} = props.control.params;
+	let defaultVal = '#RRGGBB';
+	let labelHtml = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
+	let descriptionHtml = description ?
+		<span className="description customize-control-description">{description}</span> : null;
+	let inputHtml = null;
 
-    render() {
-
-		const {
-			defaultValue,
-			label,
-			description,
-		} = this.props.control.params
-
-		let defaultVal = '#RRGGBB';
-		let labelHtml = null;
-		let descriptionHtml = null;
-		let inputHtml = null;
-
-		if ( defaultValue ) {
-
-			if ( '#' !== defaultValue.substring( 0, 1 ) ) {
-				defaultVal = '#' + defaultValue;
-			} else {
-				defaultVal = defaultValue;
-			}
-
-			defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
-		}
-
-		if ( label && '' !== label && undefined !== label ) {
-
-			labelHtml = <span className="customize-control-title">{ label }</span>
+	if (defaultValue) {
+		if ('#' !== defaultValue.substring(0, 1)) {
+			defaultVal = '#' + defaultValue;
 		} else {
-			labelHtml = <span className="customize-control-title">{ __( 'Background', 'astra' ) }</span>
+			defaultVal = defaultValue;
 		}
 
-		if ( description ) {
-
-			descriptionHtml = <span className="description customize-control-description">{ description }</span>
-		}
-
-		inputHtml = (
-			<div className="background-wrapper">
-				<div className="background-container">
-				{ this.renderReset() }
-				{ this.renderSettings() }
-				</div>
-			</div>
-		)
-
-		return (
-			<>
-				<label>
-					{ labelHtml }
-					{ descriptionHtml }
-				</label>
-
-				<div className="customize-control-content">
-					{ inputHtml }
-				</div>
-			</>
-		);
+		defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
 	}
-	updateValues( obj ) {
-		this.setState( { value : obj } )
-		this.props.control.setting.set( obj );
-	}
-}
+
+	inputHtml = <div className="background-wrapper">
+		<div className="background-container">
+			{renderReset()}
+			{renderSettings()}
+		</div>
+	</div>;
+	return <>
+		<label>
+			{labelHtml}
+			{descriptionHtml}
+		</label>
+
+		<div className="customize-control-content">
+			{inputHtml}
+		</div>
+	</>;
+
+};
 
 Background.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default Background;
+export default React.memo( Background );

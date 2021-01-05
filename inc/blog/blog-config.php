@@ -156,7 +156,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 					);
 				?>
 				>
-				<span
+				<span 
 				<?php
 					echo astra_attr(
 						'author-name',

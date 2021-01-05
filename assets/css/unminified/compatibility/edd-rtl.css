@@ -1327,3 +1327,23 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 #edd_profile_editor_form #edd_profile_submit_fieldset p {
   padding: 0;
 }
+
+/* EDD cart for Left Section in Builder Layout */
+.site-header-section-left .ast-edd-site-header-cart:focus .widget_edd_cart_widget, .site-header-section-left .ast-edd-site-header-cart:hover .widget_edd_cart_widget {
+  left: auto;
+  right: 0;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget {
+  left: -999em;
+  right: auto;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:before, .site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:after {
+  right: 8px;
+  left: auto;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:after {
+  margin-right: -2px;
+}

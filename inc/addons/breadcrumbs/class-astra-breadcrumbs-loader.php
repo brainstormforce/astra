@@ -140,6 +140,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			$defaults['breadcrumb-font-family']    = 'inherit';
 			$defaults['breadcrumb-font-weight']    = 'inherit';
 			$defaults['breadcrumb-text-transform'] = '';
+			$defaults['breadcrumb-font-size']      = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
 
 			return $defaults;
 		}

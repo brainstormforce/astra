@@ -335,6 +335,9 @@
     align-items: center;
     flex-direction: inherit;
 }
+.astra-color-picker-wrap .components-popover__content {
+    width: max-content;
+}
 /** Gradient Color Picker -> RGBA & HSLA range fields */
 .customize-control .ast-gradient-color-picker .is-alpha-enabled .components-base-control__field [type="number"] {
     width: 100%;

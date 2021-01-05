@@ -11,7 +11,15 @@ import ResponsiveColorComponent from '../responsive-color/responsive-color-compo
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 
-import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor, astraGetBackground } from '../common/responsive-helper';
+import {
+	astraGetBackground,
+	astraGetColor,
+	astraGetResponsiveBgJs,
+	astraGetResponsiveColorJs,
+	astraGetResponsiveJs,
+	astraGetResponsiveSliderJs,
+	astraGetResponsiveSpacingJs
+} from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {

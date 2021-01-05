@@ -1,36 +1,37 @@
 import PropTypes from 'prop-types';
-import { Component, Fragment } from '@wordpress/element';
+import {Fragment} from '@wordpress/element';
 
-class HeadingComponent extends Component {
-	render() {
-		let htmlCaption = null;
-		let htmlLabel = null;
-		let htmlDescription = null;
-		if ( this.props.control.params.caption ) {
-			htmlCaption = <span className="customize-control-caption">{ this.props.control.params.caption }</span>;
-		}
-		if ( this.props.control.params.label ) {
-			htmlLabel = <span className="customize-control-title wp-ui-text-highlight">{ this.props.control.params.label }</span>;
-		}
-		if ( this.props.control.params.description ) {
-			htmlDescription = <span className="description customize-control-description">{ this.props.control.params.description }</span>;
-		}
-		return (
-			<Fragment>
-				{ htmlCaption }
+const HeadingComponent = props => {
+
+  let htmlCaption = null;
+  let htmlLabel = null;
+  let htmlDescription = null;
+
+  if (props.control.params.caption) {
+    htmlCaption = <span className="customize-control-caption">{props.control.params.caption}</span>;
+  }
+
+  if (props.control.params.label) {
+    htmlLabel = <span className="customize-control-title wp-ui-text-highlight">{props.control.params.label}</span>;
+  }
+
+  if (props.control.params.description) {
+    htmlDescription = <span className="description customize-control-description">{props.control.params.description}</span>;
+  }
+
+  return <Fragment>
+				{htmlCaption}
 				<div className="ast-heading-wrapper wp-ui-highlight">
 					<label className="customizer-text">
-						{ htmlLabel }
-						{ htmlDescription }
+						{htmlLabel}
+						{htmlDescription}
 					</label>
 				</div>
-			</Fragment>
-		);
-	}
-}
+			</Fragment>;
+};
 
 HeadingComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default HeadingComponent;
+export default React.memo( HeadingComponent );

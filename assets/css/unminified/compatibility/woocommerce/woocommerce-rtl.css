@@ -331,7 +331,9 @@ p.demo_store a,
 .woocommerce .below-header-section-1 .ast-site-header-cart .widget_shopping_cart,
 .header-main-layout-3 .main-header-bar-wrap .ast-site-header-cart .widget_shopping_cart,
 .ast-above-header-section-1 .ast-site-header-cart .widget_shopping_cart,
-.below-header-section-1 .ast-site-header-cart .widget_shopping_cart {
+.below-header-section-1 .ast-site-header-cart .widget_shopping_cart,
+.woocommerce .site-header-section-left .ast-site-header-cart .widget_shopping_cart,
+.site-header-section-left .ast-site-header-cart .widget_shopping_cart {
   left: auto;
   right: 0;
   transition: right 0s;
@@ -347,7 +349,11 @@ p.demo_store a,
 .ast-above-header-section-1 .ast-site-header-cart .widget_shopping_cart:before,
 .ast-above-header-section-1 .ast-site-header-cart .widget_shopping_cart:after,
 .below-header-section-1 .ast-site-header-cart .widget_shopping_cart:before,
-.below-header-section-1 .ast-site-header-cart .widget_shopping_cart:after {
+.below-header-section-1 .ast-site-header-cart .widget_shopping_cart:after,
+.woocommerce .site-header-section-left .ast-site-header-cart .widget_shopping_cart:before,
+.woocommerce .site-header-section-left .ast-site-header-cart .widget_shopping_cart:after,
+.site-header-section-left .ast-site-header-cart .widget_shopping_cart:before,
+.site-header-section-left .ast-site-header-cart .widget_shopping_cart:after {
   right: 15px;
   left: auto;
 }
@@ -357,7 +363,9 @@ p.demo_store a,
 .woocommerce .below-header-section-1 .ast-site-header-cart .widget_shopping_cart:before,
 .header-main-layout-3 .main-header-bar-wrap .ast-site-header-cart .widget_shopping_cart:before,
 .ast-above-header-section-1 .ast-site-header-cart .widget_shopping_cart:before,
-.below-header-section-1 .ast-site-header-cart .widget_shopping_cart:before {
+.below-header-section-1 .ast-site-header-cart .widget_shopping_cart:before,
+.woocommerce .site-header-section-left .ast-site-header-cart .widget_shopping_cart:before,
+.site-header-section-left .ast-site-header-cart .widget_shopping_cart:before {
   right: 11px;
   left: auto;
 }

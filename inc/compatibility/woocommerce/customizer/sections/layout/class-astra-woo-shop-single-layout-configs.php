@@ -55,7 +55,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'title'    => __( 'Disable on WooCommerce Product Pages?', 'astra' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
+							'operator' => '==',
+							'value'    => '1',
+						),
+					),
 					'priority' => 26,
 					'control'  => 'checkbox',
 				),

@@ -325,19 +325,6 @@ th {
 /*!
  * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  */
-.ast-container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.ast-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 @media (min-width: 544px) {
   .ast-container {
     max-width: 100%;
@@ -362,14 +349,14 @@ th {
   }
 }
 
-.ast-container-fluid {
+.ast-container-fluid, .ast-container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.ast-container-fluid::after {
+.ast-container-fluid::after, .ast-container::after {
   content: "";
   display: table;
   clear: both;
@@ -1670,15 +1657,6 @@ textarea {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
-  border: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
@@ -1886,6 +1864,7 @@ input[type="submit"]:focus {
 
 .ast-search-menu-icon {
   position: relative;
+  z-index: 3;
 }
 
 .ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {

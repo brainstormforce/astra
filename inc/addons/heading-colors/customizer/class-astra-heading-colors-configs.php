@@ -333,6 +333,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-responsive',
+					'priority'    => 2,
 					'default'     => astra_get_option( 'font-size-button' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -357,7 +358,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-button' ),
 					'connect'           => 'font-family-button',
-					'priority'          => 2,
+					'priority'          => 3,
 				),
 
 				/**
@@ -372,7 +373,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-select',
-					'priority'  => 3,
+					'priority'  => 4,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
@@ -396,7 +397,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
 					'suffix'            => '',
-					'priority'          => 4,
+					'priority'          => 5,
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -418,7 +419,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'astra' ),
 					'suffix'            => '',
-					'priority'          => 5,
+					'priority'          => 6,
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 1,

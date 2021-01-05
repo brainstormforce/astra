@@ -78,6 +78,104 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
 
 			add_filter( 'astra_single_post_navigation', array( $this, 'edd_single_post_navigation' ) );
+
+			// Header Cart Icon.
+			add_action( 'astra_edd_header_cart_icons_before', array( $this, 'header_cart_icon_markup' ) );
+			add_filter( 'astra_edd_cart_in_menu_class', array( $this, 'header_cart_icon_class' ), 99 );
+
+		}
+
+		/**
+		 * Header Cart Extra Icons markup
+		 *
+		 * @return void;
+		 */
+		public function header_cart_icon_markup() {
+
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			$icon               = astra_get_option( 'edd-header-cart-icon' );
+			$cart_total_display = astra_get_option( 'edd-header-cart-total-display' );
+			$cart_count_display = apply_filters( 'astra_edd_header_cart_count', true );
+			$cart_title_display = astra_get_option( 'edd-header-cart-title-display' );
+			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
+
+			$cart_title_markup = '<span class="ast-edd-header-cart-title">' . esc_html( $cart_title ) . '</span>';
+
+			$cart_total_markup = '<span class="ast-edd-header-cart-total">' . esc_html( edd_currency_filter( edd_format_amount( edd_get_cart_total() ) ) ) . '</span>';
+
+			// Cart Title & Cart Cart total markup.
+			$cart_info_markup = sprintf(
+				'<span class="ast-edd-header-cart-info-wrap">
+						%1$s
+						%2$s
+						%3$s
+					</span>',
+				( $cart_title_display ) ? $cart_title_markup : '',
+				( $cart_total_display && $cart_title_display ) ? '/' : '',
+				( $cart_total_display ) ? $cart_total_markup : ''
+			);
+
+			$cart_items          = count( edd_get_cart_contents() );
+			$cart_contents_count = $cart_items;
+
+			// Cart Icon markup with total number of items.
+			$cart_icon = sprintf(
+				'<span class="astra-icon ast-icon-shopping-%1$s %2$s"	
+							%3$s
+						></span>',
+				( $icon ) ? $icon : '',
+				( $cart_count_display ) ? '' : 'no-cart-total',
+				( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : ''
+			);
+
+			// Theme's default icon with cart title and cart total.
+			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'edd' ) ) ) {
+				// Cart Total or Cart Title enable then only add markup.
+				if ( $cart_title_display || $cart_total_display ) {
+					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
+			} else {
+
+				// Remove Default cart icon added by theme.
+				add_filter( 'astra_edd_default_header_cart_icon', '__return_false' );
+
+				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
+				printf(
+					'<div class="ast-addon-cart-wrap">
+							%1$s
+							%2$s
+					</div>',
+					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				);
+			}
+		}
+
+		/**
+		 * Header Cart Icon Class
+		 *
+		 * @param array $classes Default argument array.
+		 *
+		 * @return array;
+		 */
+		public function header_cart_icon_class( $classes ) {
+
+			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active && ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			$header_cart_icon_style = astra_get_option( 'edd-header-cart-icon-style' );
+
+			$classes[]                  = 'ast-edd-menu-cart-' . $header_cart_icon_style;
+			$header_cart_icon_has_color = astra_get_option( 'edd-header-cart-icon-color' );
+			if ( ! empty( $header_cart_icon_has_color ) && ( 'none' !== $header_cart_icon_style ) ) {
+				$classes[] = 'ast-menu-cart-has-color';
+			}
+
+			return $classes;
 		}
 
 		/**
@@ -315,6 +413,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			$cart_menu_classes = apply_filters( 'astra_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 
 			ob_start();
+			if ( is_customize_preview() && Astra_Builder_Helper::$is_header_footer_builder_active ) { 
+				Astra_Builder_UI_Controller::render_customizer_edit_button();
+			}
 			?>
 			<div class="ast-edd-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 				<div class="ast-edd-site-header-cart-wrap <?php echo esc_attr( $class ); ?>">
@@ -599,7 +700,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				),
 
 				'.ast-edd-site-header-cart a:focus, .ast-edd-site-header-cart a:hover, .ast-edd-site-header-cart .current-menu-item a' => array(
-					'color' => esc_attr( $link_color ),
+					'color' => esc_attr( $text_color ),
 				),
 
 				'.ast-edd-cart-menu-wrap .count, .ast-edd-cart-menu-wrap .count:after' => array(

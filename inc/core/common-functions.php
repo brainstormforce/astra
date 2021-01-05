@@ -415,7 +415,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 
 				foreach ( $properties as $property => $value ) {
 
-					if ( '' === $value ) {
+					if ( '' == $value && 0 !== $value ) {
 						continue; }
 
 					$properties_added++;

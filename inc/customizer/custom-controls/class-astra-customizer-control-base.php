@@ -74,6 +74,32 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
 				wp_enqueue_script( 'astra-custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', $custom_controls_deps, ASTRA_THEME_VERSION, true );
 
+				$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+
+				wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
+
+				$astra_typo_localize = array(
+					'100'       => __( 'Thin 100', 'astra' ),
+					'100italic' => __( '100 Italic', 'astra' ),
+					'200'       => __( 'Extra-Light 200', 'astra' ),
+					'200italic' => __( '200 Italic', 'astra' ),
+					'300'       => __( 'Light 300', 'astra' ),
+					'300italic' => __( '300 Italic', 'astra' ),
+					'400'       => __( 'Normal 400', 'astra' ),
+					'italic'    => __( '400 Italic', 'astra' ),
+					'500'       => __( 'Medium 500', 'astra' ),
+					'500italic' => __( '500 Italic', 'astra' ),
+					'600'       => __( 'Semi-Bold 600', 'astra' ),
+					'600italic' => __( '600 Italic', 'astra' ),
+					'700'       => __( 'Bold 700', 'astra' ),
+					'700italic' => __( '700 Italic', 'astra' ),
+					'800'       => __( 'Extra-Bold 800', 'astra' ),
+					'800italic' => __( '800 Italic', 'astra' ),
+					'900'       => __( 'Ultra-Bold 900', 'astra' ),
+					'900italic' => __( '900 Italic', 'astra' ),
+				);
+
+				wp_localize_script( 'astra-custom-control-script', 'astraTypo', $astra_typo_localize );
 				$localize_array = array(
 					'colors' => astra_color_palette(),
 				);
@@ -101,13 +127,39 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 					'wp-block-editor',
 				);
 
+				$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+
+				wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
+
 				wp_enqueue_script( 'astra-custom-control-react-script', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
 
 				$localize_array = array(
 					'colors' => astra_color_palette(),
 				);
 
+				$astra_typo_localize = array(
+					'100'       => __( 'Thin 100', 'astra' ),
+					'100italic' => __( '100 Italic', 'astra' ),
+					'200'       => __( 'Extra-Light 200', 'astra' ),
+					'200italic' => __( '200 Italic', 'astra' ),
+					'300'       => __( 'Light 300', 'astra' ),
+					'300italic' => __( '300 Italic', 'astra' ),
+					'400'       => __( 'Normal 400', 'astra' ),
+					'italic'    => __( '400 Italic', 'astra' ),
+					'500'       => __( 'Medium 500', 'astra' ),
+					'500italic' => __( '500 Italic', 'astra' ),
+					'600'       => __( 'Semi-Bold 600', 'astra' ),
+					'600italic' => __( '600 Italic', 'astra' ),
+					'700'       => __( 'Bold 700', 'astra' ),
+					'700italic' => __( '700 Italic', 'astra' ),
+					'800'       => __( 'Extra-Bold 800', 'astra' ),
+					'800italic' => __( '800 Italic', 'astra' ),
+					'900'       => __( 'Ultra-Bold 900', 'astra' ),
+					'900italic' => __( '900 Italic', 'astra' ),
+				);
+
 				wp_localize_script( 'astra-custom-control-react-script', 'astColorPalette', $localize_array );
+				wp_localize_script( 'astra-custom-control-react-script', 'astraTypo', $astra_typo_localize );
 			}
 		}
 

@@ -1,3 +1,86 @@
+v3.0.0
+- New: Account element added for Header Builder.
+- Improvement: Removed old CSS that is already supported by browsers.
+- Improvement: Removed unused grid layout related CSS.
+- Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
+- Improvement: Conditionally loaded Elementor, EDD, Comment and Pagination related CSS only when they are used.
+- Improvement: Replaced flex related CSS with theme predefined CSS classes.
+- Improvement: Main JS code optimization.
+- Improvement: Added customizer partial refresh support in a few options.
+- Improvement: Added Stack and Inline option for Footer.
+- Improvement: Builder - Menu - Added Submenu container width option.
+- Improvement: Builder - Menu - Added Submenu container radius option.
+- Improvement: Builder - Menu - Added Submenu container top offset.
+- Improvement: Builder - Menu - Added menu hover animation styles.
+- Improvement: Builder - Off-Canvas - Added container alignment option.
+- Improvement: Removed extra localized variable declaration.
+- Fix: RTL fixes for customizer custom controls.
+- Fix: Black patch being shown while transitioning between show/hide click of the builder.
+- Fix: Socials element edit pencil icon was misaligned in Header and Footer.
+- Fix: Margin and Padding option for Header / Footer Elements not working with defaults.
+- Fix: Builder - Social spacing option not accepting 0 as a value.
+
+v3.0.0-beta.2
+- New: Visibility options - Now user can hide few options as per devices.
+- New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
+- New: WooCommerce Cart and EDD Cart Element for Header
+- New: Added new Mobile Menu element.
+- Improvement: Load CSS only when their respective options are enabled - Frontend optimization.
+- Improvement: Removed .wp-smiley CSS - Frontend optimization.
+- Improvement: Removed unused extra CSS from main CSS file - Frontend optimization.
+- Improvement: Replace flex related CSS with the predefined CSS classes present in theme - Frontend optimization.
+- Improvement: Faster Customizer experience with respect to Design/General Tab change.
+- Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
+- Improvement: Loaded animation CSS only when needed.
+- Improvement: Improved the UI in customizer for Footer Builder.
+- Improvement: Custom Layouts - Added compatibility to new Custom Layouts Hooks with respect to the new Header/Footer.
+- Improvement: Page Header - Added compatibility to Page Headers with respect to the new Header/Footer.
+- Improvement: Responsive - Added responsive compatibility to Footer Inner Column Spacing.
+- Improvement: Responsive - Added responsive compatibility to Social Icon Size and Social Icon Spacing.
+- Improvement: Responsive - Added responsive compatibility to Search Icon Color.
+- Improvement: Responsive - Added responsive compatibility to HTML Element related Colors.
+- Improvement: Responsive - Added responsive compatibility to Widget Element related Colors.
+- Improvement: Responsive - Added responsive compatibility to Above, Below and Primary Header height.
+- Improvement: Responsive - Added responsive compatibility to Footer Menu layout.
+- Improvement: Responsive - Added responsive compatibility to Footer Column Layout.
+- Fix: Allowed negative margin values
+- Fix: Fixed the issue with Global Button hover color not being applied to Header/Footer Buttons.
+- Fix: Sticky Header - Shrink option issue with alignment.
+- Fix: Primary Menu - Font Weight not being applied in frontend.
+- Fix: Off Canvas - Fixed issue with Sub Menu colors, typography and other inheriting properties.
+- Fix: Primary Menu - Fixed an issue with Stack on Mobile option not in action in some rare scenario.
+- Fix: Footer - Added default Stack layout for Footer Columns.
+- Fix: Toggle Button - Fixed an issue Toggle Button SVG looking odd.
+- Fix: Button - Fixed an issue with mismatched EM/PX with respect to Margin.
+- Fix: AMP Compatibility - Fixed an issue with Menu animation JS for AMP pages.
+- Fix: Slider Control - Fixed an issue with zero value not being accepted by the Slider Control.
+
+v3.0.0-beta.1
+- New: Header Builder
+- Introducing a new visual Header Builder that gives a flexible and advanced header designing experience.
+- It offers different layers for header - Above Header, Primary Header, and Below Header.
+- You can drag-n-drop elements in different sections of the header. It gives you the freedom to place elements at any location in the header quickly.
+- It offers different essential header elements like Button, HTML, Widget, Social Icon, Search, Menu, etc. So that you can add all the required information easily with few clicks.
+- Get background and height options for Above, Below, and Primary header.
+- Spacing options for each element in the header.
+- You can design a completely different header for responsive devices with handy mobile header options.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- New: Footer Builder
+- Introducing a new visual Footer Builder that gives the ability to design unique footers for your website.
+- It offers different layers for the footer - Above Footer, Primary Footer, and Below Footer.
+- You can drag-n-drop elements in different sections of the footer. It gives you the freedom to place elements at any location in the footer quickly.
+-  It offers different essential footer elements like Copyright, Button, HTML, Widget, Social Icon, Search, Footer Menu, etc. So that you can add all the required information easily with few clicks.
+- It provides a flexible columns-based structure where you can select column count and column layouts. This lets you manage the footer look easily.
+- Create responsive layouts for the footer.
+- Spacing and alignment options for each element in the footer.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- Improvement: Improved Customizer
+- Experience faster loading customizer. Astra customizer is now upgraded with ReactJS that gives a quick and swift customizer experience.
+- For quick access and faster editing, customization options are segregated and served with two different tabs - General and Design.
+- Now get a faster customizer preview than before. Header and Footer sections will be partially refreshed on any change in the customizer.
+
 v2.6.2
 - Fix: Gradient Color control UI compatibility with WordPress 5.6.
 - Fix: Background Image control UI compatibility with WordPress 5.6.

@@ -186,12 +186,10 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		public function loop_markup( $is_page = false ) {
 			?>
 			<main id="main" class="site-main">
+				<?php 
+				if ( have_posts() ) :
+					do_action( 'astra_template_parts_content_top' );
 
-				<?php if ( have_posts() ) : ?>
-
-					<?php do_action( 'astra_template_parts_content_top' ); ?>
-
-					<?php
 					while ( have_posts() ) :
 						the_post();
 
@@ -201,18 +199,12 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 							do_action( 'astra_template_parts_content' );
 						}
 
-						?>
-
-					<?php endwhile; ?>
-
-					<?php do_action( 'astra_template_parts_content_bottom' ); ?>
-
-				<?php else : ?>
-
-					<?php do_action( 'astra_template_parts_content_none' ); ?>
-
-				<?php endif; ?>
-
+						endwhile;
+					do_action( 'astra_template_parts_content_bottom' );
+					else :
+						do_action( 'astra_template_parts_content_none' );
+					endif; 
+					?>
 			</main><!-- #main -->
 			<?php
 		}

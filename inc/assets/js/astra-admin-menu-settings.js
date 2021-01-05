@@ -31,6 +31,47 @@
 			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
+			$( document ).on('click', '.ast-builder-migrate', AstraThemeAdmin._migrate );
+		},
+
+		_migrate: function( e ) {
+
+			e.stopPropagation();
+			e.preventDefault();
+
+			$this = $( this );
+
+			if ( $this.hasClass( 'updating-message' ) ) {
+				return;
+			}
+
+			$this.addClass( 'updating-message' );
+
+			 var data = {
+				action: 'ast-migrate-to-builder',
+				value: $(this).attr( 'data-value' ),
+				nonce: astra.ajax_nonce,
+			};
+
+			$.ajax({
+				url: astra.ajaxUrl,
+				type: 'POST',
+				data: data,
+				success: function( response ) {
+					$this.removeClass( 'updating-message' );
+					if ( response.success ) {
+						if ( data.value == '1' ) {
+							// Change button classes & text.
+							$this.text( astra.old_header_footer );
+							$this.attr( 'data-value', '0' );
+						} else {
+							// Change button classes & text.
+							$this.text( astra.migrate_to_builder );
+							$this.attr( 'data-value', '1' );
+						}
+					}
+				}
+			})
 		},
 
 		/**

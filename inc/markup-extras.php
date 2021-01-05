@@ -141,10 +141,14 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 	 * @return void            Generate & echo pagination markup.
 	 */
 	function astra_number_pagination() {
-		global $numpages;
+		global $wp_query;
 		$enabled = apply_filters( 'astra_pagination_enabled', true );
 
-		if ( isset( $numpages ) && $enabled ) {
+		// Don't print empty markup if their is only one page.
+		if ( $wp_query->max_num_pages < 2 || ! $enabled ) {
+			return;
+		}
+
 			ob_start();
 			echo "<div class='ast-pagination'>";
 			the_posts_pagination(
@@ -158,7 +162,6 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			echo '</div>';
 			$output = ob_get_clean();
 			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
 	}
 }
 
@@ -390,9 +393,10 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param  string $option   Search Option name.
+	 * @param  string $device   Device name.
 	 * @return mixed Search HTML structure created.
 	 */
-	function astra_get_search( $option = '' ) {
+	function astra_get_search( $option = '', $device = '' ) {
 		ob_start();
 		?>
 		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" role="search" tabindex="-1">
@@ -406,7 +410,7 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 		<?php
 		$search_html = ob_get_clean();
 
-		return apply_filters( 'astra_get_search', $search_html, $option );
+		return apply_filters( 'astra_get_search', $search_html, $option, $device );
 	}
 }
 
@@ -633,9 +637,8 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 
 		do_action( 'astra_header_markup_before' );
 		?>
-
 		<header
-			<?php
+		<?php
 				echo astra_attr(
 					'header',
 					array(
@@ -643,18 +646,21 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 						'class' => join( ' ', astra_get_header_classes() ),
 					)
 				);
-			?>
+		?>
 		>
+			<?php 
+			astra_masthead_top();
 
-			<?php astra_masthead_top(); ?>
+			astra_masthead();
 
-			<?php astra_masthead(); ?>
-
-			<?php astra_masthead_bottom(); ?>
-
+			astra_masthead_bottom();
+			
+			do_action( 'astra_sticky_header_markup' );
+			do_action( 'astra_bottom_header_after_markup' );
+			?>
 		</header><!-- #masthead -->
-
 		<?php
+
 		do_action( 'astra_header_markup_after' );
 
 	}
@@ -676,7 +682,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div
+			<div 
 			<?php
 				echo astra_attr(
 					'site-identity',
@@ -763,7 +769,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
 
-				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				echo '<div class="main-header-bar-navigation ast-flex-1 ast-header-custom-item ast-flex ast-justify-content-flex-end">';
 				/**
 				 * Fires before the Primary Header Menu navigation.
 				 * Disable Primary Menu is checked
@@ -852,7 +858,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			} else {
 
 				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
-					echo '<div class="main-header-bar-navigation">';
+					echo '<div class="main-header-bar-navigation ast-flex-1">';
 						echo '<nav ';
 						echo astra_attr(
 							'site-navigation',
@@ -895,7 +901,7 @@ function astra_menu_anchor_class_for_nav_menus( $atts ) {
 	return $atts;
 }
 
-add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus' );
+add_filter( 'nav_menu_link_attributes', 'astra_menu_anchor_class_for_nav_menus', 11 );
 
 /**
  * Add CSS classes for all menu links inside WP Page Menu items.
@@ -972,8 +978,8 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer
-			<?php
+		<footer 
+		<?php
 				echo astra_attr(
 					'footer',
 					array(
@@ -981,7 +987,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 						'class' => join( ' ', astra_get_footer_classes() ),
 					)
 				);
-			?>
+		?>
 		>
 
 			<?php astra_footer_content_top(); ?>
@@ -1010,7 +1016,7 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		$mobile_header_brakpoint = astra_get_option( 'mobile-header-breakpoint', 921 );
+		$mobile_header_brakpoint = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? astra_get_tablet_breakpoint() : astra_get_option( 'mobile-header-breakpoint', 921 );
 		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
@@ -1073,6 +1079,7 @@ function astra_get_header_classes() {
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
 		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
+		$builder_menu_mobile_target    = astra_get_option( 'header-builder-menu-toggle-target', 'icon' );
 
 	if ( '' !== $submenu_container_animation ) {
 		$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
@@ -1107,7 +1114,11 @@ function astra_get_header_classes() {
 		$classes[] = 'ast-hide-custom-menu-mobile';
 	}
 
-	$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
+	if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		$classes[] = 'ast-builder-menu-toggle-' . $builder_menu_mobile_target;
+	} else {
+		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;
+	}
 
 	$classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
 

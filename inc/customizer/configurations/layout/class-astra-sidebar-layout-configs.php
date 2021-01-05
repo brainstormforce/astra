@@ -143,6 +143,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'priority'    => 15,
 					'title'       => __( 'Sidebar Width', 'astra' ),
 					'suffix'      => '%',
+					'transport'   => 'postMessage',
 					'input_attrs' => array(
 						'min'  => 15,
 						'step' => 1,

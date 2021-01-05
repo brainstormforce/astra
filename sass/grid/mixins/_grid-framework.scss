@@ -42,3 +42,37 @@
     }
   }
 }
+
+// Copied above function for backward compatibility and removed push, pull and offset css.
+@mixin make-grid-columns-frontend($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  }
+  @each $breakpoint in map-keys($breakpoints) {
+    @for $i from 1 through $columns {
+      .ast-col-#{$breakpoint}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    @include media-breakpoint-up($breakpoint) {
+      // Work around cross-media @extend (https://github.com/sass/sass/issues/1050)
+      %grid-column-float-#{$breakpoint} {
+        float: left;
+      }
+      @for $i from 1 through $columns {
+        .ast-col-#{$breakpoint}-#{$i} {
+          @if not $enable-flex {
+            @extend %grid-column-float-#{$breakpoint};
+          }
+          @include make-col-span($i, $columns);
+        }
+      }
+    }
+  }
+}

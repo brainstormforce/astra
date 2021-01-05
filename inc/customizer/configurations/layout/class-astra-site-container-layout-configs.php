@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
 if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 
 	/**
@@ -37,7 +35,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				/**
 				 * Option: Divider
 				 */
-
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
 					'type'     => 'control',
@@ -147,7 +144,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					/**
 					 * Option: Divider
 					 */
-
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
 						'type'     => 'control',
@@ -178,9 +174,4 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 	}
 }
 
-
 new Astra_Site_Container_Layout_Configs();
-
-
-
-

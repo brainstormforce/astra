@@ -42,7 +42,13 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'title'    => __( 'Colors & Background', 'astra' ),
 					'priority' => 46,
 					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+					),
 				),
 
 				/**
@@ -57,7 +63,15 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+
+					),
 				),
 
 				/**
@@ -72,7 +86,15 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 48,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
+							'operator' => '!=',
+							'value'    => 'disabled',
+						),
+
+					),
 				),
 
 				/**

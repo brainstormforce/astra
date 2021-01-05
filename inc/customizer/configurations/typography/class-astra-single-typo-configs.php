@@ -45,6 +45,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'priority' => 13,
 					'title'    => __( 'Typography', 'astra' ),
 					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
 
 				array(
@@ -55,6 +57,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'title'     => __( 'Post / Page Title', 'astra' ),
 					'section'   => 'section-blog-single',
 					'transport' => 'postMessage',
+					'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -124,5 +128,3 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 }
 
 new Astra_Single_Typo_Configs();
-
-

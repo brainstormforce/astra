@@ -126,7 +126,6 @@ module.exports = function (grunt) {
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
                     },
-
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
@@ -142,6 +141,15 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    /* Common Style with new Header-Footer Builder Style */
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['frontend.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
+
                     /* Compatibility */
                     {
                         expand: true,
@@ -270,6 +278,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/style-rtl.css',
                         dest: 'assets/css/minified/style.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/frontend-rtl.css',
+                        dest: 'assets/css/minified/frontend.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
@@ -465,6 +477,7 @@ module.exports = function (grunt) {
                         src: [
                             'inc/customizer/custom-controls/link/link.js',
                             'inc/customizer/custom-controls/typography/typography.js',
+                            'inc/customizer/custom-controls/typography/selectWoo.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
                     },

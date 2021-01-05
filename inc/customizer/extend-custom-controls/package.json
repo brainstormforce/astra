@@ -7,17 +7,16 @@
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-color": "^2.18.0",
-    "react-dom": "^16.12.0",
-    "react-select": "^3.0.8",
-    "react-sortablejs": "^2.0.9",
-    "reactcss": "^1.2.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-html-parser": "^2.0.2",
+    "react-select": "^3.1.0",
+    "react-sortablejs": "^6.0.0",
+    "sortablejs": "^1.12.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^6.2.0"
+    "@wordpress/scripts": "^12.5.0"
   },
   "scripts": {
     "build": "wp-scripts build",

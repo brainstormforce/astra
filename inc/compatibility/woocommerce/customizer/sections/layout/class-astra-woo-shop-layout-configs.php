@@ -120,7 +120,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'section'     => 'woocommerce_product_catalog',
 					'default'     => 1200,
 					'priority'    => 10,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '',
@@ -128,6 +127,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'min'  => 768,
 						'step' => 1,
 						'max'  => 1920,
+					),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
 					),
 				),
 			);

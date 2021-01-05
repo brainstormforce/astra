@@ -12,8 +12,8 @@
 
 <?php astra_entry_before(); ?>
 
-<article 
-	<?php
+<article
+<?php
 		echo astra_attr(
 			'article-single',
 			array(
