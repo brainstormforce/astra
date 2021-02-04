@@ -8,34 +8,36 @@ const DropComponent = props => {
 
 	const location = props.zone.replace(props.row + '_', '');
 	let currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
-	let choices = props.choices;
-	let theItems = [];
+	let choices = props.choices,
+		tmpChoices = Object.keys(choices),
+		theItems = [];
 	{
-		let tmp_choices = Object.keys(choices);
-		let tmp_current_list = [];
+		let tmpCurrentList = [...currentList];
 		currentList.length > 0 && currentList.map((item, key) => {
-			if (tmp_choices.includes(item)) {
+			if ( tmpChoices.includes(item)) {
 				theItems.push({
 					id: item
 				});
-				tmp_current_list.push(item);
+			} else {
+				tmpCurrentList.splice(key, 1);
 			}
 		});
-		currentList = tmp_current_list;
+		currentList = tmpCurrentList;
 	}
-
-	const currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
+	let currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
 	let theCenterItems = [];
 	{
+		let tmpCurrentCenterList = [...currentCenterList];
 		currentCenterList.length > 0 && currentCenterList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if (tmpChoices.includes(item)) {
 				theCenterItems.push({
 					id: item
 				});
 			} else {
-				currentCenterList.splice(key, 1);
+				tmpCurrentCenterList.splice(key, 1);
 			}
 		});
+		currentCenterList = tmpCurrentCenterList;
 	}
 
 	const sortableGroup = (items, lists, loc) => {

@@ -15,6 +15,7 @@ v3.1.0
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Builder - Search box layout is breaking in offcanvas.
+- Fix: Console error in customizer due to third party plugin dependency.
 
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.

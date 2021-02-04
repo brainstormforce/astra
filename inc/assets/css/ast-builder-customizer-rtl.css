@@ -570,7 +570,7 @@
 .ahfb-builder-areas.has-center-items .ahfb-builder-drop-left_center, .ahfb-builder-areas.has-center-items .ahfb-builder-drop-right_center {
     width: auto;
     flex: 1;
-    overflow: auto;
+    overflow: visible;
 }
 
 .ahfb-builder-areas.has-center-items .ahfb-dragging-dropzones .ahfb-builder-drop-left_center {
@@ -4799,4 +4799,37 @@ i.fipicon-angle-right:before {
 i.fipicon-angle-left:before {
 	content: "\f341";
 	font-family: dashicons;
+}
+
+[data-tooltip] {
+	position: relative;
+}
+
+[data-tooltip]:hover::before {
+	box-sizing: border-box;
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 4px;
+	height: 4px;
+	border: 6px solid transparent;
+	border-top-color: #424242;
+}
+
+.ahfb-slide-up [data-tooltip]:hover::before {
+	right: 0px;
+}
+
+[data-tooltip]:hover::after {
+	content: attr(data-tooltip);
+	pointer-events: none;
+	display: inline-table;
+	position: absolute;
+	top: -33px;
+	right: -20px;
+	padding: 5px 10px 10px 15px;
+	font-size: 12px;
+	line-height: 1;
+	background: #424242;
+	color: #fff;
 }
