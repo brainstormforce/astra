@@ -3215,10 +3215,6 @@ body.admin-bar.ast-primary-sticky-header-active .ast-mobile-popup-drawer .ast-mo
   opacity: 0.5;
 }
 
-.ast-header-search .ast-search-menu-icon .search-form .search-field::-ms-input-placeholder {
-  opacity: 0.5;
-}
-
 .ast-header-search .ast-search-menu-icon .search-form .search-field::placeholder {
   opacity: 0.5;
 }

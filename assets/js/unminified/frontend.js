@@ -388,7 +388,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
-					if (ww > break_point) {
+
+					// Added `0 === ww` condition to handle chrome outerWidth case on first load.
+					if (ww > break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
