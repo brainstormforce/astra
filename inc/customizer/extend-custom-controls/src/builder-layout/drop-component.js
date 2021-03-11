@@ -7,32 +7,37 @@ const {Fragment} = wp.element;
 const DropComponent = props => {
 
 	const location = props.zone.replace(props.row + '_', '');
-	const currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
-	let choices = props.choices;
-	let theItems = [];
+	let currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
+	let choices = props.choices,
+		tmpChoices = Object.keys(choices),
+		theItems = [];
 	{
+		let tmpCurrentList = [...currentList];
 		currentList.length > 0 && currentList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if ( tmpChoices.includes(item)) {
 				theItems.push({
 					id: item
 				});
 			} else {
-				currentList.splice(key, 1);
+				tmpCurrentList.splice(tmpCurrentList.indexOf(item), 1);
 			}
 		});
+		currentList = tmpCurrentList;
 	}
-	const currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
+	let currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
 	let theCenterItems = [];
 	{
+		let tmpCurrentCenterList = [...currentCenterList];
 		currentCenterList.length > 0 && currentCenterList.map((item, key) => {
-			if (Object.keys(choices).includes(item)) {
+			if (tmpChoices.includes(item)) {
 				theCenterItems.push({
 					id: item
 				});
 			} else {
-				currentCenterList.splice(key, 1);
+				tmpCurrentCenterList.splice(tmpCurrentCenterList.indexOf(item), 1);
 			}
 		});
+		currentCenterList = tmpCurrentCenterList;
 	}
 
 	const sortableGroup = (items, lists, loc) => {
@@ -43,15 +48,22 @@ const DropComponent = props => {
 						   className={'ahfb-builder-drop ahfb-builder-sortable-panel ahfb-builder-drop-' + location + loc}
 						   list={items} setList={newState => props.onUpdate(props.row, props.zone + loc, newState)}>
 				{lists.length > 0 && lists.map((item, index) => {
-					return <ItemComponent removeItem={remove => props.removeItem(remove, props.row, props.zone + loc)}
-										  focusItem={focus => props.focusItem(focus)} key={item} index={index}
-										  item={item} controlParams={props.controlParams}/>;
+					return <ItemComponent
+						removeItem={remove => props.removeItem(remove, props.row, props.zone + loc)}
+						cloneItem={remove => props.cloneItem(remove, props.row, props.zone + loc)}
+						focusItem={focus => props.focusItem(focus)} key={item} index={index}
+						item={item} controlParams={props.controlParams}/>;
 				})}
 			</ReactSortable>
-			<AddComponent row={props.row} list={items} settings={props.settings} column={props.zone + loc}
-						  setList={newState => props.onAddItem(props.row, props.zone + loc, newState)} key={location}
+			<AddComponent row={props.row}
+						  list={items}
+						  settings={props.settings}
+						  column={props.zone + loc}
+						  setList={newState => props.onAddItem(props.row, props.zone + loc, newState)}
+						  key={location}
 						  location={location + loc} id={'add' + add_id_loc + '-' + location}
-						  controlParams={props.controlParams} choices={props.choices}/>
+						  controlParams={props.controlParams}
+						  choices={props.choices}/>
 		</Fragment>;
 	};
 

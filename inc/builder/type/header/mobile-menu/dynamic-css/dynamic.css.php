@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_mobile_menu_dynamic_css', 11 );
  */
 function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-menu', 'header' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-menu', 'header', 'mobile' ) ) {
 		return $dynamic_css;
 	}
 
@@ -40,6 +40,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	// Sub Menu.
 	$sub_menu_border         = astra_get_option( 'header-mobile-menu-submenu-border' );
 	$sub_menu_divider_toggle = astra_get_option( 'header-mobile-menu-submenu-item-border' );
+	$sub_menu_divider_size   = astra_get_option( 'header-mobile-menu-submenu-item-b-size' );
 	$sub_menu_divider_color  = astra_get_option( 'header-mobile-menu-submenu-item-b-color' );
 
 	// Menu.
@@ -99,15 +100,14 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_spacing_tablet_top = ( isset( $menu_spacing_tablet_top ) && ! empty( $menu_spacing_tablet_top ) ) ? $menu_spacing_tablet_top : 0;
 
 	$menu_spacing_mobile_top = astra_responsive_spacing( $menu_spacing, 'top', 'mobile' );
-	
 
 	if ( isset( $menu_spacing_mobile_top ) && '' === $menu_spacing_mobile_top && isset( $menu_spacing_tablet_top ) && '' !== $menu_spacing_tablet_top && 0 !== $menu_spacing_tablet_top ) {
 		
 		$menu_spacing_mobile_top = $menu_spacing_tablet_top;
 	}
-	
+
 	$menu_spacing_mobile_top = ( isset( $menu_spacing_mobile_top ) && ! empty( $menu_spacing_mobile_top ) ) ? $menu_spacing_mobile_top : 0;
-	
+
 	$css_output_tablet = array(
 
 		$selector . ' .menu-item > .menu-link'             => array(
@@ -206,18 +206,16 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output_mobile[ $selector . ' .main-header-menu, ' . $selector . ' .main-header-menu .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 	if ( true === $sub_menu_divider_toggle ) {
-
 		$css_output_tablet[ $selector . ' .main-header-menu' ] = array(
-			'border-bottom-width' => '1px',
-			'border-color'        => $sub_menu_divider_color,
+			'border-top-width' => $sub_menu_divider_size . 'px',
+			'border-color'     => $sub_menu_divider_color,
 		);
 		$css_output_tablet[ '.ast-header-break-point ' . $selector . ' .menu-item .sub-menu .menu-link, .ast-header-break-point ' . $selector . ' .menu-item .menu-link' ] = array(
-			'border-bottom-width' => '1px',
+			'border-bottom-width' => $sub_menu_divider_size . 'px',
 			'border-color'        => $sub_menu_divider_color,
 			'border-style'        => 'solid',
 		);
 	} else {
-
 		$css_output_tablet['.ast-header-break-point .ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link'] = array(
 			'border-style' => 'none',
 		);

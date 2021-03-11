@@ -329,7 +329,7 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 				'<div class="ast-site-title-wrap">
 						%1$s
 						%2$s
-					</div>',
+				</div>',
 				( $display_site_title ) ? $site_title_markup : '',
 				( $display_site_tagline ) ? $site_tagline_markup : ''
 			);
@@ -648,13 +648,13 @@ if ( ! function_exists( 'astra_header_markup' ) ) {
 				);
 		?>
 		>
-			<?php 
+			<?php
 			astra_masthead_top();
 
 			astra_masthead();
 
 			astra_masthead_bottom();
-			
+
 			do_action( 'astra_sticky_header_markup' );
 			do_action( 'astra_bottom_header_after_markup' );
 			?>
@@ -682,7 +682,7 @@ if ( ! function_exists( 'astra_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div 
+			<div
 			<?php
 				echo astra_attr(
 					'site-identity',
@@ -978,7 +978,7 @@ if ( ! function_exists( 'astra_footer_markup' ) ) {
 	function astra_footer_markup() {
 		?>
 
-		<footer 
+		<footer
 		<?php
 				echo astra_attr(
 					'footer',

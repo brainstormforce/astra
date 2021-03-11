@@ -2,9 +2,12 @@
   display: none;
 }
 
+.customize-control-ast-responsive-color .customize-control-content {
+  display: block;
+  margin-top: 5px;
+}
+
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  margin-right: 2px;
-  margin-top: -14px;
   background-color: #ffffff;
   border-radius: 4px;
 }
@@ -25,21 +28,9 @@
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
-  position: absolute;
-  left: 24px;
-  top: -4px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
   border-radius: unset;
-}
-
-.customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
@@ -73,10 +64,6 @@
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   top: 3.5px;
-}
-
-.ast-responsive-color .ast-color-btn-reset-wrap {
-  left: 66px;
 }
 
 @supports (-moz-appearance: none) {

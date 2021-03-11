@@ -2,12 +2,21 @@ import PropTypes from 'prop-types';
 
 import {__} from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
-import {TextControl} from '@wordpress/components';
-import {useState} from "react";
+import {TextControl, ToggleControl} from '@wordpress/components';
+import {useEffect, useState} from "react";
 
 const LinkComponent = props => {
 
-	const [state, setState] = useState(props.control.setting.get());
+	let prop_value = props.control.setting.get();
+
+	const [state, setState] = useState( prop_value );
+
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== prop_value ) {
+			setState(prop_value);
+		}
+	}, [props]);
 
 	const onUrlChange = (value) => {
 		const obj = {
@@ -66,10 +75,12 @@ const LinkComponent = props => {
 				onUrlChange(value);
 			}}/>
 		</div>
-		<div className="customize-control-content ast-link-open-in-new-tab-wrapper">
-			<input type="checkbox" id="ast-link-open-in-new-tab" className="ast-link-open-in-new-tab"
-				   name="ast-link-open-in-new-tab" checked={new_tab} onChange={() => onCheckboxChange()}/>
-			<label>{__('Open in a New Tab')}</label>
+		<div className="customize-control-content ast-link-open-in-new-tab-wrapper ast-togglecontrol-wrapper">
+			<ToggleControl
+            label={ __('Open in a New Tab', 'astra') }
+            checked={new_tab}
+            onChange={() => onCheckboxChange()}
+            />
 		</div>
 		<div className="customize-control-content">
 			<label>
@@ -88,4 +99,4 @@ LinkComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( LinkComponent );
+export default LinkComponent;

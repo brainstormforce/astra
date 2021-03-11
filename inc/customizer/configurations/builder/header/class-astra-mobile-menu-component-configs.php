@@ -74,12 +74,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Builder_Helper::$general_tab,
 				),
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[mobile-menu-styling-section-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 32,
+					'settings' => array(),
+				),
+
 				// Option: Submenu Divider Checkbox.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
 					'default'   => astra_get_option( 'header-mobile-menu-submenu-item-border' ),
 					'type'      => 'control',
-					'control'   => 'checkbox',
+					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'priority'  => 35,
 					'title'     => __( 'Item Divider', 'astra' ),
@@ -87,18 +99,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 				),
 
-				// Option: Submenu item Border Color.
+				// Option: Menu Color Divider.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-b-color]',
-					'default'   => astra_get_option( 'header-mobile-menu-submenu-item-b-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'title'     => __( 'Divider Color', 'astra' ),
-					'section'   => $_section,
-					'priority'  => 40,
-					'context'   => array(
-						Astra_Builder_Helper::$general_tab_config,
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-divider-colors-divider]',
+					'section'  => $_section,
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'title'    => __( 'Item Divider', 'astra' ),
+					'priority' => 70,
+					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$design_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
 							'operator' => '==',
@@ -107,36 +118,58 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				/**
-				 * Option: Margin Space
-				 */
+				// Option: Submenu item Border Size.
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
-					'default'        => '',
-					'type'           => 'control',
-					'transport'      => 'postMessage',
-					'control'        => 'ast-responsive-spacing',
-					'section'        => $_section,
-					'priority'       => 220,
-					'title'          => __( 'Margin', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-b-size]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'default'     => astra_get_option( 'header-mobile-menu-submenu-item-b-size' ),
+					'section'     => $_section,
+					'priority'    => 72,
+					'transport'   => 'postMessage',
+					'title'       => __( 'Divider Size', 'astra' ),
+					'context'     => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
+							'operator' => '==',
+							'value'    => true,
+						),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'suffix'      => 'px',
+					'input_attrs' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 10,
+					),
 				),
 
-				// Option: Menu Color Divider.
+				// Option: Submenu item Border Color.
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors-divider]',
+					'name'              => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-b-color]',
+					'default'           => astra_get_option( 'header-mobile-menu-submenu-item-b-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'title'             => __( 'Divider Color', 'astra' ),
+					'section'           => $_section,
+					'priority'          => 75,
+					'context'           => array(
+						Astra_Builder_Helper::$design_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-mobile-menu-submenu-item-border]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+				),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors-title-divider]',
 					'section'  => $_section,
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Colors', 'astra' ),
+					'control'  => 'ast-divider',
+					'title'    => __( 'Menu Color', 'astra' ),
 					'priority' => 80,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -144,27 +177,38 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option Group: Menu Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
-					'type'      => 'control',
-					'control'   => 'ast-settings-group',
-					'title'     => __( 'Menu', 'astra' ),
-					'section'   => $_section,
-					'transport' => 'postMessage',
-					'priority'  => 90,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'name'       => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Link', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 90,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
 				),
-
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 90,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
 				// Option: Menu Color.
 				array(
 					'name'       => 'header-mobile-menu-color-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-color-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'section'    => $_section,
-					'title'      => __( 'Link / Text Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 7,
@@ -175,14 +219,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'       => 'header-mobile-menu-bg-obj-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-bg-obj-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-background',
 					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Normal', 'astra' ),
 					'data_attrs' => array( 'name' => 'header-mobile-menu-bg-obj-responsive' ),
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
 					'priority'   => 9,
 					'context'    => Astra_Builder_Helper::$general_tab,
 				),
@@ -191,12 +235,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'       => 'header-mobile-menu-h-color-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-h-color-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
 					'tab'        => __( 'Hover', 'astra' ),
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'title'      => __( 'Link Color', 'astra' ),
+					'title'      => __( 'Hover', 'astra' ),
 					'section'    => $_section,
 					'responsive' => true,
 					'rgba'       => true,
@@ -208,9 +252,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'       => 'header-mobile-menu-h-bg-color-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-h-bg-color-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
 					'type'       => 'sub-control',
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Hover', 'astra' ),
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
@@ -225,13 +269,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'       => 'header-mobile-menu-a-color-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-a-color-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
 					'type'       => 'sub-control',
 					'section'    => $_section,
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'tab'        => __( 'Active', 'astra' ),
-					'title'      => __( 'Link Color', 'astra' ),
+					'title'      => __( 'Active', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 31,
@@ -242,12 +286,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'       => 'header-mobile-menu-a-bg-color-responsive',
 					'default'    => astra_get_option( 'header-mobile-menu-a-bg-color-responsive' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-background-colors]',
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
 					'section'    => $_section,
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Active', 'astra' ),
 					'tab'        => __( 'Active', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
@@ -259,9 +303,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-typography-styling-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'control'  => 'ast-divider',
 					'section'  => $_section,
-					'title'    => __( 'Typography', 'astra' ),
 					'priority' => 110,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -273,7 +316,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'header-mobile-menu-header-menu-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Menu', 'astra' ),
+					'title'     => __( 'Menu Font', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 120,
@@ -364,10 +407,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'          => 26,
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
-					'default'           => '',
+					'default'           => astra_get_option( 'header-mobile-menu-line-height' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'control'           => 'ast-slider',
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -381,8 +424,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing-divider]',
 					'section'  => $_section,
 					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Spacing', 'astra' ),
+					'control'  => 'ast-divider',
 					'priority' => 140,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
@@ -390,23 +432,59 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option - Menu Space.
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing]',
-					'default'        => astra_get_option( 'header-mobile-menu-menu-spacing' ),
-					'type'           => 'control',
-					'control'        => 'ast-responsive-spacing',
-					'transport'      => 'postMessage',
-					'section'        => $_section,
-					'priority'       => 150,
-					'title'          => __( 'Menu Space', 'astra' ),
-					'linked_choices' => true,
-					'unit_choices'   => array( 'px', 'em', '%' ),
-					'choices'        => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing]',
+					'default'           => astra_get_option( 'header-mobile-menu-menu-spacing' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'transport'         => 'postMessage',
+					'section'           => $_section,
+					'priority'          => 150,
+					'title'             => __( 'Menu Spacing', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
 						'right'  => __( 'Right', 'astra' ),
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'        => Astra_Builder_Helper::$design_tab,
+					'context'           => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Spacing Heading.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing-middle-divider]',
+					'section'  => $_section,
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'priority' => 150,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Option: Margin Space
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => astra_get_option( $_section . '-margin' ),
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

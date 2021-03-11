@@ -13,9 +13,9 @@
     var tablet_break_point    = AstraBuilderHTMLData.tablet_break_point || 768,
         mobile_break_point    = AstraBuilderHTMLData.mobile_break_point || 544;
 
-    astra_builder_html_css( 'footer', AstraBuilderHTMLData.footer_html_count );
+    astra_builder_html_css( 'footer', AstraBuilderHTMLData.component_limit );
 
-    for( var index = 1; index <= AstraBuilderHTMLData.footer_html_count ; index++ ) {
+    for( var index = 1; index <= AstraBuilderHTMLData.component_limit ; index++ ) {
 		(function( index ) {
 			wp.customize( 'astra-settings[footer-html-'+ index +'-alignment]', function( value ) {
 				value.bind( function( alignment ) {

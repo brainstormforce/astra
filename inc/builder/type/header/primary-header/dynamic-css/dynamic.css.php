@@ -42,33 +42,46 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 
 	$common_css_output = array(
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' => array(
-			'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
-		),
-		'.ast-desktop .ast-primary-header-bar .ast-header-woo-cart, .ast-desktop .ast-primary-header-bar .ast-header-edd-cart' => array(
 			'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
 		),
 	);
 
 	$parse_css .= astra_parse_css( $common_css_output );
 
-	$astra_header_width = astra_get_option( 'hb-header-main-layout-width' );
+	if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+		$common_css_cart_output = array(
+			'.ast-desktop .ast-primary-header-bar .ast-header-woo-cart, .ast-desktop .ast-primary-header-bar .ast-header-edd-cart' => array(
+				'line-height' => astra_get_css_value( $hb_header_height_desktop, 'px' ),
+			),
+		);
+
+		$parse_css .= astra_parse_css( $common_css_cart_output );
+	}
+	
+
+	$astra_header_width         = astra_get_option( 'hb-header-main-layout-width' );
+	$header_breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 
 	/* Width for Header */
 	if ( 'content' !== $astra_header_width ) {
-		$genral_global_responsive = array(
+		$general_global_responsive = array(
 			'#masthead .ast-container, .site-header-focus-item + .ast-breadcrumbs-wrapper' => array(
 				'max-width'     => '100%',
 				'padding-left'  => '35px',
 				'padding-right' => '35px',
 			),
 		);
-	} else {
-		$site_content_width       = astra_get_option( 'site-content-width', 1200 );
-		$genral_global_responsive = array(
+		
+		/* Parse CSS from array()*/
+		$parse_css .= astra_parse_css( $general_global_responsive );
+
+	} elseif ( 'astra_header_primary_container_after' == $header_breadcrumb_position ) {
+		$site_content_width        = astra_get_option( 'site-content-width', 1200 );
+		$general_global_responsive = array(
 			'.site-header-focus-item + .ast-breadcrumbs-wrapper' => array(
 				'max-width'     => astra_get_css_value( $site_content_width + 40, 'px' ),
 				'margin-left'   => 'auto',
@@ -77,10 +90,10 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 				'padding-right' => '20px',
 			),
 		);
-	}
 
-	/* Parse CSS from array()*/
-	$parse_css .= astra_parse_css( $genral_global_responsive );
+		/* Parse CSS from array()*/
+		$parse_css .= astra_parse_css( $general_global_responsive );
+	}
 
 	$padding_below_breakpoint = array(
 		'#masthead .ast-mobile-header-wrap .ast-above-header-bar, #masthead .ast-mobile-header-wrap .ast-primary-header-bar, #masthead .ast-mobile-header-wrap .ast-below-header-bar' => array(
@@ -127,13 +140,13 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$tablet_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'tablet' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar, .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_tablet, 'px' ),
 		),
 	);
 	$mobile_colors = array(
 		'.ast-primary-header-bar.ast-primary-header' => astra_get_responsive_background_obj( $header_bg_obj, 'mobile' ),
-		'.ast-mobile-header-wrap .ast-primary-header-bar .ast-builder-grid-row-container-inner, .ast-primary-header-bar .site-primary-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-primary-header-bar , .ast-primary-header-bar .site-primary-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hb_header_height_mobile, 'px' ),
 		),
 	);
@@ -161,7 +174,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-primary-header-bar', 'block' );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-primary-header-bar', 'block', 'grid' );
 
 	// Advanced CSS for Header Builder.
 	$margin = astra_get_option( 'section-header-builder-layout-margin' );

@@ -1,10 +1,17 @@
 .customize-control-ast-divider hr {
-  margin-top: 12px;
+	margin-top: 0;
+    margin-bottom: 0;
+	border-bottom: none;
 }
 
 .customize-control-ast-divider .customize-control-title {
   font-size: 15px;
   margin: 1em 0 0.2em;
+}
+
+.customize-control-ast-divider .customizer-text {
+    margin-top: -10px;
+    display: block;
 }
 
 .ast-field-settings-modal .customize-control-ast-divider {
@@ -17,6 +24,10 @@
   border-color: #dddddd;
   line-height: 1;
   margin-top: 15px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customizer-text {
+	margin-top: 0;
 }
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-divider .customize-control-title {

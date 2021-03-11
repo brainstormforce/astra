@@ -314,17 +314,21 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 * @param string $section_id section id.
 		 * @param string $selector selector.
 		 * @param string $default_property Section default CSS property.
+		 * @param string $mobile_tablet_default Mobile/Tabled display property.
 		 * @return array
 		 */
-		public static function prepare_visibility_css( $section_id, $selector, $default_property = 'flex' ) {
+		public static function prepare_visibility_css( $section_id, $selector, $default_property = 'flex', $mobile_tablet_default = '' ) {
 
 			$css_output_desktop = array();
 			$css_output_tablet  = array();
 			$css_output_mobile  = array();
 
+			// For Mobile/Tablet we need display grid property to display elements centerd alignment.
+			$mobile_tablet_default = ( $mobile_tablet_default ) ? $mobile_tablet_default : $default_property;
+
 			$hide_desktop = ( ! astra_get_option( $section_id . '-hide-desktop' ) ) ? $default_property : 'none';
-			$hide_tablet  = ( ! astra_get_option( $section_id . '-hide-tablet' ) ) ? $default_property : 'none';
-			$hide_mobile  = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $default_property : 'none';
+			$hide_tablet  = ( ! astra_get_option( $section_id . '-hide-tablet' ) ) ? $mobile_tablet_default : 'none';
+			$hide_mobile  = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $mobile_tablet_default : 'none';
 
 			$css_output_desktop = array(
 				$selector => array(

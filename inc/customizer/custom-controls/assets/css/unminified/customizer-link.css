@@ -2,3 +2,7 @@
   font-style: italic;
   text-decoration: none;
 }
+
+.customize-control-ast-customizer-link:empty {
+  display:none;
+}

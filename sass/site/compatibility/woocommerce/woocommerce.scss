@@ -1311,7 +1311,7 @@ p.demo_store,
 		}
 
 		&:hover {
-			background-color: $secondary - #111;
+			background-color: darken(desaturate($secondary, 2.13), 6.67);
 			text-decoration: none;
 			background-image: none;
 			color: $secondarytext;
@@ -1323,7 +1323,7 @@ p.demo_store,
 			-webkit-font-smoothing: antialiased;
 
 			&:hover {
-				background-color: $primary - #111;
+				background-color: darken(saturate($primary, 1.81), 6.67);
 				color: $primarytext;
 			}
 
@@ -1975,7 +1975,7 @@ p.demo_store,
 			.select2-container,
 			input.input-text,
 			select {
-				border-color: $green - #111;
+				border-color: darken(saturate($green, 3.18), 6.67);
 			}
 		}
 
@@ -2221,7 +2221,7 @@ p.demo_store,
 
 		.price_slider_wrapper .ui-widget-content {
 			border-radius: 1em;
-			background-color: $primary - #444;
+			background-color: darken(saturate($primary, 23.98), 26.67);
 			border: 0;
 		}
 

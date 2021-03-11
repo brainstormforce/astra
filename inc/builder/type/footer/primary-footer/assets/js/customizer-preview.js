@@ -46,7 +46,7 @@
     astra_css(
         'astra-settings[hb-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
 	// Inner Space.
@@ -108,15 +108,15 @@
 	astra_apply_responsive_background_css( 'astra-settings[hb-footer-bg-obj-responsive]', selector, 'mobile' );
 
 	// Responsive BG styles > Global Footer Row.
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.ast-main-footer-wrap', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.ast-main-footer-wrap', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.ast-main-footer-wrap', 'mobile' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.site-footer', 'desktop' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.site-footer', 'tablet' );
+	astra_apply_responsive_background_css( 'astra-settings[footer-bg-obj-responsive]', '.site-footer', 'mobile' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );
 
 	// Advanced CSS for Header Builder.
-	astra_builder_advanced_css( 'section-footer-builder-layout', '.astra-hfb-header .ast-main-footer-wrap' );
+	astra_builder_advanced_css( 'section-footer-builder-layout', '.astra-hfb-header .site-footer' );
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( section, selector, 'grid' );

@@ -5,11 +5,10 @@ jobs:
     name: Label when approved
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: Label when approved
       uses: pullreminders/label-when-approved-action@master
       env:
         APPROVALS: "2"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ADD_LABEL: 'ready to merge'
-        REMOVE_LABEL: 'needs-review'
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        ADD_LABEL: "ready to merge"
+        REMOVE_LABEL: "needs-review"

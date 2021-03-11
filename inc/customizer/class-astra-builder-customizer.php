@@ -58,7 +58,6 @@ final class Astra_Builder_Customizer {
 
 		$wp_customize->get_setting( 'custom_logo' )->transport     = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 
 		$wp_customize->get_section( 'title_tagline' )->panel = 'panel-header-builder-group';
 
@@ -120,22 +119,6 @@ final class Astra_Builder_Customizer {
 		unregister_sidebar( 'advanced-footer-widget-3' );
 		unregister_sidebar( 'advanced-footer-widget-4' );
 		unregister_sidebar( 'advanced-footer-widget-5' );
-	}
-
-	/**
-	 * Function to remove old Header and Footer panels from Plugin.
-	 *
-	 * @since 3.0.0
-	 * @return void
-	 */
-	public function remove_old_header_footer() {
-
-		self::$removed_panels[] = 'panel-header-group';
-
-		self::$removed_sections[] = 'section-footer-small';
-		self::$removed_sections[] = 'section-footer-group';
-		self::$removed_sections[] = 'section-footer-adv';
-
 	}
 
 	/**
@@ -258,7 +241,7 @@ final class Astra_Builder_Customizer {
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
-		
+
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			require_once $header_components_path . '/woo-cart/class-astra-header-woo-cart-component.php';
 		}

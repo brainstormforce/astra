@@ -10,6 +10,6 @@
 
 ( function( $ ) {
 
-	astra_builder_social_css( 'header', astraBuilderHeaderSocial.header_social_count );
-	
+	astra_builder_social_css( 'header', astraBuilderHeaderSocial.component_limit );
+
 } )( jQuery );

@@ -37,8 +37,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	public function register_configuration( $configurations, $wp_customize ) {
 		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
 
-		$defaults = Astra_Theme_Options::defaults();
-
 		$_configs = array(
 
 			/**
@@ -57,7 +55,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'     => __( 'Display Cart Total', 'astra' ),
 				'priority'  => 50,
-				'control'   => 'checkbox',
+				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
@@ -77,7 +75,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
 				),
-				'control'   => 'checkbox',
+				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
@@ -85,33 +83,36 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Icon Style
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-				'default'   => astra_get_option( 'woo-header-cart-icon-style' ),
-				'type'      => 'control',
-				'transport' => 'postMessage',
-				'section'   => $_section,
-				'title'     => __( 'Style', 'astra' ),
-				'control'   => 'select',
-				'priority'  => 45,
-				'choices'   => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+				'default'    => astra_get_option( 'woo-header-cart-icon-style' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Style', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 45,
+				'choices'    => array(
 					'none'    => __( 'None', 'astra' ),
 					'outline' => __( 'Outline', 'astra' ),
 					'fill'    => __( 'Fill', 'astra' ),
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
 			 * Option: Icon color
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
-				'default'   => astra_get_option( 'header-woo-cart-icon-color' ),
-				'type'      => 'control',
-				'control'   => 'ast-color',
-				'transport' => 'postMessage',
-				'title'     => __( 'Color', 'astra' ),
-				'context'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
+				'default'           => astra_get_option( 'header-woo-cart-icon-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Color', 'astra' ),
+				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
@@ -119,10 +120,10 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'   => $_section,
-				'priority'  => 45,
+				'section'           => $_section,
+				'priority'          => 45,
 			),
-			
+
 			/**
 			 * Option: Border Radius
 			 */
@@ -142,6 +143,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'control'     => 'ast-slider',
+				'suffix'      => 'px',
 				'priority'    => 47,
 				'input_attrs' => array(
 					'min'  => 0,
@@ -152,7 +154,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		);
 
 		$configurations = array_merge( $configurations, $_configs );
-		
+
 		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_configs = array(
 				/**
@@ -162,7 +164,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'name'     => $_section,
 					'type'     => 'section',
 					'priority' => 5,
-					'title'    => __( 'Woocommerce Cart', 'astra' ),
+					'title'    => __( 'WooCommerce Cart', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
 				),
 
@@ -176,6 +178,332 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
+				),
+
+				/**
+				 * Option: Divider
+				 * Option: WOO cart tray Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-tray-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Cart Tray', 'astra' ),
+					'priority' => 60,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+
+
+				// Option: Cart Link / Text Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-text-color',
+					'default'    => astra_get_option( 'header-woo-cart-text-color' ),
+					'title'      => __( 'Text Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+				// Option: Cart Background Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
+					'section'    => $_section,
+					'control'    => 'ast-color',
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-background-color',
+					'default'    => astra_get_option( 'header-woo-cart-background-color' ),
+					'title'      => __( 'Background Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Separator Color.
+				array(
+					'type'       => 'control',
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-separator-color]',
+					'default'    => astra_get_option( 'header-woo-cart-separator-color' ),
+					'title'      => __( 'Separator Color', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
+					'default'    => astra_get_option( 'header-woo-cart-link-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Link Color', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+
+				// Option: Cart Link / Text Color.
+				array(
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-link-color',
+					'default'    => astra_get_option( 'header-woo-cart-link-color' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Link Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-link-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-link-hover-color',
+					'default'    => astra_get_option( 'header-woo-cart-link-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Cart Button colors.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-view-cart-button-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 70,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-view-cart-button-title-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 70,
+					'settings' => array(),
+					'title'    => __( 'Cart Button', 'astra' ),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
+					'default'    => astra_get_option( 'header-woo-cart-button-text-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Text', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
+					'default'    => astra_get_option( 'header-woo-cart-button-background-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+
+				// Option: Cart Button Text Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-btn-text-color',
+					'default'    => astra_get_option( 'header-woo-cart-btn-text-color' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Button Background Color.
+				array(
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-btn-background-color',
+					'default'    => astra_get_option( 'header-woo-cart-btn-background-color' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Button Hover Text Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-btn-text-hover-color',
+					'default'    => astra_get_option( 'header-woo-cart-btn-text-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Button Hover Background Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-background-colors]',
+					'section'    => $_section,
+					'name'       => 'header-woo-cart-btn-bg-hover-color',
+					'default'    => astra_get_option( 'header-woo-cart-btn-bg-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 70,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Checkout Button colors.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-checkout-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 75,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-checkout-title-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => $_section,
+					'priority' => 75,
+					'settings' => array(),
+					'title'    => __( 'Checkout Button', 'astra' ),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
+					'default'    => astra_get_option( 'header-woo-checkout-button-text-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Text', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
+					'default'    => astra_get_option( 'header-woo-checkout-button-background-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+
+				// Option: Checkout Button Text Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-checkout-btn-text-color',
+					'default'    => astra_get_option( 'header-woo-checkout-btn-text-color' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Checkout Button Background Color.
+				array(
+					'type'       => 'sub-control',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
+					'section'    => $_section,
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-checkout-btn-background-color',
+					'default'    => astra_get_option( 'header-woo-checkout-btn-background-color' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Checkout Button Hover Text Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-checkout-btn-text-hover-color',
+					'default'    => astra_get_option( 'header-woo-checkout-btn-text-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Checkout Button Hover Background Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-background-colors]',
+					'section'    => $_section,
+					'name'       => 'header-woo-checkout-btn-bg-hover-color',
+					'default'    => astra_get_option( 'header-woo-checkout-btn-bg-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 75,
+					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 			);
 

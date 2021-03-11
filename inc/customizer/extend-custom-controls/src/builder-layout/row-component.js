@@ -63,7 +63,7 @@ const RowComponent = props => {
 	return <div className={`ahfb-builder-areas ahfb-builder-mode-${mode} ${centerClass}`} data-row={props.row} data-row-section={'section-' + props.row + '-' + mode + '-builder'}>
 		<Button className="ahfb-row-actions" title={ ( props.row === 'popup' ? __( 'Off Canvas', 'astra' ) : ( props.row + ' ' + mode ).charAt(0).toUpperCase() + ( props.row + ' ' + mode ).slice(1).toLowerCase() ) } onClick={() => props.focusPanel(props.row + '-' + mode)}>
 			<Dashicon icon="admin-generic"/>
-			{ props.row === 'popup' && 
+			{ props.row === 'popup' &&
 				<>
 					{ __('Off Canvas', 'astra') }
 				</>
@@ -89,6 +89,7 @@ const RowComponent = props => {
 
 				return enableRow && <DropComponent
 					removeItem={(remove, removeRow, removeZone) => props.removeItem(remove, removeRow, removeZone)}
+					cloneItem={(remove, removeRow, removeZone) => props.cloneItem(remove, removeRow, removeZone)}
 					focusItem={focus => props.focusItem(focus)} hideDrop={() => props.hideDrop()}
 					showDrop={() => props.showDrop()}
 					onUpdate={(updateRow, updateZone, updateItems) => props.onUpdate(updateRow, updateZone, updateItems)}

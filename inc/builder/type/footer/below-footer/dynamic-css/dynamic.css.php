@@ -50,8 +50,10 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
 		$selector . ' .ast-builder-grid-row' => array(
-			'align-items'     => astra_get_option( 'hbb-footer-vertical-alignment' ),
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
+		),
+		$selector . ' .ast-builder-grid-row, ' . $selector . ' .site-footer-section' => array(
+			'align-items' => astra_get_option( 'hbb-footer-vertical-alignment' ),
 		),
 		$selector . '.ast-footer-row-inline .site-footer-section' => array(
 			'display'       => 'flex',

@@ -1,16 +1,25 @@
 import {useState} from 'react';
 
 const {__} = wp.i18n;
-const {Dashicon, Tooltip, TextControl, Button} = wp.components;
+const {Dashicon, Tooltip, TextControl, Button } = wp.components;
+import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
+import astIcons from "../../../../../assets/svg/ast-social-icons"
+import renderSVG from "../../../../assets/js/ast-render-svg"
+
+
+let svg_icons = Object.keys( astIcons )
 
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;
 
 	const [state, setState] = useState({
-		open: false
+		open: false,
 	});
-
+	
+	const icon = props.item.id.replace(/[\d_]+$/g, '');
+	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
+	
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({
@@ -21,7 +30,7 @@ const ItemComponent = props => {
 			<Tooltip text={__('Toggle Item Visiblity', 'astra')}>
 				<Button className="ahfb-sorter-visiblity">
 							<span dangerouslySetInnerHTML={{
-								__html: Icons[props.item.id]
+								__html: Icons[icon]
 							}}/>
 				</Button>
 			</Tooltip>
@@ -47,9 +56,19 @@ const ItemComponent = props => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>
 
-			<TextControl label={__('URL', 'astra')} value={props.item.url ? props.item.url : ''} onChange={value => {
+			<TextControl label={`${urlLabel}`} value={props.item.url ? props.item.url : ''} onChange={value => {
 				props.onChangeURL(value, props.index);
 			}}/>
+			<p className="ast-social-icon-picker-label">{ __( "Icon" ) }</p>
+			<FontIconPicker
+				icons={svg_icons}
+				renderFunc= {renderSVG}
+				theme="default"
+				value={props.item.icon}
+				onChange={ value => { props.onChangeIcon(value, props.index); } }
+				isMulti={false}
+				noSelectedPlaceholder= { __( "Select Icon" ) }
+			/>
 		</div>}
 	</div>;
 };

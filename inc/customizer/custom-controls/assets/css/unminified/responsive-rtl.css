@@ -1,8 +1,7 @@
 .ast-responsive-btns {
   display: inline-block;
-  float: left;
   line-height: 1;
-  margin-top: 6px;
+  vertical-align: sub;
 }
 
 .ast-responsive-btns > li {
@@ -29,12 +28,21 @@
   font-size: 15px;
 }
 
-.ast-field-settings-modal .ast-responsive-btns {
+.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
   margin-top: 6px;
+  position: absolute;
+  left: 15px;
+  top: 0px;
 }
 
 .customize-control-ast-responsive .input-wrapper {
   overflow: hidden;
+}
+
+.customize-control-ast-responsive .ast-responsive-btns {
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
 
 .customize-control-ast-responsive .input-wrapper input {
@@ -95,4 +103,9 @@
   align-items: flex-start;
   flex: 0 1;
   width: 100%;
+}
+.customize-control-ast-responsive .ast-responsive-btns {
+  position: absolute;
+  left: 0px;
+  top: 1px;
 }

@@ -33,18 +33,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-container-layout',
-					'priority' => 50,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Single Page Content Layout
 				 */
 				array(
@@ -61,6 +49,17 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
+				),
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-select-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-container-layout',
+					'priority' => 50,
+					'settings' => array(),
 				),
 				/**
 				 * Option: Single Page Content Layout
@@ -82,6 +81,18 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-container-layout',
+					'priority' => 55,
+					'settings' => array(),
+				),
+
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'     => 'control',
@@ -97,6 +108,17 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 					),
+				),
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-container-layout',
+					'priority' => 60,
+					'settings' => array(),
 				),
 
 				/**
@@ -127,7 +149,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'default'   => astra_get_option( 'site-layout-outside-bg-obj-responsive' ),
-					'section'   => 'section-colors-body',
+					'section'   => defined( 'ASTRA_EXT_VER' ) ? 'section-colors-body' : 'section-colors-background',
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'title'     => __( 'Background', 'astra' ),
@@ -141,6 +163,18 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 
 				$config = array(
 
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-container-layout',
+						'priority' => 49,
+						'settings' => array(),
+					),
+					
 					/**
 					 * Option: Divider
 					 */
@@ -162,6 +196,24 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'priority' => 999,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'settings' => array(),
+					),
+				);
+
+				$configurations = array_merge( $configurations, $config );
+			} elseif ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'site-layouts' ) ) {
+
+				$config = array(
+
+					/**
+					 * Option: Divider
+					 */
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-divider',
+						'section'  => 'section-container-layout',
+						'priority' => 49,
 						'settings' => array(),
 					),
 				);

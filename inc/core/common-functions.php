@@ -1501,3 +1501,25 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 
 	return $gen_bg_css;
 }
+
+/**
+ * Common function to check is pagination is enabled on current page.
+ * 
+ * @since 3.0.1
+ * @return boolean
+ */
+function is_astra_pagination_enabled() {
+	global  $wp_query;
+
+	return ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) );
+}
+
+/** 
+ * Verify is current post comments are enabled or not for applying dynamic CSS.
+ *
+ * @since 3.0.1
+ * @return boolean
+ */
+function is_current_post_comment_enabled() {
+	return ( is_singular() && comments_open() );
+}

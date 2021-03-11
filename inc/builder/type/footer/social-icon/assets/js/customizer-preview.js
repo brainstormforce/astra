@@ -10,6 +10,6 @@
 
 ( function( $ ) {
 
-    astra_builder_social_css( 'footer', astraBuilderFooterSocial.footer_social_count );
+    astra_builder_social_css( 'footer', astraBuilderFooterSocial.component_limit );
 
 } )( jQuery );

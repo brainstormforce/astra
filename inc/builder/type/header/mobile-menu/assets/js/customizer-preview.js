@@ -129,6 +129,21 @@
 
         (function () {
 
+            // Sub Menu - Divider Size.
+            wp.customize( 'astra-settings[header-mobile-menu-submenu-item-b-size]', function( value ) {
+                value.bind( function( borderSize ) {
+                    var selector = '.ast-header-break-point .ast-builder-menu-mobile .main-navigation';
+                    var dynamicStyle = '';
+                    dynamicStyle += selector + ' .main-header-menu {';
+                    dynamicStyle += 'border-top-width: ' + borderSize + 'px;';
+                    dynamicStyle += '} ';
+                    dynamicStyle += selector + ' .menu-item .sub-menu .menu-link, ' + selector + ' .menu-item .menu-link {';
+                    dynamicStyle += 'border-bottom-width: ' + borderSize + 'px;';
+                    dynamicStyle += '} ';
+                    astra_add_dynamic_css( 'header-mobile-menu-submenu-item-b-size', dynamicStyle );
+                } );
+            } );
+
             // Menu 1 > Sub Menu Border Size.
             wp.customize( 'astra-settings[header-mobile-menu-submenu-border]', function( setting ) {
                 setting.bind( function( border ) {
@@ -229,19 +244,25 @@
              */
             wp.customize('astra-settings[header-mobile-menu-submenu-item-b-color]', function (value) {
                 value.bind(function (color) {
-                    var insideBorder = wp.customize('astra-settings[header-mobile-menu-submenu-item-border]').get();
+                    var insideBorder = wp.customize('astra-settings[header-mobile-menu-submenu-item-border]').get(),
+                        borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
+                        console.log( borderSize );
                     if ('' != color) {
                         if ( true == insideBorder ) {
 
                             var dynamicStyle = '';
 
-                            dynamicStyle += '.ast-desktop .ast-builder-menu-mobile .main-header-menu.submenu-with-border .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
+                            dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
                             dynamicStyle += '{';
-                            dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
+                            dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? borderSize + 'px;' : '0px;' );
                             dynamicStyle += 'border-color:' + color + ';';
                             dynamicStyle += 'border-style: solid;';
                             dynamicStyle += '}';
-                            dynamicStyle += '.ast-desktop .ast-builder-menu-mobile .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
+                            dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .main-header-menu';
+                            dynamicStyle += '{';
+                            dynamicStyle += 'border-top-width:' + ( ( true === insideBorder ) ? borderSize + 'px;' : '0px;' );
+                            dynamicStyle += 'border-color:' + color + ';';
+                            dynamicStyle += '}';
 
                             astra_add_dynamic_css('header-mobile-menu-submenu-item-b-color', dynamicStyle);
                         }
@@ -256,16 +277,22 @@
              */
             wp.customize( 'astra-settings[header-mobile-menu-submenu-item-border]', function( value ) {
                 value.bind( function( border ) {
-                    var color = wp.customize( 'astra-settings[header-mobile-menu-submenu-item-b-color]' ).get();
+                    var color = wp.customize( 'astra-settings[header-mobile-menu-submenu-item-b-color]' ).get(),
+                        borderSize = wp.customize('astra-settings[header-mobile-menu-submenu-item-b-size]').get();
 
                     if( true === border  ) {
-                        var dynamicStyle = '.ast-desktop .ast-builder-menu-mobile .main-header-menu.submenu-with-border .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
+                        var dynamicStyle = '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-header-break-point .ast-builder-menu-mobile .main-navigation .menu-item .menu-link';
                         dynamicStyle += '{';
-                        dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
+                        dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
                         dynamicStyle += 'border-color:'        + color + ';';
                         dynamicStyle += 'border-style: solid;';
                         dynamicStyle += '}';
-                        dynamicStyle += '.ast-desktop .ast-builder-menu-mobile .menu-item .sub-menu .menu-item:last-child .menu-link{ border-style: none; }';
+                        dynamicStyle += '.ast-header-break-point .ast-builder-menu-mobile .main-navigation .main-header-menu';
+                        dynamicStyle += '{';
+                        dynamicStyle += 'border-top-width:' + ( ( true === border ) ? borderSize + 'px;' : '0px;' );
+                        dynamicStyle += 'border-style: solid;';
+                        dynamicStyle += 'border-color:' + color + ';';
+                        dynamicStyle += '}';
 
                         astra_add_dynamic_css( 'header-mobile-menu-submenu-item-border', dynamicStyle );
                     } else {
@@ -281,7 +308,7 @@
         astra_css(
             'astra-settings[header-mobile-menu-submenu-b-color]',
             'border-color',
-            selector + ' li.menu-item .sub-menu '
+            selector + ' li.menu-item .sub-menu, ' + selector + ' .main-header-menu'
         );
 
 	// Transparent header > Submenu link hover color.

@@ -62,20 +62,22 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 			// Core Components.
 			add_action( 'astra_footer_copyright', array( $this, 'footer_copyright' ), 10 );
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
-				add_action( 'astra_footer_html_' . $index, array( $this, 'footer_html_' . $index ) );
-				self::$methods[] = 'footer_html_' . $index;
-			}
+			for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
+				// Buttons.
 				add_action( 'astra_footer_button_' . $index, array( $this, 'button_' . $index ) );
 				self::$methods[] = 'button_' . $index;
-			}
 
-			for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
+				// Htmls.
+				add_action( 'astra_footer_html_' . $index, array( $this, 'footer_html_' . $index ) );
+				self::$methods[] = 'footer_html_' . $index;
+
+				// Social Icons.
 				add_action( 'astra_footer_social_' . $index, array( $this, 'footer_social_' . $index ) );
 				self::$methods[] = 'footer_social_' . $index;
+
 			}
+
 
 			// Navigation menu.
 			add_action( 'astra_footer_menu', array( $this, 'footer_menu' ) );
@@ -221,16 +223,16 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function footer_copyright() {
 
+			$theme_author = astra_get_theme_author_details();
+
 			$content = astra_get_option( 'footer-copyright-editor' );
 			if ( $content || is_customize_preview() ) {
 				echo '<div class="ast-footer-copyright">';
-					echo '<div class="ast-footer-html-inner">';
 						$content = str_replace( '[copyright]', '&copy;', $content );
 						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
 						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
-						$content = str_replace( '[theme_author]', '<a href="https://www.wpastra.com/" rel="nofollow noopener" target="_blank">Astra WordPress Theme</a>', $content );
+						$content = str_replace( '[theme_author]', '<a href=" ' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
 						echo do_shortcode( wpautop( $content ) );
-					echo '</div>';
 				echo '</div>';
 			}
 
@@ -263,7 +265,7 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		public function footer_html_4() {
 			Astra_Builder_UI_Controller::render_html_markup( 'footer-html-4' );
 		}
-		
+
 		/**
 		 * Render Menu.
 		 */

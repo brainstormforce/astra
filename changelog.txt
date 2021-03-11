@@ -1,3 +1,52 @@
+v3.1.2
+- Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
+- Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalculated browser window width.
+- Fix: Showing multiple menu locations on the menu admin page.
+- Fix: Transparent Header - Submenu color not working for the older header.
+- Fix: Transparent Header - Submenu background color not working for the older header.
+
+v3.1.1
+- Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
+- Fix: Header Builder margin option default units were missing.
+- Fix: Transparent Header - Submenu background color not working.
+
+v3.1.0
+- Improvement: Redesigned the entire customizer UI for better user experience. ( https://wpastra.com/docs/revamped-astra-customizer/ )
+- Improvement: Added design options for Builder - Toggle Menu in Transparent header.
+- Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
+- Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
+- Improvement: Optimized customizer by removing PHP controls.
+- Improvement: Optimized the SVG icons.
+- Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
+- Improvement: Builder - Social Icons - Ability to add an extra Phone and Contact icons.
+- Improvement: Builder - Social Icons - Added ability to select icon from an Icon Picker for individual social elements
+- Improvement: Builder - Social Icons - Added a color option for labels of social icons.
+- Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
+- Improvement: Added new Page meta options for Above, Below and Mobile header.
+- Fix: Footer vertical alignment option not not working.
+- Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
+- Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
+- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
+- Fix: Builder - Transparent Header - Social icon, label custom color & official color not working.
+- Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
+- Fix: Block Cover align full CSS compatibility in Block editor with sidebar.
+- Fix: Color picker icon not visible on hover.
+- Fix: Font size not reverted back to the initial size when the value is deleted.
+- Fix: Menu active link style not working when sub-menu item is active.
+- Fix: Menu line height not being applied in frontend.
+- Fix: Global Button Border and Typography controls are not working in the customizer preview.
+- Fix: Breadcrumb position misalignment issue for inside header option.
+- Fix: Search box misaligned in Dropdown option for Off-Canvas in Mobile.
+- Fix: Submenu divider option adding heavy border around menu items on responsive devices.
+- Fix: JS console error with Elementor – Header, Footer & Blocks plugin.
+- Fix: Console error in customizer due to third party plugin dependency.
+- Fix: Menu font size not working with old Header.
+- Fix: Transparent Header - Menu link, background and hover colors not working for old header.
+- Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+
+v3.0.3
+- Fix: JS console error when Theme Header is replaced with third-party plugins header.
+
 v3.0.2
 - Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
 - Fix: Responsive option missing for typography.

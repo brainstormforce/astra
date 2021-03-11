@@ -46,17 +46,14 @@ const Background = props => {
 						if (undefined !== value && '' !== value) {
 							if (undefined === value['background-color'] || '' === value['background-color']) {
 								value['background-color'] = '';
-								wp.customize.previewer.refresh();
 							}
 
 							if (undefined === value['background-image'] || '' === value['background-image']) {
 								value['background-image'] = '';
-								wp.customize.previewer.refresh();
 							}
 
 							if (undefined === value['background-media'] || '' === value['background-media']) {
 								value['background-media'] = '';
-								wp.customize.previewer.refresh();
 							}
 						}
 
@@ -64,11 +61,7 @@ const Background = props => {
 						setPropsValue( value );
 						// refs.ChildAstraColorPickerControl.onResetRefresh();
 					}}>
-						<Dashicon icon='image-rotate' style={{
-							width: 12,
-							height: 12,
-							fontSize: 12
-						}}/>
+						<Dashicon icon='image-rotate'/>
 					</button>
 				</div>
 			</span>;
@@ -120,7 +113,7 @@ const Background = props => {
 			if (typeof color === 'string' || color instanceof String) {
 				value = color;
 			} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-				value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+				value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 			} else {
 				value = color.hex;
 			}

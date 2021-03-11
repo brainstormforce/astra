@@ -28,16 +28,26 @@
     astra_css(
         'astra-settings[hba-footer-vertical-alignment]',
         'align-items',
-        selector + ' .ast-builder-grid-row'
+        selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
 	// Border Bottom width.
-	astra_css(
-		'astra-settings[hba-footer-separator]',
-		'border-top-width',
-		selector,
-		'px'
-	);
+	wp.customize( 'astra-settings[hba-footer-separator]', function( setting ) {
+		setting.bind( function( separator ) {
+
+			var dynamicStyle = '';
+
+			if ( '' !== separator ) {
+				dynamicStyle = selector + ' {';
+				dynamicStyle += 'border-top-width: ' + separator + 'px;';
+				dynamicStyle += 'border-top-style: solid';
+				dynamicStyle += '} ';
+			}
+
+			astra_add_dynamic_css( 'hba-footer-separator', dynamicStyle );
+
+		} );
+	} );
 
 	// Inner Space.
 	wp.customize( 'astra-settings[hba-inner-spacing]', function( value ) {
@@ -48,7 +58,7 @@
 				dynamicStyle += 'grid-column-gap: ' + spacing.desktop + 'px;';
 				dynamicStyle += '} ';
 			}
-			
+
 			if ( spacing.tablet != '' ) {
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 				dynamicStyle += selector + ' .ast-builder-grid-row {';
@@ -72,18 +82,22 @@
 	} );
 
 	// Border Color.
+	wp.customize( 'astra-settings[hba-footer-top-border-color]', function( setting ) {
+		setting.bind( function( color ) {
 
-	astra_css(
-		'astra-settings[hba-footer-top-border-color]',
-		'border-top-color',
-		selector
-	);
+			var dynamicStyle = '';
 
-	var dynamicStyle = selector + ' {';
-		dynamicStyle += 'border-top-style: solid';
-	dynamicStyle += '} ';
+			if ( '' !== color ) {
+				dynamicStyle = selector + ' {';
+				dynamicStyle += 'border-top-color: ' + color + ';';
+				dynamicStyle += 'border-top-style: solid';
+				dynamicStyle += '} ';
+			}
 
-	astra_add_dynamic_css( 'hba-footer-top-border-color', dynamicStyle );
+			astra_add_dynamic_css( 'hba-footer-top-border-color', dynamicStyle );
+
+		} );
+	} );
 
 	// Primary Header - Layout.
 	wp.customize( 'astra-settings[hba-footer-layout-width]', function( setting ) {

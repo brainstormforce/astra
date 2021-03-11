@@ -10,7 +10,6 @@
 
 ( function( $ ) {
 
-    astra_builder_html_css( 'header', AstraBuilderHTMLData.header_html_count );
-    
+    astra_builder_html_css( 'header', AstraBuilderHTMLData.component_limit );
+
 } )( jQuery );
-		

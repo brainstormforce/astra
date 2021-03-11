@@ -96,8 +96,8 @@ const BorderComponent = props => {
 		<div className="ast-border-outer-wrapper">
 			<div className="input-wrapper ast-border-wrapper">
 				<ul className="ast-border-wrapper desktop active">
-					{htmlLinkedChoices}
 					{htmlChoices}
+					{htmlLinkedChoices}
 				</ul>
 			</div>
 		</div>

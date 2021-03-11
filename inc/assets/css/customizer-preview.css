@@ -17,7 +17,7 @@
     top: 5px;
 }
 
-.ast-builder-grid-row-container > .customize-partial-edit-shortcut.row-editor-shortcut, .ast-builder-grid-row-container-inner > .customize-partial-edit-shortcut.row-editor-shortcut {
+.ast-builder-grid-row-container > .customize-partial-edit-shortcut.row-editor-shortcut, .customize-partial-edit-shortcut.row-editor-shortcut {
     left: 26px;
 }
 
@@ -28,6 +28,17 @@
     left: 0;
     top: 5px;
     border-radius: 2px;
+}
+
+body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut button {
+	width: 26px;
+	height: 26px;
+	min-width: 26px;
+	min-height: 26px;
+	border-width: 1px;
+	border-radius: 2px;
+	box-shadow: none;
+	text-shadow: none;
 }
 
 .site-footer-focus-item .customize-partial-edit-shortcut button {
@@ -52,7 +63,7 @@
     outline: 1px solid #007cba;
 }
 
-.site-footer-focus-item:hover > * > .customize-partial-edit-shortcut, .ast-primary-header-bar:hover .row-editor-shortcut, .ast-above-header-bar:hover .row-editor-shortcut, .ast-below-header-bar:hover .row-editor-shortcut, .site-header-focus-item:hover > * > .customize-partial-edit-shortcut, .site-header-focus-item:hover > .customize-partial-edit-shortcut {
+.site-footer-focus-item:hover > * > .customize-partial-edit-shortcut,.site-footer-focus-item:hover > div.customize-partial-edit-shortcut, .ast-primary-header-bar:hover .row-editor-shortcut, .ast-above-header-bar:hover .row-editor-shortcut, .ast-below-header-bar:hover .row-editor-shortcut, .site-header-focus-item:hover > * > .customize-partial-edit-shortcut, .site-header-focus-item:hover > .customize-partial-edit-shortcut {
     opacity: 1;
 }
 
@@ -157,4 +168,9 @@
 .ast-builder-layout-element.site-header-focus-item.ast-header-edd-cart .customize-partial-edit-shortcut button,
 .ast-builder-layout-element.site-header-focus-item.ast-header-woo-cart .customize-partial-edit-shortcut button {
     left: -25px;
+}
+
+/*Hiding footer builder pencil icon as we converted section into builder layout, so no longer this needed.*/
+.customize-partial-edit-shortcut-astra-settings-footer-desktop-items > button.customize-partial-edit-shortcut-button {
+	display: none;
 }

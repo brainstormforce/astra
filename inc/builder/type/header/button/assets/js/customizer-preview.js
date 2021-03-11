@@ -10,7 +10,6 @@
 
 ( function( $ ) {
 
-	astra_builder_button_css( 'header', AstraBuilderButtonData.header_button_count );
+	astra_builder_button_css( 'header', AstraBuilderButtonData.component_limit );
 
 } )( jQuery );
-		

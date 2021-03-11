@@ -6,6 +6,10 @@
 
 	var expandedPanel = '';
 
+	var defaultContextSet = '';
+
+	var is_cloning_index = false;
+
 	/**
 	 * Resize Preview Frame when show / hide Builder.
 	 */
@@ -29,8 +33,8 @@
 			api.previewer.container.css('bottom', '');
 		}
 
-		$section.css( 'overflow', 'visible' );
-		$footer.css( 'overflow', 'visible' );
+		$section.css('overflow', 'visible');
+		$footer.css('overflow', 'visible');
 	}
 
 	/**
@@ -76,7 +80,6 @@
 				});
 
 
-
 				if (isExpanded) {
 
 					expandedPanel = panel.id;
@@ -84,16 +87,16 @@
 					$section.addClass('ahfb-' + builder + '-builder-active');
 					$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-					if( 'header' === builder ) {
-						$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
+					if ('header' === builder) {
+						$('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
 					} else {
-						$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+						$('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
 					}
 
 				} else {
 
-					$('#sub-accordion-section-section-footer-builder').css( 'overflow', 'hidden' );
-					$('#sub-accordion-section-section-header-builder').css( 'overflow', 'hidden' );
+					$('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
+					$('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
 
 					api.state('astra-customizer-tab').set('general');
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
@@ -174,14 +177,10 @@
 		},
 
 		addSubControl: function (parent_control_id) {
-
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let sub_controls = AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id] || [];
-				if (sub_controls) {
-					for (let i = 0; i < sub_controls.length; i++) {
-						let config = sub_controls[i];
-						AstCustomizerAPI.addControl(config.id, config);
-					}
+				let sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id]);
+				for (const [section_id, config] of Object.entries(sub_controls)) {
+					AstCustomizerAPI.addControl(config.id, config);
 				}
 			}
 		},
@@ -189,18 +188,27 @@
 		addControl: function (id, data) {
 
 			// Return if control already exists.
-			if (api.control(id)) {
-				return;
+			if ( ! api.control(id)) {
+				var Constructor = api.controlConstructor[data.type] || api.Control, options;
+				options = _.extend({params: data}, data);
+				api.control.add(new Constructor(id, options));
 			}
 
-			var Constructor = api.controlConstructor[data.type] || api.Control, options;
-			options = _.extend({params: data}, data);
-			api.control.add(new Constructor(id, options));
+			if (false !== is_cloning_index) {
+				let clone_from_id = id;
+				clone_from_id = clone_from_id.replace(/[0-9]+/g, is_cloning_index);
+				if (api.control(clone_from_id)) {
+					let val = api(clone_from_id).get();
+					if (val) {
+						api(id).set(val);
+					}
+				}
+			}
 
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
-			if ('ast-settings-group' === data['type']) {
+			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
 				this.addSubControl(id);
 			}
 		},
@@ -211,12 +219,53 @@
 
 		registerControlsBySection: function (section) {
 
+			if( ! section ) {
+				return;
+			}
+
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let config = controls[i];
-						this.addControl(config.id, config);
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
+				for (const [section_id, config] of Object.entries(controls)) {
+					this.addControl(config.id, config);
+				}
+			}
+		},
+
+		deleteControlsBySection: function (section) {
+
+			if( ! section ) {
+				return false;
+			}
+
+			const controls = section.controls();
+			_.each( controls , function (control) {
+				control.container.remove();
+				api.control.remove(control.id);
+			});
+
+		},
+
+		resetControlsBySection: function (section_id) {
+
+			if (!AstraBuilderCustomizerData.js_configs.controls.hasOwnProperty(section_id)) {
+				return false;
+			}
+
+			const control_defaults = JSON.parse(JSON.stringify(AstraBuilderCustomizerData.defaults));
+			const controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section_id]);
+			for (const [control_id, config] of Object.entries(controls)) {
+
+				if( control_defaults.hasOwnProperty(config.id) ) {
+					api(config.id).set( control_defaults[config.id] );
+					api.control(config.id).renderContent();
+				}
+
+				if ('ast-settings-group' === config['type']) {
+					const sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || []);
+					for (const [sub_control_id, sub_config] of Object.entries(sub_controls)) {
+						if( control_defaults.hasOwnProperty(sub_config.id) ) {
+							api(sub_config.id).set(control_defaults[sub_config.id]);
+						}
 					}
 				}
 			}
@@ -225,42 +274,39 @@
 		setControlContextBySection: function (section) {
 
 			// Skip setting context when no tabs added inside section.
-			if( expandedSection.includes(section.id) ) {
-				return ;
+			if (expandedSection.includes(section.id)) {
+				return;
 			}
 
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
-				let controls = AstraBuilderCustomizerData.js_configs.controls[section.id] || [];
-				if (controls) {
-					for (let i = 0; i < controls.length; i++) {
-						let control = controls[i];
-						this.addControlContext(section.id, control.id);
-					}
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
+				for (const [control_id, config] of Object.entries(controls)) {
+					this.addControlContext(section.id, config.id);
 				}
-				expandedSection.push( section.id );
+				expandedSection.push(section.id);
 			}
 		},
 
 		setDefaultControlContext: function () {
 
-			if( 'undefined' === typeof AstraBuilderCustomizerData ) {
-				return ;
+			if ('undefined' === typeof AstraBuilderCustomizerData || defaultContextSet) {
+				return;
 			}
 			let skip_context = AstraBuilderCustomizerData.js_configs.skip_context || [];
 			// Set tab status as general for all wp default controls.
 			$.each(api.settings.controls, function (id, data) {
 
-				if ( -1 != (skip_context.indexOf(id) ) ) {
+				if (-1 != (skip_context.indexOf(id))) {
 					// Do not init context if skipped.
 					return;
 				}
 
-				if ( -1 == AstraBuilderCustomizerData.tabbed_sections.indexOf( api.control(id).section() ) ) {
-					return ;
+				if (-1 == AstraBuilderCustomizerData.tabbed_sections.indexOf(api.control(id).section())) {
+					return;
 				}
 
 				let rules = AstraBuilderCustomizerData.contexts[id];
-				if( rules ) {
+				if (rules) {
 					set_context(id, rules);
 				} else {
 					set_context(id, [
@@ -272,7 +318,17 @@
 				}
 
 			});
+
+			defaultContextSet = true;
 		},
+
+		initializeDynamicSettings: function () {
+			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
+			for (const [setting_id, setting] of Object.entries(settings)) {
+				api.add( new api.Setting( setting_id, setting.default, setting ) );
+			}
+		},
+
 
 		initializeConfigs: function () {
 
@@ -280,7 +336,7 @@
 
 				let panels = AstraBuilderCustomizerData.js_configs.panels || [];
 				let sections = AstraBuilderCustomizerData.js_configs.sections || [];
-				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || [] ) ;
+				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
 
 				for (const [panel_id, config] of Object.entries(panels)) {
 					AstCustomizerAPI.addPanel(panel_id, config);
@@ -296,7 +352,7 @@
 				// Add controls to third party sections.
 				for (const [section_id, config] of Object.entries(controls)) {
 
-					if( "undefined"  === typeof api.section(section_id)  ) {
+					if ("undefined" === typeof api.section(section_id)) {
 						continue;
 					}
 
@@ -324,7 +380,7 @@
 	 * Change description to tooltip.
 	 * @param ctrl
 	 */
-	const change_description_as_tooltip = function(ctrl) {
+	const change_description_as_tooltip = function (ctrl) {
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
@@ -344,7 +400,7 @@
 	 * @param control_id
 	 * @param control_rules
 	 */
-	const set_context = function(control_id, control_rules = null) {
+	const set_context = function (control_id, control_rules = null) {
 
 		if ('undefined' != typeof AstraBuilderCustomizerData) {
 			let rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
@@ -368,7 +424,7 @@
 						var result = false,
 							setting = getSetting(rule['setting']);
 
-						if( 'undefined' == typeof setting ) {
+						if ('undefined' == typeof setting) {
 							return false;
 						}
 
@@ -507,11 +563,11 @@
 	 * Highliting the active componenet.
 	 * @param customizer_section
 	 */
-	const highlight_active_component = function(customizer_section) {
+	const highlight_active_component = function (customizer_section) {
 		var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
 		$.each(builder_items, function (i, val) {
 			var component_section = $(val).attr('data-section');
-			if (component_section === customizer_section.id && $( '#sub-accordion-section-' + component_section ).hasClass('open')) {
+			if (component_section === customizer_section.id && $('#sub-accordion-section-' + component_section).hasClass('open')) {
 				$(val).addClass('active-builder-item');
 			} else {
 				$(val).removeClass('active-builder-item');
@@ -523,12 +579,12 @@
 	 * Highliting the active row.
 	 * @param customizer_section
 	 */
-	const highlight_active_row = function(customizer_section) {
+	const highlight_active_row = function (customizer_section) {
 		// Highlight builder rows.
 		var builder_rows = $('.ahfb-builder-items .ahfb-builder-areas');
 		$.each(builder_rows, function (i, val) {
 			var builder_row = $(val).attr('data-row-section');
-			if( builder_row === customizer_section.id && $( '#sub-accordion-section-' + builder_row ).hasClass('open') ) {
+			if (builder_row === customizer_section.id && $('#sub-accordion-section-' + builder_row).hasClass('open')) {
 				$(val).addClass('active-builder-row');
 			} else {
 				$(val).removeClass('active-builder-row');
@@ -539,18 +595,26 @@
 	/**
 	 * Set context using URL query params.
 	 */
-	const set_context_by_url_params = function() {
+	const set_context_by_url_params = function () {
 
-		let urlParams = new URLSearchParams( window.location.search );
-		let tab = urlParams.get( "context" );
+		let urlParams = new URLSearchParams(window.location.search);
+		let tab = urlParams.get("context");
 
-		if ( tab ) {
+		if (tab) {
 
-			api.state('astra-customizer-tab').set( tab );
+			api.state('astra-customizer-tab').set(tab);
 		}
 	}
 
+	const astra_builder_clear_operation_session = function () {
+		sessionStorage.removeItem('astra-builder-clone-in-progress');
+		sessionStorage.removeItem('astra-builder-eradicate-in-progress');
+		sessionStorage.removeItem('astra-builder-reset-in-progress');
+	}
+
 	api.bind('ready', function () {
+
+		astra_builder_clear_operation_session();
 
 		api.state.create('astra-customizer-tab');
 		api.state('astra-customizer-tab').set('general');
@@ -577,13 +641,14 @@
 
 		$window.on('resize', resizePreviewer);
 
+		AstCustomizerAPI.initializeDynamicSettings();
 		AstCustomizerAPI.initializeConfigs();
 		api.section.each(function (section) {
 			section.expanded.bind(function (isExpanded) {
 				// Lazy Loaded Context.
 				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-				if ( ! isExpanded ) {
+				if (!isExpanded) {
 					// Setting general context when collapsed.
 					api.state('astra-customizer-tab').set('general');
 				}
@@ -601,9 +666,74 @@
 		});
 		AstCustomizerAPI.moveDefaultSection();
 
+
 		api.previewer.bind('ready', function () {
+
 			AstCustomizerAPI.setDefaultControlContext();
-		} );
+			astra_builder_clear_operation_session();
+
+
+			api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
+
+				// Clear clone process if partially refreshed.
+				astra_builder_clear_operation_session();
+
+			});
+
+			document.addEventListener('AstraBuilderCloneSectionControls', function (e) {
+
+				let cloneData = e.detail;
+
+				if (!cloneData) {
+					return;
+				}
+
+				let clone_to_section = cloneData.clone_to_section,
+					clone_from_section = cloneData.clone_from_section;
+
+				// Return if cloning section already presents.
+				if(api.section(clone_to_section)){
+					return;
+				}
+
+				let section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
+
+				if (!section_config) {
+					section_config = AstraBuilderCustomizerData.js_configs.sections[clone_to_section];
+				}
+
+				AstCustomizerAPI.addSection(clone_to_section, section_config);
+				is_cloning_index = clone_from_section.match(/\d+$/)[0];
+				AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section));
+				is_cloning_index = false;
+
+				api.section(clone_to_section).expanded.bind(function (isExpanded) {
+					AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
+				});
+
+
+			});
+
+			document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
+
+				let forceRemoveSection = e.detail;
+
+				if (!forceRemoveSection) {
+					return;
+				}
+
+				let section = api.section(forceRemoveSection.section);
+
+				if (section && section.expanded) {
+					section.collapse();
+				}
+
+				AstCustomizerAPI.deleteControlsBySection(section);
+				api.section.remove(forceRemoveSection.section);
+
+			});
+
+		});
 
 	});
 

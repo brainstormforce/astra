@@ -26,6 +26,9 @@ const BuilderComponent = props => {
 
 	let choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
 
+
+	const component_track = props.customizer.control('astra-settings[cloned-component-track]').setting;
+
 	const [state, setState] = useState({
 		value: value,
 		layout: controlParams.layouts
@@ -107,7 +110,161 @@ const BuilderComponent = props => {
 		}
 	};
 
+	const isCloneEnabled = () => {
+
+		if( ! astra.customizer.is_pro ) {
+			return;
+		}
+
+		let component_count = component_track.get();
+
+		AstraBuilderCustomizerData.component_limit = parseInt(AstraBuilderCustomizerData.component_limit);
+
+		let tmp_choices = (AstraBuilderCustomizerData && AstraBuilderCustomizerData.choices && AstraBuilderCustomizerData.choices[controlParams.group] ? AstraBuilderCustomizerData.choices[controlParams.group] : []);
+
+		Object.keys(tmp_choices).forEach(function( choice) {
+
+			let tmp_choice = tmp_choices[choice];
+
+			if( tmp_choice.hasOwnProperty('builder') && tmp_choice.hasOwnProperty('type')   ) {
+
+				let is_to_clone = tmp_choice.hasOwnProperty('clone') ? tmp_choice['clone']: true;
+				let is_to_delete = tmp_choice.hasOwnProperty('delete') ? tmp_choice['delete']: true;
+
+				let tmp_component_type = tmp_choice['builder'] + '-' + tmp_choice['type'];
+
+				if( component_count[tmp_component_type] < AstraBuilderCustomizerData.component_limit ) {
+					is_to_clone = true;
+				}  else {
+					let tmp_section = tmp_choice.section.replace(/[0-9]+/g, '');
+					let is_clone =  component_count['removed-items'].findIndex((item) => { return item.startsWith(tmp_section);} );
+					is_to_clone = is_clone !== -1;
+				}
+
+				tmp_choice['clone'] = is_to_clone;
+
+				switch (component_count[tmp_component_type]) {
+					case 1:
+						is_to_delete = false;
+						break;
+					case 2:
+						is_to_delete = (  component_count['removed-items'].indexOf( tmp_choice.section.replace(/[0-9]+/g, 1 ) ) != -1 ) ? false : true;
+						break;
+				}
+
+				tmp_choice['delete'] = is_to_delete;
+			}
+
+		});
+
+	}
+
+	const prepare_element = function (cloneData, clone_index) {
+
+		switch ( cloneData.type ) {
+
+			case 'menu':
+				switch (clone_index) {
+					case 1:
+						cloneData.name = 'Primary Menu';
+						break;
+					case 2:
+						cloneData.name = 'Secondary Menu';
+						break;
+					default:
+						cloneData.name = cloneData.type.slice(0, 1).toUpperCase() + cloneData.type.substring(1) + " " + clone_index;
+						break;
+				}
+				break;
+
+			default:
+				let name = cloneData.name.replace(/[0-9]+/g, '');
+				cloneData.name = name + ' ' + clone_index;
+				break;
+
+		}
+
+		cloneData.section = cloneData.section.replace(/[0-9]+/g, clone_index);
+
+		return cloneData;
+	}
+
+	const cloneItem = ( item, row, zone ) => {
+
+		// Skip clone if already is in progress.
+		if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
+			return;
+		}
+
+		let component_count = component_track.get(),
+			cloneData = Object.assign({},choices[item] ),
+			clone_section = cloneData.section.replace(/[0-9]+/g, ''),
+			clone_index,
+			tmp_removed_items = component_count['removed-items'],
+			clone_section_index = tmp_removed_items.findIndex(element => element.includes(clone_section)),
+			component_type = cloneData.builder + '-' + cloneData.type;
+
+		let updated_count = {};
+
+		if( clone_section_index != -1 ) {
+			clone_section = tmp_removed_items[clone_section_index];
+			clone_index = parseInt( clone_section.match(/\d+$/)[0] );
+			tmp_removed_items.splice(clone_section_index, 1);
+			updated_count['removed-items'] = tmp_removed_items;
+
+		} else {
+			clone_index = component_count[ component_type ] + 1;
+			clone_section = cloneData.section.replace(/[0-9]+/g, clone_index);
+			updated_count[ component_type ] = clone_index;
+		}
+
+		// Return if limit exceeds.
+		if( parseInt(clone_index ) > parseInt( AstraBuilderCustomizerData.component_limit ) ) {
+			return;
+		}
+
+		let clone_type_id = cloneData.type + '-' + clone_index;
+
+		cloneData = prepare_element(cloneData, clone_index);
+
+		AstraBuilderCustomizerData.choices[controlParams.group][ clone_type_id ] = cloneData;
+
+		sessionStorage.setItem('astra-builder-clone-in-progress', true);
+
+		var event = new CustomEvent('AstraBuilderCloneSectionControls', {
+			'detail': {
+				'clone_to_section': clone_section,
+				'clone_from_section' : choices[item]['section']
+			}
+		});
+		document.dispatchEvent(event);
+
+		component_track.set( { ...component_count, ...updated_count, flag: ! component_count.flag } );
+
+		let updateState = state.value;
+		let update = updateState[row];
+		let items = update[zone];
+		items.push( clone_type_id );
+		let updateItems = [];
+		items.forEach(function(item) {
+			updateItems.push({
+				id: item
+			});
+		});
+
+
+		setState(prevState => ({
+			...prevState,
+			value: updateState
+		}));
+
+		updateValues(updateState, row);
+
+	}
+
 	const removeItem = (item, row, zone) => {
+
+
 		let updateState = state.value;
 		let update = updateState[row];
 		let updateItems = [];
@@ -184,11 +341,13 @@ const BuilderComponent = props => {
 				...prevState,
 				value: updateState
 			}));
+
 			updateValues(updateState, row);
 		}
 	};
 
 	const onAddItem = (row, zone, items) => {
+
 		onDragEnd(row, zone, items);
 		let event = new CustomEvent('AstraBuilderRemovedBuilderItem', {
 			'detail': controlParams.group
@@ -222,11 +381,14 @@ const BuilderComponent = props => {
 		}
 	};
 
+	isCloneEnabled();
+
 	return <div className="ahfb-control-field ahfb-builder-items">
 		{controlParams.rows.includes('popup') &&
 		<RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 					  focusItem={item => focusItem(item)}
 					  removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+					  cloneItem={(remove, row, zone) => cloneItem(remove, row, zone)}
 					  onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}
 					  hideDrop={() => onDragStop()}
 					  onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
@@ -241,6 +403,7 @@ const BuilderComponent = props => {
 				return <RowComponent showDrop={() => onDragStart()} focusPanel={item => focusPanel(item)}
 									 focusItem={item => focusItem(item)}
 									 removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+									 cloneItem={(remove, row, zone) => cloneItem(remove, row, zone)}
 									 hideDrop={() => onDragStop()}
 									 onUpdate={(updateRow, updateZone, updateItems) => onDragEnd(updateRow, updateZone, updateItems)}
 									 onAddItem={(updateRow, updateZone, updateItems) => onAddItem(updateRow, updateZone, updateItems)}

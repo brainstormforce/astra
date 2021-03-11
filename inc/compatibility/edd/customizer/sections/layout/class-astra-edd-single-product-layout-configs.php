@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
 					'section'  => 'section-edd-single',
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'default'  => astra_get_option( 'disable-edd-single-product-nav' ),
 					'title'    => __( 'Disable Product Navigation', 'astra' ),
 					'priority' => 10,

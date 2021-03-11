@@ -1,6 +1,6 @@
 import CustomizerLinkComponent from './customizer-link-component.js';
 
-export const customizerLinkControl = wp.customize.astraControl.extend( {
+export const customizerLinkControl = wp.customize.Control.extend( {
 	renderContent: function renderContent() {
 		let control = this;
 		ReactDOM.render( <CustomizerLinkComponent control={ control } />, control.container[0] );

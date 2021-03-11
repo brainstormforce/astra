@@ -48,10 +48,9 @@ class Astra_Header_Social_Icon_Component_Loader {
 			'astra-heading-social-icon-customizer-preview-js',
 			'astraBuilderHeaderSocial',
 			array(
-				'tablet_break_point'  => astra_get_tablet_breakpoint(),
-				'mobile_break_point'  => astra_get_mobile_breakpoint(),
-				'footer_social_count' => Astra_Builder_Helper::$num_of_footer_social_icons,
-				'header_social_count' => Astra_Builder_Helper::$num_of_header_social_icons,
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'component_limit'    => defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_social_icons,
 			)
 		);
 	}

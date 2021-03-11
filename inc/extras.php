@@ -285,6 +285,10 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 			return $default;
 		}
 
+		if ( ( isset( $array[ $prop ] ) && false === $array[ $prop ] ) ) {
+			return false;
+		}
+
 		if ( isset( $array[ $prop ] ) ) {
 			$value = $array[ $prop ];
 		} else {
@@ -324,6 +328,25 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 function astra_wp_version_compare( $version, $compare ) {
 
 	return version_compare( get_bloginfo( 'version' ), $version, $compare );
+}
+
+/**
+ * Get the theme author details 
+ *
+ * @since  3.1.0
+ * @return array            Return theme author URL and name.
+ */
+function astra_get_theme_author_details() {
+
+	$theme_author = apply_filters(
+		'astra_theme_author',
+		array(
+			'theme_name'       => __( 'Astra WordPress Theme', 'astra' ),
+			'theme_author_url' => 'https://wpastra.com/',
+		)
+	);
+
+	return $theme_author;
 }
 
 /**

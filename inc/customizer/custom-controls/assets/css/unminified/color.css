@@ -25,7 +25,7 @@
 .customize-control-title {
     display: block;
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
 }
@@ -33,27 +33,27 @@
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
     width: 28px;
     height: 28px;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
 }
 .component-color-indicator {
     width: 25px;
     height: 16px;
     margin-left: 0.8rem;
-    border: 1px solid #dadada;
     display: inline-block;
+    border: none;
 }
 
 .astra-color-icon-indicate.components-button {
     height: auto;
     position: relative;
     transform: scale(1);
-    border-radius: 4px;
+    transition: none;
+    border-radius: 50%;
     padding: 0;
     background-image: linear-gradient(45deg, #ddd 25%, transparent 0), linear-gradient(-45deg, #ddd 25%, transparent 0), linear-gradient(45deg, transparent 75%, #ddd 0), linear-gradient(-45deg, transparent 75%, #ddd 0);
     background-size: 10px 10px;
 	background-position: 0 0, 0 5px, 5px -5px, -5px 0;
-	border: 1px solid #929ba4;
 }
 
 /** Color */
@@ -101,10 +101,25 @@
     max-height: 60vh;
 }
 .color-button-wrap {
-	display: inline;
+	display: inline-block;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: -4.5px;
+    transform: scale(1);
+    transition: transform .1s ease;
+    height: 28px;
+    width: 28px;
+}
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
     width: 50px;
@@ -171,9 +186,6 @@
     -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
-.customize-control-ast-color.customize-control {
-    margin-top: 32px;
-}
 .customize-control-ast-color.customize-control > * {
     display: inline;
 }
@@ -229,8 +241,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .astra-popover-color {
-    margin-left: 2px;
-	margin-top: 5px;
+	margin-top: 10px;
 	background-color: #ffffff;
 	border: 1px solid #a29090;
 	border-radius: 4px;
@@ -253,7 +264,16 @@
 	border-radius: 3px;
 }
 .astra-color-picker-wrap {
-	margin-left: 5px;
+    position: absolute;
+    z-index: 1;
+	top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.ast-field-settings-modal .astra-color-picker-wrap {
+    position: relative;
+	top: 0;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;
@@ -284,29 +304,35 @@
 /* Reset Button CSS */
 .ast-color-btn-reset-wrap {
 	position: absolute;
-    right: 46px;
+    right: 36px;
     top: 1.5px;
 }
-.ast-color-btn-reset-wrap .ast-reset-btn.components-button {
+.ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
 	color: #006BA1;
-    height: 20px;
-    width: 20px;
-    padding: 4px;
-    box-shadow: inset 0 0 0 1px #007cba;
+	height: 20px;
+	width: 20px;
+	padding: 4px;
+	background: transparent;
+	box-shadow: none;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;
-	border: 1px solid #006BA1;
+	border: none;
+}
+.ast-color-btn-reset-wrap .ast-reset-btn.components-button:hover, .ast-color-btn-reset-wrap .ast-reset-btn.components-button:focus,
+.ast-resp-slider-reset-wrap .ast-reset-btn.components-button:hover, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button:focus {
+	box-shadow: none;
+	border: none;
+	background: transparent;
 }
 .astra-color-clear-button.components-button.is-secondary:hover:not(:disabled),
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	box-shadow: 0 0 black;
 	padding: 1.5px;
-	border: 1px solid #006BA1;
+	border: none;
 }
-.astra-color-clear-button.components-button.is-secondary:disabled,
-.ast-reset-btn.components-button.is-secondary:disabled {
-	box-shadow: inset 0 0 0 1px #007cba;
+.astra-color-clear-button.components-button.is-secondary:disabled, .ast-reset-btn.components-button.is-secondary:disabled span {
+    color: #c5c5c5;
 }
 /** Inside Setting group popup - Colors */
 .ast-field-settings-modal .color-button-wrap {
@@ -314,15 +340,14 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
+	top: 0;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
 }
-.ast-field-settings-modal .customize-control-ast-color.customize-control {
-    margin-top: 28px;
-}
+.ast-field-settings-modal .customize-control-ast-color.customize-control,
 .ast-field-settings-modal .customize-control-ast-color.customize-control:first-child {
-    margin-top: 28px;
+    margin-top: 25px;
 }
 .astra-color-picker-wrap .components-color-picker__inputs-wrapper {
 	min-width: unset;
@@ -363,11 +388,14 @@
 	top: 0px;
 	width: 20px;
 }
+.customize-control-ast-color + .customize-control-ast-color {
+    margin-top: 30px;
+}
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
     .ast-color-palette .components-circular-option-picker__option-wrapper {
-        height: 25px;
-        width: 25px;
+        height: 23px;
+        width: 23px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
         padding: 6px 10px;
@@ -383,7 +411,7 @@
     }
     .astra-popover-color .ast-color-palette.components-circular-option-picker {
         width: auto;
-        padding: 16px 0px 0px 12px;
+        padding: 16px 0px 0px 8px;
     }
     .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
         padding: 0 2px;
@@ -425,4 +453,12 @@
 			width: 15px;
 		}
 	}
+}
+
+.astra-color-icon-indicate.components-button:focus:not(:disabled) {
+    box-shadow: unset;
+    outline: unset;
+}
+.astra-color-icon-indicate.components-button:hover {
+    transform: scale(1.05);
 }

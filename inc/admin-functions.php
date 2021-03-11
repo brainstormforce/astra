@@ -44,14 +44,21 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 			);
 
 
-			for ( $index = 3; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
+			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
+
+			for ( $index = 3; $index <= $component_limit; $index++ ) {
+
+				if ( ! is_customize_preview() && ! Astra_Builder_Helper::is_component_loaded( 'menu-' . $index ) ) {
+					continue;
+				}
+
 				register_nav_menus(
 					array(
 						'menu_' . $index => __( 'Menu ', 'astra' ) . $index,
 					)
 				);
 			}
-				
+
 			/**
 			 * Register the Account menus.
 			 */

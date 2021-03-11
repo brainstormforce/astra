@@ -60,7 +60,7 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 			'border-bottom-color' => esc_attr( $hbb_border_color ),
 			'border-bottom-style' => 'solid',
 		),
-		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-below-header-bar , .ast-below-header-bar .site-below-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hbb_header_height_desktop, 'px' ),
 		),
 		'.ast-desktop .ast-below-header-bar .main-header-menu > .menu-item' => array(
@@ -88,7 +88,7 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-header-break-point .ast-below-header-bar' => array(
 			'background-color' => esc_attr( $tablet_background ),
 		),
-		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-below-header-bar , .ast-below-header-bar .site-below-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hbb_header_height_tablet, 'px' ),
 		),
 	);
@@ -100,7 +100,7 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 		'.ast-header-break-point .ast-below-header-bar' => array(
 			'background-color' => esc_attr( $mobile_background ),
 		),
-		'.ast-mobile-header-wrap .ast-below-header-bar .ast-builder-grid-row-container-inner, .ast-below-header-bar .site-below-header-wrap' => array(
+		'.ast-mobile-header-wrap .ast-below-header-bar , .ast-below-header-bar .site-below-header-wrap' => array(
 			'min-height' => astra_get_css_value( $hbb_header_height_mobile, 'px' ),
 		),
 	);
@@ -117,7 +117,7 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-below-header-bar', 'block' );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, '.ast-below-header-bar', 'block', 'grid' );
 
 	return $dynamic_css;
 }

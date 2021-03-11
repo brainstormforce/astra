@@ -189,7 +189,7 @@
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .customize-control-ast-settings-group {
@@ -203,10 +203,12 @@
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-title {
   margin-bottom: 10px;
   font-size: 13px;
+  margin-top: 3px;
+  display: block;
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 /**
@@ -274,7 +276,7 @@
   color: #ffffff;
 }
 
-.astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+.astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
 
@@ -297,4 +299,9 @@
 
 .ast-field-settings-modal .components-angle-picker-control .components-flex__block {
   min-width: auto;
+}
+
+.customize-control-ast-settings-group .customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  margin-top: 0;
 }

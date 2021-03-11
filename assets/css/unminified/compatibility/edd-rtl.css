@@ -625,6 +625,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: none;
 }
 
+.ast-header-break-point.astra-hfb-header .ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
+  display: inline-block;
+}
+
 @keyframes ast-hide-animate {
   0% {
     opacity: 1;

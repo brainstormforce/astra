@@ -244,18 +244,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 
 				$_configs = array(
 					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-content-typo',
-						'priority' => 999,
-						'settings' => array(),
-					),
-
-					/**
 					 * Option: Learn More about Contant Typography
 					 */
 					array(

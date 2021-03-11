@@ -60,21 +60,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Section: Below Header Height.
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[hbb-header-height]',
-					'section'     => $_section,
-					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'hbb-header-height' ),
-					'priority'    => 30,
-					'title'       => __( 'Height', 'astra' ),
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'suffix'      => '',
-					'input_attrs' => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hbb-header-height]',
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hbb-header-height' ),
+					'priority'          => 30,
+					'title'             => __( 'Height', 'astra' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => 'px',
+					'input_attrs'       => array(
 						'min'  => 30,
 						'step' => 1,
 						'max'  => 600,
 					),
-					'context'     => Astra_Builder_Helper::$general_tab,
+					'context'           => Astra_Builder_Helper::$general_tab,
 				),
 
 				// Section: Below Header Border.
@@ -84,9 +85,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'    => 40,
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'hbb-header-separator' ),
-					'title'       => __( 'Bottom Border', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -97,15 +99,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Section: Below Header Border Color.
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hbb-header-bottom-border-color]',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'hbb-header-bottom-border-color' ),
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'section'   => $_section,
-					'priority'  => 50,
-					'title'     => __( 'Bottom Border Color', 'astra' ),
-					'context'   => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[hbb-header-bottom-border-color]',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'hbb-header-bottom-border-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'section'           => $_section,
+					'priority'          => 50,
+					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hbb-header-separator]',
 							'operator' => '>=',
@@ -115,14 +118,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
-				// Section: Below Header Color & Backgroud Heading.
+				/**
+				 * Option: Divider
+				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hbb-header-colors-heading]',
-					'section'  => $_section,
+					'name'     => ASTRA_THEME_SETTINGS . '[hbb-header-colors-heading-divider]',
 					'type'     => 'control',
-					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'control'  => 'ast-divider',
 					'priority' => 60,
-					'title'    => __( 'Background Color & Image', 'astra' ),
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
@@ -135,7 +139,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-responsive-background',
 					'transport' => 'postMessage',
 					'default'   => astra_get_option( 'hbb-header-bg-obj-responsive' ),
-					'title'     => __( 'Color & Image', 'astra' ),
+					'title'     => __( 'Background', 'astra' ),
 					'priority'  => 70,
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),

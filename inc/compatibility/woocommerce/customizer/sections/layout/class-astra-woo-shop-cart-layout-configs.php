@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-upsells]',
 					'section'  => 'section-woo-shop-cart',
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'default'  => astra_get_option( 'enable-cart-upsells' ),
 					'title'    => __( 'Enable Cross-sells', 'astra' ),
 					'priority' => 10,

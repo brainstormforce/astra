@@ -108,7 +108,6 @@ class Astra_Mobile_Menu_Component {
 				)
 			);
 		} else {
-			echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 				echo '<div class="main-header-bar-navigation">';
 					echo '<nav ';
 					echo astra_attr(
@@ -121,7 +120,6 @@ class Astra_Mobile_Menu_Component {
 						wp_page_menu( $fallback_menu_args );
 					echo '</nav>';
 				echo '</div>';
-			echo '</div>';
 		}
 		echo '</div>';
 	}

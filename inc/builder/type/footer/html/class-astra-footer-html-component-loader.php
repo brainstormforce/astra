@@ -48,7 +48,7 @@ class Astra_Footer_Html_Component_Loader {
 			'astra-footer-html-customizer-preview-js',
 			'AstraBuilderHTMLData',
 			array(
-				'footer_html_count'  => Astra_Builder_Helper::$num_of_footer_html,
+				'component_limit'    => defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_footer_html,
 				'tablet_break_point' => astra_get_tablet_breakpoint(),
 				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)

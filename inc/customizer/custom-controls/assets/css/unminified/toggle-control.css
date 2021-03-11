@@ -1,0 +1,17 @@
+.customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+  margin: 0;
+  order: 2;
+}
+
+.customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
+  margin: 20px 0;
+}
+
+.customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
+  display: flex;
+  flex: 1 1 auto;
+}

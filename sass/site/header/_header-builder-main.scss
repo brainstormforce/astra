@@ -154,9 +154,6 @@
 .ast-header-search .ast-search-menu-icon {
 	&.slide-search,
 	&.ast-inline-search {
-		.search-submit {
-			position: unset;
-		}
 		.search-form {
 			display: flex;
 			align-items: center;
@@ -183,7 +180,6 @@
 	.site-header{
 		.main-header-bar-wrap{
 			.site-branding{
-				display: flex;
 				flex: 1;
 				align-self: center;
 			}
@@ -348,5 +344,16 @@
 		.sub-menu {
 			width: 150px;
 		}
+	}
+}
+.ast-desktop {
+	.main-header-menu > .menu-item .sub-menu:before,
+	.main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: translateY(-100%);
 	}
 }

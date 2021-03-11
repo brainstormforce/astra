@@ -125,7 +125,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
-	    main_header_masthead = document.getElementById('masthead'),
+		main_header_masthead = document.getElementById('masthead'),
 		menu_click_listeners = {},
 		mobileHeaderType = '',
 		body = document.body,
@@ -135,8 +135,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 	}
-	
-	if ( '' !== mobileHeader ) {
+
+	if ( '' !== mobileHeader && null !== mobileHeader ) {
 
 		mobileHeaderType = mobileHeader.dataset.type;
 	}
@@ -244,8 +244,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function init( mobileHeaderType ) {
 
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
-		
-		if ( undefined === mobileHeaderType ) {
+		var popupClose = document.getElementById( 'menu-toggle-close' );
+		var submenuButtons = document.querySelectorAll( '#ast-mobile-popup .ast-menu-toggle' );
+
+		if ( undefined === mobileHeaderType && null !== main_header_masthead ) {
 
 			mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");
 			if( ! mobileHeader ) {
@@ -305,7 +307,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-		
+
 	}
 
 	window.addEventListener( 'load', function() {
@@ -336,7 +338,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if( menu_toggle_close ) {
 			menu_toggle_close.click();
 		}
-
 		// Skip resize event when keyboard display event triggers on devices.
 		if( 'INPUT' !== document.activeElement.tagName ) {
 
@@ -373,8 +374,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
 		var originalOverflow = body.style.overflow;
 		body.style.overflow = 'hidden';
-		var ww = window.innerWidth;
+		var ww = window.outerWidth;
 		body.style.overflow = originalOverflow;
+
+		if ( body.classList.contains( 'customize-partial-edit-shortcuts-shown' ) ) {
+			ww = window.innerWidth;
+		}
 
 		var break_point = astra.break_point,
 			headerWrap = document.querySelectorAll('.ast-main-header-wrap');
@@ -383,7 +388,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			for (var i = 0; i < headerWrap.length; i++) {
 
 				if (headerWrap[i].tagName == 'DIV' && headerWrap[i].classList.contains('ast-main-header-wrap')) {
-					if (ww > break_point) {
+
+					/**
+					 * This case is when one hits a URL one after the other via `Open in New Tab` option
+					 * Chrome returns the value of outer width as 0 in this case.
+					 * This mis-calculates the width of the window and header seems invisible.
+					 * This could be fixed by using `0 === ww` condition below.
+					 */
+					if (ww > break_point || 0 === ww) {
 						//remove menu toggled class.
 						if (null != menu_toggle_all[i]) {
 							menu_toggle_all[i].classList.remove('toggled');
@@ -411,7 +423,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
 			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
-			
+
 			header_account_trigger.onclick = function( event ) {
 				event.preventDefault();
 				event.stopPropagation();
@@ -637,7 +649,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
                 if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
                     sibling.classList.add( 'ast-dropdown-active' );
-                    sibling.querySelector( '.search-field' ).setAttribute('autocompvare','off');
+                    sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
                     setTimeout(function() {
                      sibling.querySelector( '.search-field' ).focus();
                     },200);

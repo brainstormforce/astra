@@ -24,11 +24,10 @@ const SortableComponent = props => {
 	let visibleMetaHtml = Object.values(value).map(choiceID => {
 		let html = '';
 		if (choices[choiceID]) {
-			html = <li {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
-				<i className='dashicons dashicons-menu'></i>
-				<i className="dashicons dashicons-visibility visibility"></i>
+			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
 				{choices[choiceID]}
-			</li>;
+				<i className="dashicons dashicons-visibility visibility"></i>
+			</div>;
 		}
 		return html;
 	});
@@ -36,11 +35,10 @@ const SortableComponent = props => {
 	let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
 		let html = '';
 		if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
-			html = <li {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-value={choiceID}>
-				<i className='dashicons dashicons-menu'></i>
-				<i className="dashicons dashicons-visibility visibility"></i>
+			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-value={choiceID}>
 				{choices[choiceID]}
-			</li>;
+				<i className="dashicons dashicons-visibility visibility"></i>
+			</div>;
 		}
 		return html;
 	});
@@ -48,10 +46,10 @@ const SortableComponent = props => {
 	return <label className='ast-sortable'>
 		{labelHtml}
 		{descriptionHtml}
-		<ul className="sortable">
+		<div className="sortable">
 			{visibleMetaHtml}
 			{invisibleMetaHtml}
-		</ul>
+		</div>
 	</label>;
 
 };

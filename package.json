@@ -1,6 +1,6 @@
 {
   "name": "astra",
-  "version": "3.0.2",
+  "version": "3.1.2",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
   "repository": {

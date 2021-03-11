@@ -71,5 +71,6 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 		do_action( "astra_footer_{$row}_container_after" );
 		?>
 	</div>
+
 </div>
 <?php } ?>

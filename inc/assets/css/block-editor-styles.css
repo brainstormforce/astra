@@ -609,6 +609,12 @@ html {
   top: -5px;
 }
 
+@media (min-width: 600px) {
+  .edit-post-visual-editor .block-editor-block-list__block.wp-block-quote {
+    padding: 1.2em;
+  }
+}
+
 .editor-post-title__block,
 .editor-default-block-appender,
 .block-editor-block-list__block {

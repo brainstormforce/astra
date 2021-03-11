@@ -72,8 +72,8 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 
 			$menu_locations = array( 'primary', 'above_header_menu', 'secondary_menu', 'below_header_menu', 'mobile_menu' );
 
-			for ( $index = 3; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
-				array_push( $menu_locations, 'menu_' . $index );    
+			for ( $index = 3; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+				array_push( $menu_locations, 'menu_' . $index );
 			}
 
 			// Add toggle button if menu is from Astra.

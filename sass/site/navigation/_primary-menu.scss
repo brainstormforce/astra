@@ -204,9 +204,11 @@
 			padding-left: 60px;
 		}
 	}
-	.ast-header-custom-item,
 	.main-header-menu {
 		background-color: $color-background-nav-mobile;
+		border-top-width: 1px;
+		border-style: solid;
+		border-color: #eaeaea;
 	}
 
 	.main-header-menu {

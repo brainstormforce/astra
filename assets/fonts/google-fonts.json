@@ -91,6 +91,22 @@
         }
     },
     {
+        "Akaya Kanadaka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Akaya Telivigala": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Akronim": {
             "variants": [
                 "regular"
@@ -143,14 +159,16 @@
         "Alegreya": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "serif"
@@ -928,6 +946,14 @@
         }
     },
     {
+        "Ballet": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Baloo 2": {
             "variants": [
                 "regular",
@@ -1285,6 +1311,14 @@
         }
     },
     {
+        "Benne": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Bentham": {
             "variants": [
                 "regular"
@@ -1611,6 +1645,17 @@
         "Bree Serif": {
             "variants": [
                 "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Brygada 1918": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "serif"
         }
@@ -2844,6 +2889,14 @@
                 "600",
                 "700",
                 "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "DotGothic16": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
@@ -5343,7 +5396,7 @@
                 "600",
                 "700"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -6820,6 +6873,27 @@
         }
     },
     {
+        "Newsreader": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Niconne": {
             "variants": [
                 "regular"
@@ -7194,6 +7268,14 @@
     },
     {
         "Offside": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Oi": {
             "variants": [
                 "regular"
             ],
@@ -8374,6 +8456,14 @@
         }
     },
     {
+        "Reggae One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Revalia": {
             "variants": [
                 "regular"
@@ -8504,6 +8594,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "RocknRoll One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -9081,6 +9179,30 @@
         }
     },
     {
+        "Shippori Mincho": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Shippori Mincho B1": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Shojumaru": {
             "variants": [
                 "regular"
@@ -9565,6 +9687,14 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Stick": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -10055,6 +10185,22 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Truculenta": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {

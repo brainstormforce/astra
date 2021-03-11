@@ -42,6 +42,7 @@ class Astra_Button_Component_Dynamic_CSS {
 			}
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
+			$context  = ( 'header' === $builder_type ) ? 'hb' : 'fb';
 			$margin   = astra_get_option( $_section . '-margin' );
 			$_prefix  = 'button' . $index;
 
@@ -80,15 +81,20 @@ class Astra_Button_Component_Dynamic_CSS {
 			$css_output_desktop = array(
 
 				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
+					// Typography.
+					'font-size' => astra_responsive_font( $button_font_size, 'desktop' ),
+				),
+
+				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'       => array(
 					// Colors.
 					'color'               => $button_color_desktop,
 					'background'          => $button_bg_color_desktop,
-
-					// Typography.
-					'font-size'           => astra_responsive_font( $button_font_size, 'desktop' ),
 
 					// Border.
 					'border-color'        => $button_border_color_desktop,
@@ -100,7 +106,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				),
 
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' .ast-custom-button:hover' => array(
 					'color'        => $button_h_color_desktop,
 					'background'   => $button_bg_h_color_desktop,
 					'border-color' => $button_border_h_color_desktop,
@@ -112,10 +118,19 @@ class Astra_Button_Component_Dynamic_CSS {
 			 */
 			$css_output_tablet = array(
 
+				
+				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
+					// Typography.
+					'font-size' => astra_responsive_font( $button_font_size, 'tablet' ),
+				),
+
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'       => array(
 					// Typography.
 					'font-size'    => astra_responsive_font( $button_font_size, 'tablet' ),
 
@@ -125,7 +140,7 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-color' => $button_border_color_tablet,
 				),
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' .ast-custom-button:hover' => array(
 					'color'        => $button_h_color_tablet,
 					'background'   => $button_bg_h_color_tablet,
 					'border-color' => $button_border_h_color_tablet,
@@ -136,11 +151,19 @@ class Astra_Button_Component_Dynamic_CSS {
 			 * Button CSS.
 			 */
 			$css_output_mobile = array(
+				
+				/**
+				 * Button font size.
+				 */
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
+					// Typography.
+					'font-size' => astra_responsive_font( $button_font_size, 'mobile' ),
+				),
 
 				/**
 				 * Button Colors.
 				 */
-				$selector . ' .ast-builder-button-wrap .ast-custom-button'       => array(
+				$selector . ' .ast-custom-button'        => array(
 					// Typography.
 					'font-size'    => astra_responsive_font( $button_font_size, 'mobile' ),
 
@@ -150,7 +173,7 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-color' => $button_border_color_mobile,
 				),
 				// Hover Options.
-				$selector . ' .ast-builder-button-wrap:hover .ast-custom-button' => array(
+				$selector . ' ..ast-custom-button:hover' => array(
 					'color'        => $button_h_color_mobile,
 					'background'   => $button_bg_h_color_mobile,
 					'border-color' => $button_border_h_color_mobile,
@@ -164,10 +187,10 @@ class Astra_Button_Component_Dynamic_CSS {
 
 			$generated_css .= $css_output;
 
-			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector . ' .ast-builder-button-wrap .ast-custom-button' );
+			$generated_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' );
 
 			$visibility_selector = '.ast-' . $builder_type . '-button-' . $index . '[data-section="' . $_section . '"]';
-			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );     
+			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
 		}
 
 		return $generated_css;

@@ -17,7 +17,7 @@ const BuilderHeader = (props) => {
 		return (
 			<React.Fragment>
 				<p className="ast-customize-control-title">
-					{ ! astra.customizer.is_pro && 
+					{ ! astra.customizer.is_pro &&
 						<>
 							{ __( 'Want more? Upgrade to ', 'astra' ) }<a href={astra.customizer.upgrade_link} target="_blank">{ __( 'Astra Pro', 'astra' ) }</a>
 							{ __( ' for many more header and footer options along with several amazing features too!', 'astra' ) }

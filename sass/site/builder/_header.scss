@@ -6,6 +6,7 @@
 	grid-template-columns: auto auto;
 	align-items: center;
 	grid-column-gap: 20px;
+	overflow-wrap: anywhere;
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
@@ -144,9 +145,6 @@
 			padding-right: 0;
 		}
 	}
-	&.ast-flex {
-		flex-wrap: nowrap;
-	}
 	.ast-builder-menu {
 		align-items: center;
 	}
@@ -185,8 +183,8 @@
 /* Account Component */
 .ast-header-account-type-icon {
 	display: inline-flex;
-    align-self: center;
-    vertical-align: middle;
+	align-self: center;
+	vertical-align: middle;
 }
 
 .ast-header-account-type-avatar {
@@ -220,6 +218,10 @@
 		}
 	}
 }
+.footer-widget-area[data-section^="section-fb-html-"] .ast-builder-html-element {
+	text-align: center;
+}
+
 /**
  * AST HF Builder - Logo related CSS.
  * Align center section's Site title & Tagline center align.
@@ -273,6 +275,14 @@
 		padding-left: 6px;
 	}
 }
+.ast-social-stack-desktop,
+.ast-social-stack-tablet,
+.ast-social-stack-mobile {
+	.ast-builder-social-element {
+		margin-top: 6px;
+		margin-bottom: 6px;
+	}
+}
 .ahfb-svg-iconset {
 	display: -webkit-inline-box;
 	display: inline-flex;
@@ -302,6 +312,10 @@
 		}
 	}
 }
+[data-section^="section-fb-social-icons-"] .footer-social-inner-wrap {
+	text-align: center;
+}
+
 /**
  * AST HF Builder - Widgets related CSS.
  * Button.
@@ -312,7 +326,12 @@
 		display: none;
 	}
 }
-.ast-footer-html-inner {
+
+[CLASS*="ast-footer-button-"][data-section^="section-fb-button-"] {
+	justify-content: center;
+}
+
+.ast-footer-copyright {
 	p {
 		margin-bottom: 0;
 	}
@@ -395,8 +414,6 @@
  * AST HF Builder - Responsive CSS.
  * For desktop view.
  */
-
-
 
 #ast-mobile-header {
 	display: none;
@@ -690,6 +707,12 @@ body.admin-bar {
 		padding: 10px 0;
 		height: auto;
 	}
+	>*:first-child {
+		padding-top: 10px;
+	}
+	>*:last-child {
+		padding-bottom: 0;
+	}
 }
 .ast-off-canvas-active body.ast-main-header-nav-open {
 	overflow: hidden;
@@ -728,10 +751,6 @@ body.admin-bar {
 			height: auto;
 		}
 	}
-	.ast-builder-grid-row-container-inner {
-		display: grid;
-		align-items: center;
-	}
 }
 .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open {
 	.ast-mobile-header-wrap {
@@ -766,7 +785,9 @@ body.admin-bar {
 		padding-right: 5.5em;
 	}
 }
-
+.site-footer-focus-item[CLASS*="ast-footer-button-"] {
+	display: flex;
+}
 
 @media screen and (max-width: 921px) {
 	.ast-mobile-popup-drawer {
@@ -774,6 +795,16 @@ body.admin-bar {
 			.menu-item-has-children {
 				>.ast-menu-toggle {
 					right: calc( 20px - 0.907em );
+				}
+			}
+		}
+	}
+	.ast-mobile-popup-drawer.content-align-flex-end,
+	.ast-mobile-header-content.content-align-flex-end {
+		.main-header-bar-navigation {
+			.menu-item-has-children {
+				>.ast-menu-toggle {
+					left: calc( 20px - 0.907em );
 				}
 			}
 		}
@@ -845,6 +876,8 @@ body.admin-bar {
 		width: 100%;
 		margin-bottom: 1em;
 		margin-top: 1em;
+		padding-left: 20px;
+		padding-right: 20px;
 		position: relative;
 		display: block;
 		right: auto;
@@ -870,6 +903,9 @@ body.admin-bar {
 		.search-field {
 			width: 100%;
   			padding-right: 5.5em;
+		}
+		&.ast-inline-search label {
+			width: 100%;
 		}
 	}
 	.ast-search-menu-icon .search-submit {
@@ -927,32 +963,6 @@ body.admin-bar {
 				padding: 0 0.5em;
 			}
 		}
-	}
-}
-
-/** Cart CSS */
-.ast-header-break-point {
-	&.ast-woocommerce-cart-menu.astra-hfb-header,
-	&.astra-hfb-header {
-		.ast-site-header-cart {
-			padding: 0;
-		}
-		.ast-cart-menu-wrap {
-			width: 2em;
-			height: 2em;
-			font-size: 1.4em;
-			line-height: 2;
-			vertical-align: middle;
-			text-align: right;
-		}
-	}
-	.ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-		width: 2em;
-		height: 2em;
-		font-size: 1.4em;
-		line-height: 2;
-		vertical-align: middle;
-		text-align: right;
 	}
 }
 

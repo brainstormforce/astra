@@ -32,7 +32,7 @@ function astra_fb_copyright_dynamic_css( $dynamic_css, $dynamic_css_filtered = '
 
 	$_section = 'section-footer-copyright';
 
-	$selector = '.ast-footer-copyright .ast-footer-html-inner';
+	$selector = '.ast-footer-copyright ';
 
 	$visibility_selector = '.ast-footer-copyright.ast-builder-layout-element';
 

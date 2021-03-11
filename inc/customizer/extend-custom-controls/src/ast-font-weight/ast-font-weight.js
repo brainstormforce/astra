@@ -14,7 +14,7 @@ const FontWeightComponent = props => {
 	} = props.control.params;
 
 	let value = props.control.setting.get(),
-		labelHtml = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>,
+		labelHtml = <span>{label ? label : __('Background', 'astra')}</span>,
 		descriptionHtml = description ?
 			<span className="description customize-control-description">{description}</span> : null,
 		selectHtml = null,
@@ -65,7 +65,7 @@ const FontWeightComponent = props => {
 	}
 
 	return <>
-		<label>
+		<label className="customize-control-title">
 			{labelHtml}
 			{descriptionHtml}
 		</label>

@@ -15,7 +15,7 @@ echo astra_attr(
 	'footer',
 	array(
 		'id'    => 'colophon',
-		'class' => 'ast-site-footer ' . join(
+		'class' => join(
 			' ',
 			astra_get_footer_classes()
 		),
@@ -26,7 +26,6 @@ echo astra_attr(
 	<?php
 		astra_footer_content_top();
 	?>
-	<div class="ast-main-footer-wrap">
 		<?php
 		/**
 		 * Astra Top footer
@@ -41,7 +40,6 @@ echo astra_attr(
 		 */
 		do_action( 'astra_below_footer' );
 		?>
-	</div>
 	<?php
 		astra_footer_content_bottom();
 	?>
