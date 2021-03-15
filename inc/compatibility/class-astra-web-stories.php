@@ -6,8 +6,7 @@
  *
  * @package Astra
  */
-
-use \Google\Web_Stories\Customizer;
+use Google\Web_Stories;
 
 // If plugin - '\Google\Web_Stories' not exist then return.
 if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
@@ -21,23 +20,6 @@ if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
 class Astra_Web_Stories {
 
 	/**
-	 * Member Variable
-	 *
-	 * @var object instance
-	 */
-	private static $instance;
-
-	/**
-	 * Initiator
-	 */
-	public static function get_instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
-	/**
 	 * Constructor
 	 */
 	public function __construct() {
@@ -49,9 +31,8 @@ class Astra_Web_Stories {
 	 * Add theme support for Web Stories.
 	 */
 	public function web_stories_setup() {
-		// Enable web stories customizer support.
 		add_theme_support( 'web-stories' );
-	} // end function web_stories_setup
+	}
 
 	/**
 	 * Custom render function for Web Stories Embedding.
@@ -59,7 +40,7 @@ class Astra_Web_Stories {
 	public function web_stories_embed() {
 		// Embed web stories above header with pre-configured customizer settings.
 		if ( function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
-			\Google\Web_Stories\render_theme_stories();
+			Web_Stories\render_theme_stories();
 
 			?>
 			<style type="text/css">
@@ -71,11 +52,8 @@ class Astra_Web_Stories {
 			</style>
 			<?php
 		}
-	} // end function web_stories_embed
+	}
 
 }
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Astra_Web_Stories::get_instance();
+new Astra_Web_Stories();
