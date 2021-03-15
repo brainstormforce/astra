@@ -9,7 +9,7 @@
 
 use Google\Web_Stories;
 
-// If plugin - '\Google\Web_Stories' not exist then return.
+// If plugin - 'Google\Web_Stories' not exist then return.
 if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
 	return;
 }
@@ -47,7 +47,7 @@ class Astra_Web_Stories {
 	 * @return void
 	 */
 	public function web_stories_embed() {
-		if ( ! function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
+		if ( ! function_exists( 'Google\Web_Stories\render_theme_stories' ) ) {
 			return;
 		}
 
