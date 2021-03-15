@@ -17,7 +17,7 @@ if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
 /**
  * Astra Web_Stories Compatibility
  *
- * @since 1.0.0
+ * @since x.x.x
  */
 class Astra_Web_Stories {
 
