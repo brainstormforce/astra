@@ -23,6 +23,8 @@ class Astra_Web_Stories {
 
 	/**
 	 * Constructor
+	 *
+	 * @return void
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'web_stories_setup' ) );
@@ -32,6 +34,8 @@ class Astra_Web_Stories {
 
 	/**
 	 * Add theme support for Web Stories.
+	 *
+	 * @return void
 	 */
 	public function web_stories_setup() {
 		add_theme_support( 'web-stories' );
@@ -39,6 +43,8 @@ class Astra_Web_Stories {
 
 	/**
 	 * Custom render function for Web Stories Embedding.
+	 *
+	 * @return void
 	 */
 	public function web_stories_embed() {
 		if ( ! function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
