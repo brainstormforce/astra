@@ -255,7 +255,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			);
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$_trans_config = array(
 					/**

@@ -30,7 +30,7 @@ final class Astra_Builder_Customizer {
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customizer_preview_scripts' ) );
 		add_action( 'customize_register', array( $this, 'woo_header_configs' ), 2 );
 
-		if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			return;
 		}
 
@@ -53,8 +53,8 @@ final class Astra_Builder_Customizer {
 	public function update_default_wp_configs( $wp_customize ) {
 
 		$wp_customize->get_control( 'custom_logo' )->priority     = 2;
-		$wp_customize->get_control( 'blogname' )->priority        = 7;
-		$wp_customize->get_control( 'blogdescription' )->priority = 11;
+		$wp_customize->get_control( 'blogname' )->priority        = 8;
+		$wp_customize->get_control( 'blogdescription' )->priority = 12;
 
 		$wp_customize->get_setting( 'custom_logo' )->transport     = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';

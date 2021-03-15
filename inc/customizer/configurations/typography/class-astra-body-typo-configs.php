@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-body]',
 					'type'        => 'control',
-					'control'     => 'ast-responsive',
+					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-body-typo',
 					'default'     => astra_get_option( 'font-size-body' ),
 					'priority'    => 10,

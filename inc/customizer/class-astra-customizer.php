@@ -303,7 +303,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static function set_default_context() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 
@@ -1220,7 +1220,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$string = $this->generate_font_dropdown();
 
-			$tmpl = '<div class="ast-field-settings-modal">
+			$template = '<div class="ast-field-settings-modal">
 					<ul class="ast-fields-wrap">
 					</ul>
 			</div>';
@@ -1253,7 +1253,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $tmpl,
+							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
@@ -1322,13 +1322,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
+			$js_prefix = '.min.js';
+			$dir       = 'minified';
 			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
+				$js_prefix = '.js';
+				$dir       = 'unminified';
 			}
 
 			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
@@ -1340,6 +1338,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
 				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
+				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_button_patterns_compat(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

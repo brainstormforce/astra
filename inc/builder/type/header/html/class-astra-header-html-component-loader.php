@@ -41,7 +41,7 @@ class Astra_Header_Html_Component_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-heading-html-customizer-preview-js', ASTRA_HEADER_HTML_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'ahfb-base-customizer-preview' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'astra-heading-html-customizer-preview-js', ASTRA_HEADER_HTML_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'ahfb-base-customizer-preview' ), ASTRA_THEME_VERSION, true );
 
 		// Localize variables for HTML JS.
 		wp_localize_script(

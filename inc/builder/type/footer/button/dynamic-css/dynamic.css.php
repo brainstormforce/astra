@@ -33,7 +33,6 @@ function astra_fb_button_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 			continue;
 		}
 
-		$_section = 'section-fb-button-' . $index;
 		$selector = '.ast-footer-button-' . $index . '[data-section="section-fb-button-' . $index . '"]';
 
 		$alignment = astra_get_option( 'footer-button-' . $index . '-alignment' );

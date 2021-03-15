@@ -30,8 +30,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 	ready : function() {
 		'use strict';
 
-		var control = this,
-		value   = control.setting._value;
+		var control = this;
 
 		control.registerToggleEvents();
 		this.container.on( 'ast_settings_changed', control.onOptionChange );

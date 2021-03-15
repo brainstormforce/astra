@@ -43,8 +43,8 @@ class Astra_Button_Component_Dynamic_CSS {
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
 			$context  = ( 'header' === $builder_type ) ? 'hb' : 'fb';
-			$margin   = astra_get_option( $_section . '-margin' );
-			$_prefix  = 'button' . $index;
+
+			$_prefix = 'button' . $index;
 
 			$selector             = '.ast-' . $builder_type . '-button-' . $index;
 			$button_font_size     = astra_get_option( $builder_type . '-' . $_prefix . '-font-size' );

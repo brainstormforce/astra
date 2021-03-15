@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function __construct() {
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$this->remove_existing_actions();
 
@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				Astra_Builder_Helper::render_mobile_popup_markup();
 			}
 		}
-		
+
 		/**
 		 *  Call Mobile Menu Markup.
 		 */

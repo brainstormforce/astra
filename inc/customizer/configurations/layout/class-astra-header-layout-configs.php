@@ -30,13 +30,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$header_rt_sections = array(
-				'none'      => __( 'None', 'astra' ),
-				'search'    => __( 'Search', 'astra' ),
-				'text-html' => __( 'Text / HTML', 'astra' ),
-				'widget'    => __( 'Widget', 'astra' ),
-			);
-
 			$_configs = array(
 
 				/**
@@ -604,7 +597,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'context'   => array(
 						'relation' => 'AND',
-						Astra_Builder_Helper::$is_header_footer_builder_active ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab,
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab,
 						array(
 							'relation' => 'OR',
 							array(

@@ -19,14 +19,14 @@ const ItemComponent = props => {
 		let forceRemoveSection = choices[props.item];
 		delete choices[props.item];
 
-		const component_track = wp.customize('astra-settings[cloned-component-track]').get();
+		const componentTrack = wp.customize('astra-settings[cloned-component-track]').get();
 
-		let removing_index= parseInt( forceRemoveSection.section.match(/\d+$/)[0] );
-		let existing_component_count = component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ];
-		let finalArray = component_track['removed-items'];
+		let removingIndex= parseInt( forceRemoveSection.section.match(/\d+$/)[0] );
+		let existingComponentCount = componentTrack[ forceRemoveSection.builder + '-' + forceRemoveSection.type ];
+		let finalArray = componentTrack['removed-items'];
 
 		// In removing last element.
-		if( removing_index != parseInt( AstraBuilderCustomizerData.component_limit ) ) {
+		if( removingIndex != parseInt( AstraBuilderCustomizerData.component_limit ) ) {
 			finalArray.push(forceRemoveSection.section);
 		}
 
@@ -35,16 +35,16 @@ const ItemComponent = props => {
 		});
 
 		// If removing last item.
-		if( existing_component_count == removing_index  ) {
+		if( existingComponentCount == removingIndex  ) {
 			while (true) {
-				existing_component_count = existing_component_count - 1;
-				component_track[ forceRemoveSection.builder + '-' + forceRemoveSection.type ] = existing_component_count;
+				existingComponentCount = existingComponentCount - 1;
+				componentTrack[ forceRemoveSection.builder + '-' + forceRemoveSection.type ] = existingComponentCount;
 
-				var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, existing_component_count) );
+				var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, existingComponentCount) ); // Replace random numeric with valid builder component count.
 				if (index !== -1) {
 					finalArray.splice(index, 1);
 				} else {
-					var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, removing_index) );
+					var index = finalArray.indexOf( forceRemoveSection.section.replace(/[0-9]+/g, removingIndex) ); // Replace random numeric with removing component index.
 					if (index !== -1) {
 						finalArray.splice(index, 1);
 					}
@@ -53,9 +53,9 @@ const ItemComponent = props => {
 			}
 		}
 
-		wp.customize('astra-settings[cloned-component-track]').set( { ...component_track,
+		wp.customize('astra-settings[cloned-component-track]').set( { ...componentTrack,
 				'removed-items': finalArray,
-				flag: ! component_track.flag
+				flag: ! componentTrack.flag
 			} );
 
 	}

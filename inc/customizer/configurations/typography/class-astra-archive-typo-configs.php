@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 135,
 					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+					'context'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 				);
 			}
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'  => 'section-blog',
 						'priority' => 140,
 						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 				);

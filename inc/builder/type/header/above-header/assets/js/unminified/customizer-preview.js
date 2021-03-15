@@ -54,13 +54,13 @@
 	astra_css(
 		'astra-settings[hba-header-bottom-border-color]',
 		'border-color',
-		'.ast-above-header.ast-above-header-bar, .ast-above-header-bar',
+		'.ast-above-header.ast-above-header-bar, .ast-above-header-bar'
 	);
 
 	astra_css(
 		'astra-settings[hba-header-bottom-border-color]',
 		'border-color',
-		'.ast-above-header-bar',
+		'.ast-above-header-bar'
 	);
 
 	var dynamicStyle = '.ast-above-header-bar {';

@@ -31,7 +31,7 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 			)
 		);
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 			/**
 			 * Register the Secondary & Mobile menus.

@@ -48,8 +48,6 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$tablet_background  = isset( $hbb_header_bg_obj['tablet']['background-color'] ) ? $hbb_header_bg_obj['tablet']['background-color'] : '';
 	$mobile_background  = isset( $hbb_header_bg_obj['mobile']['background-color'] ) ? $hbb_header_bg_obj['mobile']['background-color'] : '';
 
-	// Spacing CSS options.
-	$hbb_header_spacing = astra_get_option( 'hbb-header-spacing' );
 
 	/**
 	 * Below Header General options
@@ -111,7 +109,6 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 
 	$_section = 'section-below-header-builder';
 
-	$selector = '.site-below-header-wrap[data-section="ast_header_below"]';
 
 	$parent_selector = '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header';
 

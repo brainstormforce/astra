@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				);
 			}
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				array_push(
 					$_configs,

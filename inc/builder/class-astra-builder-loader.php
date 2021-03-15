@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			 */
 			require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-header.php';
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				require_once ASTRA_THEME_DIR . 'inc/builder/markup/class-astra-builder-footer.php';
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 
 			/**DONE */
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				add_filter( 'astra_existing_header_footer_configs', '__return_false' );
 				add_filter( 'astra_addon_existing_header_footer_configs', '__return_false' );
 			}
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function quick_settings( $quick_settings ) {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return $quick_settings;
 			}
 
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 		 */
 		public function load_markup() {
 
-			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( ! defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) || false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 

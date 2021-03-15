@@ -123,7 +123,7 @@ switch ( $component_slug ) {
 		break;
 	case 'widget-1':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-1" aria-label="Header Widget 1">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
@@ -137,7 +137,7 @@ switch ( $component_slug ) {
 		break;
 	case 'widget-2':
 		?>
-		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2">
+		<aside class="header-widget-area widget-area site-header-focus-item" data-section="sidebar-widgets-header-widget-2" aria-label="Header Widget 2">
 			<?php
 			if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();

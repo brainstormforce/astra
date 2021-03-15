@@ -335,7 +335,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			// When Learhdash shortoce is used on the Page.
 			// Applied only to the pages which uses the learndash shortcode.
 			global $learndash_shortcode_used;
-			$post_type = get_post_type();
+
 			if ( $learndash_shortcode_used && ! ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) ) {
 				// Page Meta Sidebar.
 				$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );

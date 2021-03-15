@@ -649,7 +649,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				foreach ( $bg as $key => $value ) {
 					if ( 'background-image' === $key ) {
 						$out_bg_obj[ $device ] [ $key ] = esc_url_raw( $value );
-					} if ( 'background-media' === $key ) {
+					}
+					if ( 'background-media' === $key ) {
 						$out_bg_obj[ $device ] [ $key ] = floatval( $value );
 					} else {
 						$out_bg_obj[ $device ] [ $key ] = esc_attr( $value );

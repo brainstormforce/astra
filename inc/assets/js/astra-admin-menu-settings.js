@@ -39,7 +39,7 @@
 			e.stopPropagation();
 			e.preventDefault();
 
-			$this = $( this );
+			var $this = $( this );
 
 			if ( $this.hasClass( 'updating-message' ) ) {
 				return;
