@@ -13,75 +13,67 @@ use \Google\Web_Stories\Customizer;
 if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
 	return;
 }
-
 /**
  * Astra Web_Stories Compatibility
+ *
+ * @since 1.0.0
  */
-if ( ! class_exists( 'Astra_Web_Stories' ) ) :
+class Astra_Web_Stories {
 
 	/**
-	 * Astra Web_Stories Compatibility
+	 * Member Variable
 	 *
-	 * @since 1.0.0
+	 * @var object instance
 	 */
-	class Astra_Web_Stories {
+	private static $instance;
 
-		/**
-		 * Member Variable
-		 *
-		 * @var object instance
-		 */
-		private static $instance;
-
-		/**
-		 * Initiator
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
+	/**
+	 * Initiator
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
 		}
-
-		/**
-		 * Constructor
-		 */
-		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'web_stories_setup' ) );
-			add_action( 'wp_body_open', array( $this, 'web_stories_embed' ) );
-		}
-
-		/**
-		 * Add theme support for Web Stories.
-		 */
-		public function web_stories_setup() {
-			// Enable web stories customizer support.
-			add_theme_support( 'web-stories' );
-		} // end function web_stories_setup
-
-		/**
-		 * Custom render function for Web Stories Embedding.
-		 */
-		public function web_stories_embed() {
-			// Embed web stories above header with pre-configured customizer settings.
-			if ( function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
-				\Google\Web_Stories\render_theme_stories();
-
-				?>
-				<style type="text/css">
-				.web-stories-list.web-stories-list--customizer.is-view-type-circles {
-					border-bottom: 1px solid #ccc;
-					padding: 15px 0;
-					margin-bottom: 0;
-				}
-				</style>
-				<?php
-			}
-		} // end function web_stories_embed
-
+		return self::$instance;
 	}
 
-endif;
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		add_action( 'after_setup_theme', array( $this, 'web_stories_setup' ) );
+		add_action( 'wp_body_open', array( $this, 'web_stories_embed' ) );
+	}
+
+	/**
+	 * Add theme support for Web Stories.
+	 */
+	public function web_stories_setup() {
+		// Enable web stories customizer support.
+		add_theme_support( 'web-stories' );
+	} // end function web_stories_setup
+
+	/**
+	 * Custom render function for Web Stories Embedding.
+	 */
+	public function web_stories_embed() {
+		// Embed web stories above header with pre-configured customizer settings.
+		if ( function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
+			\Google\Web_Stories\render_theme_stories();
+
+			?>
+			<style type="text/css">
+			.web-stories-list.web-stories-list--customizer.is-view-type-circles {
+				border-bottom: 1px solid #ccc;
+				padding: 15px 0;
+				margin-bottom: 0;
+			}
+			</style>
+			<?php
+		}
+	} // end function web_stories_embed
+
+}
 
 /**
  * Kicking this off by calling 'get_instance()' method
