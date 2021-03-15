@@ -55,8 +55,8 @@ if ( ! class_exists( 'Astra_Web_Stories' ) ) :
 		 * Add theme support for Web Stories.
 		 */
 		public function web_stories_setup() {
-            // Enable web stories customizer support.
-            add_theme_support( 'web-stories' );
+			// Enable web stories customizer support.
+			add_theme_support( 'web-stories' );
 		} // end function web_stories_setup
 
 		/**
@@ -64,8 +64,8 @@ if ( ! class_exists( 'Astra_Web_Stories' ) ) :
 		 */
 		public function web_stories_embed() {
 			// Embed web stories above header with pre-configured customizer settings.
-            if ( function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
-                \Google\Web_Stories\render_theme_stories();
+			if ( function_exists( '\Google\Web_Stories\render_theme_stories' ) ) {
+				\Google\Web_Stories\render_theme_stories();
 
 				?>
 				<style type="text/css">
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Web_Stories' ) ) :
 				}
 				</style>
 				<?php
-            }
+			}
 		} // end function web_stories_embed
 
 	}
