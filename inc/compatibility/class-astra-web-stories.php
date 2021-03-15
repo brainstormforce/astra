@@ -24,6 +24,7 @@ class Astra_Web_Stories {
 	/**
 	 * Constructor
 	 *
+	 * @since since x.x.x
 	 * @return void
 	 */
 	public function __construct() {
@@ -35,6 +36,7 @@ class Astra_Web_Stories {
 	/**
 	 * Add theme support for Web Stories.
 	 *
+	 * @since since x.x.x
 	 * @return void
 	 */
 	public function web_stories_setup() {
@@ -44,6 +46,7 @@ class Astra_Web_Stories {
 	/**
 	 * Custom render function for Web Stories Embedding.
 	 *
+	 * @since since x.x.x
 	 * @return void
 	 */
 	public function web_stories_embed() {
@@ -57,6 +60,8 @@ class Astra_Web_Stories {
 
 	/**
 	 * Add dynamic CSS for the webstories.
+	 *
+	 * @since since x.x.x
 	 *
 	 * @param  string $dynamic_css          Astra Dynamic CSS.
 	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
