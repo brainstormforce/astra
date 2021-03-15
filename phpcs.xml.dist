@@ -18,6 +18,14 @@
 		</properties>
 	</rule>
 
+	<rule ref="PHPCompatibility.Keywords.NewKeywords.t_useFound">
+		<exclude-pattern>inc/compatibility/class-astra-web-stories.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.LanguageConstructs.NewLanguageConstructs">
+		<exclude-pattern>inc/compatibility/class-astra-web-stories.php</exclude-pattern>
+	</rule>
+
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
 	<file>.</file>
