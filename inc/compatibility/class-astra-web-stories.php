@@ -12,6 +12,7 @@ use Google\Web_Stories;
 if ( ! class_exists( 'Google\Web_Stories\Customizer' ) ) {
 	return;
 }
+
 /**
  * Astra Web_Stories Compatibility
  *
