@@ -25,7 +25,7 @@ class Astra_Web_Stories {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'web_stories_setup' ) );
-		add_action( 'wp_body_open', array( $this, 'web_stories_embed' ) );
+		add_action( 'astra_body_top', array( $this, 'web_stories_embed' ) );
 	}
 
 	/**
