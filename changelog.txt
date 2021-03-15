@@ -1,5 +1,6 @@
-v3.2.0
+v3.2.0 (unreleased)
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
 - Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
 - Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
 - Improvement: Gutenberg Editor - Block patterns compatibility.
