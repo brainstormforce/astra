@@ -133,6 +133,35 @@ final class Astra_Builder_Helper {
 	);
 
 	/**
+	 * Default responsive spacing control value.
+	 *
+	 * @var string[][]
+	 */
+	public static $default_responsive_spacing = array(
+		'desktop'      => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'tablet'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'mobile'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	/**
 	 * Config Tablet device context.
 	 *
 	 * @var string[][]
