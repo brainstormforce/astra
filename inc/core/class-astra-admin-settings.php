@@ -398,21 +398,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @return void
 		 */
 		public static function register_scripts( $hook ) {
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
-
-			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
-				if ( SCRIPT_DEBUG ) {
-					$css_prefix = '-rtl.css';
-				}
-			}
 
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
@@ -562,7 +547,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$current_slug = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : self::$current_slug; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
 
 			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
@@ -615,11 +599,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Template', 'astra' ) ) ); ?></span>
 				</h2>
-				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
+				<img class="ast-starter-sites-img" alt="Starter Templates" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
@@ -682,7 +666,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-book"></span>
 					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
 				</h2>
@@ -720,7 +704,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-groups"></span>
 					<span>
 						<?php
@@ -771,7 +755,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle ast-normal-cursor">
 					<span class="dashicons dashicons-sos"></span>
 					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
 				</h2>
@@ -1104,7 +1088,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
+				<h2 class="hndle ast-normal-cursor"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -1123,7 +1107,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			</div>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+				<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					<?php do_action( 'astra_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
@@ -1262,7 +1246,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				?>
 
 				<div class="postbox">
-					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
 					</h2>
 						<div class="ast-addon-list-section">
 							<?php
@@ -1493,19 +1477,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function top_header_right_section() {
-
-			$allowed_html = array(
-				'svg'  => array(
-					'width'   => array(),
-					'height'  => array(),
-					'xmlns'   => array(),
-					'viewBox' => array(),
-				),
-				'path' => array(
-					'fill' => array(),
-					'd'    => array(),
-				),
-			);
 
 			$top_links = apply_filters(
 				'astra_header_top_links',

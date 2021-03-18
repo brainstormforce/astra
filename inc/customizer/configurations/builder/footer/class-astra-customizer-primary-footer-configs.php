@@ -68,7 +68,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-column]',
 					'default'   => astra_get_option( 'hb-footer-column' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'section'   => $_section,
 					'priority'  => 2,
 					'title'     => __( 'Column', 'astra' ),
@@ -99,20 +99,8 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'footer'     => 'primary',
 						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'transport'   => 'postMessage',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 3,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 
 				/**
@@ -134,20 +122,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'  => 'postMessage',
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-layout-width-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 25,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
 
 				/**
 				 * Option: Vertical Alignment
@@ -191,17 +168,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'primary_footer' ),
 					),
 					'renderAs'  => 'text',
-				),
-
-				// Section: Primary Footer Layout Divider.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-stack-divider]',
-					'section'  => $_section,
-					'priority' => 5,
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Footer Separator.
@@ -242,19 +209,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-footer-main-sep-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 5,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Sub Option: Footer Background.
@@ -271,6 +226,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'    => astra_get_option( 'hb-footer-bg-obj-responsive' ),
 					'title'      => __( 'Background', 'astra' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -295,18 +251,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-inner-spacing-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 205,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );

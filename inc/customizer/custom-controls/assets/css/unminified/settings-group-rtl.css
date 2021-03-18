@@ -305,3 +305,7 @@
 .customize-control-ast-settings-group .customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
   margin-top: 0;
 }
+
+.ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
+    top: 23px;
+}

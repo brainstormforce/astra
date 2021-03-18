@@ -43,7 +43,8 @@ class Astra_Button_Component_Configs {
 			$component_limit  = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_button;
 		}
 
-		$html_config = array();
+		$button_config = array();
+
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 			$_section = $section . $index;
@@ -53,7 +54,7 @@ class Astra_Button_Component_Configs {
 			 * These options are related to Header Section - Button.
 			 * Prefix hs represents - Header Section.
 			 */
-			$_configs = array(
+			$button_config[] = array(
 
 				/*
 					* Header Builder section - Button Component Configs.
@@ -122,6 +123,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -150,19 +152,7 @@ class Astra_Button_Component_Configs {
 					'priority'   => 70,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-color-group-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 70,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -330,24 +320,12 @@ class Astra_Button_Component_Configs {
 						'step' => 1,
 						'max'  => 100,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 
 			if ( 'footer' === $builder_type ) {
-
-				$footer_specific_configs = array(
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-alignment-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 35,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$general_tab,
-					),
+				$button_config[] = array(
 
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[footer-button-' . $index . '-alignment]',
@@ -364,28 +342,13 @@ class Astra_Button_Component_Configs {
 							'center'     => 'align-center',
 							'flex-end'   => 'align-right',
 						),
+						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					),
 				);
-
-				$_configs = array_merge( $_configs, $footer_specific_configs );
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
-
-				$new_configs = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 90,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$design_tab,
-					),
+				$button_config[] = array(
 
 					/**
 					 * Option: Primary Header Button Typography
@@ -425,23 +388,9 @@ class Astra_Button_Component_Configs {
 						),
 					),
 				);
-
 			} else {
+				$button_config[] = array(
 
-				$new_configs = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-link-option-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 90,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$design_tab,
-					),
 					/**
 					 * Option: Primary Header Button Font Size
 					 */
@@ -466,18 +415,15 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
-			$_configs = array_merge( $_configs, $new_configs );
+			$button_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
+			$button_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
 
-			$html_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );
-
-			$html_config[] = $_configs;
 		}
 
-		$html_config = call_user_func_array( 'array_merge', $html_config + array( array() ) );
+		$button_config = call_user_func_array( 'array_merge', $button_config + array( array() ) );
 
-		$configurations = array_merge( $configurations, $html_config );
+		$configurations = array_merge( $configurations, $button_config );
 
 		return $configurations;
 	}

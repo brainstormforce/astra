@@ -410,14 +410,14 @@ p.demo_store a,
 }
 
 .ast-woocommerce-cart-menu {
-  /** 
+  /**
 	 * Header layout 1
 	 * if no primary menu & no last items in menu
 	 */
-  /** 
+  /**
 	 * Header layout 3
 	 */
-  /** 
+  /**
 	 * Header layout 2
 	 */
 }
@@ -1785,6 +1785,10 @@ p.demo_store a,
 
 .woocommerce #reviews #review_form input {
   max-width: 100%;
+}
+
+.woocommerce #reviews #review_form .comment-form-cookies-consent {
+  display: inline-block;
 }
 
 .woocommerce .star-rating {

@@ -34,7 +34,6 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			continue;
 		}
 
-		$_section = 'section-fb-html-' . $index;
 		$selector = '.footer-widget-area[data-section="section-fb-html-' . $index . '"]';
 
 		$alignment = astra_get_option( 'footer-html-' . $index . '-alignment' );

@@ -1,5 +1,20 @@
-v3.1.3
-- Fix: Transparent Header: Submenu background alpha not working for the old header. 
+v3.2.0 (unreleased)
+- New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
+- Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
+- Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
+- Improvement: Gutenberg Editor - Block patterns compatibility.
+- Improvement: Compatibility with WordPress 5.7.
+- Improvement: Code quality improvements for better performance.
+- Improvement: Load minified customizer preview files for better performance.
+- Fix: Transparent Header: Submenu background alpha not working for the old header.
+- Fix: White Label – White-labeled the Astra Header Footer setting notice.
+- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
+- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
+- Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+- Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
+- Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
+- Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
 
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
@@ -27,7 +42,7 @@ v3.1.0
 - Improvement: Builder - Social Icons - Added a color option for labels of social icons.
 - Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
 - Improvement: Added new Page meta options for Above, Below and Mobile header.
-- Fix: Footer vertical alignment option not not working.
+- Fix: Footer vertical alignment option not working.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.

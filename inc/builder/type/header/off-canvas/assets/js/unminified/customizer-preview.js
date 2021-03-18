@@ -13,7 +13,7 @@
 	astra_css(
 		'astra-settings[off-canvas-close-color]',
 		'color',
-		'.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
+		'.ast-mobile-popup-drawer.active .ast-mobile-popup-inner'
 	);
 
 	// Off-Canvas Background Color.

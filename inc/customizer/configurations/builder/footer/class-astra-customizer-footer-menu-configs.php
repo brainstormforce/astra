@@ -73,20 +73,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'linked'    => 'menu_locations',
 					'link_text' => __( 'Configure Menu from Here.', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
+
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 15,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
 
 				// Option: Footer Menu Layout.
 				array(
@@ -110,19 +99,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => true,
 					'renderAs'   => 'text',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-alignment-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 20,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -167,6 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'  => 'postMessage',
 					'priority'   => 90,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				// Option: Menu Color.
 				array(
@@ -264,32 +242,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 33,
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-menu-header-typography-styling-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 110,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 200,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
 				// Option - Menu Space.
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
@@ -310,20 +262,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-menu-spacing-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 210,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 
 				/**
 				 * Option: Margin Space
@@ -365,6 +306,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'   => Astra_Builder_Helper::$design_tab,
 						'transport' => 'postMessage',
 						'priority'  => 120,
+						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Font Size.

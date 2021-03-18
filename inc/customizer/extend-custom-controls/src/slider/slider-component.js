@@ -64,7 +64,7 @@ const SliderComponent = props => {
 		savedValue = ( props_value ) ? parseInt( props_value ) : '';
 	}
 
-	return <div>
+	return <div className="ast-slider-wrap">
 		{labelHtml}
 		{descriptionHtml}
 		{ renderOperationButtons() }

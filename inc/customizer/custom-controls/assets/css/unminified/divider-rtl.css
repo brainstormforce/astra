@@ -37,3 +37,49 @@
   margin: 0;
   text-transform: uppercase;
 }
+
+/*
+ * CSS for ast-divider attribute started.
+ */
+.ast-bottom-divider {
+    border-bottom: 1px solid #ddd;
+	padding-bottom: 25px;
+}
+
+.ast-top-divider {
+    border-top: 1px solid #ddd;
+	padding-top: 25px;
+}
+
+.ast-top-divider > label.ast-divider-title {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
+    top: 25px;
+}
+
+.ast-top-divider .ast-control-wrap .ast-responsive-btns {
+    top: 28px;
+}
+
+.ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
+    top: 55px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+    top: 100px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-control-wrap .color-button-wrap {
+    top: 20.5px;
+}
+
+.ast-top-divider.customize-control-ast-select .ast-divider-title {
+    margin-bottom: 25px;
+}

@@ -193,17 +193,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 			),
 
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-login-style-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 3,
-				'settings' => array(),
-			),
 
 			/**
 			* Option: Account Log In Link
@@ -219,6 +208,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 6,
 				'transport'         => 'postMessage',
 				'context'           => $login_link_context,
+				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				'partial'           => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
@@ -263,25 +253,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'renderAs'   => 'text',
 			),
 
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logout-preview-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 206,
-				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-					Astra_Builder_Helper::$general_tab_config,
-				),
-			),
 
 			// Option: Logged out options preview.
 			array(
@@ -334,26 +305,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-logged-out-text-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 203,
-				'settings' => array(),
-				'context'  => array(
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-						'operator' => '==',
-						'value'    => 'text',
-					),
-					Astra_Builder_Helper::$general_tab_config,
-				),
-			),
-
-			/**
 			* Option: Account Log Out Link
 			*/
 			array(
@@ -366,6 +317,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'             => __( 'Login URL', 'astra' ),
 				'priority'          => 205,
 				'transport'         => 'postMessage',
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -407,33 +359,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-before-icon-size-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 4,
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'icon',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'icon',
-						),
-					),
-				),
-			),
-
-			/**
 			 * Option: account Size
 			 */
 			array(
@@ -446,6 +371,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
@@ -453,33 +379,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'max'  => 50,
 				),
 				'context'           => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'OR',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '==',
-							'value'    => 'icon',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'icon',
-						),
-					),
-				),
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-icon-color-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 5,
-				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',
@@ -528,32 +427,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 			),
 
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-type-text-color-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 16,
-				'context'  => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'relation' => 'AND',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
-							'operator' => '!=',
-							'value'    => 'text',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
-							'operator' => '==',
-							'value'    => 'text',
-						),
-					),
-				),
-			),
 
 			/**
 			* Option: account Color.
@@ -584,18 +457,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-margin-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 500,
-				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**

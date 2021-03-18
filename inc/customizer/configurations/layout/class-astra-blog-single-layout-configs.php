@@ -78,27 +78,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-max-width-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 5,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-width]',
-							'operator' => '===',
-							'value'    => 'custom',
-						),
-					),
-				),
 
 				/**
 				 * Option: Display Post Structure
@@ -121,54 +103,42 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 			);
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				array_push(
-					$_configs,
-					/**
-					 * Option: Single Post Meta
-					 */
-					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[blog-single-meta]',
-						'type'              => 'control',
-						'control'           => 'ast-sortable',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-						'default'           => astra_get_option( 'blog-single-meta' ),
-						'context'           => array(
-							Astra_Builder_Helper::$general_tab_config,
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-								'operator' => 'contains',
-								'value'    => 'single-title-meta',
-							),
+				$_configs[] = array(
+					'name'              => ASTRA_THEME_SETTINGS . '[blog-single-meta]',
+					'type'              => 'control',
+					'control'           => 'ast-sortable',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'default'           => astra_get_option( 'blog-single-meta' ),
+					'context'           => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+							'operator' => 'contains',
+							'value'    => 'single-title-meta',
 						),
-						'section'           => 'section-blog-single',
-						'priority'          => 5,
-						'title'             => __( 'Meta', 'astra' ),
-						'choices'           => array(
-							'comments' => __( 'Comments', 'astra' ),
-							'category' => __( 'Category', 'astra' ),
-							'author'   => __( 'Author', 'astra' ),
-							'date'     => __( 'Publish Date', 'astra' ),
-							'tag'      => __( 'Tag', 'astra' ),
-						),
-					)
+					),
+					'section'           => 'section-blog-single',
+					'priority'          => 5,
+					'title'             => __( 'Meta', 'astra' ),
+					'choices'           => array(
+						'comments' => __( 'Comments', 'astra' ),
+						'category' => __( 'Category', 'astra' ),
+						'author'   => __( 'Author', 'astra' ),
+						'date'     => __( 'Publish Date', 'astra' ),
+						'tag'      => __( 'Tag', 'astra' ),
+					),
 				);
 			}
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
-				array_push(
-					$_configs,
-					/**
-					 * Option: Blog / Archive Tabs.
-					 */
-					array(
-						'name'        => 'section-blog-single-ast-context-tabs',
-						'section'     => 'section-blog-single',
-						'type'        => 'control',
-						'control'     => 'ast-builder-header-control',
-						'priority'    => 0,
-						'description' => '',
-					)
+				$_configs[] = array(
+					'name'        => 'section-blog-single-ast-context-tabs',
+					'section'     => 'section-blog-single',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
 				);
 
 			}

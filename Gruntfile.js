@@ -244,7 +244,157 @@ module.exports = function (grunt) {
                             'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
-                    }
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/above-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/below-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/copyright/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/copyright/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/primary-footer/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/primary-footer/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/footer/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/above-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/above-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/account/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/account/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/below-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/below-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/button/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/button/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/edd-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/edd-cart/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/html/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/html/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-menu/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-menu/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/mobile-trigger/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/mobile-trigger/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/off-canvas/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/off-canvas/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/primary-header/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/primary-header/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/search/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/search/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/site-identity/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/site-identity/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/social-icon/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/social-icon/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/widget/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/widget/assets/js/minified/customizer-preview.min.js',
+                    },
+                    {
+                        src: [
+                            'inc/builder/type/header/woo-cart/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },

@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 			$site_tagline = astra_get_option( 'display-site-tagline' );
 
-			if ( true == $site_tagline ) {
+			if ( true === $site_tagline ) {
 				return get_bloginfo( 'description', 'display' );
 			}
 		}
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Customizer_Partials' ) ) {
 
 			$site_title = astra_get_option( 'display-site-title' );
 
-			if ( true == $site_title ) {
+			if ( true === $site_title ) {
 				return get_bloginfo( 'name', 'display' );
 			}
 		}

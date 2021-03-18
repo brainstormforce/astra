@@ -120,6 +120,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 5,
 					'title'             => __( 'Bottom Border Color', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
@@ -128,19 +129,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hb-header-colors-and-background-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 6,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 				// Sub Option: Header Background.

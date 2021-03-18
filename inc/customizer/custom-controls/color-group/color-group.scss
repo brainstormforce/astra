@@ -95,4 +95,27 @@
 		right: 145px;
 	}
 }
-
+.ast-top-divider.customize-control-ast-color-group {
+	.ast-control-wrap {
+		.ast-responsive-btns {
+			top: 33px;
+		}
+		.ast-color-btn-reset-wrap {
+			top: 30px;
+		}
+	}
+	.ast-divider-title + .ast-control-wrap {
+		.ast-responsive-btns {
+			top: 78px;
+		}
+		.ast-color-btn-reset-wrap {
+			top: 75px;
+		}
+	}
+}
+.customize-control-ast-color-group {
+	.ast-control-wrap {
+		display: inline-flex;
+		width: 100%;
+	}
+}

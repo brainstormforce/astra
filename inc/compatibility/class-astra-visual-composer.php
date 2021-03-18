@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
 		 */
 		public function vc_update_meta_setting( $id ) {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false === astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 

@@ -4,64 +4,68 @@
  * here. Your javascript should grab settings from customizer controls, and
  * then make any necessary changes to the page using jQuery.
  *
- * @package Astra Builder
+ * @package Astra
  * @since 3.0.0
  */
 
 ( function( $ ) {
 
-    let selector = '.ast-footer-copyright';
-    let visibility_selector = '.ast-footer-copyright.ast-builder-layout-element';
+	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
-    var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-        mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+	var selector = '.ast-header-search';
+    var section = 'section-header-search';
 
-    // HTML color.
-    astra_css(
-        'astra-settings[footer-copyright-color]',
-        'color',
-        selector
-    );
+	// Icon Color.
+	astra_color_responsive_css(
+		'header-search-icon-color',
+		'astra-settings[header-search-icon-color]',
+		'color',
+		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 
+	);
 
-    // Typography CSS Generation.
-    astra_responsive_font_size(
-        'astra-settings[font-size-section-footer-copyright]',
-        selector
-    );
+	// Icon Size.
+	astra_css(
+		'astra-settings[header-search-icon-space]',
+		'font-size',
+		selector + ' .astra-search-icon',
+		'px'
+	);
 
-    wp.customize( 'astra-settings[footer-copyright-alignment]', function( value ) {
-        value.bind( function( alignment ) {
-            if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
-                var dynamicStyle = '';
-                dynamicStyle += '.ast-footer-copyright {';
-                dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
-                dynamicStyle += '} ';
+	// Icon Size.
+	wp.customize( 'astra-settings[header-search-icon-space]', function( value ) {
+		value.bind( function( size ) {
+			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+				var dynamicStyle = '';
+				dynamicStyle += selector + ' .astra-search-icon {';
+				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
+				dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-                dynamicStyle += '.ast-footer-copyright {';
-                dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
-                dynamicStyle += '} ';
-                dynamicStyle += '} ';
+				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += selector + ' .astra-search-icon {';
+				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
 
-                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-                dynamicStyle += '.ast-footer-copyright {';
-                dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
-                dynamicStyle += '} ';
-                dynamicStyle += '} ';
+				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += selector + ' .astra-search-icon {';
+				dynamicStyle += 'font-size: ' + size.mobile + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'header-search-icon-space', dynamicStyle );
+			}
+		} );
+	} );
 
-                astra_add_dynamic_css( 'footer-copyright-alignment', dynamicStyle );
-            }
-        } );
-    } );
-
-    // Margin.
-    wp.customize( 'astra-settings[section-footer-copyright-margin]', function( value ) {
+	// Margin.
+    wp.customize( 'astra-settings[section-header-search-margin]', function( value ) {
         value.bind( function( margin ) {
             if(
                 margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
                 margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
                 margin.mobile.bottom != '' || margin.mobile.top != '' || margin.mobile.left != '' || margin.mobile.right != ''
             ) {
+				var selector = '.astra-hfb-header .site-header-section > .ast-header-search, .astra-hfb-header .ast-header-search';
                 var dynamicStyle = '';
                 dynamicStyle += selector + ' {';
                 dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
@@ -87,12 +91,12 @@
                 dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
-                astra_add_dynamic_css( 'footer-copyright-margin', dynamicStyle );
+                astra_add_dynamic_css( 'header-search-margin', dynamicStyle );
             }
         } );
     } );
 
-    // Advanced Visibility CSS Generation.
-    astra_builder_visibility_css( 'section-footer-copyright', visibility_selector );
+	// Advanced Visibility CSS Generation.
+	astra_builder_visibility_css( section, selector );
 
 } )( jQuery );

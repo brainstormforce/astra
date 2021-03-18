@@ -54,18 +54,44 @@ final class Astra_Builder_Admin {
 			return;
 		}
 
-		$status = astra_get_option( 'is-header-footer-builder', false );
+		$status            = astra_get_option( 'is-header-footer-builder', false );
+		$astra_theme_title = Astra_Admin_Settings::$page_title;
 
 		$label = ( false !== $status ) ? __( 'Use Old Header/Footer', 'astra' ) : __( 'Use New Header/Footer Builder', 'astra' );
 
 		?>
 		<div class="postbox">
-			<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php esc_html_e( 'Astra Header/Footer Builder', 'astra' ); ?></span>
+			<h2 class="hndle ast-normal-cursor ast-addon-heading ast-flex">
+				<span>
+					<?php
+						printf(
+							/* translators: %1$s: Theme name. */
+							esc_html__( '%1$s Header/Footer Builder', 'astra' ),
+							esc_html( $astra_theme_title )
+						);
+					?>
+				</span>
 			</h2>
 			<div class="inside">
 				<div>
-					<p><?php esc_html_e( 'Astra Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra' ); ?></p>
-					<p><?php esc_html_e( 'Activating this feature will add advanced options to Astra customizer where you can create awesome new designs.', 'astra' ); ?></p>
+					<p>
+						<?php
+							printf(
+								/* translators: %1$s: Theme name. */
+								esc_html__( '%1$s Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'astra' ),
+								esc_html( $astra_theme_title )
+							);
+						?>
+					</p>
+					<p>
+						<?php
+							printf(
+								/* translators: %1$s: Theme name. */
+								esc_html__( 'Activating this feature will add advanced options to %1$s customizer where you can create awesome new designs.', 'astra' ),
+								esc_html( $astra_theme_title )
+							);
+						?>
+					</p>
 					<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'astra' ); ?></p>
 					<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
 						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'astra' ); ?></a>

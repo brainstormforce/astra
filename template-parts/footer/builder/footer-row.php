@@ -57,7 +57,8 @@ if ( Astra_Builder_Helper::is_footer_row_empty( $row ) ) {
 			<?php for ( $zones = 1; $zones <= Astra_Builder_Helper::$num_of_footer_columns; $zones++ ) { ?>
 				<?php
 				if ( $zones > $columns ) {
-					break; }
+					break;
+				}
 				?>
 				<div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $zones ); ?> site-footer-section site-footer-section-<?php echo esc_attr( $zones ); ?>">
 					<?php do_action( 'astra_render_footer_column', $row, $zones ); ?>

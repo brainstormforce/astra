@@ -43,28 +43,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 
 			$_configs = array(
 
-				/**
-				 * Option: Divider
-				 * Option: breadcrumb Typography Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typography-divider]',
-					'type'     => 'control',
-					'section'  => 'section-breadcrumb',
-					'control'  => 'ast-divider',
-					'priority' => 73,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
-					),
-				),
-
 				/*
 				 * Breadcrumb Typography
 				 */
@@ -83,9 +61,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

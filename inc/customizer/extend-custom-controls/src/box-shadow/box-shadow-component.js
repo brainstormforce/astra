@@ -29,19 +29,6 @@ const BoxShadowComponent = props => {
 		setState(updateState);
 	};
 
-	const onPositionChange = ( value ) => {
-
-
-		let updateState = {
-			...state
-		};
-
-		updateState['position'] = event.target.value;
-		props.control.setting.set(updateState);
-		setState(updateState);
-
-	};
-
 	const renderInputHtml = () => {
 		const {
 			id,
@@ -99,19 +86,6 @@ const BoxShadowComponent = props => {
 			<div className="input-wrapper ast-box-shadow-wrapper">
 				{inputHtml}
 			</div>
-		</div>
-		<div className="customize-control-content ast-box-shadow-inset-wrapper">
-			{<SelectControl
-				label={ __( "Position", 'astra' ) }
-				value={ state['position'] }
-				options={ [
-					{ value: "outline", label:  __( "Outline", 'astra' )  },
-					{ value: "inset", label:  __( "Inset", 'astra' )  }
-				] }
-				onChange={() => onPositionChange( value )}
-				/>
-			}
-
 		</div>
 	</label>;
 

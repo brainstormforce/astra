@@ -636,6 +636,16 @@
     box-shadow: none !important;
 }
 
+.ast-builder-elements-section .ast-builder-elements-notice  {
+    border: 1px dashed #b4b9be;
+    background: transparent;
+    padding: 10px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .ahfb-footer-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-footer-builder-layout, .ahfb-header-builder-is-active .in-sub-panel:not(.section-open) ul#sub-accordion-section-section-header-builder-layout {
     transform: none;
     height: auto;
@@ -850,12 +860,6 @@
 .customize-control:not(.customize-control-ast-builder-header-control) + #customize-control-astra-settings-header-mobile-draggable-items.customize-control {
     padding-top: 0;
     border-top: 0;
-}
-
-.ahfb-available-items-pool {
-    min-width: 80px;
-    border: 1px dashed #A0AEC0;
-    padding: 20px 10px 10px
 }
 
 .ahfb-availbile-items-title {
@@ -4861,4 +4865,138 @@ i.fipicon-angle-left:before {
 }
 .rtl .customize-control-ast-builder .components-popover[data-x-axis="right"] .components-popover__content {
 	right: unset;
+}
+
+/* Box Shadow Control Style */
+.customize-control-ast-box-shadow .ast-link-box-shadow-inset-wrapper {
+    margin: 10px 0;
+}
+  
+.customize-control-ast-box-shadow .customize-control-title {
+    display: inline-block;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-outer-wrapper {
+    display: flex;
+    position: relative;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-input-item {
+    margin-bottom: 0;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-btns {
+    display: block;
+    text-align: center;
+    line-height: 2;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    border-radius: 0 3px 3px 0;
+}
+
+.ast-box-shadow-wrapper .ast-box-shadow-input-item:last-child .ast-box-shadow-input {
+    border-radius: 0px 3px 3px 0px;
+}
+.ast-box-shadow-wrapper .ast-box-shadow-input-item:not(:last-child) .ast-box-shadow-input {
+    border-radius: 0px;
+}
+.ast-box-shadow-wrapper .ast-box-shadow-input-item:first-child .ast-box-shadow-input {
+    border-radius: 3px 0px 0px 3px;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-btns > li {
+    margin-bottom: 0;
+    display: none;
+    width: 35px;
+    height: 26px;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-btns > li.active {
+    display: inline-block;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-btns button[type="button"] {
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    opacity: .75;
+    outline: none;
+    width: 100%;
+    height: 100%;
+}
+  
+.customize-control-ast-box-shadow .ast-box-shadow-btns button[type="button"] > i {
+    font-size: 15px;
+    margin-top: 1px;
+    vertical-align: middle;
+}
+  
+.customize-control-ast-box-shadow .input-wrapper.ast-box-shadow-wrapper {
+    display: inline-flex;
+}
+  
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper {
+    display: none;
+}
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper li {
+    text-align: center;
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+}
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper li input.ast-box-shadow-input {
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    padding: 4px 0;
+    width: 100%;
+    height: 28px;
+    border: 1px solid #dddddd;
+    border-right-width: 0;
+    box-shadow: none;
+    padding-left: 11px;
+}
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper li:last-child input.ast-box-shadow-input {
+    border-right-width: 1px;
+}
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper.active {
+    display: flex;
+}
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper span.ast-box-shadow-title {
+    text-transform: uppercase;
+    font-size: 10px;
+    opacity: .75;
+}  
+.customize-control-ast-box-shadow .input-wrapper .ast-box-shadow-wrapper .ast-box-shadow-input-item-link span {
+    width: 35px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    border-radius: 3px 0 0 3px;
+    border-right-width: 0;
+}
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper {
+    margin-top: 15px;
+}
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper .components-flex__item,
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper .components-select-control {
+    display: inline-block;
+}
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper .components-select-control__input,
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper .components-input-control__container {
+    display: inline-flex;
+    flex-direction: column;
+    width: 60%;
+    float: right;
+}
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper Select.components-select-control__input,
+.customize-control-ast-box-shadow .ast-box-shadow-inset-wrapper Select.components-input-control__container  {
+    line-height: inherit;
+}
+.ast-box-shadow-inset-wrapper .components-base-control__label,
+.ast-box-shadow-inset-wrapper .components-input-control__label {
+    font-weight: 600;
 }

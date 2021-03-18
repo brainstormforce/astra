@@ -123,8 +123,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	 */
 	function astra_get_content_layout() {
 
-		$value = false;
-
 		if ( is_singular() ) {
 
 			// If post meta value is empty,

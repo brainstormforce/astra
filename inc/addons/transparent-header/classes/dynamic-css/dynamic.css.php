@@ -423,10 +423,10 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	if ( 'both' === $transparent_header_devices ) {
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		$selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar';
+
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
-		} else {
-			$selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 		}
 
 		$css .= astra_parse_css(
@@ -442,10 +442,10 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	if ( 'mobile' === $transparent_header_devices ) {
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		$selector = '.ast-theme-transparent-header.ast-header-break-point .main-header-bar';
+
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
-		} else {
-			$selector = '.ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 		}
 
 		$css .= astra_parse_css(
@@ -463,10 +463,10 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	if ( 'desktop' === $transparent_header_devices ) {
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		$selector = '.ast-theme-transparent-header .main-header-bar';
+
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
-		} else {
-			$selector = '.ast-theme-transparent-header .main-header-bar';
 		}
 
 		$css .= astra_parse_css(

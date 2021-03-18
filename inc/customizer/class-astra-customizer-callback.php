@@ -28,9 +28,8 @@ if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
 
 			if ( is_home() || is_archive() || is_search() ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		}
 
 		/**
@@ -42,9 +41,8 @@ if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
 
 			if ( is_single() ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		}
 
 		/**
@@ -56,9 +54,8 @@ if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
 
 			if ( is_page() || is_404() ) {
 				return true;
-			} else {
-				return false;
 			}
+			return false;
 		}
 	}
 

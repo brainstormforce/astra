@@ -85,7 +85,7 @@ class Astra_Html_Component_Configs {
 					'section'     => $_section,
 					'transport'   => 'postMessage',
 					'priority'    => 4,
-					'default'     => astra_get_option( $builder_type . '-html-' . $index, 'Insert HTML text here.' ),
+					'default'     => astra_get_option( $builder_type . '-html-' . $index ),
 					'input_attrs' => array(
 						'id' => $builder_type . '-html-' . $index,
 					),
@@ -125,6 +125,7 @@ class Astra_Html_Component_Configs {
 					'priority'   => 8,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -164,19 +165,6 @@ class Astra_Html_Component_Configs {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 220,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
-				/**
 				 * Option: Margin Space
 				 */
 				array(
@@ -189,6 +177,7 @@ class Astra_Html_Component_Configs {
 					'section'           => $_section,
 					'priority'          => 220,
 					'title'             => __( 'Margin', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
@@ -202,14 +191,6 @@ class Astra_Html_Component_Configs {
 			);
 
 			if ( 'footer' === $builder_type ) {
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 6,
-					'settings' => array(),
-				);
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
 					'default'   => astra_get_option( 'footer-html-' . $index . '-alignment' ),
@@ -225,6 +206,7 @@ class Astra_Html_Component_Configs {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 

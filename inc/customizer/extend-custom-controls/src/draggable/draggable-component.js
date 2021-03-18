@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
-import {ReactSortable} from "react-sortablejs";
+import {__} from '@wordpress/i18n';
 import {useState} from 'react';
 
 const {Dashicon, Button} = wp.components;
 const {Fragment} = wp.element;
 
-
-
 const DraggableComponent = props => {
-
-	const Icons = window.svgIcons;
 
 	let settings = {};
 	let defaultParams = {};
@@ -49,33 +45,9 @@ const DraggableComponent = props => {
 		}
 	};
 
-	const onDragStart = () => {
-		let dropzones = document.querySelectorAll('.ahfb-builder-area');
-		let i;
-
-		for (i = 0; i < dropzones.length; ++i) {
-			dropzones[i].classList.add('ahfb-dragging-dropzones');
-		}
-	};
-
-	const onDragStop = () => {
-		let dropzones = document.querySelectorAll('.ahfb-builder-area');
-		let i;
-
-		for (i = 0; i < dropzones.length; ++i) {
-			dropzones[i].classList.remove('ahfb-dragging-dropzones');
-		}
-	};
-
 	const focusPanel = ( item ) => {
 		if (props.customizer.section(choices[item].section)) {
 			props.customizer.section(choices[item].section).focus();
-		}
-	};
-
-	const onDragEnd = ( items ) => {
-		if (items.length != null && items.length === 0) {
-			onUpdate();
 		}
 	};
 
@@ -88,25 +60,8 @@ const DraggableComponent = props => {
 				}
 			});
 		});
-		let theitem = [{
-			id: item
-		}];
 
 		return <Fragment key={item}>
-			{available && row === 'available' &&
-			<ReactSortable animation={10} onStart={() => onDragStart()} onEnd={() => onDragStop()} group={{
-				name: controlParams.group,
-				put: false
-			}} className={'ahfb-builder-item-start ahfb-move-item'} list={theitem}
-						   setList={newState => onDragEnd(newState)}>
-				<div className="ahfb-builder-item" data-id={item}
-					 data-section={choices[item] && choices[item].section ? choices[item].section : ''} key={item}>
-								<span className="ahfb-builder-item-icon ahfb-move-icon">
-									dangerouslySetInnerHTML={{ __html: Icons['drag'] }}
-								</span>
-					{choices[item] && choices[item].name ? choices[item].name : ''}
-				</div>
-			</ReactSortable>}
 			{!available && row === 'links' && <div className={'ahfb-builder-item-start'}>
 				<Button className="ahfb-builder-item" data-id={item} onClick={() => focusPanel(item)}
 						data-section={choices[item] && choices[item].section ? choices[item].section : ''} key={item}>
@@ -119,11 +74,22 @@ const DraggableComponent = props => {
 		</Fragment>;
 	};
 
+	let droppedCount = 0;
+
+	controlParams.zones.map(zone => {
+		Object.keys(state.settings[zone]).map(area => {
+			droppedCount = droppedCount + state.settings[zone][area].length;
+		});
+	});
+
 	return <div className="ahfb-control-field ahfb-available-items">
-		<div className="ahfb-available-items-pool-">
+		<div className="ast-builder-elements-section">
 			{Object.keys(choices).map(item => {
 				return renderItem(item, 'links');
 			})}
+			{!droppedCount &&
+				<span className="ast-builder-elements-notice"> {__('Elements used in the builder will be visible here.', 'astra')} </span>
+			}
 		</div>
 	</div>;
 

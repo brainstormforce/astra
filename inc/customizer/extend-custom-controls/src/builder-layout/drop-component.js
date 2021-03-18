@@ -9,35 +9,35 @@ const DropComponent = props => {
 	const location = props.zone.replace(props.row + '_', '');
 	let currentList = typeof props.items != "undefined" && props.items != null && props.items.length != null && props.items.length > 0 ? props.items : [];
 	let choices = props.choices,
-		tmpChoices = Object.keys(choices),
+		filterChoices = Object.keys(choices),
 		theItems = [];
 	{
-		let tmpCurrentList = [...currentList];
+		const sortList = [...currentList];
 		currentList.length > 0 && currentList.map((item, key) => {
-			if ( tmpChoices.includes(item)) {
+			if ( filterChoices.includes(item)) {
 				theItems.push({
 					id: item
 				});
 			} else {
-				tmpCurrentList.splice(tmpCurrentList.indexOf(item), 1);
+				sortList.splice(sortList.indexOf(item), 1);
 			}
 		});
-		currentList = tmpCurrentList;
+		currentList = sortList;
 	}
 	let currentCenterList = typeof props.centerItems != "undefined" && props.centerItems != null && props.centerItems.length != null && props.centerItems.length > 0 ? props.centerItems : [];
 	let theCenterItems = [];
 	{
-		let tmpCurrentCenterList = [...currentCenterList];
+		let sortCurrentCenterList = [...currentCenterList];
 		currentCenterList.length > 0 && currentCenterList.map((item, key) => {
-			if (tmpChoices.includes(item)) {
+			if (filterChoices.includes(item)) {
 				theCenterItems.push({
 					id: item
 				});
 			} else {
-				tmpCurrentCenterList.splice(tmpCurrentCenterList.indexOf(item), 1);
+				sortCurrentCenterList.splice(sortCurrentCenterList.indexOf(item), 1);
 			}
 		});
-		currentCenterList = tmpCurrentCenterList;
+		currentCenterList = sortCurrentCenterList;
 	}
 
 	const sortableGroup = (items, lists, loc) => {

@@ -94,25 +94,13 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 50,
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 200,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -140,27 +128,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 		);
-
-		if ( defined( 'ASTRA_EXT_VER' ) ) {
-
-			$addon_configs = array(
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-search-icon-space-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 2.5,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-				),
-			);
-
-			$_configs = array_merge( $_configs, $addon_configs );
-		}
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 

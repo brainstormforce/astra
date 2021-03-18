@@ -31,6 +31,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 
 	$selector                = '.ast-site-header-cart';
+	$trans_header_selector   = '.ast-theme-transparent-header .ast-site-header-cart';
 	$theme_color             = astra_get_option( 'theme-color' );
 	$icon_color              = esc_attr( astra_get_option( 'header-woo-cart-icon-color', $theme_color ) );
 	$header_cart_icon_radius = astra_get_option( 'woo-header-cart-icon-radius' );
@@ -38,10 +39,14 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
 	$theme_h_color           = astra_get_foreground_color( $theme_color );
 
+	$transparent_header_icon_color   = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $icon_color ) );
+	$transparent_header_cart_h_color = astra_get_foreground_color( $transparent_header_icon_color );
+
 	if ( 'none' === $header_cart_icon_style ) {
-		$icon_color = $theme_color;
+		$icon_color                    = $theme_color;
+		$transparent_header_icon_color = $theme_color;
 	}
-	
+
 	/**
 	 * - WooCommerce cart styles.
 	 */
@@ -98,7 +103,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_h_color_desktop = ( ! empty( $checkout_button_bg_h_color['desktop'] ) ) ? $checkout_button_bg_h_color['desktop'] : '';
 	$checkout_button_bg_h_color_mobile  = ( ! empty( $checkout_button_bg_h_color['mobile'] ) ) ? $checkout_button_bg_h_color['mobile'] : '';
 	$checkout_button_bg_h_color_tablet  = ( ! empty( $checkout_button_bg_h_color['tablet'] ) ) ? $checkout_button_bg_h_color['tablet'] : '';
-	
+
 	$cart_button_text_color_desktop = ( ! empty( $cart_button_text_color['desktop'] ) ) ? $cart_button_text_color['desktop'] : '';
 	$cart_button_text_color_mobile  = ( ! empty( $cart_button_text_color['mobile'] ) ) ? $cart_button_text_color['mobile'] : '';
 	$cart_button_text_color_tablet  = ( ! empty( $cart_button_text_color['tablet'] ) ) ? $cart_button_text_color['tablet'] : '';
@@ -137,6 +142,27 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .ast-addon-cart-wrap i.astra-icon:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_color ),
+		),
+		/**
+		 * Transparent Header - Woo Cart icon color.
+		 */
+		$trans_header_selector . ' .ast-cart-menu-wrap, ' . $trans_header_selector . ' .ast-addon-cart-wrap' => array(
+			'color' => $transparent_header_icon_color,
+		),
+		$trans_header_selector . ' .ast-cart-menu-wrap .count, ' . $trans_header_selector . ' .ast-cart-menu-wrap .count:after, ' . $trans_header_selector . ' .ast-addon-cart-wrap .count, ' . $trans_header_selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
+			'color'        => $transparent_header_icon_color,
+			'border-color' => $transparent_header_icon_color,
+		),
+		$trans_header_selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
+			'color'            => esc_attr( $theme_h_color ),
+			'background-color' => esc_attr( $transparent_header_icon_color ),
+		),
+		$trans_header_selector . ' .ast-woo-header-cart-info-wrap' => array(
+			'color' => esc_attr( $transparent_header_icon_color ),
+		),
+		$trans_header_selector . ' .ast-addon-cart-wrap i.astra-icon:after' => array(
+			'color'            => esc_attr( $theme_h_color ),
+			'background-color' => esc_attr( $transparent_header_icon_color ),
 		),
 		/**
 		 * General Woo Cart tray color for widget
@@ -338,9 +364,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 			// Outline icon colors.
 			'.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-addon-cart-wrap' => array(
-				'background' => '#ffffff',
-				'border'     => '2px solid ' . $icon_color,
-				'color'      => esc_attr( $icon_color ),
+				'border' => '2px solid ' . $icon_color,
+				'color'  => esc_attr( $icon_color ),
 			),
 			// Outline Info colors.
 			$selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
@@ -351,6 +376,31 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'.ast-menu-cart-fill .ast-cart-menu-wrap .count,.ast-menu-cart-fill .ast-cart-menu-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap,.ast-menu-cart-fill .ast-addon-cart-wrap' => array(
 				'background-color' => esc_attr( $icon_color ),
 				'color'            => esc_attr( $cart_h_color ),
+			),
+
+			// Transparent Header - Cart Icon color.
+			$trans_header_selector . ' .ast-cart-menu-wrap, ' . $trans_header_selector . ' .ast-addon-cart-wrap'       => array(
+				'color' => $transparent_header_icon_color,
+			),
+			// Outline icon hover colors.
+			'.ast-theme-transparent-header .ast-site-header-cart .ast-cart-menu-wrap:hover .count, .ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap:hover .count' => array(
+				'color'            => esc_attr( $transparent_header_cart_h_color ),
+				'background-color' => esc_attr( $transparent_header_icon_color ),
+			),
+			// Outline icon colors.
+			'.ast-theme-transparent-header .ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-outline .ast-addon-cart-wrap' => array(
+				'border' => '2px solid ' . $transparent_header_icon_color,
+				'color'  => esc_attr( $transparent_header_icon_color ),
+			),
+			// Outline Info colors.
+			$trans_header_selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
+				'color' => esc_attr( $transparent_header_icon_color ),
+			),
+
+			// Fill icon Color.
+			'.ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-theme-transparent-header .ast-menu-cart-fill .ast-cart-menu-wrap, .ast-theme-transparent-header .ast-menu-cart-fill .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap, .ast-theme-transparent-header .ast-menu-cart-fill .ast-addon-cart-wrap' => array(
+				'background-color' => esc_attr( $transparent_header_icon_color ),
+				'color'            => esc_attr( $transparent_header_cart_h_color ),
 			),
 
 			// Border radius.

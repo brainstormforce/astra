@@ -36,7 +36,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = ( Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
+		$_section = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-edd-cart' : 'section-edd-general';
 
 		$_configs = array(
 
@@ -163,9 +163,31 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 			),
 
+			/**
+			* Option: Icon color
+			*/
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[transparent-header-edd-cart-icon-color]',
+				'default'           => astra_get_option( 'transparent-header-edd-cart-icon-color' ),
+				'type'              => 'control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'EDD Cart Icon Color', 'astra' ),
+				'context'           => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[edd-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
+				'section'           => 'section-transparent-header',
+				'priority'          => 95,
+			),
 		);
 
-		if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$_edd_configs = array(
 				array(
 					'name'        => $_section . '-ast-context-tabs',
@@ -253,26 +275,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
-				// Option: Checkout Button Divider.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 75,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-title-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 75,
-					'settings' => array(),
-					'title'    => __( 'Checkout', 'astra' ),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
 				// Checkout Button colors.
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-text-colors]',
@@ -285,6 +287,10 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority'   => 75,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array(
+						'ast_class' => 'ast-top-divider',
+						'ast_title' => __( 'Checkout', 'astra' ),
+					),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-edd-checkout-button-background-colors]',

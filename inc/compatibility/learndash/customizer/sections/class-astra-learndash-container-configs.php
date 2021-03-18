@@ -33,24 +33,12 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-divider]',
-					'type'     => 'control',
-					'section'  => 'section-container-layout',
-					'control'  => 'ast-divider',
-					'priority' => 68,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Shop Page
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
 					'type'        => 'control',
-					'control'     => 'select',
+					'control'     => 'ast-select',
 					'section'     => 'section-container-layout',
 					'default'     => astra_get_option( 'learndash-content-layout' ),
 					'priority'    => 68,

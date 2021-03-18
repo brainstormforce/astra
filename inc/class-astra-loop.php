@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 					while ( have_posts() ) :
 						the_post();
 
-						if ( true == $is_page ) {
+						if ( true === $is_page ) {
 							do_action( 'astra_page_template_parts_content' );
 						} else {
 							do_action( 'astra_template_parts_content' );

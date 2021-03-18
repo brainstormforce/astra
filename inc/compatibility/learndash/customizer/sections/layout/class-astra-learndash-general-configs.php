@@ -43,6 +43,10 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 					'default'  => astra_get_option( 'learndash-lesson-serial-number' ),
 					'title'    => __( 'Display Serial Number', 'astra' ),
 					'priority' => 25,
+					'divider'  => array(
+						'ast_class' => 'ast-top-divider',
+						'ast_title' => __( 'Course Content Table', 'astra' ),
+					),
 				),
 
 				/**

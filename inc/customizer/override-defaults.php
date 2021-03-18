@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Override Sections
  */
 $wp_customize->get_section( 'title_tagline' )->priority = 5;
+$wp_customize->get_section( 'title_tagline' )->panel    = 'panel-header-group';
 
 /**
  * Override Settings
@@ -30,8 +31,8 @@ $wp_customize->get_setting( 'custom_logo' )->transport      = 'refresh';
  * Override Controls
  */
 $wp_customize->get_control( 'custom_logo' )->priority      = 5;
-$wp_customize->get_control( 'blogname' )->priority         = 7;
-$wp_customize->get_control( 'blogdescription' )->priority  = 10;
+$wp_customize->get_control( 'blogname' )->priority         = 8;
+$wp_customize->get_control( 'blogdescription' )->priority  = 12;
 $wp_customize->get_control( 'header_textcolor' )->priority = 9;
 $wp_customize->get_control( 'site_icon' )->priority        = 16;
 $wp_customize->get_control( 'site_icon' )->label           = '';

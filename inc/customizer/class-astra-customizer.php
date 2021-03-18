@@ -93,15 +93,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public static $group_configs = array();
 
 		/**
-		 * Customizer controls data.
-		 *
-		 * @access Public
-		 * @since 2.0.0
-		 * @var Array
-		 */
-		public $control_types = array();
-
-		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -141,7 +132,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_action( 'customize_save_after', array( $this, 'delete_cached_partials' ) );
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
+		}
+
+		/**
+		 *  Delete the cached partial configs.
+		 */
+		public function delete_cached_partials() {
+			delete_option( 'astra_partials_config_cache' );
 		}
 
 		/**
@@ -187,11 +186,19 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Prepare Contexts and choices.
 			 *
 			 * @since 3.0.0
-			 * @param object $wp_customize customizer object.
 			 */
-		public function prepare_customizer_javascript_configs( $wp_customize ) {
+		public function prepare_customizer_javascript_configs() {
 
-			$configurations = $this->get_customizer_configurations( $wp_customize );
+			global $wp_customize;
+
+			$cached_data = get_option( 'astra_partials_config_cache', false );
+
+			if ( $wp_customize->selective_refresh->is_render_partials_request() && $cached_data ) {
+				self::$dynamic_options = $cached_data;
+				return;
+			}
+
+			$configurations = $this->get_customizer_configurations();
 
 			$defaults = $this->get_astra_customizer_configuration_defaults();
 
@@ -230,6 +237,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						break;
 				}
 			}
+
+			update_option( 'astra_partials_config_cache', self::$dynamic_options, false );
 
 		}
 
@@ -303,7 +312,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private static function set_default_context() {
 
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
 
@@ -380,34 +389,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						);
-					}
-
-					$default_responsive_spacing = array(
-						'desktop'      => array(
-							'top'    => '',
-							'right'  => '',
-							'bottom' => '',
-							'left'   => '',
-						),
-						'tablet'       => array(
-							'top'    => '',
-							'right'  => '',
-							'bottom' => '',
-							'left'   => '',
-						),
-						'mobile'       => array(
-							'top'    => '',
-							'right'  => '',
-							'bottom' => '',
-							'left'   => '',
-						),
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					);
-
-					if ( empty( $val ) ) {
-						astra_update_option( $data[1], $default_responsive_spacing );
 					}
 
 					break;
@@ -818,7 +799,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function prepare_group_configs( $wp_customize ) {
 
-			$configurations = $this->get_customizer_configurations( $wp_customize );
+			if ( $wp_customize->selective_refresh->is_render_partials_request() ) {
+				return;
+			}
+
+			$configurations = $this->get_customizer_configurations();
 			$defaults       = $this->get_astra_customizer_configuration_defaults();
 
 			foreach ( $configurations as $key => $configuration ) {
@@ -988,11 +973,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * Filter and return Customizer Configurations.
 		 *
-		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
 		 * @since 1.4.3
 		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
 		 */
-		private function get_customizer_configurations( $wp_customize ) {
+		private function get_customizer_configurations() {
+
+			global  $wp_customize;
 
 			if ( ! is_null( self::$configuration ) ) {
 				return self::$configuration;
@@ -1220,7 +1206,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$string = $this->generate_font_dropdown();
 
-			$tmpl = '<div class="ast-field-settings-modal">
+			$template = '<div class="ast-field-settings-modal">
 					<ul class="ast-fields-wrap">
 					</ul>
 			</div>';
@@ -1253,7 +1239,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $tmpl,
+							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 						),
@@ -1322,13 +1308,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
+			$js_prefix = '.min.js';
+			$dir       = 'minified';
 			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
+				$js_prefix = '.js';
+				$dir       = 'unminified';
 			}
 
 			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
@@ -1340,6 +1324,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
 				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
+				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_button_patterns_compat(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

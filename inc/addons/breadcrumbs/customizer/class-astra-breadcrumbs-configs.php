@@ -40,19 +40,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			$_section = 'section-breadcrumb';
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$positions = array(
+				'none'                      => __( 'None', 'astra' ),
+				'astra_masthead_content'    => __( 'Inside', 'astra' ),
+				'astra_header_markup_after' => __( 'After Header', 'astra' ),
+				'astra_entry_top'           => __( 'Before Title', 'astra' ),
+			);
+
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$positions = array(
 					'none'                                 => __( 'None', 'astra' ),
 					'astra_header_primary_container_after' => __( 'Inside', 'astra' ),
 					'astra_header_after'                   => __( 'After', 'astra' ),
 					'astra_entry_top'                      => __( 'Before Title', 'astra' ),
-				);
-			} else {
-				$positions = array(
-					'none'                      => __( 'None', 'astra' ),
-					'astra_masthead_content'    => __( 'Inside', 'astra' ),
-					'astra_header_markup_after' => __( 'After Header', 'astra' ),
-					'astra_entry_top'           => __( 'Before Title', 'astra' ),
 				);
 			}
 
@@ -101,26 +101,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'context'    => Astra_Builder_Helper::$general_tab,
 					'responsive' => false,
 					'renderAs'   => 'text',
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 5,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -142,27 +123,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home-page-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 25,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
-				),
 
 				/**
 				 * Option: Disable Breadcrumb on Categories
@@ -184,26 +147,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 25,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -225,26 +169,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-search-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 30,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -266,26 +191,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-archive-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 35,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -307,26 +213,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-page-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 40,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -348,26 +235,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-post-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 45,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -390,26 +258,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 50,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -432,26 +281,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-404-page-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 55,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -483,28 +313,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 * Option: breadcrumb Section Spacing
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-spacing-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 82,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
-					),
-				),
-
-				/**
 				 * Option: Breadcrumb Spacing
 				 */
 				array(
@@ -532,7 +340,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'none',
 						),
-						Astra_Builder_Helper::$is_header_footer_builder_active ?
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					),
 				),
@@ -541,101 +349,65 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			if ( $this->is_third_party_breadcrumb_active() ) {
 
-				array_push(
-					$_configs,
-					/**
-					* Option: Breadcrumb Source
-					*/
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
-						'default'  => 'default',
-						'section'  => $_section,
-						'title'    => __( 'Breadcrumb Source', 'astra' ),
-						'type'     => 'control',
-						'control'  => 'select',
-						'priority' => 10,
-						'choices'  => $breadcrumb_source_list,
-						'context'  => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-								'operator' => '!=',
-								'value'    => 'none',
-							),
-							Astra_Builder_Helper::$general_tab_config,
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
+					'default'  => 'default',
+					'section'  => $_section,
+					'title'    => __( 'Breadcrumb Source', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-select',
+					'priority' => 10,
+					'choices'  => $breadcrumb_source_list,
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
 						),
-					)
+						Astra_Builder_Helper::$general_tab_config,
+					),
 				);
 			}
 
 			if ( $this->is_selected_breadcrumb_active() ) {
 
-				array_push(
-					$_configs,
-					/**
-					 * Option: Breadcrumb Separator
-					 */
-					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
-						'type'      => 'control',
-						'control'   => 'text',
-						'section'   => $_section,
-						'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
-						'priority'  => 15,
-						'title'     => __( 'Separator', 'astra' ),
-						'context'   => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-								'operator' => '!=',
-								'value'    => 'none',
-							),
-							Astra_Builder_Helper::$general_tab_config,
+				$_configs[] = array(
+					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+					'type'      => 'control',
+					'control'   => 'text',
+					'section'   => $_section,
+					'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+					'priority'  => 15,
+					'title'     => __( 'Separator', 'astra' ),
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
 						),
-						'transport' => 'postMessage',
+						Astra_Builder_Helper::$general_tab_config,
 					),
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-divider]',
-						'type'     => 'control',
-						'section'  => $_section,
-						'control'  => 'ast-divider',
-						'priority' => 15,
-						'settings' => array(),
-						'context'  => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-								'operator' => '!=',
-								'value'    => 'none',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						),
-					)
+					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}
 
-			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
-				array_push(
-					$_configs,
-					/**
-					 * Option: Breadcrumb Tabs.
-					 */
-					array(
-						'name'        => $_section . '-ast-context-tabs',
-						'section'     => $_section,
-						'type'        => 'control',
-						'control'     => 'ast-builder-header-control',
-						'priority'    => 0,
-						'description' => '',
-						'context'     => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-								'operator' => '!=',
-								'value'    => 'none',
-							),
+				$_configs[] = array(
+					'name'        => $_section . '-ast-context-tabs',
+					'section'     => $_section,
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+					'context'     => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
 						),
-					)
+					),
 				);
 
 			}

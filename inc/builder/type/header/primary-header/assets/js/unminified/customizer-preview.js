@@ -87,13 +87,13 @@
 	astra_css(
 		'astra-settings[hb-header-main-sep-color]',
 		'border-color',
-		'.ast-primary-header-bar',
+		'.ast-primary-header-bar'
 	);
 	
 	astra_css(
 		'astra-settings[hb-header-main-sep-color]',
 		'border-color',
-		'.ast-header-break-point .ast-primary-header-bar, .ast-primary-header-bar',
+		'.ast-header-break-point .ast-primary-header-bar, .ast-primary-header-bar'
 	);
 
 	

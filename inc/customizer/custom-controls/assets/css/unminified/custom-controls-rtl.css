@@ -463,6 +463,27 @@
   left: 145px;
 }
 
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-responsive-btns {
+  top: 33px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 78px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
+.customize-control-ast-color-group .ast-control-wrap {
+  display: inline-flex;
+  width: 100%;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -926,6 +947,36 @@
 }
 .astra-color-icon-indicate.components-button:hover {
     transform: scale(1.05);
+}
+
+.ast-top-divider.customize-control-ast-color .ast-divider-title + .ast-control-wrap,
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
+    margin-top: 25px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+    margin-top: 25px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap {
+    display: inline-flex;
+    width: 100%;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+    top: 67px;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .color-button-wrap {
+    top: 61px;
+}
+
+.ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+    top: 70px;
 }
 
 .customize-control-ast-selector .ast-alignment-wrapper {
@@ -1393,6 +1444,27 @@
   left: 145px;
 }
 
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-responsive-btns {
+  top: 33px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 78px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
+.customize-control-ast-color-group .ast-control-wrap {
+  display: inline-flex;
+  width: 100%;
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1858,6 +1930,36 @@
     transform: scale(1.05);
 }
 
+.ast-top-divider.customize-control-ast-color .ast-divider-title + .ast-control-wrap,
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap {
+    margin-top: 25px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
+.ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap,
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap {
+    margin-top: 25px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap {
+    display: inline-flex;
+    width: 100%;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+    top: 67px;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .color-button-wrap {
+    top: 61px;
+}
+
+.ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+    top: 70px;
+}
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
@@ -2072,6 +2174,52 @@ input[type="text"].select2-search__field {
   font-size: 11px;
   margin: 0;
   text-transform: uppercase;
+}
+
+/*
+ * CSS for ast-divider attribute started.
+ */
+.ast-bottom-divider {
+    border-bottom: 1px solid #ddd;
+	padding-bottom: 25px;
+}
+
+.ast-top-divider {
+    border-top: 1px solid #ddd;
+	padding-top: 25px;
+}
+
+.ast-top-divider > label.ast-divider-title {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
+    top: 25px;
+}
+
+.ast-top-divider .ast-control-wrap .ast-responsive-btns {
+    top: 28px;
+}
+
+.ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
+    top: 55px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+    top: 100px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-control-wrap .color-button-wrap {
+    top: 20.5px;
+}
+
+.ast-top-divider.customize-control-ast-select .ast-divider-title {
+    margin-bottom: 25px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -2510,19 +2658,11 @@ input[type="text"].select2-search__field {
   margin-top: 5px;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  background-color: #ffffff;
-  border-radius: 4px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
   border-radius: 4px 4px 0 0;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
-  border-radius: 3px;
-}
-
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
   border-radius: 3px;
 }
@@ -3349,6 +3489,10 @@ input[type="text"].select2-search__field {
   margin-top: 0;
 }
 
+.ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
+    top: 23px;
+}
+
 .customize-control-ast-slider .wrapper {
   display: flex;
 }
@@ -3393,6 +3537,16 @@ input[type="text"].select2-search__field {
   width: 17px;
   top: 2px;
   margin-right: 0px;
+}
+.customize-control-ast-slider.ast-top-divider .ast-resp-slider-reset-wrap,
+.ast-top-divider.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+    top: 25px;
+}
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
+}
+.ast-top-divider.customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: 28px;
 }
 
 .customize-control-ast-sortable .sortable {
@@ -3720,6 +3874,52 @@ input[type="text"].select2-search__field {
   text-transform: uppercase;
 }
 
+/*
+ * CSS for ast-divider attribute started.
+ */
+.ast-bottom-divider {
+    border-bottom: 1px solid #ddd;
+	padding-bottom: 25px;
+}
+
+.ast-top-divider {
+    border-top: 1px solid #ddd;
+	padding-top: 25px;
+}
+
+.ast-top-divider > label.ast-divider-title {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
+    top: 25px;
+}
+
+.ast-top-divider .ast-control-wrap .ast-responsive-btns {
+    top: 28px;
+}
+
+.ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
+    top: 55px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+    top: 100px;
+    background-color: transparent;
+}
+
+.ast-top-divider .ast-control-wrap .color-button-wrap {
+    top: 20.5px;
+}
+
+.ast-top-divider.customize-control-ast-select .ast-divider-title {
+    margin-bottom: 25px;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
@@ -4156,19 +4356,11 @@ input[type="text"].select2-search__field {
   margin-top: 5px;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  background-color: #ffffff;
-  border-radius: 4px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
   border-radius: 4px 4px 0 0;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
-  border-radius: 3px;
-}
-
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
   border-radius: 3px;
 }
@@ -4995,6 +5187,10 @@ input[type="text"].select2-search__field {
   margin-top: 0;
 }
 
+.ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
+    top: 23px;
+}
+
 .customize-control-ast-slider .wrapper {
   display: flex;
 }
@@ -5039,6 +5235,16 @@ input[type="text"].select2-search__field {
   width: 17px;
   top: 2px;
   margin-right: 0px;
+}
+.customize-control-ast-slider.ast-top-divider .ast-resp-slider-reset-wrap,
+.ast-top-divider.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+    top: 25px;
+}
+.ast-top-divider.customize-control-ast-slider .ast-divider-title + .ast-slider-wrap .ast-resp-slider-reset-wrap {
+    top: 68px;
+}
+.ast-top-divider.customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: 28px;
 }
 
 .customize-control-ast-sortable .sortable {

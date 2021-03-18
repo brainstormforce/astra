@@ -350,7 +350,7 @@ const ColorGroupComponent = props => {
 		</div>;
 	};
 
-	return <>
+	return <div className="ast-control-wrap">
 		<div className="ast-toggle-desc-wrap">
 			<label className="customizer-text">
 				{htmlLabel}
@@ -362,7 +362,7 @@ const ColorGroupComponent = props => {
 		<div className="ast-field-color-group-wrap">
 			{optionsHtml}
 		</div>
-	</>;
+	</div>;
 };
 
 ColorGroupComponent.propTypes = {

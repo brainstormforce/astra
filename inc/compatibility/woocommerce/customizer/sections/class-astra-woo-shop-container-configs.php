@@ -33,28 +33,17 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-divider]',
-					'type'     => 'control',
-					'section'  => 'section-container-layout',
-					'control'  => 'ast-divider',
-					'priority' => 85,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Shop Page
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'default'  => astra_get_option( 'woocommerce-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 85,
 					'title'    => __( 'WooCommerce Layout', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
