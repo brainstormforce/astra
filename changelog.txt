@@ -1,11 +1,13 @@
+v3.2.0
+- Fix: Transparent Header - Header is not visible at exact tablet breakpoint device.
+
 v3.1.3
-- Fix: Transparent Header: Submenu background alpha not working for the old header. 
+- Fix: Transparent Header: Submenu background alpha not working for the old header.
 
 v3.1.2
 - Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
 - Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalculated browser window width.
 - Fix: Showing multiple menu locations on the menu admin page.
-- Fix: Transparent Header - Header is not visible at exact tablet breakpoint device.
 - Fix: Transparent Header - Submenu color not working for the older header.
 - Fix: Transparent Header - Submenu background color not working for the older header.
 
