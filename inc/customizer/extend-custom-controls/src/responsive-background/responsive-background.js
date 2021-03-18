@@ -55,14 +55,10 @@ const ResponsiveBackground = props => {
 	};
 
 	const renderReset = () => {
-		let deleteBtnDisabled = true;
 		let reserBtnDisabled = true;
 		let devices = ['desktop', 'mobile', 'tablet'];
 
 		for (let device of devices) {
-			if (state.value[device]['background-color'] || state.value[device]['background-image'] || state.value[device]['background-media']) {
-				deleteBtnDisabled = false;
-			}
 
 			if (state.value[device]['background-color'] !== defaultPropsValue[device]['background-image'] || state.value[device]['background-image'] !== defaultPropsValue[device]['background-color'] || state.value[device]['background-media'] !== defaultPropsValue[device]['background-media']) {
 				reserBtnDisabled = false;
@@ -180,25 +176,13 @@ const ResponsiveBackground = props => {
 	};
 
 	const {
-		defaultValue,
 		label,
 		description
 	} = props.control.params;
-	let defaultVal = '#RRGGBB';
 	let labelHtml = null;
 	let descriptionHtml = null;
 	let responsiveHtml = null;
 	let inputHtml = null;
-
-	if (defaultValue) {
-		if ('#' !== defaultValue.substring(0, 1)) {
-			defaultVal = '#' + defaultValue;
-		} else {
-			defaultVal = defaultValue;
-		}
-
-		defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
-	}
 
 	if (label && '' !== label && undefined !== label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;

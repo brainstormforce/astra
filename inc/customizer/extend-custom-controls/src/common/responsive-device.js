@@ -69,7 +69,7 @@ const ResponsiveDeviceControl = props => {
 				<ul key={'ast-resp-ul'} className="ast-responsive-btns">
 					{Object.keys(deviceMap).map(device => {
 						return <li key={device} className={device}
-								   className={(device === view ? 'active ' : '') + `preview-${device}`}>
+								   className={(device === view ? 'active ' : '') + `${device}`}>
 							<button type="button" data-device={device}
 									className={(device === view ? 'active ' : '') + `preview-${device}`}
 									onClick={() => {

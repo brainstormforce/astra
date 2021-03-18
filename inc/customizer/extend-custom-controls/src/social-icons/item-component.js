@@ -16,10 +16,10 @@ const ItemComponent = props => {
 	const [state, setState] = useState({
 		open: false,
 	});
-	
-	const icon = props.item.id.replace(/[\d_]+$/g, '');
+
+	const icon = props.item.id.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
 	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
-	
+
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({

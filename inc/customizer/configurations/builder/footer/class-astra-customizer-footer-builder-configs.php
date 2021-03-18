@@ -52,16 +52,16 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_html; $index++ ) {
 
-			$tmp_section = 'section-fb-html-' . $index;
+			$footer_html_section = 'section-fb-html-' . $index;
 
-			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+			if ( in_array( $footer_html_section, $cloned_component_track['removed-items'], true ) ) {
 				continue;
 			}
 
 			Astra_Builder_Helper::$footer_desktop_items[ 'html-' . $index ] = array(
 				'name'    => 'HTML ' . $index,
 				'icon'    => 'text',
-				'section' => $tmp_section,
+				'section' => $footer_html_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'html',
 				'builder' => 'footer',
@@ -70,16 +70,16 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_widgets; $index++ ) {
 
-			$tmp_section = 'sidebar-widgets-footer-widget-' . $index;
+			$footer_widget_section = 'sidebar-widgets-footer-widget-' . $index;
 
-			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+			if ( in_array( $footer_widget_section, $cloned_component_track['removed-items'], true ) ) {
 				continue;
 			}
 
 			Astra_Builder_Helper::$footer_desktop_items[ 'widget-' . $index ] = array(
 				'name'    => 'Widget ' . $index,
 				'icon'    => 'wordpress',
-				'section' => $tmp_section,
+				'section' => $footer_widget_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'widget',
 				'builder' => 'footer',
@@ -88,17 +88,16 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_button; $index++ ) {
 
+			$footer_button_section = 'section-fb-button-' . $index;
 
-			$tmp_section = 'section-fb-button-' . $index;
-
-			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+			if ( in_array( $footer_button_section, $cloned_component_track['removed-items'], true ) ) {
 				continue;
 			}
 
 			Astra_Builder_Helper::$footer_desktop_items[ 'button-' . $index ] = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_button ) ? 'Button' : 'Button ' . $index,
 				'icon'    => 'admin-links',
-				'section' => $tmp_section,
+				'section' => $footer_button_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'button',
 				'builder' => 'footer',
@@ -107,17 +106,16 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 
 		for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_footer_social_icons; $index++ ) {
 
-			$tmp_section = 'section-fb-social-icons-' . $index;
+			$footer_social_section = 'section-fb-social-icons-' . $index;
 
-			if ( in_array( $tmp_section, $cloned_component_track['removed-items'], true ) ) {
+			if ( in_array( $footer_social_section, $cloned_component_track['removed-items'], true ) ) {
 				continue;
 			}
-
 
 			Astra_Builder_Helper::$footer_desktop_items[ 'social-icons-' . $index ] = array(
 				'name'    => ( 1 === Astra_Builder_Helper::$num_of_footer_social_icons ) ? 'Social' : 'Social ' . $index,
 				'icon'    => 'share',
-				'section' => $tmp_section,
+				'section' => $footer_social_section,
 				'clone'   => defined( 'ASTRA_EXT_VER' ),
 				'type'    => 'social-icons',
 				'builder' => 'footer',

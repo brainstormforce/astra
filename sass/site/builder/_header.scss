@@ -7,6 +7,9 @@
 	align-items: center;
 	grid-column-gap: 20px;
 	overflow-wrap: anywhere;
+	> .site-header-section {
+		flex-wrap: nowrap;
+	}
 }
 .ast-builder-footer-grid-columns {
 	grid-column-gap: 50px;
@@ -483,6 +486,13 @@
 						font-family: 'Astra';
 						text-decoration: inherit;
 						display: inline-block;
+					}
+				}
+			}
+			.ast-submenu-expanded {
+				>.ast-menu-toggle {
+					&::before {
+						transform: rotateX(180deg);
 					}
 				}
 			}

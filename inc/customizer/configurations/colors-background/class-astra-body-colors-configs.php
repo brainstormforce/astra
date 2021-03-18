@@ -85,18 +85,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'priority' => 15,
 					'title'    => __( 'Link Hover Color', 'astra' ),
 				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-outside-bg-color]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => $_section,
-					'priority' => 20,
-					'settings' => array(),
-				),
 			);
 
 			$configurations = array_merge( $configurations, $_configs );

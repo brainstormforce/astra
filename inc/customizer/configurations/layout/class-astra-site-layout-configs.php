@@ -54,6 +54,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

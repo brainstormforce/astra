@@ -116,19 +116,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						Astra_Builder_Helper::$design_tab_config,
 					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hbb-header-colors-heading-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 60,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				// Option: Below Header Background styling.

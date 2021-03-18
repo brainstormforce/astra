@@ -45,6 +45,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'           => 'section-footer-small',
 					'priority'          => 5,
 					'title'             => __( 'Layout', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
 						'disabled'            => array(
 							'label' => __( 'Disabled', 'astra' ),
@@ -62,26 +63,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'partial'           => array(
 						'selector'            => '.ast-small-footer',
 						'container_inclusive' => false,
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
-					'control'  => 'ast-divider',
-					'type'     => 'control',
-					'section'  => 'section-footer-small',
-					'priority' => 10,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
 					),
 				),
 
@@ -220,26 +201,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-typography]',
-					'control'  => 'ast-divider',
-					'type'     => 'control',
-					'section'  => 'section-footer-small',
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
-					'priority' => 35,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Footer Top Border
 				 */
 				array(
@@ -278,6 +239,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-color',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -297,31 +259,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Footer Bar Color & Background Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-color-background-heading-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-footer-small',
-					'priority' => 46,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
-							'operator' => '>=',
-							'value'    => 1,
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
-				),
-
-				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
@@ -332,28 +269,9 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'title'     => __( 'Background Color', 'astra' ),
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority'  => 47,
 					'context'   => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
-				),
-
-				/**
-				 * Option: Footer Bar Color & Background Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-content-group-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-footer-small',
-					'priority' => 47,
-					'settings' => array(),
-					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
@@ -397,6 +315,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -416,6 +335,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'control'    => 'ast-selector',
 					'default'    => astra_get_option( 'footer-layout-width' ),
 					'section'    => 'section-footer-small',
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
@@ -442,33 +362,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-layout-width-divider]',
-					'type'     => 'control',
-					'section'  => 'section-footer-small',
-					'control'  => 'ast-divider',
-					'priority' => 35,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
-							'operator' => '!=',
-							'value'    => 'ast-box-layout',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[site-layout]',
-							'operator' => '!=',
-							'value'    => 'ast-fluid-width-layout',
-						),
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
 				),
 
 				/**
@@ -509,6 +402,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'transport'         => 'postMessage',
 					'control'           => 'ast-color',
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'default'           => astra_get_option( 'footer-adv-border-color' ),
 					'context'           => array(
@@ -542,6 +436,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'default'           => astra_get_option( 'footer-adv' ),
 						'title'             => __( 'Layout', 'astra' ),
 						'section'           => 'section-footer-adv',
+						'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 						'choices'           => array(
 							'disabled' => array(
 								'label' => __( 'Disable', 'astra' ),
@@ -556,18 +451,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'selector'            => '.footer-adv .ast-container',
 							'container_inclusive' => false,
 						),
-					),
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-footer-adv',
-						'priority' => 999,
-						'settings' => array(),
 					),
 
 					/**

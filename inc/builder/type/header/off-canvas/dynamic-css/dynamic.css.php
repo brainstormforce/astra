@@ -26,10 +26,6 @@ add_filter( 'astra_dynamic_theme_css', 'astra_off_canvas_row_setting', 11 );
  */
 function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$parse_css = '';
-
-	$_section = 'section-popup-header-builder';
-
 	$selector = '.ast-mobile-popup-drawer.active';
 
 	$off_canvas_background       = astra_get_option( 'off-canvas-background' );

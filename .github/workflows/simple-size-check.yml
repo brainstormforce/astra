@@ -1,0 +1,18 @@
+name: Simple Asset Size Reporter
+
+on: [pull_request]
+
+jobs:
+  assetSizeReporter:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2-beta
+      with:
+        fetch-depth: 0
+    - uses: chrysanthos/simple-asset-size-reporter@1.0.0
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        files: '["assets/css/minified/frontend.min.css", "assets/css/minified/style.min.css", "assets/css/minified/menu-animation.min.css", "assets/css/unminified/frontend.css", "assets/css/unminified/style.css", "assets/css/unminified/menu-animation.css", "assets/js/minified/frontend.min.js", "assets/js/minified/style.min.js", "assets/js/unminified/frontend.js", "assets/js/unminified/style.js"]'
+        with-same: 'true'
+        build-assets: 'false'

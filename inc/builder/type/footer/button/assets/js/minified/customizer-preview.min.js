@@ -1,0 +1,1 @@
+jQuery,astra_builder_button_css("footer",AstraBuilderFooterButtonData.component_limit);

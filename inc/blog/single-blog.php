@@ -205,7 +205,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 							</section> <!-- .ast-comment-content -->
 						</div>
 					</article><!-- #comment-## -->
-				<!-- </li> -->
+
 				<?php
 				break;
 		}

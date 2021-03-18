@@ -73,7 +73,7 @@ class Astra_Footer_Menu_Component {
 		 * @since  3.0.0
 		 * @var Array
 		 */
-		$menu_classes = apply_filters( 'astra_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', $desktop_menu_layout_class, $tablet_menu_layout_class, $mobile_menu_layout_class ) );
+		$menu_classes = apply_filters( 'astra_menu_classes', array( 'ast-nav-menu', 'ast-flex', $desktop_menu_layout_class, $tablet_menu_layout_class, $mobile_menu_layout_class ) );
 
 		$items_wrap  = '<nav ';
 		$items_wrap .= astra_attr(
@@ -102,7 +102,7 @@ class Astra_Footer_Menu_Component {
 					'container_class' => 'footer-bar-navigation',
 					'items_wrap'      => $items_wrap,
 					'theme_location'  => 'footer_menu',
-				) 
+				)
 			);
 		}
 	}

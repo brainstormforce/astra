@@ -17,7 +17,7 @@
 	astra_css(
 		'astra-settings[edd-header-cart-icon-color]',
 		'color',
-		selector + ' .ast-edd-cart-menu-wrap .count, ' + selector + ' .ast-edd-cart-menu-wrap .count:after,' + selector + ' .ast-edd-header-cart-info-wrap' 
+		selector + ' .ast-edd-cart-menu-wrap .count, ' + selector + ' .ast-edd-cart-menu-wrap .count:after,' + selector + ' .ast-edd-header-cart-info-wrap'
 	);
 
 	// Icon Color.
@@ -29,83 +29,83 @@
 
 	// EDD Cart Colors.
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-cart-text-color]',
 		'color',
 		selector + ' .widget_edd_cart_widget span, ' + selector + ' .widget_edd_cart_widget strong, ' + selector + ' .widget_edd_cart_widget *, ' + responsive_selector + ' .widget_edd_cart_widget span, .astra-cart-drawer .widget_edd_cart_widget *, ' + responsive_selector + ' .astra-cart-drawer-title'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-cart-link-color]',
 		'color',
 		selector + ' .widget_edd_cart_widget a, ' + selector + ' .widget_edd_cart_widget a.edd-remove-from-cart, ' + selector + ' .widget_edd_cart_widget .cart-total, ' + selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after, '+ responsive_selector + ' .widget_edd_cart_widget a, ' + responsive_selector + ' .widget_edd_cart_widget a.edd-remove-from-cart, ' + responsive_selector + ' .widget_edd_cart_widget .cart-total, ' + responsive_selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after'
 	);
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-cart-link-color]',
 		'border-color',
 		selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after,' + responsive_selector + ' .widget_edd_cart_widget a.edd-remove-from-cart:after,'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-cart-background-color]',
 		'background-color',
 		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget ,' + responsive_selector + ', ' + responsive_selector + '#astra-mobile-cart-drawer'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-border-color', 
+		'edd-cart-border-color',
 		'astra-settings[header-edd-cart-background-color]',
 		'border-color',
 		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget, ' + responsive_selector + ' .widget_edd_cart_widget'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-border-bottom-color', 
+		'edd-cart-border-bottom-color',
 		'astra-settings[header-edd-cart-background-color]',
 		'border-bottom-color',
 		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget:before, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget:after, ' + responsive_selector + ' .widget_edd_cart_widget:before, ' + responsive_selector + ' .widget_edd_cart_widget:after'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-cart-separator-color]',
 		'border-bottom-color',
 		'.ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-item, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, .ast-builder-layout-element ' + selector + ' .widget_edd_cart_widget .edd-cart-meta,'+ responsive_selector + ' .widget_edd_cart_widget .edd-cart-item, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-number-of-items, ' + responsive_selector + ' .widget_edd_cart_widget .edd-cart-meta, ' + responsive_selector + ' .astra-cart-drawer-header'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-checkout-btn-text-color]',
 		'color',
 		selector + ' .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a, '+ responsive_selector + ' .widget_edd_cart_widget .edd_checkout a'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-checkout-btn-background-color]',
 		'background-color',
 		selector + ' .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a,' + responsive_selector + ' .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-border-color', 
+		'edd-cart-border-color',
 		'astra-settings[header-edd-checkout-btn-background-color]',
 		'border-color',
 		selector + ' .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a,' + responsive_selector + ' .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-checkout-btn-text-hover-color]',
 		'color',
 		selector +' .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover,' + responsive_selector +' .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover'
 	);
 
 	astra_color_responsive_css(
-		'edd-cart-colors', 
+		'edd-cart-colors',
 		'astra-settings[header-edd-checkout-btn-bg-hover-color]',
 		'background-color',
 		selector +' .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover, ' + responsive_selector + ' .widget_edd_cart_widget .edd_checkout a:hover, .widget_edd_cart_widget .edd_checkout a:hover'
@@ -130,8 +130,7 @@
 	 */
 	wp.customize( 'astra-settings[edd-header-cart-icon-color]', function( setting ) {
 		setting.bind( function( cart_icon_color ) {
-			
-				wp.customize.preview.send( 'refresh' );
+			wp.customize.preview.send( 'refresh' );
 		});
 	});
 
@@ -146,6 +145,15 @@
 
 		} );
 	} );
+
+	/**
+	 * Transparent Header EDD-Cart color options - Customizer preview CSS.
+	 */
+	wp.customize( 'astra-settings[transparent-header-edd-cart-icon-color]', function( setting ) {
+		setting.bind( function( cart_icon_color ) {
+			wp.customize.preview.send( 'refresh' );
+		});
+	});
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( 'section-header-edd-cart', '.ast-header-edd-cart' );

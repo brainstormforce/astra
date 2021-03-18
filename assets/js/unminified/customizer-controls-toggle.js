@@ -6,8 +6,6 @@
 
 ( function( $ ) {
 
-	/* Internal shorthand */
-	var api = wp.customize;
 
 	/**
 	 * Trigger hooks

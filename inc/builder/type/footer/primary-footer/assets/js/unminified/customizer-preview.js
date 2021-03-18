@@ -93,7 +93,7 @@
 	astra_css(
 		'astra-settings[hb-footer-main-sep-color]',
 		'border-color',
-		selector,
+		selector
 	);
 
 	var dynamicStyle = selector + ' {';

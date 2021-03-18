@@ -32,35 +32,10 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 
 			$_configs = array();
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || ( Astra_Ext_Extension::is_active( 'colors-and-background' ) && Astra_Builder_Helper::$is_header_footer_builder_active ) ) {
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content-after-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-blog',
-					'priority' => 135,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
-						Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-				);
-			}
-
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$_configs = array(
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 999,
-						'settings' => array(),
-					),
 
 					/**
 					 * Option: Learn More about Contant Typography
@@ -74,6 +49,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
+						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 				);
 			}
@@ -94,21 +70,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-					),
-
-					/**
-					 * Option: Divider
-					 */
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-archive-summary-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 140,
-						'settings' => array(),
-						'context'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -143,7 +106,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -192,7 +156,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 
@@ -215,21 +179,10 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'em' => 'em',
 						),
 						'priority'    => 140,
-						'context'     => Astra_Builder_Helper::$is_header_footer_builder_active ?
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
 				);
-
-				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
-					$new_configs[] = array(
-						'name'     => ASTRA_THEME_SETTINGS . '[blog-section-font-typo-divider]',
-						'type'     => 'control',
-						'control'  => 'ast-divider',
-						'section'  => 'section-blog',
-						'priority' => 139,
-						'settings' => array(),
-					);
-				}
 			}
 
 			$_configs = array_merge( $_configs, $new_configs );

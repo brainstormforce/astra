@@ -85,19 +85,6 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[footer-copyright-editor-divider]',
-				'type'     => 'control',
-				'section'  => $_section,
-				'control'  => 'ast-divider',
-				'priority' => 4,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
 			 * Option: Column Alignment
 			 */
 			array(
@@ -115,6 +102,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'center' => 'align-center',
 					'right'  => 'align-right',
 				),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -131,20 +119,10 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Text Color', 'astra' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+
 			),
 
-			/**
-			 * Option: Margin divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-heading-divider]',
-				'type'     => 'control',
-				'control'  => 'ast-divider',
-				'section'  => $_section,
-				'priority' => 200,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-			),
 
 			/**
 			 * Option: Margin Space

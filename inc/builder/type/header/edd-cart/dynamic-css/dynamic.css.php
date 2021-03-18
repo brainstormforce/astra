@@ -30,13 +30,17 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		return $dynamic_css;
 	}
 
-	$selector                = '.ast-edd-site-header-cart';
-	$theme_color             = astra_get_option( 'theme-color' );
-	$link_color              = astra_get_option( 'link-color', $theme_color );
-	$header_cart_icon_style  = astra_get_option( 'edd-header-cart-icon-style' );
-	$header_cart_icon_color  = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
-	$header_cart_icon_radius = astra_get_option( 'edd-header-cart-icon-radius' );
-	$cart_h_color            = astra_get_foreground_color( $header_cart_icon_color );
+	$selector                   = '.ast-edd-site-header-cart';
+	$trans_header_cart_selector = '.ast-theme-transparent-header .ast-edd-site-header-cart';
+	$theme_color                = astra_get_option( 'theme-color' );
+	$link_color                 = astra_get_option( 'link-color', $theme_color );
+	$header_cart_icon_style     = astra_get_option( 'edd-header-cart-icon-style' );
+	$header_cart_icon_color     = astra_get_option( 'edd-header-cart-icon-color', $theme_color );
+	$header_cart_icon_radius    = astra_get_option( 'edd-header-cart-icon-radius' );
+	$cart_h_color               = astra_get_foreground_color( $header_cart_icon_color );
+
+	$trans_header_cart_icon_color = astra_get_option( 'transparent-header-edd-cart-icon-color', $theme_color );
+	$trans_header_cart_h_color    = astra_get_foreground_color( $trans_header_cart_icon_color );
 
 	$btn_color    = astra_get_option( 'button-color' );
 	$btn_bg_color = astra_get_option( 'button-bg-color', $theme_color );
@@ -46,7 +50,8 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 
 	if ( 'none' === $header_cart_icon_style ) {
-		$header_cart_icon_color = $theme_color;
+		$header_cart_icon_color       = $theme_color;
+		$trans_header_cart_icon_color = $theme_color;
 	}
 	/**
 	 * - EDD cart styles.
@@ -93,7 +98,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_h_color_desktop = ( ! empty( $checkout_button_bg_h_color['desktop'] ) ) ? $checkout_button_bg_h_color['desktop'] : '';
 	$checkout_button_bg_h_color_mobile  = ( ! empty( $checkout_button_bg_h_color['mobile'] ) ) ? $checkout_button_bg_h_color['mobile'] : '';
 	$checkout_button_bg_h_color_tablet  = ( ! empty( $checkout_button_bg_h_color['tablet'] ) ) ? $checkout_button_bg_h_color['tablet'] : '';
-	
+
 	/**
 	 * EDD Cart CSS.
 	 */
@@ -116,6 +121,16 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .ast-addon-cart-wrap span.astra-icon:after' => array(
 			'color'            => esc_attr( $cart_h_color ),
 			'background-color' => esc_attr( $header_cart_icon_color ),
+		),
+		/**
+		 * Transparent Header - EDD Cart icon color.
+		 */
+		$trans_header_cart_selector . ' .ast-edd-header-cart-info-wrap' => array(
+			'color' => esc_attr( $trans_header_cart_icon_color ),
+		),
+		$trans_header_cart_selector . ' .ast-addon-cart-wrap span.astra-icon:after' => array(
+			'color'            => esc_attr( $trans_header_cart_h_color ),
+			'background-color' => esc_attr( $trans_header_cart_icon_color ),
 		),
 		/**
 		 * General EDD Cart tray color for widget
@@ -158,7 +173,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output = astra_parse_css( $css_output_desktop );
 
 	$responsive_selector = '.astra-cart-drawer.edd-active';
-	
+
 	$css_output_mobile = array(
 		$responsive_selector . ' .widget_edd_cart_widget a, ' . $responsive_selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $responsive_selector . ' .widget_edd_cart_widget .cart-total' => array(
 			'color' => esc_attr( $cart_link_color_mobile ),
@@ -193,7 +208,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $checkout_button_text_h_color_mobile ),
 			'background-color' => esc_attr( $checkout_button_bg_h_color_mobile ),
 		),
-	);  
+	);
 
 	$css_output_tablet = array(
 		$responsive_selector . ' .widget_edd_cart_widget a, ' . $responsive_selector . ' .widget_edd_cart_widget a.edd-remove-from-cart, ' . $responsive_selector . ' .widget_edd_cart_widget .cart-total' => array(
@@ -230,7 +245,7 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $checkout_button_bg_h_color_tablet ),
 		),
 	);
-	
+
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
@@ -280,6 +295,45 @@ function astra_hb_edd_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'.ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count,.ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-edd-header-cart-info-wrap, .ast-edd-menu-cart-fill .ast-addon-cart-wrap .ast-icon-shopping-cart' => array(
 				'background-color' => esc_attr( $header_cart_icon_color ),
 				'color'            => esc_attr( $cart_h_color ),
+			),
+
+			// Transparent Header - Count colors.
+			$trans_header_cart_selector . ' .ast-edd-cart-menu-wrap .count' => array(
+				'color'        => esc_attr( astra_get_option( 'transparent-header-edd-cart-icon-color' ) ),
+				'border-color' => esc_attr( astra_get_option( 'transparent-header-edd-cart-icon-color' ) ),
+			),
+			$trans_header_cart_selector . ' .ast-edd-cart-menu-wrap .count:after' => array(
+				'color'        => esc_attr( astra_get_option( 'transparent-header-edd-cart-icon-color' ) ),
+				'border-color' => esc_attr( astra_get_option( 'transparent-header-edd-cart-icon-color' ) ),
+			),
+			$trans_header_cart_selector . ' .ast-icon-shopping-cart' => array(
+				'color' => esc_attr( astra_get_option( 'transparent-header-edd-cart-icon-color' ) ),
+			),
+
+			// Transparent Header - Default icon colors.
+			'.ast-theme-transparent-header .ast-edd-cart-menu-wrap .count, .ast-theme-transparent-header .ast-edd-cart-menu-wrap .count:after' => array(
+				'border-color' => esc_attr( $trans_header_cart_icon_color ),
+				'color'        => esc_attr( $trans_header_cart_icon_color ),
+			),
+			// Transparent Header - Outline icon hover colors.
+			$trans_header_cart_selector . ' .ast-edd-cart-menu-wrap:hover .count' => array(
+				'color'            => esc_attr( $trans_header_cart_h_color ),
+				'background-color' => esc_attr( $trans_header_cart_icon_color ),
+			),
+			// Transparent Header - Outline icon colors.
+			'.ast-theme-transparent-header .ast-edd-menu-cart-outline .ast-addon-cart-wrap' => array(
+				'background' => '#ffffff',
+				'border'     => '1px solid ' . $trans_header_cart_icon_color,
+				'color'      => esc_attr( $trans_header_cart_icon_color ),
+			),
+			// Transparent Header - Outline Info colors.
+			$trans_header_cart_selector . ' .ast-menu-cart-outline .ast-edd-header-cart-info-wrap' => array(
+				'color' => esc_attr( $trans_header_cart_icon_color ),
+			),
+			// Transparent Header - Fill icon Color.
+			'.ast-theme-transparent-header .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap .count, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-addon-cart-wrap, .ast-theme-transparent-header .ast-edd-menu-cart-fill .ast-edd-site-header-cart-wrap .ast-icon-shopping-cart, .ast-theme-transparent-header .ast-edd-site-header-cart .ast-addon-cart-wrap span.astra-icon:after' => array(
+				'background-color' => esc_attr( $trans_header_cart_icon_color ),
+				'color'            => esc_attr( $trans_header_cart_h_color ),
 			),
 
 			// Border radius.

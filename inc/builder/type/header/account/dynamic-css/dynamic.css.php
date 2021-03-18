@@ -30,9 +30,8 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		return $dynamic_css;
 	}
 
-	$_section            = 'section-header-account';
-	$selector            = '.ast-header-account-wrap';
-	$visibility_selector = '.ast-header-account[data-section="section-header-account"]';
+	$_section = 'section-header-account';
+	$selector = '.ast-header-account-wrap';
 
 	$icon_size = astra_get_option( 'header-account-icon-size' );
 

@@ -56,17 +56,18 @@
 				AstCustomizerAPI.setControlContextBySection(section);
 				AstCustomizerAPI.setControlContextBySection(section_layout);
 
-				_.each(section.controls(), function (control) {
+				Promise.all([
+					_.each(section.controls(), function (control) {
 
-					if ('resolved' === control.deferred.embedded.state()) {
-						return;
-					}
-					control.renderContent();
-					control.deferred.embedded.resolve(); // This triggers control.ready().
+						if ('resolved' === control.deferred.embedded.state()) {
+							return;
+						}
+						control.renderContent();
+						control.deferred.embedded.resolve(); // This triggers control.ready().
 
-					// Fire event after control is initialized.
-					control.container.trigger('init');
-				});
+						// Fire event after control is initialized.
+						control.container.trigger('init');
+					}),
 				_.each(section_layout.controls(), function (control) {
 
 					if ('resolved' === control.deferred.embedded.state()) {
@@ -77,8 +78,10 @@
 
 					// Fire event after control is initialized.
 					control.container.trigger('init');
+				})
+				]).then(function () {
+					resizePreviewer();
 				});
-
 
 				if (isExpanded) {
 
@@ -102,8 +105,6 @@
 					$body.removeClass('ahfb-' + builder + '-builder-is-active');
 					$section.removeClass('ahfb-' + builder + '-builder-active');
 				}
-
-				resizePreviewer();
 
 			});
 			$section.on('click', '.ahfb-builder-tab-toggle', function (e) {
@@ -133,11 +134,6 @@
 			var Constructor = api.panelConstructor[data.type] || api.Panel, options;
 			options = _.extend({params: data}, data);
 			api.panel.add(new Constructor(id, options));
-			var isSiteRTL = false;
-
-			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.is_site_rtl) {
-				isSiteRTL = true;
-			}
 
 			// Scroll to footer.
 			if ('panel-footer-builder-group' === id) {
@@ -195,10 +191,10 @@
 			}
 
 			if (false !== is_cloning_index) {
-				let clone_from_id = id;
-				clone_from_id = clone_from_id.replace(/[0-9]+/g, is_cloning_index);
-				if (api.control(clone_from_id)) {
-					let val = api(clone_from_id).get();
+				let cloneFromId = id;
+				cloneFromId = cloneFromId.replace(/[0-9]+/g, is_cloning_index); // Replace random numeric with valid clone index.
+				if (api.control(cloneFromId)) {
+					let val = api(cloneFromId).get();
 					if (val) {
 						api(id).set(val);
 					}
@@ -217,7 +213,7 @@
 			set_context(control_id);
 		},
 
-		registerControlsBySection: function (section) {
+		registerControlsBySection: async function (section) {
 
 			if( ! section ) {
 				return;
@@ -227,6 +223,7 @@
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
 					this.addControl(config.id, config);
+					await null;
 				}
 			}
 		},
@@ -271,7 +268,7 @@
 			}
 		},
 
-		setControlContextBySection: function (section) {
+		setControlContextBySection: async function (section) {
 
 			// Skip setting context when no tabs added inside section.
 			if (expandedSection.includes(section.id)) {
@@ -282,6 +279,7 @@
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [control_id, config] of Object.entries(controls)) {
 					this.addControlContext(section.id, config.id);
+					await null;
 				}
 				expandedSection.push(section.id);
 			}
@@ -294,7 +292,7 @@
 			}
 			let skip_context = AstraBuilderCustomizerData.js_configs.skip_context || [];
 			// Set tab status as general for all wp default controls.
-			$.each(api.settings.controls, function (id, data) {
+			$.each(api.settings.controls, async function (id, data) {
 
 				if (-1 != (skip_context.indexOf(id))) {
 					// Do not init context if skipped.
@@ -317,15 +315,18 @@
 					]);
 				}
 
+				await null;
+
 			});
 
 			defaultContextSet = true;
 		},
 
-		initializeDynamicSettings: function () {
+		initializeDynamicSettings: async function () {
 			let settings = Object.assign({},  AstraBuilderCustomizerData.dynamic_setting_options );
 			for (const [setting_id, setting] of Object.entries(settings)) {
 				api.add( new api.Setting( setting_id, setting.default, setting ) );
+				await null;
 			}
 		},
 
@@ -338,26 +339,41 @@
 				let sections = AstraBuilderCustomizerData.js_configs.sections || [];
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
 
-				for (const [panel_id, config] of Object.entries(panels)) {
-					AstCustomizerAPI.addPanel(panel_id, config);
-				}
-
-				// Add controls to theme sections.
-				for (const [section_id, config] of Object.entries(sections)) {
-					AstCustomizerAPI.addSection(section_id, config);
-					AstCustomizerAPI.registerControlsBySection(api.section(section_id));
-					delete controls[section_id];
-				}
-
-				// Add controls to third party sections.
-				for (const [section_id, config] of Object.entries(controls)) {
-
-					if ("undefined" === typeof api.section(section_id)) {
-						continue;
+				const prepare_panels = async ( ) => {
+					for (const [panel_id, config] of Object.entries(panels)) {
+						AstCustomizerAPI.addPanel(panel_id, config);
+						await null;
 					}
-
-					AstCustomizerAPI.registerControlsBySection(api.section(section_id));
 				}
+				const prepare_section_controls = async () => {
+
+					// Add controls to theme sections.
+					for (const [section_id, config] of Object.entries(sections)) {
+						AstCustomizerAPI.addSection(section_id, config);
+						AstCustomizerAPI.registerControlsBySection(api.section(section_id));
+						delete controls[section_id];
+						await null;
+					}
+				}
+				const prepare_third_party_sections = async () => {
+					// Add controls to third party sections.
+					for (const [section_id, config] of Object.entries(controls)) {
+
+						if ("undefined" === typeof api.section(section_id)) {
+							continue;
+						}
+
+						AstCustomizerAPI.registerControlsBySection(api.section(section_id));
+						await null;
+					}
+				}
+
+				Promise.all([
+					prepare_panels(),
+					prepare_section_controls()
+				]).then(function () {
+					prepare_third_party_sections();
+				});
 
 				api.panel('panel-header-builder-group', initAstraBuilderPanel)
 				api.panel('panel-footer-builder-group', initAstraBuilderPanel);
@@ -365,12 +381,13 @@
 			}
 		},
 
-		moveDefaultSection: function () {
+		moveDefaultSection: async function () {
 
 			// Updating Section for wp default controls.
 			if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs.wp_defaults) {
 				for (const [control, section] of Object.entries(AstraBuilderCustomizerData.js_configs.wp_defaults)) {
 					api.control(control).section(section);
+					await null;
 				}
 			}
 		}
@@ -384,9 +401,9 @@
 
 		var desc = ctrl.container.find(".customize-control-description");
 		if (desc.length) {
-			var title = ctrl.container.find(".customize-control-title");
 			var li_wrapper = desc.closest("li");
 
+			// Replace unicode range with string characters.
 			var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
 				return '&#' + i.charCodeAt(0) + ';';
 			});
@@ -497,12 +514,12 @@
 
 							if (undefined === rule['setting']) {
 
-								let tmp_relation = rule['relation'];
-								if (!tmp_relation) {
+								let contextRelation = rule['relation'];
+								if (!contextRelation) {
 									return;
 								}
 
-								displayed = getResultByRules(rule, tmp_relation, false);
+								displayed = getResultByRules(rule, contextRelation, false);
 
 							} else {
 
@@ -565,13 +582,14 @@
 	 */
 	const highlight_active_component = function (customizer_section) {
 		var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
-		$.each(builder_items, function (i, val) {
+		$.each(builder_items, async function (i, val) {
 			var component_section = $(val).attr('data-section');
 			if (component_section === customizer_section.id && $('#sub-accordion-section-' + component_section).hasClass('open')) {
 				$(val).addClass('active-builder-item');
 			} else {
 				$(val).removeClass('active-builder-item');
 			}
+			await null;
 		});
 	}
 
@@ -582,13 +600,14 @@
 	const highlight_active_row = function (customizer_section) {
 		// Highlight builder rows.
 		var builder_rows = $('.ahfb-builder-items .ahfb-builder-areas');
-		$.each(builder_rows, function (i, val) {
+		$.each(builder_rows, async function (i, val) {
 			var builder_row = $(val).attr('data-row-section');
 			if (builder_row === customizer_section.id && $('#sub-accordion-section-' + builder_row).hasClass('open')) {
 				$(val).addClass('active-builder-row');
 			} else {
 				$(val).removeClass('active-builder-row');
 			}
+			await null;
 		});
 	}
 
@@ -641,31 +660,35 @@
 
 		$window.on('resize', resizePreviewer);
 
-		AstCustomizerAPI.initializeDynamicSettings();
-		AstCustomizerAPI.initializeConfigs();
-		api.section.each(function (section) {
-			section.expanded.bind(function (isExpanded) {
-				// Lazy Loaded Context.
-				AstCustomizerAPI.setControlContextBySection(api.section(section.id));
+		setTimeout(function () {
+			Promise.all([
+				AstCustomizerAPI.initializeDynamicSettings(),
+				AstCustomizerAPI.initializeConfigs()
+			]).then(function () {
+				api.section.each(function (section) {
+					section.expanded.bind(function (isExpanded) {
+						// Lazy Loaded Context.
+						AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
-				if (!isExpanded) {
-					// Setting general context when collapsed.
-					api.state('astra-customizer-tab').set('general');
-				}
+						if (!isExpanded) {
+							// Setting general context when collapsed.
+							api.state('astra-customizer-tab').set('general');
+						}
 
-				$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
+						$('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
 
-				var customizer_section = api.section(section.id);
-				set_context_by_url_params();
+						var customizer_section = api.section(section.id);
+						set_context_by_url_params();
 
-				_.each(section.controls(), function (control) {
-					highlight_active_component(customizer_section);
-					highlight_active_row(customizer_section);
+						_.each(section.controls(), function (control) {
+							highlight_active_component(customizer_section);
+							highlight_active_row(customizer_section);
+						});
+					});
 				});
+				AstCustomizerAPI.moveDefaultSection();
 			});
-		});
-		AstCustomizerAPI.moveDefaultSection();
-
+		}, 200);
 
 		api.previewer.bind('ready', function () {
 

@@ -29,7 +29,7 @@ v3.1.0
 - Improvement: Builder - Social Icons - Added a color option for labels of social icons.
 - Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
 - Improvement: Added new Page meta options for Above, Below and Mobile header.
-- Fix: Footer vertical alignment option not not working.
+- Fix: Footer vertical alignment option not working.
 - Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
 - Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
 - Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.

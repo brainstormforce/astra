@@ -18,14 +18,6 @@ const ResponsiveColorComponent = props => {
 	};
 
 	const renderReset = () => {
-		let deleteBtnDisabled = true;
-		let devices = ['desktop', 'mobile', 'tablet'];
-
-		for (let device of devices) {
-			if (props_value[device]) {
-				deleteBtnDisabled = false;
-			}
-		}
 
 		return <div className="ast-color-btn-reset-wrap">
 					<button
@@ -72,27 +64,15 @@ const ResponsiveColorComponent = props => {
 	};
 
 	const {
-		defaultValue,
 		label,
 		description,
 		responsive,
 	} = props.control.params;
 
-	let defaultVal = '#RRGGBB';
 	let labelHtml = null;
 	let descriptionHtml = null;
 	let responsiveHtml = null;
 	let inputHtml = null;
-
-	if (defaultValue) {
-		if ('#' !== defaultValue.substring(0, 1)) {
-			defaultVal = '#' + defaultValue;
-		} else {
-			defaultVal = defaultValue;
-		}
-
-		defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
-	}
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -134,7 +114,7 @@ const ResponsiveColorComponent = props => {
 		</>;
 	}
 
-	return <>
+	return <div className="ast-control-wrap">
 		<label>
 			{labelHtml}
 			{descriptionHtml}
@@ -145,7 +125,7 @@ const ResponsiveColorComponent = props => {
 		<div className="customize-control-content">
 			{inputHtml}
 		</div>
-	</>;
+	</div>;
 
 };
 

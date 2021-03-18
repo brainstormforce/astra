@@ -32,25 +32,6 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Footer Widget Color & Background Section heading
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-color-background-heading-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-footer-adv',
-					'priority' => 46,
-					'settings' => array(),
-					'context'  => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
-					),
-				),
-
-				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
@@ -61,6 +42,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'title'     => __( 'Background Color', 'astra' ),
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority'  => 47,
 					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -70,23 +52,6 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 							'value'    => 'disabled',
 						),
 
-					),
-				),
-
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-content-group-divider]',
-					'type'     => 'control',
-					'section'  => 'section-footer-adv',
-					'control'  => 'ast-divider',
-					'priority' => 48,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[footer-adv]',
-							'operator' => '!=',
-							'value'    => 'disabled',
-						),
 					),
 				),
 
@@ -124,6 +89,7 @@ if ( ! class_exists( 'Astra_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 48,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

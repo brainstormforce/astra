@@ -195,7 +195,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$mobile_label     = astra_get_option( 'mobile-header-menu-label' );
 			$toggle_btn_style = astra_get_option( 'mobile-header-toggle-btn-style' );
 			$aria_controls    = '';
-			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$aria_controls = 'aria-controls="primary-menu"';
 			}
 			?>
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Render Mobile Cart Flyout Markup.
-		 * 
+		 *
 		 * @since 3.1.0
 		 */
 		public static function render_mobile_cart_flyout_markup() {
@@ -284,7 +284,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					Shopping Cart
 					</div>
 				</div>
-				<div class="astra-cart-drawer-content"> 
+				<div class="astra-cart-drawer-content">
 					<?php
 					if ( class_exists( 'Astra_Woocommerce' ) ) {
 						the_widget( 'WC_Widget_Cart', 'title=' );

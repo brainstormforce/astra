@@ -44,26 +44,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
 					'title'    => __( 'Disable Breadcrumb', 'astra' ),
 					'priority' => 16,
-				),
-
-				/**
-				 * Option: Divider on Transparent Header
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-woo-products-divider]',
-					'type'     => 'control',
-					'section'  => 'section-transparent-header',
-					'control'  => 'ast-divider',
-					'priority' => 26,
-					'settings' => array(),
-					'context'  => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
-							'operator' => '==',
-							'value'    => '1',
-						),
-					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -85,6 +66,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 					'priority' => 26,
 					'control'  => 'ast-toggle-control',
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

@@ -145,6 +145,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
 				if ( typeof side != undefined ) {
 					sidesString = side + "";
+					// Replace comma character with dash, necessary to separate out spacing dimensions.
 					sidesString = sidesString.replace(/,/g , "-");
 				}
 				if ( typeof type != undefined ) {
@@ -373,6 +374,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 			var link = '';
 
 			var fontName = value.split(",")[0];
+			// Replace ' character with space, necessary to separate out font prop value.
 			fontName = fontName.replace(/'/g, '');
 
 			// Remove <style> first!
@@ -429,7 +431,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 					}
 				}
 
-				fontName = wp.customize._value[font_control]._value;
+				var fontName = wp.customize._value[font_control]._value;
 				fontName = fontName.split(',');
 				fontName = fontName[0].replace( /'/g, '' );
 
@@ -1229,16 +1231,20 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
 		value.bind( function( border ) {
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
-				var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
-					dynamicStyle += '{';
-					dynamicStyle += 'border-top-width:'  + border.top + 'px;';
-					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
-					dynamicStyle += 'border-left-width:'   + border.left + 'px;';
-					dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
-					dynamicStyle += 'border-style: solid;';
-					dynamicStyle += '}';
+				if( astraCustomizer.gb_outline_buttons_patterns_support ) {
+					wp.customize.preview.send( 'refresh' );
+				} else {
+					var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
+						dynamicStyle += '{';
+						dynamicStyle += 'border-top-width:'  + border.top + 'px;';
+						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
+						dynamicStyle += 'border-left-width:'   + border.left + 'px;';
+						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
+						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+					astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+				}
 			}
 		} );
 	} );
@@ -1405,18 +1411,6 @@ function isJsonString( str ) {
 			document.dispatchEvent( new CustomEvent( "astPreviewDeviceChanged",  { "detail": device }) );
 
 		} );
-
-		wp.customize.preview.bind( 'active', function() {
-			var partials = $.extend({}, astraCustomizer.dynamic_partial_options);
-			Object.keys(partials).forEach(function ( key) {
-				wp.customize.selectiveRefresh.partial.add(
-					new wp.customize.selectiveRefresh.Partial(
-						key,
-						_.extend({params: partials[key]}, partials[key])
-					)
-				);
-			});
-		});
 
 	})
 

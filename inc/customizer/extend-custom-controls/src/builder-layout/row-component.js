@@ -11,7 +11,6 @@ const RowComponent = props => {
 	let besideItems = [];
 	let layout = '';
 	let zone_count = 0;
-	let rowClass = '';
 	let enableRow = true;
 
 	if ('footer' === mode) {
@@ -37,7 +36,6 @@ const RowComponent = props => {
 			case 'above':
 				if (!props.controlParams.status.above) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
@@ -45,7 +43,6 @@ const RowComponent = props => {
 			case 'primary':
 				if (!props.controlParams.status.primary) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
@@ -53,7 +50,6 @@ const RowComponent = props => {
 			case 'below':
 				if (!props.controlParams.status.below) {
 					enableRow = false;
-					rowClass = 'ahfb-grid-disabled';
 				}
 
 				break;
