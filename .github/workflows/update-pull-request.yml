@@ -1,0 +1,22 @@
+name: Update pull request
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+    name: Updating Branch
+    if: contains(github.event.pull_request.labels.*.name, 'Update Branch')
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Update the branch
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "noreply@github.com"
+          git pull origin $GITHUB_BASE_REF
+          git push origin $GITHUB_HEAD_REF
+
+
