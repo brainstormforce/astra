@@ -10,7 +10,6 @@ on:
       - edited
       - opened
 
-
 jobs:
   update-branch:
     runs-on: ubuntu-latest
