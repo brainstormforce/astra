@@ -3,8 +3,6 @@ name: Update pull request
 # Run the deployment only when code is committed to the branch.
 on:
   pull_request:
-    branches:
-      - development
     types:
       - synchronize
       - labeled
@@ -17,7 +15,7 @@ jobs:
   update-branch:
     runs-on: ubuntu-latest
     name: Updating Branch
-    if: ${{ github.event.label.name == 'update-branch' }}
+    if: ${{ github.event.label.name == 'update-branch' }} && ${{ github.head_ref == 'refs/heads/development' }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
