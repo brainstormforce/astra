@@ -1,6 +1,7 @@
 name: Update pull request
 on:
   pull_request:
+  push:
 
 jobs:
   update-branch:
