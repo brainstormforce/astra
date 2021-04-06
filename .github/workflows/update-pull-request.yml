@@ -3,6 +3,8 @@ name: Update pull request
 # Run the deployment only when code is committed to the branch.
 on:
   pull_request:
+    branches:
+      - development
     types:
       - synchronize
       - labeled
@@ -24,5 +26,5 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "noreply@github.com"
-          git pull origin deelopment
+          git pull origin development
           git push origin HEAD:${GITHUB_REF}
