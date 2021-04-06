@@ -1,13 +1,17 @@
 name: Update pull request
+
 on:
   pull_request:
-  push:
+    types:
+      - labeled
+    branches:
+      - development
 
 jobs:
   update-branch:
     runs-on: ubuntu-latest
     name: Updating Branch
-    if: contains(github.event.pull_request.labels.*.name, 'update-branch')
+    if: ${{ github.event.label.name == 'update-branch' }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
