@@ -15,7 +15,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "noreply@github.com"
-          echo {{ env.GITHUB_BASE_REF }}
-          echo {{ env.GITHUB_HEAD_REF }}
-          git pull origin {{ env.GITHUB_BASE_REF }}
-          git push origin {{ env.GITHUB_HEAD_REF }}
+          echo {{ github.base_ref }}
+          echo {{ github.head_ref }}
+          git pull origin {{ github.base_ref }}
+          git push origin {{ github.head_ref }}
