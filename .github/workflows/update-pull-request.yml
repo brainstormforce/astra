@@ -12,7 +12,6 @@ on:
       - edited
       - opened
 
-
 jobs:
   update-branch:
     runs-on: ubuntu-latest
@@ -21,6 +20,8 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Update the branch
         run: |
