@@ -3,6 +3,12 @@ name: Update pull request
 # Run the deployment only when code is committed to the branch.
 on:
   pull_request:
+    types:
+      - synchronize
+      - labeled
+      - unlabeled
+      - edited
+      - opened
 
 
 jobs:
