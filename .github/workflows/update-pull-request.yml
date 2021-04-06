@@ -7,7 +7,7 @@ jobs:
   update-branches:
     runs-on: ubuntu-latest
     name: Updating Branch
-    if: contains(github.event.pull_request.labels.*.name, 'Update Branch')
+    if: contains(github.event.pull_request.labels.*.name, 'update-branch')
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
