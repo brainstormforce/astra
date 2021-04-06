@@ -4,7 +4,7 @@ on:
     types: [labeled]
 
 jobs:
-  update-branches:
+  update-branch:
     runs-on: ubuntu-latest
     name: Updating Branch
     if: contains(github.event.pull_request.labels.*.name, 'update-branch')
