@@ -116,7 +116,7 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 /**
  * Add static CSS for Off-canvas flyout.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return string.
  */
 function astra_off_canvas_static_css() {
@@ -418,7 +418,7 @@ function astra_off_canvas_static_css() {
 /**
  * Add static CSS for Dropdown Type.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return string.
  */
 function astra_dropdown_type_static_css() {

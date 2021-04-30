@@ -2920,7 +2920,7 @@ function astra_check_flex_based_css() {
 /**
  * Update the Cart Style, Icon color & Border radius if None style is selected.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return void.
  */
 function astra_update_cart_style() {

@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 3.3.3\n"
+"Project-Id-Version: Astra 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-21T11:53:38+00:00\n"
+"POT-Creation-Date: 2021-04-21T09:30:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -3519,7 +3519,6 @@ msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:56
 #: inc/customizer/configurations/layout/class-astra-related-posts-configs.php:496
-#: inc/modules/related-posts/related-posts.php:281
 msgid "Related Posts"
 msgstr ""
 

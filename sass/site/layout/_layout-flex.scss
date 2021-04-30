@@ -1,4 +1,9 @@
 // class to hide elements
+:root{
+    --postRowGap : 0px;
+    --postColumnGap : 0px;
+    --gridColumns : 1;
+}
 .ast-hidden {
 	display: none !important;
 }
@@ -118,4 +123,11 @@ body{
 			padding-left: $space-between-primary-seconday;
 		}
 	}
+}
+
+.ast-blog-grid{
+    grid-column-gap: var( --postColumnGap );
+    display: grid;
+    grid-template-columns: repeat( var( --gridColumns ) ,1fr);
+    grid-row-gap: var( --postRowGap );
 }

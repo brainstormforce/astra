@@ -587,7 +587,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * External links through Astra Options page.
 		 *
-		 * @since x.x.x
+		 * @since 3.4.0
 		 */
 		public static function external_important_links_section() {
 
@@ -632,7 +632,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Starter Templates Post Box Title.
 		 *
-		 * @since x.x.x
+		 * @since 3.4.0
 		 *
 		 * @return string Starter Templates Plugin name.
 		 */

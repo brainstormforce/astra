@@ -159,7 +159,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_grid_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-md-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? '' : 'ast-col-md-12'; 
 	}
 
 	/**
@@ -179,7 +179,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_blog_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-full-width' : 'ast-col-sm-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? '' : 'ast-col-sm-12'; 
 	}
 
 	/**

@@ -153,6 +153,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => true,
 						),
 					),
+					'divider'           => array(
+						'ast_class' => 'ast-bottom-divider',
+					),
 				),
 
 				// Option Group: Menu Color.
@@ -167,7 +170,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
 					'divider'    => array(
-						'ast_class' => 'ast-top-divider',
 						'ast_title' => __( 'Menu Color', 'astra' ),
 					),
 				),

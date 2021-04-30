@@ -540,7 +540,7 @@ function astra_markup_close( $context, $args = array() ) {
 /**
  * Provision to update display rules for visibility of Related Posts section in Astra.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return bool
  */
 function astra_target_rules_for_related_posts() {
