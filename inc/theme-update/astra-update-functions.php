@@ -277,7 +277,7 @@ function astra_footer_widget_bg() {
 /**
  * Check if we need to load icons as font or SVG.
  *
- * @since x.x.x
+ * @since 3.3.0
  * @return void
  */
 function astra_icons_svg_compatibility() {
@@ -2889,7 +2889,7 @@ function astra_gutenberg_media_text_block_css_compatibility() {
 /**
  * Gutenberg pattern compatibility changes.
  *
- * @since x.x.x
+ * @since 3.3.0
  *
  * @return void
  */
@@ -2905,7 +2905,7 @@ function astra_gutenberg_pattern_compatibility() {
 /**
  * Set flag to provide backward compatibility of float based CSS for existing users.
  *
- * @since x.x.x
+ * @since 3.3.0
  * @return void.
  */
 function astra_check_flex_based_css() {
@@ -2920,7 +2920,7 @@ function astra_check_flex_based_css() {
 /**
  * Update the Cart Style, Icon color & Border radius if None style is selected.
  *
- * @since x.x.x
+ * @since 3.4.0
  * @return void.
  */
 function astra_update_cart_style() {

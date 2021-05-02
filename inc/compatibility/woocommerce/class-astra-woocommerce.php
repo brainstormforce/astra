@@ -1319,6 +1319,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
+						'margin-left' => '20px',
+						'clear'       => 'none',
+					);
 					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-6>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-6>ul.products li.product:nth-child(2n)'] = array(
 						'margin-left' => 0,
 						'clear'       => 'left',
@@ -1326,7 +1330,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n+1)'] = array(
 						'clear' => 'right',
 					);
-					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
+					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)'] = array(
 						'margin-left' => '20px',
 						'clear'       => 'none',
 					);
@@ -1336,10 +1340,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 					$global_button_mobile_lang_direction_css['.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce div.product .related.products ul.products li.product:nth-child(2n+1)'] = array(
 						'clear' => 'right',
-					);
-					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)'] = array(
-						'margin-left' => '20px',
-						'clear'       => 'none',
 					);
 				}
 			} else {
@@ -1364,14 +1364,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
+					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
+						'margin-right' => '20px',
+						'clear'        => 'none',
+					);
 					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce-page[class*=columns-].columns-6>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-3>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-4>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-5>ul.products li.product:nth-child(2n), .woocommerce[class*=columns-].columns-6>ul.products li.product:nth-child(2n)'] = array(
-						'margin-left' => 0,
-						'clear'       => 'right',
+						'margin-right' => 0,
+						'clear'        => 'right',
 					);
 					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"].columns-3 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-4 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-5 > ul.products li.product:nth-child(2n+1), .woocommerce[class*="columns-"].columns-6 > ul.products li.product:nth-child(2n+1)'] = array(
 						'clear' => 'left',
 					);
-					$global_button_mobile_lang_direction_css['.woocommerce[class*="columns-"] ul.products li.product:nth-child(n), .woocommerce-page[class*="columns-"] ul.products li.product:nth-child(n)'] = array(
+					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)'] = array(
 						'margin-right' => '20px',
 						'clear'        => 'none',
 					);
@@ -1381,10 +1385,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 					$global_button_mobile_lang_direction_css['.woocommerce.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce-page.mobile-columns-6 ul.products li.product:nth-child(6n+1), .woocommerce.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce-page.mobile-columns-5 ul.products li.product:nth-child(5n+1), .woocommerce.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce-page.mobile-columns-4 ul.products li.product:nth-child(4n+1), .woocommerce.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce-page.mobile-columns-3 ul.products li.product:nth-child(3n+1), .woocommerce.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce-page.mobile-columns-2 ul.products li.product:nth-child(2n+1), .woocommerce div.product .related.products ul.products li.product:nth-child(2n+1)'] = array(
 						'clear' => 'left',
-					);
-					$global_button_mobile_lang_direction_css['.woocommerce-page[class*=columns-] ul.products li.product:nth-child(n), .woocommerce[class*=columns-] ul.products li.product:nth-child(n)'] = array(
-						'margin-right' => '20px',
-						'clear'        => 'none',
 					);
 				}
 			}

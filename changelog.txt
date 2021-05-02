@@ -1,6 +1,15 @@
-v3.4.0 (Unreleased)
+v3.4.1
+- Fix: Off-canvas - Mobile - Left aligned flyout style not working.
+- Fix: Mobile Menu hides when menu item having hash(#) link is clicked.
+
+v3.4.0
+- New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)
 - Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
-- Improvement: Gutenberg Editor - Compatibility with WordPress 5.7.
+- Improvement: Gutenberg Editor - Compatibility with Starter Templates Blocks design in editor. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
+- Improvement: Update toolset-config.json towards Toolset 1.5 compatibility. (Props - https://github.com/decodekult)
+- Improvement: Frontend optimization by reducing one request for Menu animation CSS in default theme though option is available to add menu animation.
+- Improvement: Frontend optimization by replacing Flyout Menu with Dropdown menu for default theme.
+- Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
 - Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
 - Fix: Search Element alignment in Off-Canvas & Dropdown.
 - Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
@@ -15,27 +24,52 @@ v3.4.0 (Unreleased)
 - Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
 - Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
 - Fix: Transparent Header - Normal colors not working for transparent header if colors are not set from Transparent Header settings.
+- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
+- Fix: Context Switch does not work if there are no elements in Primary Header for both Desktop & Mobile.
 - Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
+- Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: JavaScript error when clicking on the Dropdown Toggle for Sticky Header on Mobile.
+- Fix: Scroll does not work in Off-Canvas.
+- Fix: Spacing not working properly for Social Element when 'Stack on' & 'Icon Spacing' options value is changed in Customizer Preview.
+- Fix: RTL WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
+
+v3.3.3
+- Fix: Elementor - Theme Builder archive page contents are not aligned center.
+- Fix: Elementor - Elementor editor panel switches back to the main panel while using the responsive view.
+
+v3.3.2
+- Fix: Transparent Header disappears if we add Widget 2 element.
+- Fix: Builder - Multiple headers visible on frontend.
+- Fix: Builder - Menu - not able to hover and click on submenu.
+- Fix: Blog Archive - Layout 1 and Layout 2 are not working for existing users when addon activated.
+
+v3.3.1
+- Fix: WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
+- Fix: Fatal error on sites due to incorrect migration flag.
 
 v3.3.0
 - New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
 - New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
+- New: SVG Icons support ( deprecating astra.woff font file ). (https://wpastra.com/docs/ast-font-icons-to-svg/)
 - Improvement: Builder - Mobile Menu - Renamed Mobile Menu to Off-Canvas Menu.
-- Improvement: Builder - Added instructive message in builder side panel when builder layout does not have any element in use.
-- Improvement: Replaced responsive number control with responsive slider control for Base Font Size in Typography section.
-- Improvement: Gutenberg Editor - Block patterns compatibility.
+- Improvement: Builder - Added instructive message in the builder side panel when builder layout does not have any element in use.
+- Improvement: Replaced responsive number control with a responsive slider control for Base Font Size in Typography section.
+- Improvement: Gutenberg Editor - Block patterns compatibility. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
 - Improvement: Compatibility with WordPress 5.7.
 - Improvement: Code quality improvements for better performance.
 - Improvement: Load minified customizer preview files for better performance.
-- Fix: Footer Builder - Social Icons - Vertical align breaking in customizer when adjusting Icon Spacing & Stack On options together.
+- Improvement: Frontend optimization - Comments, Pagination, Single Page, Single Post, Archive Page. (https://wpastra.com/docs/optimize-css-html-before-3-3/)
+- Improvement: Frontend optimization - WooCommerce - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - EDD - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - LifterLMS - All Courses Page.
+- Improvement: Frontend optimization - LearnDash - All Courses Page, Single Course Page.
 - Fix: White Label – White-labeled the Astra Header Footer setting notice.
 - Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
-- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when submenu is in expanded state.
-- Fix: Builder - Header - Frontend grid layout overlaps on content section when multiple elements added in same header layout.
+- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when the submenu is in the expanded state.
+- Fix: Builder - Header - Frontend grid layout overlaps on the content section when multiple elements added in the same header layout.
 - Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
-- Fix: Builder - Footer - Responsive control for layouts get hidden on the click of WordPress default responsive controls.
+- Fix: Builder - Footer - Responsive control for layouts gets hidden with the click of WordPress default responsive controls.
 - Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
-- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
 
 v3.2.0
 - New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.

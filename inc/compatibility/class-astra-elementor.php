@@ -120,6 +120,13 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 				$dynamic_css .= $parse_css;
 			}
+			
+			$elementor_archive_page_css = array(
+				'.elementor-template-full-width .ast-container' => array(
+					'display' => 'block',
+				),
+			);
+			$dynamic_css               .= astra_parse_css( $elementor_archive_page_css );
 
 			return $dynamic_css;
 		}

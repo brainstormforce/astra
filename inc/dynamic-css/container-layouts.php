@@ -3,7 +3,7 @@
  * Container Layout - Dynamic CSS
  *
  * @package astra
- * @since x.x.x
+ * @since 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Container Layout - Dynamic CSS.
  *
- * @since x.x.x
+ * @since 3.3.0
  */
 function astra_container_layout_css() {
 	$container_layout = astra_get_content_layout();

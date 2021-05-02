@@ -306,6 +306,9 @@
   margin-top: 0;
 }
 
+/*
+ * Divider compatibility CSS for setting group.
+ */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
 }

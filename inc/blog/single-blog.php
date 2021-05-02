@@ -149,8 +149,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						-->
 								<?php
-								astra_markup_open( 'ast-comment-data-wrap' ); 
-								astra_markup_open( 'ast-comment-meta-wrap' ); 
+								astra_markup_open( 'ast-comment-data-wrap' );
+								astra_markup_open( 'ast-comment-meta-wrap' );
 								echo '<header ';
 								echo astra_attr(
 									'commen-meta-author',
@@ -166,7 +166,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 											array(
 												'open'  => '<div %s>',
 												'class' => 'ast-comment-cite-wrap',
-											) 
+											)
 										) . '<cite><b class="fn">%1$s</b> %2$s</cite></div>',
 										get_comment_author_link(),
 										// If current post author is also comment author, make it known visually.
@@ -181,8 +181,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 												array(
 													'open' => '<div %s>',
 													'class' => 'ast-comment-time',
-												) 
-											) 
+												)
+											)
 										) . '<span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										esc_attr( get_comment_time( 'c' ) ),

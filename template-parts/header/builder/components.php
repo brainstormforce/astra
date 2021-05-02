@@ -179,7 +179,7 @@ switch ( $component_slug ) {
 			}
 			?>
 			<?php
-			astra_markup_close( 'header-widget-div' );
+			astra_markup_open( 'header-widget-div' );
 			astra_get_sidebar( 'header-widget-2' ); 
 			astra_markup_close( 'header-widget-div' ); 
 			?>

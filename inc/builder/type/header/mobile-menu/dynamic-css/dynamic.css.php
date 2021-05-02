@@ -125,7 +125,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ),
 		),
-		$selector . ' .menu-item > .ast-menu-toggle'       => array(
+		$selector . ' .main-header-menu .menu-item > .ast-menu-toggle' => array(
 			'color' => $menu_resp_color_desktop,
 		),
 		$selector . ' .menu-item:hover > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item:hover > .ast-menu-toggle' => array(

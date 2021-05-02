@@ -6,13 +6,13 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.3.0
  */
 
 /**
  * Icons Initial Setup
  *
- * @since x.x.x
+ * @since 3.3.0
  */
 class Astra_Icons {
 	/**
@@ -29,7 +29,7 @@ class Astra_Icons {
 	 * Check if we need to load icons as SVG or fonts.
 	 * Returns true if SVG false if font.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 *
 	 * @return boolean should be svg or font.
 	 */
@@ -43,7 +43,7 @@ class Astra_Icons {
 	 * Get SVG icons.
 	 * Returns the SVG icon you want to display.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 *
 	 * @param string  $icon Key for the SVG you want to load.
 	 * @param boolean $is_echo whether to echo the output or return.
@@ -69,7 +69,7 @@ class Astra_Icons {
 					break;
 
 				case 'search':
-					$output = '<svg xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="-888 480 142 142" enable-background="new -888 480 142 142" xml:space="preserve">
+					$output = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="-888 480 142 142" enable-background="new -888 480 142 142" xml:space="preserve">
 				<title/>
 				<desc/>
 				<path id="Shape" d="M-787.4,568.7h-6.3l-2.4-2.4c7.9-8.7,12.6-20.5,12.6-33.1c0-28.4-22.9-51.3-51.3-51.3  c-28.4,0-51.3,22.9-51.3,51.3c0,28.4,22.9,51.3,51.3,51.3c12.6,0,24.4-4.7,33.1-12.6l2.4,2.4v6.3l39.4,39.4l11.8-11.8L-787.4,568.7  L-787.4,568.7z M-834.7,568.7c-19.7,0-35.5-15.8-35.5-35.5c0-19.7,15.8-35.5,35.5-35.5c19.7,0,35.5,15.8,35.5,35.5  C-799.3,553-815,568.7-834.7,568.7L-834.7,568.7z"/>
@@ -106,7 +106,7 @@ class Astra_Icons {
 			}
 
 			if ( $replace ) {
-				$output .= '<svg xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="-63 -63 140 140" enable-background="new -63 -63 140 140" xml:space="preserve">
+				$output .= '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="-63 -63 140 140" enable-background="new -63 -63 140 140" xml:space="preserve">
                 <path id="Shape" d="M75.133-47.507L61.502-61.133L7-6.625l-54.507-54.507l-13.625,13.625L-6.625,7l-54.507,54.503l13.625,13.63     L7,20.631l54.502,54.502l13.631-13.63L20.63,7L75.133-47.507z"/></svg>';
 			}
 		} else {

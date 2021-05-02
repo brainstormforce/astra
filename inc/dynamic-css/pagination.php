@@ -3,7 +3,7 @@
  * Pagination - Dynamic CSS
  *
  * @package astra-builder
- * @since x.x.x
+ * @since 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_pagination_css', 11 );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @return String Generated dynamic CSS for Pagination.
  *
- * @since x.x.x
+ * @since 3.3.0
  */
 function astra_pagination_css( $dynamic_css ) {
 

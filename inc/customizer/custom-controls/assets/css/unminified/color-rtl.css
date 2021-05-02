@@ -273,7 +273,7 @@
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
-	top: 0;
+	top: 10px;
 }
 .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 27px;

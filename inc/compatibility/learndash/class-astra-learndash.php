@@ -384,7 +384,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		/** 
 		 * LearnDash Static CSS.
 		 *
-		 * @since x.x.x
+		 * @since 3.3.0
 		 * @return string
 		 */
 		public static function ld_static_css() {

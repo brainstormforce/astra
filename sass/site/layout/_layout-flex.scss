@@ -44,17 +44,18 @@ body{
     	margin-left: 0;
     	margin-right: 0;
 	}
-	
+	.ast-article-post,
+	.ast-article-single:not(.ast-related-post){
+		background-color: $color-background-content;
+	}
 	.ast-article-post,
 	.ast-article-single{
-		background-color: $color-background-content;
 		border-bottom: 1px solid $color-border-content;
-		 margin: 0;
-		 padding: 5.34em 6.67em;
+		margin: 0;
+		padding: 5.34em 6.67em;
 	}
 	.blog-layout-1{
         padding: 0;
-        /*background-color: $color-background-content;*/
         border-bottom: 0;
     }
 	.ast-article-single {
@@ -96,13 +97,13 @@ body{
 }
 
 @media (max-width: $mx-col-lg) {
-	.ast-separate-container{	
-		&.ast-right-sidebar #primary,	
-		&.ast-left-sidebar #primary,	
-		#primary{	
-			padding-left:0;	
-			padding-right:0;	
-		}	
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary{
+			padding-left:0;
+			padding-right:0;
+		}
 	}
 	// Right Sidebar - Spacing Between Primary & Secondary
 	.ast-right-sidebar {

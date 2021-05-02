@@ -55,6 +55,12 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$content_width           = astra_get_option( 'site-content-width' );
 	$inner_spacing           = astra_get_option( 'hb-inner-spacing' );
 
+	$layout = astra_get_option( 'hb-footer-layout' );
+
+	$desk_layout = ( isset( $layout['desktop'] ) ) ? $layout['desktop'] : 'full';
+	$tab_layout  = ( isset( $layout['tablet'] ) ) ? $layout['tablet'] : 'full';
+	$mob_layout  = ( isset( $layout['mobile'] ) ) ? $layout['mobile'] : 'full';
+
 	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
 	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
 	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
@@ -72,6 +78,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'flex',
 			'margin-bottom' => '0',
 		),
+		'.ast-builder-grid-row-' . $desk_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $desk_layout ],
+		),
 
 	);
 
@@ -80,7 +89,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$css_output_desktop[ $selector ]['border-style'] = 'solid';
 
 		$css_output_desktop[ $selector ]['border-width'] = '0px';
-		
+
 		$css_output_desktop[ $selector ]['border-top-width'] = astra_get_css_value( $footer_top_border_size, 'px' );
 
 		$css_output_desktop[ $selector ]['border-top-color'] = $footer_top_border_color;
@@ -113,6 +122,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'block',
 			'margin-bottom' => '10px',
 		),
+		'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-' . $tab_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $tab_layout ],
+		),
 	);
 	$css_output_mobile = array(
 
@@ -129,6 +141,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 		$selector . '.ast-footer-row-mobile-stack .site-footer-section' => array(
 			'display'       => 'block',
 			'margin-bottom' => '10px',
+		),
+		'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-' . $mob_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $mob_layout ],
 		),
 	);
 

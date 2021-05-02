@@ -186,122 +186,190 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			 * Tablet CSS.
 			 */
 			$css_output_tablet = array(
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-6-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 6, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-5-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 5, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 4, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr 1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr 1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 3, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-cheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 2fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-cwide .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 3fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-firstrow .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-firstrow .ast-builder-grid-row > *:first-child' => array(
+				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-firstrow .ast-builder-grid-row > *:first-child, .ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lastrow .ast-builder-grid-row > *:last-child' => array(
 					'grid-column' => '1 / -1',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lastrow .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lastrow .ast-builder-grid-row > *:last-child' => array(
-					'grid-column' => '1 / -1',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 2, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-full .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr',
 				),
 			);
 
+			/**
+			 * Mobile CSS.
+			 */
 			$css_output_mobile = array(
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-6-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 6, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-5-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 5, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 4, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr 1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr 1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 3, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-cheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 2fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-cwide .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 3fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-firstrow .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-firstrow .ast-builder-grid-row > *:first-child' => array(
+				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-firstrow .ast-builder-grid-row > *:first-child, .ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lastrow .ast-builder-grid-row > *:last-child' => array(
 					'grid-column' => '1 / -1',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lastrow .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lastrow .ast-builder-grid-row > *:last-child' => array(
-					'grid-column' => '1 / -1',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-equal .ast-builder-grid-row' => array(
-					'grid-template-columns' => 'repeat( 2, 1fr )',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-lheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '2fr 1fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-rheavy .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr 2fr',
-				),
-				'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-full .ast-builder-grid-row' => array(
-					'grid-template-columns' => '1fr',
 				),
 			);
 
 			/* Parse CSS from array() */
 			$css_output  = astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+
+			if ( is_customize_preview() ) {
+
+				/**
+				 * Desktop CSS
+				 */
+				$css_output_desktop = array(
+					'.ast-builder-grid-row-6-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 6, 1fr )',
+					),
+					'.ast-builder-grid-row-5-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 5, 1fr )',
+					),
+					'.ast-builder-grid-row-4-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 4, 1fr )',
+					),
+					'.ast-builder-grid-row-4-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-4-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-3-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 3, 1fr )',
+					),
+					'.ast-builder-grid-row-3-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-3-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-3-cheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr 1fr',
+					),
+					'.ast-builder-grid-row-3-cwide .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 3fr 1fr',
+					),
+					'.ast-builder-grid-row-2-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 2, 1fr )',
+					),
+					'.ast-builder-grid-row-2-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr',
+					),
+					'.ast-builder-grid-row-2-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr',
+					),
+					'.ast-builder-grid-row-2-full .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr',
+					),
+					'.ast-builder-grid-row-full .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr',
+					),
+				);
+
+				/**
+				 * Tablet CSS.
+				 */
+				$css_output_tablet = array(
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-6-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 6, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-5-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 5, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 4, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-4-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 3, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-cheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-cwide .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 3fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-firstrow .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lastrow .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 2, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-2-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-full .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr',
+					),
+				);
+
+				/**
+				 * Mobile CSS
+				 */
+				$css_output_mobile = array(
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-6-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 6, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-5-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 5, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 4, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-4-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 3, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-cheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-cwide .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 3fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-firstrow .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lastrow .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-equal .ast-builder-grid-row' => array(
+						'grid-template-columns' => 'repeat( 2, 1fr )',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-lheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '2fr 1fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-2-rheavy .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr 2fr',
+					),
+					'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-full .ast-builder-grid-row' => array(
+						'grid-template-columns' => '1fr',
+					),
+				);
+
+				/* Parse CSS from array() */
+				$css_output .= astra_parse_css( $css_output_desktop );
+				$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+				$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+			}
 
 			$dynamic_css .= $css_output;
 

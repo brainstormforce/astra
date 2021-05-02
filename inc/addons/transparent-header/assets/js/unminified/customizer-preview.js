@@ -40,10 +40,10 @@
 
 				switch( displayOn ) {
 					case 'both':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'desktop':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'mobile':
 						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
@@ -85,10 +85,10 @@
 
 				switch( displayOn ) {
 					case 'both':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'desktop':
-						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+						selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
 					break;
 					case 'mobile':
 						selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
@@ -238,7 +238,7 @@
 	astra_css( 'astra-settings[transparent-header-widget-content-color]', 'color', transparent_header_widget );
 	astra_css( 'astra-settings[transparent-header-widget-link-color]', 'color', transparent_header_widget + ' a' );
 	astra_css( 'astra-settings[transparent-header-widget-link-h-color]', 'color', transparent_header_widget + ' a:hover' );
-	
+
 	astra_css( 'astra-settings[transparent-header-button-text-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-bg-color]', 'background', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' );
 	astra_css( 'astra-settings[transparent-header-button-text-h-color]', 'color', '.ast-theme-transparent-header [CLASS*="ast-header-button-"] ..ast-custom-button:hover' );

@@ -518,6 +518,20 @@
         }
     },
     {
+        "Antonio": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Arapey": {
             "variants": [
                 "regular",
@@ -553,14 +567,24 @@
     {
         "Archivo": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -686,12 +710,12 @@
         "Asap": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1655,7 +1679,11 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -2745,6 +2773,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Dela Gothic One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -5024,6 +5060,16 @@
         }
     },
     {
+        "Karantina": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Karla": {
             "variants": [
                 "200",
@@ -5166,6 +5212,16 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Kiwi Maru": {
+            "variants": [
+                "300",
+                "regular",
+                "500"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -5508,6 +5564,20 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Lexend": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -6864,6 +6934,14 @@
         }
     },
     {
+        "New Tegomin": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "News Cycle": {
             "variants": [
                 "regular",
@@ -7371,6 +7449,14 @@
             "variants": [
                 "regular",
                 "italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Orelega One": {
+            "variants": [
+                "regular"
             ],
             "category": "display"
         }
@@ -10130,6 +10216,14 @@
         }
     },
     {
+        "Train One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Trirong": {
             "variants": [
                 "100",
@@ -10700,6 +10794,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Zen Dots": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {

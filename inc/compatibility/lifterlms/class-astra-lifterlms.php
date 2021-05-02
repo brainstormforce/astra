@@ -182,6 +182,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-container-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-astra-lifter-sidebar-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-astra-lifter-general-configs.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
@@ -768,8 +769,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 		/**
 		 * Llms single lesson static CSS move to dynamic to load conditionally.
-		 * 
-		 * @since x.x.x
+		 *
+		 * @since 3.3.0
 		 * @return string
 		 */
 		public function llms_single_lesson_css() {
@@ -777,51 +778,51 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link {
 				background: #fff;
 			}
-			  
+
 			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link:hover {
 				background: #fafafa;
 			}
-			  
+
 			.single-lesson .ast-article-single .llms-lesson-button-wrapper {
 				font-weight: 600;
 			}
-			  
+
 			.single-lesson .ast-article-single .llms-lesson-button-wrapper .llms-complete-lesson-form .llms-field-button:before {
 				content: "\2714";
 				margin-right: .5em;
 			}
-			  
+
 			.single-lesson .llms-course-navigation {
 				padding: 2em 0 0;
 				border-top: 1px solid #eeeeee;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-lesson-preview {
 				vertical-align: top;
 				margin-top: 0;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-lesson-preview .llms-lesson-link {
 				padding-left: 20px;
 				padding-right: 20px;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-prev-lesson h6.llms-pre-text:before {
 				content: "\2190";
 				margin-right: .5em;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-back-to-course:first-child h6.llms-pre-text:before {
 				content: "\2190";
 				margin-right: .5em;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text:after,
 			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text:after {
 				content: "\2192";
 				margin-left: 5px;
 			}
-			  
+
 			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-title,
 			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-excerpt,
 			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text,
@@ -830,7 +831,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text {
 				text-align: right;
 			}
-			  
+
 			@media (max-width: 544px) {
 				.single-lesson .llms-course-navigation {
 				  padding-top: 1.5em;

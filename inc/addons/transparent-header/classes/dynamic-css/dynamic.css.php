@@ -421,12 +421,20 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$css .= astra_parse_css( $transparent_header_mobile, '', astra_get_mobile_breakpoint() );
 	}
 
+	$mobile_header_type = astra_get_option( 'mobile-header-type' );
+
+	if ( 'dropdown' === $mobile_header_type || is_customize_preview() ) {
+		$header_child_selector = '[CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+	} else {
+		$header_child_selector = '[CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+	}
+
 	if ( 'both' === $transparent_header_devices ) {
 
 		$selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
 		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-			$selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"], .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+			$selector = '.ast-theme-transparent-header #ast-desktop-header > ' . $header_child_selector . ', .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > ' . $header_child_selector;
 		}
 
 		$css .= astra_parse_css(
@@ -445,7 +453,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$selector = '.ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
 		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-			$selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]';
+			$selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > ' . $header_child_selector;
 		}
 
 		$css .= astra_parse_css(
@@ -466,7 +474,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$selector = '.ast-theme-transparent-header .main-header-bar';
 
 		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-			$selector = '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
+			$selector = '.ast-theme-transparent-header #ast-desktop-header > ' . $header_child_selector;
 		}
 
 		$css .= astra_parse_css(

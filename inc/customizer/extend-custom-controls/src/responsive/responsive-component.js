@@ -121,14 +121,16 @@ const ResponsiveComponent = props => {
 		</>;
 	}
 
-	return <label key={'customizer-text'} className="customizer-text">
-		{labelHtml}
+	return <div>
+		<label key={'customizer-text'} className="customizer-text">
+			{labelHtml}
+		</label>
 		{responsiveHtml}
 		{descriptionHtml}
 		<div className="input-wrapper ast-responsive-wrapper">
 			{inputHtml}
 		</div>
-	</label>;
+	</div>;
 
 };
 

@@ -380,7 +380,7 @@ class Astra_Button_Component_Configs {
 						'input_attrs' => array(
 							'min' => 0,
 						),
-						'priority'    => 3,
+						'priority'    => 2,
 						'context'     => Astra_Builder_Helper::$general_tab,
 						'units'       => array(
 							'px' => 'px',

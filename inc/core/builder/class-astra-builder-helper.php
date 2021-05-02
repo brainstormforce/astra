@@ -345,6 +345,31 @@ final class Astra_Builder_Helper {
 	private static $instance = null;
 
 	/**
+	 * Member Variable
+	 *
+	 * @var grid_size_mapping
+	 */
+	public static $grid_size_mapping = array(
+		'6-equal'    => 'repeat( 6, 1fr )',
+		'5-equal'    => 'repeat( 5, 1fr )',
+		'4-equal'    => 'repeat( 4, 1fr )',
+		'4-lheavy'   => '2fr 1fr 1fr 1fr',
+		'4-rheavy'   => '1fr 1fr 1fr 2fr',
+		'3-equal'    => 'repeat( 3, 1fr )',
+		'3-lheavy'   => '2fr 1fr 1fr',
+		'3-rheavy'   => '1fr 1fr 2fr',
+		'3-cheavy'   => '1fr 2fr 1fr',
+		'3-cwide'    => '1fr 3fr 1fr',
+		'3-firstrow' => '1fr 1fr',
+		'3-lastrow'  => '1fr 1fr',
+		'2-equal'    => 'repeat( 2, 1fr )',
+		'2-lheavy'   => '2fr 1fr',
+		'2-rheavy'   => '1fr 2fr',
+		'2-full'     => '2fr',
+		'full'       => '1fr',
+	);
+
+	/**
 	 *  Initiator
 	 */
 	public static function get_instance() {
@@ -800,9 +825,9 @@ final class Astra_Builder_Helper {
 	 */
 	public static function is_header_footer_builder_active() {
 
-		$astra_settings                             = get_option( ASTRA_THEME_SETTINGS );
-		$astra_settings['is-header-footer-builder'] = isset( $astra_settings['is-header-footer-builder'] ) ? $astra_settings['is-header-footer-builder'] : true;
-		return apply_filters( 'astra_is_header_footer_builder_active', $astra_settings['is-header-footer-builder'] );
+		$astra_settings           = get_option( ASTRA_THEME_SETTINGS );
+		$is_header_footer_builder = isset( $astra_settings['is-header-footer-builder'] ) ? (bool) $astra_settings['is-header-footer-builder'] : true;
+		return apply_filters( 'astra_is_header_footer_builder_active', $is_header_footer_builder );
 	}
 
 	/**
@@ -1112,7 +1137,7 @@ final class Astra_Builder_Helper {
 	/**
 	 * For existing users, do not apply dynamic CSS chages.
 	 *
-	 * @since x.x.x
+	 * @since 3.3.0
 	 * @return boolean true if it is an existing user , false if not.
 	 */
 	public static function apply_flex_based_css() {

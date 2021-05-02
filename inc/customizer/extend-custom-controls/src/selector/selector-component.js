@@ -182,14 +182,15 @@ const SelectorComponent = props => {
 		</>;
 	}
 
-	return <label key={'customizer-text'} className="customizer-text">
+	return <div>
+		<label key={'customizer-text'} className="customizer-text"></label>
 		{labelHtml}
 		{responsiveHtml}
 		{descriptionHtml}
 		<div className="input-wrapper ast-alignment-wrapper">
 			{inputHtml}
 		</div>
-	</label>;
+	</div>;
 
 };
 
