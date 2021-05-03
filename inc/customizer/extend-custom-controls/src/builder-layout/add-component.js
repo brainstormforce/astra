@@ -48,7 +48,7 @@ const AddComponent = props => {
 				}
 			});
 		});
-		
+
 		let itemIncludesMenu = item.includes( 'menu' );
 
 		if ( 'popup' === row && ( ( itemIncludesMenu && 'mobile-menu' !== item ) || 'mobile-trigger' === item ) ) {
@@ -86,7 +86,17 @@ const AddComponent = props => {
 	if (state.isVisible) {
 		controlParams.rows.map(zone => {
 			Object.keys(props.settings[zone]).map(area => {
-				droppedCount = droppedCount + props.settings[zone][area].length;
+				if( 'astra-settings[header-desktop-items]' === controlParams.group && ! astra.customizer.is_pro && 'popup' === zone ) {
+					/*
+					 * Reducing Dropped & Droppable component count here because it fails in following case:
+					 * When "Toggle for Desktop" option introduced in Astra, this component comes from addon but offcanvas panel comes from theme & already 'mobile-menu' component present in this panel.
+					 * That's why the count fails here by 1.
+					 */
+					droppedCount = droppedCount - props.settings[zone][area].length;
+					droppableCount = droppableCount - props.settings[zone][area].length;
+				} else {
+					droppedCount = droppedCount + props.settings[zone][area].length;
+				}
 			});
 		});
 	}
