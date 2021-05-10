@@ -34,14 +34,16 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				// Option: Base Heading Color.
 				array(
-					'default'   => '',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'transport' => 'postMessage',
-					'priority'  => 18,
-					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
-					'title'     => __( 'Heading Color ( H1 - H6 )', 'astra' ),
-					'section'   => 'section-colors-body',
+					'default'           => astra_get_option( 'heading-base-color' ),
+					'type'              => 'control',
+					'control'           => 'ast-color',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'transport'         => 'postMessage',
+					'priority'          => 18,
+					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
+					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
+					'section'           => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -90,7 +92,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'text-transform-h1' ),
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'priority'  => 8,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
@@ -108,20 +110,19 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[line-height-h1]',
 					'section'           => 'section-content-typo',
-					'default'           => '',
+					'default'           => astra_get_option( 'line-height-h1' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
 					'priority'          => 8,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -166,7 +167,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'text-transform-h2' ),
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'transport' => 'postMessage',
 					'priority'  => 13,
 					'choices'   => array(
@@ -188,18 +189,17 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'type'              => 'control',
 					'control'           => 'ast-slider',
-					'default'           => '',
+					'default'           => astra_get_option( 'line-height-h2' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Line Height', 'astra' ),
 					'priority'          => 14,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'transport'         => 'postMessage',
 				),
 
 				/**
@@ -245,7 +245,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Text Transform', 'astra' ),
 					'default'   => astra_get_option( 'text-transform-h3' ),
 					'transport' => 'postMessage',
-					'control'   => 'select',
+					'control'   => 'ast-select',
 					'priority'  => 18,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
@@ -267,30 +267,17 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-content-typo',
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
-					'default'           => '',
+					'default'           => astra_get_option( 'line-height-h3' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 19,
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'transport'         => 'postMessage',
 				),
 
-				/**
-				 * Option: Button Typography Section
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-styling-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-buttons',
-					'title'    => __( 'Typography', 'astra' ),
-					'priority' => 25,
-					'settings' => array(),
-				),
 
 				/**
 				 * Option: Button Typography Heading
@@ -300,10 +287,11 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Text', 'astra' ),
+					'title'     => __( 'Button Font', 'astra' ),
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 25,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -333,6 +321,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-responsive',
+					'priority'    => 2,
 					'default'     => astra_get_option( 'font-size-button' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -357,7 +346,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-button' ),
 					'connect'           => 'font-family-button',
-					'priority'          => 2,
+					'priority'          => 3,
 				),
 
 				/**
@@ -372,7 +361,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-select',
-					'priority'  => 3,
+					'priority'  => 4,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
@@ -395,8 +384,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => '',
-					'priority'          => 4,
+					'suffix'            => 'em',
+					'priority'          => 5,
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 0.01,
@@ -412,13 +401,13 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
-					'default'           => '',
+					'default'           => astra_get_option( 'theme-btn-letter-spacing' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'astra' ),
-					'suffix'            => '',
-					'priority'          => 5,
+					'suffix'            => 'px',
+					'priority'          => 6,
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 1,

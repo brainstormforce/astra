@@ -30,3 +30,6 @@ astra
 # Ignore Composer's directories
 vendor/
 cghooks.lock
+
+# Dynamic CSS file.
+assets/dynamic-css.css

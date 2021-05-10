@@ -69,13 +69,16 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return String Menu item's starting markup.
 		 */
 		public function toggle_button( $item_output, $item, $depth, $args ) {
+
+			$menu_locations = array( 'primary', 'above_header_menu', 'secondary_menu', 'below_header_menu', 'mobile_menu' );
+
+			for ( $index = 3; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+				array_push( $menu_locations, 'menu_' . $index );
+			}
+
 			// Add toggle button if menu is from Astra.
 			if ( true === is_object( $args ) ) {
-				if ( isset( $args->theme_location ) &&
-				( 'primary' === $args->theme_location ||
-				'above_header_menu' === $args->theme_location ||
-				'below_header_menu' === $args->theme_location )
-				) {
+				if ( isset( $args->theme_location ) && in_array( $args->theme_location, $menu_locations ) ) {
 					if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
 						$item_output = $this->menu_arrow_button_markup( $item_output, $item );
 					}
@@ -106,7 +109,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 					'aria-expanded' => 'false',
 				),
 				$item
-			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span>' . Astra_Icons::get_icons( 'arrow' ) . '</button>';
 
 			return $item_output;
 		}

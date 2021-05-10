@@ -1,0 +1,1085 @@
+/**
+ * lifterlms-flex.scss
+ * Governs the general look and feel of Lifter LMS sections using themes that do not
+ * integrate with Lifter LMS specifically.
+ */
+/**
+ * Astra Theme compatibility with WooCommerce
+ */
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+#secondary .llms-widget-syllabus .llms-section {
+  margin-bottom: 0.5em;
+}
+
+.widget .llms-widget-syllabus .llms-collapse-caret,
+.widget .llms-widget-syllabus .section-title,
+.widget .llms-widget-syllabus .lesson-title,
+.widget .llms-widget-syllabus .llms-lesson-complete {
+  display: inline-block;
+}
+
+.widget .llms-widget-syllabus .llms-section {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.widget .llms-widget-syllabus .llms-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.widget .llms-widget-syllabus .llms-collapse-caret {
+  margin-right: 0.25em;
+  vertical-align: top;
+}
+
+.widget .llms-widget-syllabus .llms-lesson-complete {
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.widget .llms-widget-syllabus .section-title {
+  width: 94%;
+  width: calc(100% - 1.5em);
+}
+
+.widget .llms-widget-syllabus .lesson-title {
+  width: 90%;
+  width: calc(100% - 1.8em);
+}
+
+.widget .llms-widget-syllabus .llms-lesson,
+.widget .llms-widget-syllabus .section-header {
+  line-height: 1.75;
+}
+
+.widget .progress__indicator {
+  line-height: 30px;
+}
+
+.widget .llms-progress .llms-progress-bar {
+  border-radius: 20px;
+  height: 20px;
+}
+
+.widget .llms-progress .progress-bar-complete {
+  border-radius: 20px;
+}
+
+.widget .llms-course-outline ul {
+  margin-left: 1.5em;
+}
+
+.ast-separate-container .ast-lifterlms-container {
+  background-color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .ast-separate-container .ast-lifterlms-container {
+    padding: 3.34em 2.4em;
+  }
+}
+
+@media (max-width: 992px) {
+  .ast-separate-container .ast-lifterlms-container {
+    padding: 1.5em 2.14em;
+  }
+}
+
+@media (max-width: 544px) {
+  .ast-separate-container .ast-lifterlms-container {
+    padding: .54em 1em 1.33333em;
+  }
+}
+
+@media (min-width: 1201px) {
+  .ast-separate-container .ast-lifterlms-container {
+    padding: 5.34em 6.67em;
+  }
+}
+
+.llms-student-dashboard ul.llms-loop-list li.llms-loop-item,
+.ast-container ul.llms-loop-list li.llms-loop-item,
+.ast-lifterlms-container ul.llms-loop-list li.llms-loop-item {
+  padding: 0;
+  border-bottom: none;
+}
+
+.llms-student-dashboard .llms-access-plans,
+.ast-container .llms-access-plans,
+.ast-lifterlms-container .llms-access-plans {
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.llms-student-dashboard .llms-password-strength-meter,
+.ast-container .llms-password-strength-meter,
+.ast-lifterlms-container .llms-password-strength-meter {
+  margin-top: 0px;
+  font-size: .65em;
+}
+
+.llms-student-dashboard .llms-checkout,
+.ast-container .llms-checkout,
+.ast-lifterlms-container .llms-checkout {
+  -js-display: flex;
+  display: flex;
+}
+
+.llms-student-dashboard .llms-loop-item-content,
+.ast-container .llms-loop-item-content,
+.ast-lifterlms-container .llms-loop-item-content {
+  padding-bottom: 15px;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-author,
+.llms-student-dashboard .llms-loop-item-content .llms-loop-title,
+.llms-student-dashboard .llms-loop-item-content .llms-meta,
+.ast-container .llms-loop-item-content .llms-author,
+.ast-container .llms-loop-item-content .llms-loop-title,
+.ast-container .llms-loop-item-content .llms-meta,
+.ast-lifterlms-container .llms-loop-item-content .llms-author,
+.ast-lifterlms-container .llms-loop-item-content .llms-loop-title,
+.ast-lifterlms-container .llms-loop-item-content .llms-meta {
+  padding: 0 15px;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-loop-title,
+.ast-container .llms-loop-item-content .llms-loop-title,
+.ast-lifterlms-container .llms-loop-item-content .llms-loop-title {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-author,
+.llms-student-dashboard .llms-loop-item-content .llms-meta,
+.ast-container .llms-loop-item-content .llms-author,
+.ast-container .llms-loop-item-content .llms-meta,
+.ast-lifterlms-container .llms-loop-item-content .llms-author,
+.ast-lifterlms-container .llms-loop-item-content .llms-meta {
+  margin-bottom: 0;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-author,
+.ast-container .llms-loop-item-content .llms-author,
+.ast-lifterlms-container .llms-loop-item-content .llms-author {
+  font-size: inherit;
+  margin-bottom: 10px;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-author .llms-author-info,
+.ast-container .llms-loop-item-content .llms-author .llms-author-info,
+.ast-lifterlms-container .llms-loop-item-content .llms-author .llms-author-info {
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-meta,
+.ast-container .llms-loop-item-content .llms-meta,
+.ast-lifterlms-container .llms-loop-item-content .llms-meta {
+  font-size: .9em;
+  font-weight: 600;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-meta .length,
+.llms-student-dashboard .llms-loop-item-content .llms-meta .difficulty,
+.ast-container .llms-loop-item-content .llms-meta .length,
+.ast-container .llms-loop-item-content .llms-meta .difficulty,
+.ast-lifterlms-container .llms-loop-item-content .llms-meta .length,
+.ast-lifterlms-container .llms-loop-item-content .llms-meta .difficulty {
+  font-weight: 400;
+  opacity: .75;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-loop-title:hover,
+.ast-container .llms-loop-item-content .llms-loop-title:hover,
+.ast-lifterlms-container .llms-loop-item-content .llms-loop-title:hover {
+  color: inherit;
+}
+
+.llms-student-dashboard .llms-loop-item-content .llms-loop-item-footer,
+.ast-container .llms-loop-item-content .llms-loop-item-footer,
+.ast-lifterlms-container .llms-loop-item-content .llms-loop-item-footer {
+  margin-top: 10px;
+}
+
+.course .llms-featured-image {
+  margin-bottom: 0;
+}
+
+.course .llms-instructor-info,
+.course .llms-instructor-info .llms-meta-info {
+  margin-top: 1.5em;
+}
+
+.course .llms-instructor-info .llms-instructors .llms-author .llms-author-info.name {
+  font-size: 1.25em;
+}
+
+.course .llms-instructor-info .llms-instructors .llms-author .llms-author-info.label {
+  font-size: 1em;
+}
+
+body .llms-syllabus-wrapper {
+  margin: 0 auto 1.5em;
+}
+
+body .llms-syllabus-wrapper .llms-section-title {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 1.1em;
+  padding: 5px 15px;
+  background: #e8e8e8;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview {
+  margin-top: 1px;
+  display: block;
+  width: auto;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-link {
+  background-color: #f0f0f0;
+  padding: 5px 15px;
+  min-height: auto;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-link:hover {
+  background: #e6e6e6;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-title {
+  font-size: 1em;
+  line-height: 1.75;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+body .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-counter {
+  line-height: 1.75;
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+body #review_box,
+body #old_reviews {
+  margin: 0;
+  padding: 2em 0 0;
+  border-top: 1px solid #eeeeee;
+}
+
+body #old_reviews > hr {
+  display: none;
+}
+
+body #old_reviews .llms_review {
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+body #old_reviews .llms_review:last-of-type {
+  margin-bottom: 2em;
+}
+
+body #old_reviews .llms_review p:last-child {
+  margin-bottom: 0;
+}
+
+body #old_reviews .llms_review h5 {
+  margin-bottom: 5px;
+}
+
+body #old_reviews:last-child .llms_review:last-of-type {
+  margin-bottom: 0;
+}
+
+body #review_box #review_text,
+body #review_box #review_title {
+  margin-bottom: 1em;
+  width: 100%;
+  border-color: #dddddd;
+  background: #fff;
+  border-radius: 0;
+}
+
+body #thank_you_box {
+  margin-top: 1em;
+}
+
+body .llms-lesson-link-locked,
+body .llms-lesson-link-locked:hover {
+  box-shadow: none;
+}
+
+body .llms-person-form-wrapper .llms-form-fields,
+body .llms-new-person-form-wrapper .llms-form-fields,
+body .llms-person-login-form-wrapper .llms-form-fields {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+body .llms-person-form-wrapper .llms-form-fields .llms-form-field.align-right,
+body .llms-new-person-form-wrapper .llms-form-fields .llms-form-field.align-right,
+body .llms-person-login-form-wrapper .llms-form-fields .llms-form-field.align-right {
+  float: right;
+}
+
+body .llms-form-heading {
+  padding: 0;
+}
+
+body .llms-lost-password-form {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-lesson-complete {
+  margin-bottom: 0;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 1.4em;
+  height: 1.2em;
+  line-height: 1.2;
+  width: 1em;
+}
+
+body .is-enrolled .llms-syllabus-wrapper .llms-lesson-preview .llms-main {
+  margin-left: 2em;
+  margin-left: calc(1.2em + 15px);
+  width: 83%;
+  width: calc(85% - 1.2em - 15px);
+}
+
+body .course .llms-course-progress,
+body .llms-course-progress {
+  max-width: 100%;
+  margin: 0 auto;
+  -js-display: flex;
+  display: flex;
+  flex-direction: row-reverse;
+  background: #f1f2f1;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+body .course .llms-course-progress .llms-course-complete-text,
+body .course .llms-course-progress a.llms-course-continue-button,
+body .llms-course-progress .llms-course-complete-text,
+body .llms-course-progress a.llms-course-continue-button {
+  display: inline-block;
+  margin-right: 2px;
+  padding: 0 1em;
+  line-height: 2em;
+}
+
+body .course .llms-course-progress a.llms-course-continue-button:after,
+body .llms-course-progress a.llms-course-continue-button:after {
+  content: "\BB";
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+body .course .llms-course-progress .llms-course-complete-text,
+body .llms-course-progress .llms-course-complete-text {
+  margin-bottom: 0;
+  opacity: .6;
+}
+
+body .course .llms-course-progress .llms-progress,
+body .llms-course-progress .llms-progress {
+  height: auto;
+  margin: 0 auto;
+  flex: 1;
+  text-align: center;
+}
+
+body .course .llms-course-progress .llms-progress .llms-progress-bar,
+body .llms-course-progress .llms-progress .llms-progress-bar {
+  height: inherit;
+  top: 0;
+  border-radius: 1em;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+body .course .llms-course-progress .llms-progress .progress__indicator,
+body .llms-course-progress .llms-progress .progress__indicator {
+  display: none;
+}
+
+body .course .llms-course-progress .llms-progress .progress-bar-complete,
+body .llms-course-progress .llms-progress .progress-bar-complete {
+  border-radius: inherit;
+}
+
+body .course .llms-course-progress .llms-progress .progress-bar-complete:after,
+body .llms-course-progress .llms-progress .progress-bar-complete:after {
+  display: inline-block;
+  line-height: 2;
+  padding: 0 10px;
+  content: attr(data-progress);
+  word-break: normal;
+}
+
+body .widget_course_progress .llms-progress,
+body .llms-progress {
+  /**
+		 * Progress Widget
+		 */
+  height: 1.4em;
+  margin: 0 auto;
+}
+
+body .widget_course_progress .llms-progress .progress__indicator,
+body .llms-progress .progress__indicator {
+  line-height: 1.4;
+  height: 1.4em;
+}
+
+body .widget_course_progress .llms-progress .llms-progress-bar,
+body .llms-progress .llms-progress-bar {
+  border-radius: .7em;
+  height: 1.4em;
+  top: 0;
+}
+
+body .widget_course_progress .llms-progress .progress-bar-complete,
+body .llms-progress .progress-bar-complete {
+  border-radius: .7em;
+}
+
+body .llms-loop-item-content .llms-progress-bar {
+  height: inherit;
+}
+
+body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
+  border-radius: 0;
+}
+
+.single-course article.course {
+  margin-bottom: 2em;
+}
+
+.llms_membership .llms-featured-image {
+  margin-bottom: 0;
+}
+
+.llms-access-plan .llms-access-plan-footer {
+  padding: 15px;
+}
+
+.llms-access-plan .llms-access-plan-title,
+.llms-access-plan .llms-access-plan-pricing,
+.llms-access-plan .llms-access-plan-description {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.llms-access-plan .llms-access-plan-schedule,
+.llms-access-plan .llms-access-plan-trial,
+.llms-access-plan .llms-access-plan-expiration,
+.llms-access-plan .llms-access-plan-description {
+  font-size: inherit;
+}
+
+.llms-access-plan .llms-access-plan-price {
+  font-size: 1.2em;
+}
+
+.llms-access-plan .stamp {
+  font-size: 0.6em;
+  padding: 2px 5px;
+  font-weight: normal;
+}
+
+.llms-access-plan .llms-button-action {
+  display: inline-block;
+}
+
+.llms-pagination {
+  text-align: left;
+  margin-top: 2em;
+}
+
+.llms-pagination ul {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0;
+  clear: both;
+  border: 0;
+  margin: 1px;
+}
+
+.llms-pagination ul li {
+  margin: 0 5px 5px 0;
+  border: 1px solid #d3ced2;
+  padding: 0;
+  float: left;
+  display: inline;
+  overflow: hidden;
+}
+
+.llms-pagination ul li a.page-numbers,
+.llms-pagination ul li span.page-numbers {
+  margin: 0;
+  text-decoration: none;
+  padding: 0;
+  line-height: 1;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0.75em;
+  display: block;
+  min-width: 2.5em;
+}
+
+.llms-pagination ul li span.current,
+.llms-pagination ul li a:hover,
+.llms-pagination ul li a:focus {
+  background: #ebe9eb;
+  color: #8a7e88;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-notice {
+  border: 0;
+  background: none;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 {
+  width: calc(58% - 2em);
+  margin: 0 2em 0 0;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-1 .llms-checkout-section-content {
+  margin: 0 -10px;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+  width: 42%;
+  margin: 0;
+  height: 228px;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+    width: 100%;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 .llms-order-summary {
+  font-size: .9em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 .llms-coupon-entry .type-text {
+  margin-bottom: 1em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field > label {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field input,
+.lifterlms .llms-checkout-wrapper .llms-form-field select,
+.lifterlms .llms-checkout-wrapper .llms-form-field textarea {
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-field input[type="checkbox"] {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2,
+.lifterlms .llms-checkout-wrapper .llms-login {
+  padding: 20px;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
+  border: 2px solid #ebebeb;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-login {
+  border: 1px solid #d3ced2;
+  margin-bottom: 2em;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.align-right {
+    text-align: left;
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
+  }
+}
+
+.lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.type-checkbox, .lifterlms .llms-checkout-wrapper .llms-login .llms-form-field.type-submit {
+  width: auto;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section {
+  border: none;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-form-heading {
+  background: none;
+  color: inherit;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .flush .llms-form-field {
+  padding: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-order-summary .llms-label {
+  font-variant: normal;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content span.llms-description {
+  font-size: .9em;
+  line-height: 1.5;
+  opacity: .75;
+  display: inline-block;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper,
+.lifterlms .llms-checkout-wrapper .llms-person-login-form-wrapper .llms-checkout-confirm,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content,
+.lifterlms .llms-checkout-wrapper .llms-checkout-section-content .llms-checkout-confirm {
+  margin: 0;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways label:before {
+  width: 1em;
+  height: 1em;
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways .llms-gateway-description {
+  margin-left: 1.25em;
+  margin-left: calc(1em + 5px);
+}
+
+.lifterlms .llms-checkout-wrapper .llms-payment-gateways li:last-child:after {
+  margin: 10px auto;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.current {
+  font-weight: 600;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item .llms-sep {
+  display: none;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item > a:before {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  margin-right: .5em;
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.dashboard > a:before {
+  content: "\f0e4";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-courses > a:before {
+  content: "\f02d";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-memberships > a:before {
+  content: "\f0c0";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.my-grades > a:before {
+  content: "\f19d";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-achievements > a:before {
+  content: "\f091";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.view-certificates > a:before {
+  content: "\f0a3";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.notifications > a:before {
+  content: "\f06a";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.edit-account > a:before {
+  content: "\f007";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.redeem-voucher > a:before {
+  content: "\f005";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.orders > a:before {
+  content: "\f022";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.signout > a:before {
+  content: "\f08b";
+}
+
+.llms-student-dashboard .llms-sd-header .llms-sd-item.sl_profile > a:before {
+  content: "\f2be";
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table {
+  font-size: 0.85em;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table thead td {
+  background: #f9f9f9;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table tbody tr:nth-child(even) td {
+  background: none;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table th:first-child,
+.llms-student-dashboard .llms-my-orders .orders-table td:first-child {
+  width: 100%;
+}
+
+.llms-student-dashboard .llms-my-orders .orders-table th:first-child a,
+.llms-student-dashboard .llms-my-orders .orders-table td:first-child a {
+  vertical-align: middle;
+}
+
+@media (min-width: 769px) {
+  .llms-student-dashboard .llms-my-orders .orders-table th:first-child,
+  .llms-student-dashboard .llms-my-orders .orders-table td:first-child {
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .llms-student-dashboard .llms-my-orders .orders-table thead {
+    display: none;
+  }
+  .llms-student-dashboard .llms-my-orders .orders-table td {
+    display: block;
+    width: 100%;
+    border-bottom-width: 1px;
+    text-align: right;
+  }
+  .llms-student-dashboard .llms-my-orders .orders-table td:before {
+    content: attr(data-label);
+    font-weight: 700;
+    float: left;
+    display: block;
+  }
+}
+
+.llms-student-dashboard .llms-my-orders .llms-status {
+  padding: 1px 5px;
+}
+
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field > label {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field input,
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field select,
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field textarea {
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field.type-submit,
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field.type-submit button {
+  width: auto;
+}
+
+.llms-student-dashboard .llms-person-login-form-wrapper .llms-form-field.align-right {
+  float: right;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field > label {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field input,
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field select,
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field textarea {
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.llms-student-dashboard .llms-person-form-wrapper .llms-form-field input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first > label {
+  display: none;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first input {
+  width: 100%;
+}
+
+.llms-student-dashboard .llms-sd-header ~ form .form-row-first ~ button {
+  line-height: 1.5;
+}
+
+@media (max-width: 544px) {
+  .llms-student-dashboard .llms-sd-header ~ form .form-row-first ~ button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 544px) {
+  .llms-student-dashboard .llms-sd-header ~ form .form-row-first {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.ast-container .lifterlms .llms-notice {
+  margin: 0 0 2em;
+}
+
+.ast-container .llms-notice {
+  border-width: 0;
+  border-top-width: 3px;
+  border-color: #b81c23;
+  border-style: solid;
+  padding: 1em 2em;
+  position: relative;
+  background-color: #f7f6f7;
+  color: #515151;
+}
+
+.ast-container .llms-notice.llms-error {
+  border-width: 0;
+  border-top-width: 3px;
+  border-color: #b81c23;
+  border-style: solid;
+  padding: 1em 2em;
+  position: relative;
+  background-color: #f7f6f7;
+  color: #515151;
+}
+
+.ast-container a.llms-button-primary,
+.ast-container .llms-button-secondary,
+.ast-container .llms-button-action,
+.ast-container .llms-field-button {
+  font-size: inherit;
+  line-height: 1;
+}
+
+.ast-container .llms-tooltip {
+  font-size: .9em;
+  line-height: 1.4;
+}
+
+.llms-notification .llms-notification-content .llms-notification-body {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.llms-notification .llms-notification-content .llms-notification-title {
+  font-size: 1.3em;
+}
+
+.llms-quiz-meta-item {
+  font-weight: 600;
+}
+
+.llms-quiz-meta-item span {
+  font-weight: 400;
+  opacity: .75;
+}
+
+.llms-quiz-question-wrapper {
+  clear: both;
+}
+
+.llms-quiz-question-wrapper .llms-error {
+  color: #b81c23;
+  margin-bottom: .5em;
+}
+
+.llms-quiz-question-wrapper .llms-question-count p {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.llms-quiz-question-wrapper .llms-question-count ~ p {
+  margin-bottom: .5em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper {
+  margin-bottom: 1.5em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper .llms-question-text {
+  font-size: 2em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice label {
+  display: block;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice .llms-choice-text {
+  font-size: 1em;
+}
+
+.llms-quiz-question-wrapper .llms-question-wrapper ol.llms-question-choices li.llms-choice .llms-marker {
+  font-size: 1em;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+}
+
+.llms-quiz-buttons .llms-start-quiz-button {
+  line-height: 1.4;
+}
+
+.llms-quiz-buttons .llms-start-quiz-button:after {
+  content: "\BB";
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.llms-quiz-buttons .llms-next-lesson:after {
+  content: "\2192";
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .llms-quiz-buttons .llms-start-quiz-button,
+  .llms-quiz-buttons .llms-button-secondary {
+    margin: 5px;
+    display: block;
+  }
+}
+
+.llms-quiz-ui .llms-quiz-nav .llms-button-action {
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-complete-quiz:before {
+  content: "\2714";
+  margin-right: .5em;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-next-question:after {
+  content: "\2192";
+  margin-left: 5px;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-prev-question {
+  line-height: 1.4;
+  float: left;
+}
+
+.llms-quiz-ui .llms-quiz-nav #llms-prev-question:before {
+  content: "\2190";
+  margin-right: 5px;
+}
+
+.llms-quiz-ui .llms-quiz-nav .llms-quiz-counter {
+  font-size: inherit;
+}
+
+.llms-quiz-ui .llms-quiz-nav .llms-button-action,
+.llms-quiz-ui .llms-quiz-nav .llms-button-secondary {
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .llms-loop .llms-tablet-cols-1 .llms-loop-item {
+    width: 100%;
+  }
+  .llms-loop .llms-tablet-cols-2 .llms-loop-item {
+    width: 50%;
+  }
+  .llms-loop .llms-tablet-cols-3 .llms-loop-item {
+    width: 33.33333%;
+  }
+  .llms-loop .llms-tablet-cols-4 .llms-loop-item {
+    width: 25%;
+  }
+  .llms-loop .llms-tablet-cols-5 .llms-loop-item {
+    width: 20%;
+  }
+  .llms-loop .llms-tablet-cols-6 .llms-loop-item {
+    width: 16.66667%;
+  }
+}
+
+@media (max-width: 544px) {
+  .llms-loop .llms-mobile-cols-1 .llms-loop-item {
+    width: 100%;
+  }
+  .llms-loop .llms-mobile-cols-2 .llms-loop-item {
+    width: 50%;
+  }
+  .llms-loop .llms-mobile-cols-3 .llms-loop-item {
+    width: 33.33333%;
+  }
+  .llms-loop .llms-mobile-cols-4 .llms-loop-item {
+    width: 25%;
+  }
+  .llms-loop .llms-mobile-cols-5 .llms-loop-item {
+    width: 20%;
+  }
+  .llms-loop .llms-mobile-cols-6 .llms-loop-item {
+    width: 16.66667%;
+  }
+}
+
+.ast-woocommerce-cart-menu .main-header-bar .main-header-log-out {
+  padding-left: 10px;
+}

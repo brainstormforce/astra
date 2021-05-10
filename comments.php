@@ -29,8 +29,10 @@ if ( post_password_required() ) {
 
 	<?php astra_comments_before(); ?>
 
-	<?php if ( have_comments() ) : ?>
-		<div class="comments-count-wrapper">
+	<?php 
+	if ( have_comments() ) : 
+		astra_markup_open( 'comment-count-wrapper' ); 
+		?>
 			<h3 class="comments-title">
 				<?php
 				$comments_title = apply_filters(
@@ -46,9 +48,10 @@ if ( post_password_required() ) {
 				echo esc_html( $comments_title );
 				?>
 			</h3>
-		</div>
-
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+		<?php 
+		astra_markup_close( 'comment-count-wrapper' );
+		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : 
+			?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'astra' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( astra_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">

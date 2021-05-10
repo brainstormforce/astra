@@ -1,0 +1,68 @@
+name: Build and Deploy
+
+# Run the deployment only when code is committed to teh branch.
+on:
+  push:
+    branches:
+      - development
+      - next-release
+      - dev
+      - release-candidate
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get npm cache directory
+      id: npm-cache
+      run: echo "::set-output name=dir::$(npm config get cache)"
+
+    - name: Configure npm cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.npm-cache.outputs.dir }}
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+
+    - name: Build
+      run: npm install && grunt release-no-clean
+
+    - name: Set environment name
+      run: |
+          if [ '${{github.ref}}' = 'refs/heads/development' ]
+          then
+            echo "ENVIRONMENT=DEVELOPMENT" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/next-release' ]
+          then
+            echo "ENVIRONMENT=NEXT_RELEASE" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/release-candidate' ]
+          then
+            echo "ENVIRONMENT=RELEASE_CANDIDATE" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/dev' ]
+          then
+            echo "ENVIRONMENT=RELEASE_CANDIDATE" >> $GITHUB_ENV
+          fi
+          if [ '${{github.ref}}' = 'refs/heads/master' ]
+          then
+            echo "ENVIRONMENT=MASTER" >> $GITHUB_ENV
+          fi
+
+    - name: Rsync Deployment
+      uses: burnett01/rsync-deployments@4.1
+      with:
+        switches: -avzr --delete
+        path: astra/*
+        remote_path: ${{ secrets[format('SSH_PATH_{0}', env.ENVIRONMENT)] }}
+        remote_host: ${{ secrets.SSH_HOST }}
+        remote_user: ${{ secrets.SSH_USERNAME }}
+        remote_key: ${{ secrets.SSH_KEY }}
+
+    - name: Cleanup
+      run: rm -rf astra/

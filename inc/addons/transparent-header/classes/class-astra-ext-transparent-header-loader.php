@@ -61,15 +61,15 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$defaults['different-transparent-logo']                    = 0;
 			$defaults['different-transparent-retina-logo']             = 0;
 			$defaults['transparent-header-logo-width']                 = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
+				'desktop' => 150,
+				'tablet'  => 120,
+				'mobile'  => 100,
 			);
 			$defaults['transparent-header-enable']                     = 0;
 			$defaults['transparent-header-disable-archive']            = 1;
 			$defaults['transparent-header-disable-latest-posts-index'] = 1;
 			$defaults['transparent-header-on-devices']                 = 'both';
-			$defaults['transparent-header-main-sep']                   = 0;
+			$defaults['transparent-header-main-sep']                   = '';
 			$defaults['transparent-header-main-sep-color']             = '';
 
 			/**
@@ -194,6 +194,16 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			wp_enqueue_script( 'astra-transparent-header-customizer-preview-js', ASTRA_THEME_TRANSPARENT_HEADER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+			// Localize variables for further JS.
+			wp_localize_script(
+				'astra-transparent-header-customizer-preview-js',
+				'AstraBuilderTransparentData',
+				array(
+					'is_astra_hf_builder_active' => Astra_Builder_Helper::$is_header_footer_builder_active,
+					'is_flex_based_css'          => Astra_Builder_Helper::apply_flex_based_css(),
+				)
+			);
 		}
 	}
 }

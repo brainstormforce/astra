@@ -1,3 +1,229 @@
+v3.4.2
+- Fix: JS console error when Off-canvas type 'Dropdown' is selected.
+- Fix: Dropdown does not close when you click a one page navigation link inside them.
+- Fix: Zero value not accepting in slider customizer settings.
+- Fix: Existing comments are not styled when post comments are disabled.
+- Fix: Gutenberg editor getting Grey overlay when layout is Full-width Contained or Full-width Stretched.
+
+v3.4.1
+- Fix: Off-canvas - Mobile - Left aligned flyout style not working.
+- Fix: Mobile Menu hides when menu item having hash(#) link is clicked.
+
+v3.4.0
+- New: 'Related Posts' feature for single post layout. (https://wpastra.com/docs/display-related-posts/)
+- Improvement: Customizer - Reduce one click in Global Colors section by popping out Base Colors into parent section.
+- Improvement: Gutenberg Editor - Compatibility with Starter Templates Blocks design in editor. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
+- Improvement: Update toolset-config.json towards Toolset 1.5 compatibility. (Props - https://github.com/decodekult)
+- Improvement: Frontend optimization by reducing one request for Menu animation CSS in default theme though option is available to add menu animation.
+- Improvement: Frontend optimization by replacing Flyout Menu with Dropdown menu for default theme.
+- Fix: AMP - Mobile menu not working for AMP pages for the Header Footer builder.
+- Fix: Cart & Toggle Button elements are not aligned with each other on Mobile Devices.
+- Fix: Search Element alignment in Off-Canvas & Dropdown.
+- Fix: Builder - Menu - Submenu hover color from Transparent Header directly applying to nested sub-menu items without hovering them.
+- Fix: Search - Search Box opens & gets closed automatically on click of search icon in slide search style on mobile devices.
+- Fix: Customizer - Edit shortcut button design breaks when Elementor template kit is active on site.
+- Fix: Customizer - Maintained identical reset buttons UI in background control.
+- Fix: Builder - HTML - If element is used in Primary Header & line-height is blank in element then it's inheriting from Primary Header bar which is 3em.
+- Fix: Builder - Footer - Background Color picker popup cutting at it's edge in Footer Builder section.
+- Fix: Menu Hover/Active link not working in Customizer & Frontend for tablet & mobile.
+- Fix: Off-Canvas & Dropdown does not close when you click a one page navigation link inside them.
+- Fix: Gutenberg Editor - Unable to edit content in editor when background styles applied to Content and Site Layout is Max-Width.
+- Fix: Height of Mobile Header increases when we open Dropdown for Old Header.
+- Fix: Builder - Menu – After partial refresh megamenu's width & left position removes in customizer.
+- Fix: Transparent Header - Normal colors not working for transparent header if colors are not set from Transparent Header settings.
+- Fix: Container Width option hides in Container section when Astra Pro is active but all addons are deactivate.
+- Fix: Context Switch does not work if there are no elements in Primary Header for both Desktop & Mobile.
+- Fix: Deprecated the Cart Style 'None' & merged it with existing option 'Outline' for WooCommerce and EDD.
+- Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: JavaScript error when clicking on the Dropdown Toggle for Sticky Header on Mobile.
+- Fix: Scroll does not work in Off-Canvas.
+- Fix: Spacing not working properly for Social Element when 'Stack on' & 'Icon Spacing' options value is changed in Customizer Preview.
+- Fix: RTL WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
+
+v3.3.3
+- Fix: Elementor - Theme Builder archive page contents are not aligned center.
+- Fix: Elementor - Elementor editor panel switches back to the main panel while using the responsive view.
+
+v3.3.2
+- Fix: Transparent Header disappears if we add Widget 2 element.
+- Fix: Builder - Multiple headers visible on frontend.
+- Fix: Builder - Menu - not able to hover and click on submenu.
+- Fix: Blog Archive - Layout 1 and Layout 2 are not working for existing users when addon activated.
+
+v3.3.1
+- Fix: WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
+- Fix: Fatal error on sites due to incorrect migration flag.
+
+v3.3.0
+- New: Transparent Header - WooCommerce Cart & EDD Cart icon color options.
+- New: Builder - Off-Canvas - Added spacing option for Off-Canvas.
+- New: SVG Icons support ( deprecating astra.woff font file ). (https://wpastra.com/docs/ast-font-icons-to-svg/)
+- Improvement: Builder - Mobile Menu - Renamed Mobile Menu to Off-Canvas Menu.
+- Improvement: Builder - Added instructive message in the builder side panel when builder layout does not have any element in use.
+- Improvement: Replaced responsive number control with a responsive slider control for Base Font Size in Typography section.
+- Improvement: Gutenberg Editor - Block patterns compatibility. (https://wpastra.com/docs/fix-spacing-gb-blocks/)
+- Improvement: Compatibility with WordPress 5.7.
+- Improvement: Code quality improvements for better performance.
+- Improvement: Load minified customizer preview files for better performance.
+- Improvement: Frontend optimization - Comments, Pagination, Single Page, Single Post, Archive Page. (https://wpastra.com/docs/optimize-css-html-before-3-3/)
+- Improvement: Frontend optimization - WooCommerce - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - EDD - Shop Page, Single Product Page.
+- Improvement: Frontend optimization - LifterLMS - All Courses Page.
+- Improvement: Frontend optimization - LearnDash - All Courses Page, Single Course Page.
+- Fix: White Label – White-labeled the Astra Header Footer setting notice.
+- Fix: WooCommerce - Single Product page - Save review form fields cookies consent is misaligned.
+- Fix: Builder - Off-Canvas - Close submenu toggle icon not changing in Mobile Menu element when the submenu is in the expanded state.
+- Fix: Builder - Header - Frontend grid layout overlaps on the content section when multiple elements added in the same header layout.
+- Fix: Builder - Footer - Customizer's 2nd column stack layout SVG is missing in footer layouts for responsive devices.
+- Fix: Builder - Footer - Responsive control for layouts gets hidden with the click of WordPress default responsive controls.
+- Fix: Block Editor - Code Block spacing CSS tweaks when it is left aligned.
+
+v3.2.0
+- New: Support for the Web Stories plugin by Google - Show off your web stories in the header of your website.
+- Fix: Transparent Header - Submenu background alpha not working for the old header.
+
+v3.1.2
+- Fix: Customizer not working due to fatal error in Color Group control for some edge cases.
+- Fix: Header getting hidden in a rare case on some first loads in chrome due to miscalculated browser window width.
+- Fix: Showing multiple menu locations on the menu admin page.
+- Fix: Transparent Header - Submenu color not working for the older header.
+- Fix: Transparent Header - Submenu background color not working for the older header.
+
+v3.1.1
+- Fix: Saved value is overridden by Default value for HTML Element and Copyright Element in Customizer.
+- Fix: Header Builder margin option default units were missing.
+- Fix: Transparent Header - Submenu background color not working.
+
+v3.1.0
+- Improvement: Redesigned the entire customizer UI for better user experience. (https://wpastra.com/docs/revamped-astra-customizer/)
+- Improvement: Added design options for Builder - Toggle Menu in Transparent header.
+- Improvement: Optimized dynamic CSS functionality to reduce unwanted CSS on the page.
+- Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
+- Improvement: Optimized customizer by removing PHP controls.
+- Improvement: Optimized the SVG icons.
+- Improvement: Builder - Transparent Header - Placeholder Text and Color options for Search.
+- Improvement: Builder - Social Icons - Ability to add an extra Phone and Contact icons.
+- Improvement: Builder - Social Icons - Added ability to select icon from an Icon Picker for individual social elements
+- Improvement: Builder - Social Icons - Added a color option for labels of social icons.
+- Improvement: Builder - Off-Canvas - Added an option to manage spacing between inner elements of the Off-Canvas.
+- Improvement: Added new Page meta options for Above, Below and Mobile header.
+- Fix: Footer vertical alignment option not working.
+- Fix: Above Footer & Below Footer showing up an unwanted border in the customizer preview.
+- Fix: Updated Learn More Links on Astra Options page for Nav Menu & Easy Digital Downloads addon.
+- Fix: Overflowing content not wrapping as per grid layout on responsive device for Header Footer builder layout.
+- Fix: Builder - Transparent Header - Social icon, label custom color & official color not working.
+- Fix: Builder - Transparent Header - Menu & Submenu style applying to Off-Canvas Menu.
+- Fix: Block Cover align full CSS compatibility in Block editor with sidebar.
+- Fix: Color picker icon not visible on hover.
+- Fix: Font size not reverted back to the initial size when the value is deleted.
+- Fix: Menu active link style not working when sub-menu item is active.
+- Fix: Menu line height not being applied in frontend.
+- Fix: Global Button Border and Typography controls are not working in the customizer preview.
+- Fix: Breadcrumb position misalignment issue for inside header option.
+- Fix: Search box misaligned in Dropdown option for Off-Canvas in Mobile.
+- Fix: Submenu divider option adding heavy border around menu items on responsive devices.
+- Fix: JS console error with Elementor – Header, Footer & Blocks plugin.
+- Fix: Console error in customizer due to third party plugin dependency.
+- Fix: Menu font size not working with old Header.
+- Fix: Transparent Header - Menu link, background and hover colors not working for old header.
+- Fix: Builder - Menu - Submenu container get hides when hover in between Top Offset spacing.
+
+v3.0.3
+- Fix: JS console error when Theme Header is replaced with third-party plugins header.
+
+v3.0.2
+- Fix: Dropdown link target option not working for menus inside Off-Canvas, when Off-Canvas type is Flyout or Full-Screen.
+- Fix: Responsive option missing for typography.
+- Fix: Submenu divider option adding heavy border around menu items on responsive devices.
+
+v3.0.1
+- Fix: Astra assets cache regeneration issue when Astra Pro is updated to v3.0.0 prior to theme. ( https://wpastra.com/docs/clear-astra-cache/ )
+- Fix: UI Tab switching in color options for RTL websites.
+- Fix: Builder - Duplicate listing of social icons in customizer.
+
+v3.0.0
+- New: Account element added for Header Builder. ( https://wpastra.com/astra-3-0/ )
+- Improvement: Removed old CSS that is already supported by browsers.
+- Improvement: Removed unused grid layout related CSS.
+- Improvement: Overall HTML Structure improvement which includes removing blank spaces and removing unwanted HTML Tags.
+- Improvement: Conditionally loaded Elementor, EDD, Comment and Pagination related CSS only when they are used.
+- Improvement: Replaced flex related CSS with theme predefined CSS classes.
+- Improvement: Main JS code optimization.
+- Improvement: Added customizer partial refresh support in a few options.
+- Improvement: Added Stack and Inline option for Footer.
+- Improvement: Builder - Menu - Added Submenu container width option.
+- Improvement: Builder - Menu - Added Submenu container radius option.
+- Improvement: Builder - Menu - Added Submenu container top offset.
+- Improvement: Builder - Menu - Added menu hover animation styles.
+- Improvement: Builder - Off-Canvas - Added container alignment option.
+- Improvement: Removed extra localized variable declaration.
+- Fix: RTL fixes for customizer custom controls.
+- Fix: Black patch being shown while transitioning between show/hide click of the builder.
+- Fix: Socials element edit pencil icon was misaligned in Header and Footer.
+- Fix: Margin and Padding option for Header / Footer Elements not working with defaults.
+- Fix: Builder - Social spacing option not accepting 0 as a value.
+
+v3.0.0-beta.2
+- New: Visibility options - Now user can hide few options as per devices.
+- New: Divider Element - Horizontal & Vertical Divider for both Header and Footer
+- New: WooCommerce Cart and EDD Cart Element for Header
+- New: Added new Mobile Menu element.
+- Improvement: Load CSS only when their respective options are enabled - Frontend optimization.
+- Improvement: Removed .wp-smiley CSS - Frontend optimization.
+- Improvement: Removed unused extra CSS from main CSS file - Frontend optimization.
+- Improvement: Replace flex related CSS with the predefined CSS classes present in theme - Frontend optimization.
+- Improvement: Faster Customizer experience with respect to Design/General Tab change.
+- Improvement: Ability to add any number Elements in Header and Footer using a filter from child theme.
+- Improvement: Loaded animation CSS only when needed.
+- Improvement: Improved the UI in customizer for Footer Builder.
+- Improvement: Custom Layouts - Added compatibility to new Custom Layouts Hooks with respect to the new Header/Footer.
+- Improvement: Page Header - Added compatibility to Page Headers with respect to the new Header/Footer.
+- Improvement: Responsive - Added responsive compatibility to Footer Inner Column Spacing.
+- Improvement: Responsive - Added responsive compatibility to Social Icon Size and Social Icon Spacing.
+- Improvement: Responsive - Added responsive compatibility to Search Icon Color.
+- Improvement: Responsive - Added responsive compatibility to HTML Element related Colors.
+- Improvement: Responsive - Added responsive compatibility to Widget Element related Colors.
+- Improvement: Responsive - Added responsive compatibility to Above, Below and Primary Header height.
+- Improvement: Responsive - Added responsive compatibility to Footer Menu layout.
+- Improvement: Responsive - Added responsive compatibility to Footer Column Layout.
+- Fix: Allowed negative margin values
+- Fix: Fixed the issue with Global Button hover color not being applied to Header/Footer Buttons.
+- Fix: Sticky Header - Shrink option issue with alignment.
+- Fix: Primary Menu - Font Weight not being applied in frontend.
+- Fix: Off Canvas - Fixed issue with Sub Menu colors, typography and other inheriting properties.
+- Fix: Primary Menu - Fixed an issue with Stack on Mobile option not in action in some rare scenario.
+- Fix: Footer - Added default Stack layout for Footer Columns.
+- Fix: Toggle Button - Fixed an issue Toggle Button SVG looking odd.
+- Fix: Button - Fixed an issue with mismatched EM/PX with respect to Margin.
+- Fix: AMP Compatibility - Fixed an issue with Menu animation JS for AMP pages.
+- Fix: Slider Control - Fixed an issue with zero value not being accepted by the Slider Control.
+
+v3.0.0-beta.1
+- New: Header Builder
+- Introducing a new visual Header Builder that gives a flexible and advanced header designing experience.
+- It offers different layers for header - Above Header, Primary Header, and Below Header.
+- You can drag-n-drop elements in different sections of the header. It gives you the freedom to place elements at any location in the header quickly.
+- It offers different essential header elements like Button, HTML, Widget, Social Icon, Search, Menu, etc. So that you can add all the required information easily with few clicks.
+- Get background and height options for Above, Below, and Primary header.
+- Spacing options for each element in the header.
+- You can design a completely different header for responsive devices with handy mobile header options.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- New: Footer Builder
+- Introducing a new visual Footer Builder that gives the ability to design unique footers for your website.
+- It offers different layers for the footer - Above Footer, Primary Footer, and Below Footer.
+- You can drag-n-drop elements in different sections of the footer. It gives you the freedom to place elements at any location in the footer quickly.
+-  It offers different essential footer elements like Copyright, Button, HTML, Widget, Social Icon, Search, Footer Menu, etc. So that you can add all the required information easily with few clicks.
+- It provides a flexible columns-based structure where you can select column count and column layouts. This lets you manage the footer look easily.
+- Create responsive layouts for the footer.
+- Spacing and alignment options for each element in the footer.
+- Refer to a detailed comparison of features available with Astra free and Pro. ( https://wpastra.com/astra-free-vs-pro/ )
+
+- Improvement: Improved Customizer
+- Experience faster loading customizer. Astra customizer is now upgraded with ReactJS that gives a quick and swift customizer experience.
+- For quick access and faster editing, customization options are segregated and served with two different tabs - General and Design.
+- Now get a faster customizer preview than before. Header and Footer sections will be partially refreshed on any change in the customizer.
+
 v2.6.2
 - Fix: Gradient Color control UI compatibility with WordPress 5.6.
 - Fix: Background Image control UI compatibility with WordPress 5.6.

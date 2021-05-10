@@ -625,6 +625,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
   display: none;
 }
 
+.ast-header-break-point.ast-hfb-header .ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
+  display: inline-block;
+}
+
 @keyframes ast-hide-animate {
   0% {
     opacity: 1;
@@ -1326,4 +1330,24 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 #edd_profile_editor_form #edd_profile_submit_fieldset p {
   padding: 0;
+}
+
+/* EDD cart for Left Section in Builder Layout */
+.site-header-section-left .ast-edd-site-header-cart:focus .widget_edd_cart_widget, .site-header-section-left .ast-edd-site-header-cart:hover .widget_edd_cart_widget {
+  right: auto;
+  left: 0;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget {
+  right: -999em;
+  left: auto;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:before, .site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:after {
+  left: 8px;
+  right: auto;
+}
+
+.site-header-section-left .ast-edd-site-header-cart .widget_edd_cart_widget:after {
+  margin-left: -2px;
 }

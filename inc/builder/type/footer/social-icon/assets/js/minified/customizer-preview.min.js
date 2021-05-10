@@ -1,0 +1,1 @@
+jQuery,astra_builder_social_css("footer",astraBuilderFooterSocial.component_limit);

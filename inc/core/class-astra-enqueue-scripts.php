@@ -114,6 +114,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-plain-container';
 			}
 
+			$site_layout = astra_get_option( 'site-layout' );
+			if ( 'ast-box-layout' === $site_layout ) {
+				$classes .= ' ast-max-width-layout';
+			}
+
 			$classes .= ' ast-' . astra_page_layout();
 
 			return $classes;
@@ -127,18 +132,34 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		public static function theme_assets() {
 
 			$default_assets = array(
-
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js'  => array(
 					'astra-theme-js' => 'style',
 				),
-
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'astra-theme-css' => 'style',
+					'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'style-flex' : 'style',
 				),
 			);
 
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+
+				$default_assets = array(
+					// handle => location ( in /assets/js/ ) ( without .js ext).
+					'js'  => array(
+						'astra-theme-js' => 'frontend',
+					),
+					// handle => location ( in /assets/css/ ) ( without .css ext).
+					'css' => array(
+						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+					),
+				);
+
+				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
+					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
+				}
+			}
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 
@@ -161,6 +182,28 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
 			Astra_Fonts::add_font( $heading_font_family, $heading_font_variant );
+
+			if ( astra_target_rules_for_related_posts() ) {
+				// Related Posts Section title.
+				$section_title_font_family = astra_get_option( 'related-posts-section-title-font-family' );
+				$section_title_font_weight = astra_get_option( 'related-posts-section-title-font-weight' );
+				Astra_Fonts::add_font( $section_title_font_family, $section_title_font_weight );
+
+				// Related Posts - Posts title.
+				$post_title_font_family = astra_get_option( 'related-posts-title-font-family' );
+				$post_title_font_weight = astra_get_option( 'related-posts-title-font-weight' );
+				Astra_Fonts::add_font( $post_title_font_family, $post_title_font_weight );
+
+				// Related Posts - Meta Font.
+				$meta_font_family = astra_get_option( 'related-posts-meta-font-family' );
+				$meta_font_weight = astra_get_option( 'related-posts-meta-font-weight' );
+				Astra_Fonts::add_font( $meta_font_family, $meta_font_weight );
+
+				// Related Posts - Content Font.
+				$content_font_family = astra_get_option( 'related-posts-content-font-family' );
+				$content_font_weight = astra_get_option( 'related-posts-content-font-weight' );
+				Astra_Fonts::add_font( $content_font_family, $content_font_weight );
+			}
 		}
 
 		/**
@@ -232,12 +275,25 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
 			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
 
-			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+
+			// Submenu Container Animation for header builder.
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+
+				for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
+
+					$menu_animation_enable = astra_get_option( 'header-menu' . $index . '-submenu-container-animation' );
+
+					if ( Astra_Builder_Helper::is_component_loaded( 'menu-' . $index, 'header' ) && ! empty( $menu_animation_enable ) ) {
+						$menu_animation = 'is_animated';
+						break;
+					}
+				}
+			}
 
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
-			if ( ! empty( $menu_animation ) ) {
+			if ( ! empty( $menu_animation ) || is_customize_preview() ) {
 				if ( class_exists( 'Astra_Cache' ) ) {
 					Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 				} else {
@@ -261,6 +317,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
+
 				// Register & Enqueue Scripts.
 				foreach ( $scripts as $key => $script ) {
 

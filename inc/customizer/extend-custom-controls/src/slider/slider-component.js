@@ -1,111 +1,89 @@
 import PropTypes from 'prop-types';
-import { Component } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import {RangeControl,Dashicon} from '@wordpress/components';
+import {useState} from 'react';
 
-class SliderComponent extends Component {
+const SliderComponent = props => {
 
-	constructor( props ) {
+	const [props_value, setPropsValue] = useState( props.control.setting.get() );
 
-		super( props );
+	const {
+		label,
+		description,
+		suffix,
+		input_attrs,
+	} = props.control.params;
 
-		let value = this.props.control.setting.get()
+	let labelHtml = null,
+		descriptionHtml = null,
+		suffixHtml = null,
+		defaultVal = props.control.params.default;
 
-		this.state = {
-			value
-		};
+	const defaults = { min: 0, max: 500, step: 1 };
+	const controlProps = {
+		...defaults,
+		...( input_attrs || {} ),
+	};
+	const { min, max, step } = controlProps;
 
-		this.updateValues = this.updateValues.bind(this);
+	if (label) {
+		labelHtml = <label><span className="customize-control-title">{label}</span></label>;
 	}
 
-	render() {
-		
-		const {
-			label,
-			description,
-			suffix,
-			link,
-			inputAttrs,
-			name
-		} = this.props.control.params
+	if (description) {
+		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+	}
 
-		let labelHtml = null;
-		let descriptionHtml = null;
-		let suffixHtml = null;
-		var inp_array = [];
-		let reset = __( 'Back to default', 'astra' );
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
+	}
 
-		if ( label ) {
+	const updateValues = ( newVal ) => {
+		setPropsValue( newVal );
+		props.control.setting.set( newVal );
+	};
 
-			labelHtml = <label><span className="customize-control-title">{ label }</span></label>
-		}
-
-		if ( description ) {
-
-			descriptionHtml = <span className="description customize-control-description">{ description }</span>
-		}
-		if ( suffix ) {
-
-			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
-		}
-
-		if ( undefined !== inputAttrs ) {
-
-			let splited_values = inputAttrs.split( " " );
-
-			splited_values.map( (item, i ) => {
-
-				let item_values = item.split( "=" )
-
-				if ( undefined !== item_values[1] ) {
-
-					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-				}
-				
-			});
-		}
-
-		if ( undefined !== link ) {
-
-			let splited_values = link.split( " " )
-
-			splited_values.map(( item, i ) => {
-
-				let item_values = item.split( "=" )
-
-				if ( undefined !== item_values[1] ) {
-					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-				}
-				
-			});
-		}
-
+	const renderOperationButtons = () => {
 		return (
-			<label>
-				{ labelHtml }
-				{ descriptionHtml }
-
-				<div className="wrapper">
-					<input  { ...inp_array } type="range" value={ this.state.value } data-reset_value={ this.props.control.params.default } onChange = { () => this.updateValues( event.target.value ) } />
-					<div className="astra_range_value">
-						<input { ...inp_array } type="number" data-name={ name } className="value ast-range-value-input" value={ this.state.value }  onChange = { () => this.updateValues( event.target.value ) } />
-						{ suffixHtml }
-					</div>
-					<div className="ast-slider-reset" onClick = { () => { this.updateValues( this.props.control.params.default ) } } >
-						<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={ reset } ></span>
-					</div>
-				</div>	
-			</label>
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(props_value) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					let value = JSON.parse(JSON.stringify(defaultVal));
+					updateValues(value);
+				}}>
+				<Dashicon icon='image-rotate'/>
+				</button>
+			</div>
 		);
+	};
+
+	let savedValue = ( props_value || 0 === props_value ) ? parseFloat( props_value ) : '';
+
+	if ( 1 === step ) {
+		savedValue = ( props_value || 0 === props_value ) ? parseInt( props_value ) : '';
 	}
 
-	updateValues( updateState ) {
-		this.setState( { value : updateState } )
-		this.props.control.setting.set( updateState );
-	}
-}
+	return <div className="ast-slider-wrap">
+		{labelHtml}
+		{descriptionHtml}
+		{ renderOperationButtons() }
+		<div className="wrapper">
+			<RangeControl
+				value={ savedValue }
+				onChange={ ( value ) => updateValues( value ) }
+				resetFallbackValue={ defaultVal }
+				min={ min < 0 ? min : 0 }
+				max={ max || 500 }
+				step={ step || 1 }
+			/>
+			{ suffixHtml }
+		</div>
+	</div>;
+};
 
 SliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default SliderComponent;
+export default React.memo( SliderComponent );

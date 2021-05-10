@@ -31,6 +31,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		private static $instance;
 
 		/**
+		 * Customizer defaults.
+		 *
+		 * @access Private
+		 * @since 1.4.3
+		 * @var Array
+		 */
+		private static $defaults;
+
+		/**
 		 * Post id.
 		 *
 		 * @var $instance Post id.
@@ -82,8 +91,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * @return default values of the theme.
 		 */
 		public static function defaults() {
+
+			if ( ! is_null( self::$defaults ) ) {
+				return self::$defaults;
+			}
+
 			// Defaults list of options.
-			return apply_filters(
+			self::$defaults = apply_filters(
 				'astra_theme_defaults',
 				array(
 					// Blog Single.
@@ -98,6 +112,87 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'comments',
 						'category',
 						'author',
+					),
+					// Related Posts.
+					'enable-related-posts'                 => false,
+					'related-posts-total-count'            => 2,
+					'enable-related-posts-excerpt'         => false,
+					'related-posts-excerpt-count'          => 25,
+					'related-posts-based-on'               => 'categories',
+					'related-posts-order-by'               => 'date',
+					'related-posts-order'                  => 'asc',
+					'related-posts-grid'                   => '2',
+					'related-posts-structure'              => array(
+						'featured-image',
+						'title-meta',
+					),
+					'related-posts-meta-structure'         => array(
+						'comments',
+						'category',
+						'author',
+					),
+					// Related Posts - Color styles.
+					'related-posts-text-color'             => '',
+					'related-posts-link-color'             => '',
+					'related-posts-title-color'            => '',
+					'related-posts-background-color'       => '',
+					'related-posts-meta-color'             => '',
+					'related-posts-link-hover-color'       => '',
+					'related-posts-meta-link-hover-color'  => '',
+					// Related Posts - Title typo.
+					'related-posts-section-title-font-family' => 'inherit',
+					'related-posts-section-title-font-weight' => 'inherit',
+					'related-posts-section-title-text-transform' => '',
+					'related-posts-section-title-line-height' => '',
+					'related-posts-section-title-font-size' => array(
+						'desktop'      => '30',
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+
+					// Related Posts - Title typo.
+					'related-posts-title-font-family'      => 'inherit',
+					'related-posts-title-font-weight'      => 'inherit',
+					'related-posts-title-text-transform'   => '',
+					'related-posts-title-line-height'      => '1',
+					'related-posts-title-font-size'        => array(
+						'desktop'      => '20',
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+
+					// Related Posts - Meta typo.
+					'related-posts-meta-font-family'       => 'inherit',
+					'related-posts-meta-font-weight'       => 'inherit',
+					'related-posts-meta-text-transform'    => '',
+					'related-posts-meta-line-height'       => '',
+					'related-posts-meta-font-size'         => array(
+						'desktop'      => '14',
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+
+					// Related Posts - Content typo.
+					'related-posts-content-font-family'    => 'inherit',
+					'related-posts-content-font-weight'    => 'inherit',
+					'related-posts-content-text-transform' => '',
+					'related-posts-content-line-height'    => '',
+					'related-posts-content-font-size'      => array(
+						'desktop'      => '',
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
 					),
 					// Blog.
 					'blog-post-structure'                  => array(
@@ -280,7 +375,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					'header-main-menu-label'               => '',
 					'header-main-menu-align'               => 'inline',
-					'header-main-submenu-container-animation' => 'fade',
+					'header-main-submenu-container-animation' => '',
 					'mobile-header-breakpoint'             => '',
 					'mobile-header-logo'                   => '',
 					'mobile-header-logo-width'             => '',
@@ -377,7 +472,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                 => array(
-						'desktop'      => 40,
+						'desktop'      => 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -453,6 +548,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-toggle-target'          => 'icon',
 				)
 			);
+
+			return self::$defaults;
 		}
 
 		/**

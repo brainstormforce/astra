@@ -584,6 +584,11 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			display: none;
 		}
 	}
+	&.ast-hfb-header .ast-edd-site-header-cart{
+		.ast-edd-header-cart-info-wrap{
+			display: inline-block;
+		}
+	}
 }
 
 @keyframes ast-hide-animate {
@@ -1220,4 +1225,25 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 			padding: 0;
 		}
 	}
+}
+
+/* EDD cart for Left Section in Builder Layout */
+.site-header-section-left {
+    .ast-edd-site-header-cart {
+        &:focus .widget_edd_cart_widget, &:hover .widget_edd_cart_widget {
+            right: auto;
+            left: 0;
+        }
+        .widget_edd_cart_widget{
+            right: -999em;
+            left: auto;
+            &:before, &:after {
+                left: 8px;
+                right: auto;
+            }
+            &:after {
+                margin-left: -2px;
+            }
+        }
+    }
 }

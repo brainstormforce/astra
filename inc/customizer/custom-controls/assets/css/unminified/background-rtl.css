@@ -67,9 +67,12 @@
 
 .customize-control-ast-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   padding: 5px 0 5px 0;
-  float: left;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
 }
 
 .customize-control-ast-background .more-settings:focus {

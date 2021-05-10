@@ -68,7 +68,11 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		public static function sanitize_number( $val, $setting ) {
 
-			$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+			$input_attrs = array();
+
+			if ( isset( $setting->manager->get_control( $setting->id )->input_attrs ) ) {
+				$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+			}
 
 			if ( isset( $input_attrs ) ) {
 
@@ -208,11 +212,11 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  int|string $value Value of variable.
 		 * @return string|int Return empty if $value is not integer.
-		 * 
+		 *
 		 * @since 2.5.4
 		 */
 		public static function check_numberic_values( $value ) {
-			return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
+			return ( is_numeric( $value ) ) ? $value : '';
 		}
 
 		/**
@@ -645,7 +649,8 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				foreach ( $bg as $key => $value ) {
 					if ( 'background-image' === $key ) {
 						$out_bg_obj[ $device ] [ $key ] = esc_url_raw( $value );
-					} if ( 'background-media' === $key ) {
+					}
+					if ( 'background-media' === $key ) {
 						$out_bg_obj[ $device ] [ $key ] = floatval( $value );
 					} else {
 						$out_bg_obj[ $device ] [ $key ] = esc_attr( $value );
@@ -653,6 +658,20 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				}
 			}
 			return $out_bg_obj;
+		}
+
+		/**
+		 * Sanitize Toggle Control param.
+		 *
+		 * @param bool $val for True|False.
+		 *
+		 * @since 3.1.0
+		 *
+		 * @return bool True|False
+		 */
+		public static function sanitize_toggle_control( $val ) {
+			// returns true if checkbox is checked.
+			return ( isset( $val ) && is_bool( $val ) ? $val : '' );
 		}
 	}
 }

@@ -94,10 +94,6 @@
 	color: red;
 }
 
-.control-section.ast-hide {
-	display: none !important;
-}
-
 /**
  * Typography Control Style
  */
@@ -223,7 +219,6 @@
 .ast-hide{
 	display: none !important;
 }
-
 
 /* Primary Sub Menu Item Border */
 #customize-control-astra-settings-primary-submenu-item-border .ast-border-wrapper{

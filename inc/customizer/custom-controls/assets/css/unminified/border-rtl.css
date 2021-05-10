@@ -62,20 +62,22 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  margin-bottom: 0;
+  margin: 0 2px;
 }
-
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li:nth-child(1) {
+  margin-right: 0px;
+}
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input {
   text-align: center;
   display: block;
   font-size: 12px;
-  padding: 4px 0;
+  padding: 15px 0;
   width: 100%;
   height: 28px;
   border: 1px solid #dddddd;
-  border-left-width: 0;
+  border-radius: 3px;
   box-shadow: none;
-  padding-right: 11px;
+  transition: all 0.3s;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -116,10 +118,35 @@
   font-size: 14px;
   border: 1px solid #dddddd;
   background-color: #ffffff;
-  border-radius: 0 3px 3px 0;
-  border-left-width: 0;
+  border-radius: 3px;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
   background-color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected,
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
+  padding: 2px 0;
+  font-size: 12px;
+  line-height: 28px;
+  background-color: #ffffff
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:hover, .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+  border-color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
+  outline: none;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
+  color: #1e8cbe;
+}
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
+  color: #2D3748;
+}
+.customize-control-ast-border .input-wrapper.ast-border-wrapper {
+  margin-bottom: 8px;
 }

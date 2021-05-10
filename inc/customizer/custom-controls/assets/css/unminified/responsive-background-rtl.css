@@ -1,5 +1,6 @@
 .customize-control-ast-responsive-background {
   position: relative;
+  margin-bottom: -5px;
 }
 
 .customize-control-ast-responsive-background .background-container h4 {
@@ -113,20 +114,8 @@
   min-height: 30px;
 }
 
-.customize-control-ast-responsive-background .customize-control-content .color-button-wrap {
-  position: absolute;
-  left: 24px;
-  top: -5px;
-}
-
-.customize-control-ast-responsive-background .customize-control-content .ast-responsive-btns {
-  position: absolute;
-  left: 0px;
-  top: -1px;
-}
-
 .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
-  margin-top: -14px;
+  width: 100%;
 }
 
 .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
@@ -136,10 +125,6 @@
 
 .customize-control-ast-responsive-background .ast-color-btn-clear-wrap {
   left: 84px;
-}
-
-.customize-control-ast-responsive-background .ast-color-btn-reset-wrap {
-  left: 65px;
 }
 
 /**
@@ -173,7 +158,7 @@
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] {
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .astra-popover-tabs [ID*="-gradient-view"] .components-circular-option-picker__clear {
@@ -206,6 +191,14 @@
 
 .astra-popover-tabs #tab-panel-0-image-view > div .media-position-setting {
   text-align: right;
+}
+
+.media-position-setting > .components-base-control {
+    margin-bottom: 15px;
+}
+
+.media-position-setting [CLASS*="-Item-LabelWrapper"] {
+    margin-bottom: 5px;
 }
 
 .astra-popover-color .components-circular-option-picker {
@@ -270,28 +263,45 @@
 
 .ast-field-settings-modal .customize-control-content .color-button-wrap {
   left: 30px;
+  top: 0;
 }
 
-.ast-field-settings-modal .customize-control-content .ast-responsive-btns {
-  left: 7px;
+.ast-field-settings-modal .ast-responsive-btns {
+  position: absolute;
+  left: 14px;
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control-content .astra-color-picker-wrap {
-  margin-right: 0px;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-reset-wrap {
-  left: 72px;
+  left: 65px;
+  top: 7px;
 }
 
 .ast-field-settings-modal .customize-control-content .ast-color-btn-clear-wrap {
   left: 91px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive-background.customize-control {
-  margin-top: 28px;
-}
-
 .ast-field-settings-modal .customize-control-ast-responsive-background.customize-control:first-child {
   margin-top: 28px;
+}
+.customize-control-ast-responsive-background .ast-color-btn-reset-wrap,
+.customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
+  display: inline-block;
+  line-height: 1;
+  top: 0;
+}
+.customize-control-ast-responsive-background .ast-responsive-btns,
+.customize-control-ast-responsive-color .ast-responsive-btns {
+  position: absolute;
+  left: 64px;
+  top: 3px;
+}
+.ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
+.ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
+  left: 8px;
 }

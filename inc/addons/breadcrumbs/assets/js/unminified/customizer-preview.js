@@ -19,17 +19,13 @@
 		'astra-settings[breadcrumb-font-family]',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
-	astra_css(
-		'astra-settings[breadcrumb-font-weight]',
-		'font-weight',
-		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
-	);
+	astra_generate_font_weight_css( 'astra-settings[breadcrumb-font-family]', 'astra-settings[breadcrumb-font-weight]', 'font-weight', '.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' );
 	astra_css(
 		'astra-settings[breadcrumb-text-transform]',
 		'text-transform',
 		'.ast-breadcrumbs-wrapper .trail-items span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span,  .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator'
 	);
-	
+
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Line Height */
 	astra_css( 
 		'astra-settings[breadcrumb-line-height]',
@@ -78,7 +74,8 @@
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
-	astra_css( 'astra-settings[breadcrumb-alignment]',
+	astra_css(
+		'astra-settings[breadcrumb-alignment]',
 		'text-align',
 		'.ast-breadcrumbs-wrapper'
 	);
@@ -88,13 +85,27 @@
 	 */
 	wp.customize( 'astra-settings[breadcrumb-spacing]', function( value ) {
 		value.bind( function( padding ) {
-			if( 'astra_header_markup_after' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
+			var spacing_value = wp.customize( 'astra-settings[breadcrumb-position]' ).get();
+			if( 'astra_header_markup_after' == spacing_value || 'astra_header_after' == spacing_value ) {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.main-header-bar.ast-header-breadcrumb', 'padding',  ['top', 'right', 'bottom', 'left' ] );
-			} else if( 'astra_masthead_content' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
+			} else if( 'astra_masthead_content' == spacing_value ) {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper .ast-breadcrumbs-inner #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .breadcrumbs, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs-inner .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			} else {
 				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			}
+		} );
+	} );
+
+	/**
+	 * Breadcrumb Separator.
+	 */
+	wp.customize( 'astra-settings[breadcrumb-separator]', function( value ) {
+		value.bind( function( value ) {
+			var dynamicStyle = '';
+                dynamicStyle += '.trail-items li::after {';
+                dynamicStyle += 'content: "' + value + '";';
+                dynamicStyle += '} ';
+				astra_add_dynamic_css( 'breadcrumb-separator', dynamicStyle );
 		} );
 	} );
 

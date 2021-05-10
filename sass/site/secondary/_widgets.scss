@@ -55,19 +55,22 @@
 		background: initial;
 		color: inherit;
 
-		&:after {
-			font-family: $font-family-astra;
-			font-size: 1.2em;
-			font-weight: normal;
-			content: "\e8b6";
-		    position: absolute;
-		    top: 50%;
-		    right: 15px;
-		    transform: translate(0,-50%);
-		}
-
 		> label {
 		    position: relative;
+		}
+
+		i {
+			color: rgb(58, 58, 58);
+		}
+
+		button {
+			position: absolute;
+			top: 0;
+			right: 15px;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+			background: transparent;
 		}
 
 		input[type="submit"],
@@ -195,19 +198,5 @@
 	}
 	#today {
 	    background: $color-background-active;
-	}
-}
-
-//separate container content layout
-.ast-separate-container{
-	//two container content layout
-	&.ast-two-container{
-		#secondary{
-			.widget{
-				background-color: $color-background-content;
-				padding: 2em;
-				margin-bottom: 2em;
-			}
-		}
 	}
 }

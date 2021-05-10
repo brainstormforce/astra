@@ -24,9 +24,16 @@
   height: 100%;
 }
 
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image, .components-button-group.ahfb-radio-container-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
-  width: 73px;
-  height: 49px;
+  width: 75px;
+  height: 50px;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -34,8 +41,4 @@
 #customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
   width: 37px;
   height: 49px;
-}
-
-#customize-control-astra-settings-footer-adv .image label {
-  margin-bottom: 12px;
 }

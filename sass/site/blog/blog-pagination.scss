@@ -1,0 +1,109 @@
+/* ============================================================
+  NEXT PAGINATION
+============================================================ */
+$color-background-pagination :	transparent;
+$col-lg: 993px;
+$mx-col-xs: 420px;
+$col-md: 769px;
+$color-border-pagination  :  #eaeaea;
+$mx-col-md: 768px;
+
+
+.post-navigation a,
+.ast-pagination .prev.page-numbers,
+.ast-pagination .next.page-numbers {
+    padding: 0 1.5em;
+    height: 2.33333em;
+    line-height: calc(2.33333em - 3px);
+}
+
+.post-navigation a {
+    background: $color-background-pagination;
+    font-size: 16px;
+    font-size: 1.06666rem;
+}
+
+.ast-pagination {
+    display: inline-block;
+    width: 100%;
+    padding-top: 2em;
+    @media(min-width: $col-lg) {
+        padding-left: 3.33333em;
+        padding-right: 3.33333em;
+    }
+    .page-numbers {
+        display: inline-block;
+        width: 2.33333em;
+        height: 2.33333em;
+        font-size: 16px;
+        font-size: 1.06666rem;
+        line-height: calc(2.33333em - 3px);
+        text-align: center;
+    }
+
+    .nav-links {
+        display: inline-block;
+        width: 100%;
+    }
+
+    @media( max-width: $mx-col-xs) {
+        .prev.page-numbers,
+        .next.page-numbers {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    .prev.page-numbers,
+    .prev.page-numbers:visited,
+    .prev.page-numbers:focus,
+    .next.page-numbers,
+    .next.page-numbers:visited,
+    .next.page-numbers:focus {
+
+        display: inline-block;
+        width: auto;
+        @media(min-width: $col-md) {
+            &.next {
+                margin-right: 0;
+            }
+        }
+        &.dots,
+        &.dots:hover,
+        &.dots:focus {
+            border: 2px solid $color-border-pagination;
+            background: transparent;
+        }
+        &.dots {
+            cursor: default;
+        }
+    }
+    .next.page-numbers {
+        float: right;
+        text-align: right;
+        @media(max-width: $mx-col-md) {
+            .page-navigation{
+                padding-right: 0;
+            }
+        }
+    }
+    
+    .prev_next {
+        @media( max-width: $mx-col-md) {
+            display: inline-block;
+            width: 100%;
+        }
+        .next .ast-right-arrow,
+        .prev .ast-left-arrow {
+            font-size: 1em;
+            line-height: 1em;
+        }
+    }
+
+    @media(min-width: $col-md) {
+        .prev_next {
+            float: right;
+        }
+    }
+}

@@ -30,11 +30,22 @@ if ( ! class_exists( 'Astra_Pro_Upgrade_Link_Configs' ) ) {
 				array(
 					'name'             => 'astra-pro',
 					'type'             => 'section',
+					'ast_type'         => 'astra-pro',
 					'title'            => esc_html__( 'More Options Available in Astra Pro!', 'astra' ),
 					'pro_url'          => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 					'priority'         => 1,
 					'section_callback' => 'Astra_Pro_Customizer',
 				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[astra-pro-section-notice]',
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'control'   => 'ast-hidden',
+					'section'   => 'astra-pro',
+					'priority'  => 0,
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
@@ -44,4 +55,3 @@ if ( ! class_exists( 'Astra_Pro_Upgrade_Link_Configs' ) ) {
 }
 
 new Astra_Pro_Upgrade_Link_Configs();
-

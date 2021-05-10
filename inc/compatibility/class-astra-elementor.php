@@ -87,8 +87,46 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				/* Parse CSS from array() */
 				$parse_css = astra_parse_css( $elementor_heading_margin_comp );
 
+				$elementor_base_css = array(
+					'.elementor-post.elementor-grid-item.hentry' => array(
+						'margin-bottom' => '0',
+					),
+					'.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product, .elementor-element .elementor-wc-products .woocommerce[class*=\'columns-\'] ul.products li.product' => array(
+						'width'  => 'auto',
+						'margin' => '0',
+						'float'  => 'none',
+					),
+				);
+				// Load base static CSS when Elmentor is activated.
+				$parse_css .= astra_parse_css( $elementor_base_css );
+
+				if ( is_rtl() ) {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'right'     => '0 !important',
+						),
+					);
+				} else {
+					$elementor_rtl_support_css = array(
+						'.ast-left-sidebar .elementor-section.elementor-section-stretched,.ast-right-sidebar .elementor-section.elementor-section-stretched' => array(
+							'max-width' => '100%',
+							'left'      => '0 !important',
+						),
+					);
+				}
+				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
+				
+
 				$dynamic_css .= $parse_css;
 			}
+			
+			$elementor_archive_page_css = array(
+				'.elementor-template-full-width .ast-container' => array(
+					'display' => 'block',
+				),
+			);
+			$dynamic_css               .= astra_parse_css( $elementor_archive_page_css );
 
 			return $dynamic_css;
 		}
@@ -101,7 +139,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function elementor_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false === astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 

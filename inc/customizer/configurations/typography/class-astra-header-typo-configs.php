@@ -30,52 +30,129 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
-				/**
-				 * Option: Site Title Font Size
-				 */
-				array(
-					'name'        => 'font-size-site-title',
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
-					'section'     => 'title_tagline',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-site-title' ),
-					'transport'   => 'postMessage',
-					'priority'    => 9,
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
+				$_configs = array(
 
-				/**
-				 * Option: Site Tagline Font Size
-				 */
-				array(
-					'name'        => 'font-size-site-tagline',
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
-					'section'     => 'title_tagline',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-site-tagline' ),
-					'transport'   => 'postMessage',
-					'priority'    => 15,
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
+					/**
+					 * Option: Site Title Font Size
+					 */
+					array(
+						'name'        => 'font-size-site-title',
+						'type'        => 'sub-control',
+						'parent'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+						'section'     => 'title_tagline',
+						'control'     => 'ast-responsive',
+						'default'     => astra_get_option( 'font-size-site-title' ),
+						'transport'   => 'postMessage',
+						'priority'    => 9,
+						'title'       => __( 'Size', 'astra' ),
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+
+					/**
+					 * Option: Site Tagline Font Size
+					 */
+					array(
+						'name'        => 'font-size-site-tagline',
+						'type'        => 'sub-control',
+						'parent'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+						'section'     => 'title_tagline',
+						'control'     => 'ast-responsive',
+						'default'     => astra_get_option( 'font-size-site-tagline' ),
+						'transport'   => 'postMessage',
+						'priority'    => 14,
+						'title'       => __( 'Size', 'astra' ),
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
 					),
-				),
-			);
+				);
+			} else {
+
+				$_configs = array(
+
+					/**
+					 * Option: Site Title Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[font-size-site-title]',
+						'type'        => 'control',
+						'section'     => 'title_tagline',
+						'control'     => 'ast-responsive',
+						'default'     => astra_get_option( 'font-size-site-title' ),
+						'transport'   => 'postMessage',
+						'priority'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 16 : 8,
+						'title'       => __( 'Title Font Size', 'astra' ),
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						) : array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-title]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
+					),
+
+					/**
+					 * Option: Site Tagline Font Size
+					 */
+					array(
+						'name'        => ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
+						'type'        => 'control',
+						'section'     => 'title_tagline',
+						'control'     => 'ast-responsive',
+						'default'     => astra_get_option( 'font-size-site-tagline' ),
+						'transport'   => 'postMessage',
+						'priority'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 20 : 12,
+						'title'       => __( 'Tagline Font Size', 'astra' ),
+						'input_attrs' => array(
+							'min' => 0,
+						),
+						'units'       => array(
+							'px' => 'px',
+							'em' => 'em',
+						),
+						'context'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array(
+							Astra_Builder_Helper::$design_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						) : array(
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+								'operator' => '==',
+								'value'    => true,
+							),
+						),
+					),
+				);
+			}
 
 			$configurations = array_merge( $configurations, $_configs );
 

@@ -356,6 +356,7 @@
                     var l = r in t;
                     if (l) e[r] = t[r];
                     else {
+						// Replace uppercase characters with lowercase.
                         var n = r.replace(/[A-Z]/g, "-$&").toLowerCase(),
                             o = n in t;
                         o && (e[r] = t[n])
@@ -367,6 +368,7 @@
 
             function o(e, t) {
                 for (var r; r = i.exec(t);) {
+				// Replace lowercase characters with uppercase.
                     var l = r[1].toLowerCase().replace(/-[a-z]/g, function(e) {
                         return e.slice(1).toUpperCase()
                     });

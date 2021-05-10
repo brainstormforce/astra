@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Contact_Form_7' ) ) :
 				$file_prefix .= '-rtl';
 			}
 
-			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/contact-form-7' . $file_prefix . '.css';
+			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/contact-form-7-main' . $file_prefix . '.css';
 
 			wp_enqueue_style( 'astra-contact-form-7', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 		}

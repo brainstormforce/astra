@@ -36,18 +36,22 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Shop Columns
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-grids]',
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'section'     => 'woocommerce_product_catalog',
-					'default'     => array(
-						'desktop' => 4,
-						'tablet'  => 3,
-						'mobile'  => 2,
+					'name'              => ASTRA_THEME_SETTINGS . '[shop-grids]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'woocommerce_product_catalog',
+					'default'           => astra_get_option(
+						'shop-grids',
+						array(
+							'desktop' => 4,
+							'tablet'  => 3,
+							'mobile'  => 2,
+						) 
 					),
-					'priority'    => 11,
-					'title'       => __( 'Shop Columns', 'astra' ),
-					'input_attrs' => array(
+					'priority'          => 11,
+					'title'             => __( 'Shop Columns', 'astra' ),
+					'input_attrs'       => array(
 						'step' => 1,
 						'min'  => 1,
 						'max'  => 6,
@@ -76,14 +80,16 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Single Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
-					'type'     => 'control',
-					'control'  => 'ast-sortable',
-					'section'  => 'woocommerce_product_catalog',
-					'default'  => astra_get_option( 'shop-product-structure' ),
-					'priority' => 15,
-					'title'    => __( 'Shop Product Structure', 'astra' ),
-					'choices'  => array(
+					'name'              => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'type'              => 'control',
+					'control'           => 'ast-sortable',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'section'           => 'woocommerce_product_catalog',
+					'default'           => astra_get_option( 'shop-product-structure' ),
+					'priority'          => 15,
+					'title'             => __( 'Shop Product Structure', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'choices'           => array(
 						'title'      => __( 'Title', 'astra' ),
 						'price'      => __( 'Price', 'astra' ),
 						'ratings'    => __( 'Ratings', 'astra' ),
@@ -99,7 +105,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'woocommerce_product_catalog',
 					'default'  => astra_get_option( 'shop-archive-width' ),
 					'priority' => 10,
@@ -108,6 +114,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -118,16 +125,24 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'woocommerce_product_catalog',
-					'default'     => 1200,
+					'default'     => astra_get_option( 'shop-archive-max-width' ),
 					'priority'    => 10,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
-					'suffix'      => '',
+					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
 						'step' => 1,
 						'max'  => 1920,
+					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+							'operator' => '===',
+							'value'    => 'custom',
+						),
 					),
 				),
 			);

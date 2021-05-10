@@ -168,7 +168,6 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
 			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
-			$menu_icon           = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
 			$screen_reader_title = __( 'Main Menu', 'astra' );
 			if ( '' !== $menu_title ) {
@@ -181,7 +180,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 		<div class="ast-button-wrap">
 			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" <?php echo apply_filters( 'astra_nav_toggle_data_attrs', '' ); ?> aria-controls='primary-menu' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<span class="<?php echo esc_attr( $menu_icon ); ?>"></span>
+				<?php Astra_Icons::get_icons( 'menu-bars', true, true ); ?>
 				<?php if ( '' != $menu_title ) { ?>
 
 					<span class="mobile-menu-wrap">

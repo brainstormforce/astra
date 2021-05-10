@@ -38,6 +38,17 @@ if ( ! class_exists( 'Astra_Liferlms_Section_Configs' ) ) {
 					'priority' => 65,
 					'title'    => __( 'LifterLMS', 'astra' ),
 				),
+
+				/**
+				 * General Section
+				 */
+				array(
+					'name'     => 'section-lifterlms-general',
+					'type'     => 'section',
+					'title'    => __( 'General', 'astra' ),
+					'section'  => 'section-lifterlms',
+					'priority' => 0,
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

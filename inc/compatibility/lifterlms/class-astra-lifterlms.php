@@ -131,13 +131,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				}
 			}
 
-			if ( is_quiz() ) {
+			if ( is_quiz() || is_singular( 'llms_assignment' ) ) {
 				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 			}
 
-			if ( is_singular( 'llms_assignment' ) ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-			}
 			$lifter_certificate_post_type = get_post_type();
 			if ( 'llms_certificate' === $lifter_certificate_post_type || 'llms_my_certificate' === $lifter_certificate_post_type ) {
 				if ( ! is_admin() ) {
@@ -309,7 +306,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					?>
 					<div class="review_box" id="review_box">
 					<h3><?php esc_html_e( 'Write a Review', 'astra' ); ?></h3>
-					<!--<form method="post" name="review_form" id="review_form">-->
 						<input type="text" name="review_title" placeholder="<?php esc_attr_e( 'Review Title', 'astra' ); ?>" id="review_title">
 						<h5 style="color:red; display:none" id="review_title_error"><?php esc_html_e( 'Review Title is required.', 'astra' ); ?></h5>
 						<textarea name="review_text" placeholder="<?php esc_attr_e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
@@ -318,7 +314,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
 						<input type="submit" class="button" value="<?php esc_attr_e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
-					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
 						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
@@ -392,7 +387,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			$theme_color  = astra_get_option( 'theme-color' );
 			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$theme_forground_color = astra_get_foreground_color( $link_color );
@@ -459,6 +453,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/* Parse CSS from array() */
 			$css_output = astra_parse_css( $css_output );
 
+			if ( is_lesson() ) {
+				$css_output .= $this->llms_single_lesson_css();
+			}
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -567,7 +564,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return array List of updated assets.
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-lifterlms'] = 'compatibility/lifterlms';
+			$assets['css']['astra-lifterlms'] = ( ! Astra_Builder_Helper::apply_flex_based_css() ) ? 'compatibility/lifterlms' : 'compatibility/lifterlms-flex';
 			return $assets;
 		}
 
@@ -658,12 +655,45 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * @return string $default_fields Updated custom field definitions.
 		 */
 		public function register_builder_fields( $default_fields ) {
-			$disable_fields   = array();
-			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$disable_fields  = array();
+			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			/**
+			 * Main Header.
+			 */
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
 				'id'        => 'ast-main-header-display',
 				'label'     => esc_html__( 'Disable Primary Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Above Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-above-header-display',
+				'id'        => 'ast-hfb-above-header-display',
+				'label'     => esc_html__( 'Disable Above Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Below Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-below-header-display',
+				'id'        => 'ast-hfb-below-header-display',
+				'label'     => esc_html__( 'Disable Below Header', 'astra' ),
+				'switch_on' => 'disabled',
+				'type'      => 'switch',
+			);
+			/**
+			 * Mobile Header
+			 */
+			$disable_fields[] = array(
+				'attribute' => 'ast-hfb-mobile-header-display',
+				'id'        => 'ast-hfb-mobile-header-display',
+				'label'     => esc_html__( 'Disable Mobile Header', 'astra' ),
 				'switch_on' => 'disabled',
 				'type'      => 'switch',
 			);
@@ -689,7 +719,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				$disable_fields[] = array(
 					'attribute' => 'footer-sml-layout',
 					'id'        => 'footer-sml-layout',
-					'label'     => esc_html__( 'Disable Footer Bar', 'astra' ),
+					'label'     => esc_html__( 'Disable Footer', 'astra' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
@@ -705,7 +735,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-sidebar-layout',
 								'id'        => 'site-sidebar-layout',
 								'label'     => esc_html__( 'Sidebar', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'       => esc_html__( 'Customizer Setting', 'astra' ),
 									'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
@@ -717,7 +747,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 								'attribute' => 'site-content-layout',
 								'id'        => 'site-content-layout',
 								'label'     => esc_html__( 'Content Layout', 'astra' ),
-								'type'      => 'select',
+								'type'      => 'ast-select',
 								'options'   => array(
 									'default'         => esc_html__( 'Customizer Setting', 'astra' ),
 									'boxed-container' => esc_html__( 'Boxed', 'astra' ),
@@ -735,6 +765,86 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$default_fields['lesson']       = $fields;
 			$default_fields['quiz']         = $fields;
 			return $default_fields;
+		}
+
+		/**
+		 * Llms single lesson static CSS move to dynamic to load conditionally.
+		 *
+		 * @since 3.3.0
+		 * @return string
+		 */
+		public function llms_single_lesson_css() {
+			$single_lesson_static_css = '
+			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link {
+				background: #fff;
+			}
+
+			.single-lesson.ast-separate-container .llms-lesson-preview .llms-lesson-link:hover {
+				background: #fafafa;
+			}
+
+			.single-lesson .ast-article-single .llms-lesson-button-wrapper {
+				font-weight: 600;
+			}
+
+			.single-lesson .ast-article-single .llms-lesson-button-wrapper .llms-complete-lesson-form .llms-field-button:before {
+				content: "\2714";
+				margin-right: .5em;
+			}
+
+			.single-lesson .llms-course-navigation {
+				padding: 2em 0 0;
+				border-top: 1px solid #eeeeee;
+			}
+
+			.single-lesson .llms-course-navigation .llms-lesson-preview {
+				vertical-align: top;
+				margin-top: 0;
+			}
+
+			.single-lesson .llms-course-navigation .llms-lesson-preview .llms-lesson-link {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.single-lesson .llms-course-navigation .llms-prev-lesson h6.llms-pre-text:before {
+				content: "\2190";
+				margin-right: .5em;
+			}
+
+			.single-lesson .llms-course-navigation .llms-back-to-course:first-child h6.llms-pre-text:before {
+				content: "\2190";
+				margin-right: .5em;
+			}
+
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text:after,
+			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text:after {
+				content: "\2192";
+				margin-left: 5px;
+			}
+
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-title,
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course .llms-lesson-excerpt,
+			.single-lesson .llms-course-navigation .llms-prev-lesson ~ .llms-back-to-course h6.llms-pre-text,
+			.single-lesson .llms-course-navigation .llms-next-lesson .llms-lesson-title,
+			.single-lesson .llms-course-navigation .llms-next-lesson .llms-lesson-excerpt,
+			.single-lesson .llms-course-navigation .llms-next-lesson h6.llms-pre-text {
+				text-align: right;
+			}
+
+			@media (max-width: 544px) {
+				.single-lesson .llms-course-navigation {
+				  padding-top: 1.5em;
+				}
+				.single-lesson .llms-course-navigation .llms-course-nav {
+				  width: 100%;
+				  margin: 0;
+				}
+				.single-lesson .llms-course-navigation .llms-course-nav:first-child {
+				  margin-bottom: 1.5em;
+				}
+			}';
+			return Astra_Enqueue_Scripts::trim_css( $single_lesson_static_css );
 		}
 	}
 

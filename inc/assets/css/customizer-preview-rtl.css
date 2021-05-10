@@ -1,0 +1,175 @@
+/**
+ * Customizer Header-n-Footer section edit highligheting CSS.
+ *
+ * With new design improvements.
+ */
+
+ .ast-primary-header-bar, .ast-above-header-bar, .ast-below-header-bar, .site-footer-focus-item {
+    outline: 1px solid transparent;
+    position: relative;
+    transition: outline 0.15s ease;
+    outline-offset: -1px;
+}
+
+.site-header-focus-item .customize-partial-edit-shortcut, .site-footer-focus-item .customize-partial-edit-shortcut {
+    opacity: 0;
+    transition: all 0.2s;
+    top: 5px;
+}
+
+.ast-builder-grid-row-container > .customize-partial-edit-shortcut.row-editor-shortcut, .customize-partial-edit-shortcut.row-editor-shortcut {
+    right: 26px;
+}
+
+/**
+ * Customizer edit icon custom positioning.
+ */
+.ast-builder-layout-element.site-header-focus-item .customize-partial-edit-shortcut button, .site-footer-focus-item .customize-partial-edit-shortcut button {
+    right: 0;
+    top: 5px;
+    border-radius: 2px;
+}
+
+body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut button {
+	width: 26px;
+	height: 26px;
+	min-width: 26px;
+	min-height: 26px;
+	border-width: 1px;
+	border-radius: 2px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.site-footer-focus-item .customize-partial-edit-shortcut button {
+    top: 0;
+}
+
+.ast-below-header .ast-header-button-2 .customize-partial-edit-shortcut-button, .ast-below-header .ast-header-button-1 .customize-partial-edit-shortcut-button {
+    top: -10px;
+}
+
+.ast-builder-layout-element.site-header-focus-item[data-section="title_tagline"] .customize-partial-edit-shortcut {
+    top: 25px;
+}
+
+.site-header-focus-item[data-section="section-header-mobile-trigger"] .customize-partial-edit-shortcut {
+    top: -10px;
+    right: 0px;
+}
+
+.ast-primary-header-bar:hover, .ast-above-header-bar:hover, .ast-below-header-bar:hover,
+.site-primary-footer-wrap.site-footer-focus-item:hover, .site-above-footer-wrap.site-footer-focus-item:hover, .site-below-footer-wrap.site-footer-focus-item:hover {
+    outline: 1px solid #007cba;
+}
+
+.site-footer-focus-item:hover > * > .customize-partial-edit-shortcut,.site-footer-focus-item:hover > div.customize-partial-edit-shortcut, .ast-primary-header-bar:hover .row-editor-shortcut, .ast-above-header-bar:hover .row-editor-shortcut, .ast-below-header-bar:hover .row-editor-shortcut, .site-header-focus-item:hover > * > .customize-partial-edit-shortcut, .site-header-focus-item:hover > .customize-partial-edit-shortcut {
+    opacity: 1;
+}
+
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav, .customize-partial-edit-shortcut-custom_logo {
+    display: none;
+}
+
+.customize-partial-edit-shortcut.row-editor-shortcut > button {
+    box-shadow: unset;
+    border: unset;
+    top: -3px;
+    right: -24px;
+    border-radius: 0 0 0 2px;
+}
+
+.customize-partial-edit-shortcut > button {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    min-height: 26px;
+    border: 1px solid #fff;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.elementor-page .customize-partial-edit-shortcut button {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    min-height: 26px !important;
+    border-radius: 2px !important;
+    border: 1px solid #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    padding: 3px !important;
+}
+
+.customize-partial-edit-shortcut > button svg {
+    min-width: 16px;
+    min-height: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/**
+ * Footer widget edit icon compatible CSS.
+ */
+.footer-widget-area .widget {
+    position: relative;
+}
+.footer-widget-area .widget:hover > .customize-partial-edit-shortcut {
+    opacity: 1;
+}
+
+/**
+ * Customizer Edit pencil - Set Position
+ */
+ .customize-partial-edit-shortcut-blogname button.customize-partial-edit-shortcut-button, .customize-partial-edit-shortcut-blogdescription button.customize-partial-edit-shortcut-button, .customize-partial-edit-shortcut-astra-settings-display-site-title button.customize-partial-edit-shortcut-button, .customize-partial-edit-shortcut-astra-settings-display-site-tagline button.customize-partial-edit-shortcut-button, .customize-partial-edit-shortcut-custom_logo button.customize-partial-edit-shortcut-button, .customize-partial-edit-shortcut-astra-settings-disable-primary-nav button.customize-partial-edit-shortcut-button {
+	display: none;
+}
+.ast-site-title-wrap:hover .customize-partial-edit-shortcut-blogname button.customize-partial-edit-shortcut-button, .ast-site-title-wrap:hover .customize-partial-edit-shortcut-blogdescription button.customize-partial-edit-shortcut-button, .site-logo-img:hover .customize-partial-edit-shortcut-custom_logo button.customize-partial-edit-shortcut-button, .main-navigation:hover .customize-partial-edit-shortcut-astra-settings-disable-primary-nav button.customize-partial-edit-shortcut-button {
+	display: inline-block;
+}
+
+/* Sticky Header CSS */
+.ast-primary-sticky-header-active .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
+    right: 100px;
+}
+
+.ast-primary-sticky-header-active.ast-full-width-header .customize-partial-edit-shortcut-astra-settings-header-main-stick .customize-partial-edit-shortcut-button {
+    right: 5px;
+}
+
+/* Primary Header common CSS */
+.customize-partial-edit-shortcut-astra-settings-disable-primary-nav .customize-partial-edit-shortcut-button {
+	top: 15px;
+}
+
+/* Above Header common CSS */
+.ast-above-header .customize-partial-edit-shortcut {
+	top: 0.3em;
+}
+
+.customize-partial-edit-shortcut-astra-settings-above-header-layout .customize-partial-edit-shortcut-button,
+.customize-partial-edit-shortcut-astra-settings-below-header-layout .customize-partial-edit-shortcut-button {
+  right: -60px;
+}
+
+.customize-partial-edit-shortcut-astra-settings-header-desktop-items,
+.customize-partial-edit-shortcut-astra-settings-header-mobile-items,
+.customize-partial-edit-shortcut-astra-settings-header-mobile-popup-items {
+	display: none;
+}
+
+/* Mobile popup content - Edit shortcuts compatibility */
+.ast-mobile-popup-content .ast-builder-layout-element, .ast-mobile-header-wrap .ast-builder-layout-element, .ast-desktop-popup-content .ast-builder-layout-element, .ast-desktop-header-wrap .ast-builder-layout-element {
+    position: relative;
+}
+
+/** EDD & Woo cart Pencil icon */
+.ast-builder-layout-element.site-header-focus-item.ast-header-edd-cart .customize-partial-edit-shortcut button,
+.ast-builder-layout-element.site-header-focus-item.ast-header-woo-cart .customize-partial-edit-shortcut button {
+    right: -25px;
+}
+
+/*Hiding footer builder pencil icon as we converted section into builder layout, so no longer this needed.*/
+.customize-partial-edit-shortcut-astra-settings-footer-desktop-items > button.customize-partial-edit-shortcut-button {
+	display: none;
+}

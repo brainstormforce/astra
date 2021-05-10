@@ -1,31 +1,53 @@
-.customize-control-ast-sortable ul.ui-sortable {
+.customize-control-ast-sortable .sortable {
   cursor: default;
 }
 
-.customize-control-ast-sortable ul.ui-sortable .dashicons-visibility {
+.customize-control-ast-sortable .sortable .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li {
-  padding: 5px 10px;
-  border: 1px solid #333;
-  background: #fff;
+.customize-control-ast-sortable .sortable div {
+  padding: 0 0 0 12px;
+  border: 1px solid #dddddd;
+  color: #556068;
+  background: #ffffff;
   cursor: move;
+  line-height: 38px;
+  margin: 0 0 10px;
+  border-radius: 3px;
+}
+.customize-control-ast-sortable .sortable div:last-child {
+  margin: 0;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.dashicons-menu {
+.customize-control-ast-sortable .sortable div .dashicons.visibility {
   float: right;
+  position: relative;
+  font-size: 18px;
+  padding: 9px 12px;
+  line-height: 20px;
+  border-left: 1px solid #ddd;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li .dashicons.visibility {
-  margin-right: 10px;
+.customize-control-ast-sortable .sortable div.invisible {
+  opacity: 0.6;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible {
-  color: #aaa;
-  border: 1px dashed #aaa;
+.customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
+  opacity: 1;
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 2px;
+  top: 18px;
+  left: 12px;
+  background: #656565;
+  border-radius: 5px;
+  transform: rotate(-45deg);
+  box-shadow: 0px 0px 0px 1px #fff;
+  transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-  color: #aaa;
+.customize-control-ast-sortable .sortable div:hover {
+  opacity: 0.8;
 }

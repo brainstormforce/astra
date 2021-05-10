@@ -1,127 +1,20 @@
-.customize-control-ast-responsive-slider .wrapper {
+.customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
+  display: flex;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .customize-control-ast-responsive-slider input[type=range] {
-  -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
-  padding: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  position: inherit;
 }
 
-.customize-control-ast-responsive-slider input[type=range]:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.customize-control-ast-responsive-slider input[type=range]:hover, .customize-control-ast-responsive-slider input[type=range]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #3498D9;
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #3498D9;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-moz-range-track {
-  border: inherit;
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-track {
-  border: inherit;
-  color: transparent;
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-fill-lower, .customize-control-ast-responsive-slider input[type=range]::-ms-fill-upper {
-  background: transparent;
-}
-
-.customize-control-ast-responsive-slider input[type=range]::-ms-tooltip {
-  display: none;
-}
-
-.customize-control-ast-responsive-slider .astra_range_value {
-  font-size: 14px;
-  padding: 0 5px 0 0;
-  font-weight: 400;
-  position: relative;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset {
-  color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: -34px;
-  left: 1.5em;
-  display: inline-block;
-  -webkit-transition: color 0.5s ease-in;
-  -moz-transition: color 0.5s ease-in;
-  -ms-transition: color 0.5s ease-in;
-  -o-transition: color 0.5s ease-in;
-  transition: color 0.5s ease-in;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset span {
-  font-size: 13px;
-  line-height: 24px;
-  transition: unset;
-}
-
-.customize-control-ast-responsive-slider .ast-responsive-slider-reset:hover, .customize-control-ast-responsive-slider .ast-responsive-slider-reset:focus {
-  color: red;
-}
-
-.astra_range_value input.ast-responsive-range-value-input {
-  width: 50px;
-  height: 22px;
-  font-size: 12px;
-  padding: 3px;
-}
-
-.astra_range_value .ast-range-unit {
-  margin-right: 5px;
+.customize-control-ast-responsive-slider select, .customize-control.customize-control-select select {
+    color: #32373c;
 }
 
 .customize-control-ast-responsive-slider .input-field-wrapper {
@@ -130,20 +23,26 @@
 
 .customize-control-ast-responsive-slider .input-field-wrapper.active {
   display: flex;
-  justify-content: space-between;
-  margin-left: 0;
-  flex: 0 1;
+}
+
+.customize-control-ast-responsive-slider .components-base-control {
   width: 100%;
+}
+
+.customize-control-ast-responsive-slider .slider-control-label,
+.customize-control-ast-slider .customize-control-title {
+  cursor: default;
+  margin-top: 3px;
 }
 
 /**
  * Responsive Icons
  */
 .ast-responsive-slider-btns {
-  display: inline-block;
-  float: left;
-  line-height: 1;
-  margin-top: 5px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  left: 30px;
 }
 
 .ast-responsive-slider-btns > li {
@@ -165,7 +64,104 @@
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
+  cursor: pointer;
   width: 15px;
   height: 15px;
   font-size: 15px;
+}
+.customize-control-ast-responsive-slider .wrapper .components-base-control, .customize-control-ast-responsive-slider .wrapper .input-field-wrapper.active, .customize-control-ast-slider .components-base-control.components-range-control {
+  width: 100%;
+  display: inline-block;
+}
+.customize-control-ast-slider .wrapper .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  margin-right: 5px;
+  margin-top: 4px;
+}
+.customize-control-ast-responsive-slider .wrapper .ast-resp-slider-reset-wrap {
+  top: 4px;
+  left: 0;
+}
+
+.customize-control .ast-reset-btn .dashicons-image-rotate {
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+}
+
+.customize-control-ast-slider .components-input-control input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control input.components-input-control__input {
+  -moz-appearance: textfield;
+}
+.customize-control-ast-slider input.components-input-control__input::-webkit-inner-spin-button,
+.customize-control-ast-slider input.components-input-control__input::-webkit-outer-spin-button,
+.customize-control-ast-responsive-slider input.components-input-control__input::-webkit-inner-spin-button,
+.customize-control-ast-responsive-slider input.components-input-control__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.customize-control-ast-slider .components-input-control__container input.components-input-control__input, .customize-control-ast-responsive-slider .components-input-control__container input.components-input-control__input {
+  display: block;
+  border-radius: 0 2px 2px 0;
+  box-shadow: none;
+  transition: all 0.3s;
+  border: 1px solid #ddd;
+}
+.customize-control-ast-slider input.components-input-control__input:hover,
+.customize-control-ast-slider input.components-input-control__input:focus,
+.customize-control-ast-slider input.components-input-control__input:active,
+.customize-control-ast-responsive-slider input.components-input-control__input:hover,
+.customize-control-ast-responsive-slider input.components-input-control__input:focus,
+.customize-control-ast-responsive-slider input.components-input-control__input:active {
+  border-color: #1e8cbe;
+  border-radius: 2px;
+  outline: none;
+}
+.customize-control-ast-slider .wrapper .ast-range-unit, .customize-control-ast-responsive-slider .ast-range-unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 28px;
+  background: #fff;
+  cursor: default;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  align-self: auto;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.1s ease, font-weight 0.1s ease;
+  padding: 0;
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 2px 0 0 2px;
+}
+.customize-control-ast-slider .components-input-control__container, .customize-control-ast-responsive-slider .components-input-control__container {
+	margin-right: 5px;
+}
+.customize-control-ast-slider .components-input-control__container div.components-input-control__backdrop, .customize-control-ast-responsive-slider .components-input-control__container div.components-input-control__backdrop {
+  border: none;
+  border-radius: 0 2px 2px 0;
+  box-shadow: none;
+}
+.customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+  position: absolute;
+  display: inline-block;
+  line-height: 1;
+  left: 0;
+}
+.customize-control-ast-slider .ast-resp-slider-reset-wrap {
+	top: 0;
+}
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+	top: 2px;
+}
+.customize-control-ast-settings-group .customize-control-ast-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap {
+    left: 15px;
 }

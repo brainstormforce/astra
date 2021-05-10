@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { Component } from '@wordpress/element';
+import {Component} from '@wordpress/element';
 
 class ResponsiveSelectComponent extends Component {
 
 	constructor( props ) {
 
-		super( props );
+		super( ...arguments );
 
 		let value = this.props.control.setting.get();
 
@@ -17,7 +17,7 @@ class ResponsiveSelectComponent extends Component {
 		this.renderSelectHtml = this.renderSelectHtml.bind(this);
 	}
 
-	onSelectChange( device ) {
+	onSelectChange( event, device ) {
 		let updateState = {
 			...this.state.value
 		}
@@ -31,7 +31,7 @@ class ResponsiveSelectComponent extends Component {
 
 		let optionsHtml = Object.entries( choices ).map( ( key ) => {
 
-			var html = (
+			let html = (
 				<option key={ key[0] } value={ key[0] }>{ key[1] }</option>
 			);
 			return html;
@@ -39,7 +39,7 @@ class ResponsiveSelectComponent extends Component {
 
 		return (
 			<div className={ `ast-responsive-select-container ${device} ${active}`}>
-				<select className="ast-select-input" data-value={ this.state.value[ device ] } value={ this.state.value[ device ] } onChange={ () => { this.onSelectChange( device ) } } >
+				<select className="ast-select-input" data-value={ this.state.value[ device ] } value={ this.state.value[ device ] } onChange={ ( e ) => { this.onSelectChange( e, device ) } } >
 					{ optionsHtml }
 				</select>
 			</div>

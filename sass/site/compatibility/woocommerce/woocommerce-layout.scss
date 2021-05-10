@@ -185,9 +185,6 @@
 	&.columns-2 {
 		ul.products {
 			li.product {
-				width: 48.4%;
-				width: calc(50% - 10px);
-
 				&:nth-child(2n) {
 					margin-right: 0;
 					clear: right;

@@ -39,10 +39,14 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
 					'section'  => 'section-learndash',
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'default'  => astra_get_option( 'learndash-lesson-serial-number' ),
 					'title'    => __( 'Display Serial Number', 'astra' ),
 					'priority' => 25,
+					'divider'  => array(
+						'ast_class' => 'ast-top-divider',
+						'ast_title' => __( 'Course Content Table', 'astra' ),
+					),
 				),
 
 				/**
@@ -52,7 +56,7 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]',
 					'default'  => astra_get_option( 'learndash-differentiate-rows' ),
 					'type'     => 'control',
-					'control'  => 'checkbox',
+					'control'  => 'ast-toggle-control',
 					'section'  => 'section-learndash',
 					'title'    => __( 'Differentiate Rows', 'astra' ),
 					'priority' => 30,

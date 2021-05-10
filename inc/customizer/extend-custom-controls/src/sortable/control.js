@@ -9,10 +9,10 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
-		var control = this;
+		let control = this;
 
 		// Set the sortable container.
-		control.sortableContainer = control.container.find( 'ul.sortable' ).first();
+		control.sortableContainer = control.container.find( '.sortable' ).first();
 
 		// Init sortable.
 		control.sortableContainer.sortable({
@@ -21,11 +21,11 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			stop: function() {
 				control.updateValue();
 			}
-		}).disableSelection().find( 'li' ).each( function() {
+		}).disableSelection().find( 'div' ).each( function() {
 
 				// Enable/disable options when we click on the eye of Thundera.
 				jQuery( this ).find( 'i.visibility' ).click( function() {
-					jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'li:eq(0)' ).toggleClass( 'invisible' );
+					jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'div:eq(0)' ).toggleClass( 'invisible' );
 				});
 		}).click( function() {
 
@@ -41,10 +41,10 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		'use strict';
 
-		var control = this,
+		let control = this,
 		newValue = [];
 
-		this.sortableContainer.find( 'li' ).each( function() {
+		this.sortableContainer.find( 'div' ).each( function() {
 			if ( ! jQuery( this ).is( '.invisible' ) ) {
 				newValue.push( jQuery( this ).data( 'value' ) );
 			}

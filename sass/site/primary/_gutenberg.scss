@@ -174,15 +174,3 @@ body {
     border-bottom: 4px solid #555d66;
     color: #40464d;
 }
-
-// Fix margin issue with Full Width Stretched Layout.
-.ast-page-builder-template {
-	&.ast-no-sidebar {
-		.entry-content {
-			.alignwide {
-				margin-left: 0;
-				margin-right: 0;
-			}
-		}
-	}
-}

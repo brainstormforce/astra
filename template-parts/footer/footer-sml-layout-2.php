@@ -24,12 +24,12 @@ if ( '' != $section_2 ) {
 switch ( $sections ) {
 
 	case '2':
-			$section_class = 'ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12';
+			$section_class = 'ast-small-footer-section-equally ' . astra_attr( 'ast-grid-col-6' );
 		break;
 
 	case '1':
 	default:
-			$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
+			$section_class = 'ast-small-footer-section-equally ' . astra_attr( 'ast-grid-common-col' );
 		break;
 }
 

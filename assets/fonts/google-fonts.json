@@ -91,6 +91,22 @@
         }
     },
     {
+        "Akaya Kanadaka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Akaya Telivigala": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Akronim": {
             "variants": [
                 "regular"
@@ -143,14 +159,16 @@
         "Alegreya": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "serif"
@@ -500,6 +518,20 @@
         }
     },
     {
+        "Antonio": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Arapey": {
             "variants": [
                 "regular",
@@ -535,14 +567,24 @@
     {
         "Archivo": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -668,12 +710,12 @@
         "Asap": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -925,6 +967,14 @@
                 "700italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Ballet": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -1285,6 +1335,14 @@
         }
     },
     {
+        "Benne": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Bentham": {
             "variants": [
                 "regular"
@@ -1541,6 +1599,25 @@
         }
     },
     {
+        "Bodoni Moda": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Bokor": {
             "variants": [
                 "regular"
@@ -1592,6 +1669,21 @@
         "Bree Serif": {
             "variants": [
                 "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Brygada 1918": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -2684,6 +2776,14 @@
         }
     },
     {
+        "Dela Gothic One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Delius": {
             "variants": [
                 "regular"
@@ -2825,6 +2925,14 @@
                 "600",
                 "700",
                 "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "DotGothic16": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
@@ -3517,6 +3625,31 @@
         }
     },
     {
+        "Fraunces": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Freckle Face": {
             "variants": [
                 "regular"
@@ -4019,6 +4152,14 @@
         }
     },
     {
+        "Hachi Maru Pop": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Halant": {
             "variants": [
                 "300",
@@ -4434,6 +4575,22 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Imbue": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -4903,6 +5060,16 @@
         }
     },
     {
+        "Karantina": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Karla": {
             "variants": [
                 "200",
@@ -5045,6 +5212,16 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Kiwi Maru": {
+            "variants": [
+                "300",
+                "regular",
+                "500"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -5275,7 +5452,7 @@
                 "600",
                 "700"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -5387,6 +5564,20 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Lexend": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -6743,12 +6934,41 @@
         }
     },
     {
+        "New Tegomin": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "News Cycle": {
             "variants": [
                 "regular",
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Newsreader": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -7133,6 +7353,14 @@
         }
     },
     {
+        "Oi": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Old Standard TT": {
             "variants": [
                 "regular",
@@ -7221,6 +7449,14 @@
             "variants": [
                 "regular",
                 "italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Orelega One": {
+            "variants": [
+                "regular"
             ],
             "category": "display"
         }
@@ -7831,6 +8067,14 @@
         }
     },
     {
+        "Potta One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Pragati Narrow": {
             "variants": [
                 "regular",
@@ -8298,6 +8542,14 @@
         }
     },
     {
+        "Reggae One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Revalia": {
             "variants": [
                 "regular"
@@ -8428,6 +8680,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "RocknRoll One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -8658,7 +8918,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -8993,6 +9262,30 @@
                 "regular"
             ],
             "category": "monospace"
+        }
+    },
+    {
+        "Shippori Mincho": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Shippori Mincho B1": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -9483,6 +9776,14 @@
         }
     },
     {
+        "Stick": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Stint Ultra Condensed": {
             "variants": [
                 "regular"
@@ -9915,6 +10216,14 @@
         }
     },
     {
+        "Train One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Trirong": {
             "variants": [
                 "100",
@@ -9970,6 +10279,22 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Truculenta": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -10440,6 +10765,14 @@
         }
     },
     {
+        "Yusei Magic": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "ZCOOL KuaiLe": {
             "variants": [
                 "regular"
@@ -10461,6 +10794,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Zen Dots": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {

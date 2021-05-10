@@ -41,24 +41,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
-
 			$_configs = array(
-
-				/**
-				 * Option: Divider
-				 * Option: breadcrumb Typography Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typography-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Typography', 'astra' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'priority' => 73,
-					'settings' => array(),
-				),
 
 				/*
 				 * Breadcrumb Typography
@@ -67,12 +50,21 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'default'   => astra_get_option( 'section-breadcrumb-typo' ),
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
+					'title'     => __( 'Content Font', 'astra' ),
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'priority'  => 73,
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '!=',
+							'value'    => 'none',
+						),
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -160,12 +152,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
-					'default'           => '',
+					'default'           => astra_get_option( 'breadcrumb-line-height' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
 					'section'           => 'section-breadcrumb',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'priority'          => 25,
 					'input_attrs'       => array(
 						'min'  => 1,

@@ -133,110 +133,12 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	}
 
 	/**
-	 * Renders the content for a control based on the type
-	 * of control specified when this class is initialized.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_content() {
-
-		switch ( $this->type ) {
-
-			case 'ast-font-variant':
-				$this->render_font_variant( $this->ast_inherit );
-				break;
-		}
-	}
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
-
-		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		$astra_typo_localize = $this->ast_all_font_weight;
-
-		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
-	}
-	/**
-	 * Renders the title and description for a control.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_content_title() {
-		if ( ! empty( $this->label ) ) {
-			echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
-		}
-		if ( ! empty( $this->description ) ) {
-			echo '<span class="description customize-control-description">' . esc_html( $this->description ) . '</span>';
-		}
-	}
-
-	/**
-	 * Renders the connect attribute for a connected control.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_connect_attribute() {
-		if ( $this->connect ) {
-			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
-		}
-		if ( $this->variant ) {
-			echo ' data-connected-variant="' . esc_attr( $this->variant ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
-		}
-
-		echo ' data-value="' . esc_attr( $this->value() ) . '"';
-		echo ' data-name="' . esc_attr( $this->name ) . '"';
-	}
-	
-	/**
-	 * Renders a font variant control.
-	 *
-	 * @since 1.5.2
-	 * @param  string $default Inherit/Default.
-	 * @access protected
-	 * @return void
-	 */
-	protected function render_font_variant( $default ) {
-		echo '<label>';
-		$this->render_content_title();
-		echo '</label>';
-		echo '<select ';
-		$this->link();
-		$this->render_connect_attribute();
-		echo ' multiple >';
-		$values = explode( ',', $this->value() );
-		foreach ( $values as $key => $value ) {
-			echo '<option value="' . esc_attr( $value ) . '" selected="selected" >' . esc_html( $value ) . '</option>';
-		}
-		echo '<input class="ast-font-variant-hidden-value" type="hidden" value="' . esc_attr( $this->value() ) . '">';
-		echo '</select>';
-		echo '<span class="ast-control-tooltip dashicons dashicons-editor-help ast-variant-description" title="Only selected Font Variants will be loaded from Google Fonts."></span>';
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
 	public function to_json() {
-		
+
 		parent::to_json();
 
 		$this->json['label']               = esc_html( $this->label );
@@ -270,13 +172,13 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		</label>
 		<select data-inherit="<?php echo esc_attr( $this->ast_inherit ); ?>" <?php $this->link(); ?> class={{ data.font_type }} data-name={{ data.name }}
-		data-value="{{data.value}}" 
+		data-value="{{data.value}}"
 
 		<# if ( data.connect ) { #>
 			data-connected-control={{ data.connect }}
 		<# } #>
 		<# if ( data.variant ) { #>
-			data-connected-variant="{{data.variant}}"; 
+			data-connected-variant="{{data.variant}}";
 		<# } #>
 
 		>

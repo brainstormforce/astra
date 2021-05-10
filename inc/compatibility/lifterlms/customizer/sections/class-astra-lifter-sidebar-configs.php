@@ -33,24 +33,12 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]',
-					'section'  => 'section-sidebars',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'priority' => 5,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Shop Page
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'section-sidebars',
 					'priority' => 5,
 					'default'  => astra_get_option( 'lifterlms-sidebar-layout' ),
@@ -69,7 +57,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'ast-select',
 					'section'  => 'section-sidebars',
 					'default'  => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
 					'priority' => 5,

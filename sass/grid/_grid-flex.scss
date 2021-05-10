@@ -1,0 +1,144 @@
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+  
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+  
+.ast-container {
+  max-width: 100%;
+}
+
+.ast-container-fluid, .ast-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:  ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
+}
+  
+  
+// Row
+//
+// Rows contain and clear the floats of your columns.
+  
+@if $enable-grid-classes {
+    .ast-row {
+      margin-left:  ( $grid-gutter-width / -2);
+      margin-right: ( $grid-gutter-width / -2);
+    }
+}
+
+.ast{
+
+    &-grid-common-col {
+        position: relative;
+        // Prevent columns from collapsing when empty
+        min-height: 1px;
+        // Inner gutter via padding
+        padding-left: ($grid-gutter-width / 2);
+        padding-right: ($grid-gutter-width / 2);
+    }
+    &-float {
+      float:left;
+    }
+
+    @media (max-width: $mx-col-lg) {
+        &-width-sm-25{
+            width:25%;
+        }
+        &-width-md-50{
+          width:50%;
+      }
+    }
+
+    @media (max-width: $mx-col-md) {
+        &-width-md-25{
+            width:25%;
+        }
+    }
+    
+    &-full-width {
+        width: 100%;
+    }
+    &-width-50{
+        width: 50%;
+    }
+
+    @media (min-width: $mx-col-md) {
+        &-width-md-4{
+          width: 33.3333333333%;
+        }
+        &-width-md-16{
+          width: 16.6666666667%;
+        }
+        &-width-md-6{
+          width: 50%;
+          float:left;
+        }
+        &-width-md-3{
+          width: 25%;
+        }
+        &-width-md-66{
+          width: 66.6666666667%;
+        }
+    }
+    
+    @media (min-width: $mx-col-md + 1) {
+        &-width-md-20{
+          width: 20%;
+      }
+    }
+
+    @media (min-width: $mx-col-lg) {
+      &-width-lg-33{
+        width: 33.3333333333%;
+      }
+      &-width-lg-16{
+        width: 16.6666666667%;
+      }
+      &-width-lg-50{
+        width: 50%;
+      }
+      &-width-lg-66{
+        width: 66.6666666667%;
+      }
+  }
+}
+  
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+  
+@if $enable-flex and $enable-grid-classes {
+  
+    // Flex column reordering
+  
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        .ast-col-#{$breakpoint}-first { order: -1; }
+        .ast-col-#{$breakpoint}-last  { order: 1; }
+      }
+    }
+  
+    // Alignment for every column in row
+  
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        .ast-row-#{$breakpoint}-top    { align-items: flex-start; }
+        .ast-row-#{$breakpoint}-center { align-items: center; }
+        .ast-row-#{$breakpoint}-bottom { align-items: flex-end; }
+      }
+    }
+  
+    // Alignment per column
+  
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        .ast-col-#{$breakpoint}-top    { align-self: flex-start; }
+        .ast-col-#{$breakpoint}-center { align-self: center; }
+        .ast-col-#{$breakpoint}-bottom { align-self: flex-end; }
+      }
+    }
+}

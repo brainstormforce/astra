@@ -56,7 +56,7 @@
     padding: 0 20px;
     box-sizing: border-box;
 }
-.ast-container .ast-normal-cusror.hndle{
+.ast-container .ast-normal-cursor.hndle{
     cursor: initial;
 }
 .ast-container .postbox .hndle{
@@ -209,7 +209,7 @@ a.astra-starter-sites-detail-link {
     -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    padding: 10px 15px; 
+    padding: 10px 15px;
 }
 
 .ast-addon-list-section .ast-addon-list li:nth-child(even){
@@ -279,4 +279,23 @@ a.astra-starter-sites-detail-link {
 .ast-notice p{
     margin: 0.5em 0;
     padding: 2px;
+}
+
+/**
+ * Astra Other Links Postbox
+ */
+.postbox .inside .ast-other-links-list {
+    margin-bottom: 6px;
+}
+
+.ast-other-links-list li {
+    margin-bottom: 12px;
+}
+
+.ast-other-links-list li:last-child {
+    margin-bottom: 0;
+}
+
+.ast-other-links-list .dashicons {
+    margin-right: 6px;
 }

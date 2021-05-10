@@ -1,0 +1,69 @@
+/**
+ * Astra Theme compatibility with Contact Form 7
+ */
+@import "../variables-site/colors";
+@import "../mixins/mixins-master";
+
+.wpcf7 {
+
+	form {
+	    	position: relative;
+
+		> p,
+		> div {
+			margin-bottom: 1.2em;
+		}
+	}
+
+    .wpcf7-form-control-wrap {
+    	width: 100%;
+    	display: block;
+    }
+
+    input:not([type="submit"]):focus, 
+    textarea:focus,
+    select:focus {
+	    border-color: $color-border-input;
+	    outline: 0;
+	}
+
+    input:not([type="submit"]), textarea, select {
+		width: 100%;
+		padding: 0.75em;
+	}
+
+    input[type="file"] {
+		color: $color-text-input;
+	    height: auto;
+	    border-width: 1px;
+	    border-style: solid;
+	    border-color: $color-border-input;
+	    border-radius: 2px;
+	    background: #fafafa;
+	    box-shadow: none;
+	    box-sizing: border-box;
+	    @include ast-transition();
+	}
+
+    input[type="radio"],
+    input[type="checkbox"]
+     {
+	    display: inline-block;
+	    background: #E9EEF2; 
+	    color: #555; 
+	    clear: none;
+	    cursor: pointer;
+	    line-height: 0; 
+	    height: 1.2em;
+	    margin: -3px 4px 0 0;
+	    outline: 0;
+	    padding: 0;
+	    border-radius: 0.2em; 
+	    text-align: center;
+	    vertical-align: middle;
+	    width: 1.4em;
+	    min-width: 1.4em;
+	    @include ast-transition();
+    }
+
+}

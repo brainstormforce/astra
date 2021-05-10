@@ -1,0 +1,121 @@
+// class to hide elements
+.ast-hidden {
+	display: none !important;
+}
+
+body{
+	background-color: $color-background-body;
+}
+// Page alignment
+#page {
+	display: block;
+}
+
+@media ( min-width: 922px ){
+	.ast-container {
+		display: flex;
+	}
+}
+
+@media ( max-width: 921px ){
+	.ast-container {
+		flex-direction: column;
+	}
+}
+
+#primary,
+#secondary {
+	width: $width-site-main;
+}
+
+#primary{
+	margin: 4em 0;
+}
+
+//separate container content layout
+.ast-separate-container{
+	background-color: $color-background-sep-content-body;
+	#primary{
+		padding: 4em 0;
+		margin: 0;
+		border: 0;
+	}
+	.site-main > .ast-row {
+    	margin-left: 0;
+    	margin-right: 0;
+	}
+	.ast-article-post,
+	.ast-article-single:not(.ast-related-post){
+		background-color: $color-background-content;
+	}
+	.ast-article-post,
+	.ast-article-single{
+		border-bottom: 1px solid $color-border-content;
+		margin: 0;
+		padding: 5.34em 6.67em;
+	}
+	.blog-layout-1{
+        padding: 0;
+        border-bottom: 0;
+    }
+	.ast-article-single {
+		border-bottom: 0;
+	}
+
+	@media (max-width: $mx-col-xl) {
+		.ast-article-post,
+		.ast-article-single {
+		    margin: 0;
+		    padding: 3.34em 2.4em;
+		}
+	}
+}
+
+@media (min-width: $col-lg) {
+	// padding of the content
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary {
+		    margin: 4em 0 ;
+		    padding: 0;
+		}
+	}
+	// Right Sidebar - Spacing Between Primary & Secondary
+	.ast-right-sidebar {
+		#primary {
+			padding-right: $space-between-primary-seconday * 2;
+		}
+	}
+
+	// Left Sidebar - Spacing Between Primary & Secondary
+	.ast-left-sidebar {
+		#primary {
+			padding-left: $space-between-primary-seconday * 2;
+		}
+	}
+}
+
+@media (max-width: $mx-col-lg) {
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary{
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	// Right Sidebar - Spacing Between Primary & Secondary
+	.ast-right-sidebar {
+		#primary {
+			padding-right: $space-between-primary-seconday;
+		}
+	}
+
+	// Left Sidebar - Spacing Between Primary & Secondary
+	.ast-left-sidebar {
+		#primary {
+			padding-left: $space-between-primary-seconday;
+		}
+	}
+}

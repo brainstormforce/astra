@@ -1,157 +1,134 @@
 import PropTypes from 'prop-types';
-import { Component } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import {RangeControl, Dashicon} from '@wordpress/components';
+import {useEffect, useState} from 'react';
 
-class ResponsiveSliderComponent extends Component {
+const ResponsiveSliderComponent = props => {
 
-	constructor( props ) {
+	let prop_value = props.control.setting.get();
 
-		super( props );
+	const [state, setState] = useState( prop_value );
 
-		let value = this.props.control.setting.get();
+	useEffect( () => {
+		// If settings are changed externally.
+		if( state !== prop_value ) {
+			setState(prop_value);
+		}
+	}, [props]);
 
-		this.state = {
-			value: value,
+	const updateValues = (device, newVal) => {
+		let updateState = {...state};
+		updateState[device] = newVal;
+		props.control.setting.set(updateState);
+		setState(updateState);
+	};
+	const renderOperationButtons = ( defaultVal ) => {
+		return (
+			<div className="ast-resp-slider-reset-wrap">
+				<button
+					className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+					disabled={ JSON.stringify(state) === JSON.stringify(defaultVal)} onClick={ e => {
+					e.preventDefault();
+					props.control.setting.set(defaultVal);
+					setState(defaultVal);
+				}}>
+				<Dashicon icon='image-rotate'/>
+				</button>
+			</div>
+		);
+	};
+
+	const renderInputHtml = (device, active = '') => {
+		const {
+			input_attrs,
+		} = props.control.params;
+		let defaultVal = props.control.params.default[device];
+
+		const defaults = { min: 0, max: 500, step: 1 };
+		const controlProps = {
+			...defaults,
+			...( input_attrs || {} ),
 		};
+		const { min, max, step } = controlProps;
 
-		this.renderInputHtml = this.renderInputHtml.bind(this);
-		this.onInputChange = this.onInputChange.bind(this);
-		this.onResetClick = this.onResetClick.bind(this);
-	}
+		let savedValue = ( state[device] || 0 === state[device] ) ? parseFloat( state[device] ) : '';
 
-	onResetClick (e) {
-		e.preventDefault();
-		this.updateValues( this.props.control.params.default );
-
-	}
-	onInputChange( device ) {
-
-		let updateState = {
-			...this.state.value
+		if ( 1 === step ) {
+			savedValue = ( state[device] || 0 === state[device] ) ? parseInt( state[device] ) : '';
 		}
 
-		updateState[ device ]  = event.target.value;
+		return <div className={`input-field-wrapper ${device} ${active}`}>
+			<RangeControl
+				resetFallbackValue={defaultVal}
+				value={ savedValue }
+				min={ min < 0 ? min : 0 }
+				max={ max || 100 }
+				step={ step || 1 }
+				onChange={ ( newVal ) => { updateValues( device, newVal ) } }
+			/>
+		</div>;
+	};
 
-		this.updateValues( updateState );
+	const {
+		description,
+		label,
+		suffix
+	} = props.control.params;
+
+	let labelHtml = null;
+	let responsiveHtml = null;
+	let suffixHtml = null;
+	let descriptionHtml = null;
+	let inputHtml = null;
+	let defaultVal = props.control.params.default;
+
+	if (label) {
+		labelHtml = <span className="customize-control-title slider-control-label">{label}</span>;
+		responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
+			<li className="desktop active">
+				<button type="button" className="preview-desktop active" data-device="desktop">
+					<i className="dashicons dashicons-desktop"></i>
+				</button>
+			</li>
+			<li className="tablet">
+				<button type="button" className="preview-tablet" data-device="tablet">
+					<i className="dashicons dashicons-tablet"></i>
+				</button>
+			</li>
+			<li className="mobile">
+				<button type="button" className="preview-mobile" data-device="mobile">
+					<i className="dashicons dashicons-smartphone"></i>
+				</button>
+			</li>
+		</ul>;
 	}
 
-	renderInputHtml( device, active='' ) {
-
-		const {
-			inputAttrs,
-			suffix
-		} = this.props.control.params
-
-		let suffixHtml = null;
-		let inp_array = [];
-
-		if ( suffix ) {
-			suffixHtml = <span className="ast-range-unit">{ suffix }</span>
-		}
-
-		if ( undefined !== inputAttrs ) {
-
-			let splited_values = inputAttrs.split( " " );
-
-			splited_values.map( (item, i ) => {
-
-				let item_values = item.split( "=" )
-
-				if ( undefined !== item_values[1] ) {
-
-					inp_array[ item_values[0] ] = item_values[1].replace( /"/g, "" );
-				}
-
-			});
-		}
-
-		return (
-			<div className={ `input-field-wrapper ${ device } ${ active }` }>
-				<input type="range" { ...inp_array } value={ this.state.value[ device ] } data-reset_value={ this.props.control.params.default[ device ] } onChange={ () => { this.onInputChange( device ) } } />
-				<div className="astra_range_value">
-					<input type="number" { ...inp_array } data-id={ device } className="ast-responsive-range-value-input" value={ this.state.value[ device ] } onChange={ () => { this.onInputChange( device ) } } />
-					{ suffixHtml }
-				</div>
-			</div>
-		);
-	}
-	render() {
-
-		const {
-			description,
-			label,
-		} = this.props.control.params
-
-		const reset = __( 'Back to default', 'astra' );
-		let labelHtml = null;
-		let responsiveHtml = null;
-		let descriptionHtml = null;
-		let inputHtml = null;
-		let resetHtml = null;
-
-		if ( label ) {
-
-			labelHtml = <span className="customize-control-title">{ label }</span>;
-
-			responsiveHtml = (
-				<ul key={ 'ast-resp-ul' } className="ast-responsive-slider-btns">
-					<li className="desktop active">
-						<button type="button" className="preview-desktop active" data-device="desktop">
-							<i className="dashicons dashicons-desktop"></i>
-						</button>
-					</li>
-					<li className="tablet">
-						<button type="button" className="preview-tablet" data-device="tablet">
-							<i className="dashicons dashicons-tablet"></i>
-						</button>
-					</li>
-					<li className="mobile">
-						<button type="button" className="preview-mobile" data-device="mobile">
-							<i className="dashicons dashicons-smartphone"></i>
-						</button>
-					</li>
-				</ul>
-			);
-		}
-
-		if ( description ) {
-
-			descriptionHtml = <span className="description customize-control-description">{ description }</span>
-		}
-
-		inputHtml = (
-			<>
-				{ this.renderInputHtml( 'desktop', 'active' ) }
-				{ this.renderInputHtml( 'tablet' ) }
-				{ this.renderInputHtml( 'mobile' ) }
-			</>
-		);
-
-		resetHtml = (
-			<div className="ast-responsive-slider-reset" onClick={ (e) => { this.onResetClick(e) } } >
-				<span className="dashicons dashicons-image-rotate ast-control-tooltip" title={ reset } ></span>
-			</div>
-		);
-
-		return (
-			<label key={ 'customizer-text' }>
-				{ labelHtml }
-				{ responsiveHtml }
-				{ descriptionHtml }
-
-				<div className="wrapper">
-					{ inputHtml }
-					{ resetHtml }
-				</div>
-			</label>
-		);
+	if (description) {
+		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	updateValues( updateState ) {
-		this.setState( { value : updateState } )
-		this.props.control.setting.set( updateState );
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 	}
-}
+
+	inputHtml = <>
+		{renderInputHtml('desktop', 'active')}
+		{renderInputHtml('tablet')}
+		{renderInputHtml('mobile')}
+	</>;
+
+	return <div>
+		<label key={'customizer-text'}>
+			{labelHtml}
+		</label>
+		{responsiveHtml}
+		{ renderOperationButtons( defaultVal ) }
+		{descriptionHtml}
+		<div className="wrapper">
+			{inputHtml}
+			{suffixHtml}
+		</div>
+	</div>;
+};
 
 ResponsiveSliderComponent.propTypes = {
 	control: PropTypes.object.isRequired

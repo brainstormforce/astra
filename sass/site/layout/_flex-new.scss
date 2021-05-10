@@ -1,0 +1,163 @@
+/**
+ * Flexbox Framework
+ *
+ *  .ast - prefix
+ *
+ *  Flex classes generated as {prefix} + {css property - css value} .
+ *
+ *  E.g. Here '.ast' is a prefix.
+ *
+ *  .ast-flex
+ *  .ast-flex-1
+ *  .ast-flex-2
+ *  .ast-flex-3
+ *  .ast-flex-4
+ *  .ast-flex-5
+ *  .ast-inline-flex
+ *  .ast-flex-direction-row
+ *  .ast-flex-direction-row-reverse
+ *  .ast-flex-direction-column
+ *  .ast-flex-direction-column-reverse
+ *  .ast-flex-wrap-nowrap
+ *  .ast-flex-wrap-wrap
+ *  .ast-flex-wrap-wrap-reverse
+ *  .ast-justify-content-flex-start
+ *  .ast-justify-content-flex-end
+ *  .ast-justify-content-center
+ *  .ast-justify-content-space-between
+ *  .ast-justify-content-space-around
+ *  .ast-align-items-flex-start
+ *  .ast-align-items-flex-end
+ *  .ast-align-items-center
+ *  .ast-align-items-baseline
+ *  .ast-align-items-stretch
+ *  .ast-align-content-flex-start
+ *  .ast-align-content-flex-end
+ *  .ast-align-content-center
+ *  .ast-align-content-space-between
+ *  .ast-align-content-space-around
+ *  .ast-align-content-stretch
+ *  .ast-order-1
+ *  .ast-order-2
+ *  .ast-order-3
+ *  .ast-order-4
+ *  .ast-order-5
+ *  .ast-flex-grow-1
+ *  .ast-flex-grow-2
+ *  .ast-flex-grow-3
+ *  .ast-flex-grow-4
+ *  .ast-flex-grow-5
+ *  .ast-flex-shrink-grow-1
+ *  .ast-flex-shrink-grow-2
+ *  .ast-flex-shrink-grow-3
+ *  .ast-flex-shrink-grow-4
+ *  .ast-flex-shrink-grow-5
+ *  .ast-flex-basis-grow-1
+ *  .ast-flex-basis-grow-2
+ *  .ast-flex-basis-grow-3
+ *  .ast-flex-basis-grow-4
+ *  .ast-flex-basis-grow-5
+ *  .ast-align-self-auto
+ *  .ast-align-self-flex-start
+ *  .ast-align-self-flex-end
+ *  .ast-align-self-center
+ *  .ast-align-self-baseline
+ *  .ast-align-self-stretch
+ */
+
+.ast {
+    
+    /*
+    # LAYOUT
+    ———————————————-
+    display: flex | inline-flex;
+    ———————————————-
+     */
+
+    &-flex {
+        display: flex;
+        flex-wrap: wrap;
+        @for $i from 1 through 1 {
+            &-#{$i} {
+                flex: $i;
+            }
+        }
+    }
+    &-inline-flex {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    /*
+    ————————————————————————–
+    # CONTAINER (for PARENT)
+    ————————————————————————–
+
+
+    /*
+    ————————————————————————–
+    # JUSTIFY CONTENT
+    ————————————————————————–
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+    ————————————————————————–
+     */
+
+    &-justify-content-flex-start {
+        justify-content: flex-start;
+    }
+    &-justify-content-flex-end {
+        justify-content: flex-end;
+    }
+    &-justify-content-center {
+        justify-content: center;
+    }
+    &-justify-content-space-between {
+        justify-content: space-between;
+    }
+    &-justify-content-space-around {
+        justify-content: space-around;
+    }
+
+    /*
+    ————————————————————————–
+    # ALIGN – CONTENT
+    ————————————————————————–
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    ————————————————————————–
+     */
+
+    &-align-content-flex-start {
+        align-content: flex-start;
+    }
+    &-align-content-flex-end {
+        align-content: flex-end;
+    }
+    &-align-content-center {
+        align-content: center;
+    }
+    &-align-content-space-between {
+        align-content: space-between;
+    }
+    &-align-content-space-around {
+        align-content: space-around;
+    }
+    &-align-content-stretch {
+        align-content: stretch;
+    }
+
+
+    /*
+    ————————————————————————–
+    # GROW
+    ————————————————————————–
+    flex-grow: <number>; default 0
+    ————————————————————————–
+     */
+
+    &-flex-grow-1 {
+        flex-grow: 1;
+    }
+
+}

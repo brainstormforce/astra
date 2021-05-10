@@ -114,6 +114,7 @@ class Astra_Heading_Colors_Loader {
 			'mobile-unit'  => 'px',
 		);
 		$defaults['text-transform-button'] = '';
+		
 		/**
 		 * Check backward compatibility for button line height.
 		 */

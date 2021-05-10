@@ -333,11 +333,6 @@
   margin-right: 0;
 }
 
-.woocommerce.columns-2 ul.products li.product, .woocommerce-page.columns-2 ul.products li.product {
-  width: 48.4%;
-  width: calc(50% - 10px);
-}
-
 .woocommerce.columns-2 ul.products li.product:nth-child(2n), .woocommerce-page.columns-2 ul.products li.product:nth-child(2n) {
   margin-right: 0;
   clear: right;

@@ -1,0 +1,137 @@
+.color-group-item .components-tooltip .components-popover__content {
+  margin-bottom: 12px;
+  border-radius: 3px;
+}
+
+.color-group-item .components-tooltip .components-popover__content > div {
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+.color-group-item .components-tooltip:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: -12px;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid #1f1f1f;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.customize-control.customize-control-ast-color-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customize-control.customize-control-ast-color-group .ast-toggle-desc-wrap {
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+.customize-control.customize-control-ast-color-group .customize-control-title {
+  margin-bottom: 5px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.customize-control.customize-control-ast-color-group .color-button-wrap {
+  position: inherit;
+}
+
+.customize-control.customize-control-ast-color-group .color-group-item:not(:last-child) {
+  margin-right: 8px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-color-group-reset {
+  right: 72px;
+  top: 6px;
+  cursor: pointer;
+}
+
+.customize-control.customize-control-ast-color-group .ast-color-group-responsive-wrap {
+  display: none;
+}
+
+.customize-control.customize-control-ast-color-group .ast-color-group-responsive-wrap.active {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.customize-control.customize-control-ast-color-group .ast-responsive-btns {
+  position: absolute;
+  right: 100px;
+  top: 9px;
+}
+
+.customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.customize-control.customize-control-ast-color-group .more-settings {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0 5px 0;
+  cursor: pointer;
+  float: none;
+  text-decoration: none;
+}
+
+.customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
+  right: 132px;
+}
+
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+  right: 112px;
+}
+
+#customize-control-astra-settings-woo-single-page-color-group .ast-color-group-reset {
+  right: 145px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-responsive-btns {
+  top: 33px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 78px;
+}
+
+.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
+.customize-control-ast-color-group .ast-control-wrap {
+  display: inline-flex;
+  width: 100%;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
+  top: 47px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
+  top: 50px;
+}
+
+.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
+  top: 73px;
+}

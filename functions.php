@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '2.6.2' );
+define( 'ASTRA_THEME_VERSION', '3.4.2' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -25,7 +25,7 @@ define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri(
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
  */
-define( 'ASTRA_EXT_MIN_VER', '2.7.0' );
+define( 'ASTRA_EXT_MIN_VER', '3.4.0' );
 
 /**
  * Setup helper functions of Astra.
@@ -33,6 +33,7 @@ define( 'ASTRA_EXT_MIN_VER', '2.7.0' );
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-theme-options.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-theme-strings.php';
 require_once ASTRA_THEME_DIR . 'inc/core/common-functions.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-icons.php';
 
 /**
  * Update theme
@@ -53,6 +54,7 @@ if ( is_admin() ) {
 
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 
+require_once ASTRA_THEME_DIR . 'inc/dynamic-css/container-layouts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
@@ -77,6 +79,7 @@ require_once ASTRA_THEME_DIR . 'inc/extras.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog-config.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/blog.php';
 require_once ASTRA_THEME_DIR . 'inc/blog/single-blog.php';
+require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/related-posts.php';
 /**
  * Markup Files
  */
@@ -139,17 +142,21 @@ require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-yoast-seo.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-transparent-header.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
+require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor-pro.php';
+	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-web-stories.php';
 }
 
 // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
 if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-themer.php';
 }
+
+require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 
 /**
  * Load deprecated functions

@@ -1,7 +1,7 @@
 /**
  * Extending Customizer Control wp.customize.Control.
  *
- * @since x.x.x
+ * @since 2.6.0
  */
 export const coreControl = wp.customize.astraControl = wp.customize.Control.extend( {
 	/**
@@ -17,22 +17,28 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 * @constructs wp.customize.Control
 	 * @augments   wp.customize.Class
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 *
 	 * @return {void}
 	 */
 	initialize: function( id, options ) {
-		var control = this,
+		let control = this,
+			ast_class = '',
 			args    = options || {};
 
 		args.params = args.params || {};
 		if ( ! args.params.type ) {
 			args.params.type = 'ast-core';
 		}
+
+		if ( args.params ?. divider ?. ast_class ) {
+			ast_class = args.params.divider.ast_class;
+		}
+
 		if ( ! args.params.content ) {
 			args.params.content = jQuery( '<li></li>' );
 			args.params.content.attr( 'id', 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ) );
-			args.params.content.attr( 'class', 'customize-control customize-control-' + args.params.type );
+			args.params.content.attr( 'class', ast_class + ' customize-control customize-control-' + args.params.type  );
 		}
 
 		control.propertyElements = [];
@@ -45,12 +51,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 *
 	 * @returns {void}
 	 */
 	ready: function() {
-		var control = this;
+		let control = this;
 		wp.customize.Control.prototype.ready.call( control );
 		control.deferred.embedded.done();
 	},
@@ -62,12 +68,12 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 *
 	 * @returns {void}
 	 */
 	embed: function() {
-		var control   = this,
+		let control   = this,
 			sectionId = control.section();
 
 		if ( ! sectionId ) {
@@ -93,16 +99,22 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 *
 	 * @returns {void}
 	 */
 	actuallyEmbed: function() {
-		var control = this;
+		let control = this;
 		if ( 'resolved' === control.deferred.embedded.state() ) {
 			return;
 		}
 		control.renderContent();
+
+		// Insert title if param has.
+		if ( control?. params ?. divider ?. ast_title ) {
+			control.container.prepend('<label class="ast-divider-title">' + control.params.divider.ast_title +'</label>');
+		}
+
 		control.deferred.embedded.resolve(); // This triggers control.ready().
 	},
 
@@ -111,13 +123,13 @@ export const coreControl = wp.customize.astraControl = wp.customize.Control.exte
 	 *
 	 * @file wp-admin/js/customize-nav-menus.js
 	 *
-	 * @since x.x.x
+	 * @since 2.6.0
 	 *
 	 * @param {Object}   [params] - Params object.
 	 * @param {Function} [params.completeCallback] - Optional callback function when focus has completed.
 	 */
 	focus: function( params ) {
-		var control = this;
+		let control = this;
 		control.actuallyEmbed();
 		wp.customize.Control.prototype.focus.call( control, params );
 	},

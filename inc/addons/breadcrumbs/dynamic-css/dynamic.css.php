@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_breadcrumb_section_dynamic_css' );
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
-
+	
 	$dynamic_css .= astra_parse_css(
 		array(
 			'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li' => array(
@@ -57,7 +57,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
-
+	
 	if ( 'none' === $breadcrumb_position ) {
 		return $dynamic_css;
 	}
@@ -396,7 +396,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	);
 
 	/* Breadcrumb CSS for Spacing */
-	if ( 'astra_header_markup_after' === $breadcrumb_position ) {
+	if ( 'astra_header_markup_after' === $breadcrumb_position || 'astra_header_after' === $breadcrumb_position ) {
 		// After Header.
 		$breadcrumbs_desktop['.main-header-bar.ast-header-breadcrumb, .ast-header-break-point .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .header-main-layout-2 .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .ast-mobile-header-stack .main-header-bar.ast-header-breadcrumb, .ast-default-menu-enable.ast-main-header-nav-open.ast-header-break-point .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb, .ast-main-header-nav-open .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb'] = array(
 			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),

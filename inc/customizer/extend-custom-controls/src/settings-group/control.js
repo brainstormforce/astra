@@ -10,8 +10,18 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
+import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
+import SelectorComponent from '../selector/selector-component';
 
-import { astraGetResponsiveBgJs, astraGetResponsiveColorJs, astraGetResponsiveJs, astraGetResponsiveSliderJs, astraGetResponsiveSpacingJs,  astraGetColor, astraGetBackground } from '../common/responsive-helper';
+import {
+	astraGetBackground,
+	astraGetColor,
+	astraGetResponsiveBgJs,
+	astraGetResponsiveColorJs,
+	astraGetResponsiveJs,
+	astraGetResponsiveSliderJs,
+	astraGetResponsiveSpacingJs
+} from '../common/responsive-helper';
 
 export const settingsGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -21,8 +31,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 	ready : function() {
 		'use strict';
 
-		var control = this,
-		value   = control.setting._value;
+		var control = this;
 
 		control.registerToggleEvents();
 		this.container.on( 'ast_settings_changed', control.onOptionChange );
@@ -148,16 +157,26 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			fields_html += '<div id="' + clean_param_name + '-tabs" class="ast-group-tabs">';
 			fields_html += '<ul class="ast-group-list">';
-			var counter = 0;
+			var counter = 0,
+				tabs_counter = 0,
+				tab_key = '',
+				li_class = '';
 
 			_.each( fields.tabs, function ( value, key ) {
 
-				var li_class = '';
-				if( 0 == counter ) {
-					li_class = "active";
+				switch(counter) {
+					case 0:
+						li_class = 'active';
+						tab_key = 'normal';
+					  break;
+					case 1:
+						tab_key = 'hover';
+					  break;
+					default:
+						tab_key = 'active';
 				}
 
-				fields_html += '<li class="'+ li_class + '"><a href="#tab-' + key + '"><span>' + key +  '</span></a></li>';
+				fields_html += '<li class="'+ li_class + '"><a href="#tab-' + tab_key + '"><span>' + key +  '</span></a></li>';
 				counter++;
 			});
 
@@ -167,7 +186,19 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 			_.each( fields.tabs, function ( fields_data, key ) {
 
-				fields_html += '<div id="tab-'+ key +'" class="tab">';
+				switch(tabs_counter) {
+					case 0:
+						li_class = 'active';
+						tab_key = 'normal';
+					  break;
+					case 1:
+						tab_key = 'hover';
+					  break;
+					default:
+						tab_key = 'active';
+				}
+
+				fields_html += '<div id="tab-'+ tab_key +'" class="tab">';
 
 				var result = control.generateFieldHtml( fields_data, field_values );
 
@@ -182,6 +213,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				});
 
 				fields_html += '</div>';
+				tabs_counter++;
 			});
 
 			fields_html += '</div></div>';
@@ -306,13 +338,14 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		var fields_html = '';
 		var control_types = [];
 
-
 		_.each(fields_data, function (attr, index) {
 
 			var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' );
 			var control = attr.control;
 			var template_id = "customize-control-" + control + "-content";
-            var template = wp.template(template_id);
+
+			var template = wp.template(template_id);
+
 			var value = new_value || attr.default;
 			attr.value = value;
 			var dataAtts = '';
@@ -348,7 +381,11 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			control_clean_name = control_clean_name.replace(']', '');
 
 			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
-			fields_html += template(attr);
+
+			if( jQuery( '#tmpl-' + template_id ).length ) {
+				fields_html += template(attr);
+			}
+
 			fields_html += '</li>';
 
 		});
@@ -428,6 +465,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		if ( undefined !== attr.responsive && ( undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'] ) ) {
 			controlObject.params['responsive'] = attr.responsive;
 		}
+		if ( undefined !== attr.renderAs && ( undefined === controlObject.params['renderAs'] || '' === controlObject.params['renderAs'] || null === controlObject.params['renderAs'] ) ) {
+			controlObject.params['renderAs'] = attr.renderAs;
+		}
 
 		return controlObject;
 	},
@@ -445,7 +485,12 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
+			'ast-selector' : SelectorComponent,
 		};
+
+		if( astra.customizer.is_pro ) {
+			reactControls['ast-box-shadow'] = BoxShadowComponent;
+		}
 
 		if( 'undefined' != typeof fields.tabs ) {
 

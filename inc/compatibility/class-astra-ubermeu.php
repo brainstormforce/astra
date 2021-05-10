@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 			$ubermenu_auto_config = ubermenu_get_menu_instance_by_theme_location( 'primary' );
 
 			// If ubermenu's auto configuration is not used here, don't override the filter.
-			if ( '' === $ubermenu_auto_config || false == $ubermenu_auto_config ) {
+			if ( '' === $ubermenu_auto_config || false === $ubermenu_auto_config ) {
 				return $status;
 			}
 

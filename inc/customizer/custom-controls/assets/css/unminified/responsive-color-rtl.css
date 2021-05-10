@@ -2,21 +2,16 @@
   display: none;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap {
-  margin-right: 2px;
-  margin-top: -14px;
-  background-color: #ffffff;
-  border-radius: 4px;
+.customize-control-ast-responsive-color .customize-control-content {
+  display: block;
+  margin-top: 5px;
 }
 
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-black {
   border-radius: 4px 4px 0 0;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color {
-  border-radius: 3px;
-}
-
+.customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .ast-color-picker-alpha .astra-color-picker-wrap .components-color-picker__saturation-white {
   border-radius: 3px;
 }
@@ -25,21 +20,9 @@
   display: block;
 }
 
-.customize-control-ast-responsive-color .customize-control-content .color-button-wrap {
-  position: absolute;
-  left: 24px;
-  top: -4px;
-}
-
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-color,
 .customize-control-ast-responsive-color .customize-control-content .components-color-picker__saturation-white {
   border-radius: unset;
-}
-
-.customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 0px;
-  top: 6px;
 }
 
 .ast-field-settings-modal .customize-control-ast-responsive-color .customize-control-content .color-button-wrap {

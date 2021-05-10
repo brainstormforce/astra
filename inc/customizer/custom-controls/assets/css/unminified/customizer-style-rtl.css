@@ -27,7 +27,31 @@
 .customize-control {
   position: relative;
   margin-bottom: 0;
-  margin-top: 12px;
+  margin-top: 25px;
+}
+
+[ID*="-builder-layout-ast-context-tabs"] {
+  margin-top: 10px;
+}
+
+.customize-section-title {
+  margin: -12px -20px 0 -20px;
+}
+
+.customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
+  margin-bottom: 0;
+}
+
+#customize-controls #sub-accordion-panel-nav_menus .customize-info {
+  margin-bottom: 15px;
+}
+
+#customize-control-astra-settings-header-transparent-link-heading {
+  margin-top: 15px;
+}
+
+.components-base-control .components-base-control__field {
+  margin-bottom: 0;
 }
 
 .customize-control .customize-inside-control-row {
@@ -37,7 +61,12 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
+.customize-control-ast-background .customize-control-title, .customize-control-ast-responsive-color .customize-control-title {
+  display: contents;
 }
 
 .customize-control-ast-font-variant .select2 {
@@ -81,6 +110,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
+  padding: 12px 20px 25px 20px;
 }
 
 /* Safari Browser specific CSS */
