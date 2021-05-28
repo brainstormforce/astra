@@ -564,7 +564,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $text_color ),
 				);
 				// Main - Menu Items.
-				$css_output['.main-header-menu .menu-item:hover > .menu-link, .main-header-menu .menu-item:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .menu-item.focus > .menu-link, .main-header-menu .menu-item.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > .menu-link, .main-header-menu .current-menu-ancestor > .menu-link, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle'] = array(
+				$css_output['.main-header-menu .menu-item .menu-link:hover, .main-header-menu .menu-item:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu .menu-item.focus > .menu-link, .main-header-menu .menu-item.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > .menu-link, .main-header-menu .current-menu-ancestor > .menu-link, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle'] = array(
 					'color' => esc_attr( $link_color ),
 				);
 				$css_output['.header-main-layout-3 .ast-main-header-bar-alignment'] = array(
