@@ -10,9 +10,7 @@
  */
 
 ?>
-
 <div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
-
 	<div class="post-content <?php echo astra_attr( 'ast-grid-common-col' ); ?>" >
 		<?php astra_blog_post_thumbnail_and_title_order(); ?>
 		<div class="entry-content clear" 
