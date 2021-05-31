@@ -1000,6 +1000,10 @@ body {
   display: block;
 }
 
+.ast-advanced-headers-layout.ast-advanced-headers-layout-2 .ast-container {
+  flex-direction: column;
+}
+
 @media (min-width: 922px) {
   .ast-container {
     -js-display: flex;
