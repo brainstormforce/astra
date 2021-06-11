@@ -175,6 +175,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			$css = '';
 
 			$desktop_css = array(
@@ -298,6 +304,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
+				),
+				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:visited' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
@@ -430,6 +440,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
+					),
+					'.wp-block-button .wp-block-button__link:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 

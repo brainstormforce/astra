@@ -82,6 +82,11 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 			add_filter( 'uabb_theme_default_button_bg_color', array( $this, 'default_type_button_bg_color' ) );
 			add_filter( 'uabb_theme_default_button_bg_hover_color', array( $this, 'default_type_button_bg_hover_color' ) );
 			add_filter( 'uabb_theme_default_button_padding', array( $this, 'default_type_button_padding' ) );
+
+			/**
+			 * Default button type Button :visited colors compatibility.
+			 */
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'default_type_button_visited_colors' ), 11 );
 		}
 
 		/**
@@ -89,6 +94,33 @@ if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
 		 */
 		public function remove_uabb_global_setting() {
 			return false;
+		}
+
+		/**
+		 * UABB Button :visited color support
+		 *
+		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @return String Generated dynamic CSS for UABB Button :visited.
+		 *
+		 * @since x.x.x
+		 */
+		public function default_type_button_visited_colors( $dynamic_css ) {
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color' );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color' );
+
+			$css_output = array(
+				'.uabb-button-wrap .ast-button.uabb-button:visited, .uabb-button-wrap .ast-button.uabb-button:visited *' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
+				),
+			);
+
+			$dynamic_css .= astra_parse_css( $css_output );
+
+			return $dynamic_css;
 		}
 
 		/**

@@ -166,8 +166,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Buttons.
 					'button-color'                         => '',
 					'button-h-color'                       => '',
+					'button-visited-color'                 => '',
 					'button-bg-color'                      => '',
 					'button-bg-h-color'                    => '',
+					'button-bg-visited-color'              => '',
 					'theme-button-padding'                 => array(
 						'desktop'      => array(
 							'top'    => 10,

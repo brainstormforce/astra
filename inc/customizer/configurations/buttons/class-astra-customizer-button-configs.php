@@ -94,6 +94,20 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Button Visited Color
+				 */
+				array(
+					'name'     => 'button-visited-color',
+					'default'  => astra_get_option( 'button-visited-color' ),
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'section'  => 'section-buttons',
+					'control'  => 'ast-color',
+					'title'    => __( 'Visited', 'astra' ),
+					'priority' => 40,
+				),
+
+				/**
 				 * Option: Button Background Color
 				 */
 				array(
@@ -118,6 +132,20 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'control'  => 'ast-color',
 					'title'    => __( 'Hover', 'astra' ),
 					'priority' => 40,
+				),
+
+				/**
+				 * Option: Button Background Visited Color
+				 */
+				array(
+					'name'     => 'button-bg-visited-color',
+					'default'  => astra_get_option( 'button-bg-visited-color' ),
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
+					'section'  => 'section-buttons',
+					'control'  => 'ast-color',
+					'title'    => __( 'Visited', 'astra' ),
+					'priority' => 42,
 				),
 
 				/**

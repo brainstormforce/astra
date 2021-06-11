@@ -402,6 +402,12 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $link_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			$btn_border_radius = astra_get_option( 'button-radius' );
 			$theme_btn_padding = astra_get_option( 'theme-button-padding' );
 
@@ -422,6 +428,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
+				),
+				'a.llms-button-primary:visited, .llms-button-secondary:visited, .llms-button-action:visited, button.llms-field-button:visited, a.llms-field-button:visited, nav.llms-pagination ul li a:visited' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
 				),
 				'nav.llms-pagination ul li a:focus, nav.llms-pagination ul li a:hover, nav.llms-pagination ul li span.current' => array(
 					'background' => $link_color,

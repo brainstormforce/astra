@@ -1,4 +1,5 @@
 v3.6.0 (Unreleased)
+- New: Button - Visited color options for button text & background color.
 - Fix: Max-width responsive CSS enlarges logo size on mobile devices in old header layout.
 - Fix: Cart Icon not working with Sticky Header after enabling the option "Hide when scrolling down" on mobile devices.
 - Fix: Secondary menu not expendable on mobile when it is outside of Off Canvas.
