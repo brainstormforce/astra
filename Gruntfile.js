@@ -596,6 +596,7 @@ module.exports = function (grunt) {
                     '!composer.lock',
                     '!package-lock.json',
                     '!phpcs.xml.dist',
+                    '!psalm.xml',
                     '!assets/fonts/google-fonts.json',
                     '!inc/customizer/extend-custom-controls/package.json',
                     '!inc/customizer/extend-custom-controls/package-lock.json',
