@@ -34,8 +34,8 @@ jobs:
       run: |
         npm install
 
-    - name: Package Astra
-      run: npm run package
+    - name: Build
+      run: npm install && grunt release-no-clean
 
     - name: Start Docker environment
       run: npm run env:start
