@@ -17,14 +17,12 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
 
-      - name: Package Astra
-        run: npm run package
+      - name: Build
+        run: npm install && grunt release-no-clean
 
       - name: Start Enviornment
         run: npm run env:start-theme-check
 
-      - name: Build
-        run: npm install && grunt release-no-clean
 
       - name: Theme Check
         run: npm run theme-check
