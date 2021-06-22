@@ -184,6 +184,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'html'                                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				':root'                                   => Astra_Global_Palette::generate_global_palette_style(),
 				'a'                                       => array(
 					'color' => esc_attr( $link_color ),
 				),

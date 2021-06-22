@@ -577,6 +577,16 @@ function astra_target_rules_for_related_posts() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Check the Astra addon 3.5.0 version is using or not.
  * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
  *
@@ -639,8 +649,8 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
 /**
  * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
- * 
- * @since 3.6.0 
+ *
+ * @since 3.6.0
  */
 function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );

@@ -409,6 +409,11 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 				return '';
 			}
 
+			// CSS variable value sanitize.
+			if ( 0 === strpos( $color, 'var(--' ) ) {
+				return preg_replace( '/[^A-Za-z0-9_)(\-,.]/', '', $color );
+			}
+
 			if ( false === strpos( $color, 'rgba' ) ) {
 				/* Hex sanitize */
 				return self::sanitize_hex_color( $color );

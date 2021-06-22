@@ -7,6 +7,9 @@
 
 namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
 
+use Astra_Global_Palette;
+use Elementor\Core\Settings\Manager as SettingsManager;
+
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
 	return;
@@ -48,6 +51,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
+			add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'elementor_add_scripts' ) );
 
 			/**
 			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
@@ -55,6 +59,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 * @since  2.4.5
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+
+			add_action( 'rest_request_after_callbacks', array( $this, 'elementor_add_theme_colors' ), 999, 3 );
+			add_filter( 'rest_request_after_callbacks', array( $this, 'display_global_colors_front_end' ), 999, 3 );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'generate_global_elementor_style' ), 11 );
 		}
 
 		/**
@@ -116,11 +124,11 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
-				
+
 
 				$dynamic_css .= $parse_css;
 			}
-			
+
 			$elementor_archive_page_css = array(
 				'.elementor-template-full-width .ast-container' => array(
 					'display' => 'block',
@@ -258,6 +266,127 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			return false;
 		}
 
+		/**
+		 * Display theme global colors to Elementor Global colors
+		 *
+		 * @since x.x.x
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
+		 * @return object
+		 */
+		public function elementor_add_theme_colors( $response, $handler, $request ) {
+
+			$route = $request->get_route();
+
+			if ( '/elementor/v1/globals' != $route ) {
+				return $response;
+			}
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+			$data           = $response->get_data();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
+
+			foreach ( $global_palette['palette'] as $key => $color ) {
+
+				$slug = 'astra' . $slugs[ $key ];
+				// Remove hyphens from slug.
+				$no_hyphens = str_replace( '-', '', $slug );
+
+				$data['colors'][ $no_hyphens ] = array(
+					'id'    => esc_attr( $no_hyphens ),
+					'title' => $global_palette['labels'][ $key ],
+					'value' => $color,
+				);
+			}
+
+			$response->set_data( $data );
+			return $response;
+		}
+
+		/**
+		 * Display global paltte colors on Elementor front end Page.
+		 *
+		 * @since x.x.x
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
+		 * @return object
+		 */
+		public function display_global_colors_front_end( $response, $handler, $request ) {
+			$route = $request->get_route();
+
+			if ( 0 !== strpos( $route, '/elementor/v1/globals' ) ) {
+				return $response;
+			}
+
+			$slug_map      = array();
+			$palette_slugs = Astra_Global_Palette::get_palette_slugs();
+
+			foreach ( $palette_slugs as $key => $slug ) {
+				// Remove hyphens as hyphens do not work with Elementor global styles.
+				$no_hyphens              = 'astra' . str_replace( '-', '', $slug );
+				$slug_map[ $no_hyphens ] = $key;
+			}
+
+			$rest_id = substr( $route, strrpos( $route, '/' ) + 1 );
+
+			if ( ! in_array( $rest_id, array_keys( $slug_map ), true ) ) {
+				return $response;
+			}
+
+			$colors   = astra_get_option( 'global-color-palette' );
+			$response = rest_ensure_response(
+				array(
+					'id'    => esc_attr( $rest_id ),
+					'title' => Astra_Global_Palette::get_css_variable_prefix() . esc_html( $slug_map[ $rest_id ] ),
+					'value' => $colors['palette'][ $slug_map[ $rest_id ] ],
+				)
+			);
+			return $response;
+		}
+
+		/**
+		 * Generate CSS variable style for Elementor.
+		 *
+		 * @since x.x.x
+		 * @param string $dynamic_css Dynamic CSS.
+		 * @return object
+		 */
+		public function generate_global_elementor_style( $dynamic_css ) {
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+			$palette_style  = array();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
+			$style          = array();
+
+			if ( isset( $global_palette['palette'] ) ) {
+				foreach ( $global_palette['palette'] as $color_index => $color ) {
+					$variable_key           = '--e-global-color-astra' . str_replace( '-', '', $slugs[ $color_index ] );
+					$style[ $variable_key ] = $color;
+				}
+
+				$palette_style[':root'] = $style;
+				$dynamic_css           .= astra_parse_css( $palette_style );
+			}
+
+			return $dynamic_css;
+		}
+
+		/**
+		 * Load style inside Elementor editor.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function elementor_add_scripts() {
+
+			$editor_preferences = SettingsManager::get_settings_managers( 'editorPreferences' );
+			$theme              = $editor_preferences->get_model()->get_settings( 'ui_theme' );
+			$style              = 'dark' == $theme ? '-dark' : '';
+
+			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor' . $style . '.css', array(), ASTRA_THEME_VERSION );
+		}
 	}
 
 endif;

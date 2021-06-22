@@ -33,6 +33,28 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			$_section = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background';
 
 			$_configs = array(
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[global-color-palette]',
+					'type'      => 'control',
+					'control'   => 'ast-hidden',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Global Palette', 'astra' ),
+					'default'   => astra_get_option( 'global-color-palette' ),
+					'transport' => 'postMessage',
+				),
+
+				array(
+					'name'      => 'astra-color-palettes',
+					'type'      => 'control',
+					'control'   => 'ast-color-palette',
+					'section'   => $_section,
+					'priority'  => 5,
+					'title'     => __( 'Global Palette', 'astra' ),
+					'default'   => get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() ),
+					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
 
 				/**
 				 * Option: Text Color
@@ -95,5 +117,3 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 }
 
 new Astra_Body_Colors_Configs();
-
-

@@ -4,6 +4,8 @@
 	<rule ref="PHPCompatibility">
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_useFound" />
+		<exclude name="PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound" />
 	</rule>
 
 	<rule ref="WPThemeReview" />

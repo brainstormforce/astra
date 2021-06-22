@@ -169,6 +169,23 @@
 
 		});
 
+		/**
+		 * Pass data to previewer when palette is modified.
+		 */
+		 api('astra-settings[global-color-palette]', function (value) {
+			value.bind(function (palette) {
+
+				let paletteUpdateEvent = new CustomEvent(
+					'AstPaletteUpdated', {
+						'detail': {
+							'data': palette,
+						}
+					});
+
+				document.dispatchEvent(paletteUpdateEvent);
+			});
+		});
+
 	});
 
 })(jQuery, wp.customize);

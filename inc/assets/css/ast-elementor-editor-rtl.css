@@ -1,0 +1,15 @@
+.e-global__preview-item.e-global__color[data-global-id="astratextcolor"] {
+    border-top: 2px solid #c3cbd2;
+}
+.e-global__color[data-global-id^="astra"] {
+    background: rgb(241 243 245 / 40%);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 0;
+    border-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.e-global__preview-item.e-global__color[data-global-id="astraextracolor4"] {
+    border-bottom: 2px solid rgb(195 203 210);
+}

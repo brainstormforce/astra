@@ -294,6 +294,7 @@
 	height: 20px;
 }
 .ast-clear-btn-inside-picker.components-button,
+.ast-reset-btn-inside-picker.components-button,
 .astra-popover-tabs .ast-clear-btn-inside-picker.components-button {
 	margin: 5px 15px 20px 20px;
 	padding: 0 8px;
@@ -397,6 +398,12 @@
 	top: 0px;
 	width: 20px;
 }
+.ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+	right: 3px;
+	top: 0;
+	mix-blend-mode: difference;
+}
+
 .customize-control-ast-color + .customize-control-ast-color {
     margin-top: 30px;
 }
@@ -411,8 +418,6 @@
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
         width: 18px;
-        right: 4px;
-        top: 1px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
         width: 24px;
