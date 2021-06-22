@@ -33,3 +33,5 @@ package-lock.json
 phpcs.xml.dist
 assets/fonts/google-fonts.json
 astra
+.wp-env.json
+psalm.xml
