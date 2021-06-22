@@ -33,3 +33,5 @@ cghooks.lock
 
 # Dynamic CSS file.
 assets/dynamic-css.css
+
+# Create empty directory for wp-cli.
