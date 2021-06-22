@@ -24,6 +24,6 @@
     "post-update-cmd": "vendor/bin/cghooks update",
     "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
     "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source",
-    "psalm": "./vendor/bin/psalm"
+    "psalm": "./vendor/bin/psalm --show-info=false"
   }
 }
