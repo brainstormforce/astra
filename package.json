@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@wordpress/env": "^4.0.5",
     "autoprefixer": "^9.8.6",
     "grunt": "^1.4.0",
     "grunt-bumpup": "^0.6.3",
@@ -37,9 +38,13 @@
     "puppeteer": "^8.0.0"
   },
   "scripts": {
-    "env:start": "./bin/local-env/start.sh",
-    "env:stop": "./bin/local-env/stop.sh",
-    "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
-    "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8890 '#astra-theme-css-inline-css'"
+    "env:activate-astra": "wp-env run cli wp theme activate astra",
+    "env:deactivate-gutenberg": "wp-env run cli wp plugin deactivate gutenberg",
+    "env:start": "wp-env start && npm run env:activate-astra && npm run env:deactivate-gutenberg",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
+    "env:reset-site": "wp-env clean all",
+    "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
+    "wp-env": "wp-env"
   }
 }

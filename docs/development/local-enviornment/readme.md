@@ -20,7 +20,7 @@ npm install
 
 ### Using integrated local enviornment
 
-Astra Theme also ships with an integrated local enviornment based on Docker and Docker Compose.
+Astra Theme also ships with an integrated local enviornment based on Docker and Docker Compose. This uses [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
 
 First step would be to install [Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install/) by following the instructions on their website.
 
@@ -35,39 +35,6 @@ After that, run a script to set up the local environment. It will automatically 
 
 ```
 npm run env:start
-```
-
-If everything was successful, you'll see this on your screen:
-
-
-```
-Welcome to...
-
-@@@@@@@@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@                       @@@@@@@@@@@@@
-@@@@@@@@@@                               @@@@@@@@@
-@@@@@@@                                    @@@@@@@
-@@@@@                                         @@@@
-@@@@                     @                     @@@
-@@                     @@@@                     @@
-@@                    @@@@@@                     @
-@                    @@@@@@
-@                   @@@@@
-                   @@@@@     @@@
-@                @@@@@@     @@@@@
-@               @@@@@@     @@@@@@@@
-@@             @@@@@      @@@@@@@@@@             @
-@@            @@@@@            @@@@@@           @@
-@@@@         @@@@@               @@@@@         @@@
-@@@@@                                         @@@@
-@@@@@@@@                                   @@@@@@@
-@@@@@@@@@@                               @@@@@@@@@
-@@@@@@@@@@@@@@                      @@@@@@@@@@@@@@
-then open http://localhost:8890 to get started!
-
-
-Access the above install using the following credentials:
-Default username: admin, password: password
 ```
 
 The WordPress installation should be available at `http://localhost:8890` (Username: `admin`, Password: `password`).
