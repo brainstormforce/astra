@@ -25,3 +25,6 @@ jobs:
 
       - name: Theme Check
         run: npm run theme-check
+
+      - name: Stop Enviornment
+        run: npm run env:stop-theme-check
