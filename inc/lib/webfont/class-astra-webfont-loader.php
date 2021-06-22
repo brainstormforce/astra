@@ -5,7 +5,7 @@
  * @package WPTT/webfont-loader
  * @license https://opensource.org/licenses/MIT
  *
- * @since x.x.x
+ * @since 3.6.0
  */
 
 /**
@@ -20,7 +20,7 @@ class Astra_WebFont_Loader {
 	 * This will change the user-agent user to make the request.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $font_format = 'woff2';
@@ -29,7 +29,7 @@ class Astra_WebFont_Loader {
 	 * The remote URL.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $remote_url;
@@ -38,7 +38,7 @@ class Astra_WebFont_Loader {
 	 * Base path.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $base_path;
@@ -47,7 +47,7 @@ class Astra_WebFont_Loader {
 	 * Base URL.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $base_url;
@@ -56,7 +56,7 @@ class Astra_WebFont_Loader {
 	 * Subfolder name.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $subfolder_name;
@@ -65,7 +65,7 @@ class Astra_WebFont_Loader {
 	 * The fonts folder.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $fonts_folder;
@@ -74,7 +74,7 @@ class Astra_WebFont_Loader {
 	 * The local stylesheet's path.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $local_stylesheet_path;
@@ -83,7 +83,7 @@ class Astra_WebFont_Loader {
 	 * The local stylesheet's URL.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $local_stylesheet_url;
@@ -92,7 +92,7 @@ class Astra_WebFont_Loader {
 	 * The remote CSS.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $remote_styles;
@@ -101,7 +101,7 @@ class Astra_WebFont_Loader {
 	 * The final CSS.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @var string
 	 */
 	protected $css;
@@ -117,7 +117,7 @@ class Astra_WebFont_Loader {
 	 * Get a new instance of the object for a new URL.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @param string $url The remote URL.
 	 */
 	public function __construct( $url = '' ) {
@@ -134,7 +134,7 @@ class Astra_WebFont_Loader {
 	 * Fallback to the remote URL if we were unable to write the file locally.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_url() {
@@ -160,7 +160,7 @@ class Astra_WebFont_Loader {
 	 * Get the local stylesheet URL.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_local_stylesheet_url() {
@@ -178,7 +178,7 @@ class Astra_WebFont_Loader {
 	 * Get styles with fonts downloaded locally.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_styles() {
@@ -219,7 +219,7 @@ class Astra_WebFont_Loader {
 	 * Get local stylesheet contents.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string|false Returns the remote URL contents.
 	 */
 	public function get_local_stylesheet_contents() {
@@ -243,7 +243,7 @@ class Astra_WebFont_Loader {
 	 * Get remote file contents.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string Returns the remote URL contents.
 	 */
 	public function get_remote_url_contents() {
@@ -279,7 +279,7 @@ class Astra_WebFont_Loader {
 	 * Download files mentioned in our CSS locally.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return array Returns an array of remote URLs and their local counterparts.
 	 */
 	public function get_local_files_from_css() {
@@ -403,7 +403,7 @@ class Astra_WebFont_Loader {
 	 * Get font files from the CSS.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @param string $remote_styles Remote stylesheet data.
 	 *
 	 * @return array Returns an array of font-families and the font-files used.
@@ -473,7 +473,7 @@ class Astra_WebFont_Loader {
 	 * Write the CSS to the filesystem.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string|false Returns the absolute path of the file on success, or false on fail.
 	 */
 	protected function write_stylesheet() {
@@ -512,7 +512,7 @@ class Astra_WebFont_Loader {
 	 * Get the stylesheet path.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_local_stylesheet_path() {
@@ -529,7 +529,7 @@ class Astra_WebFont_Loader {
 	 * This way we can avoid issues with sites changing their URL, or the wp-content path etc.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_local_stylesheet_filename() {
@@ -540,7 +540,7 @@ class Astra_WebFont_Loader {
 	 * Set the font-format to be used.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @param string $format The format to be used. Use "woff" or "woff2".
 	 * @return void
 	 */
@@ -552,7 +552,7 @@ class Astra_WebFont_Loader {
 	 * Check if the local stylesheet exists.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return bool
 	 */
 	public function local_file_exists() {
@@ -563,7 +563,7 @@ class Astra_WebFont_Loader {
 	 * Get the base path.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_base_path() {
@@ -577,7 +577,7 @@ class Astra_WebFont_Loader {
 	 * Get the base URL.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_base_url() {
@@ -591,7 +591,7 @@ class Astra_WebFont_Loader {
 	 * Get the subfolder name.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return string
 	 */
 	public function get_subfolder_name() {
@@ -625,7 +625,7 @@ class Astra_WebFont_Loader {
 	 * and we avoid edge cases where unused files remain in the server.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return void
 	 */
 	public function schedule_cleanup() {
@@ -642,7 +642,7 @@ class Astra_WebFont_Loader {
 	 * This runs as part of a cleanup routine.
 	 *
 	 * @access public
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return bool
 	 */
 	public function astra_delete_fonts_folder() {
@@ -656,7 +656,7 @@ class Astra_WebFont_Loader {
 	 * Get the filesystem.
 	 *
 	 * @access protected
-	 * @since x.x.x
+	 * @since 3.6.0
 	 * @return \WP_Filesystem_Base
 	 */
 	protected function get_filesystem() {
@@ -678,7 +678,7 @@ class Astra_WebFont_Loader {
  *
  * @param string $font_url Google font URL to set data.
  * @return object
- * @since x.x.x
+ * @since 3.6.0
  */
 function astra_webfont_loader_instance( $font_url = '' ) {
 	return new Astra_WebFont_Loader( $font_url );

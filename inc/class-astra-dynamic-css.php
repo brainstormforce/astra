@@ -2263,6 +2263,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+			
+			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+				$max_site_container_css = array(
+					'.ast-container' => array(
+						'display' => 'flex',
+					),
+				);
+				$parse_css             .= astra_parse_css( $max_site_container_css, astra_get_tablet_breakpoint( '', 1 ) );
+
+				$min_site_container_css = array(
+					'.ast-container' => array(
+						'flex-direction' => 'column',
+					),
+				);
+				$parse_css             .= astra_parse_css( $min_site_container_css, '', astra_get_tablet_breakpoint() );
+			}
 
 			if ( is_astra_addon_3_5_0_version() ) {
 				$mega_menu_css = array(
@@ -2868,15 +2884,27 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$submenu_toggle = '';
+			$is_site_rtl    = is_rtl();
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
+				// Update styles depend on RTL sites.
+				$transform_svg_style            = 'translate(0,-50%) rotate(270deg)';
+				$transform_nested_svg_transform = 'translate(0, -2px) rotateZ(270deg)';
+				$default_left_rtl_right         = 'left';
+				$default_right_rtl_left         = 'right';
+				if ( $is_site_rtl ) {
+					$transform_svg_style            = 'translate(0,-50%) rotate(90deg)';
+					$transform_nested_svg_transform = 'translate(0, -2px) rotateZ(90deg)';
+					$default_left_rtl_right         = 'right';
+					$default_right_rtl_left         = 'left';
+				}
 				$submenu_toggle = array(
 					// HFB / Old Header Footer - CSS compatibility when SVGs are disabled.
 					'.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after' => array(
-						'position'  => 'absolute',
-						'right'     => '1em',
-						'top'       => '50%',
-						'transform' => 'translate(0,-50%) rotate(270deg)',
+						'position'              => 'absolute',
+						$default_right_rtl_left => '1em',
+						'top'                   => '50%',
+						'transform'             => $transform_svg_style,
 					),
 					'.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before, .ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle::before, .ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
 						'font-weight'     => 'bold',
@@ -2891,18 +2919,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size'       => '.65em',
 						'text-decoration' => 'inherit',
 						'display'         => 'inline-block',
-						'transform'       => 'translate(0, -2px) rotateZ(270deg)',
-						'margin-right'    => '5px',
+						'transform'       => $transform_nested_svg_transform,
+						'margin-' . $default_right_rtl_left => '5px',
 					),
 					'.widget_search .search-form:after' => array(
-						'font-family' => 'Astra',
-						'font-size'   => '1.2em',
-						'font-weight' => 'normal',
-						'content'     => '"\e8b6"',
-						'position'    => 'absolute',
-						'top'         => '50%',
-						'right'       => '15px',
-						'transform'   => 'translate(0, -50%)',
+						'font-family'           => 'Astra',
+						'font-size'             => '1.2em',
+						'font-weight'           => 'normal',
+						'content'               => '"\e8b6"',
+						'position'              => 'absolute',
+						'top'                   => '50%',
+						$default_right_rtl_left => '15px',
+						'transform'             => 'translate(0, -50%)',
 					),
 					'.astra-search-icon::before'        => array(
 						'content'                 => '"\e8b6"',
@@ -2924,7 +2952,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-rendering'          => 'auto',
 						'-webkit-font-smoothing'  => 'antialiased',
 						'-moz-osx-font-smoothing' => 'grayscale',
-						'margin-left'             => '10px',
+						'margin-' . $default_left_rtl_right => '10px',
 						'line-height'             => 'normal',
 					),
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
@@ -2936,29 +2964,46 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			} else {
 				if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+					// Update styles depend on RTL sites.
+					$transform_svg_style            = 'translate(0,-50%) rotate(270deg)';
+					$transform_nested_svg_transform = 'translate(0, -2px) rotateZ(270deg)';
+					$default_left_rtl_right         = 'left';
+					$default_right_rtl_left         = 'right';
+					if ( $is_site_rtl ) {
+						$transform_svg_style            = 'translate(0,-50%) rotate(900deg)';
+						$transform_nested_svg_transform = 'translate(0, -2px) rotateZ(90deg)';
+						$default_left_rtl_right         = 'right';
+						$default_right_rtl_left         = 'left';
+					}
 					$submenu_toggle = array(
 						// Old Header Footer - SVG Support.
 						'.ast-desktop .main-header-menu .sub-menu .menu-item.menu-item-has-children>.menu-link .icon-arrow svg' => array(
-							'position'  => 'absolute',
-							'right'     => '.6em',
-							'top'       => '50%',
-							'transform' => 'translate(0,-50%) rotate(270deg)',
+							'position'              => 'absolute',
+							$default_right_rtl_left => '.6em',
+							'top'                   => '50%',
+							'transform'             => $transform_svg_style,
 						),
 						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
-							'left'      => '.1em',
-							'top'       => '.1em',
-							'transform' => 'translate(0, -2px) rotateZ(270deg)',
+							$default_left_rtl_right => '.1em',
+							'top'                   => '.1em',
+							'transform'             => $transform_nested_svg_transform,
 						),
 					);
 				} else {
+					$transform_svg_style    = 'translate(0, -2px) rotateZ(270deg)';
+					$default_left_rtl_right = 'left';
+					if ( $is_site_rtl ) {
+						$transform_svg_style    = 'translate(0, -2px) rotateZ(90deg)';
+						$default_left_rtl_right = 'right';
+					}
 					$submenu_toggle = array(
 						// New Header Footer - SVG Support.
 						'.ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg' => array(
-							'top'         => '.2em',
-							'margin-top'  => '0px',
-							'margin-left' => '0px',
-							'width'       => '.65em',
-							'transform'   => 'translate(0, -2px) rotateZ(270deg)',
+							'top'        => '.2em',
+							'margin-top' => '0px',
+							'margin-' . $default_left_rtl_right => '0px',
+							'width'      => '.65em',
+							'transform'  => $transform_svg_style,
 						),
 						'.ast-mobile-popup-content .ast-submenu-expanded > .ast-menu-toggle' => array(
 							'transform' => 'rotateX(180deg)',
@@ -3198,7 +3243,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * 1. Adding Font-weight support to widget titles.
 		 * 2. Customizer font CSS not supporting in editor.
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function support_font_css_to_widget_and_in_editor() {
@@ -3212,7 +3257,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * @see https://github.com/brainstormforce/astra/commit/d09f63336b73d58c8f8951726edbc90671d7f419
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function remove_logo_max_width_mobile_static_css() {

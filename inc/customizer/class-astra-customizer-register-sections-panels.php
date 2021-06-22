@@ -238,7 +238,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				/**
 				 * Performance Panel
 				 *
-				 * @since x.x.x
+				 * @since 3.6.0
 				 */
 				array(
 					'name'     => 'section-performance',

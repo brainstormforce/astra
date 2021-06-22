@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 3.5.0\n"
+"Project-Id-Version: Astra 3.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-07T13:29:35+02:00\n"
+"POT-Creation-Date: 2021-06-21T10:15:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
 
 #. Theme Name of the theme
@@ -343,7 +343,7 @@ msgid "Hover"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-color-configs.php:184
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:245
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:257
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:267
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:75
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:328
@@ -365,10 +365,8 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-sidebar-configs.php:66
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:113
 #: inc/customizer/configurations/builder/header/class-astra-header-account-component-configs.php:42
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:168
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:48
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:47
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:317
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:66
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:85
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:104
@@ -391,6 +389,7 @@ msgstr ""
 #: inc/addons/heading-colors/customizer/class-astra-heading-colors-configs.php:367
 #: inc/customizer/configurations/builder/header/class-astra-header-account-component-configs.php:243
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:110
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:168
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:556
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:347
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:284
@@ -398,6 +397,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:127
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:159
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:149
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:317
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:98
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:228
 #: inc/modules/related-posts/customizer/class-astra-related-posts-configs.php:745
@@ -436,8 +436,8 @@ msgstr ""
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:127
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:183
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:225
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:249
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:291
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:261
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:303
 msgid "Helpful Information"
 msgstr ""
 
@@ -959,8 +959,6 @@ msgid "Different Logo for Transparent Header?"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:246
-#: inc/core/builder/class-astra-builder-helper.php:650
-#: inc/core/builder/class-astra-builder-helper.php:713
 #: inc/customizer/configurations/builder/header/class-astra-customizer-site-identity-configs.php:49
 msgid "Logo"
 msgstr ""
@@ -1217,7 +1215,7 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/builder/class-astra-builder-loader.php:100
+#: inc/builder/class-astra-builder-loader.php:96
 #: inc/customizer/configurations/builder/header/class-astra-customizer-header-builder-configs.php:162
 #: inc/customizer/configurations/builder/header/class-astra-customizer-header-builder-configs.php:223
 #: inc/customizer/configurations/builder/header/class-astra-customizer-header-builder-configs.php:309
@@ -1225,7 +1223,7 @@ msgstr ""
 msgid "Header Builder"
 msgstr ""
 
-#: inc/builder/class-astra-builder-loader.php:103
+#: inc/builder/class-astra-builder-loader.php:99
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-footer-builder-configs.php:139
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-footer-builder-configs.php:172
 #: inc/customizer/configurations/builder/footer/class-astra-customizer-footer-builder-configs.php:228
@@ -1384,7 +1382,7 @@ msgid "Easy Digital Downloads"
 msgstr ""
 
 #: inc/compatibility/edd/class-astra-edd.php:445
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1740
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1752
 msgid "View your shopping cart"
 msgstr ""
 
@@ -1935,13 +1933,17 @@ msgstr ""
 msgid "Single Row"
 msgstr ""
 
+#: inc/core/builder/class-astra-builder-helper.php:650
+#: inc/core/builder/class-astra-builder-helper.php:713
+msgid "Site Identity & Logo"
+msgstr ""
+
 #: inc/core/builder/class-astra-builder-helper.php:656
 #: inc/core/builder/class-astra-builder-helper.php:718
-#: inc/core/common-functions.php:1182
 #: inc/customizer/configurations/builder/header/class-astra-header-search-component-configs.php:50
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:150
 #: inc/markup-extras.php:407
-#: searchform.php:19
+#: searchform.php:30
 msgid "Search"
 msgstr ""
 
@@ -2151,7 +2153,7 @@ msgid "Learn More &#187;"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:792
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:286
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:298
 #: inc/customizer/configurations/builder/header/class-astra-customizer-mobile-trigger-configs.php:325
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:196
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:428
@@ -2203,7 +2205,7 @@ msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:927
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:169
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:275
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:287
 msgid "Footer Widgets"
 msgstr ""
 
@@ -2433,11 +2435,6 @@ msgid "Search Results for: %s"
 msgstr ""
 
 #: inc/core/common-functions.php:1179
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: inc/core/common-functions.php:1180
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
@@ -2513,42 +2510,46 @@ msgstr ""
 msgid "Sidebar Overview"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:252
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:247
+msgid "Performance"
+msgstr ""
+
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:264
 msgid "Colors & Background Overview"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:266
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:278
 msgid "Base Colors"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:294
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:306
 msgid "Typography Overview"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:308
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:320
 msgid "Base Typography"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:317
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:329
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:330
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:342
 msgid "Buttons"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:341
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:353
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:247
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:49
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:228
 msgid "Header Button"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:352
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:364
 msgid "Primary Header Button"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer-register-sections-panels.php:363
+#: inc/customizer/class-astra-customizer-register-sections-panels.php:375
 msgid "Transparent Header Button"
 msgstr ""
 
@@ -2556,133 +2557,146 @@ msgstr ""
 msgid "Enter valid email address!"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:476
+#: inc/customizer/class-astra-customizer.php:511
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:82
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:141
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:113
 msgid "Thin 100"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:477
+#: inc/customizer/class-astra-customizer.php:512
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:83
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:142
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:114
 msgid "100 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:478
+#: inc/customizer/class-astra-customizer.php:513
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:84
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:143
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:115
 msgid "Extra-Light 200"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:479
+#: inc/customizer/class-astra-customizer.php:514
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:85
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:144
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:116
 msgid "200 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:480
+#: inc/customizer/class-astra-customizer.php:515
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:86
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:145
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:117
 msgid "Light 300"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:481
+#: inc/customizer/class-astra-customizer.php:516
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:87
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:146
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:118
 msgid "300 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:482
+#: inc/customizer/class-astra-customizer.php:517
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:88
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:147
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:119
 msgid "Normal 400"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:483
+#: inc/customizer/class-astra-customizer.php:518
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:89
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:148
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:120
 msgid "400 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:484
+#: inc/customizer/class-astra-customizer.php:519
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:90
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:149
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:121
 msgid "Medium 500"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:485
+#: inc/customizer/class-astra-customizer.php:520
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:91
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:150
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:122
 msgid "500 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:486
+#: inc/customizer/class-astra-customizer.php:521
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:92
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:151
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:123
 msgid "Semi-Bold 600"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:487
+#: inc/customizer/class-astra-customizer.php:522
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:93
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:152
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:124
 msgid "600 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:488
+#: inc/customizer/class-astra-customizer.php:523
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:94
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:153
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:125
 msgid "Bold 700"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:489
+#: inc/customizer/class-astra-customizer.php:524
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:95
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:154
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:126
 msgid "700 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:490
+#: inc/customizer/class-astra-customizer.php:525
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:96
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:155
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:127
 msgid "Extra-Bold 800"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:491
+#: inc/customizer/class-astra-customizer.php:526
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:97
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:156
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:128
 msgid "800 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:492
+#: inc/customizer/class-astra-customizer.php:527
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:98
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:157
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:129
 msgid "Ultra-Bold 900"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:493
+#: inc/customizer/class-astra-customizer.php:528
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:99
 #: inc/customizer/custom-controls/class-astra-customizer-control-base.php:158
 #: inc/customizer/custom-controls/typography/class-astra-control-typography.php:130
 msgid "900 Italic"
 msgstr ""
 
-#: inc/customizer/class-astra-customizer.php:1265
+#: inc/customizer/class-astra-customizer.php:978
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:79
+msgid "Flush Local Font Files"
+msgstr ""
+
+#: inc/customizer/class-astra-customizer.php:979
+msgid "Successfully Flushed"
+msgstr ""
+
+#: inc/customizer/class-astra-customizer.php:980
+msgid "Failed, Please try again later."
+msgstr ""
+
+#: inc/customizer/class-astra-customizer.php:1304
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:43
 msgid "Default System Font"
 msgstr ""
@@ -3259,7 +3273,7 @@ msgstr ""
 
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:166
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:315
-msgid "Container Animation"
+msgid "Submenu Animation"
 msgstr ""
 
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:169
@@ -3277,22 +3291,22 @@ msgstr ""
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:185
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:186
 msgid "Submenu Container"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:200
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:201
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:120
 msgid "Divider Size"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:225
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:226
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:145
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:376
 msgid "Divider Color"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:249
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:250
 msgid "Top Offset"
 msgstr ""
 
@@ -3589,6 +3603,22 @@ msgstr ""
 msgid "Container Width"
 msgstr ""
 
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:42
+msgid "Load Google Fonts Locally"
+msgstr ""
+
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:55
+msgid "Preload Local Fonts"
+msgstr ""
+
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:78
+msgid "Flush Local Fonts Cache"
+msgstr ""
+
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:79
+msgid "Click the button to reset the local fonts cache."
+msgstr ""
+
 #: inc/customizer/configurations/typography/class-astra-archive-typo-configs.php:69
 msgid "Archive Title Font"
 msgstr ""
@@ -3879,11 +3909,11 @@ msgstr ""
 msgid "Footer Widget Area 4"
 msgstr ""
 
-#: searchform.php:15
+#: searchform.php:26
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:18
+#: searchform.php:29
 msgid "Search Submit"
 msgstr ""
 

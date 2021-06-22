@@ -128,6 +128,20 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			);
 			$dynamic_css               .= astra_parse_css( $elementor_archive_page_css );
 
+			$dynamic_css .= astra_parse_css(
+				array(
+					'.elementor-element .elementor-wc-products .woocommerce[class*="columns-"] ul.products li.product' => array(
+						'width'  => 'auto',
+						'margin' => '0',
+					),
+					'.elementor-element .woocommerce .woocommerce-result-count' => array(
+						'float' => 'none',
+					),
+				),
+				'',
+				astra_get_mobile_breakpoint() 
+			);
+
 			return $dynamic_css;
 		}
 

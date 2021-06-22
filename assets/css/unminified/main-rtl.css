@@ -225,6 +225,10 @@ input[type="search"] {
   border: 0;
 }
 
+.search .site-main .ast-search-submit {
+  display: none;
+}
+
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -1025,19 +1029,6 @@ body {
 
 #page {
   display: block;
-}
-
-@media (min-width: 922px) {
-  .ast-container {
-    -js-display: flex;
-    display: flex;
-  }
-}
-
-@media (max-width: 921px) {
-  .ast-container {
-    flex-direction: column;
-  }
 }
 
 #primary,

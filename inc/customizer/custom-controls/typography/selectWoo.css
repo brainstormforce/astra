@@ -202,14 +202,16 @@
     border-radius: 4px;
     cursor: default;
     float: left;
-    margin: 5px 3px 5px 0;
-    padding: 0 5px; }
+    margin: 5px 5px 5px 0;
+    padding: 0px 2px 0 5px; }
   .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
     color: #999;
     cursor: pointer;
     display: inline-block;
     font-weight: bold;
-    margin-right: 2px; }
+    margin: 0px 2px 2px 3px;
+    line-height: 16px;
+  }
     .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
       color: #333; }
 

@@ -21,7 +21,10 @@ jobs:
         run: npm run package
 
       - name: Start Enviornment
-        run: npm run env:start
+        run: npm run env:start-theme-check
 
       - name: Theme Check
         run: npm run theme-check
+
+        - name: Stop Enviornment
+        run: npm run env:stop-theme-check

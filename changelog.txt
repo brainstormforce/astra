@@ -1,17 +1,32 @@
-v3.6.0 (Unreleased)
+v3.7.0 (Unreleased)
+- Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
+- Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
+- Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
+- Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
+- Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
+
+v3.6.1
+- Fix: Theme check warning - Replaced search form markup with get_search_form().
+- Fix: Both desktop and mobile headers appearing on desktop due to Astra's cache.
+
+v3.6.0
+- New: Performance - Load Google Font locally. (https://wpastra.com/docs/self-hosted-google-fonts/)
+- New: Performance - Preload locally hosted Google Font. (https://wpastra.com/docs/self-hosted-google-fonts/)
+- Improvement: Added SVG logo height option to resolve the CLS issue. (https://wpastra.com/docs/fix-svg-logo-cls-issue/)
 - Improvement: Added close button for multiselect selected items in Google font variants.
 - Improvement: Changed customizer submenu control title from 'Container Animation' to 'Submenu Animation'.
 - Improvement: Moved 'Submenu Animation' control from General tab to Design  tab.
 - Improvement: Changed sub-menu container animation option name from 'Default' to 'None'.
-- Improvement: Added headings font-weight support to widget-title headings. ( Need Doc )
-- Fix: Customizer's font & color settings not reflecting in Gutenberg editor. ( Need Doc )
+- Improvement: Added headings font-weight support to widget-title headings. (https://wpastra.com/docs/font-weight-for-widget-titles/)
+- Improvement: Changed Transparent Header Border Bottom default value from '' to 0;
+- Fix: Customizer's font & color settings not reflecting in Gutenberg editor. (https://wpastra.com/astra-3-6/)
 - Fix: Max-width responsive CSS enlarges logo size on mobile devices in old header layout.
 - Fix: Cart Icon not working with Sticky Header after enabling the option "Hide when scrolling down" on mobile devices.
 - Fix: Secondary menu not expendable on mobile when it is outside of Off Canvas.
 - Fix: CLS – Flashing desktop menu on mobile view.
 - Fix: WooCommerce - product search widget button not aligned on other than shop and single product page.
-- Improvement: Changed Transparent Header Border Bottom default value from '' to 0;
 - Fix: Sticky Header - Transition effect of headers when Shrink Effect is enabled.
+- Fix: Two search buttons visible on the result page when Astra SVG icons enabled.
 
 v3.5.0
 - Fix: Aspect ratio is changed for YouTube embed block.

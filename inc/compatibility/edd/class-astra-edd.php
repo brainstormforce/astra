@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_inline_scripts' ) );
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_inline_styles' ) );
 
 			add_action( 'wp', array( $this, 'edd_initialization' ) );
@@ -578,7 +578,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 							'clear' => 'left',
 						),
 					);
-				}   
+				}
 				/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
 				$edd_css_output .= astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
 			}

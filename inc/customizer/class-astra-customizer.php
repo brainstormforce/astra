@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
-			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @access public
 		 * @return void
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 */
 		public function regenerate_astra_fonts_folder() {
 

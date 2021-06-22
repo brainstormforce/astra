@@ -3024,7 +3024,7 @@ function astra_site_title_tagline_responsive_control_migration() {
  * 1. Adding Font-weight support to widget titles.
  * 2. Customizer font CSS not supporting in editor.
  *
- * @since x.x.x
+ * @since 3.6.0
  *
  * @return void
  */
@@ -3040,7 +3040,7 @@ function astra_headings_font_support() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.0
  * @return void.
  */
 function astra_remove_logo_max_width() {
@@ -3055,7 +3055,7 @@ function astra_remove_logo_max_width() {
 /**
  * Set flag to maintain backward compatibility for existing users for Transparent Header border bottom default value i.e from '' to 0.
  *
- * @since x.x.x
+ * @since 3.6.0
  * @return void.
  */
 function astra_transparent_header_default_value() {
@@ -3064,5 +3064,23 @@ function astra_transparent_header_default_value() {
 	if ( ! isset( $theme_options['transparent-header-default-border'] ) ) {
 		$theme_options['transparent-header-default-border'] = false;
 		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Clear Astra + Astra Pro assets cache.
+ *
+ * @since 3.6.1
+ * @return void.
+ */
+function astra_clear_all_assets_cache() {
+	if ( class_exists( 'Astra_Cache_Base' ) ) {
+		// Clear Astra theme cache.
+		$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
+		$astra_cache_base_instance->refresh_assets( 'astra' );
+
+		// Clear Astra Addon's cache.
+		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
+		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
 	}
 }

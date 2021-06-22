@@ -5,7 +5,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 Tested up to: 5.7.2
 Requires PHP: 5.3
-Stable tag: 3.5.0
+Stable tag: 3.6.1
 
 Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
@@ -66,15 +66,15 @@ https://fontawesome.com/v5.15/icons/user-tie?style=solid
 https://fontawesome.com/v5.15/icons/user-tie?style=solid
 
 Illustrations used in the Screenshot images are all licensed under Creative Commons ( CC0 ) License ( https://gumroad.com/l/humaaans )
-https://websitedemos.net/landing-page-08/wp-content/uploads/sites/796/2021/05/standing-24.png
-https://websitedemos.net/landing-page-08/wp-content/uploads/sites/796/2021/05/sitting-2.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/standing-24.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/sitting-2.png
 
 Hand-drawn illustrations used are created by Brainstorm Force and released under Creative Commons ( CC0 ) License.
-https://websitedemos.net/landing-page-08/wp-content/uploads/sites/796/2021/05/girl-with-image-container.png
-https://websitedemos.net/landing-page-08/wp-content/uploads/sites/796/2021/05/boy-with-code-container.png
-https://websitedemos.net/landing-page-08/wp-content/uploads/sites/796/2021/05/web-browser.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/girl-with-image-container.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/boy-with-code-container.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/web-browser.png
 
-The same site as screenshot can be imported from here https://websitedemos.net/landing-page-08/.
+The same site as screenshot can be imported from here https://websitedemos.net/web-design-agency-08/.
 
 For more information, refer to this document on how to create a page like in the screenshot - https://wpastra.com/docs/replicating-the-screenshot/.
 
