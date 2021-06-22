@@ -48,8 +48,6 @@
     "wp-env": "wp-env",
     "env:start-theme-check": "./bin/local-env/start.sh",
     "env:stop-theme-check": "./bin/local-env/stop.sh",
-    "dist": "bash ./bin/local-env/dist.sh",
-    "theme-check": "./bin/local-env/theme-check.sh",
-    "package": "rm -rf astra/ && mkdir astra && rsync -rc --exclude-from .distignore . astra/"
+    "theme-check": "./bin/local-env/theme-check.sh"
   }
 }
