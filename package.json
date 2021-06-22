@@ -42,7 +42,7 @@
     "env:reset-site": "./bin/local-env/install-wordpress.sh --reset-site",
     "theme-check": "./bin/local-env/theme-check.sh",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8890 '#astra-theme-css-inline-css'",
-    "dist": "bash ./bin/envs/dist.sh",
+    "dist": "bash ./bin/local-env/dist.sh",
     "package": "rm -rf astra/ && mkdir astra && rsync -rc --exclude-from .distignore . astra/"
   }
 }
