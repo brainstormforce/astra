@@ -42,7 +42,6 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   fetch-depth: 1
-
             - name: Use desired version of NodeJS
               uses: actions/setup-node@v2
               with:
