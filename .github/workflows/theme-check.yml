@@ -36,7 +36,7 @@ jobs:
               run: npm install
 
             - name: Add temp files
-              run: cp bin/config.js node_modules/@wordpress/env/lib/config/config.js &&cp bin/init-config.js node_modules/@wordpress/env/lib/init-config.js
+              run: cp bin/config.js node_modules/@wordpress/env/lib/config/config.js && cp bin/init-config.js node_modules/@wordpress/env/lib/init-config.js
 
             - name: Start Local Environment
               run: npm run env:start
