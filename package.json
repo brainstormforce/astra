@@ -17,7 +17,7 @@
     "grunt-cli": "^1.3.2",
     "grunt-concat-css": "^0.3.2",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-compress": "^1.5.0",
+    "grunt-contrib-compress": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
@@ -35,7 +35,7 @@
     "minimist": ">=1.2.3",
     "node-sass": "^4.14.1",
     "postcss-flexibility": "^2.0.0",
-    "puppeteer": "^8.0.0"
+    "puppeteer": "^10.0.0"
   },
   "scripts": {
     "env:activate-astra": "wp-env run cli wp theme activate astra",
