@@ -36,7 +36,7 @@ jobs:
             #   run: npm install
 
             - name: Find MD5 of wp-env
-              run: echo "CONFIG_MD5=$(echo -n echo $PWD/.wp-env.json | md5sum)" >> $GITHUB_ENV
+              run: echo "CONFIG_MD5=$(sed 's!  -!! '$(echo -n echo $PWD/.wp-env.json | md5sum))" >> $GITHUB_ENV
 
             - name: Docker Path
               run: echo $HOME/$CONFIG_MD5/docker-compose.yml
