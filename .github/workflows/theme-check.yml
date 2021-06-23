@@ -14,16 +14,36 @@ jobs:
     build:
         name: Theme Check
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node: ['12']
+
         steps:
             - uses: actions/checkout@v2
               with:
                   fetch-depth: 1
 
-            - name: Find MD5
+            - name: Use desired version of NodeJS
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 14.15
+
+            - name: Cache NPM packages
+              uses: actions/cache@v2
+              with:
+                  # npm cache files are stored in `~/.npm` on Linux/macOS
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Find MD5 of wp-env
               run: echo "CONFIG_MD5=$(echo -n echo $PWD/.wp-env.json | md5sum)" >> $GITHUB_ENV
 
             - name: Check Var
               run: echo $env.CONFIG_MD5 && echo $CONFIG_MD5
+
+            - name: Start Docker Environment
+              run: npm run env:start
+
+            - name: Install Theme Check package
+              run: docker-compose -f $HOME/$CONFIG_MD5/docker-compose.yml run -e WP_CLI_PACKAGES_DIR=.wp-cli --rm cli wp package install anhskohbo/wp-cli-themecheck
+
+            - name: Theme Check
+              run: npm run wp-env run cli wp themecheck
+

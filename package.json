@@ -40,7 +40,7 @@
   "scripts": {
     "env:activate-astra": "wp-env run cli wp theme activate astra",
     "env:deactivate-gutenberg": "wp-env run cli wp plugin deactivate gutenberg",
-    "env:start": "wp-env start && npm run env:activate-astra && npm run env:deactivate-gutenberg",
+    "env:start": "grunt release-no-clean && wp-env start && npm run env:activate-astra && npm run env:deactivate-gutenberg",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
     "env:reset-site": "wp-env clean all",

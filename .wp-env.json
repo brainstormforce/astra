@@ -1,6 +1,6 @@
 {
   "core": null,
-  "themes": ["."],
+  "themes": ["./astra"],
   "plugins": [
     "https://gutenbergtimes.com/wp-content/uploads/2020/11/gutenberg.zip"
   ],
