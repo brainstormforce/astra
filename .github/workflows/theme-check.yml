@@ -41,10 +41,10 @@ jobs:
                 COMPOSE_INTERACTIVE_NO_CLI: true
 
             - name: Find MD5 of wp-env
-              run: echo "CONFIG_MD5=$(echo $(echo -n echo $PWD/.wp-env.json | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
+              run: echo "CONFIG_MD5=$(echo $(echo -n echo $GITHUB_WORKSPACE/.wp-env.json | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
 
             - name: Docker Path
-              run: ls -l $HOME/ && ls -l $HOME/.wp-env/ && ls -l $HOME/.wp-env/$CONFIG_MD5/
+              run: ls -lsha $HOME/ && ls -lsha $HOME/.wp-env/ && ls -lsha $HOME/.wp-env/$CONFIG_MD5/
 
             - name: Stop Docker environment
               run: npm run env:stop
