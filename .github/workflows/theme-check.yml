@@ -32,8 +32,8 @@ jobs:
                   path: ~/.npm
                   key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
 
-            - name: Install dependencies
-              run: npm install
+            # - name: Install dependencies
+            #   run: npm install
 
             - name: Find MD5 of wp-env
               run: echo "CONFIG_MD5=$(echo -n echo $PWD/.wp-env.json | md5sum)" >> $GITHUB_ENV
