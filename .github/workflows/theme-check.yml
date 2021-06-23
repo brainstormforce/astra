@@ -36,7 +36,7 @@ jobs:
             #   run: npm install
 
             - name: Add temp files
-              run: echo $(echo $PWD/.wp-env.json | md5sum)
+              run: echo $(md5sum <<<"$PWD/.wp-env.json")
 
             # - name: Start Local Environment
             #   run: npm run env:start
