@@ -1,7 +1,7 @@
 name: Check MD5
 
 on:
-    pull_request:
+    push:
 
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
