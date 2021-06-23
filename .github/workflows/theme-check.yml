@@ -1,7 +1,11 @@
 name: Theme Check
 
 on:
-    pull_request:
+   pull_request:
+       branches:
+       - next-release
+       - release-candidate
+       - master
 
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
