@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
     build:
-        name: Check
+        name: Theme Check
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -21,18 +21,6 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   fetch-depth: 1
-
-            # - name: Use desired version of NodeJS
-            #   uses: actions/setup-node@v2
-            #   with:
-            #       node-version: 14.10
-
-            # - name: Cache NPM packages
-            #   uses: actions/cache@v2
-            #   with:
-            #       # npm cache files are stored in `~/.npm` on Linux/macOS
-            #       path: ~/.npm
-            #       key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
 
             - name: Find MD5
               run: echo "CONFIG_MD5=$(echo -n echo $PWD/.wp-env.json | md5sum)" >> $GITHUB_ENV
