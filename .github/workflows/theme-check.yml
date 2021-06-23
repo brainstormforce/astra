@@ -42,7 +42,7 @@ jobs:
               run: npm run env:start
 
             - name: Install Theme Check package
-              run: docker-compose -f $HOME/$CONFIG_MD5/docker-compose.yml run -e WP_CLI_PACKAGES_DIR=.wp-cli --rm cli wp package install anhskohbo/wp-cli-themecheck
+              run: docker-compose -f $HOME/$CONFIG_MD5/docker-compose.yml run -e WP_CLI_PACKAGES_DIR=.wp-cli --rm cli wp package install anhskohbo/wp-cli-themecheck && npm run wp-env run cli wp plugin install theme-check --version=20200922.1 --activate
 
             - name: Theme Check
               run: npm run wp-env run cli wp themecheck
