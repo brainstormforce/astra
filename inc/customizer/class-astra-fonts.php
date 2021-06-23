@@ -123,7 +123,7 @@ final class Astra_Fonts {
 		 *
 		 * @since 3.6.0
 		 */
-		if ( astra_get_option( 'load-google-fonts-locally' ) && ! is_customize_preview() ) {
+		if ( astra_get_option( 'load-google-fonts-locally' ) && ! is_customize_preview() && ! is_admin() ) {
 			if ( astra_get_option( 'preload-local-fonts' ) ) {
 				ast_load_preload_local_fonts( $google_font_url );
 			}

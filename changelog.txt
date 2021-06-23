@@ -5,6 +5,10 @@ v3.7.0 (Unreleased)
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 
+v3.6.2
+- Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.
+- Fix: Related Posts articles showing meta structure based on current active post.
+
 v3.6.1
 - Fix: Theme check warning - Replaced search form markup with get_search_form().
 - Fix: Both desktop and mobile headers appearing on desktop due to Astra's cache.
