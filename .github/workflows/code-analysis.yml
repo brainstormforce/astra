@@ -5,6 +5,11 @@ on: pull_request
 jobs:
   analysis:
     runs-on: ubuntu-latest
+
+    strategy:
+            matrix:
+              node: ['14.15']
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -12,7 +17,7 @@ jobs:
       - name: Use desired version of NodeJS
         uses: actions/setup-node@v2
         with:
-            node-version: 14.10
+            node-version: ${{ matrix.node }}
 
       - name: Cache NPM packages
         uses: actions/cache@v2
