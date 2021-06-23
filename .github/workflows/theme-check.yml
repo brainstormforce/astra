@@ -26,4 +26,4 @@ jobs:
               run: echo "CONFIG_MD5=$(echo -n echo $PWD/.wp-env.json | md5sum)" >> $GITHUB_ENV
 
             - name: Check Var
-              run: echo env.CONFIG_MD5
+              run: echo $env.CONFIG_MD5 && echo $CONFIG_MD5
