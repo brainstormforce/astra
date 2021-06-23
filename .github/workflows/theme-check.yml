@@ -32,25 +32,25 @@ jobs:
                   path: ~/.npm
                   key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
 
-            - name: Install Dependencies
-              run: npm install
+            # - name: Install Dependencies
+            #   run: npm install
 
             - name: Add temp files
-              run: cp bin/config.js node_modules/@wordpress/env/lib/config/config.js && cp bin/init-config.js node_modules/@wordpress/env/lib/init-config.js
+              run: echo $(echo $PWD/.wp-env.json | md5sum)
 
-            - name: Start Local Environment
-              run: npm run env:start
-              env:
-                COMPOSE_INTERACTIVE_NO_CLI: true
+            # - name: Start Local Environment
+            #   run: npm run env:start
+            #   env:
+            #     COMPOSE_INTERACTIVE_NO_CLI: true
 
-            - name: path of wp-env config
-              run: ls -lsha && echo $PWD/.wp-env.json && cat $PWD/.wp-env.json
+            # - name: path of wp-env config
+            #   run: ls -lsha && echo $PWD/.wp-env.json && cat $PWD/.wp-env.json
 
-            - name: Find MD5 of wp-env
-              run: echo "CONFIG_MD5=$(echo $(echo $PWD/.wp-env.json | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
+            # - name: Find MD5 of wp-env
+            #   run: echo "CONFIG_MD5=$(echo $(echo $PWD/.wp-env.json | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
 
-            - name: Docker Path
-              run: ls -lsha $HOME/ && ls -lsha $HOME/wp-env/ && ls -lsha $HOME/wp-env/$CONFIG_MD5/
+            # - name: Docker Path
+            #   run: ls -lsha $HOME/ && ls -lsha $HOME/wp-env/ && ls -lsha $HOME/wp-env/$CONFIG_MD5/
 
             - name: Stop Docker environment
               run: npm run env:stop
