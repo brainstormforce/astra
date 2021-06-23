@@ -1,7 +1,7 @@
 name: Theme Check
 
 on:
-    push:
+    pull_request:
 
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
