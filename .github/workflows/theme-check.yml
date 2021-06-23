@@ -44,7 +44,7 @@ jobs:
               run: echo "CONFIG_MD5=$(echo $(echo -n echo $GITHUB_WORKSPACE/.wp-env.json | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
 
             - name: Docker Path
-              run: ls -lsha $HOME/ && ls -lsha $HOME/.wp-env/ && ls -lsha $HOME/.wp-env/$CONFIG_MD5/
+              run: ls -lsha $HOME/ && ls -lsha $HOME/wp-env/ && ls -lsha $HOME/wp-env/$CONFIG_MD5/
 
             - name: Stop Docker environment
               run: npm run env:stop
