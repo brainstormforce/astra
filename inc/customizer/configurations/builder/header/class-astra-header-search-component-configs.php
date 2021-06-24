@@ -25,7 +25,6 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  */
 class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base {
 
-
 	/**
 	 * Register Builder Customizer Configurations.
 	 *
@@ -127,6 +126,11 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 
+		);
+
+		$_configs = array_merge(
+			$_configs,
+			astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'header-search', __( 'Search', 'astra' ) )
 		);
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );

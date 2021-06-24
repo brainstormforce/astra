@@ -61,7 +61,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 0,
 				'description' => '',
-
 			),
 
 			/**
@@ -312,6 +311,11 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 		);
 
+		$_configs = array_merge(
+			$_configs,
+			astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'header-mobile-trigger', __( 'Toggle Button', 'astra' ) )
+		);
+
 		if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
 
 			$typo_configs = array(
@@ -362,7 +366,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 		} else {
 
 			$typo_configs = array(
-				
+
 				// Option: Trigger Font Size.
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-label-font-size]',

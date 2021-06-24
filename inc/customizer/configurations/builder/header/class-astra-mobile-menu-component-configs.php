@@ -443,6 +443,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 			);
 
+			$_configs = array_merge(
+				$_configs,
+				astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'header-mobile-menu', __( 'Off-Canvas Menu', 'astra' ) )
+			);
+
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
 			$configurations = array_merge( $configurations, $_configs );

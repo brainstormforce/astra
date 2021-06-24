@@ -415,6 +415,10 @@ class Astra_Button_Component_Configs {
 				);
 			}
 
+			if ( 'header' === $builder_type ) {
+				$button_config[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'button-' . $index, __( 'Button', 'astra' ) );
+			}
+
 			$button_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );
 
 			$button_config[] = Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section );

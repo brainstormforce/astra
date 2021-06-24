@@ -693,7 +693,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
-
 			if ( ! $sanitize_callback ) {
 				$config = $this->sanitize_control( $config );
 			}

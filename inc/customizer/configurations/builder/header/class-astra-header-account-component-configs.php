@@ -37,7 +37,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 
 		$_section = 'section-header-account';
 
-
 		$account_choices = array(
 			'default' => __( 'Default', 'astra' ),
 		);
@@ -482,6 +481,11 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
+		);
+
+		$_configs = array_merge(
+			$_configs,
+			astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'account', __( 'Account', 'astra' ) )
 		);
 
 		$_configs = array_merge(

@@ -4,6 +4,7 @@ v3.7.0 (Unreleased)
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
+- Improvement: When Transparent Header is active then added "transparent header enabled notice" in all builder elements.
 
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.
