@@ -151,6 +151,11 @@ require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.p
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
 require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
 
+// blog options compatibility with add-on version.
+if ( ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.4.0', '>' ) ) || ! defined( 'ASTRA_EXT_VER' ) ) {
+	require_once ASTRA_THEME_DIR . 'inc/addons/blog/class-astra-blog.php';
+}
+
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-elementor.php';
