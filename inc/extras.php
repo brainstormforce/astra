@@ -647,3 +647,27 @@ function astra_get_transparent_header_default_value() {
 	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? false : true;
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
 }
+
+/**
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ * 
+ * @since x.x.x 
+ * @return string
+ */
+function astra_apply_new_default_blog_values() {
+	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}
+
+/**
+ * Get flag for Blog/Archive Grid based CSS compatiblity.
+ * 
+ * @since x.x.x 
+ * @return string
+ */
+function astra_apply_blog_grid_css() {
+	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
+	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
+}

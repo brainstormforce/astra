@@ -1564,14 +1564,6 @@ body {
 }
 
 /* .alignwide & .alignfull CSS compatibility */
-.ast-no-sidebar {
-  /* Boxed & Content Boxed container alignment support */
-}
-
-.ast-no-sidebar .entry-content {
-  /* Alignment while using the column block */
-}
-
 .ast-no-sidebar .entry-content .alignfull {
   margin-right: calc(-50vw  + 50%);
   margin-left: calc(-50vw  + 50%);
@@ -1605,10 +1597,6 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-}
-
-.ast-no-sidebar.ast-separate-container .entry-content {
-  /* Alignment while using the column block */
 }
 
 .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
@@ -2834,10 +2822,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .search .site-content .content-area .search-form {
   margin-bottom: 3em;
-}
-
-.blog-layout-1 {
-  /* 2 - Blog Thumbnail Styles */
 }
 
 .blog-layout-1 .post-thumb {

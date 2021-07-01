@@ -241,7 +241,13 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function astra_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
-				echo '<div class="ast-row">';
+				if ( ! astra_apply_blog_grid_css() ) {
+					echo '<div class="ast-row">';
+				} else {
+					$blog_space_bet_posts = astra_get_option( 'blog-space-bet-posts' );
+					$blog_separator_class = ( $blog_space_bet_posts ) ? 'ast-separate-posts' : '';
+					echo '<div class="ast-row ast-blog-grid ' . esc_attr( $blog_separator_class ) . '">';
+				}
 			}
 		}
 

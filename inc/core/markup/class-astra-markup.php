@@ -159,7 +159,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_grid_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col' : 'ast-col-md-12'; 
+		return Astra_Builder_Helper::apply_flex_based_css() ? '' : 'ast-col-md-12'; 
 	}
 
 	/**
@@ -169,6 +169,9 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_grid_blog_col() {
+		if ( astra_apply_blog_grid_css() ) {
+			return 'ast-float';
+		}
 		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-float' : 'ast-col-md-12'; 
 	}
 
@@ -179,7 +182,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_blog_common_css() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-full-width' : 'ast-col-sm-12'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() || astra_apply_blog_grid_css() ) ? 'ast-grid-common-col' : 'ast-col-sm-12'; 
 	}
 
 	/**
@@ -189,7 +192,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_grid_col_6() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-width-md-6' : 'ast-col-md-6'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-width-md-6' : 'ast-col-md-6'; 
 	}
 
 	/** 
@@ -199,7 +202,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function comment_form_grid_class() {
-		return ( Astra_Builder_Helper::apply_flex_based_css() ) ? 'ast-grid-common-col ast-width-lg-33 ast-width-md-4 ast-float' : 'ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4';
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-lg-33 ast-width-md-4 ast-float' : 'ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4';
 	}
 
 	/** 
@@ -218,7 +221,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_4_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-sm-25 ast-width-md-3 ast-float ast-full-width' : 'ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-sm-25 ast-width-md-3 ast-float ast-full-width' : 'ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
 	/** 
@@ -227,7 +230,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_2_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-full-width' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-md-6 ast-full-width' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
 	/** 
@@ -245,7 +248,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_3_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-4 ast-float ast-full-width' : 'ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-md-4 ast-float ast-full-width' : 'ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
 	/** 
@@ -254,7 +257,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_5_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-16 ast-width-md-20 ast-float ast-full-width' : 'ast-col-lg-2 ast-col-md-2 ast-col-sm-12 ast-col-xs-12'; 
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-md-16 ast-width-md-20 ast-float ast-full-width' : 'ast-col-lg-2 ast-col-md-2 ast-col-sm-12 ast-col-xs-12'; 
 	}
 
 	/** 
@@ -263,7 +266,7 @@ class Astra_Markup {
 	 * @return string.
 	 */
 	public function ast_layout_6_grid() {
-		return Astra_Builder_Helper::apply_flex_based_css() ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ast-float ast-full-width' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12';
+		return ( Astra_Builder_Helper::apply_flex_based_css() && ! astra_apply_blog_grid_css() ) ? 'ast-grid-common-col ast-width-md-6 ast-width-lg-50 ast-float ast-full-width' : 'ast-col-lg-6 ast-col-md-6 ast-col-sm-12 ast-col-xs-12';
 	}
 
 	/**

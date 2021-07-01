@@ -156,6 +156,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main-grid.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
                      /* Common Style felx based */
                      {
                         expand: true,
@@ -424,6 +431,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
                     },
+                    {
+                        src: [
+                            'inc/addons/blog/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/addons/blog/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },
@@ -465,6 +478,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/main-rtl.css',
                         dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/main-grid.css',
+                        dest: 'assets/css/minified/main-grid.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
