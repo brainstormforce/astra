@@ -1079,11 +1079,6 @@ textarea,
   line-height: 1.2;
 }
 
-.entry-title,
-.entry-title a {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 /* Astra Respnosive oEmbed Video container */
 .ast-oembed-container {
@@ -3556,7 +3551,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .page-title {
   margin-bottom: 1em;
-  font-weight: normal;
 }
 
 .entry-title {
@@ -3670,7 +3664,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 4px;
   font-size: 40px;
   font-size: 2.85714rem;
-  font-weight: 300;
 }
 
 .ast-archive-description p {

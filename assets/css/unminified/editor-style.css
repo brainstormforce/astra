@@ -1859,11 +1859,6 @@ textarea,
   line-height: 1.2;
 }
 
-.entry-title,
-.entry-title a {
-  font-weight: normal;
-}
-
 /* Astra Respnosive oEmbed Video container */
 .ast-oembed-container {
   position: relative;

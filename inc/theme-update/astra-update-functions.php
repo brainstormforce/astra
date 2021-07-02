@@ -3086,6 +3086,21 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
+ * Set flag for updated default values for default blog post layout.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_default_layout_updated_values() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['default-layout-updated-values'] ) ) {
+		$theme_options['default-layout-updated-values'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
  *
  * @since x.x.x

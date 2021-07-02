@@ -50,13 +50,14 @@ function astra_comments_css( $dynamic_css ) {
 			),
 		);
 		$dynamic_css .= astra_parse_css( $desktop_comment_global );
-
-		$single_post_comment_css = '.comments-title {
+	
+		$apply_updated_font_weight = ( astra_apply_new_default_blog_values() ? '' : 'font-weight:normal;' );
+		$single_post_comment_css   = '.comments-title {
             padding: 2em 0;
           }
 
           .comments-title {
-            font-weight: normal;
+            ' . $apply_updated_font_weight . '
             word-wrap: break-word;
           }
 
@@ -97,7 +98,7 @@ function astra_comments_css( $dynamic_css ) {
 
           .comment-reply-title {
             padding-top: 1em;
-            font-weight: normal;
+            ' . $apply_updated_font_weight . '
             line-height: 1.65;
           }
 
