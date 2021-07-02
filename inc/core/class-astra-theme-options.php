@@ -116,9 +116,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
 					'blog-single-meta'                     => array(
+						! $apply_new_default_values ? 'comments' : '',
 						'category',
 						'author',
-						'date',
+						$apply_new_default_values ? 'date' : '',
 					),
 					// Blog.
 					'blog-post-structure'                  => array(
@@ -129,9 +130,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
 					'blog-meta'                            => array(
+						! $apply_new_default_values ? 'comments' : '',
 						'category',
 						'author',
-						'date',
+						$apply_new_default_values ? 'date' : '',
 					),
 					// Colors.
 					'text-color'                           => '#3a3a3a',
@@ -466,7 +468,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					// Sidebar.
-					'site-sidebar-layout'                  => 'no-sidebar',
+					'site-sidebar-layout'                  => $apply_new_default_values ? 'no-sidebar' : 'right-sidebar',
 					'site-sidebar-width'                   => 30,
 					'single-page-sidebar-layout'           => 'default',
 					'single-post-sidebar-layout'           => 'default',
