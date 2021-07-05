@@ -1172,16 +1172,14 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 	 * @param bool $echo Default to echo and not return the form.
 	 * @return string|void String when $echo is false.
 	 */
-	function astra_get_search_form() {
-
-		$form = get_search_form(
-			array(
-				'input_placeholder' => apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ),
-				'data_attributes'   => apply_filters( 'astra_search_field_toggle_data_attrs', '' ),
-				'input_value'       => get_search_query(),
-				'show_input_submit' => false,
-			) 
-		);
+	ffunction astra_get_search_form( $echo = true ) [ $form = get_search_form(
+		array(
+			'input_placeholder' => apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ),
+			'data_attributes'   => apply_filters( 'astra_search_field_toggle_data_attrs', '' ),
+			'input_value'       => get_search_query(),
+			'show_input_submit' => false,
+		) 
+	);
 
 		/**
 		 * Filters the HTML output of the search form.
@@ -1191,16 +1189,15 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		$result = apply_filters( 'astra_get_search_form', $form );
 		echo $result;
 
-		if ( null === $result ) {
-			$result = $form;
-		}
-
-		if ( $echo ) {
-			echo $result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		} else {
-			return $result;
-		}
+	if ( null === $result ) {
+		$result = $form;
 	}
+
+	if ( $echo ) {
+		echo $result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	} else {
+			return $result;
+	} ]
 
 endif;
 
