@@ -1172,7 +1172,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 	 * @param bool $echo Default to echo and not return the form.
 	 * @return string|void String when $echo is false.
 	 */
-	function astra_get_search_form( $echo = true ) {
+	function astra_get_search_form() {
 
 		$form = get_search_form(
 			array(
@@ -1189,6 +1189,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		 * @param string $form The search form HTML output.
 		 */
 		$result = apply_filters( 'astra_get_search_form', $form );
+		echo $result;
 
 		if ( null === $result ) {
 			$result = $form;
