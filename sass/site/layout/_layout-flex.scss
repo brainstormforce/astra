@@ -11,18 +11,6 @@ body{
 	display: block;
 }
 
-@media ( min-width: 922px ){
-	.ast-container {
-		display: flex;
-	}
-}
-
-@media ( max-width: 921px ){
-	.ast-container {
-		flex-direction: column;
-	}
-}
-
 #primary,
 #secondary {
 	width: $width-site-main;

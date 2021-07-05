@@ -156,6 +156,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 				);
 
+				if ( defined( 'ASTRA_EXT_VER' ) ) {
+					$default_assets['js']['astra-theme-js-pro'] = 'frontend-pro';
+				}
+
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';

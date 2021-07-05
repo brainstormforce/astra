@@ -66,7 +66,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 			'color'     => esc_attr( $icon_color_desktop ),
 			'font-size' => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
-		$selector . ' .search-field::placeholder'       => array(
+		$selector . ' .search-field::placeholder,' . $selector . ' .ast-icon' => array(
 			'color' => esc_attr( $icon_color_desktop ),
 		),
 		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(

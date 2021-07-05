@@ -1,0 +1,51 @@
+name: Tests
+
+# Run the deployment only when code is committed to the branch.
+on:
+  pull_request:
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
+
+jobs:
+  E2ETests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use desired version of NodeJS
+      uses: actions/setup-node@v2
+      with:
+          node-version: 14.15
+
+    - name: Cache NPM packages
+      uses: actions/cache@v2
+      with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+
+    - name: npm install, build
+      run: |
+        npm install
+
+    - name: Start Docker environment
+      run: npm run env:start
+      env:
+        COMPOSE_INTERACTIVE_NO_CLI: true
+
+    - name: E2E Tests
+      if: always()
+      run: npm run test:e2e:ci
+
+    - name: Stop Docker environment
+      run: npm run env:stop
+      if: always()
+      env:
+        COMPOSE_INTERACTIVE_]NO_CLI: true

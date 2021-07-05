@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
@@ -1537,13 +1537,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( ! is_shop() && ! is_product() ) {
 
-				$css_output .= astra_parse_css( 
+				$css_output .= astra_parse_css(
 					array(
 						'.widget_product_search button' => array(
 							'flex'    => '0 0 auto',
 							'padding' => '10px 20px;',
 						),
-					) 
+					)
 				);
 			}
 

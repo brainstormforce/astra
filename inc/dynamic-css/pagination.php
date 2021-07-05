@@ -70,9 +70,17 @@ function astra_pagination_css( $dynamic_css ) {
             @media (max-width: 420px) {
                 .ast-pagination .prev.page-numbers,
                 .ast-pagination .next.page-numbers {
-                width: 100%;
-                text-align: center;
-                margin: 0;
+                    width: 100%;
+                    text-align: center;
+                    margin: 0;
+                }
+                .ast-pagination-circle .ast-pagination .next.page-numbers,
+                .ast-pagination-square .ast-pagination .next.page-numbers{
+                    margin-top: 10px;
+                }
+                .ast-pagination-circle .ast-pagination .prev.page-numbers,
+                .ast-pagination-square .ast-pagination .prev.page-numbers{
+                    margin-bottom: 10px;
                 }
             }
             .ast-pagination .prev,

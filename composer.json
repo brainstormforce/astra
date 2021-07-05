@@ -6,7 +6,9 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-coding-standards/wpcs": "^2.1.0",
-    "wptrt/wpthemereview": "^0.2.0"
+    "wptrt/wpthemereview": "^0.2.0",
+    "php-stubs/woocommerce-stubs": "^5.2",
+    "humanmade/psalm-plugin-wordpress": "^2.0"
   },
   "extra": {
     "hooks": {
@@ -19,7 +21,8 @@
   "scripts": {
     "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
     "post-update-cmd": "vendor/bin/cghooks update",
-    "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-    "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
+    "format": "vendor/bin/phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+    "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
+    "psalm": "./vendor/bin/psalm"
   }
 }

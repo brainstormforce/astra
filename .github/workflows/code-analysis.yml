@@ -1,0 +1,54 @@
+name: Code Analysis
+
+on: pull_request
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+
+    strategy:
+            matrix:
+              node: ['14.15']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use desired version of NodeJS
+        uses: actions/setup-node@v2
+        with:
+            node-version: ${{ matrix.node }}
+
+      - name: Cache NPM packages
+        uses: actions/cache@v2
+        with:
+            # npm cache files are stored in `~/.npm` on Linux/macOS
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+          tools: composer
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-suggest --no-progress && npm install
+
+      - name: Detect coding standard violations
+        run: vendor/bin/phpcs
+
+      - name: "Static Analysis"
+        run: composer run psalm
+
+      - name: Lint JS
+        if: always()
+        run: npm run lint:js

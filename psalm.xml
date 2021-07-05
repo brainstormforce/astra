@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<psalm ensureArrayStringOffsetsExist="true" reportMixedIssues="false" errorLevel="1" errorBaseline="tests/php/psalm-baseline.xml">
+    <projectFiles>
+        <directory name="./"/>
+        <ignoreFiles>
+            <directory name="vendor/"/>
+            <directory name="tests/"/>
+            <directory name="node_modules/"/>
+            <directory name="bin/"/>
+            <directory name="inc/lib/"/>
+        </ignoreFiles>
+    </projectFiles>
+    <stubs>
+        <file name="tests/php/static-analysis-stubs/constants.php"/>
+        <file name="tests/php/static-analysis-stubs/astra-stubs.php"/>
+    </stubs>
+    <globals>
+        <var name="wp_version" type="string"/>
+    </globals>
+	<issueHandlers>
+        <MissingDocblockType>
+            <errorLevel type="suppress">
+                <directory name="tests/php/static-analysis-stubs/"/>
+            </errorLevel>
+        </MissingDocblockType>
+        <InvalidDocblock>
+            <errorLevel type="suppress">
+                <directory name="tests/php/static-analysis-stubs/"/>
+            </errorLevel>
+        </InvalidDocblock>
+        <MissingReturnType>
+            <errorLevel type="suppress">
+                <directory name="."/>
+            </errorLevel>
+        </MissingReturnType>
+		<InvalidReturnType>
+            <errorLevel type="suppress">
+                <directory name="."/>
+            </errorLevel>
+        </InvalidReturnType>
+		<UnresolvableInclude>
+            <errorLevel type="suppress">
+                <file name="functions.php"/>
+            </errorLevel>
+        </UnresolvableInclude>
+    </issueHandlers>
+    <plugins>
+        <pluginClass xmlns="https://getpsalm.org/schema/config" class="PsalmWordPress\Plugin"/>
+    </plugins>
+</psalm>

@@ -33,7 +33,7 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 		<?php } ?>
 	</label>
 	<?php if ( $astra_search_show_input_submit ) { ?>
-		<input type="submit" class="search-submit" value="Search">
+		<input type="submit" class="search-submit" value="<?php echo esc_attr__( 'Search', 'astra' ); ?>">
 	<?php } ?>
 </form>
 <?php

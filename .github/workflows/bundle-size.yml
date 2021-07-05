@@ -37,7 +37,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node: ['12']
+              node: ['14.15']
         steps:
             - uses: actions/checkout@v2
               with:
@@ -78,4 +78,4 @@ jobs:
               run: npm run env:stop
               if: always()
               env:
-                COMPOSE_INTERACTIVE_]NO_CLI: true
+                COMPOSE_INTERACTIVE_NO_CLI: true

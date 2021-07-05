@@ -21,7 +21,7 @@
 		'header-search-icon-color',
 		'astra-settings[header-search-icon-color]',
 		'color',
-		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder' 
+		selector + ' .astra-search-icon, ' + selector + ' .search-field::placeholder,' + selector + ' .ast-icon' 
 	);
 
 	// Icon Size.

@@ -74,6 +74,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 			} else {
 				$builder_widget_selector = $selector . ' .' . $builder_type . '-widget-area-inner';
 			}
+
 			$css_output_desktop = array(
 				$builder_widget_selector              => array(
 					'color'     => $text_color_desktop,
@@ -125,7 +126,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 				),
 			);
-		
+
 			$css_output_mobile = array(
 				$builder_widget_selector              => array(
 					'color'     => $text_color_mobile,
@@ -158,9 +159,9 @@ class Astra_Widget_Component_Dynamic_CSS {
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 			$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
-			
+
 			$generated_css .= $css_output;
-			
+
 		}
 
 		return $generated_css;

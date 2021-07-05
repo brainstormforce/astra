@@ -185,13 +185,7 @@
 /**
  * Astra HF Builder - Footer Components Compatibility CSS.
  */
-.site-footer-focus-item {
-	width: 100%;
-}
-.ast-footer-copyright {
-	width: 100%;
-}
-.ast-footer-social-wrap {
+.site-footer-focus-item, .ast-footer-copyright, .ast-footer-social-wrap {
 	width: 100%;
 }
 #astra-footer-menu {

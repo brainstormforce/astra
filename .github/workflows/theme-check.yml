@@ -1,0 +1,77 @@
+name: Theme Check
+
+on:
+   pull_request:
+       branches:
+       - next-release
+       - release-candidate
+       - master
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        name: Theme Check
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+              node: ['14.15']
+
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 1
+
+            - name: Use desired version of NodeJS
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node }}
+
+            - name: Cache NPM packages
+              uses: actions/cache@v2
+              with:
+                  # npm cache files are stored in `~/.npm` on Linux/macOS
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ matrix.node }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Start Local Environment
+              run: npm run env:start
+              env:
+                COMPOSE_INTERACTIVE_NO_CLI: true
+
+            # wp-env stores the environment files (Dockerfile, docker-compose.yml etc) in the $HOME/wp-env/<environment-id>
+            # The <environment-id> is basically MD5 hash of the absolute path of .wp-env.json file in the theme root folder.
+            # the MD5 hash generated using md5sum includes extra characters ` -` at the end, this is stripped here using sed
+            # and saved in environment variable $CONFIG_MD5.
+            - name: Find MD5 of wp-env
+              run: echo "CONFIG_MD5=$(echo $(echo -n "$PWD/.wp-env.json" | md5sum) | sed -e "s/ -//")" >> $GITHUB_ENV
+
+            # Using the $CONFIG_MD5 generated above, we are building the absolute path of docker-compose.yml file.
+            # Note the directory name wp-env can also be .wp-env or can be overridden in some cases - https://github.com/WordPress/gutenberg/blob/d2780c07fad15bef43a30a4f1f3761fcaf225c9c/packages/env/lib/config/config.js#L321-L329
+            # Ref: https://github.com/WordPress/gutenberg/issues/32784#issuecomment-866711815 -
+            # once this issue is fixed the docker-compose command can probably be replaced with `wp-env` command.
+            - name: Install Theme Check package
+              run: docker-compose -f $HOME/wp-env/$CONFIG_MD5/docker-compose.yml run -e WP_CLI_PACKAGES_DIR=.wp-cli --rm cli wp package install anhskohbo/wp-cli-themecheck
+
+            # wp-ev currently ignores extra parameters passed to the commands, eg --version and --activate - https://github.com/WordPress/gutenberg/issues/32929
+            # Latest version of themecheck action throws fatal errors with latest version of theme-check plugin - https://github.com/anhskohbo/wp-cli-themecheck/issues/6 - Once this is fixed the we can use latest version of the plugin.
+            - name: Install Theme Check Plugin
+              run: docker-compose -f $HOME/wp-env/$CONFIG_MD5/docker-compose.yml run --rm cli wp plugin install theme-check --version=20200922.1 --activate
+
+            - name: Theme Check
+              run: docker-compose -f $HOME/wp-env/$CONFIG_MD5/docker-compose.yml run -e WP_CLI_PACKAGES_DIR=.wp-cli --rm cli wp themecheck --theme=astra --no-interactive
+
+            - name: Stop Docker environment
+              run: npm run env:stop
+              if: always()
+              env:
+                COMPOSE_INTERACTIVE_NO_CLI: true

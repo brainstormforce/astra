@@ -16,6 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
 
 /**
+ * Whether to fix the footer right-margin space not working case or not.
+ * As this is frontend reflecting change added this backwards for existing users.
+ *
+ * @since x.x.x
+ * @return boolean false if it is an existing user, true if not.
+ */
+function is_support_footer_widget_right_margin() {
+	$astra_settings                                       = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-footer-widget-right-margin'] = isset( $astra_settings['support-footer-widget-right-margin'] ) ? false : true;
+	return apply_filters( 'astra_apply_right_margin_footer_widget_css', $astra_settings['support-footer-widget-right-margin'] );
+}
+
+/**
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -63,6 +76,12 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 				'text-align' => $mobile_alignment,
 			),
 		);
+
+		if ( is_support_footer_widget_right_margin() ) {
+			$css_output_desktop['.footer-widget-area.widget-area.site-footer-focus-item'] = array(
+				'width' => 'auto',
+			);
+		}
 
 		/* Parse CSS from array() */
 		$css_output  = astra_parse_css( $css_output_desktop );

@@ -639,8 +639,8 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
 /**
  * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
- * 
- * @since 3.6.0 
+ *
+ * @since 3.6.0
  */
 function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
