@@ -1559,3 +1559,15 @@ function isJsonString( str ) {
     );
 
 } )( jQuery );
+
+document.addEventListener( 'astPartialContentRendered', function() {
+
+	body.classList.remove("ast-main-header-nav-open");
+
+	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
+
+	init();
+
+	accountPopupTrigger();
+
+} );
