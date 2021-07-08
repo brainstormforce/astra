@@ -444,7 +444,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			menu_offcanvas_close.click();
 		}
 		updateHeaderBreakPoint();
-		
+
 		if ( 'dropdown' === mobileHeaderType ) {
 			AstraToggleSetup();
 		}
@@ -457,8 +457,25 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	} );
 
+	/**
+	 * Stick footer at bottom position.
+	 */
+	AstraStickFooterAtBottom = function () {
+		var headerHeight = document.querySelector("header").clientHeight,
+			footerHeight = document.querySelector("footer").clientHeight,
+			headerFooterHeight = headerHeight + footerHeight,
+			content = document.querySelector("#content");
+
+		content.style.minHeight = "calc( 100vh - " + headerFooterHeight + "px )";
+	};
+
 	document.addEventListener('DOMContentLoaded', function () {
 		AstraToggleSetup();
+
+		var stick_footer = astra.stick_footer || false;
+		if( stick_footer ) {
+			AstraStickFooterAtBottom();
+		}
 		/**
 		 * Navigation Keyboard Navigation.
 		 */

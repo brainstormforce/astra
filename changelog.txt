@@ -1,4 +1,5 @@
 v3.7.0 (Unreleased)
+- Improvement: Stick Footer to bottom when page content is Less.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
