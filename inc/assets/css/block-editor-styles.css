@@ -297,13 +297,6 @@ html {
   transition: all 0.2s linear;
 }
 
-.edit-post-visual-editor .site-title a,
-.edit-post-visual-editor .site-title a:focus,
-.edit-post-visual-editor .site-title a:hover,
-.edit-post-visual-editor .site-title a:visited {
-  color: #222;
-}
-
 .edit-post-visual-editor .site-description a,
 .edit-post-visual-editor .site-description a:focus,
 .edit-post-visual-editor .site-description a:hover,

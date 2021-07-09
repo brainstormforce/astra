@@ -1102,13 +1102,6 @@ input[type="submit"]:focus {
   transition: all 0.2s linear;
 }
 
-.site-title a,
-.site-title a:focus,
-.site-title a:hover,
-.site-title a:visited {
-  color: #222;
-}
-
 .site-description a,
 .site-description a:focus,
 .site-description a:hover,
