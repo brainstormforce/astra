@@ -545,6 +545,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
+			// Default widget content color.
+			if ( self::is_support_link_default_color() ) {
+				// Widget Title.
+				$css_output['.textwidget'] = array(
+					'color' => esc_attr( $text_color ),
+				);
+			}
+
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
 				$css_output['.single .ast-author-details .author-title'] = array(
@@ -2703,6 +2711,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
+		}
+
+		/**
+		 * Whether to apply link default color or not.
+		 * As this is frontend reflecting change added this backwards for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public function is_support_link_default_color() {
+			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
+			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
 		}
 
 		/**
