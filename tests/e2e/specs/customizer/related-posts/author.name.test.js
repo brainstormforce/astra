@@ -19,19 +19,29 @@ describe( 'Related Posts correct Author Name', () => {
 		await createUser( 'adminRelatedPost', { role: 'administrator' } );
 
 		// Create New Post.
-		await createNewPost( { postType: 'post', title: 'Related Post - admin' } );
+		await createNewPost( {
+			postType: 'post',
+			title: 'Related Post - admin',
+		} );
 		await publishPost();
 
 		// Create New Post.
-		await createNewPost( { postType: 'post', title: 'Related Post - adminRelatedPost' } );
+		await createNewPost( {
+			postType: 'post',
+			title: 'Related Post - adminRelatedPost',
+		} );
 		// Select new user for publishing the post.
 		await page.waitForSelector( '#inspector-select-control-3' );
 
-		const authorNameOption = ( await page.$x(
-			'//*[ @id = "inspector-select-control-3" ]/option[ text() = "adminRelatedPost" ]',
-		) )[ 0 ];
+		const authorNameOption = (
+			await page.$x(
+				'//*[ @id = "inspector-select-control-3" ]/option[ text() = "adminRelatedPost" ]',
+			)
+		)[ 0 ];
 
-		const authorNameValue = await ( await authorNameOption.getProperty( 'value' ) ).jsonValue();
+		const authorNameValue = await (
+			await authorNameOption.getProperty( 'value' )
+		).jsonValue();
 
 		await page.select( '#inspector-select-control-3', authorNameValue );
 
@@ -44,13 +54,21 @@ describe( 'Related Posts correct Author Name', () => {
 		await page.waitForSelector( '.entry-content' );
 
 		let currentPostAuthor = await page.$( '.single-layout-1 .author-name' );
-		currentPostAuthor = await page.evaluate( ( el ) => el.textContent, currentPostAuthor );
+		currentPostAuthor = await page.evaluate(
+			( el ) => el.textContent,
+			currentPostAuthor,
+		);
 
 		// Check if current author name correct or not. If not, throw error.
 		await expect( currentPostAuthor ).toBe( 'admin' );
 
-		let relatedPostAuthor = await page.$( '.ast-related-post-content .author-name' );
-		relatedPostAuthor = await page.evaluate( ( el ) => el.textContent, relatedPostAuthor );
+		let relatedPostAuthor = await page.$(
+			'.ast-related-post-content .author-name',
+		);
+		relatedPostAuthor = await page.evaluate(
+			( el ) => el.textContent,
+			relatedPostAuthor,
+		);
 
 		// Check if related post author name correct or not. If not, throw error.
 		await expect( relatedPostAuthor ).toBe( 'adminRelatedPost' );
