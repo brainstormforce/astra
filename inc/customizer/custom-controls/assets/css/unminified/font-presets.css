@@ -1,22 +1,28 @@
-.ast-typo-presets{
-	display: grid;
-    grid-template-columns: repeat(1, 1fr);
+.ast-typo-presets {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-
 .ast-typo-presets .ast-typo-preset-item {
-	padding: 14px 22px;
-	text-align: center;
+    padding: 0;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin:1px 0;
     cursor: pointer;
     background: #f6f7f7;
-    border: 2px solid #E6E6E6;
+    border: 2px solid #e6e6e6;
+    width: 31%;
+    height: 76px;
+	text-align: center;
 }
-
-.ast-typo-presets .ast-typo-preset-item svg{
-    transform: scale(1.4);
+.ast-typo-presets .ast-typo-preset-item svg {
+    transform: scale(0.35);
+    height: 86px;
+    width: 110px;
+    padding: 0;
+    margin-left: -15px;
+    margin-top: -5px
 }
-
 .ast-typo-presets .ast-typo-preset-item.active{
-	border: 2px solid #000000;
+	border: 2px solid #3582c4 !important;
 }
