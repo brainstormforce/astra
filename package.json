@@ -48,7 +48,7 @@
     "minimist": ">=1.2.3",
     "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
-    "postcss-flexibility": "^2.0.0"
+    "postcss-flexibility": "^3.0.0"
   },
   "scripts": {
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",
