@@ -330,8 +330,9 @@ const ColorGroupComponent = props => {
 			}
 		}
 		const multipleGroup = Object.entries( colorGroupState ).length > 2 ? 'ast-color-multiple-group-reset' :'';
+		const responsiveness = responsive ? 'ast-responsive-colors-group-set' : 'ast-single-colors-group-set';
 
-		return <div className={`ast-color-btn-reset-wrap ${ multipleGroup } ast-color-group-reset `}>
+		return <div className={`ast-color-btn-reset-wrap ${ multipleGroup } ast-color-group-reset ${ responsiveness } `}>
 			<button
 				className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 				disabled={ resetFlag } onClick={ e => {
