@@ -67,7 +67,7 @@ class Astra_Mobile_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => 'site-navigation',
+				'id'         => 'site-navigation-mobile',
 				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
@@ -113,7 +113,7 @@ class Astra_Mobile_Menu_Component {
 					echo astra_attr(
 						'site-navigation',
 						array(
-							'id' => 'site-navigation',
+							'id' => 'site-navigation-mobile',
 						)
 					);
 					echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
