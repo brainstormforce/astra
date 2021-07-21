@@ -584,7 +584,7 @@ body {
 		&.llms-col-2 {
 			width: 42%;
 			margin: 0;
-			height: 228px;
+			height: fit-content;
 
 			@media( max-width: $mx-col-md ) {
 				width: 100%;
