@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 3.6.5\n"
+"Project-Id-Version: Astra 3.6.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-07-20T08:29:21+00:00\n"
+"POT-Creation-Date: 2021-07-21T11:54:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -1945,6 +1945,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:150
 #: inc/markup-extras.php:407
 #: searchform.php:30
+#: searchform.php:36
 msgid "Search"
 msgstr ""
 
@@ -2269,7 +2270,6 @@ msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:1322
 #: inc/core/class-astra-admin-settings.php:1371
-#: inc/lib/notices/class-astra-notices.php:125
 msgid "WordPress Nonce not validated."
 msgstr ""
 

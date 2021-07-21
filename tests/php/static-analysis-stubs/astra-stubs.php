@@ -2824,7 +2824,7 @@ namespace {
         /**
          * For existing users, do not reflect direct change.
          *
-         * @since x.x.x
+         * @since 3.6.6
          * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
          */
         public static function is_wordpress_5_8_support_enabled()
@@ -12034,7 +12034,7 @@ namespace {
      *
      * As this affects the frontend, added this backward compatibility for existing users.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return boolean false if it is an existing user, true if not.
      */
     function is_support_footer_widget_right_margin()
@@ -13573,7 +13573,7 @@ namespace {
      * Astra WordPress compatibility - Dynamic CSS.
      *
      * @param string $dynamic_css Dynamic CSS.
-     * @since x.x.x
+     * @since 3.6.6
      */
     function astra_wordpress_compat_css($dynamic_css)
     {
@@ -13845,7 +13845,7 @@ namespace {
     /**
      * Check is WordPress version is greater than or equal to beta 5.8 version.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return boolean
      */
     function astra_has_widgets_block_editor()
@@ -14795,7 +14795,7 @@ namespace {
      * Set flag to maintain backward compatibility for existing users.
      * Fixing the case where footer widget's right margin space not working.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return void
      */
     function astra_fix_footer_widget_right_margin_case()
@@ -14804,7 +14804,7 @@ namespace {
     /**
      * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return void
      */
     function astra_support_wp_5_8()

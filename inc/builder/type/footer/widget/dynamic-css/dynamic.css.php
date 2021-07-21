@@ -20,7 +20,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
  *
  * As this affects the frontend, added this backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.6
  * @return boolean false if it is an existing user, true if not.
  */
 function is_support_footer_widget_right_margin() {

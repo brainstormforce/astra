@@ -106,6 +106,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.6' => array(
 				'astra_fix_footer_widget_right_margin_case',
 				'astra_remove_elementor_toc_margin',
+				'astra_clear_all_assets_cache',
 			),
 		);
 

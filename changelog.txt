@@ -1,4 +1,4 @@
-v3.6.6 (Unreleased)
+v3.6.6
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.

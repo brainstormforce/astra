@@ -5,7 +5,7 @@
 **Tags:** custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog  
 **Tested up to:** 5.8  
 **Requires PHP:** 5.3  
-**Stable tag:** 3.6.5  
+**Stable tag:** 3.6.6  
 
 Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
