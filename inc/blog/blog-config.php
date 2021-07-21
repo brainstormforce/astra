@@ -351,7 +351,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 		$classes = array();
 
 		$post_format = get_post_format();
-		if ( $post_format ) {
+		if ( ! $post_format ) {
 			$post_format = 'standard';
 		}
 
