@@ -20,6 +20,9 @@
 		h1_widget_title = 'h1.widget-title';
 		h2_widget_title = 'h2.widget-title';
 		h3_widget_title = 'h3.widget-title';
+		h4_widget_title = 'h4.widget-title';
+		h5_widget_title = 'h5.widget-title';
+		h6_widget_title = 'h6.widget-title';
 	}
 
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-h1]', 'h1, .entry-content h1' );
@@ -37,6 +40,17 @@
 	astra_css('astra-settings[line-height-h3]', 'line-height', 'h3, .entry-content h3, .elementor-widget-heading h3.elementor-heading-title');
 	astra_css('astra-settings[text-transform-h3]', 'text-transform', 'h3, .entry-content h3');
 
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-h4]', 'h4, .entry-content h4' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-h4]', 'astra-settings[font-weight-h4]', 'font-weight', 'h4, .entry-content h4, ' + h4_widget_title );
+	astra_css('astra-settings[text-transform-h4]', 'text-transform', 'h4, .entry-content h4');
+
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-h5]', 'h5, .entry-content h5' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-h5]', 'astra-settings[font-weight-h5]', 'font-weight', 'h5, .entry-content h5, ' + h5_widget_title );
+	astra_css('astra-settings[text-transform-h5]', 'text-transform', 'h5, .entry-content h5');
+
+	astra_generate_outside_font_family_css( 'astra-settings[font-family-h6]', 'h6, .entry-content h6' );
+	astra_generate_font_weight_css( 'astra-settings[font-family-h6]', 'astra-settings[font-weight-h6]', 'font-weight', 'h6, .entry-content h6, ' + h6_widget_title );
+	astra_css('astra-settings[text-transform-h6]', 'text-transform', 'h6, .entry-content h6');
 
 	if ( astraCustomizer.page_builder_button_style_css ) {
 

@@ -9,11 +9,24 @@ const ResponsiveSliderComponent = props => {
 	const [state, setState] = useState( prop_value );
 
 	useEffect( () => {
+
 		// If settings are changed externally.
 		if( state !== prop_value ) {
 			setState(prop_value);
 		}
 	}, [props]);
+
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'typography' ) {
+				let value = props.control.setting.get();
+				setState( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
 
 	const updateValues = (device, newVal) => {
 		let updateState = {...state};

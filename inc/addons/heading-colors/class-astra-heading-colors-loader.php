@@ -100,6 +100,24 @@ class Astra_Heading_Colors_Loader {
 		$defaults['text-transform-h3'] = '';
 		$defaults['line-height-h3']    = '';
 
+		// Header <H4>.
+		$defaults['font-family-h4']    = 'inherit';
+		$defaults['font-weight-h4']    = 'inherit';
+		$defaults['text-transform-h4'] = '';
+		$defaults['line-height-h4']    = '';
+
+		// Header <H5>.
+		$defaults['font-family-h5']    = 'inherit';
+		$defaults['font-weight-h5']    = 'inherit';
+		$defaults['text-transform-h5'] = '';
+		$defaults['line-height-h5']    = '';
+
+		// Header <H6>.
+		$defaults['font-family-h6']    = 'inherit';
+		$defaults['font-weight-h6']    = 'inherit';
+		$defaults['text-transform-h6'] = '';
+		$defaults['line-height-h6']    = '';
+
 		/**
 		 * Theme button Font Defaults
 		 */
@@ -114,7 +132,7 @@ class Astra_Heading_Colors_Loader {
 			'mobile-unit'  => 'px',
 		);
 		$defaults['text-transform-button'] = '';
-		
+
 		/**
 		 * Check backward compatibility for button line height.
 		 */

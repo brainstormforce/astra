@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
+import {useEffect,useState} from 'react';
 
 const FontFamilyComponent = props => {
 	const {
@@ -11,12 +12,29 @@ const FontFamilyComponent = props => {
 		link
 	} = props.control.params;
 
+	let value = props.control.setting.get();
+
+	const [state, setState] = useState({
+		value: value,
+	});
+
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'typography' ) {
+				let value = props.control.setting.get();
+				setState({ value : value });
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	let labelHtml = null,
 		descriptionHtml = null,
 		selectHtml = null,
 		inp_array = [],
-		inherit = __('Inherit', 'astra'),
-		value = props.control.setting.get();
+		inherit = __('Inherit', 'astra');
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -38,11 +56,11 @@ const FontFamilyComponent = props => {
 	}
 
 	if (connect && variant) {
-		selectHtml = <select {...inp_array} data-connected-control={connect} data-connected-variant={variant} data-value={value} data-name={name} data-inherit={inherit}></select>;
+		selectHtml = <select {...inp_array} data-connected-control={connect} data-connected-variant={variant} data-value={state.value} data-name={name} data-inherit={inherit}></select>;
 	} else if (connect) {
-		selectHtml = <select {...inp_array} data-connected-control={connect} data-value={value} data-name={name} data-inherit={inherit}></select>;
+		selectHtml = <select {...inp_array} data-connected-control={connect} data-value={state.value} data-name={name} data-inherit={inherit}></select>;
 	} else if (variant) {
-		selectHtml = <select {...inp_array} data-connected-variant={variant} data-value={value} data-name={name} data-inherit={inherit}></select>;
+		selectHtml = <select {...inp_array} data-connected-variant={variant} data-value={state.value} data-name={name} data-inherit={inherit}></select>;
 	}
 
 	return <>
@@ -59,4 +77,4 @@ FontFamilyComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( FontFamilyComponent );
+export default FontFamilyComponent;

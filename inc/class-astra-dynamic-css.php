@@ -127,6 +127,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
+			$h4_font_family    = astra_get_option( 'font-family-h4' );
+			$h4_font_weight    = astra_get_option( 'font-weight-h4' );
+			$h4_line_height    = astra_get_option( 'line-height-h4' );
+			$h4_text_transform = astra_get_option( 'text-transform-h4' );
+
+			$h5_font_family    = astra_get_option( 'font-family-h5' );
+			$h5_font_weight    = astra_get_option( 'font-weight-h5' );
+			$h5_line_height    = astra_get_option( 'line-height-h5' );
+			$h5_text_transform = astra_get_option( 'text-transform-h5' );
+
+			$h6_font_family    = astra_get_option( 'font-family-h6' );
+			$h6_font_weight    = astra_get_option( 'font-weight-h6' );
+			$h6_line_height    = astra_get_option( 'line-height-h6' );
+			$h6_text_transform = astra_get_option( 'text-transform-h6' );
+
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
@@ -170,6 +185,39 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			if ( '' == $h3_line_height ) {
 				$h3_line_height = $headings_line_height;
+			}
+
+			// Fallback for H4 - headings typography.
+			if ( 'inherit' == $h4_font_family ) {
+				$h4_font_family = $headings_font_family;
+			}
+			if ( $font_weight_prop === $h4_font_weight ) {
+				$h4_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h4_text_transform ) {
+				$h4_text_transform = $headings_font_transform;
+			}
+
+			// Fallback for H5 - headings typography.
+			if ( 'inherit' == $h5_font_family ) {
+					$h5_font_family = $headings_font_family;
+			}
+			if ( $font_weight_prop === $h5_font_weight ) {
+				$h5_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h5_text_transform ) {
+				$h5_text_transform = $headings_font_transform;
+			}
+
+			// Fallback for H6 - headings typography.
+			if ( 'inherit' == $h6_font_family ) {
+					$h6_font_family = $headings_font_family;
+			}
+			if ( $font_weight_prop === $h6_font_weight ) {
+				$h6_font_weight = $headings_font_weight;
+			}
+			if ( '' == $h6_text_transform ) {
+				$h6_text_transform = $headings_font_transform;
 			}
 
 			// Fallback for H4 - headings typography.
@@ -437,6 +485,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				)                                        => array(
 					'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h4_line_height ),
+					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
+					'text-transform' => esc_attr( $h4_text_transform ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -446,6 +497,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				)                                        => array(
 					'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h5_line_height ),
+					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
+					'text-transform' => esc_attr( $h5_text_transform ),
 				),
 
 				// Conditionally select the css selectors with or without achors.
@@ -455,6 +509,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				)                                        => array(
 					'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 					'line-height' => esc_attr( $h6_line_height ),
+					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
+					'text-transform' => esc_attr( $h6_text_transform ),
 				),
 
 				'.ast-single-post .entry-title, .page-title' => array(

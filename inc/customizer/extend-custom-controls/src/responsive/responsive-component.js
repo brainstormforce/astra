@@ -14,6 +14,18 @@ const ResponsiveComponent = props => {
 		setPropsValue(updateState);
 	};
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'typography' ) {
+				let value = props.control.setting.get();
+				setPropsValue( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	const onSelectChange = (device) => {
 		let updateState = {
 			...props_value

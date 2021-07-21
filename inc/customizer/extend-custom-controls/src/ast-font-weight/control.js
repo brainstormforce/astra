@@ -5,7 +5,4 @@ export const astFontWeightControl = wp.customize.astraControl.extend( {
 		let control = this;
 		ReactDOM.render( <FontWeightComponent control={ control } />, control.container[0] );
 	},
-	ready: function() {
-		AstTypography.init();
-	}
 } );

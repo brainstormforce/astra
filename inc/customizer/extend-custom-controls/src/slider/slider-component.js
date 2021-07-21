@@ -37,6 +37,18 @@ const SliderComponent = props => {
 		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 	}
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'typography' ) {
+				let value = props.control.setting.get();
+				updateValues( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	const updateValues = ( newVal ) => {
 		setPropsValue( newVal );
 		props.control.setting.set( newVal );

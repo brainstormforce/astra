@@ -1284,6 +1284,36 @@ input[type="text"].select2-search__field {
     margin-bottom: 25px;
 }
 
+.ast-typo-presets {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.ast-typo-presets .ast-typo-preset-item {
+    padding: 0;
+    border-radius: 2px;
+    margin: 8.5px 0;
+    cursor: pointer;
+    background: #f0f0f1;
+    border: 1px solid #a0a5aa;
+    width: 28%;
+    height: 54px;
+    text-align: center;
+}
+.ast-typo-presets .ast-typo-preset-item svg {
+    transform: scale(.3);
+    height: 84px;
+    width: 114px;
+    padding: 0;
+    margin-left: -22px;
+    margin-top: -13px;
+}
+.ast-typo-presets .ast-typo-preset-item.active {
+    border: 1px solid #3582c4!important;
+    background: #fff;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }

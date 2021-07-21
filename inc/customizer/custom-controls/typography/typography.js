@@ -109,8 +109,10 @@
 			var fontSelect          = api.control( this.id ).container.find( 'select' ),
 			variants            	= fontSelect.data( 'connected-variant' );
 
+			console.log( this.id );
+
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
-			
+
 			if ( 'undefined' != typeof variants ) {
 				AstTypography._setFontVarianttOptions.apply( this, [ false ] );
 			}
@@ -123,11 +125,12 @@
 		 *
 		 * @since  1.3.0
 		 * @param  {String} fontValue Name of the font.
-		 * 
+		 *
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
+			console.log(  fontValue );
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
 
@@ -150,7 +153,7 @@
 		 *
 		 * @since  1.5.2
 		 * @param  {String} fontValue Name of the font.
-		 * 
+		 *
 		 * @return {String}  Available font weights for the selected fonts.
 		 */
 		_getWeightObject: function(fontValue)
@@ -198,6 +201,8 @@
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
+
+			console.log( fontValue );
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 			var weightObject = AstTypography._getWeightObject( fontValue );
@@ -261,7 +266,7 @@
 				var weightObject = AstTypography._getWeightObject( fontValue );
 
 				weightMap[ 'inherit' ] = currentWeightTitle;
-				
+
 				for ( var i = 0; i < weightObject.length; i++ ) {
 					for ( var e = 0; e < variantArray.length; e++ ) {
 						if ( weightObject[i] === variantArray[e] ) {
@@ -279,8 +284,16 @@
 					api( variants ).set( '' );
 				}
 		},
-	};
+		setOption: function( optionName, value, isSelect2 ) {
 
-	$( function() { AstTypography.init(); } );
+
+			$( "[data-name='"+ optionName + "']" ).val(value);
+			if( isSelect2 ) {
+    			$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+			} else {
+				$( "[data-name='"+ optionName + "']" ).trigger('change');
+			}
+		}
+	};
 
 })( jQuery );
