@@ -206,8 +206,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( is_array( $stored ) ) {
 
 				// Set stored and override defaults.
-				foreach ( $stored as $key => $value ) {
-					self::$meta_option[ $key ]['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
+				foreach ( self::$meta_option as $key => &$value ) {
+					$value['default'] = ( isset( $stored[ $key ][0] ) ) ? $stored[ $key ][0] : '';
 				}
 			}
 
