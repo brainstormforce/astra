@@ -1591,3 +1591,20 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 		return apply_filters( 'astra_addon_name', $pro_name );
 	}
 endif;
+
+/**
+ * Added this filter to modify the post navigation template to remove the h2 tag from screen reader text.
+ */
+function astra_post_navigation_template() {
+
+	$new_template = '
+	        <nav class="navigation %1$s" role="navigation" aria-label="%4$s">
+	                <span class="screen-reader-text">%2$s</span>
+	                <div class="nav-links">%3$s</div>
+	        </nav>';
+
+	return $new_template;
+
+}
+
+add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
