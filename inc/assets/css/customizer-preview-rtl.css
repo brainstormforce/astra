@@ -55,7 +55,6 @@ body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut but
 
 .site-header-focus-item[data-section="section-header-mobile-trigger"] .customize-partial-edit-shortcut {
     top: -10px;
-    right: 0px;
 }
 
 .ast-primary-header-bar:hover, .ast-above-header-bar:hover, .ast-below-header-bar:hover,
