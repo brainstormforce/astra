@@ -1,10 +1,27 @@
 import PropTypes from 'prop-types';
 import {RangeControl,Dashicon} from '@wordpress/components';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 const SliderComponent = props => {
 
 	const [props_value, setPropsValue] = useState( props.control.setting.get() );
+
+	useEffect( () => {
+		// If settings are changed externally.
+		setPropsValue( props.control.setting.get() );
+	}, [props]);
+
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				let value = props.control.setting.get();
+				setPropsValue( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
 
 	const {
 		label,
@@ -86,4 +103,4 @@ SliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( SliderComponent );
+export default SliderComponent;

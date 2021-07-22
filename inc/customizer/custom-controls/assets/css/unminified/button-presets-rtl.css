@@ -1,0 +1,18 @@
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item{
+	cursor: pointer;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item svg{
+	fill: #A0AEC0;
+}
+.ast-btn-preset-wrap .ast-btn-style-item.active svg{
+	fill: #1e8cbe;
+}
+
+

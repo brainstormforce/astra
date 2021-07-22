@@ -358,6 +358,25 @@
   margin-bottom: 8px;
 }
 
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item{
+	cursor: pointer;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item svg{
+	fill: #A0AEC0;
+}
+.ast-btn-preset-wrap .ast-btn-style-item.active svg{
+	fill: #1e8cbe;
+}
+
+
+
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -1362,6 +1381,25 @@
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
   margin-bottom: 8px;
 }
+
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item{
+	cursor: pointer;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item svg{
+	fill: #A0AEC0;
+}
+.ast-btn-preset-wrap .ast-btn-style-item.active svg{
+	fill: #1e8cbe;
+}
+
+
 
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;

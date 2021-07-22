@@ -32,6 +32,7 @@ import { RowLayoutControl } from './row-layout/control';
 import { toggleControl } from './toggle-control/control';
 import { colorGroupControl } from './color-group/control';
 import { selectorControl } from './selector/control';
+import { ButtonPresetControl } from './button-presets/control.js';
 import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
 
@@ -68,6 +69,7 @@ wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
 wp.customize.controlConstructor['ast-toggle-control'] = toggleControl;
 wp.customize.controlConstructor['ast-color-group'] = colorGroupControl;
 wp.customize.controlConstructor['ast-selector'] = selectorControl;
+wp.customize.controlConstructor['ast-button-presets'] = ButtonPresetControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;

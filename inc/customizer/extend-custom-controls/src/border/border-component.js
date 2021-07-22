@@ -1,10 +1,29 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 const BorderComponent = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
+
+	useEffect( () => {
+
+		let value = props.control.setting.get();
+		setPropsValue( value );
+
+	}, [props]);
+
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				let value = props.control.setting.get();
+				setPropsValue( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
 
 	const onBorderChange = (key) => {
 		const {
@@ -108,4 +127,4 @@ BorderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( BorderComponent );
+export default BorderComponent;
