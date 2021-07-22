@@ -2,9 +2,9 @@ import {
 	createURL,
 	createNewPost,
 	publishPost,
+	createUser,
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
-import { createUser } from '../../../utils/create-new-user';
 
 describe( 'Related Posts correct Author Name', () => {
 	it( 'related posts should display correct author name', async () => {
