@@ -108,7 +108,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$header_separator = astra_get_option( 'hb-header-main-sep' );
 
 	// Apply border only when it has positive value.
-	if ( '' !== $header_separator && $header_separator ) {
+	if ( '' !== $header_separator && 'inherit' !== $header_separator ) {
 		$header_separator_color = astra_get_option( 'hb-header-main-sep-color' );
 
 		$border_responsive_style = array(

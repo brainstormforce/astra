@@ -18,6 +18,7 @@ v3.6.6 (Unreleased)
 - Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget.
 - Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: “Search” string in Search Form is not translatable.
+- Fix: Transparent header showing border even if it is not set from customizer in FireFox browser.
 
 v3.6.5
 - Improvement: Compatibility with WordPress 5.8.

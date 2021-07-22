@@ -432,7 +432,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$header_child_selector = '[CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
 	}
 
-	if ( 'both' === $transparent_header_devices && $transparent_header_separator ) {
+	if ( 'both' === $transparent_header_devices ) {
 
 		$selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
@@ -440,18 +440,28 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector = '.ast-theme-transparent-header #ast-desktop-header > ' . $header_child_selector . ', .ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > ' . $header_child_selector;
 		}
 
-		$css .= astra_parse_css(
-			array(
-				$selector => array(
-					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
-					'border-bottom-style' => 'solid',
-					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
-				),
-			)
-		);
+		if ( '' !== $transparent_header_separator && 'inherit' !== $transparent_header_separator ) {
+			$css .= astra_parse_css(
+				array(
+					$selector => array(
+						'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+						'border-bottom-style' => 'solid',
+						'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+					),
+				)
+			);
+		} else {
+			$css .= astra_parse_css(
+				array(
+					$selector => array(
+						'border-bottom-style' => 'none',
+					),
+				)
+			);
+		}
 	}
 
-	if ( 'mobile' === $transparent_header_devices && $transparent_header_separator ) {
+	if ( 'mobile' === $transparent_header_devices ) {
 
 		$selector = '.ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
@@ -459,20 +469,32 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector = '.ast-theme-transparent-header.ast-header-break-point #ast-mobile-header > ' . $header_child_selector;
 		}
 
-		$css .= astra_parse_css(
-			array(
-				$selector => array(
-					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
-					'border-bottom-style' => 'solid',
-					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+		if ( '' !== $transparent_header_separator && 'inherit' !== $transparent_header_separator ) {
+			$css .= astra_parse_css(
+				array(
+					$selector => array(
+						'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+						'border-bottom-style' => 'solid',
+						'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
+					),
 				),
-			),
-			'',
-			astra_get_tablet_breakpoint()
-		);
+				'',
+				astra_get_tablet_breakpoint()
+			);
+		} else {
+			$css .= astra_parse_css(
+				array(
+					$selector => array(
+						'border-bottom-style' => 'none',
+					),
+				),
+				'',
+				astra_get_tablet_breakpoint()
+			);
+		}
 	}
 
-	if ( 'desktop' === $transparent_header_devices && $transparent_header_separator ) {
+	if ( 'desktop' === $transparent_header_devices ) {
 
 		$selector = '.ast-theme-transparent-header .main-header-bar';
 
@@ -480,16 +502,23 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector = '.ast-theme-transparent-header #ast-desktop-header > ' . $header_child_selector;
 		}
 
-		$css .= astra_parse_css(
-			array(
+		if ( '' !== $transparent_header_separator && 'inherit' !== $transparent_header_separator ) {
+			$transparent_header_base = array(
 				$selector => array(
 					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
 					'border-bottom-style' => 'solid',
 					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
 				),
-			),
-			astra_get_tablet_breakpoint()
-		);
+			);
+		} else {
+			$transparent_header_base = array(
+				$selector => array(
+					'border-bottom-style' => 'none',
+				),
+			);
+		}
+
+		$css .= astra_parse_css( $transparent_header_base, astra_get_tablet_breakpoint() );
 	}
 
 	$dynamic_css .= $css;
